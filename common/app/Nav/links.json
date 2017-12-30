@@ -22,16 +22,6 @@
         "content": "YouTube",
         "link": "https://youtube.com/freecodecamp",
         "target": "_blank"
-      },
-      {
-        "content": "In your city",
-        "link": "https://forum.freecodecamp.org/t/free-code-camp-city-based-local-groups/19574",
-        "target": "_blank"
-      },
-      {
-        "content": "About",
-        "link": "https://www.freecodecamp.org/about",
-        "target": "_blank"
       }
     ]
   },

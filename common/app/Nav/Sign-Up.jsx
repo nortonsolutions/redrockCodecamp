@@ -17,10 +17,10 @@ export default function SignUpButton({ showLoading, showSignUp }) {
   if (showSignUp) {
     return (
       <NavItem
-        href='/signup'
+        href='/signin'
         key='signup'
         >
-        Sign Up
+        Sign In
       </NavItem>
     );
   }

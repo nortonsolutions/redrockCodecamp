@@ -192,22 +192,9 @@ export class FCCNav extends React.Component {
               href='/challenges/current-challenge'
               onClick={ clickOnLogo }
               >
-              <img
-                alt='learn to code javascript at freeCodeCamp logo'
-                className='img-responsive nav-logo logo'
-                src={ fCClogo }
-              />
-              <img
-                alt='learn to code javascript at freeCodeCamp logo'
-                className='img-responsive nav-logo logo-glyph'
-                src={ fCCglyph }
-              />
+              Current Challenge
             </a>
           </NavbarBrand>
-          <FCCSearchBar
-            dropdown={ true }
-            placeholder='&#xf002; What would you like to know?'
-          />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav
@@ -230,11 +217,6 @@ export class FCCNav extends React.Component {
                   key='Map'
                 /> :
                 null
-            }
-            {
-              navLinks.map(
-                this.renderLink.bind(this, true)
-              )
             }
             <SignUp
               showLoading={ showLoading }
