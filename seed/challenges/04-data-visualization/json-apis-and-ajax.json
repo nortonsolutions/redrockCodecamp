@@ -5,7 +5,7 @@
   "helpRoom": "Help",
   "required": [
     {
-      "link": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"
+      "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"
     }
   ],
   "challenges": [

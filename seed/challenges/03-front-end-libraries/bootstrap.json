@@ -5,7 +5,7 @@
   "helpRoom": "Help",
   "required": [
     {
-      "link": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"
+      "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"
     }
   ],
   "challenges": [
@@ -1251,7 +1251,7 @@
       "title": "Add Font Awesome Icons to our Buttons",
       "required": [
         {
-          "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
+          "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
           "raw": true
         }
       ],
@@ -1364,7 +1364,7 @@
       "title": "Add Font Awesome Icons to all of our Buttons",
       "required": [
         {
-          "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
+          "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
           "raw": true
         }
       ],
@@ -1461,7 +1461,7 @@
       "title": "Responsively Style Radio Buttons",
       "required": [
         {
-          "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
+          "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
           "raw": true
         }
       ],
@@ -1558,7 +1558,7 @@
       "title": "Responsively Style Checkboxes",
       "required": [
         {
-          "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
+          "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
           "raw": true
         }
       ],
@@ -1662,7 +1662,7 @@
       "title": "Style Text Inputs as Form Controls",
       "required": [
         {
-          "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
+          "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
           "raw": true
         }
       ],
@@ -1775,7 +1775,7 @@
       "title": "Line up Form Elements Responsively with Bootstrap",
       "required": [
         {
-          "link": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
+          "link": "/cdn/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css",
           "raw": true
         }
       ],

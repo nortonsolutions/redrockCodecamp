@@ -24,7 +24,7 @@ import {
 
 
 const jQuery = {
-  src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
+  src: '/cdn/cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
 };
 const frameRunner = {
   src: '/js/frame-runner.js',
@@ -33,7 +33,7 @@ const frameRunner = {
 };
 const globalRequires = [
   {
-    link: 'https://cdnjs.cloudflare.com/' +
+    link: '/cdn/cdnjs.cloudflare.com/' +
       'ajax/libs/normalize/4.2.0/normalize.min.css'
   },
   jQuery

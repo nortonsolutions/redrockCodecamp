@@ -6,10 +6,10 @@
   "helpRoom": "Help",
   "required": [
     {
-      "src": "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.js"
+      "src": "/cdn/cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.js"
     },
     {
-      "src": "https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.js"
+      "src": "/cdn/cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.js"
     }
   ],
   "template": "<body><div id='root'></div><div id='challenge-node'></div>${ source }</body>",
