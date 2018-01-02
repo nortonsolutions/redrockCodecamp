@@ -192,6 +192,7 @@ module.exports = function(app) {
   router.get('/email-signin', getEmailSignin);
   router.get('/deprecated-signin', getDepSignin);
   router.get('/passwordless-auth', invalidateAuthToken, getPasswordlessAuth);
+  router.get('/temp-signin', getTempSignin);
   api.post('/passwordless-auth', postPasswordlessAuth);
   router.get(
     '/delete-my-account',
@@ -353,6 +354,84 @@ module.exports = function(app) {
        next
      );
   }
+  
+    function getTempSignin(req, res, next) {
+      
+      if (req.user) {
+        req.flash('info', {
+              msg: 'Hey, looks like you’re already signed in.'
+            });
+        return res.redirect('/');
+      }
+  
+      if (!req.query || !req.query.email) {
+        return res.redirect('/email-signin');
+      }
+  
+      const email = req.query.email;
+  
+      return User.findOne$({ where: { email }})
+        .map(user => {
+  
+          if (!user) {
+            debug(`did not find a valid user with email: ${email}`);
+            req.flash('info', { msg: defaultErrorMsg });
+            return res.redirect('/email-signin');
+          }
+  
+          const emailVerified = true;
+          const emailAuthLinkTTL = null;
+          const emailVerifyTTL = null;
+          user.update$({
+            emailVerified, emailAuthLinkTTL, emailVerifyTTL
+          })
+          .do((user) => {
+            user.emailVerified = emailVerified;
+            user.emailAuthLinkTTL = emailAuthLinkTTL;
+            user.emailVerifyTTL = emailVerifyTTL;
+          });
+  
+          return user.createAccessToken(
+            { ttl: User.settings.ttl }, (err, accessToken) => {
+            if (err) { throw err; }
+  
+            var config = {
+              signed: !!req.signedCookies,
+              maxAge: accessToken.ttl
+            };
+  
+            if (accessToken && accessToken.id) {
+              debug('setting cookies');
+              res.cookie('access_token', accessToken.id, config);
+              res.cookie('userId', accessToken.userId, config);
+            }
+  
+            return req.logIn({
+              id: accessToken.userId.toString() }, err => {
+              if (err) { return next(err); }
+  
+              debug('user logged in');
+  
+              if (req.session && req.session.returnTo) {
+                var redirectTo = req.session.returnTo;
+                if (redirectTo === '/map-aside') {
+                  redirectTo = '/map';
+                }
+                return res.redirect(redirectTo);
+              }
+  
+              req.flash('success', { msg:
+                'Success! You have signed in to your account. Happy Coding!'
+              });
+              return res.redirect('/');
+            });
+          });
+      })
+      .subscribe(
+        () => {},
+        next
+      );
+    }
 
   function getPasswordlessAuth(req, res, next) {
     if (req.user) {

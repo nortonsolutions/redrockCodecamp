@@ -38,7 +38,7 @@ window.__fcc__ = {};
 const serviceOptions = { xhrPath: '/services', context: { _csrf: csrfToken } };
 
 const history = useLangRoutes(createHistory, primaryLang)();
-sendPageAnalytics(history, window.ga);
+//sendPageAnalytics(history, window.ga);
 
 const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
 
