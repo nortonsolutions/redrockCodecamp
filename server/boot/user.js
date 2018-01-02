@@ -191,9 +191,11 @@ module.exports = function(app) {
   router.get('/signout', signout);
   router.get('/email-signin', getEmailSignin);
   router.get('/deprecated-signin', getDepSignin);
-  router.get('/passwordless-auth', invalidateAuthToken, getPasswordlessAuth);
   router.get('/temp-signin', getTempSignin);
-  api.post('/passwordless-auth', postPasswordlessAuth);
+
+  // NOTE: a router.post() did not work were a api.post() did. Investigate.
+  api.post('/signin', postEmailSignin);
+
   router.get(
     '/delete-my-account',
     sendNonUserToMap,
@@ -293,6 +295,16 @@ module.exports = function(app) {
   'fresh link to sign in / sign up.' ].join('');
 
   function postPasswordlessAuth(req, res) {
+
+    
+    console.log("postPasswordlessAuth");
+
+    
+    req.flash('info', {
+      msg: 'Hey, looks like you’re already signed in.'
+    });
+return res.redirect('/asdf?' + req.body.email);
+
     if (req.user || !(req.body && req.body.email)) {
       return res.redirect('/');
     }
@@ -354,29 +366,100 @@ module.exports = function(app) {
        next
      );
   }
+
   
-    function getTempSignin(req, res, next) {
-      
-      if (req.user) {
-        req.flash('info', {
-              msg: 'Hey, looks like you’re already signed in.'
+  function getTempSignin(req, res, next) {
+    
+    if (req.user) {
+      req.flash('info', {
+            msg: 'Hey, looks like you’re already signed in.'
+          });
+      return res.redirect('/');
+    }
+
+    if (!req.query || !req.query.email) {
+      return res.redirect('/email-signin');
+    }
+
+    const email = req.query.email;
+
+    return User.findOne$({ where: { email }})
+      .map(user => {
+
+        if (!user) {
+          debug(`did not find a valid user with email: ${email}`);
+          req.flash('info', { msg: defaultErrorMsg });
+          return res.redirect('/signin');
+        }
+
+        const emailVerified = true;
+        const emailAuthLinkTTL = null;
+        const emailVerifyTTL = null;
+        user.update$({
+          emailVerified, emailAuthLinkTTL, emailVerifyTTL
+        })
+        .do((user) => {
+          user.emailVerified = emailVerified;
+          user.emailAuthLinkTTL = emailAuthLinkTTL;
+          user.emailVerifyTTL = emailVerifyTTL;
+        });
+
+        return user.createAccessToken(
+          { ttl: User.settings.ttl }, (err, accessToken) => {
+          if (err) { throw err; }
+
+          var config = {
+            signed: !!req.signedCookies,
+            maxAge: accessToken.ttl
+          };
+
+          if (accessToken && accessToken.id) {
+            debug('setting cookies');
+            res.cookie('access_token', accessToken.id, config);
+            res.cookie('userId', accessToken.userId, config);
+          }
+
+          return req.logIn({
+            id: accessToken.userId.toString() }, err => {
+            if (err) { return next(err); }
+
+            debug('user logged in');
+
+            if (req.session && req.session.returnTo) {
+              var redirectTo = req.session.returnTo;
+              if (redirectTo === '/map-aside') {
+                redirectTo = '/map';
+              }
+              return res.redirect(redirectTo);
+            }
+
+            req.flash('success', { msg:
+              'Success! You have signed in to your account. Happy Coding!'
             });
-        return res.redirect('/');
-      }
+            return res.redirect('/challenges/current-challenge');
+          });
+        });
+    })
+    .subscribe(
+      () => {},
+      next
+    );
+  }
+
+  function postEmailSignin(req, res, next) {
   
-      if (!req.query || !req.query.email) {
-        return res.redirect('/email-signin');
-      }
-  
-      const email = req.query.email;
+      const email = req.body.email;
+      
+      debug(`email: ${email}`);
   
       return User.findOne$({ where: { email }})
         .map(user => {
   
           if (!user) {
-            debug(`did not find a valid user with email: ${email}`);
-            req.flash('info', { msg: defaultErrorMsg });
-            return res.redirect('/email-signin');
+            req.flashMessage = `Did not find a valid user with email: ${email}`;
+            debug(req.flashMessage);
+            
+            return getEmailSignin(req, res);
           }
   
           const emailVerified = true;
@@ -527,6 +610,9 @@ module.exports = function(app) {
   }
 
   function getEmailSignin(req, res) {
+    
+    debug(`req.flashMessage: ${req.flashMessage}`);
+
     if (req.user) {
       return res.redirect('/');
     }
@@ -536,7 +622,8 @@ module.exports = function(app) {
       });
     }
     return res.render('account/email-signin', {
-      title: 'Sign in to freeCodeCamp using your Email Address'
+      title: 'Sign in to freeCodeCamp using your Email Address',
+      flashMessage: req.flashMessage
     });
   }
 

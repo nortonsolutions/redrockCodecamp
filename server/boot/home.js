@@ -37,21 +37,10 @@ module.exports = function(app) {
     const { referer = '' } = req.headers;
 
     if (req.user) {
-      if ((referer.indexOf('/settings') >= 1) && (req.user.isGithubCool)) {
-
-        const msg = dedent`
-              We've updated your profile based
-              on your your GitHub account.
-            `;
-        const username = req.user.username;
-
-        req.flash('info', { msg: msg});
-        return res.redirect(`/${username}`);
-      } else {
-        return res.redirect('/challenges/current-challenge');
-      }
+      
+      return res.redirect('/challenges/current-challenge');
     }
 
-    return res.render('home', { title: message });
+    return res.redirect('/signin');
   }
 };
