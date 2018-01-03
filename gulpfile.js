@@ -221,6 +221,42 @@ gulp.task('serve', function(cb) {
     });
 });
 
+
+
+gulp.task('serve-production', function(cb) {
+  let called = false;
+  const monitor = nodemon({
+    script: paths.server,
+    ext: '.jsx .js .json',
+    ignore: paths.serverIgnore,
+    exec: path.normalize('node_modules/.bin/babel-node'),
+    env: {
+      NODE_ENV: 'production',
+      DEBUG: 'fcc:*',
+      PORT: 80
+    }
+  })
+    .on('start', function() {
+      if (!called) {
+        called = true;
+        cb();
+      }
+    })
+    .on('restart', function(files) {
+      if (files) {
+        debug('Nodemon will restart due to changes in: ', files);
+      }
+    });
+
+    process.once('SIGINT', () => {
+      monitor.once('exit', () => {
+        /* eslint-disable no-process-exit */
+        process.exit(0);
+        /* eslint-enable no-process-exit */
+      });
+    });
+});
+
 const syncDepenedents = [
   'serve',
   'js',
@@ -280,6 +316,7 @@ gulp.task('lint-json', function() {
 gulp.task('test-challenges', ['lint-json']);
 
 gulp.task('pack-client', function() {
+  console.log(__DEV__);
   if (!__DEV__) { console.log('\n\nbundling production\n\n'); }
 
   function condition(file) {
@@ -288,6 +325,7 @@ gulp.task('pack-client', function() {
   }
 
   const dest = webpackConfig.output.path;
+  console.log(dest);
 
   return gulp.src(webpackConfig.entry.bundle)
     .pipe(plumber({ errorHandler }))

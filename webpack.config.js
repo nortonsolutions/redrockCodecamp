@@ -4,6 +4,7 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
 var __DEV__ = process.env.NODE_ENV !== 'production';
+//var __DEV__ = 'production';
 
 module.exports = {
   entry: {

@@ -296,16 +296,12 @@ module.exports = function(app) {
 
   function postPasswordlessAuth(req, res) {
 
-    
-    console.log("postPasswordlessAuth");
-
-    
-    req.flash('info', {
-      msg: 'Hey, looks like you’re already signed in.'
-    });
-return res.redirect('/asdf?' + req.body.email);
-
     if (req.user || !(req.body && req.body.email)) {
+
+      req.flash('info', {
+        msg: 'Hey, looks like you’re already signed in.'
+      });
+
       return res.redirect('/');
     }
 
