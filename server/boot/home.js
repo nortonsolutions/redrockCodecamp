@@ -7,7 +7,8 @@ const message =
 
 module.exports = function(app) {
   var router = app.loopback.Router();
-  router.get('/', addDefaultImage, index);
+  //router.get('/', addDefaultImage, index);
+  router.get('/', index);
   app.use(
       '/:lang',
       (req, res, next) => {
@@ -19,16 +20,16 @@ module.exports = function(app) {
     );
   app.use(router);
 
-  function addDefaultImage(req, res, next) {
-    if (!req.user || req.user.picture) {
-      return next();
-    }
-    return req.user.update$({ picture: defaultProfileImage })
-      .subscribe(
-        () => next(),
-        next
-      );
-  }
+  // function addDefaultImage(req, res, next) {
+  //   if (!req.user || req.user.picture) {
+  //     return next();
+  //   }
+  //   return req.user.update$({ picture: defaultProfileImage })
+  //     .subscribe(
+  //       () => next(),
+  //       next
+  //     );
+  // }
 
   function index(req, res, next) {
     if (!supportedLanguages[req._urlLang]) {
