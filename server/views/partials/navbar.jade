@@ -1,1 +1,15 @@
 nav.navbar.navbar-default.navbar-static-top.nav-height
+
+    if typeof user !== 'undefined'
+        .navbar-header
+            button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                .col-xs-12
+                    span.hamburger-text Menu
+            a.navbar-brand(href='/challenges/current-challenge').
+                Code Camp
+        .collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right.hamburger-dropdown
+                li
+                    a(href='/map') Map
+                li
+                    a(href='/settings') My Profile

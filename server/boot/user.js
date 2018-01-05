@@ -770,7 +770,7 @@ module.exports = function(app) {
           .map(displayChallenges => ({
             ...userPortfolio,
             ...displayChallenges,
-            title: 'Camper ' + userPortfolio.username + '\'s Code Portfolio',
+            title: userPortfolio.username + '\'s Code Portfolio',
             calender,
             github: userPortfolio.githubURL,
             moment,

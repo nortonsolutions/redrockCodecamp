@@ -6,24 +6,18 @@
   "challenges": [
     {
       "id": "560add10cb82ac38a17513be",
-      "title": "Learn How freeCodeCamp Works",
+      "title": "Learn How CodeCamp Works",
       "description": [
         [
-          "//i.imgur.com/ZMOCvg9.jpg",
-          "A picture of six freeCodeCamp campers sitting around a table coding together.",
-          "Welcome. You're now part of a supportive coding community. You can code online or in-person with people in thousands of cities around the world.",
+          "",
+          "",
+          "Welcome to CodeCamp.",
           ""
         ],
         [
-          "//i.imgur.com/EUyHs60.jpg",
-          "A picture of the technologies you'll learn: HTML5, CSS, JavaScript, Databases, Git & GitHub, Node.js, React.js, D3.js.",
+          "",
+          "",
           "You'll learn to code by completing coding challenges and building projects. You'll also earn verified certificates along the way.",
-          ""
-        ],
-        [
-          "//i.imgur.com/LRnNMU5.png",
-          "An image of our open source projects on GitHub.",
-          "Then you'll get experience by contributing to open source projects used by nonprofits. This will help prepare you for a coding job. Let's get started!",
           ""
         ]
       ],
@@ -79,9 +73,8 @@
       "id": "bd7123c8c441eddfaeb5bdef",
       "title": "Say Hello to HTML Elements",
       "description": [
-        "Welcome to freeCodeCamp's coding challenges. These will walk you through web development step-by-step.",
-        "We recommend you do these in order, but feel free to skip around by clicking the map in the menu above.",
-        "Also, if you want to save your progress, you should join our community by creating an account. In just a few minutes, you can join our chat room, forum, and even a local study group in your city.",
+        "Welcome. These will walk you through web development step-by-step.",
+        "You should do the challenges in order, but feel free to explore by clicking around the challenges map.",
         "First, you'll start by building a simple web page using HTML. You can edit <code>code</code> in your <code>text editor</code>, which is embedded into this web page.",
         "Do you see the code in your text editor that says <code>&#60;h1&#62;Hello&#60;/h1&#62;</code>? That's an HTML <code>element</code>.",
         "Most HTML elements have an <code>opening tag</code> and a <code>closing tag</code>.",

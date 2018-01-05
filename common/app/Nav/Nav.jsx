@@ -192,7 +192,7 @@ export class FCCNav extends React.Component {
               href='/challenges/current-challenge'
               onClick={ clickOnLogo }
               >
-              Current Challenge
+              Code Camp
             </a>
           </NavbarBrand>
         </Navbar.Header>
