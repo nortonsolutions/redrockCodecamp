@@ -78,11 +78,11 @@ export class Show extends PureComponent {
   }
 
   makeTranslateToast() {
-    this.props.makeToast({
-      message: 'We haven\'t translated this challenge yet.',
-      action: helpUsTranslate,
-      timeout: 15000
-    });
+    // this.props.makeToast({
+    //   message: 'We haven\'t translated this challenge yet.',
+    //   action: helpUsTranslate,
+    //   timeout: 15000
+    // });
   }
 
   componentDidMount() {

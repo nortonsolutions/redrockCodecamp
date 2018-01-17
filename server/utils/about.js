@@ -29,18 +29,18 @@ export function createActiveUsers() {
   let credentials;
   if (!pathToCred) {
     // if no path to credentials set to zero;
-    log(dedent`
-      no google applications credentials environmental variable found
-      'GOOGLE_APPLICATION_CREDENTIALS'
-      'activeUser' api will always return 0
-      this can safely be ignored during development
-    `);
+    // log(dedent`
+    //   no google applications credentials environmental variable found
+    //   'GOOGLE_APPLICATION_CREDENTIALS'
+    //   'activeUser' api will always return 0
+    //   this can safely be ignored during development
+    // `);
     return zero;
   }
   try {
     credentials = require(fs.realpathSync(pathToCred));
   } catch (err) {
-    log('google applications credentials file failed to require');
+    // log('google applications credentials file failed to require');
     console.error(err);
     // if we can't require credentials set to zero;
     return zero;
@@ -50,13 +50,13 @@ export function createActiveUsers() {
     !credentials.client_email ||
     !credentials.viewId
   ) {
-    log(dedent`
-      google applications credentials json should have a
-      * private_key
-      * client_email
-      * viewId
-      but none were found
-    `);
+    // log(dedent`
+    //   google applications credentials json should have a
+    //   * private_key
+    //   * client_email
+    //   * viewId
+    //   but none were found
+    // `);
     return zero;
   }
 

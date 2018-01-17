@@ -20,21 +20,19 @@ MongoClient.connect(secrets.db, function(err, database) {
   var firstTime = true;
 
   var stream = database.collection('user')
-        .find({'completedChallenges': { $ne: null },
-               'isLocked': { $ne: true } },
-              {'completedChallenges': true})
+        .find({'challengeMap': { $ne: null }})
         .stream();
   console.log('[');
   stream.on('data', function(results) {
-    if (!results.completedChallenges) {
+    if (!results.challengeMap) {
       // dud
     } else {
       var dataOut = [];
-      results.completedChallenges.forEach(function(challenge) {
+      results.challengeMap.forEach(function(challenge) {
         dataOut.push({
-          name: challenge.name,
+          id: challenge.name,
           completedDate: challenge.completedDate,
-          solution: challenge.solution
+          numOfAttempts: challenge.numOfAttempts
         });
       });
       if (dataOut.length) {
