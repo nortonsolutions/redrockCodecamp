@@ -18,6 +18,7 @@ results
 tmp
 .ds_store
 .vscode
+.env
 
 npm-debug.log
 node_modules
