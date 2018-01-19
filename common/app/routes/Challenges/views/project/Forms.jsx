@@ -70,7 +70,7 @@ export function _FrontEndForm({
       {
         isSubmitting ?
           <SolutionInput
-            placeholder='https://codepen/your-project'
+            placeholder='http://cc0304:40000/'
             { ...fields }
           /> :
           null

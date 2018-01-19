@@ -11,43 +11,49 @@
         [
           "",
           "",
-          "Our front end development projects will give you a chance to apply the front end skills you've developed up to this point. We'll use a popular browser-based code editor called CodePen.",
+          "Our front end development projects will give you a chance to apply the front end skills you've developed up to this point. We'll use a browser-based code editor called JS Bin.",
           ""
         ],
         [
           "",
           "",
-          "These projects are hard. It takes most campers several days to build each project. You will get frustrated. But don't quit. This gets easier with practice.",
+          "These projects are harder. It can take several hours to complete each project.",
           ""
         ],
         [
           "",
           "",
-          "When you get stuck, just use the Read-Search-Ask methodology. Don't worry - you've got this.",
+          "If you get stuck, please use the methodology: <h3>Research-Ask</h3>",
           ""
         ],
         [
           "",
           "",
-          "For our front end project challenges, we'll use a popular browser-based code editor called CodePen. Click the \"Open link in new tab\" button below to open CodePen's signup page. Fill out the form and click \"Sign up\". <br><div class=\"small\">Note: If you already have a CodePen account, you can skip this step by clicking \"Open link in new tab\", closing the new tab that opens, then clicking \"go to my next step\". We removed our \"skip step\" button because many people would just click it repeatedly without doing these important steps.</div>",
-          "https://codepen.io/accounts/signup/user/free"
+          "For our front end project challenges, we'll use the browser-based code editor called JS Bin.<br><br> Click the \"Open link in new tab\" button below to open JS Bin.<br><br> If you don't have an account please register.",
+          "http://cc0304:40000/login"
         ],
         [
           "",
           "",
-          "In the HTML box, create an <code>h1</code> element with the text \"Hello World\". You can drag the frames around to resize them. You can also click the \"Change View\" button and change the orientation of the frames.",
+          "Once you are logged in on JS Bin in the HTML box, create an <code>h1</code> element with the text \"Hello World\".<br><br> You can drag the edges of the frames around to resize them.<br><br> You can also click the buttons at the top to show and hide the frames.",
           ""
         ],
         [
           "",
           "",
-          "Click the gear in the upper left hand corner of the CSS box, then copy this link <code>https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css</code> inside the text box. Now give your <code>h1</code> element the class of <code>text-primary</code> to change its color and prove that Bootstrap is now available. Note that by using the dropdown menu and selecting \"Bootstrap\", the Alpha v.4 will be added instead.",
+          "Click the Add Library drop down in the upper left hand corner, choose Bootstrap to add the Bootstrap library to your page.<br><br> Now give your <code>h1</code> element the class of <code>text-primary</code> to change its color and prove that Bootstrap is now available.",
           ""
         ],
         [
           "",
           "",
-          "When using CodePen and Ajax, it is a good idea to turn off automatic preview updating so API calls are not made too often. Too many API calls can sometimes lead to temporary blockages, and may require waiting periods before they can be used again. <br> <div class=\"small\"> To disable automatic preview updating click the \"Settings\" button at the top of the page, then click the \"Behavior\" tab. At the bottom of the page, un-check \"AUTO UPDATE PREVIEW\". Now press \"Run\" at the top of the page to update the preview, and click \"Save\".</div>",
+          "HTML, CSS, and Javascript are the default languages.<br><br>  You can click in the top left hand corner of a pane where you see a down arrow, next to the word HTML for instance, to change to a different language such as Jade or Typescript.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Your work will be automatically saved every few minutes, however, you can save your work immediately by using ctrl+s or choosing \"Save snapshot\" from the File menu in the top left hand corner.<br><br>  You can get a public link to your page by clicking the Share drop down in the upper left hand corner.",
           ""
         ]
       ],
@@ -163,7 +169,7 @@
             [
               "//i.imgur.com/p2TpOQd.jpg",
               "Милый пес, прыгающий через препятствие, указывает на вас лапой и подмигивает.",
-              "Если что-то не получается, воспользуйтесь Read-Search-Ask. Не волнуйтесь - вы сможете это сделать.",
+              "Если что-то не получается, воспользуйтесь Research-Ask. Не волнуйтесь - вы сможете это сделать.",
               ""
             ],
             [
@@ -192,15 +198,27 @@
       "id": "bd7158d8c442eddfaeb5bd18",
       "title": "Build a Tribute Page",
       "description": [
-        "Fulfill the user stories by getting all of the tests to pass. Use whichever libraries you need. Give it your own personal style.",
-        "Here's a <a href='http://codepen.io/freeCodeCamp/full/zNqgVx' target='_blank'>working example</a>. Try not to look at its code.",
-        "You can build your project by forking <a href='http://codepen.io/freeCodeCamp/pen/MJjpwO' target='_blank'>this CodePen pen</a>. Or you can use this CDN link to run the tests in any environment you like: <code>https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js</code>.",
-        "Once you're done, submit the URL to your working project with all its tests passing.",
-        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> method if you get stuck."
+        "Build your project on JS Bin.  Add the \"CodeCamp\" Test Suite from the libraries to access the Tribute Page tests.",
+        "<strong>User Story:</strong> The page is a single web page that is a tribute to a person or a place.",
+        "<strong>User Story:</strong> The page contains an image of the topic.",
+        "<strong>User Story:</strong> The page contains descriptive text about the topic.",
+        "<strong>User Story:</strong> The page contains an external link that will open another browser window.",
+        "<strong>You must pass the tests below</strong>",
+        "<strong>Technology Stack:</strong> 1. Use only HTML and CSS to complete this project, do NOT use any libraries.",
+        "<strong>Content:</strong> 1. The page contains an element with corresponding id=\"main\", which contains all other elements.",
+        "<strong>Content:</strong> 2. The page contains an element with corresponding id=\"title\", which contains a text that describes the topic of the page.",
+        "<strong>Content:</strong> 3. The page contains a <code>div</code> element with corresponding id=\"img-div\".",
+        "<strong>Content:</strong> 4. Within the \"img-div\" element, the page contains an <code>img</code> element with a corresponding id=\"image\". ‣",
+        "<strong>Content:</strong> 5. Within the \"img-div\" element, the page contains an element with a corresponding id=\"img-caption\" that contains textual content describing the image shown in \"img-div\".",
+        "<strong>Content:</strong> 6. The page contains an element with a corresponding id=\"tribute-info\", which contains textual content describing the subject of the tribute page.",
+        "<strong>Content:</strong> 7. The page contains an <code>a</code> element with a corresponding id=\"tribute-link\", which links to an outside site that contains additional information about the subject of the tribute page.",
+        "<strong>Layout:</strong> 1. The <code>img</code> element should responsively resize, relative to the width of its parent element, without exceeding its original size.",
+        "<strong>Layout:</strong> 2. The <code>img</code> element should be centered within its parent element.",
+        "Remember to use the Research-Ask method if you get stuck."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-"Nk0DzQi"
+        "Nk0DzQi"
       ],
       "tests": [],
       "type": "zipline",
@@ -225,11 +243,26 @@
       "id": "587d78af367417b2b2512b03",
       "title": "Build a Survey Form",
       "description": [
-        "Fulfill the user stories by getting all of the tests to pass. Use whichever libraries you need. Give it your own personal style.",
-        "Here's a <a href='http://codepen.io/freeCodeCamp/full/VPaoNP' target='_blank'>working example</a>. Try not to look at its code.",
-        "You can build your project by forking <a href='http://codepen.io/freeCodeCamp/pen/MJjpwO' target='_blank'>this CodePen pen</a>. Or you can use this CDN link to run the tests in any environment you like: <code>https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js</code>",
-        "Once you're done, submit the URL to your working project with all its tests passing.",
-        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> method if you get stuck."
+        "Build your project on JS Bin.  Add the \"CodeCamp\" Test Suite from the libraries to access the Tribute Page tests.",
+        "<strong>You must pass the tests below</strong>",
+        "<strong>Technology Stack:</strong> 1. Use only HTML and CSS to complete this project, do NOT use any libraries.",
+        "<strong>Content:</strong> 1. The page contains a title with id=\"title\" in <code>H1</code> sized text.",
+        "<strong>Content:</strong> 2. The page contains a short explanation with id=\"description\" in <code>P</code> sized text.",
+        "<strong>Content:</strong> 3. The page contains a <code>form</code> with id=\"survey-form\".",
+        "<strong>Content:</strong> 4. Inside the form element, I am required to enter my name in a field with id=\"name\".",
+        "<strong>Content:</strong> 5. Inside the form element, I am required to enter an email in a field with id=\"email\".",
+        "<strong>Content:</strong> 6. If I enter an email that is not formatted correctly, I will see an HTML5 validation error.",
+        "<strong>Content:</strong> 7. Inside the form, I can enter a number in a field with id=\"number\".",
+        "<strong>Content:</strong> 8. If I enter non-numbers in the number input, I will see an HTML5 validation error.",
+        "<strong>Content:</strong> 9. If I enter numbers outside the range of the number input, I will see an HTML5 validation error.",
+        "<strong>Content:</strong> 10. For the name, email, and number input fields inside the form The page contains corresponding labels that describe the purpose of each field with the following ids: id=\"name-label\", id=\"email-label\", and id=\"number-label\".",
+        "<strong>Content:</strong> 11. For the name, email, and number input fields, The page contains placeholder text that gives me a description or instructions for each field.",
+        "<strong>Content:</strong> 12. Inside the form element, I can select an option from a dropdown that has corresponding id=\"dropdown\".",
+        "<strong>Content:</strong> 13. Inside the form element, I can select a field from one or more groups of radio buttons. Each group should be grouped using the name attribute.",
+        "<strong>Content:</strong> 14. Inside the form element, I can select several fields from a series of checkboxes, each of which must have a value attribute.",
+        "<strong>Content:</strong> 15. Inside the form element, I am presented with a <code>textarea</code> at the end for additional comments.",
+        "<strong>Content:</strong> 16. Inside the form element, I am presented with a button with id=\"submit\" to submit all my inputs.",
+        "Remember to use the Research-Ask method if you get stuck."
       ],
       "releasedOn": "January 15, 2017",
       "challengeSeed": [
@@ -245,11 +278,7 @@
       "id": "587d78af367417b2b2512b04",
       "title": "Build a Product Landing Page",
       "description": [
-        "Fulfill the user stories by getting all of the tests to pass. Use whichever libraries you need. Give it your own personal style.",
-        "Here's a <a href='http://codepen.io/freeCodeCamp/full/RKRbwL' target='_blank'>working example</a>. Try not to look at its code.",
-        "You can build your project by forking <a href='http://codepen.io/freeCodeCamp/full/MJjpwO' target='_blank'>this CodePen pen</a>. Or you can use this CDN link to run the tests in any environment you like: <code>https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js</code>",
-        "Once you're done, submit the URL to your working project with all its tests passing.",
-        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> method if you get stuck."
+        ""
       ],
       "releasedOn": "January 15, 2017",
       "challengeSeed": [
@@ -269,7 +298,7 @@
         "Here's a <a href='http://codepen.io/freeCodeCamp/full/NdrKKL' target='_blank'>working example</a>. Try not to look at its code.",
         "You can build your project by forking <a href='http://codepen.io/freeCodeCamp/pen/MJjpwO' target='_blank'>this CodePen pen</a>. Or you can use this CDN link to run the tests in any environment you like: <code>https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js</code>",
         "Once you're done, submit the URL to your working project with all its tests passing.",
-        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> method if you get stuck."
+        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Research-Ask</a> method if you get stuck."
       ],
       "releasedOn": "January 15, 2017",
       "challengeSeed": [
@@ -289,7 +318,7 @@
         "Here's a <a href='http://codepen.io/freeCodeCamp/full/zNBOYG' target='_blank'>working example</a>. Try not to look at its code.",
         "You can build your project by forking <a href='http://codepen.io/freeCodeCamp/pen/MJjpwO' target='_blank'>this CodePen pen</a>. Or you can use this CDN link to run the tests in any environment you like: <code>https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js</code>",
         "Once you're done, submit the URL to your working project with all its tests passing.",
-        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> method if you get stuck."
+        "Remember to use the <a href='https://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Research-Ask</a> method if you get stuck."
       ],
       "challengeSeed": [
         "Uw6sYKY"

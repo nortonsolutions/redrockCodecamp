@@ -45,7 +45,7 @@ export class Project extends PureComponent {
       isCompleted,
       description
     } = this.props;
-    const imageURL = '//i.imgur.com/' + image + '.png';
+    
     return (
       <Col
         md={ 8 }
@@ -56,15 +56,8 @@ export class Project extends PureComponent {
           isCompleted={ isCompleted }
           title={ title }
         />
-        <Image
-          id={ id }
-          responsive={ true }
-          src={ imageURL }
-        />
         <br />
         <ToolPanel />
-        <br />
-        <BugModal />
       </Col>
     );
   }

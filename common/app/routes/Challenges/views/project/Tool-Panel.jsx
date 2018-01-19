@@ -95,26 +95,6 @@ export class ToolPanel extends PureComponent {
             this.renderSubmitButton(isSignedIn, submitChallenge) :
             <FormElement isSubmitting={ isSubmitting }/>
         }
-        <div className='button-spacer' />
-        <ButtonGroup justified={ true }>
-          <Button
-            bsStyle='primary'
-            className='btn-primary-ghost btn-big'
-            componentClass='a'
-            href={ `https://gitter.im/freecodecamp/${helpChatRoom}` }
-            target='_blank'
-            >
-            Help
-          </Button>
-          <Button
-            bsStyle='primary'
-            className='btn-primary-ghost btn-big'
-            componentClass='div'
-            onClick={ openBugModal }
-            >
-            Bug
-          </Button>
-        </ButtonGroup>
       </div>
     );
   }
