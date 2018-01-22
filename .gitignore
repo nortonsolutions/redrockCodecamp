@@ -17,8 +17,8 @@ logs
 results
 tmp
 .ds_store
-.vscode
 .env
+.vscode
 
 npm-debug.log
 node_modules
@@ -39,6 +39,7 @@ public/js/bundle*
 *.map
 
 // revision manifest
+server/rev-manifest.json
 server/manifests/*
 !server/manifests/README.md
 
@@ -52,5 +53,6 @@ public/js/vendor*
 public/js/faux*
 public/js/frame-runner*
 public/css/main*
-
+webpack-bundle-stats.html
+server/rev-manifest.json
 google-credentials.json
