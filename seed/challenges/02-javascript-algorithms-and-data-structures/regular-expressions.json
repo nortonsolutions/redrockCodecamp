@@ -131,7 +131,7 @@
         "assert(fccRegex.test('FreeCodeCamp'), 'message: Your regex should match <code>FreeCodeCamp</code>');",
         "assert(fccRegex.test('FreecodeCamp'), 'message: Your regex should match <code>FreecodeCamp</code>');",
         "assert(fccRegex.test('FreeCodecamp'), 'message: Your regex should match <code>FreeCodecamp</code>');",
-        "assert(!fccRegex.test('Free Code Camp'), 'message: Your regex should not match <code>Free Code Camp</code>');",
+        "assert(!fccRegex.test('Free CodeCamp'), 'message: Your regex should not match <code>Free CodeCamp</code>');",
         "assert(fccRegex.test('FreeCOdeCamp'), 'message: Your regex should match <code>FreeCOdeCamp</code>');",
         "assert(!fccRegex.test('FCC'), 'message: Your regex should not match <code>FCC</code>');",
         "assert(fccRegex.test('FrEeCoDeCamp'), 'message: Your regex should match <code>FrEeCoDeCamp</code>');",
@@ -941,7 +941,7 @@
         "You can search and replace text in a string using <code>.replace()</code> on a string. The inputs for <code>.replace()</code> is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.",
         "<blockquote>let wrongText = \"The sky is silver.\";<br>let silverRegex = /silver/;<br>wrongText.replace(silverRegex, \"blue\");<br>// Returns \"The sky is blue.\"</blockquote>",
         "You can also access capture groups in the replacement string with dollar signs (<code>$</code>).",
-        "<blockquote>\"Code Camp\".replace(/(\\w+)\\s(\\w+)/, '$2 $1');<br>// Returns \"Camp Code\"</blockquote>",
+        "<blockquote>\"CodeCamp\".replace(/(\\w+)\\s(\\w+)/, '$2 $1');<br>// Returns \"Camp Code\"</blockquote>",
         "<hr>",
         "Write a regex so that it will search for the string <code>\"good\"</code>. Then update the <code>replaceText</code> variable to replace <code>\"good\"</code> with <code>\"okey-dokey\"</code>."
       ],

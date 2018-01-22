@@ -174,7 +174,7 @@ export class Settings extends React.Component {
                 className='btn-link-social'
                 href={ '/signout' }
                 >
-                Sign me out of Code Camp
+                Sign me out of CodeCamp
               </Button>
             </Col>
           </Row>
