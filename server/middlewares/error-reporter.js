@@ -8,7 +8,7 @@ import {
 
 const log = debug('fcc:middlewares:error-reporter');
 
-export default function errorHandler() {
+export default function keymetrics() {
   if (process.env.NODE_ENV !== 'production') {
     return (err, req, res, next) => {
       if (isHandledError(err)) {

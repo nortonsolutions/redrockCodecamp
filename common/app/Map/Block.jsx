@@ -6,11 +6,12 @@ import FA from 'react-fontawesome';
 import { Panel } from 'react-bootstrap';
 
 import ns from './ns.json';
-import Challenges from './Challenges.jsx';
+import Challenge from './Challenge.jsx';
 import {
   toggleThisPanel,
 
-  makePanelOpenSelector
+  makePanelOpenSelector,
+  makePanelHiddenSelector
 } from './redux';
 
 import { makeBlockSelector } from '../entities';
@@ -20,13 +21,15 @@ function makeMapStateToProps(_, { dashedName }) {
   return createSelector(
     makeBlockSelector(dashedName),
     makePanelOpenSelector(dashedName),
-    (block, isOpen) => {
+    makePanelHiddenSelector(dashedName),
+    (block, isOpen, isHidden) => {
       return {
         isOpen,
+        isHidden,
         dashedName,
         title: block.title,
         time: block.time,
-        challenges: block.challenges || []
+        challenges: block.challenges
       };
     }
   );
@@ -34,6 +37,7 @@ function makeMapStateToProps(_, { dashedName }) {
 const propTypes = {
   challenges: PropTypes.array,
   dashedName: PropTypes.string,
+  isHidden: PropTypes.bool,
   isOpen: PropTypes.bool,
   time: PropTypes.string,
   title: PropTypes.string,
@@ -66,14 +70,30 @@ export class Block extends PureComponent {
     );
   }
 
+  renderChallenges(challenges) {
+    if (!Array.isArray(challenges) || !challenges.length) {
+      return <div>No Challenges Found</div>;
+    }
+    return challenges.map(dashedName => (
+      <Challenge
+        dashedName={ dashedName }
+        key={ dashedName }
+      />
+    ));
+  }
+
   render() {
     const {
       title,
       time,
       dashedName,
       isOpen,
+      isHidden,
       challenges
     } = this.props;
+    if (isHidden) {
+      return null;
+    }
     return (
       <Panel
         bsClass={ `${ns}-accordion-panel` }
@@ -85,7 +105,7 @@ export class Block extends PureComponent {
         key={ title }
         onSelect={ this.handleSelect }
         >
-        { isOpen && <Challenges challenges={ challenges } /> }
+        { this.renderChallenges(challenges) }
       </Panel>
     );
   }

@@ -78,9 +78,5 @@
   "about": {
     "dataSource": "db",
     "public": true
-  },
-  "AuthToken": {
-    "dataSource": "db",
-    "public": false
   }
 }

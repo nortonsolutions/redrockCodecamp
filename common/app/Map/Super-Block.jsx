@@ -6,25 +6,28 @@ import FA from 'react-fontawesome';
 import { Panel } from 'react-bootstrap';
 
 import ns from './ns.json';
-import Blocks from './Blocks.jsx';
+import Block from './Block.jsx';
 import {
   toggleThisPanel,
 
-  makePanelOpenSelector
+  makePanelOpenSelector,
+  makePanelHiddenSelector
 } from './redux';
 import { makeSuperBlockSelector } from '../entities';
 
-const mapDispatchToProps = { toggleThisPanel };
+const dispatchActions = { toggleThisPanel };
 // make selectors unique to each component
 // see
 // reactjs/reselect
 // sharing-selectors-with-props-across-multiple-components
-function mapStateToProps(_, { dashedName }) {
+function makeMapStateToProps(_, { dashedName }) {
   return createSelector(
     makeSuperBlockSelector(dashedName),
     makePanelOpenSelector(dashedName),
-    (superBlock, isOpen) => ({
+    makePanelHiddenSelector(dashedName),
+    (superBlock, isOpen, isHidden) => ({
       isOpen,
+      isHidden,
       dashedName,
       title: superBlock.title || dashedName,
       blocks: superBlock.blocks || [],
@@ -36,6 +39,7 @@ function mapStateToProps(_, { dashedName }) {
 const propTypes = {
   blocks: PropTypes.array,
   dashedName: PropTypes.string,
+  isHidden: PropTypes.bool,
   isOpen: PropTypes.bool,
   message: PropTypes.string,
   title: PropTypes.string,
@@ -50,6 +54,18 @@ export class SuperBlock extends PureComponent {
   handleSelect(eventKey, e) {
     e.preventDefault();
     this.props.toggleThisPanel(eventKey);
+  }
+
+  renderBlocks(blocks) {
+    if (!Array.isArray(blocks) || !blocks.length) {
+      return null;
+    }
+    return blocks.map(dashedName => (
+      <Block
+        dashedName={ dashedName }
+        key={ dashedName }
+      />
+    ));
   }
 
   renderMessage(message) {
@@ -82,8 +98,12 @@ export class SuperBlock extends PureComponent {
       dashedName,
       blocks,
       message,
-      isOpen
+      isOpen,
+      isHidden
     } = this.props;
+    if (isHidden) {
+      return null;
+    }
     return (
       <Panel
         bsClass={ `${ns}-accordion-panel` }
@@ -96,7 +116,9 @@ export class SuperBlock extends PureComponent {
         onSelect={ this.handleSelect }
         >
         { this.renderMessage(message) }
-        <Blocks blocks={ blocks } />
+        <div className={ `${ns}-accordion-block` }>
+          { this.renderBlocks(blocks) }
+        </div>
       </Panel>
     );
   }
@@ -106,6 +128,6 @@ SuperBlock.displayName = 'SuperBlock';
 SuperBlock.propTypes = propTypes;
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  makeMapStateToProps,
+  dispatchActions
 )(SuperBlock);

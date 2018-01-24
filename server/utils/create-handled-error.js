@@ -11,20 +11,8 @@ export function unwrapHandledError(err) {
 export function wrapHandledError(err, {
   type,
   message,
-  redirectTo,
-  status = 200
+  redirectTo
 }) {
-  err[_handledError] = { type, message, redirectTo, status };
+  err[_handledError] = { type, message, redirectTo };
   return err;
 }
-
-export const createValidatorErrorFormatter = (type, redirectTo, status) =>
-  ({ msg }) => wrapHandledError(
-    new Error(msg),
-    {
-      type,
-      message: msg,
-      redirectTo,
-      status
-    }
-  );

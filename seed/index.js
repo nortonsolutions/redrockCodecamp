@@ -1,33 +1,28 @@
 /* eslint-disable no-process-exit */
 require('babel-register');
 require('dotenv').load();
-const adler32 = require('adler32');
+var adler32 = require('adler32');
 
-const Rx = require('rx');
-const _ = require('lodash');
-const utils = require('../server/utils');
-const getChallenges = require('./getChallenges');
-const app = require('../server/server');
+var Rx = require('rx'),
+    _ = require('lodash'),
+    utils = require('../server/utils'),
+    getChallenges = require('./getChallenges'),
+    app = require('../server/server');
 
-const createDebugger = require('debug');
-const log = createDebugger('fcc:seed');
-// force logger to always output
-// this may be brittle
-log.enabled = true;
 
-const dasherize = utils.dasherize;
-const nameify = utils.nameify;
-const Observable = Rx.Observable;
-const Challenge = app.models.Challenge;
+var dasherize = utils.dasherize;
+var nameify = utils.nameify;
+var Observable = Rx.Observable;
+var Challenge = app.models.Challenge;
 
-const destroyChallenges =
+var destroyChallenges =
   Observable.fromNodeCallback(Challenge.destroyAll, Challenge);
-const createChallenges =
+var createChallenges =
   Observable.fromNodeCallback(Challenge.create, Challenge);
 
-const Block = app.models.Block;
-const destroyBlocks = Observable.fromNodeCallback(Block.destroyAll, Block);
-const createBlocks = Observable.fromNodeCallback(Block.create, Block);
+var Block = app.models.Block;
+var destroyBlocks = Observable.fromNodeCallback(Block.destroyAll, Block);
+var createBlocks = Observable.fromNodeCallback(Block.create, Block);
 const arrToString = arr =>
   Array.isArray(arr) ? arr.join('\n') : _.toString(arr);
 
@@ -38,28 +33,28 @@ Observable.combineLatest(
   .last()
   .flatMap(function() { return Observable.from(getChallenges()); })
   .flatMap(function(challengeSpec) {
-    const order = challengeSpec.order;
-    const blockName = challengeSpec.name;
-    const superBlock = challengeSpec.superBlock;
-    const superOrder = challengeSpec.superOrder;
-    const isBeta = !!challengeSpec.isBeta;
-    const isComingSoon = !!challengeSpec.isComingSoon;
-    const fileName = challengeSpec.fileName;
-    const helpRoom = challengeSpec.helpRoom || 'Help';
-    const time = challengeSpec.time || 'N/A';
-    const isLocked = !!challengeSpec.isLocked;
-    const message = challengeSpec.message;
-    const required = challengeSpec.required || [];
-    const template = challengeSpec.template;
+    var order = challengeSpec.order;
+    var blockName = challengeSpec.name;
+    var superBlock = challengeSpec.superBlock;
+    var superOrder = challengeSpec.superOrder;
+    var isBeta = !!challengeSpec.isBeta;
+    var isComingSoon = !!challengeSpec.isComingSoon;
+    var fileName = challengeSpec.fileName;
+    var helpRoom = challengeSpec.helpRoom || 'Help';
+    var time = challengeSpec.time || 'N/A';
+    var isLocked = !!challengeSpec.isLocked;
+    var message = challengeSpec.message;
+    var required = challengeSpec.required || [];
+    var template = challengeSpec.template;
 
-    log('parsed %s successfully', blockName);
+    console.log('parsed %s successfully', blockName);
 
     // challenge file has no challenges...
     if (challengeSpec.challenges.length === 0) {
       return Rx.Observable.just([{ block: 'empty ' + blockName }]);
     }
 
-    const block = {
+    var block = {
       title: blockName,
       name: nameify(blockName),
       dashedName: dasherize(blockName),
@@ -73,7 +68,7 @@ Observable.combineLatest(
 
     return createBlocks(block)
       .map(block => {
-        log('successfully created %s block', block.name);
+        console.log('successfully created %s block', block.name);
 
         return challengeSpec.challenges
           .map(function(challenge, index) {
@@ -128,11 +123,11 @@ Observable.combineLatest(
   })
   .subscribe(
     function(challenges) {
-      log('%s successfully saved', challenges[0].block);
+      console.log('%s successfully saved', challenges[0].block);
     },
     function(err) { throw err; },
     function() {
-      log('challenge seed completed');
+      console.log('challenge seed completed');
       process.exit(0);
     }
   );

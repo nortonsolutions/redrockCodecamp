@@ -2,9 +2,9 @@ var webpack = require('webpack');
 var path = require('path');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
-const Visualizer = require('webpack-visualizer-plugin');
 
 var __DEV__ = process.env.NODE_ENV !== 'production';
+//var __DEV__ = 'production';
 
 module.exports = {
   entry: {
@@ -61,9 +61,7 @@ module.exports = {
       'debug/src/browser'
     ),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    // this will output a .html file in output.path
-    new Visualizer({ filename: 'webpack-bundle-stats.html' })
+    new webpack.optimize.OccurenceOrderPlugin(true)
   ]
 };
 

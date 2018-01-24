@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Button, ButtonGroup, Tooltip, OverlayTrigger } from 'react-bootstrap';
 
 const unlockWarning = (
   <Tooltip id='tooltip'>
@@ -12,11 +12,11 @@ const unlockWarning = (
 
 const propTypes = {
   executeChallenge: PropTypes.func.isRequired,
+  helpChatRoom: PropTypes.string,
   hint: PropTypes.string,
   isCodeLocked: PropTypes.bool,
   makeToast: PropTypes.func.isRequired,
   openBugModal: PropTypes.func.isRequired,
-  openHelpModal: PropTypes.func.isRequired,
   unlockUntrustedCode: PropTypes.func.isRequired,
   updateHint: PropTypes.func.isRequired
 };
@@ -93,13 +93,12 @@ export default class ToolPanel extends PureComponent {
   render() {
     const {
       executeChallenge,
+      helpChatRoom,
       hint,
       isCodeLocked,
       openBugModal,
-      openHelpModal,
       unlockUntrustedCode
     } = this.props;
-
     return (
       <div>
         { this.renderHint(hint, this.makeHint) }
@@ -111,32 +110,36 @@ export default class ToolPanel extends PureComponent {
           )
         }
         <div className='button-spacer' />
+        <ButtonGroup
+          className='input-group'
+          justified={ true }
+          >
           <Button
-            block={ true }
+            bsSize='large'
             bsStyle='primary'
-            className='btn-big'
+            componentClass='label'
             onClick={ this.makeReset }
             >
-          Reset your code
+            Reset
           </Button>
-          <div className='button-spacer' />
           <Button
-            block={ true }
+            bsSize='large'
             bsStyle='primary'
-            className='btn-big'
-            onClick={ openHelpModal }
+            componentClass='a'
+            href={ `https://gitter.im/freecodecamp/${helpChatRoom}` }
+            target='_blank'
             >
-            Get Help
+            Help
           </Button>
-          <div className='button-spacer' />
           <Button
-            block={ true }
+            bsSize='large'
             bsStyle='primary'
-            className='btn-big'
+            componentClass='label'
             onClick={ openBugModal }
             >
-            Report a Bug
+            Bug
           </Button>
+        </ButtonGroup>
         <div className='button-spacer' />
       </div>
     );

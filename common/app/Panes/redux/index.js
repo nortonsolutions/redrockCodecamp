@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import invariant from 'invariant';
 import {
   composeReducers,
   createAction,
@@ -6,11 +7,10 @@ import {
   handleActions
 } from 'berkeleys-redux-utils';
 
-import * as utils from './utils.js';
+import ns from '../ns.json';
+
 import windowEpic from './window-epic.js';
 import dividerEpic from './divider-epic.js';
-import ns from '../ns.json';
-import { types as challengeTypes } from '../../routes/Challenges/redux';
 
 export const epics = [
   windowEpic,
@@ -31,8 +31,8 @@ export const types = createTypes([
   'windowResized',
 
   // commands
-  'hidePane',
-  'updateNavHeight'
+  'updateNavHeight',
+  'hidePane'
 ], ns);
 
 export const panesMapUpdated = createAction(
@@ -51,14 +51,13 @@ export const mouseReleased = createAction(types.mouseReleased);
 export const windowResized = createAction(types.windowResized);
 
 // commands
-export const hidePane = createAction(types.hidePane);
 export const updateNavHeight = createAction(types.updateNavHeight);
+export const hidePane = createAction(types.hidePane);
 
 const defaultState = {
   height: 600,
   width: 800,
   navHeight: 50,
-  isMapPaneHidden: false,
   panes: [],
   panesByName: {},
   pressedDivider: null,
@@ -77,14 +76,56 @@ export const pressedDividerSelector =
 export const widthSelector = state => getNS(state).width;
 export const panesMapSelector = state => getNS(state).panesMap;
 
+function isPanesAction({ type } = {}, panesMap) {
+  return !!panesMap[type];
+}
+
+function getDividerLeft(numOfPanes, index) {
+  let dividerLeft = null;
+  if (numOfPanes > 1 && numOfPanes !== index + 1) {
+    dividerLeft = (100 / numOfPanes) * (index + 1);
+  }
+  return dividerLeft;
+}
+
+function checkForTypeKeys(panesMap) {
+  _.forEach(panesMap, (_, actionType) => {
+    invariant(
+      actionType !== 'undefined',
+      `action type for ${panesMap[actionType]} is undefined`
+    );
+  });
+  return panesMap;
+}
+
+const getPaneName = (panes, index) => (panes[index] || {}).name || '';
+
+function normalizePanesMapCreator(createPanesMap) {
+  invariant(
+    _.isFunction(createPanesMap),
+    'createPanesMap should be a function but got %s',
+    createPanesMap
+  );
+  const panesMap = createPanesMap({}, { type: '@@panes/test' });
+  if (typeof panesMap === 'function') {
+    return normalizePanesMapCreator(panesMap);
+  }
+  invariant(
+    !panesMap,
+    'panesMap test should return undefined or null on test action but got %s',
+    panesMap
+  );
+  return createPanesMap;
+}
+
 export default function createPanesAspects({ createPanesMap }) {
-  createPanesMap = utils.normalizePanesMapCreator(createPanesMap);
+  createPanesMap = normalizePanesMapCreator(createPanesMap);
 
   function middleware({ getState }) {
     return next => action => {
       let finalAction = action;
       const panesMap = panesMapSelector(getState());
-      if (utils.isPanesAction(action, panesMap)) {
+      if (isPanesAction(action, panesMap)) {
         finalAction = {
           ...action,
           meta: {
@@ -97,7 +138,7 @@ export default function createPanesAspects({ createPanesMap }) {
       const result = next(finalAction);
       const nextPanesMap = createPanesMap(getState(), action);
       if (nextPanesMap) {
-        utils.checkForTypeKeys(nextPanesMap);
+        checkForTypeKeys(nextPanesMap);
         next(panesMapUpdated(action.type, nextPanesMap));
       }
       return result;
@@ -113,20 +154,17 @@ export default function createPanesAspects({ createPanesMap }) {
           pressedDivider: name
         }),
         [types.dividerMoved]: (state, { payload: clientX }) => {
-          const {
-            panes,
-            panesByName,
-            pressedDivider: paneName,
-            width
-          } = state;
+          const { width, pressedDivider: paneName } = state;
           const dividerBuffer = (200 / width) * 100;
           const paneIndex =
             _.findIndex(state.panes, ({ name }) => paneName === name);
-          const currentPane = panesByName[paneName];
-          const rightPane = utils.getPane(panesByName, panes, paneIndex + 1);
-          const leftPane = utils.getPane(panesByName, panes, paneIndex - 1);
-          const rightBound = utils.getRightBound(rightPane, dividerBuffer);
-          const leftBound = utils.getLeftBound(leftPane, dividerBuffer);
+          const currentPane = state.panesByName[paneName];
+          const rightPane =
+            state.panesByName[getPaneName(state.panes, paneIndex + 1)] || {};
+          const leftPane =
+            state.panesByName[getPaneName(state.panes, paneIndex - 1)] || {};
+          const rightBound = (rightPane.dividerLeft || 100) - dividerBuffer;
+          const leftBound = (leftPane.dividerLeft || 0) + dividerBuffer;
           const newPosition = _.clamp(
             (clientX / width) * 100,
             leftBound,
@@ -159,13 +197,9 @@ export default function createPanesAspects({ createPanesMap }) {
         [types.updateNavHeight]: (state, { payload: navHeight }) => ({
           ...state,
           navHeight
-        }),
-        [challengeTypes.toggleMap]: state => ({
-          ...state,
-          isMapPaneHidden: !state.isMapPaneHidden
         })
       }),
-      defaultState
+      defaultState,
     ),
     function metaReducer(state = defaultState, action) {
       if (action.meta && action.meta.panesMap) {
@@ -177,11 +211,11 @@ export default function createPanesAspects({ createPanesMap }) {
           panesMap,
           panes,
           panesByName: panes.reduce((panes, { name }, index) => {
-            const dividerLeft = utils.getDividerLeft(numOfPanes, index);
+            const dividerLeft = getDividerLeft(numOfPanes, index);
             panes[name] = {
               name,
               dividerLeft,
-              isHidden: name === 'Map' ? state.isMapPaneHidden : false
+              isHidden: false
             };
             return panes;
           }, {})
@@ -207,7 +241,7 @@ export default function createPanesAspects({ createPanesMap }) {
           panesByName: state.panes.reduce(
             (panesByName, { name }, index) => {
               if (!panesByName[name].isHidden) {
-                const dividerLeft = utils.getDividerLeft(
+                const dividerLeft = getDividerLeft(
                   numOfPanes,
                   index - numOfHidden
                 );

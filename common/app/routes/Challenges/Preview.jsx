@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import ns from './ns.json';
 import { isJSEnabledSelector } from './redux';
-import {Alert} from 'react-bootstrap';
-
 
 const mainId = 'fcc-main-frame';
 
@@ -25,12 +23,9 @@ export class Preview extends PureComponent {
       <div className={ `${ns}-preview` }>
         {
           !isJSEnabled && (
-            <Alert
-            bsStyle='info'
-            className={ `${ns}-preview-js-warning`}
-            >
+            <span className={ `${ns}-preview-js-warning` }>
               JavaScript is disabled. Execute code to enable
-            </Alert>
+            </span>
           )
         }
         <iframe

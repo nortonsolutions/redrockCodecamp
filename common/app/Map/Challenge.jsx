@@ -5,7 +5,11 @@ import { createSelector } from 'reselect';
 import classnames from 'classnames';
 import debug from 'debug';
 
-import { clickOnChallenge } from './redux';
+import {
+  clickOnChallenge,
+
+  makePanelHiddenSelector
+} from './redux';
 import { userSelector } from '../redux';
 import { challengeMapSelector } from '../entities';
 import { Link } from '../Router';
@@ -19,6 +23,7 @@ const propTypes = {
   isComingSoon: PropTypes.bool,
   isCompleted: PropTypes.bool,
   isDev: PropTypes.bool,
+  isHidden: PropTypes.bool,
   isLocked: PropTypes.bool,
   isRequired: PropTypes.bool,
   title: PropTypes.string
@@ -29,9 +34,11 @@ function makeMapStateToProps(_, { dashedName }) {
   return createSelector(
     userSelector,
     challengeMapSelector,
+    makePanelHiddenSelector(dashedName),
     (
       { challengeMap: userChallengeMap },
-      challengeMap
+      challengeMap,
+      isHidden
     ) => {
       const {
         id,
@@ -44,6 +51,7 @@ function makeMapStateToProps(_, { dashedName }) {
       const isCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
       return {
         dashedName,
+        isHidden,
         isCompleted,
         title,
         block,
@@ -107,11 +115,12 @@ export class Challenge extends PureComponent {
       isComingSoon,
       isCompleted,
       isDev,
+      isHidden,
       isLocked,
       isRequired,
       title
     } = this.props;
-    if (!title) {
+    if (isHidden || !title) {
       return null;
     }
     const challengeClassName = classnames({
