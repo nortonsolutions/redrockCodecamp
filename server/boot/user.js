@@ -84,7 +84,7 @@ function replaceFormAction(value) {
   });
 }
 
-function encodeFcc(value = '') {
+function encodeFcc(value = "") {
   return replaceScriptTags(replaceFormAction(value));
 }
 
