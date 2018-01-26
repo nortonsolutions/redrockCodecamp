@@ -79,12 +79,12 @@ function replaceScriptTags(value) {
 }
 
 function replaceFormAction(value) {
-  return value.replace(/<form[^>]*>/, function(val) {
+  return String(value).replace(/<form[^>]*>/, function(val) {
     return val.replace(/action(\s*?)=/, 'fccfaa$1=');
   });
 }
 
-function encodeFcc(value = "") {
+function encodeFcc(value = '') {
   return replaceScriptTags(replaceFormAction(value));
 }
 
