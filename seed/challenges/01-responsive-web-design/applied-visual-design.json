@@ -43,7 +43,7 @@
         "  }",
         "  .links {",
         "    margin-right: 20px;",
-        "    ",
+        "    text-align: left;",
         "  }",
         "  .fullCard {",
         "    border: 1px solid #ccc;",
