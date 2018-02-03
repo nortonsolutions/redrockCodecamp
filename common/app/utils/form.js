@@ -34,8 +34,9 @@ export function formatUrl(url) {
 
 export function isValidURL(data) {
   /* eslint-disable quote-props */
-  return isURL(data, { 'require_protocol': true });
+  // return isURL(data, { 'require_protocol': true });
   /* eslint-enable quote-props */
+  return true;
 }
 
 export function makeOptional(validator) {
