@@ -233,7 +233,7 @@ export default function(app) {
     const type = accepts(req).type('html', 'json', 'text');
     req.checkBody('id', 'id must be an ObjectId').isMongoId();
     req.checkBody('challengeType', 'must be a number').isNumber();
-    req.checkBody('solution', 'solution must be a URL').isURL();
+    // req.checkBody('solution', 'solution must be a URL').isURL();
 
     const errors = req.validationErrors(true);
 
