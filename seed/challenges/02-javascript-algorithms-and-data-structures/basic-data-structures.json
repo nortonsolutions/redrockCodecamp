@@ -686,6 +686,7 @@
         "<blockquote>for (let user in users) {<br>  console.log(user);<br>};<br><br>// logs:<br>Alan<br>Jeff<br>Sarah<br>Ryan</blockquote>",
         "In this statement, we defined a variable <code>user</code>, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console.",
         "<strong>NOTE:</strong><br>Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.",
+        "<br>Also note that user in this example doesn't capture the object itselt, it only captures the <code>key</code> to the object. Therefore to access the object, you must call it as <code>obj[user]</code>.",
         "<hr>",
         "We've defined a function, <code>countOnline</code>; use a <dfn>for...in</dfn> statement within this function to loop through the users in the <code>users</code> object and return the number of users whose <code>online</code> property is set to <code>true</code>."
       ],
@@ -719,7 +720,7 @@
       ],
       "tests": [
         "assert(users.Alan.online === false && users.Jeff.online === true &&  users.Sarah.online === false &&  users.Ryan.online === true, 'message: The <code>users</code> object contains users <code>Jeff</code> and <code>Ryan</code> with <code>online</code> set to <code>true</code> and users <code>Alan</code> and <code>Sarah</code> with <code>online</code> set to <code>false</code>');",
-        "assert((function() { users.Harry = {online: true}; users.Sam = {online: true}; users.Carl = {online: true}; return countOnline(users) })() === 5, 'message: The function <code>countOnline</code> returns the number of users with the <code>online</code> property set to <code>true</code>');"
+        "assert((function() { users.Harry = {online: true}; users.Sam = {online: true}; users.Carl = {online: true}; return countOnline(users) })() === 5, 'message: The function <code>countOnline</code> returns the number of users with the <code>online</code> property set to <code>true</code> currently returning ' + countOnline(users));"
       ],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
