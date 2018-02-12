@@ -699,7 +699,7 @@
         "Now, let's import and apply a Google font (note that if Google is blocked in your country, you will need to skip this challenge).",
         "<a href='https://fonts.google.com/' target='_blank'>Google Fonts</a> is a free library of web fonts that you can use in your CSS by referencing the font's URL.",
         "To import a Google Font, you can copy the font(s) URL from the Google Fonts library and then paste it in your HTML. For this challenge, we'll import the <code>Lobster</code> font. To do this, copy the following code snippet and paste it into the top of your code editor:",
-        "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+        "<code>&#60;link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
         "Now you can use the <code>Lobster</code> font in your CSS by using <code>Lobster</code> as the FAMILY_NAME as in the following example:<br><code>font-family: FAMILY_NAME, GENERIC_NAME;</code>.",
         "The GENERIC_NAME is optional, and is a fallback font in case the other specified font is not available. This is covered in the next challenge.",
         "Family names are case-sensitive and need to be wrapped in quotes if there is a space in the name. For example, you need quotes to use the <code>\"Open Sans\"</code> font, but not to use the <code>Lobster</code> font.",
@@ -751,7 +751,7 @@
         "</main>"
       ],
       "tests": [
-        "assert(new RegExp(\"googleapis\", \"gi\").test(code), 'message: Import the <code>Lobster</code> font.');",
+        "assert(new RegExp(\"cc0304\", \"gi\").test(code), 'message: Import the <code>Lobster</code> font.');",
         "assert($(\"h2\").css(\"font-family\").match(/lobster/i), 'message: Your <code>h2</code> element should use the font <code>Lobster</code>.');",
         "assert(/\\s*h2\\s*\\{\\s*font-family\\:\\s*(\\'|\")?Lobster(\\'|\")?\\s*;\\s*\\}/gi.test(code), 'message: Use an <code>h2</code> CSS selector to change the font.');",
         "assert($(\"p\").css(\"font-family\").match(/monospace/i), 'message: Your <code>p</code> element should still use the font <code>Monospace</code>.');"
@@ -764,7 +764,7 @@
             "Lass uns jetzt eine Google Font importieren und verwenden. (Beachte dass du diese Challenge überspringen musst, falls Google in deinem Land blockiert wird)",
             "Zuerst musst du einen <code>call</code> (Anfrage) an Google machen um um auf <code>Lobster</code> zugreifen und in dein HMTL einbinden zu können.",
             "Kopiere den folgenden Code und füge diesen in deinen Editor oben ein:",
-            "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+            "<code>&#60;link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
             "Jetzt kannst du \"Lobster\" als font-family Attribut zu deinem <code>h2</code> Element hinzufügen.",
             "<hr>",
             "Füge dem <code>h2</code> Element die Schriftart oder <code>font-family</code> <code>Lobster</code> hinzu."
@@ -787,7 +787,7 @@
             "Agora, vamos importar e aplicar um estilo de fonte por meio do Google Fonts.",
             "Primeiro, faça um <code>chamado</code> ao Google Fonts para poder utilizar a fonte chamada <code>Lobster</code> e carregá-la em seu HTML.",
             "Para fazer isso, copie o código abaixo e insira-o na parte superior de seu editor de texto:",
-            "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+            "<code>&#60;link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
             "<hr>",
             "Agora, estableça <code>Lobster</code> como o valor para font-family em seu elemento <code>h2</code>."
           ]
@@ -798,7 +798,7 @@
             "Теперь давайте импортируем и применим шрифт Google (обратите внимание, что если Google заблокирован в ваней стране, вам нужно будет пропустить это испытание).",
             "Сначала вам понадобится сделать <code>запрос</code> к Google для получения шрифта <code>Lobster</code> и загрузить его в ваш HTML.",
             "Скопируйте следующй кусок кода и вставьте его в самый верх вашего редактора кода:",
-            "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+            "<code>&#60;link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
             "Теперь вы можете установить шрифт <code>Lobster</code> в качестве значения семейства шрифтов для вашего <code>h2</code>.",
             "<hr>",
             "Примените свойство <code>font-family</code> со значением <code>Lobster</code> к вашему элементу <code>h2</code>."
@@ -821,7 +821,7 @@
         "<strong>Note</strong><br>If you have the Lobster font installed on your computer, you won't see the degradation because your browser is able to find the font."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -937,7 +937,7 @@
         "<strong>Note</strong><br>Due to browser implementation differences, you may need to be at 100% zoom to pass the tests on this challenge."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1053,7 +1053,7 @@
         "<code>&lt;img class=\"class1 class2\"&gt;</code>"
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1180,7 +1180,7 @@
         "Note: this waypoint allows for multiple possible solutions. For example, you may add <code>border-radius</code> to either the <code>.thick-green-border</code> class or <code>.smaller-image</code> class."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1292,7 +1292,7 @@
         "Give your cat photo a <code>border-radius</code> of <code>50%</code>."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1403,7 +1403,7 @@
         "Create a class called <code>silver-background</code> with the <code>background-color</code> of silver. Assign this class to your <code>div</code> element."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1526,7 +1526,7 @@
         "Give your <code>form</code> element the id <code>cat-photo-form</code>."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1658,7 +1658,7 @@
         "Try giving your form, which now has the <code>id</code> attribute of <code>cat-photo-form</code>, a green background."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -2475,7 +2475,7 @@
         "Using the <code>type</code> attribute selector, try to give the checkboxes in CatPhotoApp a top margin of 10px and a bottom margin of 15px."
       ],
       "challengeSeed": [
-        "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
