@@ -5,7 +5,7 @@
   "helpRoom": "Help",
   "required": [
     {
-      "link": "http://cc0304/js/vendor/bootstrap/3.3.7/css/bootstrap.css"
+      "link": "/cdn/vendor/bootstrap/3.3.7/css/bootstrap.css"
     }
   ],
   "challenges": [
@@ -42,12 +42,12 @@
         "Bootstrap will figure out how wide your screen is and respond by resizing your HTML elements - hence the name <code>Responsive Design</code>.",
         "With responsive design, there is no need to design a mobile version of your website. It will look good on devices with screens of any width.",
         "You can add Bootstrap to any app by adding the following code to the top of your HTML:",
-        "<code>&#60;link rel=\"stylesheet\" href=\"//cc0304/js/vendor/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\"/&#62;</code>",
+        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\"/&#62;</code>",
         "In this case, we've already added it for you to this page behind the scenes. Note that using either <code>></code> or <code>/></code> to close the <code>link</code> tag is acceptable.",
         "To get started, we should nest all of our HTML (except the <code>link</code> tag and the <code>style</code> element) in a <code>div</code> element with the class <code>container-fluid</code>."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -117,7 +117,7 @@
             "Bootstrap determina qué tan ancha es la pantalla y adapta correspondientemente el tamaño de tus elementos HTML - por eso es que se llama <code>Diseño adaptativo</code> (responsive design).",
             "Con diseño adaptativo, no hay necesidad de diseñar una versión móvil para tu sitio web. Se verá bien en dispositivos con pantallas de cualquier tamaño.",
             "Puedes agregar Bootstrap a cualquier aplicación simplemente incluyendo el siguiente código al inicio de tu HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"//cc0304/js/vendor/bootstrap/3.3.7/css/bootstrap.min.css\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/3.3.7/css/bootstrap.min.css\"/&#62;</code>",
             "En este caso, lo hemos agregado a esta página por ti.",
             "Para iniciar, debemos anidar todo nuestro HTML en un elemento <code>div</code> con la clase <code>container-fluid</code>."
           ]
@@ -129,7 +129,7 @@
             "Bootstrap saura reconnaître la largeur de notre écran et s'y adapter en redimensionnant les éléments HTML - d'où le nom <code>Responsive Design</code> (design adaptatif).",
             "Avec le design responsive, il n'y a pas besoin de créer de version mobile de votre site. Il restera bien sur tous les appareils quelle que soit la taille de leurs écrans.",
             "Vous pouvez ajouter Bootstrap à n'importe quelle application simplement en incluant le code suivant en haut de votre HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"//cc0304/js/vendor/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-8+rznmq/k0KZkJlZhnuPEVkbRD7tA0wcFEjY48dajGWn3Xc1MasJwS8/tJ7OEsKW\" crossorigin=\"anonymous\">/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-8+rznmq/k0KZkJlZhnuPEVkbRD7tA0wcFEjY48dajGWn3Xc1MasJwS8/tJ7OEsKW\" crossorigin=\"anonymous\">/&#62;</code>",
             "Ici, nous l'avons déjà ajouté à la page pour vous dans l'arrière-boutique.",
             "Pour commencer, nous devons envelopper nos éléments HTML dans un élément <code>div</code> possédant la classe <code>container-fluid</code>"
           ]
@@ -145,7 +145,7 @@
         "Fortunately, with Bootstrap, all we need to do is add the <code>img-responsive</code> class to your image. Do this, and the image should perfectly fit the width of your page."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -241,7 +241,7 @@
         "<code>&#60h2 class=\"red-text text-center\"&#62your text&#60/h2&#62</code>"
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -332,7 +332,7 @@
         "Create a new <code>button</code> element below your large kitten photo. Give it the class <code>btn</code> and the text of \"Like\"."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -431,7 +431,7 @@
         "Add Bootstrap's <code>btn-block</code> class to your Bootstrap button."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -539,7 +539,7 @@
         "Note that this button will still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -633,7 +633,7 @@
         "Note that these buttons still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -728,7 +728,7 @@
         "Note that these buttons still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -828,7 +828,7 @@
         "The <code>row</code> class is applied to a <code>div</code>, and the buttons themselves can be nested within it."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -935,7 +935,7 @@
         "Finally, remove the \"smaller-image\" class from your first <code>img</code> element and replace it with the <code>img-responsive</code> class."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1049,7 +1049,7 @@
         "<code>&#60;p&#62;Top 3 things cats &#60;span class=\"text-danger\"&#62;hate:&#60;/span&#62;&#60;/p&#62;</code>"
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "",
         "  h2 {",
@@ -1154,7 +1154,7 @@
         "Notice how the image is now just the right size to fit along the text?"
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "",
         "<style>",
         "  h2 {",
@@ -1258,7 +1258,7 @@
       "description": [
         "Font Awesome is a convenient library of icons. These icons are vector graphics, stored in the <code>.svg</code> file format. These icons are treated just like fonts. You can specify their size using pixels, and they will assume the font size of their parent HTML elements.",
         "You can include Font Awesome in any app by adding the following code to the top of your HTML:",
-        "<code>&#60;link rel=\"stylesheet\" href=\"//cc0304/js/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+\" crossorigin=\"anonymous\"&#62;</code>",
+        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+\" crossorigin=\"anonymous\"&#62;</code>",
         "In this case, we've already added it for you to this page behind the scenes.",
         "The <code>i</code> element was originally used to make other elements italic, but is now commonly used for icons. You can add the Font Awesome classes to the <code>i</code> element to turn it into an icon, for example:",
         "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
@@ -1266,7 +1266,7 @@
         "Use Font Awesome to add a <code>thumbs-up</code> icon to your like button by giving it an <code>i</code> element with the classes <code>fa</code> and <code>fa-thumbs-up</code>; make sure to keep the text \"Like\" next to the icon."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1338,7 +1338,7 @@
           "description": [
             "Font Awesome es una librería de iconos muy conveniente. Estos iconos son imágenes vectoriales, almacenadas en formato <code>.svg</code>, y son tratados como si fueran fuentes. Puedes especificar su tamaño usando pixeles, y tomarán el tamaño de fuente de su elemento HTML padre.",
             "Puedes añadir Font Awesome a cualquier aplicación sólo incluyendo y agregando el siguiente código al comienzo de tu HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"//cc0304/js/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+\" crossorigin=\"anonymous\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+\" crossorigin=\"anonymous\"/&#62;</code>",
             "En este caso, ya lo hemos agregado por tí a esta página tras bambalinas.",
             "El elemento <code>i</code> originalmente era usado para hacer textos en itálicas, pero ahora comunmente se usa para iconos.  Le agregas clases de Font Awesome al elemento <code>i</code> para convertirlo en un ícono, por ejemplo:",
             "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
@@ -1350,7 +1350,7 @@
           "description": [
             "Font Awesome est une librairie d'icônes très pratique. Ces icones sont des images vectorielles, stockées en format <code>.svg</code>. Ces icônes sont traités exactemeent comme des polices. Vous pouvez choisir leur taille en pixel, et ils prendront la taille de police de leur élémment parent HTML.",
             "Vous poyvez ajouter Font Awesome à n'importe quell application en ajoutant le code suivant en haut de votre HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"//cc0304/js/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+\" crossorigin=\"anonymous\">/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" integrity=\"sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+\" crossorigin=\"anonymous\">/&#62;</code>",
             "Ici, nous l'avons déjà ajouté pour vous dans le back-office.",
             "La balise <code>i</code> eétait utilisé à la base pour mettre les autres éléments en italique, mais maintenant elle est utilisée pour les icones. Vous ajoutez des classes Font Awesome à un élément <code>i</code> pour les les transformer en icones, par exemple:",
             "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
@@ -1374,7 +1374,7 @@
         "Note: The <code>span</code> element is an acceptable alternative to the <code>i</code> element for the directions below."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1471,7 +1471,7 @@
         "<strong>Note:</strong> As a reminder, radio buttons are <code>input</code> elements of type <code>radio</code>."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1567,7 +1567,7 @@
         "Nest all three of your checkboxes in a <code>&#60;div class=\"row\"&#62;</code> element. Then nest each of them in a <code>&#60;div class=\"col-xs-4\"&#62;</code> element."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1672,7 +1672,7 @@
         "All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code> elements with the class <code>.form-control</code> have a width of 100%."
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1785,7 +1785,7 @@
         "This is the last challenge we'll do for our Cat Photo App for now. We hope you've enjoyed learning Font Awesome, Bootstrap, and responsive design!"
       ],
       "challengeSeed": [
-        "<link href=\"http://cc0304/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
