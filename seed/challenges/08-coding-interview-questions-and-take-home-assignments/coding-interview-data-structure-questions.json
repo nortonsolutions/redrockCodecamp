@@ -2568,7 +2568,7 @@
       "title": "Introduction to Graphs",
       "description": [
         [
-          "//i.stack.imgur.com/XfuFe.gif",
+          "http://i.stack.imgur.com/XfuFe.gif",
           "Picture of an X-Y coordinate graph seen in typical math classes",
           "This challenge starts a series of challenges that will teach graph data structures and some algorithms involving graphs. You may be familiar with graphs with an x- and y-axis found in your math classes. However, here graphs mean a different thing.",
           ""
@@ -2586,7 +2586,7 @@
           ""
         ],
         [
-          "//i.stack.imgur.com/5xkVt.png",
+          "http://i.stack.imgur.com/5xkVt.png",
           "Figures of directed graphs with arrows on edges while undirected graphs do not have directions on edges",
           "There are two major types of graphs: <dfn>directed</dfn> and <dfn>undirected</dfn>. Undirected graphs are graphs without any direction on the edges between nodes. Directed graphs, in contrast, are graphs with a direction in its edges.<br><br>An example of an undirected graph could be a social network. The nodes are people and the edges are friendship. An example of a directed network could be the internet and web page links. Here, the nodes are web pages and the directed edges are links to other pages, which might not necessarily point the other way.",
           ""
