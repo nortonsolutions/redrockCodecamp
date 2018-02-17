@@ -1238,7 +1238,7 @@
             "Nous allons réaliser un entête tout simple pour notre appli Cat Photo App en plaçant le titre et l'image de chat relaxante dans la même rangée.",
             "Rappelez-vous, Bootstrap utilise un système de grille adaptative, qui rend facile le placement des éléments en rangées et la définition de la largeur relative de chaque élément. La plupart des classes de Bootstrap peuvent être appliquées à un élément <code>div</code>.",
             "Voici un diagramme du fonctionnement de la grille à 12 colonnes de Bootstrap:",
-            "<a href=\"https://i.imgur.com/FaYuui8.png\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"https://i.imgur.com/FaYuui8.png\" title=\"Cliquer pour élargir\" alt=\"Une image illlustrant le système de grille de Bootstrap\"></a>",
+            "<a href=\"/images/FaYuui8.png\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/FaYuui8.png\" title=\"Cliquer pour élargir\" alt=\"Une image illlustrant le système de grille de Bootstrap\"></a>",
             "Notez que dans cet exemple, on utilise la classe <code>col-md-*</code>. Ici <code>md</code> signifie medium, et <code>*</code> est un nombre spécifiant le nombre de colonnes en largeur que l'élément devrait avoir.",
             "Enveloppez votre première image et votre élément <code>h2</code> dans un seul élément <code>&#60;div class=\"row\"&#62;</code>. Mettez l'élément <code>h2</code> dans un <code>&#60;div class=\"col-xs-8\"&#62;</code> et votre image dans un <code>&#60;div class=\"col-xs-4\"&#62;</code> pour qu'ils soient sur la même ligne.",
             "Voyez vous comme l'image est maintenant exactement ajustée à la bonne taille pour être à côté du texte?"
