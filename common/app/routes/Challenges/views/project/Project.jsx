@@ -8,25 +8,34 @@ import SidePanel from './Side-Panel.jsx';
 import ToolPanel from './Tool-Panel.jsx';
 import BugModal from '../../Bug-Modal.jsx';
 
+import { userSelector } from '../../../../redux';
 import { challengeMetaSelector } from '../../redux';
 import { challengeSelector } from '../../../../redux';
 
 const mapStateToProps = createSelector(
+  userSelector,
   challengeSelector,
   challengeMetaSelector,
   (
+    { challengeMap: userChallengeMap },
     {
       id,
       description,
       image
     },
     { title }
-  ) => ({
-    id,
-    image,
-    title,
-    description
-  })
+  ) => {
+
+    const isCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
+
+    return {
+      id,
+      image,
+      title,
+      isCompleted,
+      description
+    };
+  }
 );
 const propTypes = {
   description: PropTypes.arrayOf(PropTypes.string),

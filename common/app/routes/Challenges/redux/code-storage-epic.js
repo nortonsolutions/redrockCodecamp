@@ -136,7 +136,11 @@ export function loadCodeEpic(actions, { getState }, { window, location }) {
         if (userChallenge.files) {
           finalFiles = userChallenge.files;
         } else if (userChallenge.solution) {
-          finalFiles = legacyToFile(userChallenge.solution, files, key);
+          return Observable.of(
+            makeToast({
+              message: 'I found a previous solved solution. You can submit again.'
+            })
+          );
         }
         if (finalFiles) {
           return Observable.of(
@@ -165,9 +169,11 @@ export function findPreviousSolutionEpic(actions, { getState }) {
       if (userChallenge.files) {
         finalFiles = userChallenge.files;
       } else if (userChallenge.solution) {
-        const files = filesSelector(getState());
-        const key = keySelector(getState());
-        finalFiles = legacyToFile(userChallenge.solution, files, key);
+        return Observable.of(
+          makeToast({
+            message: 'I found a previous solved solution. You can submit again.'
+          })
+        );
       }
       if (finalFiles) {
         return Observable.of(
