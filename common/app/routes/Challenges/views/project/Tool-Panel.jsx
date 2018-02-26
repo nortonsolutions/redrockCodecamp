@@ -33,6 +33,7 @@ const propTypes = {
   isSignedIn: PropTypes.bool,
   isSimple: PropTypes.bool,
   isSubmitting: PropTypes.bool,
+  solution: PropTypes.string,
   openBugModal: PropTypes.func.isRequired,
   submitChallenge: PropTypes.func.isRequired
 };
@@ -82,6 +83,7 @@ export class ToolPanel extends PureComponent {
       isSimple,
       isSignedIn,
       isSubmitting,
+      solution,
       helpChatRoom,
       submitChallenge,
       openBugModal
@@ -93,7 +95,10 @@ export class ToolPanel extends PureComponent {
         {
           isSimple ?
             this.renderSubmitButton(isSignedIn, submitChallenge) :
-            <FormElement isSubmitting={ isSubmitting }/>
+            <FormElement
+              isSubmitting={ isSubmitting }
+              solution={ solution }
+            />
         }
       </div>
     );

@@ -22,6 +22,7 @@ const propTypes = {
   handleSubmit: PropTypes.func,
   isSignedIn: PropTypes.bool,
   isSubmitting: PropTypes.bool,
+  solution: PropTypes.string,
   resetForm: PropTypes.func,
   showProjectSubmit: PropTypes.func,
   submitChallenge: PropTypes.func
@@ -52,11 +53,13 @@ export function _FrontEndForm({
   submitChallenge,
   resetForm,
   isSubmitting,
+  solution,
   showProjectSubmit
 }) {
+
   const buttonCopy = isSubmitting ?
     'Submit and go to my next challenge' :
-    "I've completed this challenge";
+      solution ? "Resubmit this challenge" : "I've completed this challenge";
   return (
     <form
       name='NewFrontEndProject'
@@ -67,6 +70,14 @@ export function _FrontEndForm({
         })
       }
       >
+      {
+        solution ?
+          <h4 className="text-center">
+            Your solution: <a href={ solution } target="_blank">{ solution }</a>
+          </h4>
+           :
+          null
+      }
       {
         isSubmitting ?
           <SolutionInput

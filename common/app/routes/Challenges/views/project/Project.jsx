@@ -27,12 +27,14 @@ const mapStateToProps = createSelector(
   ) => {
 
     const isCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
+    const solution = userChallengeMap && userChallengeMap[id] ? userChallengeMap[id].solution : null;
 
     return {
       id,
       image,
       title,
       isCompleted,
+      solution,
       description
     };
   }
@@ -42,6 +44,7 @@ const propTypes = {
   id: PropTypes.string,
   image: PropTypes.string,
   isCompleted: PropTypes.bool,
+  solution: PropTypes.string,
   title: PropTypes.string
 };
 
@@ -52,6 +55,7 @@ export class Project extends PureComponent {
       title,
       image,
       isCompleted,
+      solution,
       description
     } = this.props;
     
@@ -66,7 +70,7 @@ export class Project extends PureComponent {
           title={ title }
         />
         <br />
-        <ToolPanel />
+        <ToolPanel solution={ solution } />
       </Col>
     );
   }
