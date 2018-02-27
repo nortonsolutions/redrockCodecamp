@@ -381,7 +381,7 @@ module.exports = function(app) {
     return User.requestNewAccount(req.body.email)
       .then(msg => {
           const email = req.body.email;
-          req.flashMessage = `testing: ${email}`;
+          req.flashMessage = `Account created: ${email}`;
           return getAdminCreateAccount(req, res);
       })
       .catch(err => {
