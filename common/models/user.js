@@ -482,6 +482,31 @@ module.exports = function(User) {
     }
   );
 
+  User.requestNewAccount = function requestNewAccount(email) {
+    if (!isEmail(email)) {
+      return Promise.reject(
+        new Error('The submitted email not valid.')
+      );
+    }
+
+    var userObj = {
+      username: 'fcc' + uuid.v4().slice(0, 8),
+      email: email,
+      emailVerified: false
+    };
+    return User.findOrCreate$({ where: { email }}, userObj)
+      .flatMap(([ user, isCreated ]) => {
+            return `Whatever.`;
+      })
+      .catch(err => {
+        if (err) { debug(err); }
+        return Observable.of(dedent`Oops, something is not right, please try again later.`);
+      })
+      .toPromise();
+  };
+  
+  
+
   User.requestAuthEmail = function requestAuthEmail(email) {
     if (!isEmail(email)) {
       return Promise.reject(
