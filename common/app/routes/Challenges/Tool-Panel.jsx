@@ -119,24 +119,6 @@ export default class ToolPanel extends PureComponent {
             >
           Reset your code
           </Button>
-          <div className='button-spacer' />
-          <Button
-            block={ true }
-            bsStyle='primary'
-            className='btn-big'
-            onClick={ openHelpModal }
-            >
-            Get Help
-          </Button>
-          <div className='button-spacer' />
-          <Button
-            block={ true }
-            bsStyle='primary'
-            className='btn-big'
-            onClick={ openBugModal }
-            >
-            Report a Bug
-          </Button>
         <div className='button-spacer' />
       </div>
     );
