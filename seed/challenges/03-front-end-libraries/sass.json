@@ -40,6 +40,12 @@
         "One example where variables are useful is when a number of elements need to be the same color. If that color is changed, the only place to edit the code is the variable value.",
         "We've already loaded the sass.js library for you in the background, but if you're curious to take a look, it's located here: <code>/cdn/vendor/sass/dist/sass.min.js</code>",
         "<hr>",
+        "Using <code>script</code> tags, define a variable that includes all your SASS/SCSS code, like this:",
+        "<blockquote><code>var scss = `$someVar: 123px;</code><br><code> .some-selector { width: $someVar; }`</code></blockquote>",
+        "Then compile the SASS into standard CSS and update the style as follows:",
+        "<blockquote><code>var css = Sass.compile(scss);</code><br><code>document.getElementsByTagName('style')[0].innerHTML=css;</code></blockquote>",
+        "<hr>",
+        "Note: this code will only update when you click <code>Run Tests</code> or otherwise when the Javascript is executed.",
         "Create a variable <code>$text-color</code> and set it to red. Then change the value of the <code>color</code> property for the <code>.blog-post</code> and <code>h2</code> to the <code>$text-color</code> variable."
       ],
       "challengeSeed": [

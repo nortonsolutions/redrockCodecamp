@@ -193,9 +193,12 @@ module.exports = function(app) {
   router.get('/deprecated-signin', getDepSignin);
   router.get('/temp-signin', getTempSignin);
 
+  router.get('/admin-create-account', getAdminCreateAccount);
+  
   // NOTE: a router.post() did not work were a api.post() did. Investigate.
   api.post('/signin', postEmailSignin);
-
+  api.post('/admin-create-account', postAdminCreateAccount);
+  
   router.get(
     '/delete-my-account',
     sendNonUserToMap,
@@ -363,7 +366,31 @@ module.exports = function(app) {
      );
   }
 
-  
+  function getAdminCreateAccount(req, res) {
+    
+    debug(`req.flashMessage: ${req.flashMessage}`);
+
+    return res.render('account/admin-create-account', {
+      title: 'Create a new CodeCamp Workbench account.',
+      flashMessage: req.flashMessage
+    });
+  }
+
+  function postAdminCreateAccount(req, res) {
+
+    return User.requestNewAccount(req.body.email)
+      .then(msg => {
+          const email = req.body.email;
+          req.flashMessage = `Account created: ${email}`;
+          return getAdminCreateAccount(req, res);
+      })
+      .catch(err => {
+        debug(err);
+        return res.status(200).send({ message: defaultErrorMsg });
+      });
+  }
+
+
   function getTempSignin(req, res, next) {
     
     if (req.user) {
