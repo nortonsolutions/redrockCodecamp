@@ -124,7 +124,7 @@
             },
             "crossDomain": {
               "type": "boolean",
-              "description": "Files coming from FreeCodeCamp must mark this true"
+              "description": "Files coming from Workbench must mark this true"
             }
           }
         }

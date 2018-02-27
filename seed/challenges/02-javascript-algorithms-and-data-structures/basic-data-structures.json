@@ -11,7 +11,7 @@
         [
           "",
           "",
-          "<dfn>Arrays</dfn> are one of JavaScript's most fundamental built-in data structures, and probably the data structure that you will work with most often throughout the course of the freeCodeCamp curriculum. The array is by no means unique to JavaScript, however &mdash; in fact, it’s probably safe to say that arrays are utilized by almost every complex program... ever.<br><br>In computer science, an array is a linear collection of elements characterized by the fact that each element has a unique <dfn>index</dfn>, or address, that can be computed and used to look up an element's position at run-time.",
+          "<dfn>Arrays</dfn> are one of JavaScript's most fundamental built-in data structures, and probably the data structure that you will work with most often throughout the course of the CodeCamp curriculum. The array is by no means unique to JavaScript, however &mdash; in fact, it’s probably safe to say that arrays are utilized by almost every complex program... ever.<br><br>In computer science, an array is a linear collection of elements characterized by the fact that each element has a unique <dfn>index</dfn>, or address, that can be computed and used to look up an element's position at run-time.",
           ""
         ],
         [
