@@ -56,6 +56,12 @@ const sync = browserSync.create('fcc-sync-server');
 function resolve(filepath, thisString, withThisString) {
   const newPath = require.resolve(filepath);
   if (thisString && withThisString) {
+
+    if (newPath.indexOf("\\") > -1) {
+      thisString = thisString.replace(/\//g,"\\");
+      withThisString = withThisString.replace(/\//g,"\\");
+    }
+
     return newPath.replace(thisString, withThisString);
   }
   return newPath;
@@ -280,7 +286,7 @@ gulp.task('dev-server', syncDepenedents, function() {
         host: `${hostname}:${syncPort}`
       })
     },
-    logLevel: 'debug',
+    logLevel: 'info',
     files: paths.syncWatch,
     port: syncPort,
     open: false,

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import ns from './ns.json';
 
 import BugModal from './Bug-Modal.jsx';
+import HelpModal from './Help-Modal.jsx';
 import ToolPanel from './Tool-Panel.jsx';
 import ChallengeTitle from './Challenge-Title.jsx';
 import ChallengeDescription from './Challenge-Description.jsx';
@@ -14,6 +15,7 @@ import TestSuite from './Test-Suite.jsx';
 import Output from './Output.jsx';
 import {
   openBugModal,
+  openHelpModal,
   updateHint,
   executeChallenge,
   unlockUntrustedCode,
@@ -35,6 +37,7 @@ const mapDispatchToProps = {
   executeChallenge,
   updateHint,
   openBugModal,
+  openHelpModal,
   unlockUntrustedCode
 };
 const mapStateToProps = createSelector(
@@ -70,6 +73,7 @@ const propTypes = {
   isCodeLocked: PropTypes.bool,
   makeToast: PropTypes.func,
   openBugModal: PropTypes.func,
+  openHelpModal: PropTypes.func,
   output: PropTypes.string,
   tests: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
@@ -127,6 +131,7 @@ export class SidePanel extends PureComponent {
       makeToast,
       helpChatRoom,
       openBugModal,
+      openHelpModal,
       isCodeLocked,
       unlockUntrustedCode
     } = this.props;
@@ -152,10 +157,12 @@ export class SidePanel extends PureComponent {
           isCodeLocked={ isCodeLocked }
           makeToast={ makeToast }
           openBugModal={ openBugModal }
+          openHelpModal={ openHelpModal }
           unlockUntrustedCode={ unlockUntrustedCode }
           updateHint={ updateHint }
         />
         <BugModal />
+        <HelpModal />
         <Output
           defaultOutput={
 `/**
