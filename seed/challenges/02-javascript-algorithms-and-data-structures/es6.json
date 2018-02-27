@@ -25,20 +25,21 @@
     },
     {
       "id": "587d7b87367417b2b2512b3f",
-      "title": "Explore Problems with the var Keyword",
+      "title": "Explore Differences Between the var and let Keywords",
       "description": [
         "One of the biggest problems with declaring variables with the <code>var</code> keyword is that you can overwrite variable declarations without an error.",
         "<blockquote>var camper = 'James';<br>var camper = 'David';<br>console.log(camper);<br>// logs 'David'</blockquote>",
-        "In a small application, you might not run into this type of problem, but when your code becomes larger, you might accidently overwrite a variable that you did not intend to overwrite. Because this behaviour does not throw an error, searching and fixing bugs becomes more difficult.",
-        "Another problem with the <code>var</code> keyword is that it is hoisted to the top of your code when it compiles. This means that you can use a variable before you declare it.",
-        "<blockquote>console.log(camper);<br>var camper = 'David';<br>// logs undefined</blockquote>",
-        "The code runs in the following order:",
-        "<ol><li>The variable <code>camper</code> is declared as undefined.</li><li>The value of <code>camper</code> is logged.</li><li>David is assigned to <code>camper</code>.</li></ol>",
-        "This code will run without an error.",
-        "A new keyword called <code>let</code> was introduced in ES6 to solve the problems with the <code>var</code> keyword. With the <code>let</code> keyword, all the examples we just saw will cause an error to appear. We can no longer overwrite variables or use a variable before we declare it. Some modern browsers require you to add <code>\"use strict\";</code> to the top of your code before you can use the new features of ES6.",
-        "Let's try using the <code>let</code> keyword.",
+        "As you can see in the code above, the <code>camper</code> variable is originally declared as <code>James</code> and then overridden to be <code>David</code>.",
+        "In a small application, you might not run into this type of problem, but when your code becomes larger, you might accidently overwrite a variable that you did not intend to overwrite.",
+        "Because this behavior does not throw an error, searching and fixing bugs becomes more difficult.<br>",
+        "A new keyword called <code>let</code> was introduced in ES6 to solve this potential issue with the <code>var</code> keyword.",
+        "If you were to replace <code>var</code> with <code>let</code> in the variable declarations of the code above, the result would be an error.",
+        "<blockquote>let camper = 'James';<br>let camper = 'David'; // throws an error</blockquote>",        
+        "This error can be seen in the console of your browser.",
+        "So unlike <code>var</code>, when using <code>let</code>, a variable with the same name can only be declared once.", 
         "<hr>",
-        "Replace <code>var</code> with <code>let</code>"
+        "Update the code so it only uses the <code>let</code> keyword.",
+        "<strong>Note</strong><br>Remember that since <code>let</code> prevents variables from being overridden, you will need to remove one of the declarations entirely."
       ],
       "challengeSeed": [
         "var catName;",
@@ -824,8 +825,14 @@
         "<strong>Note</strong><br>The lessons in this section handle non-browser features. <code>import</code>, and the statements we introduce in the rest of these lessons, won't work on a browser directly. However, we can use various tools to create code out of this to make it work in browser.",
         "<strong>Note</strong><br>In most cases, the file path requires a <code>./</code> before it; otherwise, node will look in the <code>node_modules</code> directory first trying to load it as a dependencie.",
         "<hr>",
-        "Add the appropriate <code>import</code> statement that will allow the current file to use the <code>capitalizeString</code> function. The file where this function lives is called <code>\"string_functions\"</code>, and it is in the same directory as the current file.",
-        "<br><br> <code>This code currently has a BUG that it tries to actually load the import. For now, write all your code, but comment it out so it doesn't run.</code>"
+        "Add the appropriate <code>import</code> statement that will allow the current file to use the <code>capitalizeString</code> function. The file where this function lives is called <code>\"string_functions\"</code>, and it is in the same directory as the current file."
+      ],
+      "head": [
+        "window.require = function (str) {",
+        "if (str === 'string_functions') {",
+        "return {",
+        "capitalizeString: str => str.toUpperCase()",
+        "}}};"
       ],
       "challengeSeed": [
         "\"use strict\";",
@@ -850,8 +857,10 @@
         "<blockquote>const capitalizeString = (string) => {<br>  return string.charAt(0).toUpperCase() + string.slice(1);<br>}<br>const foo = \"bar\";<br>export { capitalizeString, foo }</blockquote>",
         "Either approach is perfectly acceptable.",
         "<hr>",
-        "Below are two variables that I want to make available for other files to use. Utilizing the first way I demonstrated <code>export</code>, export the two variables.",
-        "<br><br> <code>This code currently has a BUG that it tries to actually export the variables. For now, write all your code, but comment it out so it doesn't run.</code>"
+        "Below are two variables that I want to make available for other files to use. Utilizing the first way I demonstrated <code>export</code>, export the two variables."
+      ],
+      "head": [
+        "window.exports = function(){};"
       ],
       "challengeSeed": [
         "\"use strict\";",
@@ -878,8 +887,15 @@
         "<blockquote>import * as object_with_name_of_your_choice from \"file_path_goes_here\"<br>object_with_name_of_your_choice.imported_function</blockquote>",
         "You may use any name following the <code>import * as </code>portion of the statement. In order to utilize this method, it requires an object that receives the imported values. From here, you will use the dot notation to call your imported values.",
         "<hr>",
-        "The code below requires the contents of a file, <code>\"capitalize_strings\"</code>, found in the same directory as it, imported. Add the appropriate <code>import *</code> statement to the top of the file, using the object provided.",
-        "<br><br> <code>This code currently has a BUG that it tries to actually load the import. For now, write all your code, but comment it out so it doesn't run.</code>"
+        "The code below requires the contents of a file, <code>\"capitalize_strings\"</code>, found in the same directory as it, imported. Add the appropriate <code>import *</code> statement to the top of the file, using the object provided."
+      ],
+      "head": [
+        "window.require = function(str) {",
+        "if (str === 'capitalize_strings') {",
+        "return {",
+        "capitalize: str => str.toUpperCase(),",
+        "lowercase: str => str.toLowerCase()",
+        "}}};"
       ],
       "challengeSeed": [
         "\"use strict\";",
@@ -904,8 +920,10 @@
         "<blockquote>export default function add(x,y) {<br>  return x + y;<br>}</blockquote>",
         "Note: Since <code>export default</code> is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use <code>export default</code> with <code>var</code>, <code>let</code>, or <code>const</code>",
         "<hr>",
-        "The following function should be the fallback value for the module. Please add the necessary code to do so.",
-        "<br><br> <code>This code currently has a BUG that it tries to actually export the function. For now, write all your code, but comment it out so it doesn't run.</code>"
+        "The following function should be the fallback value for the module. Please add the necessary code to do so."
+      ],
+      "head": [
+        "window.exports = function(){};"
       ],
       "challengeSeed": [
         "\"use strict\";",
@@ -928,8 +946,14 @@
         "<blockquote>import add from \"math_functions\";<br>add(5,4); //Will return 9</blockquote>",
         "The syntax differs in one key place - the imported value, <code>add</code>, is not surrounded by curly braces, <code>{}</code>. Unlike exported values, the primary method of importing a default export is to simply write the value's name after <code>import</code>.",
         "<hr>",
-        "In the following code, please import the default export, <code>subtract</code>, from the file <code>\"math_functions\"</code>, found in the same directory as this file.",
-        "<br><br> <code>This code currently has a BUG that it tries to actually load the import. For now, write all your code, but comment it out so it doesn't run.</code>"
+        "In the following code, please import the default export, <code>subtract</code>, from the file <code>\"math_functions\"</code>, found in the same directory as this file."
+      ],
+      "head": [
+        "window.require = function(str) {",
+        "if (str === 'math_functions') {",
+          "return function(a, b) {",
+          "return a - b;",
+        "}}};"
       ],
       "challengeSeed": [
         "\"use strict\";",
