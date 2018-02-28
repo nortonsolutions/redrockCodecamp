@@ -1680,7 +1680,7 @@
         "</style>"
       ],
       "tests": [
-        "assert(code.match(/background:\\s*?url\\((\"|')https:\\/\\/i\\.imgur\\.com\\/MJAkxbh\\.png(\"|')\\)/gi), 'message: Your <code>body</code> element should have a <code>background</code> property set to a <code>url()</code> with the given link.');"
+        "assert(code.match(/background:\\s*?url\\((\"|')\\/images\\/MJAkxbh.png(\"|')\\)/gi), 'message: Your <code>body</code> element should have a <code>background</code> property set to a <code>url()</code> with the given link.');"
       ],
       "solutions": [],
       "hints": [
