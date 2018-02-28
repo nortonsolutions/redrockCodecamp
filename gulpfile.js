@@ -1,7 +1,8 @@
 // enable debug for gulp
 /* eslint-disable prefer-object-spread/prefer-object-spread */
-process.env.DEBUG = process.env.DEBUG || 'fcc:*';
 require('dotenv').load();
+
+process.env.DEBUG = process.env.DEBUG || 'fcc:*';
 
 require('babel-core/register');
 const Rx = require('rx'),
@@ -195,7 +196,7 @@ function delRev(dest, manifestName) {
 
 gulp.task('serve', function(cb) {
   let called = false;
-  var inspect = process.env.DEBUGGER ? '--inspect' : null;
+  var inspect = process.env.DEBUGGER && (process.env.DEBUGGER.toUpperCase() === 'TRUE') ? '--inspect' : '';
 
   const monitor = nodemon({
     script: paths.server,
@@ -206,44 +207,6 @@ gulp.task('serve', function(cb) {
       NODE_ENV: process.env.NODE_ENV || 'development',
       DEBUG: process.env.DEBUG || 'fcc:*',
       PORT: port
-    }
-  })
-    .on('start', function() {
-      if (!called) {
-        called = true;
-        cb();
-      }
-    })
-    .on('restart', function(files) {
-      if (files) {
-        debug('Nodemon will restart due to changes in: ', files);
-      }
-    });
-
-    process.once('SIGINT', () => {
-      monitor.once('exit', () => {
-        /* eslint-disable no-process-exit */
-        process.exit(0);
-        /* eslint-enable no-process-exit */
-      });
-    });
-});
-
-
-
-gulp.task('serve-production', function(cb) {
-  let called = false;
-  var inspect = process.env.DEBUGGER ? '--inspect' : null;
-
-  const monitor = nodemon({
-    script: paths.server,
-    ext: '.jsx .js .json',
-    ignore: paths.serverIgnore,
-    exec: path.normalize('node_modules/.bin/babel-node ' + inspect),
-    env: {
-      NODE_ENV: 'production',
-      DEBUG: 'fcc:*',
-      PORT: 80
     }
   })
     .on('start', function() {
