@@ -51,9 +51,13 @@ function getSupName(filePath) {
 
 module.exports = function getChallenges() {
   try {
-    return getFilesFor('challenges')
+
+    const challengesDirectoryName = 'challenges';
+    // const challengesDirectoryName = 'challenges-future';
+
+    return getFilesFor(challengesDirectoryName)
       .map(function(data) {
-        const challengeSpec = require('./challenges/' + data.file);
+        const challengeSpec = require('./' + challengesDirectoryName + '/' + data.file);
         challengeSpec.fileName = data.file;
         challengeSpec.superBlock = getSupName(data.superBlock);
         challengeSpec.superOrder = getSupOrder(data.superBlock);

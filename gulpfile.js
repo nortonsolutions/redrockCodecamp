@@ -195,11 +195,13 @@ function delRev(dest, manifestName) {
 
 gulp.task('serve', function(cb) {
   let called = false;
+  var inspect = process.env.DEBUGGER ? '--inspect' : null;
+
   const monitor = nodemon({
     script: paths.server,
     ext: '.jsx .js .json',
     ignore: paths.serverIgnore,
-    exec: path.normalize('node_modules/.bin/babel-node'),
+    exec: path.normalize('node_modules/.bin/babel-node ' + inspect),
     env: {
       NODE_ENV: process.env.NODE_ENV || 'development',
       DEBUG: process.env.DEBUG || 'fcc:*',
@@ -231,11 +233,13 @@ gulp.task('serve', function(cb) {
 
 gulp.task('serve-production', function(cb) {
   let called = false;
+  var inspect = process.env.DEBUGGER ? '--inspect' : null;
+
   const monitor = nodemon({
     script: paths.server,
     ext: '.jsx .js .json',
     ignore: paths.serverIgnore,
-    exec: path.normalize('node_modules/.bin/babel-node'),
+    exec: path.normalize('node_modules/.bin/babel-node ' + inspect),
     env: {
       NODE_ENV: 'production',
       DEBUG: 'fcc:*',

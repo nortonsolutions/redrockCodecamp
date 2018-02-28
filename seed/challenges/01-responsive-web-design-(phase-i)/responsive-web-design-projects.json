@@ -292,7 +292,7 @@
         "<strong>Content:</strong> 9. The #email input field should have placeholder text to let the user know what the field is for.",
         "<strong>Content:</strong> 10. The #email input field uses HTML5 validation to confirm that the entered text is an email address.",
         "<strong>Content:</strong> 11. Within the form, there is a submit <code>input</code> with corresponding id=\"submit\".",
-        "<strong>Content:</strong> 12. When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address",
+        "<strong>Content:</strong> 12. When I click the #submit element, the email is submitted to a static page (use this mock URL: https://site.com/email-submit) that confirms the email address",
         "Remember to use the Research-Ask method if you get stuck."
       ],
       "releasedOn": "January 15, 2017",

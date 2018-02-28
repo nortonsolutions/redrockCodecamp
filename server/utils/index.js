@@ -12,6 +12,12 @@ export function nameify(str) {
     .replace(/\:/g, '');
 }
 
+export function nameifyWithSymbols(str) {
+  return ('' + str)
+    .replace(/[^a-zA-Z0-9\(\)\s]/g, '')
+    .replace(/\:/g, '');
+}
+
 export function unDasherize(name) {
   return ('' + name)
     // replace dash with space

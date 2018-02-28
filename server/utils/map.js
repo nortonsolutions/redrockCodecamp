@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Observable } from 'rx';
 
-import { unDasherize, nameify } from '../utils';
+import { unDasherize, nameify, nameifyWithSymbols } from '../utils';
 import supportedLanguages from '../../common/utils/supported-languages';
 import {
   addNameIdMap as _addNameIdToMap,
@@ -77,9 +77,9 @@ export function _cachedMap({ Block, Challenge }) {
       map[block.superBlock].blocks.push(block.dashedName);
     } else {
       map[block.superBlock] = {
-        title: _.startCase(block.superBlock),
+        title: block.superBlock.replace(/-/g, ' '),
         order: block.superOrder,
-        name: nameify(_.startCase(block.superBlock)),
+        name: nameifyWithSymbols(block.superBlock.replace(/-/g, ' ')),
         dashedName: block.superBlock,
         blocks: [block.dashedName],
         message: block.superBlockMessage
