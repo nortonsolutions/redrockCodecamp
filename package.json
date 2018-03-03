@@ -103,6 +103,7 @@
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
     "passport-twitter": "^1.0.3",
+    "pm2": "^2.10.1",
     "pmx": "~0.6.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.2",
