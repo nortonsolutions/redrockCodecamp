@@ -170,18 +170,41 @@ export default function createPanesAspects({ createPanesMap }) {
     function metaReducer(state = defaultState, action) {
       if (action.meta && action.meta.panesMap) {
         const panesMap = action.meta.panesMap;
-        const panes = _.map(panesMap, (name, type) => ({ name, type }));
-        const numOfPanes = Object.keys(panes).length;
+
+        var visibleIndex = 0;
+        var visiblePanesCount = 0;
+        const panes = _.map(panesMap, function(name, type) {
+          
+          var pane = {
+            name,
+            type,
+            visibleIndex: -1,
+            isHidden: name === 'Map' ? state.isMapPaneHidden : false
+          };
+
+          if (!pane.isHidden) {
+            pane.visibleIndex = visibleIndex;
+            visibleIndex++;
+            visiblePanesCount++;
+          }
+
+          return pane;
+        });
+
         return {
           ...state,
           panesMap,
           panes,
-          panesByName: panes.reduce((panes, { name }, index) => {
-            const dividerLeft = utils.getDividerLeft(numOfPanes, index);
-            panes[name] = {
-              name,
+          panesByName: panes.reduce((panes, pane, index) => {
+            var dividerLeft = 0;
+            if (!pane.isHidden) {
+              dividerLeft = utils.getDividerLeft(visiblePanesCount, pane.visibleIndex);
+            }
+
+            panes[pane.name] = {
+              name: pane.name,
               dividerLeft,
-              isHidden: name === 'Map' ? state.isMapPaneHidden : false
+              isHidden: pane.isHidden
             };
             return panes;
           }, {})
