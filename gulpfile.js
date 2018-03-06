@@ -196,7 +196,9 @@ function delRev(dest, manifestName) {
 
 gulp.task('serve', function(cb) {
   let called = false;
+  
   var inspect = process.env.DEBUGGER && (process.env.DEBUGGER.toUpperCase() === 'TRUE') ? '--inspect' : '';
+  inspect = inspect && process.env.DEBUGGER_PORT ? inspect + "=" + process.env.DEBUGGER_PORT : inspect;
 
   const monitor = nodemon({
     script: paths.server,
