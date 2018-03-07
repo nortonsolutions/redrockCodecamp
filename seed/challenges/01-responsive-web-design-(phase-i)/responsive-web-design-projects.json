@@ -41,18 +41,6 @@
         [
           "",
           "",
-          "Click the Add Library drop down in the upper left hand corner, choose Bootstrap to add the Bootstrap library to your page.<br><br> Now give your <code>h1</code> element the class of <code>text-primary</code> to change its color and prove that Bootstrap is now available.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "HTML, CSS, and Javascript are the default languages.<br><br>  You can click in the top left hand corner of a pane where you see a down arrow, next to the word HTML for instance, to change to a different language such as Jade or Typescript.",
-          ""
-        ],
-        [
-          "",
-          "",
           "Your work will be automatically saved every few minutes, however, you can save your work immediately by using ctrl+s or choosing \"Save snapshot\" from the File menu in the top left hand corner.<br><br>  You can get a public link to your page by clicking the Share drop down in the upper left hand corner.",
           ""
         ]
@@ -396,7 +384,7 @@
         "Buttons should be done with css NOT images.",
         "Remember to use the Research-Ask method if you get stuck."
       ],
-      "releasedOn": "January 15, 2017",
+      "releasedOn": "February 15, 2018",
       "challengeSeed": [
         "cDIfODs"
       ],
@@ -419,7 +407,33 @@
         "Buttons should be done with css NOT images.",
         "Remember to use the Research-Ask method if you get stuck."
       ],
-      "releasedOn": "January 15, 2017",
+      "releasedOn": "February 15, 2018",
+      "challengeSeed": [
+        "cDIfODs"
+      ],
+      "tests": [],
+      "type": "zipline",
+      "isRequired": true,
+      "challengeType": 3,
+      "translations": {}
+    },
+    {
+      "id": "b5e6c5702253317885744024",
+      "title": "Build a Pre Designed Page (blog)",
+      "description": [
+        "Build this pre designed page.",
+        "The page must match <strong>pixel for pixel</strong> as close as possible.",
+        "<strong>Technology Stack:</strong> 1. Use only HTML and CSS to complete this project, do NOT use any libraries.",
+        "This page must be responsive and have 2 distinct layouts at sizes 1200px and 960px wide.",
+        "<strong>1200px wide</strong> <a href=\"http://cc0304/assets/workbench-projects/blog/blog-1200.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://cc0304/assets/workbench-projects/blog/blog-1200.png\" style=\"width:500px;\"></a>",
+        "<strong>960px wide</strong> <a href=\"http://cc0304/assets/workbench-projects/blog/blog-960.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://cc0304/assets/workbench-projects/blog/blog-960.png\" style=\"width:500px;\"></a>",
+        "For all the assets need to build this site <a href=\"http://cc0304/assets/workbench-projects/blog\" target=\"_blank\">click here</a>.",
+        "The font used is sans-serif.",
+        "The categories side bar must be a unordered list of &lt;a&gt; tags and highlight when hovering.",
+        "The highlighted text must be &lt;a&gr; tags and underline when hovering.",
+        "Remember to use the Research-Ask method if you get stuck."
+      ],
+      "releasedOn": "March 7, 2018",
       "challengeSeed": [
         "cDIfODs"
       ],
