@@ -281,6 +281,9 @@
         "<strong>Content:</strong> 10. The #email input field uses HTML5 validation to confirm that the entered text is an email address.",
         "<strong>Content:</strong> 11. Within the form, there is a submit <code>input</code> with corresponding id=\"submit\".",
         "<strong>Content:</strong> 12. When I click the #submit element, the email is submitted to a static page (use this mock URL: https://site.com/email-submit) that confirms the email address",
+        "<strong>Layout:</strong> 1. The navbar should always be at the top of the viewport.",
+        "<strong>Layout:</strong> 2. My product landing page should have at least one media query.",
+        "<strong>Layout:</strong> 3. My product landing page should utilize CSS flexbox at least once.",
         "Remember to use the Research-Ask method if you get stuck."
       ],
       "releasedOn": "January 15, 2017",
