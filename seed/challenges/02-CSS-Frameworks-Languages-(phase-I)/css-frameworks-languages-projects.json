@@ -1,0 +1,34 @@
+{
+  "name": "CSS Frameworks Languages Projects",
+  "order": 3,
+  "time": "150 hours",
+  "helpRoom": "Help",
+  "challenges": [
+    {
+      "id": "536658c02622d5ea1344747c",
+      "title": "Build a Pre Designed Page (css tricks footer)",
+      "description": [
+        "Build this pre designed page.",
+        "The page must match <strong>pixel for pixel</strong> as close as possible.",
+        "<strong>Technology Stack:</strong> 1. Use HTML, CSS and Bootstrap 4 to complete this project.",
+        "<a href=\"http://cc0304/assets/workbench-projects/css-tricks-footer/css-tricks-footer.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://cc0304/assets/workbench-projects/css-tricks-footer/css-tricks-footer.png\" style=\"width:500px;\"></a>",
+        "This site uses only 1 asset that is an sprite map. <a href=\"http://cc0304/assets/workbench-projects/css-tricks-footer/sprite-map.png\" target=\"_blank\">click here</a>.",
+        "The font used is Whitney SSm A, Whitney SSm B which can be used by linking to <a href=\"http://cc0304/assets/fonts/whitney/fonts.css\" target=\"_blank\">this css</a>.",
+        "The font for the links at the bottom of the page are Whitney Cond A, Whitney Cond B.",
+        "The buttons color must be black when hovering.",
+        "Hover colors can be seen in this image <a href=\"http://cc0304/assets/workbench-projects/css-tricks-footer/css-tricks-footer-hover.png\" target=\"_blank\">here</a>.",
+        "All the links at the bottom of the page, Contact through Guest Posting, must change their hover color like the About and Archives example.",
+        "Remember to use the Research-Ask method if you get stuck."
+      ],
+      "releasedOn": "March 12, 2018",
+      "challengeSeed": [
+        "cDIfODs"
+      ],
+      "tests": [],
+      "type": "zipline",
+      "isRequired": true,
+      "challengeType": 3,
+      "translations": {}
+    }
+  ]
+}
