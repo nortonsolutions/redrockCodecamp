@@ -49,15 +49,12 @@
         "Create a variable <code>$text-color</code> and set it to red. Then change the value of the <code>color</code> property for the <code>.blog-post</code> and <code>h2</code> to the <code>$text-color</code> variable."
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
-        "  ",
-        "  ",
-        "  .header{",
-        "    text-align: center;",
-        "  }",
-        "  .blog-post h2 {",
-        "    color: red;",
-        "  }",
         "</style>",
         "",
         "<h1 class=\"header\">Learn Sass</h1>",
@@ -106,6 +103,11 @@
         "Use the <code>nesting</code> technique shown above to re-organize the CSS rules for both children of <code>.blog-post</code> element. For testing purposes, the <code>h1</code> should come before the <code>p</code> element."
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
         "  .blog-post {",
         "    ",
@@ -157,6 +159,11 @@
         "Write a <code>mixin</code> for <code>border-radius</code> and give it a <code>$radius</code> parameter. It should use all the vendor prefixes from the example. Then use the <code>border-radius</code> <code>mixin</code> to give the <code>#awesome</code> element a border radius of 15px."
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
         "  ",
         "  ",
@@ -206,6 +213,11 @@
         "<blockquote>light - 1px solid black<br>medium - 3px solid black<br>heavy - 6px solid black<br>none - no border</blockquote>"
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
         "  ",
         "  ",
@@ -256,6 +268,11 @@
         "It should create 5 classes called <code>.text-1</code> to <code>.text-5</code> where each has a <code>font-size</code> set to 10px multiplied by the index."
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
         "  ",
         "  ",
@@ -284,56 +301,6 @@
       "translations": {}
     },
     {
-      "id": "587d7dbf367417b2b2512bba",
-      "title": "Use @each to Map Over Items in a List",
-      "required": [
-        {
-          "src": "/cdn/cdnjs.cloudflare.com/ajax/libs/sass.js/0.9.13/sass.js",
-          "raw": true
-        }
-      ],
-      "description": [
-        "The last challenge showed how the <code>@for</code> directive uses a starting and ending value to loop a certain number of times. Sass also offers the <code>@each</code> directive which loops over each item in a list or map.",
-        "On each iteration, the variable gets assigned to the current value from the list or map.",
-        "<blockquote>@each $color in blue, red, green {<br>&nbsp;&nbsp;.#{$color}-text {color: $color;}<br>}</blockquote>",
-        "A map has slightly different syntax. Here's an example:",
-        "<blockquote>$colors: (color1: blue, color2: red, color3: green);<br><br>@each $key, $color in $colors {<br>&nbsp;&nbsp;.#{$color}-text {color: $color;}<br>}</blockquote>",
-        "Note that the <code>$key</code> variable is needed to reference the keys in the map. Otherwise, the compiled CSS would have <code>color1</code>, <code>color2</code>... in it.",
-        "Both of the above code examples are converted into the following CSS:",
-        "<blockquote>.blue-text {<br>&nbsp;&nbsp;color: blue;<br>}<br><br>.red-text {<br>&nbsp;&nbsp;color: red;<br>}<br><br>.green-text {<br>&nbsp;&nbsp;color: green;<br>}</blockquote>",
-        "<hr>",
-        "Write an <code>@each</code> directive that goes through a list: <code>blue, black, red</code> and assigns each variable to a <code>.color-bg</code> class, where the \"color\" part changes for each item.",
-        "Each class should set the <code>background-color</code> the respective color."
-      ],
-      "challengeSeed": [
-        "<style>",
-        "  ",
-        "  ",
-        "  ",
-        "  div {",
-        "    height: 200px;",
-        "    width: 200px;",
-        "  }",
-        "</style>",
-        "",
-        "<div class=\"blue-bg\"></div>",
-        "<div class=\"black-bg\"></div>",
-        "<div class=\"red-bg\"></div>"
-      ],
-      "tests": [
-        "assert(code.match(/@each /g), 'message: Your code should use the <code>@each</code> directive.');",
-        "assert($('blue-bg').css('background-color') == 'rgb(0, 0, 255)', 'message: Your <code>.blue-bg</code> class should have a <code>background-color</code> of blue.');",
-        "assert($('black-bg').css('background-color') == 'rgb(0, 0, 0)', 'message: Your <code>.black-bg</code> class should have a <code>background-color</code> of black.');",
-        "assert($('red-bg').css('background-color') == 'rgb(255, 0, 0)', 'message: Your <code>.red-bg</code> class should have a <code>background-color</code> of red.');"
-      ],
-      "solutions": [],
-      "hints": [],
-      "type": "waypoint",
-      "releasedOn": "Feb 17, 2017",
-      "challengeType": 0,
-      "translations": {}
-    },
-    {
       "id": "587d7dbf367417b2b2512bbb",
       "title": "Apply a Style Until a Condition is Met with @while",
       "required": [
@@ -353,6 +320,11 @@
         "There should be 10 different classes from <code>text-1</code> to <code>text-10</code>. Then set <code>font-size</code> to 5px multiplied by the current index number. Make sure to avoid an infinite loop!"
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
         "  ",
         "  ",
@@ -413,6 +385,11 @@
       "challengeSeed": [
         "// The main.scss file",
         "",
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "",
         "",
         ""
@@ -449,6 +426,11 @@
         "Make a class <code>.info-important</code> that extends <code>.info</code> and also has a <code>background-color</code> set to magenta."
       ],
       "challengeSeed": [
+        "<script>",
+        "  var scss = 'change this code';",
+        "  var css = Sass.compile(scss);",
+        "  document.getElementsByTagName('style')[0].innerHTML=css;",
+        "</script>",
         "<style>",
         "  h3{",
         "    text-align: center;",
