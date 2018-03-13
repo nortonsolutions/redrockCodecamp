@@ -15,7 +15,6 @@
         "This site uses only 1 asset that is an sprite map. <a href=\"http://cc0304/assets/workbench-projects/css-tricks-footer/sprite-map.png\" target=\"_blank\">click here</a>.",
         "The font used is Whitney SSm A, Whitney SSm B which can be used by linking to <a href=\"http://cc0304/assets/fonts/whitney/fonts.css\" target=\"_blank\">this css</a>.",
         "The font for the links at the bottom of the page are Whitney Cond A, Whitney Cond B.",
-        "The buttons color must be black when hovering.",
         "Hover colors can be seen in this image <a href=\"http://cc0304/assets/workbench-projects/css-tricks-footer/css-tricks-footer-hover.png\" target=\"_blank\">here</a>.",
         "All the links at the bottom of the page, Contact through Guest Posting, must change their hover color like the About and Archives example.",
         "Remember to use the Research-Ask method if you get stuck."
