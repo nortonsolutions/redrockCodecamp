@@ -301,8 +301,8 @@ export default combineReducers(
       }),
       [types.storedCodeFound]: state => ({
         ...state,
-        isJSEnabled: false,
-        isCodeLocked: true
+        isJSEnabled: true,
+        isCodeLocked: false
       }),
       [types.unlockUntrustedCode]: state => ({
         ...state,
@@ -320,7 +320,7 @@ export default combineReducers(
         )
       ]: state => ({
         ...state,
-        isJSEnabled: false
+        isJSEnabled: true
       }),
 
       // classic/modern

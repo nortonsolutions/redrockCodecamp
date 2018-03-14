@@ -36,7 +36,7 @@ const loopProtector = `
 const defaultTemplate = ({ source }) => `
   <body style='margin:8px;'>
     <!-- fcc-start-source -->
-      ${source}
+    <script>${loopProtector}</script>${source}
     <!-- fcc-end-source -->
   </body>
 `;
