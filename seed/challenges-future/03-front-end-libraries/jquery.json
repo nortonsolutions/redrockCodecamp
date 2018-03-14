@@ -120,6 +120,56 @@
       }
     },
     {
+      "id": "bad87fee1348bd9aec908852",
+      "title": "Create a Class to Target with jQuery Selectors",
+      "description": [
+        "Not every class needs to have corresponding CSS. Sometimes we create classes just for the purpose of selecting these elements more easily using jQuery.",
+        "Give each of your <code>button</code> elements the class <code>target</code>."
+      ],
+      "challengeSeed": [
+        "<div class=\"container-fluid\">",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
+        "  <div class=\"row\">",
+        "    <div class=\"col-6\">",
+        "      <div class=\"card\">",
+        "        <button class=\"btn btn-default\"></button>",
+        "        <button class=\"btn btn-default\"></button>",
+        "        <button class=\"btn btn-default\"></button>",
+        "      </div>",
+        "    </div>",
+        "    <div class=\"col-6\">",
+        "      <div class=\"card\">",
+        "        <button class=\"btn btn-default\"></button>",
+        "        <button class=\"btn btn-default\"></button>",
+        "        <button class=\"btn btn-default\"></button>",
+        "      </div>",
+        "    </div>",
+        "  </div>",
+        "</div>"
+      ],
+      "tests": [
+        "assert($(\".target\").length === 6, 'message: Apply the <code>target</code> class to each of your <code>button</code> elements.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0,
+      "translations": {
+        "es": {
+          "title": "Crea una clase para usar con selectores de jQuery",
+          "description": [
+            "No todas las clases necesitan tener un código CSS correspondiente. A veces creamos clases sólo con el propósito de seleccionar esos elementos más fácilmente usando jQuery.",
+            "Dale a cada uno de tus elementos <code>button</code> la clase <code>target</code>."
+          ]
+        },
+        "fr": {
+          "title": "Créez une classe à cibler avec les sélécteurs jQuery",
+          "description": [
+            "Toutes les classes ne nécéssitent pas d'avoir un code CSS qui leur correspondent. Parfois ous créons des classes dans le seul but de pouvoir sélectionner ces éléments plus facilement en utilisant jQuery.",
+            "Donnez à chacun de vos éléments <code>button</code> la classe <code>target</code>."
+          ]
+        }
+      }
+    },
+    {
       "id": "bad87fee1348bd9bedc08826",
       "title": "Target HTML Elements with Selectors Using jQuery",
       "required": [

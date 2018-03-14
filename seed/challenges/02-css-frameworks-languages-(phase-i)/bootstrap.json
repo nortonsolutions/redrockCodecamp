@@ -1912,8 +1912,8 @@
       "title": "Create a Bootstrap Headline",
       "description": [
         "Now let's build something from scratch to practice our HTML, CSS and Bootstrap skills.",
-        "We'll build a jQuery playground, which we'll soon put to use in our jQuery challenges.",
-        "To start with, create an <code>h3</code> element, with the text <code>jQuery Playground</code>.",
+        "We'll build a Bootstrap playground, which we'll soon put to use in our Bootstrap challenges.",
+        "To start with, create an <code>h3</code> element, with the text <code>Bootstrap Playground</code>.",
         "Color your <code>h3</code> element with the <code>text-primary</code> Bootstrap class, and center it with the <code>text-center</code> Bootstrap class."
       ],
       "challengeSeed": [
@@ -1926,7 +1926,7 @@
         "assert(code.match(/<\\/h3>/g) && code.match(/<h3/g) && code.match(/<\\/h3>/g).length === code.match(/<h3/g).length, 'message: Make sure your <code>h3</code> element has a closing tag.');",
         "assert($(\"h3\").hasClass(\"text-primary\"), 'message: Your <code>h3</code> element should be colored by applying the class <code>text-primary</code>');",
         "assert($(\"h3\").hasClass(\"text-center\"), 'message: Your <code>h3</code> element should be centered by applying the class <code>text-center</code>');",
-        "assert.isTrue((/jquery(\\s)+playground/gi).test($(\"h3\").text()), 'message: Your <code>h3</code> element should have the text <code>jQuery Playground</code>.');"
+        "assert.isTrue((/bootstrap(\\s)+playground/gi).test($(\"h3\").text()), 'message: Your <code>h3</code> element should have the text <code>Bootstrap Playground</code>.');"
       ],
       "type": "waypoint",
       "challengeType": 0,
@@ -1935,8 +1935,8 @@
           "title": "Crea un encabezado con Bootstrap",
           "description": [
             "Ahora vamos a comenzar un proyecto desde cero para practicar nuestras habilidades con HTML, CSS y Bootstrap.",
-            "Crearemos un área de juego con jQuery, el cual utilizaremos en nuestros desafíos con jQuery.",
-            "Para empezar, crea un elemento <code>h3</code>, con el texto <code>jQuery Playground</code>.",
+            "Crearemos un área de juego con Bootstrap, el cual utilizaremos en nuestros desafíos con Bootstrap.",
+            "Para empezar, crea un elemento <code>h3</code>, con el texto <code>Bootstrap Playground</code>.",
             "Ponle color a tu elemento <code>h3</code> con la clase <code>text-primary</code> de Bootstrap, y céntrala con la clase <code>text-center</code> de Bootstrap."
           ]
         },
@@ -1944,8 +1944,8 @@
           "title": "Créer un entête Bootstrap",
           "description": [
             "Maintenons, créons queqlque chose à partir de zéro pour pratiquer nos connaissances acquises sur HTML, CSS et Bootstrap.",
-            "Nous allons construire un terrain de jeu pour jQuery, que nous allons bientôt utiliser dans les challenges jQuery.",
-            "Pour commencer, créez un élément <code>h3</code>, contenant le texte <code>jQuery Playground</code>.",
+            "Nous allons construire un terrain de jeu pour Bootstrap, que nous allons bientôt utiliser dans les challenges Bootstrap.",
+            "Pour commencer, créez un élément <code>h3</code>, contenant le texte <code>Bootstrap Playground</code>.",
             "Colorez notre élément <code>h3</code> avec la classe Bootstrap <code>text-primary</code>, et centrez le en utilisant la classe Bootstrap <code>text-center</code>"
           ]
         }
@@ -1959,7 +1959,7 @@
         "Let's nest your <code>h3</code> element within a <code>div</code> element with the class <code>container-fluid</code>."
       ],
       "challengeSeed": [
-        "<h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "<h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "",
         ""
       ],
@@ -1996,7 +1996,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "",
         "</div>",
         ""
@@ -2035,7 +2035,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "",
         "",
@@ -2074,7 +2074,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "",
@@ -2118,7 +2118,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "      <div class=\"card\">",
@@ -2170,7 +2170,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "      <div class=\"card\">",
@@ -2213,56 +2213,6 @@
       }
     },
     {
-      "id": "bad87fee1348bd9aec908852",
-      "title": "Create a Class to Target with jQuery Selectors",
-      "description": [
-        "Not every class needs to have corresponding CSS. Sometimes we create classes just for the purpose of selecting these elements more easily using jQuery.",
-        "Give each of your <code>button</code> elements the class <code>target</code>."
-      ],
-      "challengeSeed": [
-        "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
-        "  <div class=\"row\">",
-        "    <div class=\"col-6\">",
-        "      <div class=\"card\">",
-        "        <button class=\"btn btn-default\"></button>",
-        "        <button class=\"btn btn-default\"></button>",
-        "        <button class=\"btn btn-default\"></button>",
-        "      </div>",
-        "    </div>",
-        "    <div class=\"col-6\">",
-        "      <div class=\"card\">",
-        "        <button class=\"btn btn-default\"></button>",
-        "        <button class=\"btn btn-default\"></button>",
-        "        <button class=\"btn btn-default\"></button>",
-        "      </div>",
-        "    </div>",
-        "  </div>",
-        "</div>"
-      ],
-      "tests": [
-        "assert($(\".target\").length === 6, 'message: Apply the <code>target</code> class to each of your <code>button</code> elements.');"
-      ],
-      "type": "waypoint",
-      "challengeType": 0,
-      "translations": {
-        "es": {
-          "title": "Crea una clase para usar con selectores de jQuery",
-          "description": [
-            "No todas las clases necesitan tener un código CSS correspondiente. A veces creamos clases sólo con el propósito de seleccionar esos elementos más fácilmente usando jQuery.",
-            "Dale a cada uno de tus elementos <code>button</code> la clase <code>target</code>."
-          ]
-        },
-        "fr": {
-          "title": "Créez une classe à cibler avec les sélécteurs jQuery",
-          "description": [
-            "Toutes les classes ne nécéssitent pas d'avoir un code CSS qui leur correspondent. Parfois ous créons des classes dans le seul but de pouvoir sélectionner ces éléments plus facilement en utilisant jQuery.",
-            "Donnez à chacun de vos éléments <code>button</code> la classe <code>target</code>."
-          ]
-        }
-      }
-    },
-    {
       "id": "bad87fee1348bd9aec908853",
       "title": "Add id Attributes to Bootstrap Elements",
       "description": [
@@ -2275,7 +2225,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "      <div class=\"card\">",
@@ -2335,7 +2285,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "",
@@ -2393,7 +2343,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "      <h4>#left-card</h4>",
@@ -2452,7 +2402,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "      <h4>#left-card</h4>",
@@ -2511,7 +2461,7 @@
       ],
       "challengeSeed": [
         "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">jQuery Playground</h3>",
+        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
         "  <div class=\"row\">",
         "    <div class=\"col-6\">",
         "      <h4>#left-well</h4>",
