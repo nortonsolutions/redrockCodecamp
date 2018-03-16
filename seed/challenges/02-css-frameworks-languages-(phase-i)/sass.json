@@ -267,7 +267,9 @@
         "This is a powerful way to create a grid layout. Now you have twelve options for column widths available as CSS classes.",
         "<hr>",
         "Write a <code>@for</code> directive that takes a variable <code>$j</code> that goes from 1 <b>to</b> 6.",
-        "It should create 5 classes called <code>.text-1</code> to <code>.text-5</code> where each has a <code>font-size</code> set to 10px multiplied by the index."
+        "It should create 5 classes called <code>.text-1</code> to <code>.text-5</code> where each has a <code>font-size</code> set to 10px multiplied by the index.",
+        "Please note that for the @for loop to work in this Workbench, you must use single quotes around the scss string, not back-ticks."
+        
       ],
       "challengeSeed": [
         "<script>",
@@ -319,7 +321,9 @@
         "<hr>",
         "Write an <code>@each</code> directive that goes through a list: <code>blue, black, red</code> and assigns each variable to a <code>.color-bg</code> class, where the \"color\" part changes for each item.",
         "Each class should set the <code>background-color</code> the respective color.",
-        "Note: the #{} syntax in SASS/SCSS is called Interpolation, which you can read more about in Dash."
+        "Note: the #{} syntax in SASS/SCSS is called Interpolation, which you can read more about in Dash.",
+        "Please note that for the @each loop to work in this Workbench, you must use single quotes around the scss string, not back-ticks."
+        
       ],
       "challengeSeed": [
         "<script>",
@@ -372,13 +376,12 @@
         "After setting the CSS rule for <code>width</code>, <code>$x</code> is incremented by 1 to avoid an infinite loop.",
         "<hr>",
         "Use <code>@while</code> to create a series of classes with different <code>font-sizes</code>.",
-        "There should be 10 different classes from <code>text-1</code> to <code>text-10</code>. Then set <code>font-size</code> to 5px multiplied by the current index number. Make sure to avoid an infinite loop!"
+        "There should be 10 different classes from <code>text-1</code> to <code>text-10</code>. Then set <code>font-size</code> to 5px multiplied by the current index number. Make sure to avoid an infinite loop!",
+        "Please note that for the @while loop to work in this Workbench, you must use single quotes around the scss string, not back-ticks."
       ],
       "challengeSeed": [
         "<script>",
-        "  var scss = `",
-        "  // change this code",
-        "  `;",
+        "  var scss = 'change this code';",
         "  var css = Sass.compile(scss);",
         "  document.getElementsByTagName('style')[0].innerHTML=css;",
         "</script>",
