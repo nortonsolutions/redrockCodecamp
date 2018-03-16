@@ -42,7 +42,7 @@
         "Bootstrap will figure out how wide your screen is and respond by resizing your HTML elements - hence the name <code>Responsive Design</code>.",
         "With responsive design, there is no need to design a mobile version of your website. It will look good on devices with screens of any width.",
         "You can add Bootstrap to any app by adding the following code to the top of your HTML:",
-        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/3.3.7/css/bootstrap.css\"/&#62;</code>",
+        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css\"/&#62;</code>",
         "In this case, we've already added it for you to this page behind the scenes. Note that using either <code>></code> or <code>/></code> to close the <code>link</code> tag is acceptable.",
         "To get started, we should nest all of our HTML (except the <code>link</code> tag and the <code>style</code> element) in a <code>div</code> element with the class <code>container-fluid</code>."
       ],
@@ -117,7 +117,7 @@
             "Bootstrap determina qué tan ancha es la pantalla y adapta correspondientemente el tamaño de tus elementos HTML - por eso es que se llama <code>Diseño adaptativo</code> (responsive design).",
             "Con diseño adaptativo, no hay necesidad de diseñar una versión móvil para tu sitio web. Se verá bien en dispositivos con pantallas de cualquier tamaño.",
             "Puedes agregar Bootstrap a cualquier aplicación simplemente incluyendo el siguiente código al inicio de tu HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/3.3.7/css/bootstrap.css\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css\"/&#62;</code>",
             "En este caso, lo hemos agregado a esta página por ti.",
             "Para iniciar, debemos anidar todo nuestro HTML en un elemento <code>div</code> con la clase <code>container-fluid</code>."
           ]
@@ -129,7 +129,7 @@
             "Bootstrap saura reconnaître la largeur de notre écran et s'y adapter en redimensionnant les éléments HTML - d'où le nom <code>Responsive Design</code> (design adaptatif).",
             "Avec le design responsive, il n'y a pas besoin de créer de version mobile de votre site. Il restera bien sur tous les appareils quelle que soit la taille de leurs écrans.",
             "Vous pouvez ajouter Bootstrap à n'importe quelle application simplement en incluant le code suivant en haut de votre HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/3.3.7/css/bootstrap.css\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css\"/&#62;</code>",
             "Ici, nous l'avons déjà ajouté à la page pour vous dans l'arrière-boutique.",
             "Pour commencer, nous devons envelopper nos éléments HTML dans un élément <code>div</code> possédant la classe <code>container-fluid</code>"
           ]

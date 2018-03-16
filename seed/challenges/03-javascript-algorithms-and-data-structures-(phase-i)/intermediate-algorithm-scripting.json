@@ -1,6 +1,6 @@
 {
   "name": "Intermediate Algorithm Scripting",
-  "order": 8,
+  "order": 9,
   "time": "50 hours",
   "helpRoom": "HelpJavaScript",
   "challenges": [
@@ -458,7 +458,7 @@
           "title": "Coupler les bases d'ADN",
           "description": [
             "Une base d'ADN a perdu sa paire. Assemble chaque paire de caractères et renvoie les résultats dans un second tableau.",
-            "Les <a href=\"https://fr.wikipedia.org/wiki/Paire_de_bases\" target=\"_blank\">paires de bases</a> sont des paires d'AT et CG. Associe l'élement manquant au caractère donné.",
+            "Les <a href=\"http://fr.wikipedia.org/wiki/Paire_de_bases\" target=\"_blank\">paires de bases</a> sont des paires d'AT et CG. Associe l'élement manquant au caractère donné.",
             "Renvoie le caractère donné comme premier élément de chaque tableau.",
             "Par exemple, pour GCG, il faut renvoyer [[\"G\", \"C\"], [\"C\",\"G\"],[\"G\", \"C\"]]",
             "Chaque caractère et sa paire sont couplées dans un tableau, et tous les tableaux sont groupés dans un tableau.",
@@ -1199,7 +1199,7 @@
           "description": [
             "Retorne uma nova matriz que transforma a altitude média do elemento em seu período orbital.",
             "A matriz vai conter objetos no formato <code>{name: 'name', avgAlt: avgAlt}</code>.",
-            "Você pode ler sobre período orbital <a href=\"https://pt.wikipedia.org/wiki/Per%C3%ADodo_orbital\" target='_blank'>na Wikipedia</a>.",
+            "Você pode ler sobre período orbital <a href=\"http://pt.wikipedia.org/wiki/Per%C3%ADodo_orbital\" target='_blank'>na Wikipedia</a>.",
             "Os valores devem ser arredondados para número inteiro mais próximo. O corpe sendo orbitado é a Terra.",
             "O raio da terra é 6367.4447 quilômetros, e o valor GM da terra é 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
             "Lembre-se de usar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Ler-Procurar-Perguntar</a> se você ficar preso. Tente programar em par. Escreva seu próprio código."
