@@ -155,7 +155,7 @@
         "Reverse the provided string.",
         "You may need to turn the string into an array before you can reverse it.",
         "Your result must be a string.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function reverseString(str) {",
@@ -212,7 +212,7 @@
         "Factorials are often represented with the shorthand notation <code>n!</code>",
         "For example: <code>5! = 1 * 2 * 3 * 4 * 5 = 120</code>",
         "Only integers greater than or equal to zero will be supplied to the function.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function factorialize(num) {",
@@ -266,7 +266,7 @@
       "description": [
         "Return the length of the longest word in the provided sentence.",
         "Your response should be a number.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function findLongestWordLength(str) {",
@@ -318,7 +318,7 @@
       "description": [
         "Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.",
         "Remember, you can iterate through an array with a simple for loop, and access each member with array syntax <code>arr[i]</code>.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function largestOfFour(arr) {",
@@ -369,7 +369,7 @@
       "description": [
         "Check if a string (first argument, <code>str</code>) ends with the given target string (second argument, <code>target</code>).",
         "This challenge <em>can</em> be solved with the <code>.endsWith()</code> method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function confirmEnding(str, target) {",
@@ -426,7 +426,7 @@
       "title": "Repeat a String Repeat a String",
       "description": [
         "Repeat a given string <code>str</code> (first argument) for <code>num</code> times (second argument). Return an empty string if <code>num</code> is not a positive number.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function repeatStringNumTimes(str, num) {",
@@ -476,7 +476,7 @@
       "title": "Truncate a String",
       "description": [
         "Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a <code>...</code> ending.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function truncateString(str, num) {",
@@ -525,7 +525,7 @@
       "title": "Finders Keepers",
       "description": [
         "Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function findElement(arr, func) {",
@@ -578,7 +578,7 @@
       "description": [
         "Check if a value is classified as a boolean primitive. Return true or false.",
         "Boolean primitives are true and false.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function booWho(bool) {",
@@ -642,7 +642,7 @@
       "description": [
         "Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.",
         "For the purpose of this exercise, you should also capitalize connecting words like \"the\" and \"of\".",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function titleCase(str) {",
@@ -693,7 +693,7 @@
         "Use the array methods <code>slice</code> and <code>splice</code> to copy each element of the first array into the second array, in order.",
         "Begin inserting elements at index <code>n</code> of the second array.",
         "Return the resulting array. The input arrays should remain the same after the function runs.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function frankenSplice(arr1, arr2, n) {",
@@ -745,7 +745,7 @@
         "Remove all falsy values from an array.",
         "Falsy values in JavaScript are <code>false</code>, <code>null</code>, <code>0</code>, <code>\"\"</code>, <code>undefined</code>, and <code>NaN</code>.",
         "Hint: Try converting each value to a Boolean.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function bouncer(arr) {",
@@ -798,7 +798,7 @@
         "Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.",
         "For example, <code>getIndexToIns([1,2,3,4], 1.5)</code> should return <code>1</code> because it is greater than <code>1</code> (index 0), but less than <code>2</code> (index 1).",
         "Likewise, <code>getIndexToIns([20,3,5], 19)</code> should return <code>2</code> because once the array has been sorted it will look like <code>[3,5,20]</code> and <code>19</code> is less than <code>20</code> (index 2) and greater than <code>5</code> (index 1).",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function getIndexToIns(arr, num) {",
@@ -864,7 +864,7 @@
         "For example, <code>[\"hello\", \"Hello\"]</code>, should return true because all of the letters in the second string are present in the first, ignoring case.",
         "The arguments <code>[\"hello\", \"hey\"]</code> should return false because the string \"hello\" does not contain a \"y\".",
         "Lastly, <code>[\"Alien\", \"line\"]</code>, should return true because all of the letters in \"line\" are present in \"Alien\".",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function mutation(arr) {",
@@ -921,7 +921,7 @@
       "title": "Chunky Monkey",
       "description": [
         "Write a function that splits an array (first argument) into groups the length of <code>size</code> (second argument) and returns them as a two-dimensional array.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function chunkArrayInGroups(arr, size) {",

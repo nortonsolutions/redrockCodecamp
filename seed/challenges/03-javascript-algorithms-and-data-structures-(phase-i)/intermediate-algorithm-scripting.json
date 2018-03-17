@@ -10,7 +10,7 @@
       "description": [
         "We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them.",
         "The lowest number will not always come first.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function sumAll(arr) {",
@@ -66,7 +66,7 @@
       "title": "Diff Two Arrays",
       "description": [
         "Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code.",
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code.",
         "<strong>Note</strong><br>You can return the array with its elements in any order."
       ],
       "challengeSeed": [
@@ -131,7 +131,7 @@
       "description": [
         "You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.",
         "<strong>Note</strong><br> You have to use the <code>arguments</code> object.",
-        "Remember to use <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function destroyer(arr) {",
@@ -183,7 +183,7 @@
       "description": [
         "Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.",
         "For example, if the first argument is <code>[{ first: \"Romeo\", last: \"Montague\" }, { first: \"Mercutio\", last: null }, { first: \"Tybalt\", last: \"Capulet\" }]</code>, and the second argument is <code>{ last: \"Capulet\" }</code>, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
         "function whatIsInAName(collection, source) {",
@@ -241,7 +241,7 @@
       "title": "Spinal Tap Case",
       "description": [
         "Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function spinalCase(str) {",
@@ -294,7 +294,7 @@
         "<a href=\"http://en.wikipedia.org/wiki/Pig_Latin\" target=\"_blank\">Pig Latin</a> takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an \"ay\".",
         "If a word begins with a vowel you just add \"way\" to the end.",
         "Input strings are guaranteed to be English words in all lowercase.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function translatePigLatin(str) {",
@@ -357,7 +357,7 @@
         "Second argument is the word that you will be replacing (before).",
         "Third argument is what you will be replacing the second argument with (after).",
         "<strong>Note</strong><br> Preserve the case of the first character in the original word when you are replacing it. For example if you mean to replace the word \"Book\" with the word \"dog\", it should be replaced as \"Dog\"",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function myReplace(str, before, after) {",
@@ -418,7 +418,7 @@
         "Return the provided character as the first element in each array.",
         "For example, for the input GCG, return [[\"G\", \"C\"], [\"C\",\"G\"],[\"G\", \"C\"]]",
         "The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function pairElement(str) {",
@@ -473,7 +473,7 @@
       "description": [
         "Find the missing letter in the passed letter range and return it.",
         "If all letters are present in the range, return undefined.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function fearNotLetter(str) {",
@@ -526,7 +526,7 @@
         "In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.",
         "The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.",
         "Check the assertion tests for examples.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function uniteUnique(arr) {",
@@ -579,7 +579,7 @@
       "title": "Convert HTML Entities",
       "description": [
         "Convert the characters <code>&</code>, <code><</code>, <code>></code>, <code>\"</code> (double quote), and <code>'</code> (apostrophe), in a string to their corresponding HTML entities.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function convertHTML(str) {",
@@ -633,7 +633,7 @@
         "Given a positive integer <code>num</code>, return the sum of all odd Fibonacci numbers that are less than or equal to <code>num</code>.",
         "The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.",
         "For example, <code>sumFibs(10)</code> should return <code>10</code> because all odd Fibonacci numbers less than or equal to <code>10</code> are 1, 1, 3, and 5.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function sumFibs(num) {",
@@ -687,7 +687,7 @@
         "Sum all the prime numbers up to and including the provided number.",
         "A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.",
         "The provided number may not be a prime.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function sumPrimes(num) {",
@@ -739,7 +739,7 @@
         "Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.",
         "The range will be an array of two numbers that will not necessarily be in numerical order.",
         "For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers <em>between</em> 1 and 3. The answer here would be 6.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function smallestCommons(arr) {",
@@ -793,7 +793,7 @@
       "description": [
         "Given the array <code>arr</code>, iterate through and remove each element starting from the first element (the 0 index) until the function <code>func</code> returns <code>true</code> when the iterated element is passed through it.",
         "Then return the rest of the array once the condition is satisfied, otherwise, <code>arr</code> should be returned as an empty array.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function dropElements(arr, func) {",
@@ -846,7 +846,7 @@
       "title": "Steamroller",
       "description": [
         "Flatten a nested array. You must account for varying levels of nesting.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function steamrollArray(arr) {",
@@ -894,7 +894,7 @@
       "description": [
         "Return an English translated sentence of the passed binary string.",
         "The binary string will be space separated.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function binaryAgent(str) {",
@@ -944,7 +944,7 @@
         "In other words, you are given an array collection of objects. The predicate <code>pre</code> will be an object property and you need to return <code>true</code> if its value is <code>truthy</code>. Otherwise, return <code>false</code>.",
         "In JavaScript, <code>truthy</code> values are values that translate to <code>true</code> when evaluated in a Boolean context.",
         "Remember, you can access object properties through either dot notation or <code>[]</code> notation.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function truthCheck(collection, pre) {",
@@ -1004,7 +1004,7 @@
         "<code>var sumTwoAnd = addTogether(2);</code>",
         "<code>sumTwoAnd(3)</code> returns <code>5</code>.",
         "If either argument isn't a valid number, return undefined.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function addTogether() {",
@@ -1066,7 +1066,7 @@
         "Run the tests to see the expected output for each method.",
         "The methods that take an argument must accept only one argument and it has to be a string.",
         "These methods must be the only available means of interacting with the object.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "var Person = function(firstAndLast) {",
@@ -1148,7 +1148,7 @@
         "You can read about orbital periods <a href=\"http://en.wikipedia.org/wiki/Orbital_period\" target='_blank'>on Wikipedia</a>.",
         "The values should be rounded to the nearest whole number. The body being orbited is Earth.",
         "The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
-        "Remember to use <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
         "function orbitalPeriod(arr) {",
@@ -1180,7 +1180,7 @@
             "Puedes leer acerca de períodos orbitales <a href=\"http://en.wikipedia.org/wiki/Orbital_period\" target='_blank'>en Wikipedia</a>.",
             "Los valores deben estar redondeados al número entero más próximo. El cuerpo orbitado es la Tierra",
             "El radio de la Tierra es 6367.4447 kilómetros, y el valor GM del planeta es de 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
-            "Recuerda utilizar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Read-Search-Ask</a> si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
+            "Recuerda utilizar the Read-Search-Ask methodology si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
           ]
         },
         "it": {
