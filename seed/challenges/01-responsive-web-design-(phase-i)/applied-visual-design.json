@@ -2744,6 +2744,40 @@
       "releasedOn": "Feb 17, 2017",
       "challengeType": 0,
       "translations": {}
+    },
+    {
+      "id": "b082ae802ba6cfa49b64e3bb",
+      "title": "CSS Resets",
+      "description": [
+        [
+          "",
+          "",
+          "Every web browser has its own default styles for different elements. How Google Chrome renders headings, paragraphs, lists, and so forth may be different from how Internet Explorer does. To ensure cross-browser compatibility, CSS resets have become widely used.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "CSS resets take every common HTML element with a predefined style and provide one unified style for all browsers. These resets generally involve removing any sizing, margins, paddings, or additional styles and toning these values down.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Because CSS cascades from top to bottom our reset needs to be at the very top of our style sheet.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "To see a very simple css reset <a href='http://cc0304/assets/css/simple-css-reset.css' target='_blank'>click here</a>.",
+          ""
+        ]
+      ],
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7
     }
   ]
 }

@@ -35,6 +35,43 @@
       "translations": {}
     },
     {
+      "id": "fc1673702ba8cfa49b64e3bb",
+      "title": "Bootstrap Reboot for CSS Reset",
+      "description": [
+        [
+          "",
+          "",
+          "Bootstrap uses Reboot to reset CSS for all browsers in order to create a simple baseline to build upon.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Reboot builds upon Normalize.css (another standard CSS reset), providing many HTML elements with somewhat opinionated styles using only element selectors.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "You can read more about Reboot by reading <a href='http://egranaryserver:40080/codecamp/getbootstrap.com/docs/4.0/content/reboot/index.html' target='_blank'>the documentation here</a>.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "To see Bootstrap Reboot <a href='http://cc0304/assets/js/bootstrap/4.0.0.-beta.3/css/bootstrap-reboot.css' target='_blank'>click here</a>",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false,
+      "translations": {}
+    },
+    {
       "id": "bad87fee1348bd9acde08712",
       "title": "Use Responsive Design with Bootstrap Fluid Containers",
       "description": [

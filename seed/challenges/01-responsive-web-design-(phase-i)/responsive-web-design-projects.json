@@ -398,29 +398,6 @@
       "translations": {}
     },
     {
-      "id": "146858fbb5d0cbaa271ddd56",
-      "title": "Build a Pre Designed Page (osmo)",
-      "description": [
-        "Build this pre designed page.",
-        "The page must match <strong>pixel for pixel</strong> as close as possible.",
-        "<strong>Technology Stack:</strong> 1. Use only HTML and CSS to complete this project, do NOT use any libraries.",
-        "<a href=\"http://cc0304/assets/workbench-projects/osmo/osmo.png\" target=\"_blank\"><div><strong>Click</strong> to view full size image.</div><img src=\"http://cc0304/assets/workbench-projects/osmo/osmo.png\" style=\"width:500px;\"></a>",
-        "For all the assets need to build this site <a href=\"http://cc0304/assets/workbench-projects/osmo\" target=\"_blank\">click here</a>.",
-        "The font used is sans-serif.",
-        "Buttons should be done with css NOT images.",
-        "Remember to use the Research-Ask method if you get stuck."
-      ],
-      "releasedOn": "February 15, 2018",
-      "challengeSeed": [
-        "cDIfODs"
-      ],
-      "tests": [],
-      "type": "zipline",
-      "isRequired": true,
-      "challengeType": 3,
-      "translations": {}
-    },
-    {
       "id": "b5e6c5702253317885744024",
       "title": "Build a Pre Designed Page (blog)",
       "description": [
