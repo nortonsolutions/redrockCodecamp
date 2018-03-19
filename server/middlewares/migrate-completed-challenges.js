@@ -5,6 +5,9 @@ import debug from 'debug';
 import idMap from '../utils/bad-id-map';
 
 const log = debug('freecc:migrate');
+
+// NOTE: The bellow comment is to help locate an actual definition for the different type of challenge types through a find text search.
+// challengetypes defined, challengetype defined, enum challengetype, enum challengetypes
 const challengeTypes = {
   html: 0,
   js: 1,
