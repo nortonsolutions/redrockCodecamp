@@ -19,6 +19,7 @@ export default function SolutionInput({ solution, placeholder }) {
         name='solution'
         placeholder={ placeholder }
         type='url'
+        required
         { ...DOMOnlyProps(solution) }
       />
       {
