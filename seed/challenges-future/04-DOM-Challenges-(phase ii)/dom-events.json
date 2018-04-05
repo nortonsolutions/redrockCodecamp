@@ -1,0 +1,65 @@
+{
+    "name": "DOM Events",
+    "order": 2,
+    "time": "500 hours",
+    "helpRoom": "Help",
+    "challenges": [
+        {
+            "id": "84ac98d02700db21189de995",
+            "title": "Introduction to the DOM Challenges",
+            "description": [
+                [
+                    "",
+                    "",
+                    "The Document Object Model (DOM) sets up an easy way to manage events as they occur while the webpage is being loaded, opened or browsed."
+                ],
+                [
+                    "/images/listOfHtmlEvents.png",
+                    "",
+                    "Here is a list of all the events that occur while a user is browsing your website:",
+                    ""
+                ],
+                [
+                    "/images/depricatedEvents.png",
+                    "THE DARK AGES OF EVENT HANDLING",
+                    "While we would never use this way of handling events we will put it here just so that you will be aware both of how far we've come, and so you'll recognize it if you ever see older code, DONT USE THIS WAY OF HANDLING EVENT, JUST BE AWARE THAT YOU MAY SEE IT IN OLDER CODE",
+                    ""
+                ],
+                [
+                    "/images/traditionalEvents.png",
+                    "THE TRADITIONAL WAY OF EVENT HANDLING",
+                    "As can be expected the traditional way of handling events was a step in the right direction, it produced less bugs and provided easier ways of managing events.",
+                    ""
+                ],
+                [
+                    "/images/DOMEvents.png",
+                    "THE NEW WAY OF EVENT HANDLING",
+                    "This is the way of handling events through the DOM, we will expect this to be the way in which events are handled in your code for this section.",
+                    ""
+                ]
+            ],
+            "releasedOn": "",
+            "challengeSeed": [],
+            "tests": [],
+            "type": "Waypoint",
+            "challengeType": 7,
+            "isRequired": false,
+            "translations": {}
+        },
+        {
+            "id": "84ee88402700db21189de995",
+            "title": "Challenge 1",
+            "description": [
+                "this challenge has no description yet."
+            ],
+            "challengeSeed": [
+                "<html>"
+            ],
+            "tests": [],
+            "type": "waypoint",
+            "isRequired": true,
+            "challengeType": 0,
+            "translations": {}
+        }
+    ]
+}
