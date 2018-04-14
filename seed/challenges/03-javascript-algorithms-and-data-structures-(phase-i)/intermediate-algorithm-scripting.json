@@ -294,7 +294,8 @@
         "<a href=\"http://en.wikipedia.org/wiki/Pig_Latin\" target=\"_blank\">Pig Latin</a> takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an \"ay\".",
         "If a word begins with a vowel you just add \"way\" to the end.",
         "Input strings are guaranteed to be English words in all lowercase.",
-        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
+        "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code.",
+        "On words that have no vowel (\"Y\" isn't considered a vowel for the purposes of this challenge) you should return the word with the suffix \"ay\"."
       ],
       "challengeSeed": [
         "function translatePigLatin(str) {",
