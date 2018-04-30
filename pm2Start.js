@@ -5,12 +5,12 @@ var moment = require('moment-timezone');
 var _ = require('lodash');
 
 var instances = process.env.INSTANCES || 1;
-var serverName = process.env.SERVER_NAME || 'server';
+var pm2AppName = process.env.PM2_APP_NAME || 'app';
 var maxMemory = process.env.MAX_MEMORY || '390M';
 
 pm2.connect(function() {
   pm2.start({
-    name: serverName,
+    name: pm2AppName,
     script: 'server/production-start.js',
     'exec_mode': 'cluster',
     instances: instances,
@@ -19,7 +19,7 @@ pm2.connect(function() {
   }, function() {
     console.log(
       'pm2 started %s with %s instances at %s max memory',
-      serverName,
+      pm2AppName,
       instances,
       maxMemory
     );
