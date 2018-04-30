@@ -70,6 +70,36 @@
       }
     },
     {
+      "id": "bad87fee1348bd9aedf0887b",
+      "title": "**Commit to checkout HTML & CSS",
+      "description": [
+        [
+          "",
+          "",
+          "For this course we will be using Jon Duckett's book \"HTML & CSS\", you will need to check out a copy of this book from the tutor's office room 2054C.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "As you work through the challenges in this section you will be expected to read certain sections from your book. We will use challenges such as this one to have you commit to reading and having read those chapters.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Please commit to reading chapters 1 and 2 of HTML & CSS before you reach the challenge \"Add Images to Your Website\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
       "id": "bd7123c8c441eddfaeb5bdef",
       "title": "Say Hello to HTML Elements",
       "description": [
@@ -602,6 +632,42 @@
           ]
         }
       }
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887c",
+      "title": "**Commit to having read HTML & CSS chapters 1 & 2",
+      "description": [
+        [
+          "",
+          "",
+          "At this point you should have finished reading chapters 1 and 2 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887d",
+      "title": "**Commit to read HTML & CSS chapters 3-6",
+      "description": [
+        [
+          "",
+          "",
+          "The following sections cover material that will be covered in chapters 3-6 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you reach the challenge \"Create a Form Element\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
     },
     {
       "id": "bad87fee1348bd9aedf08812",
@@ -1416,6 +1482,42 @@
       }
     },
     {
+      "id": "bad87fee1348bd9aedf0887e",
+      "title": "**Commit to having read HTML & CSS chapters 3 through 6",
+      "description": [
+        [
+          "",
+          "",
+          "At this point you should have finished reading chapters 3 through 6 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these four chapters.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887f",
+      "title": "**Commit to read HTML & CSS chapters 7 & 8",
+      "description": [
+        [
+          "",
+          "",
+          "The following sections cover material that will be covered in chapters 7 & 8 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you move on from \"Basic HTML and HTML5\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
       "id": "bad87fee1348bd9aede08830",
       "title": "Create a Form Element",
       "description": [
@@ -2152,6 +2254,24 @@
         }
       },
       "ru": {}
+    },
+    {
+      "id": "bad87fee1348bd9aedf0886a",
+      "title": "**Commit to having read HTML & CSS chapters 7 & 8",
+      "description": [
+        [
+          "",
+          "",
+          "At this point you should have finished reading chapters 7 and 8 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
     }
   ]
 }

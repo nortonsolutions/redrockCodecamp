@@ -22,6 +22,36 @@
       "translations": {}
     },
     {
+      "id": "bad87fee1348bd9aedf0881b",
+      "title": "**Commit to checkout Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "For this part of the course we will be using Jon Duckett's book \"Javascript & JQuery\", you will need to check out a copy of this book from the tutor's office room 2054C.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "As you work through the challenges in this section you will be expected to read certain sections from your book. We will use challenges such as this one to have you commit to reading and having read those chapters.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Please commit to reading chapters 1 & 2 of Javascript & JQuery before you reach the challenge \"Word Blanks\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
       "id": "bd7123c9c441eddfaeb4bdef",
       "title": "Comment Your JavaScript Code",
       "description": [
@@ -705,7 +735,7 @@
         "assert(quotient === 2.2, 'message: The variable <code>quotient</code> should equal <code>2.2</code>');",
         "assert(/4\\.40*\\s*\\/\\s*2\\.*0*/.test(code), 'message: You should use the <code>/</code> operator to divide 4.4 by 2');",
         "assert(code.match(/quotient/g).length === 1, 'message: The quotient variable should only be assigned once');"
-       ],
+      ],
       "type": "waypoint",
       "challengeType": 1,
       "translations": {
@@ -1689,6 +1719,42 @@
           ]
         }
       }
+    },
+    {
+      "id": "bad87fee1348bd9aedf0882b",
+      "title": "**Commit to Having Read Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "Please commit that you have finished reading chapters 1 & 2 of Javascript & JQuery",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0883b",
+      "title": "**Commit to Read Chapter 3 of Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "Please commit to reading chapter 3 of Javascript & JQuery before you reach the challenge \"Understanding Boolean Values\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
     },
     {
       "id": "56533eb9ac21ba0edf2244bb",
@@ -2830,6 +2896,42 @@
           ]
         }
       }
+    },
+    {
+      "id": "bad87fee1348bd9aedf0884b",
+      "title": "**Commit to Having Read Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "Please commit that you have finished reading chapter 3 of Javascript & JQuery",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0885b",
+      "title": "**Commit to Read Chapter 4 of Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "Please commit to reading chapter 4 of Javascript & JQuery before you reach the end of the Basic JavaScript section",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
     },
     {
       "id": "bd7123c9c441eddfaeb5bdef",
@@ -5441,8 +5543,7 @@
       ],
       "type": "waypoint",
       "challengeType": 1,
-      "translations": {
-      }
+      "translations": {}
     },
     {
       "id": "5688e62ea601b2482ff8422b",

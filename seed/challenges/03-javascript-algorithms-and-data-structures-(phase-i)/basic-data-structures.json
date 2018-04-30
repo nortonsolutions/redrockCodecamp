@@ -5,6 +5,42 @@
   "helpRoom": "Help",
   "challenges": [
     {
+      "id": "bad87fee1348bd9aedf0888b",
+      "title": "Commit to Having Read Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "The Information Required For This Section Comes From Chapter 3 Of Jon Duckett's \"JAVASCRIPT & JQUERY\". Please commit that you have finished reading this chapter.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0883b",
+      "title": "Commit to Read Chapter 3 of Javascript & JQuery",
+      "description": [
+        [
+          "",
+          "",
+          "Please commit to reading chapter3 of Javascript & JQuery before you reach the challenge \"Understanding Boolean Values\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
       "id": "587d7dac367417b2b2516af5",
       "title": "Introduction to Arrays",
       "description": [
