@@ -4,18 +4,62 @@
 	"time": "5 hours",
 	"helpRoom": "Help",
 	"challenges": [
+    {
+      "id": "93ab5ad0548e89eca908d30d",
+      "title": "***Commit to <strong>not</strong> solve other students problems, share code or give away answers***",
+      "description": [
+        [
+          "",
+          "",
+          "Computer programming requires excelent problem solving skills. Working through problems with the help of documentation is a daily activity for all programmers.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Students should never give away a solution to a problem or share code that completes a problem.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If a student is still unable to solve a problem, please, refer them to the tutor.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
+          "#"
+        ]
+      ],
+      "releasedOn": "May 10, 2018",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
 	  {
 		"id": "d64f586053cf412802415ee2",
 		"title": "Electronic Life",
 		"description": [
-			"Build a the Project: Electronic Life from Chapter 7 of Eloquent JavaScript. <a src='http://codecamp.edu/educationMaterials/booksMaterials/coursework%20(required%20reading)/03-Eloquent%20Javascript%20-%20Haverbeke/Eloquent%20Javascript%20-%20Haverbeke.pdf' target='_blank'>Click here</a>.",
-			"<strong>Technology Stack:</strong> 1. Use only JavaScript (no DOM) and HTML (to host the script) to complete this project, do NOT use any libraries (except the animateworld.js).",
-		  "The <a src='http://codecamp.edu/educationMaterials/projects/workbenchProjects/eletronic-life/animateworld.js' target='_blank'>animateworld.js</a> script will create the <strong>user interface</strong> in the browser (in a later challenge you will create your own interface).",
+			"Build the <em>Project: Electronic Life</em> from Chapter 7 of <a href='http://codecamp.edu/educationMaterials/booksMaterials/coursework%20(required%20reading)/03-Eloquent%20Javascript%20-%20Haverbeke/Eloquent%20Javascript%20-%20Haverbeke.pdf' target='_blank'><em>Eloquent JavaScript</em></a>.",
+			"<img src='http://codecamp.edu/educationMaterials/projects/workbenchProjects/eletronic-life/electron-life.png'>",
+			"<strong>Technology Stack:</strong> 1. Use only JavaScript (no DOM) and HTML (to host the animateworld.js) to complete this project, do NOT use any libraries (except the animateworld.js).",
+		  "The <a href='http://codecamp.edu/educationMaterials/projects/workbenchProjects/eletronic-life/animateworld.js' target='_blank'>animateworld.js</a> script will create the <strong>user interface</strong> in the browser (in a later challenge you will create your own interface).",
 			"You will need to create a World object with two methods, turn() and toString(), and pass it to the animateworld function in the animateworld.js.",
 			"It is not necessary to complete the exercises at the end of the chapter.",
+			"This project is a simpler version of <a href='http://codecamp.edu/educationMaterials/projects/workbenchProjects/eletronic-life/Conways-Game-of-Life-Wikipedia.html' target='_blank'>Conway's Game of Life</a>.",
 		  "Remember to use the Research-Ask method if you get stuck."
 		],
-		"releasedOn": "February 15, 2018",
+    "releasedOn": "May 10, 2018",
 		"challengeSeed": [
 		  "cDIfODs"
 		],

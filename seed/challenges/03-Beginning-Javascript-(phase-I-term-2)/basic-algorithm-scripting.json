@@ -5,6 +5,24 @@
   "helpRoom": "HelpJavaScript",
   "challenges": [
     {
+      "id": "bad87fee1348bd9aedf0888b",
+      "title": "*Verify to having read Eloquent Javascript ch. 4*",
+      "description": [
+        [
+          "",
+          "",
+          "By clicking below you verify that you have finished reading Eloquent Javascript chapters 4.",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
       "id": "bd7158d2c442eddfbeb5bd1f",
       "title": "Get Set for our Algorithm Challenges",
       "description": [

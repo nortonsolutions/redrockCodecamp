@@ -23,7 +23,7 @@
     },
     {
       "id": "bad87fee1348bd9aedf0881b",
-      "title": "**Commit to checkout and read Eloquent Javascript ch. 1 - 4**",
+      "title": "**Commit to checkout and read Eloquent Javascript ch. 1 - 3**",
       "description": [
         [
           "",
@@ -34,13 +34,7 @@
         [
           "",
           "",
-          "As you work through the challenges in this section you will be expected to read certain chapters from your book.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "By clicking below you commit to reading chapters 1 - 4 of <em>Eloquent JavaScript</em> before you complete the <em>Basic Javascript</em> challenges.",
+          "By clicking below you commit to reading chapters 1 - 3 of <em>Eloquent JavaScript</em> before you complete the <em>Basic Javascript</em> challenges.",
           "#"
         ]
       ],
@@ -1721,42 +1715,6 @@
       }
     },
     {
-      "id": "bad87fee1348bd9aedf0882b",
-      "title": "**Commit to Having Read Javascript & JQuery",
-      "description": [
-        [
-          "",
-          "",
-          "Please commit that you have finished reading chapters 1 & 2 of Javascript & JQuery",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "bad87fee1348bd9aedf0880b",
-      "title": "**Commit to Read Chapter 3 of Javascript & JQuery",
-      "description": [
-        [
-          "",
-          "",
-          "Please commit to reading chapter 3 of Javascript & JQuery before you reach the challenge \"Understanding Boolean Values\"",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
       "id": "56533eb9ac21ba0edf2244bb",
       "title": "Word Blanks",
       "description": [
@@ -2896,42 +2854,6 @@
           ]
         }
       }
-    },
-    {
-      "id": "bad87fee1348bd9aedf0884b",
-      "title": "**Commit to Having Read Javascript & JQuery",
-      "description": [
-        [
-          "",
-          "",
-          "Please commit that you have finished reading chapter 3 of Javascript & JQuery",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "bad87fee1348bd9aedf0885b",
-      "title": "**Commit to Read Chapter 4 of Javascript & JQuery",
-      "description": [
-        [
-          "",
-          "",
-          "Please commit to reading chapter 4 of Javascript & JQuery before you reach the end of the Basic JavaScript section",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     },
     {
       "id": "bd7123c9c441eddfaeb5bdef",
