@@ -23,25 +23,25 @@
     },
     {
       "id": "bad87fee1348bd9aedf0881b",
-      "title": "**Commit to checkout Javascript & JQuery",
+      "title": "**Commit to checkout and read Eloquent Javascript ch. 1 - 4**",
       "description": [
         [
           "",
           "",
-          "For this part of the course we will be using Jon Duckett's book \"Javascript & JQuery\", you will need to check out a copy of this book from the tutor's office room 2054C.",
+          "For this part of the course we will be using <em>Eloquent JavaScript</em> by Marijn Haverbeke, you will need to check out a copy of this book from the tutor's office room 2054C.",
           ""
         ],
         [
           "",
           "",
-          "As you work through the challenges in this section you will be expected to read certain sections from your book. We will use challenges such as this one to have you commit to reading and having read those chapters.",
+          "As you work through the challenges in this section you will be expected to read certain chapters from your book.",
           ""
         ],
         [
           "",
           "",
-          "Please commit to reading chapters 1 & 2 of Javascript & JQuery before you reach the challenge \"Word Blanks\"",
-          ""
+          "By clicking below you commit to reading chapters 1 - 4 of <em>Eloquent JavaScript</em> before you complete the <em>Basic Javascript</em> challenges.",
+          "#"
         ]
       ],
       "releasedOn": "",

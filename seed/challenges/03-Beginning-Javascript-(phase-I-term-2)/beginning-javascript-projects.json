@@ -1,0 +1,30 @@
+{
+	"name": "Beginning Javascript Projects",
+	"order": 6,
+	"time": "5 hours",
+	"helpRoom": "Help",
+	"challenges": [
+	  {
+		"id": "d64f586053cf412802415ee2",
+		"title": "Electronic Life",
+		"description": [
+			"Build a the Project: Electronic Life from Chapter 7 of Eloquent JavaScript. <a src='http://codecamp.edu/educationMaterials/booksMaterials/coursework%20(required%20reading)/03-Eloquent%20Javascript%20-%20Haverbeke/Eloquent%20Javascript%20-%20Haverbeke.pdf' target='_blank'>Click here</a>.",
+			"<strong>Technology Stack:</strong> 1. Use only JavaScript (no DOM) and HTML (to host the script) to complete this project, do NOT use any libraries (except the animateworld.js).",
+		  "The <a src='http://codecamp.edu/educationMaterials/projects/workbenchProjects/eletronic-life/animateworld.js' target='_blank'>animateworld.js</a> script will create the <strong>user interface</strong> in the browser (in a later challenge you will create your own interface).",
+			"You will need to create a World object with two methods, turn() and toString(), and pass it to the animateworld function in the animateworld.js.",
+			"It is not necessary to complete the exercises at the end of the chapter.",
+		  "Remember to use the Research-Ask method if you get stuck."
+		],
+		"releasedOn": "February 15, 2018",
+		"challengeSeed": [
+		  "cDIfODs"
+		],
+		"tests": [],
+		"type": "zipline",
+		"isRequired": true,
+		"challengeType": 3,
+		"translations": {}
+	  }
+	]
+  }
+  
