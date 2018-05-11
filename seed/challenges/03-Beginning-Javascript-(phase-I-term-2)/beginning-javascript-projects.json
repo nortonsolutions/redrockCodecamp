@@ -6,7 +6,7 @@
 	"challenges": [
     {
       "id": "93ab5ad0548e89eca908d30d",
-      "title": "***Commit to not solve other students problems, share code or give away answers***",
+      "title": "***Commit to not solve other students problems, share code or give away answers",
       "description": [
         [
           "",
@@ -17,13 +17,13 @@
         [
           "",
           "",
-          "When students give help it should only be to point out where in the documentation, books or other materials that they can learn about a concept.",
+          "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
           ""
         ],
         [
           "",
           "",
-          "Students should never give away a solution to a problem or share code that completes a problem.<br> Not even to small problems.",
+          "Students should never give away a solution to a problem or share code that completes a problem.",
           ""
         ],
         [
@@ -35,7 +35,19 @@
         [
           "",
           "",
-          "By clicking below you commit <strong>not</strong> to solve other students problems, share code or give away answers.",
+          "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
           "#"
         ]
       ],
@@ -44,7 +56,7 @@
       "tests": [],
       "type": "Waypoint",
       "challengeType": 7,
-      "isRequired": false
+      "isRequired": true
     },
 	  {
 		"id": "d64f586053cf412802415ee2",
@@ -61,7 +73,7 @@
 		],
     "releasedOn": "May 10, 2018",
 		"challengeSeed": [
-		  "cDIfODs"
+		  "DJjkBnL"
 		],
 		"tests": [],
 		"type": "zipline",

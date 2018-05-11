@@ -25,7 +25,7 @@
     },
     {
       "id": "bad87fee1348bd9aedf0883b",
-      "title": "**Commit to read Eloquent Javascript ch. 4**",
+      "title": "**Commit to read Eloquent Javascript ch. 4",
       "description": [
         [
           "",
@@ -39,7 +39,7 @@
       "tests": [],
       "type": "Waypoint",
       "challengeType": 7,
-      "isRequired": false
+      "isRequired": true
     },
     {
       "id": "587d7dac367417b2b2512b73",
