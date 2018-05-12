@@ -23,7 +23,7 @@
     },
     {
       "id": "bad87fee1348bd9aedf0881b",
-      "title": "**Commit to checkout and read Eloquent Javascript ch. 1 - 3**",
+      "title": "**Commit to checkout and read Eloquent Javascript ch. 1 - 3",
       "description": [
         [
           "",
@@ -43,7 +43,7 @@
       "tests": [],
       "type": "Waypoint",
       "challengeType": 7,
-      "isRequired": false
+      "isRequired": true
     },
     {
       "id": "bd7123c9c441eddfaeb4bdef",

@@ -1,12 +1,12 @@
 {
-    "name": "Source Control, DOM and Require.js",
+    "name": "Source Control, DOM and Require Projects",
     "order": 5,
     "time": "5 hours",
     "helpRoom": "Help",
     "challenges": [
         {
           "id": "135344b054934be52b430443",
-          "title": "***Commit to <strong>not</strong> solve other students problems, share code or give away answers***",
+          "title": "***Commit to not solve other students problems, share code or give away answers",
           "description": [
             [
               "",
@@ -35,6 +35,18 @@
             [
               "",
               "",
+              "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
+              ""
+            ],
+            [
+              "",
+              "",
+              "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
+              ""
+            ],
+            [
+              "",
+              "",
               "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
               "#"
             ]
@@ -44,21 +56,39 @@
           "tests": [],
           "type": "Waypoint",
           "challengeType": 7,
-          "isRequired": false
+          "isRequired": true
         },
           {
             "id": "524027405490e943fc504e97",
             "title": "Egg Popup",
             "description": [
                 "Build the Egg Popup as seen in the bellow image.",
-                "<img src='http://codecamp.edu/educationMaterials/projects/workbenchProjects/eletronic-life/electron-life.png'>",
+                "TBD",
                 "<strong>Technology Stack:</strong> 1. Use only HTML, CSS, JavaScript, and DOM, do NOT use any libraries.",
-                "The images can be found and linked to here <a href='http://codecamp.edu/educationMaterials/projects/workbenchProjects/egg-popup' target='_blank'>animateworld.js</a> script will create the <strong>user interface</strong> in the browser (in a later challenge you will create your own interface).",
+                "The images can be found and linked to <a href='http://codecamp.edu/educationMaterials/projects/workbenchProjects/egg-popup' target='_blank'>here</a>.",
                 "Remember to use the Research-Ask method if you get stuck."
             ],
             "releasedOn": "May 10, 2018",
             "challengeSeed": [
-              "cDIfODs"
+              "LPv1rfn"
+            ],
+            "tests": [],
+            "type": "zipline",
+            "isRequired": true,
+            "challengeType": 3,
+            "translations": {}
+          },
+          {
+            "id": "34ec0e8055204dd99e3673fd",
+            "title": "Bejeweled",
+            "description": [
+                "TBD",
+                "<strong>Technology Stack:</strong> 1. Use only HTML, CSS, JavaScript, and DOM, do NOT use any libraries or images.",
+                "Remember to use the Research-Ask method if you get stuck."
+            ],
+            "releasedOn": "May 10, 2018",
+            "challengeSeed": [
+              "vYnSTNs"
             ],
             "tests": [],
             "type": "zipline",

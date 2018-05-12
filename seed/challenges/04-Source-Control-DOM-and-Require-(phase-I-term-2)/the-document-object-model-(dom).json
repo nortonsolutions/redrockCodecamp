@@ -40,7 +40,7 @@
         },
         {
           "id": "c72f1c10548fc9cce4720605",
-          "title": "**Commit to read Eloquent Javascript ch. 12 - 14**",
+          "title": "**Commit to read Eloquent Javascript ch. 12 - 14",
           "description": [
             [
               "",
@@ -54,7 +54,7 @@
           "tests": [],
           "type": "Waypoint",
           "challengeType": 7,
-          "isRequired": false
+          "isRequired": true
         },
         {
             "id": "87ee88402700db21189de995",
@@ -115,7 +115,6 @@
                 "assert(el.id == 'two', 'message: var el should capture the second list item');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -172,7 +171,6 @@
                 "assert($(\"li[id='two']\").hasClass(\"on-sale\"), 'message: the second element \"bread\" should have the class <code>on-sale</code>');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -231,7 +229,6 @@
                 "assert(!code.match(/on-sale\\s+near-expiration/) && !code.match(/near-expiration\\s+on-sale/), 'message: Your code should add to the classes the element already has.');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -300,7 +297,6 @@
                 "assert(!$(\"li[id='one']\").hasClass(\"expired\") && !$(\"li[id='three']\").hasClass(\"expired\") && !$(\"li[id='four']\").hasClass(\"expired\") && !$(\"li[id='five']\").hasClass(\"expired\") && !$(\"li[id='seven']\").hasClass(\"expired\"), 'message: Your code should NOT effect any items without the class <code>near-expiration</code>');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -352,7 +348,6 @@
                 "assert($(\"li[id='three']\").text()==='peanut butter', 'message: Your code should change the third item in the list to be \"peanut butter\"');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -405,7 +400,6 @@
                 "assert($(\"li[id='one']\").html()==='<em>fresh</em> figs', 'message: Your code should change the first item in the list to be \"<em>fresh</em> figs\"');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -458,7 +452,6 @@
                 "assert(code.match(/li\\sid=\"seven\"/) && $(\"div[id='page'] > ul > li[id='seven']\").length === 0, 'message: apples should be removed from the list programatically.');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -510,7 +503,6 @@
                 "assert($(\"div[id='page'] > ul > li\").length === arr.length, 'message: The list of items should be updated to the items in <code>arr</code> programatically');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         }

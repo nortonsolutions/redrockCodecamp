@@ -32,7 +32,6 @@
                 "assert(code.match(/el\\.addEventListener\\(\\s*'click'\\s*,\\s*checkInput\\s*,\\s*false\\s*\\)|el\\.addEventListener\\(\\s*\"click\"\\s*,\\s*checkInput\\s*,\\s*false\\s*\\)/), 'message: Your code should set an event such that when submit is clicked checkInput is run');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         },
@@ -77,7 +76,6 @@
                 "assert(code.match(/e\\.stopPropagation\\(\\)/), 'message: Your code should stop the events from bubbling once the event has been handled.');"
             ],
             "type": "waypoint",
-            "isRequired": true,
             "challengeType": 0,
             "translations": {}
         }
