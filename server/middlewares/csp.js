@@ -20,13 +20,17 @@ export default function csp() {
       defaultSrc: trusted.concat([
         'https://*.cloudflare.com',
         '*.cloudflare.com',
-        'https://*.optimizely.com'
+        'https://*.optimizely.com',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ]),
       connectSrc: trusted.concat([
         'https://glitch.com',
         'https://*.glitch.com',
         'https://*.glitch.me',
-        'https://*.cloudflare.com'
+        'https://*.cloudflare.com',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ]),
       scriptSrc: [
         "'unsafe-eval'",
@@ -44,7 +48,9 @@ export default function csp() {
         'https://*.twimg.com',
         '*.youtube.com',
         '*.ytimg.com',
-        'https://*.optimizely.com'
+        'https://*.optimizely.com',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ].concat(trusted),
       styleSrc: [
         "'unsafe-inline'",
@@ -54,7 +60,9 @@ export default function csp() {
         'https://*.bootstrapcdn.com',
         '*.cloudflare.com',
         'https://*.cloudflare.com',
-        'https://*.optimizely.com'
+        'https://*.optimizely.com',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ].concat(trusted),
       fontSrc: [
         '*.cloudflare.com',
@@ -63,7 +71,9 @@ export default function csp() {
         '*.googleapis.com',
         '*.gstatic.com',
         'https://*.bootstrapcdn.com',
-        'https://*.optimizely.com'
+        'https://*.optimizely.com',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ].concat(trusted),
       imgSrc: [
         // allow all input since we have user submitted images for
@@ -74,7 +84,9 @@ export default function csp() {
       mediaSrc: [
         '*.bitly.com',
         '*.amazonaws.com',
-        '*.twitter.com'
+        '*.twitter.com',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ].concat(trusted),
       frameSrc: [
         '*.gitter.im',
@@ -83,7 +95,9 @@ export default function csp() {
         '*.twitter.com',
         '*.ghbtns.com',
         '*.freecatphotoapp.com',
-        'freecodecamp.github.io'
+        'freecodecamp.github.io',
+        'codecamp.edu',
+        '*.codecamp.edu'
       ].concat(trusted)
     },
     // set to true if you only want to report errors
