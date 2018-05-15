@@ -5,6 +5,36 @@
   "helpRoom": "Help",
   "challenges": [
     {
+      "id": "235c3920584ef35c56c8ffae",
+      "title": "**Commit to read Eloquent Javascript ch. 15 and review code",
+      "description": [
+        [
+          "",
+          "",
+          "For this part of the course you will need to understand the platform game that Haverbeke has written.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "The code for this chapter can be found here:<br> <small>//fs01/educationMaterials/codeCamp<br>/booksMaterials/coursework (required reading)<br>/03-Eloquent Javascript - Haverbeke/materials<br>/Ch-15-Platform-Game</small>",
+          ""
+        ],
+        [
+          "",
+          "",
+          "By clicking below you commit to reading chapters 15 of <em>Eloquent JavaScript</em> before you complete the <em>Source Control, DOM and Require Projects</em> challenges.<br> You also commit to reading and understanding the code.",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": true
+    },
+    {
       "id": "135344b054934be52b430443",
       "title": "***Commit to not solve other students problems, share code or give away answers",
       "description": [
