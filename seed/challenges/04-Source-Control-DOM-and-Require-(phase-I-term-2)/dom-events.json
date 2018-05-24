@@ -69,10 +69,10 @@
                 "</script>"
             ],
             "tests": [
-                "assert(code.match(/list\\.addEventListener\\('click',printInnerHTML\\)|list\\.addEventListener\\(\"click\",printInnerHTML\\)/), 'message: Your code should set an event such that when the list is clicked printInnerHTML is run');",
-                "assert(code.match(/item1\\.addEventListener\\('click',printInnerHTML\\)|item1\\.addEventListener\\(\"click\",printInnerHTML\\)/), 'message: Your code should set an event such that when the first item in the list is clicked printInnerHTML is run');",
-                "assert(code.match(/item2\\.addEventListener\\('click',printInnerHTML\\)|item2\\.addEventListener\\(\"click\",printInnerHTML\\)/), 'message: Your code should set an event such that when the second item in the list is clicked printInnerHTML is run');",
-                "assert(code.match(/item3\\.addEventListener\\('click',printInnerHTML\\)|item3\\.addEventListener\\(\"click\",printInnerHTML\\)/), 'message: Your code should set an event such that when the third item in the list is clicked printInnerHTML is run');",
+                "assert(code.match(/list\\.addEventListener\\('click',\\s*printInnerHTML\\)|list\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the list is clicked printInnerHTML is run');",
+                "assert(code.match(/item1\\.addEventListener\\('click',\\s*printInnerHTML\\)|item1\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the first item in the list is clicked printInnerHTML is run');",
+                "assert(code.match(/item2\\.addEventListener\\('click',\\s*printInnerHTML\\)|item2\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the second item in the list is clicked printInnerHTML is run');",
+                "assert(code.match(/item3\\.addEventListener\\('click',\\s*printInnerHTML\\)|item3\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the third item in the list is clicked printInnerHTML is run');",
                 "assert(code.match(/e\\.stopPropagation\\(\\)/), 'message: Your code should stop the events from bubbling once the event has been handled.');"
             ],
             "type": "waypoint",
