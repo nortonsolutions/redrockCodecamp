@@ -1,0 +1,28 @@
+
+Other Storage Methods
+
+<p>The full API for Storage can be found 
+	<a href="http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html" class="brickhouse-link">
+		here
+	</a>.
+</p>
+
+<p>These methods include removeItem (for removing a single item by key) and clear (for removing all items). </p>
+
+
+<h2 id="Example">Example</h2>
+  
+<p>The following removes an item from local storage.</p>
+
+<blockquote>
+	  localStorage.removeItem("bgcolor");
+	</blockquote>
+
+
+	
+	<hr>
+
+	Remove the background color value with the key <em>background-color</em>.
+
+	
+chai.assert.isUndefined(localStorage["background-color"],"message: The background-color must be removed from localStorage.");

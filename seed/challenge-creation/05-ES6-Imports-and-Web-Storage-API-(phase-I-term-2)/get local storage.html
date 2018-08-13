@@ -1,0 +1,65 @@
+
+  <h1>Storage.getItem()</h1>
+
+  <p>The
+	  <code>getItem()</code> method of the
+	  <a href="http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage/getItem.html" title="The Storage interface of the Web Storage API provides access to the session storage or local storage for a particular domain, allowing you to for example add, modify or delete stored data items.">
+		  <code>Storage</code>
+	  </a> interface, when passed a key name, will return that key's value.
+  </p>
+  
+  <blockquote>var <em>aValue</em> = <em>storage</em>.getItem(<em>keyName</em>);
+  </blockquote>
+  
+  <h2 id="Example">Example</h2>
+  
+  <p>The following gets two data items inside local storage.</p>
+  
+  <blockquote>
+		var currentColor = localStorage.getItem("bgcolor");
+		var currentFont = localStorage.getItem("font");
+	  </blockquote>
+  
+	  
+  
+  <p>Values can also be set by using array notation.</p>
+  
+  <blockquote>
+		var currentColor = localStorage["bgcolor"];
+		var currentFont = localStorage["font"];
+  </blockquote>
+  
+	  <hr>
+  
+	  Add a click mouse event to the load button and load the background color value into the background color textbox with the key <em>background-color</em>.
+
+
+
+
+
+
+
+    <h1>local web storage</h1>
+  
+    <div>
+      Choose background color:
+	  <input id="background-color-text">
+    </div>
+  
+    <button id="load-button">Load</button>
+  
+  
+  
+  <script>
+    
+    document.getElementById('load-button').addEventListener('click', function(){
+      
+      document.getElementById('background-color-text').value = localStorage['background-color'];
+      
+    });
+    
+    
+  </script>
+  
+
+  chai.assert.notStrictEqual(document.getElementById('background-color-text').value,localStorage['background-color'],"message: The background-color value must be loaded into the textbox.");

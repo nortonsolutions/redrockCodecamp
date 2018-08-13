@@ -8,34 +8,58 @@
 	exists.
 </p>
 
-<pre class="syntaxbox"><em>storage</em>.setItem(<em>keyName</em>, <em>keyValue</em>);</pre>
+<blockquote><em>storage</em>.setItem(<em>keyName</em>, <em>keyValue</em>);</blockquote>
 
 <h2 id="Example">Example</h2>
 
-<p>The following function creates three data items inside local storage.</p>
+<p>The following creates two data items inside local storage.</p>
 
-<blockquote>function populateStorage() {
+<blockquote>
 	localStorage.setItem("bgcolor", "red");
 	localStorage.setItem("font", "Helvetica");
-	localStorage.setItem("image", "myCat.png");
-	}</blockquote>
+	</blockquote>
 
 	
 
 <p>Values can also be set by using array notation.</p>
 
-<blockquote>function populateStorage() {
-	localStorage["bgcolor"] = "red");
-	localStorage["font"] = "Helvetica");
-	localStorage["image"] = "myCat.png");
-	}</blockquote>
+<blockquote>
+	localStorage["bgcolor"] = "red";
+	localStorage["font"] = "Helvetica";
+	</blockquote>
 
 	<hr>
 
 	Add a click mouse event to the save button and save the background color value with the key <em>background-color</em>.
 
 
+
+	<h1>local web storage</h1>
+  
+    <div>
+      Choose background color:
+	  <input id="background-color-text" value="FF0000">
+    </div>
+  
+    <button id="save-button">Save</button>
+  
+  
+  
+  <script>
+    
+    document.getElementById('save-button').addEventListener('click', function(){
+      
+      localStorage['background-color'] = document.getElementById('background-color-text').value;
+      
+    });
+    
+    
+  </script>
+
 	  
 chai.assert.isDefined(localStorage["background-color"],"message: The background-color key must be set on the localStorage.");
 chai.assert.isNotNull(localStorage["background-color"],"message: The background-color key must not be null.");
 chai.assert.notStrictEqual(localStorage["background-color"],"","message: The background-color key must not be empty.");
+
+
+
