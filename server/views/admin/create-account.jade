@@ -1,0 +1,26 @@
+extends ../layout
+block content
+    .container
+      .col-xs-12  
+        .row
+          #{flashMessage}
+          if flashMessage
+            .col-sm-6.col-sm-offset-3.flashMessage.negative-30
+                  #flash-board.alert.alert-success.fade.in()
+                      button.close(type='button', data-dismiss='alert')
+                          span.ion-close-circled#flash-close
+                      #flash-content #{flashMessage}
+                      
+
+        .row
+          .text-center
+            h2 Create new account:
+              .button-spacer
+          .col-sm-6.col-sm-offset-3
+              form(method='POST', action='/admin-create-account')
+                  input(type='hidden', name='_csrf', value=_csrf)
+                  .form-group
+                      input.input-lg.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true, required)
+                  .button-spacer
+                  button#magic-btn.btn.btn-primary.btn-lg.btn-block(type='submit')
+                    span Create Account

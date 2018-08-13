@@ -12,7 +12,8 @@ import {
   jsAlgoDataStructId,
   dataVisId,
   apisMicroservicesId,
-  infosecQaId
+  infosecQaId,
+  adminRoot
 } from '../utils/constantStrings.json';
 import certTypes from '../utils/certTypes.json';
 import {
@@ -193,11 +194,11 @@ module.exports = function(app) {
   router.get('/deprecated-signin', getDepSignin);
   router.get('/temp-signin', getTempSignin);
 
-  router.get('/admin-create-account', getAdminCreateAccount);
+  router.get('/' + adminRoot + '/create-account', getAdminCreateAccount);
   
   // NOTE: a router.post() did not work were a api.post() did. Investigate.
   api.post('/signin', postEmailSignin);
-  api.post('/admin-create-account', postAdminCreateAccount);
+  api.post('/' + adminRoot + '/create-account', postAdminCreateAccount);
   
   router.get(
     '/delete-my-account',
@@ -370,7 +371,7 @@ module.exports = function(app) {
     
     debug(`req.flashMessage: ${req.flashMessage}`);
 
-    return res.render('account/admin-create-account', {
+    return res.render('admin/create-account', {
       title: 'Create a new CodeCamp Workbench account.',
       flashMessage: req.flashMessage
     });
