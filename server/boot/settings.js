@@ -1,15 +1,19 @@
 import { isMongoId } from 'validator';
+import { check } from 'express-validator/check';
+import bcrypt from 'bcryptjs';
 
-import { ifNoUser401 } from '../utils/middleware';
+import { ifNoUser401, createValidatorErrorHandler } from '../utils/middleware';
 import supportedLanguages from '../../common/utils/supported-languages.js';
+import { alertTypes } from '../../common/utils/flash.js';
+
 
 export default function settingsController(app) {
   const api = app.loopback.Router();
   const toggleUserFlag = flag => (req, res, next) => {
     const { user } = req;
-    const currentValue = user[ flag ];
+    const currentValue = user[flag];
     return user
-      .update$({ [ flag ]: !currentValue })
+      .update$({ [flag]: !currentValue })
       .subscribe(
         () => res.status(200).json({
           flag,
@@ -26,6 +30,42 @@ export default function settingsController(app) {
         (message) => res.json({ message }),
         next
       );
+  }
+
+  function updateMyPassword(req, res, next) {
+
+    const { user, body: { password, confirmpassword } } = req;
+
+    var hashedPassword = bcrypt.hashSync(password, 8);
+
+    if (user.password !== hashedPassword) {
+      return res.status(403).json({
+        message: `Old password is incorrect.`
+      });
+    }
+
+    if (password !== confirmpassword) {
+      return res.status(403).json({
+        message: `Passwords do not match.`
+      });
+    }
+
+    // return User.changePassword(req.body.email, req.body.password)
+    //   .then(msg => {
+    //     const email = req.body.email;
+    //     req.flashMessage = `Password set for: ${email}`;
+    //     return getAdminSetPassword(req, res);
+    //   })
+    //   .catch(err => {
+    //     debug(err);
+    //     req.flashMessage = err.message;
+    //     return getAdminSetPassword(req, res);
+    //   });
+
+
+
+
+
   }
 
   function updateMyLang(req, res, next) {
@@ -82,6 +122,12 @@ export default function settingsController(app) {
       );
   }
 
+  const updateMyEmailValidators = [
+    check('email')
+      .isEmail()
+      .withMessage('Email format is invalid.')
+  ];
+
   api.post(
     '/toggle-available-for-hire',
     ifNoUser401,
@@ -111,6 +157,11 @@ export default function settingsController(app) {
     '/update-my-email',
     ifNoUser401,
     updateMyEmail
+  );
+  api.post(
+    '/update-my-password',
+    ifNoUser401,
+    updateMyPassword
   );
   api.post(
     '/update-my-lang',

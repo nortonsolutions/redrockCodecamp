@@ -6,6 +6,7 @@ import debugFactory from 'debug';
 import { isEmail } from 'validator';
 import path from 'path';
 import loopback from 'loopback';
+import bcrypt from 'bcryptjs';
 
 import { themes } from '../utils/themes';
 import { saveUser, observeMethod } from '../../server/utils/rx.js';
@@ -23,7 +24,7 @@ const debug = debugFactory('fcc:user:remote');
 const BROWNIEPOINTS_TIMEOUT = [1, 'hour'];
 
 const createEmailError = () => new Error(
- 'Please check to make sure the email is a valid email address.'
+  'Please check to make sure the email is a valid email address.'
 );
 
 function destroyAll(id, Model) {
@@ -83,12 +84,12 @@ function getWaitPeriod(ttl) {
   }
   return 0;
 }
-module.exports = function(User) {
+module.exports = function (User) {
   // set salt factor for passwords
   User.settings.saltWorkFactor = 5;
   // set user.rand to random number
   User.definition.rawProperties.rand.default =
-    User.definition.properties.rand.default = function() {
+    User.definition.properties.rand.default = function () {
       return Math.random();
     };
   // increase user accessToken ttl to 900 days
@@ -114,7 +115,7 @@ module.exports = function(User) {
     );
   });
 
-  User.beforeRemote('create', function({ req }) {
+  User.beforeRemote('create', function ({ req }) {
     const body = req.body;
     // note(berks): we now require all new users to supply an email
     // this was not always the case
@@ -140,7 +141,9 @@ module.exports = function(User) {
     }
     return User.doesExist(null, body.email)
       .catch(err => {
-        throw wrapHandledError(err, { redirectTo: '/email-signup' });
+        new Error(
+          `${newEmail} is already associated with another account.`
+        )
       })
       .then(exists => {
         if (!exists) {
@@ -160,7 +163,7 @@ module.exports = function(User) {
       });
   });
 
-  User.observe('before save', function({ instance: user }, next) {
+  User.observe('before save', function ({ instance: user }, next) {
     if (user) {
       // Some old accounts will not have emails associated with theme
       // we verify only if the email field is populated
@@ -190,7 +193,7 @@ module.exports = function(User) {
   });
 
   // remove lingering user identities before deleting user
-  User.observe('before delete', function(ctx, next) {
+  User.observe('before delete', function (ctx, next) {
     const UserIdentity = User.app.models.UserIdentity;
     const UserCredential = User.app.models.UserCredential;
     debug('removing user', ctx.where);
@@ -201,7 +204,7 @@ module.exports = function(User) {
     return Observable.combineLatest(
       destroyAll(id, UserIdentity),
       destroyAll(id, UserCredential),
-      function(identData, credData) {
+      function (identData, credData) {
         return {
           identData: identData,
           credData: credData
@@ -209,14 +212,14 @@ module.exports = function(User) {
       }
     )
       .subscribe(
-        function(data) {
+        function (data) {
           debug('deleted', data);
         },
-        function(err) {
+        function (err) {
           debug('error deleting user %s stuff', id, err);
           next(err);
         },
-        function() {
+        function () {
           debug('user stuff deleted for user %s', id);
           next();
         }
@@ -225,7 +228,7 @@ module.exports = function(User) {
 
   debug('setting up user hooks');
 
-  User.beforeRemote('confirm', function(ctx, _, next) {
+  User.beforeRemote('confirm', function (ctx, _, next) {
 
     if (!ctx.req.query) {
       return ctx.res.redirect('/');
@@ -237,43 +240,43 @@ module.exports = function(User) {
 
     return User.findById(uid, (err, user) => {
 
-        if (err || !user || !user.newEmail) {
-          ctx.req.flash('error', {
-            msg: dedent`Oops, something went wrong, please try again later`
-          });
-          return ctx.res.redirect('/');
-        }
+      if (err || !user || !user.newEmail) {
+        ctx.req.flash('error', {
+          msg: dedent`Oops, something went wrong, please try again later`
+        });
+        return ctx.res.redirect('/');
+      }
 
-        if (!user.verificationToken && !user.emailVerified) {
-          ctx.req.flash('info', {
-            msg: dedent`Looks like we have your email. But you haven't
+      if (!user.verificationToken && !user.emailVerified) {
+        ctx.req.flash('info', {
+          msg: dedent`Looks like we have your email. But you haven't
              verified it yet, please sign in and request a fresh verification
              link.`
-          });
-          return ctx.res.redirect(redirect);
-        }
+        });
+        return ctx.res.redirect(redirect);
+      }
 
-        if (!user.verificationToken && user.emailVerified) {
-          ctx.req.flash('info', {
-            msg: dedent`Looks like you have already verified your email.
+      if (!user.verificationToken && user.emailVerified) {
+        ctx.req.flash('info', {
+          msg: dedent`Looks like you have already verified your email.
              Please sign in to continue.`
-          });
-          return ctx.res.redirect(redirect);
-        }
+        });
+        return ctx.res.redirect(redirect);
+      }
 
-        if (user.verificationToken && user.verificationToken !== token) {
-          ctx.req.flash('info', {
-            msg: dedent`Looks like you have clicked an invalid link.
+      if (user.verificationToken && user.verificationToken !== token) {
+        ctx.req.flash('info', {
+          msg: dedent`Looks like you have clicked an invalid link.
              Please sign in and request a fresh one.`
-          });
-          return ctx.res.redirect(redirect);
-        }
+        });
+        return ctx.res.redirect(redirect);
+      }
 
-        return user.update$({
-          email: user.newEmail,
-          newEmail: null,
-          emailVerifyTTL: null
-        })
+      return user.update$({
+        email: user.newEmail,
+        newEmail: null,
+        emailVerifyTTL: null
+      })
         .do(() => {
           return next();
         })
@@ -282,7 +285,7 @@ module.exports = function(User) {
     });
   });
 
-  User.afterRemote('confirm', function(ctx) {
+  User.afterRemote('confirm', function (ctx) {
     if (!ctx.req.query) {
       return ctx.res.redirect('/');
     }
@@ -295,7 +298,7 @@ module.exports = function(User) {
     return ctx.res.redirect(redirect);
   });
 
-  User.beforeRemote('create', function({ req, res }, _, next) {
+  User.beforeRemote('create', function ({ req, res }, _, next) {
     req.body.username = 'fcc' + uuid.v4().slice(0, 8);
     if (!req.body.email) {
       return next();
@@ -327,7 +330,7 @@ module.exports = function(User) {
       });
   });
 
-  User.beforeRemote('login', function(ctx, notUsed, next) {
+  User.beforeRemote('login', function (ctx, notUsed, next) {
     const { body } = ctx.req;
     if (body && typeof body.email === 'string') {
       if (!isEmail(body.email)) {
@@ -338,7 +341,7 @@ module.exports = function(User) {
     return next();
   });
 
-  User.afterRemote('login', function(ctx, accessToken, next) {
+  User.afterRemote('login', function (ctx, accessToken, next) {
     var res = ctx.res;
     var req = ctx.req;
     // var args = ctx.args;
@@ -354,7 +357,7 @@ module.exports = function(User) {
       res.cookie('userId', accessToken.userId, config);
     }
 
-    return req.logIn({ id: accessToken.userId.toString() }, function(err) {
+    return req.logIn({ id: accessToken.userId.toString() }, function (err) {
       if (err) { return next(err); }
 
       debug('user logged in');
@@ -372,7 +375,7 @@ module.exports = function(User) {
     });
   });
 
-  User.afterRemoteError('login', function(ctx) {
+  User.afterRemoteError('login', function (ctx) {
     var res = ctx.res;
     var req = ctx.req;
 
@@ -382,7 +385,7 @@ module.exports = function(User) {
     return res.redirect('/email-signin');
   });
 
-  User.afterRemote('logout', function(ctx, result, next) {
+  User.afterRemote('logout', function (ctx, result, next) {
     var res = ctx.res;
     res.clearCookie('access_token');
     res.clearCookie('userId');
@@ -408,7 +411,7 @@ module.exports = function(User) {
     }
     debug('where', where);
     return User.count(where)
-    .then(count => count > 0);
+      .then(count => count > 0);
   };
 
   User.remoteMethod(
@@ -443,7 +446,7 @@ module.exports = function(User) {
       // Zalgo!!
       return nextTick(() => {
         cb(new TypeError(
-            `username should be a string but got ${ username }`
+          `username should be a string but got ${username}`
         ));
       });
     }
@@ -452,7 +455,7 @@ module.exports = function(User) {
         return cb(err);
       }
       if (!user || user.username !== username) {
-        return cb(new Error(`no user found for ${ username }`));
+        return cb(new Error(`no user found for ${username}`));
       }
       const aboutUser = getAboutProfile(user);
       return cb(null, aboutUser);
@@ -485,7 +488,7 @@ module.exports = function(User) {
   User.requestNewAccount = function requestNewAccount(email) {
     if (!isEmail(email)) {
       return Promise.reject(
-        new Error('The submitted email not valid.')
+        new Error('The email not valid.')
       );
     }
 
@@ -494,9 +497,9 @@ module.exports = function(User) {
       email: email,
       emailVerified: false
     };
-    return User.findOrCreate$({ where: { email }}, userObj)
-      .flatMap(([ user, isCreated ]) => {
-            return `Whatever.`;
+    return User.findOrCreate$({ where: { email } }, userObj)
+      .flatMap(([user, isCreated]) => {
+        return `Whatever.`;
       })
       .catch(err => {
         if (err) { debug(err); }
@@ -504,13 +507,44 @@ module.exports = function(User) {
       })
       .toPromise();
   };
-  
-  
+
+  User.changePassword = function changePassword(email, password) {
+    if (!isEmail(email)) {
+      return Promise.reject(
+        new Error('The email not valid.')
+      );
+    }
+
+    return User.findOne$({ where: { email } }).map(user => {
+
+      if (!user || user.email !== email) {
+        return Promise.reject(new Error(
+          `No user found for email ${email}.`
+        ));
+      }
+
+      var hashedPassword = bcrypt.hashSync(password, 8);
+
+      return user.update$({
+        password: hashedPassword
+      });
+
+    })
+    .catch(err => {
+      if (err) { debug(err); }
+      return Observable.throw(new Error(
+        'Oops, something is not right, please try again later.'
+      ));
+    })
+    .toPromise();
+  };
+
+
 
   User.requestAuthEmail = function requestAuthEmail(email) {
     if (!isEmail(email)) {
       return Promise.reject(
-        new Error('The submitted email not valid.')
+        new Error('The email not valid.')
       );
     }
 
@@ -519,8 +553,8 @@ module.exports = function(User) {
       email: email,
       emailVerified: false
     };
-    return User.findOrCreate$({ where: { email }}, userObj)
-      .flatMap(([ user, isCreated ]) => {
+    return User.findOrCreate$({ where: { email } }, userObj)
+      .flatMap(([user, isCreated]) => {
 
         const minutesLeft = getWaitPeriod(user.emailAuthLinkTTL);
         if (minutesLeft > 0) {
@@ -540,35 +574,35 @@ module.exports = function(User) {
         return user.createAccessToken$({ ttl: 15 * 60 * 1000 })
           .flatMap(token => {
 
-          const { id: loginToken } = token;
-          const loginEmail = new Buffer(user.email).toString('base64');
-          const host = getServerFullURL();
-          const mailOptions = {
-            type: 'email',
-            to: user.email,
-            from: getEmailSender(),
-            subject: 'freeCodeCamp - Authentication Request!',
-            text: renderAuthEmail({
-              host,
-              loginEmail,
-              loginToken
-            })
-          };
+            const { id: loginToken } = token;
+            const loginEmail = new Buffer(user.email).toString('base64');
+            const host = getServerFullURL();
+            const mailOptions = {
+              type: 'email',
+              to: user.email,
+              from: getEmailSender(),
+              subject: 'freeCodeCamp - Authentication Request!',
+              text: renderAuthEmail({
+                host,
+                loginEmail,
+                loginToken
+              })
+            };
 
-          return this.email.send$(mailOptions)
-            .flatMap(() => {
-              const emailAuthLinkTTL = token.created;
-              return this.update$({
-                emailAuthLinkTTL
-            })
-            .map(() => {
-              return dedent`
+            return this.email.send$(mailOptions)
+              .flatMap(() => {
+                const emailAuthLinkTTL = token.created;
+                return this.update$({
+                  emailAuthLinkTTL
+                })
+                  .map(() => {
+                    return dedent`
                 If you entered a valid email, a magic link is on its way.
                 Please follow that link to sign in.
               `;
-            });
+                  });
+              });
           });
-        });
       })
       .catch(err => {
         if (err) { debug(err); }
@@ -600,7 +634,7 @@ module.exports = function(User) {
   ) {
     const ownEmail = newEmail === this.email;
     if (!isEmail('' + newEmail)) {
-      debug('invalid email:', newEmail );
+      debug('invalid email:', newEmail);
       return Observable.throw(createEmailError());
     }
     // email is already associated and verified with this account
@@ -638,11 +672,11 @@ module.exports = function(User) {
           emailVerified,
           emailVerifyTTL: new Date()
         })
-        .do(() => {
-          this.newEmail = newEmail;
-          this.emailVerified = emailVerified;
-          this.emailVerifyTTL = new Date();
-        });
+          .do(() => {
+            this.newEmail = newEmail;
+            this.emailVerified = emailVerified;
+            this.emailVerifyTTL = new Date();
+          });
       })
       .flatMap(() => {
         const mailOptions = {
@@ -677,25 +711,25 @@ module.exports = function(User) {
       if (!receiver) {
         return nextTick(() => {
           cb(
-            new TypeError(`receiver should be a string but got ${ receiver }`)
+            new TypeError(`receiver should be a string but got ${receiver}`)
           );
         });
       }
       if (!giver) {
         return nextTick(() => {
-          cb(new TypeError(`giver should be a string but got ${ giver }`));
+          cb(new TypeError(`giver should be a string but got ${giver}`));
         });
       }
       let temp = moment();
       const browniePoints = temp
         .subtract.apply(temp, BROWNIEPOINTS_TIMEOUT)
         .valueOf();
-      const user$ = findUser({ where: { username: receiver }});
+      const user$ = findUser({ where: { username: receiver } });
 
       return user$
         .tapOnNext((user) => {
           if (!user) {
-            throw new Error(`could not find receiver for ${ receiver }`);
+            throw new Error(`could not find receiver for ${receiver}`);
           }
         })
         .flatMap(({ progressTimestamps = [] }) => {
@@ -727,7 +761,7 @@ module.exports = function(User) {
             });
           }
           return Observable.throw(
-            new Error(`${ giver } already gave ${ receiver } points`)
+            new Error(`${giver} already gave ${receiver} points`)
           );
         })
         .subscribe(
@@ -836,9 +870,9 @@ module.exports = function(User) {
     const id = this.getId();
     const updateOptions = { allowExtendedOperators: true };
     if (
-        !updateData ||
-        typeof updateData !== 'object' ||
-        !Object.keys(updateData).length
+      !updateData ||
+      typeof updateData !== 'object' ||
+      !Object.keys(updateData).length
     ) {
       return Observable.throw(new Error(
         dedent`

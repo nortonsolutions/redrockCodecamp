@@ -3,6 +3,7 @@ import moment from 'moment-timezone';
 import { Observable } from 'rx';
 import debugFactory from 'debug';
 import emoji from 'node-emoji';
+import bcrypt from 'bcryptjs';
 
 import {
   frontEndChallengeId,
@@ -12,8 +13,7 @@ import {
   jsAlgoDataStructId,
   dataVisId,
   apisMicroservicesId,
-  infosecQaId,
-  adminRoot
+  infosecQaId
 } from '../utils/constantStrings.json';
 import certTypes from '../utils/certTypes.json';
 import {
@@ -51,11 +51,11 @@ const certViews = {
   [certTypes.respWebDesign]: 'certificate/responsive-web-design.jade',
   [certTypes.frontEndLibs]: 'certificate/front-end-libraries.jade',
   [certTypes.jsAlgoDataStruct]:
-  'certificate/javascript-algorithms-and-data-structures.jade',
+    'certificate/javascript-algorithms-and-data-structures.jade',
   [certTypes.dataVis]: 'certificate/data-visualization.jade',
   [certTypes.apisMicroservices]: 'certificate/apis-and-microservices.jade',
   [certTypes.infosecQa]:
-  'certificate/information-security-and-quality-assurance.jade'
+    'certificate/information-security-and-quality-assurance.jade'
 };
 
 const certText = {
@@ -65,7 +65,7 @@ const certText = {
   [certTypes.respWebDesign]: 'Responsive Web Design Certified',
   [certTypes.frontEndLibs]: 'Front End Libraries Certified',
   [certTypes.jsAlgoDataStruct]:
-  'JavaScript Algorithms and Data Structures Certified',
+    'JavaScript Algorithms and Data Structures Certified',
   [certTypes.dataVis]: 'Data Visualization Certified',
   [certTypes.apisMicroservices]: 'APIs and Microservices Certified',
   [certTypes.infosecQa]: 'Information Security and Quality Assurance Certified'
@@ -80,7 +80,7 @@ function replaceScriptTags(value) {
 }
 
 function replaceFormAction(value) {
-  return String(value).replace(/<form[^>]*>/, function(val) {
+  return String(value).replace(/<form[^>]*>/, function (val) {
     return val.replace(/action(\s*?)=/, 'fccfaa$1=');
   });
 }
@@ -129,7 +129,7 @@ function buildDisplayChallenges(
     .map(challengeId => userChallengeMap[challengeId])
     .map(userChallenge => {
       const challengeId = userChallenge.id;
-      const challenge = challengeMap[ challengeIdToName[challengeId] ];
+      const challenge = challengeMap[challengeIdToName[challengeId]];
       let finalChallenge = { ...userChallenge, ...challenge };
       if (userChallenge.completedDate) {
         finalChallenge.completedDate = moment
@@ -152,7 +152,7 @@ function buildDisplayChallenges(
         [getChallengeGroup(challenges[0])]: challenges
       }));
     })
-    .reduce((output, group) => ({ ...output, ...group}), {})
+    .reduce((output, group) => ({ ...output, ...group }), {})
     .map(groups => ({
       algorithms: groups.algorithms || [],
       projects: groups.projects ? groups.projects.reverse() : [],
@@ -160,7 +160,7 @@ function buildDisplayChallenges(
     }));
 }
 
-module.exports = function(app) {
+module.exports = function (app) {
   const router = app.loopback.Router();
   const api = app.loopback.Router();
   const { AccessToken, Email, User } = app.models;
@@ -181,25 +181,25 @@ module.exports = function(app) {
     AccessToken.findOne, AccessToken
   );
 
-  router.get('/login', function(req, res) {
+  router.get('/login', function (req, res) {
     res.redirect(301, '/signin');
   });
-  router.get('/logout', function(req, res) {
+  router.get('/logout', function (req, res) {
     res.redirect(301, '/signout');
   });
+
+  // NOTE: a router.post() did not work were a api.post() did. Investigate.
+
   router.get('/signup', getEmailSignin);
-  router.get('/signin', getEmailSignin);
   router.get('/signout', signout);
   router.get('/email-signin', getEmailSignin);
   router.get('/deprecated-signin', getDepSignin);
   router.get('/temp-signin', getTempSignin);
 
-  router.get('/' + adminRoot + '/create-account', getAdminCreateAccount);
-  
-  // NOTE: a router.post() did not work were a api.post() did. Investigate.
+  router.get('/signin', getEmailSignin);
   api.post('/signin', postEmailSignin);
-  api.post('/' + adminRoot + '/create-account', postAdminCreateAccount);
-  
+
+
   router.get(
     '/delete-my-account',
     sendNonUserToMap,
@@ -263,7 +263,7 @@ module.exports = function(app) {
     showCert.bind(null, certTypes.jsAlgoDataStruct)
   );
 
- api.get(
+  api.get(
     '/:username/data-visualization-certification',
     showCert.bind(null, certTypes.dataVis)
   );
@@ -295,8 +295,8 @@ module.exports = function(app) {
   app.use('/:lang', router);
   app.use(api);
 
-  const defaultErrorMsg = [ 'Oops, something is not right, please request a ',
-  'fresh link to sign in / sign up.' ].join('');
+  const defaultErrorMsg = ['Oops, something is not right, please request a ',
+    'fresh link to sign in / sign up.'].join('');
 
   function postPasswordlessAuth(req, res) {
 
@@ -311,7 +311,7 @@ module.exports = function(app) {
 
     return User.requestAuthEmail(req.body.email)
       .then(msg => {
-          return res.status(200).send({ message: msg });
+        return res.status(200).send({ message: msg });
       })
       .catch(err => {
         debug(err);
@@ -332,72 +332,48 @@ module.exports = function(app) {
     const authTokenId = req.query.token;
     const authEmailId = new Buffer(req.query.email, 'base64').toString();
 
-    return AccessToken.findOne$({ where: {id: authTokenId} })
-     .map(authToken => {
-       if (!authToken) {
-         req.flash('info', { msg: defaultErrorMsg });
-         return res.redirect('/email-signin');
-       }
+    return AccessToken.findOne$({ where: { id: authTokenId } })
+      .map(authToken => {
+        if (!authToken) {
+          req.flash('info', { msg: defaultErrorMsg });
+          return res.redirect('/email-signin');
+        }
 
-       const userId = authToken.userId;
-       return User.findById(userId, (err, user) => {
-         if (err || !user || user.email !== authEmailId) {
-           debug(err);
-           req.flash('info', { msg: defaultErrorMsg });
-           return res.redirect('/email-signin');
-         }
-         return authToken.validate((err, isValid) => {
-           if (err) { throw err; }
-           if (!isValid) {
-             req.flash('info', { msg: [ 'Looks like the link you clicked has',
-              'expired, please request a fresh link, to sign in.'].join('')
+        const userId = authToken.userId;
+        return User.findById(userId, (err, user) => {
+          if (err || !user || user.email !== authEmailId) {
+            debug(err);
+            req.flash('info', { msg: defaultErrorMsg });
+            return res.redirect('/email-signin');
+          }
+          return authToken.validate((err, isValid) => {
+            if (err) { throw err; }
+            if (!isValid) {
+              req.flash('info', {
+                msg: ['Looks like the link you clicked has',
+                  'expired, please request a fresh link, to sign in.'].join('')
               });
-             return res.redirect('/email-signin');
-           }
-           return authToken.destroy((err) => {
-             if (err) { debug(err); }
-             next();
-           });
-         });
-       });
-     })
-     .subscribe(
-       () => {},
-       next
-     );
-  }
-
-  function getAdminCreateAccount(req, res) {
-    
-    debug(`req.flashMessage: ${req.flashMessage}`);
-
-    return res.render('admin/create-account', {
-      title: 'Create a new CodeCamp Workbench account.',
-      flashMessage: req.flashMessage
-    });
-  }
-
-  function postAdminCreateAccount(req, res) {
-
-    return User.requestNewAccount(req.body.email)
-      .then(msg => {
-          const email = req.body.email;
-          req.flashMessage = `Account created: ${email}`;
-          return getAdminCreateAccount(req, res);
+              return res.redirect('/email-signin');
+            }
+            return authToken.destroy((err) => {
+              if (err) { debug(err); }
+              next();
+            });
+          });
+        });
       })
-      .catch(err => {
-        debug(err);
-        return res.status(200).send({ message: defaultErrorMsg });
-      });
+      .subscribe(
+        () => { },
+        next
+      );
   }
-
 
   function getTempSignin(req, res, next) {
-    
+
     if (req.user) {
       req.flash('info', {
-            msg: 'Hey, looks like you’re already signed in.'
-          });
+        msg: 'Hey, looks like you’re already signed in.'
+      });
       return res.redirect('/');
     }
 
@@ -407,7 +383,7 @@ module.exports = function(app) {
 
     const email = req.query.email;
 
-    return User.findOne$({ where: { email }})
+    return User.findOne$({ where: { email } })
       .map(user => {
 
         if (!user) {
@@ -422,103 +398,34 @@ module.exports = function(app) {
         user.update$({
           emailVerified, emailAuthLinkTTL, emailVerifyTTL
         })
-        .do((user) => {
-          user.emailVerified = emailVerified;
-          user.emailAuthLinkTTL = emailAuthLinkTTL;
-          user.emailVerifyTTL = emailVerifyTTL;
-        });
-
-        return user.createAccessToken(
-          { ttl: User.settings.ttl }, (err, accessToken) => {
-          if (err) { throw err; }
-
-          var config = {
-            signed: !!req.signedCookies,
-            maxAge: accessToken.ttl
-          };
-
-          if (accessToken && accessToken.id) {
-            debug('setting cookies');
-            res.cookie('access_token', accessToken.id, config);
-            res.cookie('userId', accessToken.userId, config);
-          }
-
-          return req.logIn({
-            id: accessToken.userId.toString() }, err => {
-            if (err) { return next(err); }
-
-            debug('user logged in');
-
-            if (req.session && req.session.returnTo) {
-              var redirectTo = req.session.returnTo;
-              if (redirectTo === '/map-aside') {
-                redirectTo = '/map';
-              }
-              return res.redirect(redirectTo);
-            }
-
-            req.flash('success', { msg:
-              'Success! You have signed in to your account. Happy Coding!'
-            });
-            return res.redirect('/challenges/current-challenge');
-          });
-        });
-    })
-    .subscribe(
-      () => {},
-      next
-    );
-  }
-
-  function postEmailSignin(req, res, next) {
-  
-      const email = req.body.email;
-      
-      debug(`email: ${email}`);
-  
-      return User.findOne$({ where: { email }})
-        .map(user => {
-  
-          if (!user) {
-            req.flashMessage = `Did not find a valid user with email: ${email}`;
-            debug(req.flashMessage);
-            
-            return getEmailSignin(req, res);
-          }
-  
-          const emailVerified = true;
-          const emailAuthLinkTTL = null;
-          const emailVerifyTTL = null;
-          user.update$({
-            emailVerified, emailAuthLinkTTL, emailVerifyTTL
-          })
           .do((user) => {
             user.emailVerified = emailVerified;
             user.emailAuthLinkTTL = emailAuthLinkTTL;
             user.emailVerifyTTL = emailVerifyTTL;
           });
-  
-          return user.createAccessToken(
-            { ttl: User.settings.ttl }, (err, accessToken) => {
+
+        return user.createAccessToken(
+          { ttl: User.settings.ttl }, (err, accessToken) => {
             if (err) { throw err; }
-  
+
             var config = {
               signed: !!req.signedCookies,
               maxAge: accessToken.ttl
             };
-  
+
             if (accessToken && accessToken.id) {
               debug('setting cookies');
               res.cookie('access_token', accessToken.id, config);
               res.cookie('userId', accessToken.userId, config);
             }
-  
+
             return req.logIn({
-              id: accessToken.userId.toString() }, err => {
+              id: accessToken.userId.toString()
+            }, err => {
               if (err) { return next(err); }
-  
+
               debug('user logged in');
-  
+
               if (req.session && req.session.returnTo) {
                 var redirectTo = req.session.returnTo;
                 if (redirectTo === '/map-aside') {
@@ -526,25 +433,98 @@ module.exports = function(app) {
                 }
                 return res.redirect(redirectTo);
               }
-  
-              req.flash('success', { msg:
-                'Success! You have signed in to your account. Happy Coding!'
+
+              req.flash('success', {
+                msg:
+                  'Success! You have signed in to your account. Happy Coding!'
+              });
+              return res.redirect('/challenges/current-challenge');
+            });
+          });
+      })
+      .subscribe(
+        () => { },
+        next
+      );
+  }
+
+  function postEmailSignin(req, res, next) {
+
+    const email = req.body.email;
+
+    debug(`email: ${email}`);
+
+    return User.findOne$({ where: { email } })
+      .map(user => {
+
+        if (!user) {
+          req.flashMessage = `Did not find a valid user with email: ${email}`;
+          debug(req.flashMessage);
+
+          return getEmailSignin(req, res);
+        }
+
+        const emailVerified = true;
+        const emailAuthLinkTTL = null;
+        const emailVerifyTTL = null;
+        user.update$({
+          emailVerified, emailAuthLinkTTL, emailVerifyTTL
+        })
+          .do((user) => {
+            user.emailVerified = emailVerified;
+            user.emailAuthLinkTTL = emailAuthLinkTTL;
+            user.emailVerifyTTL = emailVerifyTTL;
+          });
+
+        return user.createAccessToken(
+          { ttl: User.settings.ttl }, (err, accessToken) => {
+            if (err) { throw err; }
+
+            var config = {
+              signed: !!req.signedCookies,
+              maxAge: accessToken.ttl
+            };
+
+            if (accessToken && accessToken.id) {
+              debug('setting cookies');
+              res.cookie('access_token', accessToken.id, config);
+              res.cookie('userId', accessToken.userId, config);
+            }
+
+            return req.logIn({
+              id: accessToken.userId.toString()
+            }, err => {
+              if (err) { return next(err); }
+
+              debug('user logged in');
+
+              if (req.session && req.session.returnTo) {
+                var redirectTo = req.session.returnTo;
+                if (redirectTo === '/map-aside') {
+                  redirectTo = '/map';
+                }
+                return res.redirect(redirectTo);
+              }
+
+              req.flash('success', {
+                msg:
+                  'Success! You have signed in to your account. Happy Coding!'
               });
               return res.redirect('/');
             });
           });
       })
       .subscribe(
-        () => {},
+        () => { },
         next
       );
-    }
+  }
 
   function getPasswordlessAuth(req, res, next) {
     if (req.user) {
       req.flash('info', {
-            msg: 'Hey, looks like you’re already signed in.'
-          });
+        msg: 'Hey, looks like you’re already signed in.'
+      });
       return res.redirect('/');
     }
 
@@ -555,7 +535,7 @@ module.exports = function(app) {
 
     const email = new Buffer(req.query.email, 'base64').toString();
 
-    return User.findOne$({ where: { email }})
+    return User.findOne$({ where: { email } })
       .map(user => {
 
         if (!user) {
@@ -570,52 +550,54 @@ module.exports = function(app) {
         user.update$({
           emailVerified, emailAuthLinkTTL, emailVerifyTTL
         })
-        .do((user) => {
-          user.emailVerified = emailVerified;
-          user.emailAuthLinkTTL = emailAuthLinkTTL;
-          user.emailVerifyTTL = emailVerifyTTL;
-        });
+          .do((user) => {
+            user.emailVerified = emailVerified;
+            user.emailAuthLinkTTL = emailAuthLinkTTL;
+            user.emailVerifyTTL = emailVerifyTTL;
+          });
 
         return user.createAccessToken(
           { ttl: User.settings.ttl }, (err, accessToken) => {
-          if (err) { throw err; }
+            if (err) { throw err; }
 
-          var config = {
-            signed: !!req.signedCookies,
-            maxAge: accessToken.ttl
-          };
+            var config = {
+              signed: !!req.signedCookies,
+              maxAge: accessToken.ttl
+            };
 
-          if (accessToken && accessToken.id) {
-            debug('setting cookies');
-            res.cookie('access_token', accessToken.id, config);
-            res.cookie('userId', accessToken.userId, config);
-          }
-
-          return req.logIn({
-            id: accessToken.userId.toString() }, err => {
-            if (err) { return next(err); }
-
-            debug('user logged in');
-
-            if (req.session && req.session.returnTo) {
-              var redirectTo = req.session.returnTo;
-              if (redirectTo === '/map-aside') {
-                redirectTo = '/map';
-              }
-              return res.redirect(redirectTo);
+            if (accessToken && accessToken.id) {
+              debug('setting cookies');
+              res.cookie('access_token', accessToken.id, config);
+              res.cookie('userId', accessToken.userId, config);
             }
 
-            req.flash('success', { msg:
-              'Success! You have signed in to your account. Happy Coding!'
+            return req.logIn({
+              id: accessToken.userId.toString()
+            }, err => {
+              if (err) { return next(err); }
+
+              debug('user logged in');
+
+              if (req.session && req.session.returnTo) {
+                var redirectTo = req.session.returnTo;
+                if (redirectTo === '/map-aside') {
+                  redirectTo = '/map';
+                }
+                return res.redirect(redirectTo);
+              }
+
+              req.flash('success', {
+                msg:
+                  'Success! You have signed in to your account. Happy Coding!'
+              });
+              return res.redirect('/');
             });
-            return res.redirect('/');
           });
-        });
-    })
-    .subscribe(
-      () => {},
-      next
-    );
+      })
+      .subscribe(
+        () => { },
+        next
+      );
   }
 
   function signout(req, res) {
@@ -634,7 +616,7 @@ module.exports = function(app) {
   }
 
   function getEmailSignin(req, res) {
-    
+
     debug(`req.flashMessage: ${req.flashMessage}`);
 
     if (req.user) {
@@ -690,7 +672,7 @@ module.exports = function(app) {
       }
     };
 
-    return user.identities(query, function(err, identities) {
+    return user.identities(query, function (err, identities) {
       if (err) { return next(err); }
 
       // assumed user identity is unique by provider
@@ -702,7 +684,7 @@ module.exports = function(app) {
         return res.redirect('/' + username);
       }
 
-      return identity.destroy(function(err) {
+      return identity.destroy(function (err) {
         if (err) { return next(err); }
 
         const updateData = { [social]: null };
@@ -810,7 +792,7 @@ module.exports = function(app) {
         return res.render('account/show', data);
       })
       .subscribe(
-        () => {},
+        () => { },
         next
       );
   }
@@ -819,24 +801,24 @@ module.exports = function(app) {
     const username = req.params.username.toLowerCase();
     const certId = certIds[certType];
     return findUserByUsername$(username, {
-          isGithubCool: true,
-          isCheater: true,
-          isLocked: true,
-          isAvailableForHire: true,
-          isFrontEndCert: true,
-          isBackEndCert: true,
-          isFullStackCert: true,
-          isRespWebDesignCert: true,
-          isFrontEndLibsCert: true,
-          isJsAlgoDataStructCert: true,
-          isDataVisCert: true,
-          isApisMicroservicesCert: true,
-          isInfosecQaCert: true,
-          isHonest: true,
-          username: true,
-          name: true,
-          challengeMap: true
-      })
+      isGithubCool: true,
+      isCheater: true,
+      isLocked: true,
+      isAvailableForHire: true,
+      isFrontEndCert: true,
+      isBackEndCert: true,
+      isFullStackCert: true,
+      isRespWebDesignCert: true,
+      isFrontEndLibsCert: true,
+      isJsAlgoDataStructCert: true,
+      isDataVisCert: true,
+      isApisMicroservicesCert: true,
+      isInfosecQaCert: true,
+      isHonest: true,
+      username: true,
+      name: true,
+      challengeMap: true
+    })
       .subscribe(
         user => {
           if (!user) {
@@ -906,7 +888,7 @@ module.exports = function(app) {
   }
 
   function postDeleteAccount(req, res, next) {
-    User.destroyById(req.user.id, function(err) {
+    User.destroyById(req.user.id, function (err) {
       if (err) { return next(err); }
       req.logout();
       req.flash('info', { msg: 'You\'ve successfully deleted your account.' });
@@ -915,12 +897,13 @@ module.exports = function(app) {
   }
 
   function showResetProgress(req, res) {
-    return res.render('account/reset-progress', { title: 'Reset My Progress!'
+    return res.render('account/reset-progress', {
+      title: 'Reset My Progress!'
     });
   }
 
   function postResetProgress(req, res, next) {
-    User.findById(req.user.id, function(err, user) {
+    User.findById(req.user.id, function (err, user) {
       if (err) { return next(err); }
       return user.updateAttributes({
         progressTimestamps: [{
@@ -935,7 +918,7 @@ module.exports = function(app) {
         isFrontEndCert: false,
         challengeMap: {},
         challegesCompleted: []
-      }, function(err) {
+      }, function (err) {
         if (err) { return next(err); }
         req.flash('info', { msg: 'You\'ve successfully reset your progress.' });
         return res.redirect('/');
