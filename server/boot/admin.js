@@ -20,7 +20,7 @@ module.exports = function (app) {
 	api.post('/' + adminRoot + '/create-account',
 		(req, res) => {
 
-			const { body: {email, username, password, confirmPassword } } = req;
+			const { body: {email, username, name, password, confirmPassword } } = req;
 		
 			if (password && password !== confirmPassword) {
 			  return res.status(403).json({
@@ -29,7 +29,7 @@ module.exports = function (app) {
 			}
 
 
-			return User.createAccount(email, username, password)
+			return User.createAccount(email, username, name, password)
 				.then((message) => {
 					return res.json({
 						message: message

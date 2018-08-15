@@ -485,15 +485,19 @@ module.exports = function (User) {
     }
   );
 
-  User.createAccount = function createAccount(email, userName, password) {
+  User.createAccount = function createAccount(email, username, name, password) {
     if (!isEmail(email)) {
       return Promise.reject(
         new Error('The email not valid.')
       );
     }
 
-    if (!userName) {
-      userName = uuid.v4().slice(0, 8);
+    if (!username) {
+      username = uuid.v4().slice(0, 8);
+    }
+
+    if (!name) {
+      name = '';
     }
 
     if (!password) {
@@ -504,7 +508,8 @@ module.exports = function (User) {
     var hashedPassword = bcrypt.hashSync(password, salt);
 
     var user = {
-      username: userName,
+      username: username,
+      name: name,
       email: email,
       emailVerified: false,
       password: hashedPassword,
