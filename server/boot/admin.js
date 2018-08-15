@@ -20,41 +20,52 @@ module.exports = function (app) {
 	api.post('/' + adminRoot + '/create-account',
 		(req, res) => {
 
-			return User.requestNewAccount(req.body.email)
-				.then(msg => {
-					const email = req.body.email;
-					req.flashMessage = `Account created: ${email}`;
-					return getAdminCreateAccount(req, res);
-				})
-				.catch(err => {
-					log(err);
-					return res.status(200).send({ message: defaultErrorMsg });
-				});
-		}
-	);
-
-
-	router.get('/' + adminRoot + '/set-password',
-		(req, res) => res.render('admin/set-password', {
-			title: 'Set password for an account.'
-		})
-	);
-
-	api.post('/' + adminRoot + '/set-password',
-		(req, res) => {
-
-			const { body: {email, password, confirmpassword } } = req;
+			const { body: {email, username, password, confirmPassword } } = req;
 		
-			if (password !== confirmpassword) {
+			if (password && password !== confirmPassword) {
 			  return res.status(403).json({
 				message: `Passwords do not match.`
 			  });
 			}
 
-			return User.changePassword(email, password)
-				.then(() => {
+
+			return User.createAccount(email, username, password)
+				.then((message) => {
 					return res.json({
-						message: `Password set for: ${email}`
+						message: message
+					})
+				})
+				.catch(err => {
+					debug(err);
+					return res.status(403).json({
+					  message: err.message
+					});
+				});
+		}
+	);
+
+
+	router.get('/' + adminRoot + '/update-account',
+		(req, res) => res.render('admin/update-account', {
+			title: 'Update account information:'
+		})
+	);
+
+	api.post('/' + adminRoot + '/update-account',
+		(req, res) => {
+
+			const { body: {email, newEmail, username, name, password, confirmPassword} } = req;
+		
+			if (password && password !== confirmPassword) {
+			  return res.status(403).json({
+				message: `Passwords do not match.`
+			  });
+			}
+
+			return User.changeAccount(email, newEmail, username, name, password)
+				.then(() => {
+					return res.json({						
+						message: `Account updated for: '${email}'`
 					})
 				})
 				.catch(err => {

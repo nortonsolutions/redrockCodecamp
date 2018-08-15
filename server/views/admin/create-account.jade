@@ -8,7 +8,13 @@ block content
             form(method='POST', action='/ac38a1r2/create-account')
                 input(type='hidden', name='_csrf', value=_csrf)
                 .form-group
-                    input.input-lg.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true, required)
+                    input.input-lg.form-control.success-clear-value(type='email', name='email', id='email', placeholder='Email', autofocus=true, required)
+                .form-group
+                    input.input-lg.form-control.success-clear-value(type='text', name='username', id='username', placeholder='Username')
+                .form-group
+                    input.input-lg.form-control.success-clear-value(type='password', name='password', id='password', placeholder='Password')
+                .form-group
+                    input.input-lg.form-control.success-clear-value(type='password', name='confirmPassword', id='confirmpassword', placeholder='Confirm Password')
                 .button-spacer
                 button#magic-btn.btn.btn-primary.btn-lg.btn-block(type='submit')
-                span Create Account
+                    span Create Account

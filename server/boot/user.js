@@ -387,7 +387,7 @@ module.exports = function (app) {
       .map(user => {
 
         if (!user) {
-          debug(`did not find a valid user with email: ${email}`);
+          debug(`did not find a valid user with email: '${email}'`);
           req.flash('info', { msg: defaultErrorMsg });
           return res.redirect('/signin');
         }
@@ -458,7 +458,7 @@ module.exports = function (app) {
       .map(user => {
 
         if (!user) {
-          req.flashMessage = `Did not find a valid user with email: ${email}`;
+          req.flashMessage = `Did not find a valid user with email: '${email}'`;
           debug(req.flashMessage);
 
           return getEmailSignin(req, res);
@@ -539,7 +539,7 @@ module.exports = function (app) {
       .map(user => {
 
         if (!user) {
-          debug(`did not find a valid user with email: ${email}`);
+          debug(`did not find a valid user with email: '${email}'`);
           req.flash('info', { msg: defaultErrorMsg });
           return res.redirect('/email-signin');
         }

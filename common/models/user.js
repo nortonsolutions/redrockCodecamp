@@ -485,27 +485,102 @@ module.exports = function (User) {
     }
   );
 
-  User.requestNewAccount = function requestNewAccount(email) {
+  User.createAccount = function createAccount(email, userName, password) {
     if (!isEmail(email)) {
       return Promise.reject(
         new Error('The email not valid.')
       );
     }
 
-    var userObj = {
-      username: 'fcc' + uuid.v4().slice(0, 8),
+    if (!userName) {
+      userName = uuid.v4().slice(0, 8);
+    }
+
+    if (!password) {
+      password = '1234';
+    }
+
+    var salt = bcrypt.genSaltSync(8);
+    var hashedPassword = bcrypt.hashSync(password, salt);
+
+    var user = {
+      username: userName,
       email: email,
-      emailVerified: false
+      emailVerified: false,
+      password: hashedPassword,
+      passwordSalt: salt
     };
-    return User.findOrCreate$({ where: { email } }, userObj)
+
+    return User.findOrCreate$({ where: { email } }, user)
       .flatMap(([user, isCreated]) => {
-        return `Whatever.`;
+
+        var message = `The user was created for email '${email}'`;
+
+        if (!isCreated) {
+          message = `A user for email '${email}' already exists.`;
+        }
+
+        return Observable.of(message);
       })
       .catch(err => {
         if (err) { debug(err); }
         return Observable.of(dedent`Oops, something is not right, please try again later.`);
       })
       .toPromise();
+  };
+
+  User.changeAccount = function changeAccount(email, newEmail, username, name, password) {
+    if (!isEmail(email)) {
+      return Promise.reject(
+        new Error('The account email not valid.')
+      );
+    }
+    if (newEmail && !isEmail(newEmail)) {
+      return Promise.reject(
+        new Error('The new email is not valid.')
+      );
+    }
+
+    return User.findOne$({ where: { email } }).map(user => {
+
+      if (!user || user.email !== email) {
+        return Promise.reject(new Error(
+          `No user found for email '${email}'.`
+        ));
+      }
+
+      var updateUser = {};
+
+      if (newEmail) {
+        updateUser.email = newEmail;    
+        updateUser.emailVerified = false;
+      }
+
+      if (username) {
+        updateUser.username = username;    
+      }
+
+      if (name) {
+        updateUser.name = name;    
+      }
+
+      if (password) {
+        var salt = bcrypt.genSaltSync(8);
+        var hashedPassword = bcrypt.hashSync(password, salt);
+
+        updateUser.password = hashedPassword;    
+        updateUser.passwordSalt = salt;    
+      }
+
+      return user.update$(updateUser);
+    })
+    .catch(err => {
+      if (err) { debug(err); }
+      return Observable.throw(new Error(
+        'Oops, something is not right, please try again later.'
+      ));
+    })
+    .toPromise();
   };
 
   User.changePassword = function changePassword(email, password) {
@@ -519,7 +594,7 @@ module.exports = function (User) {
 
       if (!user || user.email !== email) {
         return Promise.reject(new Error(
-          `No user found for email ${email}.`
+          `No user found for email '${email}'.`
         ));
       }
 
