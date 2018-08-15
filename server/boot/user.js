@@ -450,16 +450,21 @@ module.exports = function (app) {
 
   function postEmailSignin(req, res, next) {
 
-    const email = req.body.email;
-
-    debug(`email: ${email}`);
+    const { body: {email, password } } = req;
 
     return User.findOne$({ where: { email } })
       .map(user => {
 
         if (!user) {
           req.flashMessage = `Did not find a valid user with email: '${email}'`;
-          debug(req.flashMessage);
+
+          return getEmailSignin(req, res);
+        }
+        
+        var hashedPassword = bcrypt.hashSync(password, user.passwordSalt);
+
+        if (user.password !== hashedPassword) {
+          req.flashMessage = `Invalid password, please try again.`;
 
           return getEmailSignin(req, res);
         }
