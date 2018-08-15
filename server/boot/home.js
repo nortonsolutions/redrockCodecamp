@@ -35,13 +35,11 @@ module.exports = function(app) {
     if (!supportedLanguages[req._urlLang]) {
       return next();
     }
-    const { referer = '' } = req.headers;
 
-    if (req.user) {
-      
-      return res.redirect('/challenges/current-challenge');
+    if (!req.user) {
+      return res.redirect('/signin');
     }
 
-    return res.redirect('/signin');
+    return res.redirect('/challenges/current-challenge');
   }
 };

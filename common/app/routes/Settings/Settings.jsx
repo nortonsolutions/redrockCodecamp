@@ -190,6 +190,16 @@ export class Settings extends React.Component {
                 >
                 Toggle Night Mode
               </Button>
+              <Button
+                block={ true }
+                bsSize='lg'
+                bsStyle='primary'
+                className='btn-link-social'
+                href={ `account/update-password` }
+                >
+                <FA name='lock' />
+                Change my password
+              </Button>
             </Col>
           </Row>
       </div>

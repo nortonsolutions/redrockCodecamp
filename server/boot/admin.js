@@ -1,6 +1,7 @@
 
 import { adminRoot } from '../utils/constantStrings.json';
 import debug from 'debug';
+import { ifNoUser401 } from '../utils/middleware';
 
 const log = debug('fcc:boot:admin');
 
@@ -12,12 +13,20 @@ module.exports = function (app) {
 
 
 	router.get('/' + adminRoot + '/create-account',
-		(req, res) => res.render('admin/create-account', {
-			title: 'Create a new CodeCamp Workbench account'
-		})
+			(req, res) => {
+						
+				if (!req.user) {      
+					return res.redirect('/signin');
+				}
+
+				res.render('admin/create-account', {
+					title: 'Create a new CodeCamp Workbench account'
+				})
+			}
 	);
 
 	api.post('/' + adminRoot + '/create-account',
+		ifNoUser401,
 		(req, res) => {
 
 			const { body: {email, username, name, password, confirmPassword } } = req;
@@ -46,12 +55,20 @@ module.exports = function (app) {
 
 
 	router.get('/' + adminRoot + '/update-account',
-		(req, res) => res.render('admin/update-account', {
-			title: 'Update account information'
-		})
+		(req, res) => {
+					
+			if (!req.user) {      
+				return res.redirect('/signin');
+			}
+
+			res.render('admin/update-account', {
+				title: 'Update account information'
+			})
+		}
 	);
 
 	api.post('/' + adminRoot + '/update-account',
+		ifNoUser401,
 		(req, res) => {
 
 			const { body: {email, newEmail, username, name, password, confirmPassword} } = req;
