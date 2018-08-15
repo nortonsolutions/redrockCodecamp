@@ -28,6 +28,9 @@
     "password": {
       "type": "string"
     },
+    "passwordSalt": {
+      "type": "string"
+    },
     "progressTimestamps": {
       "type": "array",
       "default": []

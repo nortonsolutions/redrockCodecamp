@@ -4,11 +4,14 @@ import bcrypt from 'bcryptjs';
 
 import { ifNoUser401, createValidatorErrorHandler } from '../utils/middleware';
 import supportedLanguages from '../../common/utils/supported-languages.js';
-import { alertTypes } from '../../common/utils/flash.js';
+import debug from 'debug';
 
+const log = debug('fcc:boot:settings');
 
 export default function settingsController(app) {
   const api = app.loopback.Router();
+	const User = app.models.User;
+
   const toggleUserFlag = flag => (req, res, next) => {
     const { user } = req;
     const currentValue = user[flag];
@@ -34,38 +37,34 @@ export default function settingsController(app) {
 
   function updateMyPassword(req, res, next) {
 
-    const { user, body: { password, confirmpassword } } = req;
+    const { user, body: { oldPassword, password, confirmPassword } } = req;
 
-    var hashedPassword = bcrypt.hashSync(password, 8);
+    var hashedOldPassword = bcrypt.hashSync(oldPassword, user.passwordSalt);
 
-    if (user.password !== hashedPassword) {
+    if (user.password !== hashedOldPassword) {
       return res.status(403).json({
         message: `Old password is incorrect.`
       });
     }
 
-    if (password !== confirmpassword) {
+    if (password !== confirmPassword) {
       return res.status(403).json({
         message: `Passwords do not match.`
       });
     }
 
-    // return User.changePassword(req.body.email, req.body.password)
-    //   .then(msg => {
-    //     const email = req.body.email;
-    //     req.flashMessage = `Password set for: ${email}`;
-    //     return getAdminSetPassword(req, res);
-    //   })
-    //   .catch(err => {
-    //     debug(err);
-    //     req.flashMessage = err.message;
-    //     return getAdminSetPassword(req, res);
-    //   });
-
-
-
-
-
+    return User.changePassword(user.email, password)
+    .then(() => {
+      return res.json({
+        message: `Password has been updated.`
+      })
+    })
+    .catch(err => {
+      log(err);
+      return res.status(403).json({
+        message: err.message
+      });
+    });
   }
 
   function updateMyLang(req, res, next) {

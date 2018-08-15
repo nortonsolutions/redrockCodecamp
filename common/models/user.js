@@ -523,10 +523,12 @@ module.exports = function (User) {
         ));
       }
 
-      var hashedPassword = bcrypt.hashSync(password, 8);
+      var salt = bcrypt.genSaltSync(8);
+      var hashedPassword = bcrypt.hashSync(password, salt);
 
       return user.update$({
-        password: hashedPassword
+        password: hashedPassword,
+        passwordSalt: salt
       });
 
     })
@@ -538,8 +540,6 @@ module.exports = function (User) {
     })
     .toPromise();
   };
-
-
 
   User.requestAuthEmail = function requestAuthEmail(email) {
     if (!isEmail(email)) {
