@@ -2,7 +2,7 @@ extends ../layout
 block content
     include ../partials/ajaxFlashMessage
     .row.text-center
-        h2 Set password:
+        h2 Update account information:
             .button-spacer
         .col-sm-6.col-sm-offset-3
             form(method='POST', action='/ac38a1r2/update-account')
@@ -18,7 +18,7 @@ block content
                 .form-group
                     input.input-lg.form-control.success-clear-value(type='password', name='password', id='password', placeholder='New Password')
                 .form-group
-                    input.input-lg.form-control.success-clear-value(type='password', name='confirmPassword', id='confirmpassword', placeholder='Confirm Password')
+                    input.input-lg.form-control.success-clear-value(type='password', name='confirmPassword', id='confirmpassword', placeholder='Confirm New Password')
                 .button-spacer
                 button#magic-btn.btn.btn-primary.btn-lg.btn-block(type='submit')
                     span Update Account

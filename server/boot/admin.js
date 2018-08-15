@@ -13,7 +13,7 @@ module.exports = function (app) {
 
 	router.get('/' + adminRoot + '/create-account',
 		(req, res) => res.render('admin/create-account', {
-			title: 'Create a new CodeCamp Workbench account.'
+			title: 'Create a new CodeCamp Workbench account'
 		})
 	);
 
@@ -47,7 +47,7 @@ module.exports = function (app) {
 
 	router.get('/' + adminRoot + '/update-account',
 		(req, res) => res.render('admin/update-account', {
-			title: 'Update account information:'
+			title: 'Update account information'
 		})
 	);
 
