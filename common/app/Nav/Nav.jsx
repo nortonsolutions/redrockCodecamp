@@ -50,8 +50,24 @@ const mapStateToProps = createSelector(
   ) => {
     return {
       panes: panes.map(({ name, type }) => {
+
+        var displayName = name;
+
+        switch (name) {
+          case 'Map':
+            displayName = 'All Lessons';
+            break;
+          case 'Editor':
+            displayName = 'Code Editor';
+            break;
+          case 'Step':
+            displayName = 'Lesson';
+            break;
+        }
+
         return {
           content: name,
+          displayName: displayName,
           action: type
         };
       }, {}),
@@ -202,9 +218,9 @@ export class FCCNav extends React.Component {
             pullRight={ true }
             >
             {
-              panes.map(({ content, actionCreator }) => (
+              panes.map(({ content, displayName, actionCreator }) => (
                 <BinButton
-                  content={ content }
+                  content={ displayName }
                   handleClick={ actionCreator }
                   key={ content }
                 />
@@ -212,12 +228,13 @@ export class FCCNav extends React.Component {
             }
             { shouldShowMapButton ?
                 <BinButton
-                  content='Map'
+                  content='All Lessons'
                   handleClick={ clickOnMap }
                   key='Map'
                 /> :
                 null
             }
+            <li style={{marginRight:'20px'}}>&nbsp;</li>
             <SignUp
               showLoading={ showLoading }
               showSignUp={ !isSignedIn }
