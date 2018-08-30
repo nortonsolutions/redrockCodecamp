@@ -18,9 +18,9 @@ block content
               form(method='POST', action='/signin')
                   input(type='hidden', name='_csrf', value=_csrf)
                   .form-group
-                      input.input-lg.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true, required)
+                      input.input-lg.form-control(type='email', name='email', id='email', value='#{email ? email : ""}', placeholder='Email', autofocus=true, required)
                   .form-group
-                      input.input-lg.form-control(type='password', name='password', id='password', placeholder='Password', required) 
+                      input.input-lg.form-control(type='password', name='password', id='password', value='#{password ? password : ""}', placeholder='Password', required) 
                   .button-spacer
                   button#magic-btn.btn.btn-primary.btn-lg.btn-block(type='submit')
                     span Sign in

@@ -456,7 +456,7 @@ module.exports = function (app) {
       .map(user => {
 
         if (!user) {
-          req.flashMessage = `Did not find a valid user with email: '${email}'`;
+          req.flashMessage = `Invalid email, please try again.`;
 
           return getEmailSignin(req, res);
         }
@@ -634,7 +634,9 @@ module.exports = function (app) {
     }
     return res.render('account/email-signin', {
       title: 'Sign in to freeCodeCamp using your Email Address',
-      flashMessage: req.flashMessage
+      flashMessage: req.flashMessage,
+      email: req.body.email,
+      password: req.body.password
     });
   }
 
