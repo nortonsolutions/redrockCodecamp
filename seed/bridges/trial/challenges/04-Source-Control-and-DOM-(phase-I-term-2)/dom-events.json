@@ -1,0 +1,83 @@
+{
+    "name": "DOM Events",
+    "order": 3,
+    "time": "5 hours",
+    "helpRoom": "Help",
+    "challenges": [
+        {
+            "id": "84ee88402700db21189de995",
+            "title": "Attaching an event to an element",
+            "description": [
+                "Using the methods shown in the intoduction, attach an event to the submit button that runs checkInput when submit is clicked."
+            ],
+            "challengeSeed": [
+                "<html>",
+                "<input type=\"text\" id=\"userNameInput\" placeholder=\"Username\">",
+                "<input type=\"text\" id=\"passwordInput\" placeholder=\"password\">",
+                "<button id=\"submit-button\">submit</button>",
+                "<div id=\"response\">Please Enter Your Username And Password</div>",
+                "</html>",
+                "",
+                "<script>",
+                "   function checkInput(userName, password) {",
+                "       var response = document.getElementById('response');",
+                "       response.innerText = \"Congratulations!!!\";",
+                "   }",
+                "   //change code below this line",
+                "       var el = ",
+                "   //change code above this line",
+                "</script>"
+            ],
+            "tests": [
+                "assert(code.match(/el\\.addEventListener\\(\\s*'click'\\s*,\\s*checkInput\\s*,\\s*false\\s*\\)|el\\.addEventListener\\(\\s*\"click\"\\s*,\\s*checkInput\\s*,\\s*false\\s*\\)/), 'message: Your code should set an event such that when submit is clicked checkInput is run');"
+            ],
+            "type": "waypoint",
+            "challengeType": 0,
+            "translations": {}
+        },
+        {
+            "id": "84ee88402700db21189de996",
+            "title": "Stopping event bubbling",
+            "description": [
+                "<a href=\"/images/eventFlow.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/eventFlow.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating how events bubble from most specific to least specific\"></a>",
+                "when an event is triggered it will be triggered on the most specific item that recieved the event then each of it's parent elements recieve the event up until there are no more parent elements",
+                "<a href=\"/images/eventObject.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/eventObject.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating the event object\"></a>",
+                "<hr>",
+                "add code such that if the unordered list or any item inside the list is clicked it will call the function printInnerHTML, however ensure that there is only one call to printInnerHTML."
+            ],
+            "challengeSeed": [
+                "<html>",
+                "   <body>",
+                "       <ul id=\"list\">",
+                "           <li id=\"item1\">item1</li>",
+                "           <li id=\"item2\">item2</li>",
+                "           <li id=\"item3\">item3</li>",
+                "       </ul>",
+                "   </body>",
+                "</html>",
+                "",
+                "<script>",
+                "   //change code below this line",
+                "   function printInnerHTML(e) {",
+                "       console.log(e.target.innerHTML);",
+                "   }",
+                "       var list = document.getElementById('list');",
+                "       var item1 = document.getElementById('item1');",
+                "       var item2 = document.getElementById('item2');",
+                "       var item3 = document.getElementById('item3');",
+                "   //change code above this line",
+                "</script>"
+            ],
+            "tests": [
+                "assert(code.match(/list\\.addEventListener\\('click',\\s*printInnerHTML\\)|list\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the list is clicked printInnerHTML is run');",
+                "assert(code.match(/item1\\.addEventListener\\('click',\\s*printInnerHTML\\)|item1\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the first item in the list is clicked printInnerHTML is run');",
+                "assert(code.match(/item2\\.addEventListener\\('click',\\s*printInnerHTML\\)|item2\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the second item in the list is clicked printInnerHTML is run');",
+                "assert(code.match(/item3\\.addEventListener\\('click',\\s*printInnerHTML\\)|item3\\.addEventListener\\(\"click\",\\s*printInnerHTML\\)/), 'message: Your code should set an event such that when the third item in the list is clicked printInnerHTML is run');",
+                "assert(code.match(/e\\.stopPropagation\\(\\)/), 'message: Your code should stop the events from bubbling once the event has been handled.');"
+            ],
+            "type": "waypoint",
+            "challengeType": 0,
+            "translations": {}
+        }
+    ]
+}
