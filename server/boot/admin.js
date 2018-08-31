@@ -39,9 +39,9 @@ module.exports = function (app) {
 
 
 			return User.createAccount(email, username, name, password)
-				.then((message) => {
+				.then((result) => {
 					return res.json({
-						message: message
+						message: result.message
 					})
 				})
 				.catch(err => {

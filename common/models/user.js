@@ -519,13 +519,17 @@ module.exports = function (User) {
     return User.findOrCreate$({ where: { email } }, user)
       .flatMap(([user, isCreated]) => {
 
-        var message = `The user was created for email '${email}'`;
-
-        if (!isCreated) {
-          message = `A user for email '${email}' already exists.`;
+        var result = {
+          user: user,
+          isCreated: isCreated,
+          message: `The user was created for email '${email}'`
         }
 
-        return Observable.of(message);
+        if (!isCreated) {
+          result.message = `A user for email '${email}' already exists.`;
+        }
+
+        return Observable.of(result);
       })
       .catch(err => {
         if (err) { debug(err); }

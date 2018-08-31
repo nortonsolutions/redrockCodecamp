@@ -190,7 +190,9 @@ module.exports = function (app) {
 
   // NOTE: a router.post() did not work were a api.post() did. Investigate.
 
-  router.get('/signup', getEmailSignin);
+  router.get('/signup', getSignUp);
+  api.post('/signup', postSignUp);
+
   router.get('/signout', signout);
   router.get('/email-signin', getEmailSignin);
   router.get('/deprecated-signin', getDepSignin);
@@ -618,6 +620,82 @@ module.exports = function (app) {
     return res.render('account/deprecated-signin', {
       title: 'Sign in to freeCodeCamp using a Deprecated Login'
     });
+  }
+
+
+  function getSignUp(req, res) {
+    res.render('account/signup', {
+      title: 'Create a new CodeCamp Workbench account',
+      flashMessage: req.flashMessage,
+      email: req.body.email,
+      name: req.body.name,
+      password: req.body.password,
+      confirmPassword: req.body.confirmPassword
+    })
+  }
+
+  function postSignUp(req, res) {
+
+    const { body: {email, name, password, confirmPassword } } = req;
+  
+    if (password && password !== confirmPassword) {        
+      req.flashMessage = `Passwords do not match, please try again.`;
+      return getSignUp(req, res);
+    }
+
+    return User.createAccount(email, null, name, password)
+      .then((result) => {
+
+        var user = result.user;
+        
+        if (!result.isCreated) { 
+          req.flashMessage = result.message;
+          return getSignUp(req, res);
+        }
+
+        return user.createAccessToken(
+          { ttl: User.settings.ttl }, (err, accessToken) => {
+            if (err) { throw err; }
+
+            var config = {
+              signed: !!req.signedCookies,
+              maxAge: accessToken.ttl
+            };
+
+            if (accessToken && accessToken.id) {
+              debug('setting cookies');
+              res.cookie('access_token', accessToken.id, config);
+              res.cookie('userId', accessToken.userId, config);
+            }
+
+            return req.logIn({
+              id: accessToken.userId.toString()
+            }, err => {
+              if (err) { return next(err); }
+
+              debug('user logged in');
+
+              if (req.session && req.session.returnTo) {
+                var redirectTo = req.session.returnTo;
+                if (redirectTo === '/map-aside') {
+                  redirectTo = '/map';
+                }
+                return res.redirect(redirectTo);
+              }
+
+              req.flash('success', {
+                msg:
+                  'Success! You have created your account.'
+              });
+              return res.redirect('/');
+            });
+          });
+      })
+      .catch(err => {
+        debug(err);
+        req.flashMessage = err.message;
+        return getSignUp(req, res);
+      });
   }
 
   function getEmailSignin(req, res) {
