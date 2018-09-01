@@ -1,4 +1,4 @@
-# Deployment for the CodeCamp Workbench website
+# Deployment for the CodeCamp website
 
 ## To Deploy MongoDB Database
 

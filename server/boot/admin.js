@@ -4,6 +4,7 @@ import debug from 'debug';
 import { ifNoUser401 } from '../utils/middleware';
 
 const log = debug('fcc:boot:admin');
+const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
 
 module.exports = function (app) {
 
@@ -20,7 +21,7 @@ module.exports = function (app) {
 				}
 
 				res.render('admin/create-account', {
-					title: 'Create a new CodeCamp Workbench account'
+					title: `Create a new ${businessAppName} account`
 				})
 			}
 	);
