@@ -30,8 +30,9 @@ import {
 import supportedLanguages from '../../common/utils/supported-languages';
 import { getChallengeInfo, cachedMap } from '../utils/map';
 
-const isSignUpDisabled = !!process.env.DISABLE_SIGNUP;
+const isSignUpDisabled = process.env.DISABLE_SIGNUP === 'true';
 const isBridgesCodeCamp = (process.env.BUSINESS_NAME === "Bridges");
+const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
 
 const debug = debugFactory('fcc:boot:user');
 const sendNonUserToMap = ifNoUserRedirectTo('/map');
@@ -639,7 +640,7 @@ module.exports = function (app) {
     }
 
     res.render('account/signup', {
-      title: 'Create a new CodeCamp Workbench account',
+      title: `Create a new ${ businessAppName } account`,
       flashMessage: req.flashMessage,
       email: req.body.email,
       name: req.body.name,

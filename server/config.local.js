@@ -9,7 +9,7 @@ module.exports = {
     clientSecret: process.env.GITHUB_SECRET
   },
 
-  isSignUpDisabled: !!process.env.DISABLE_SIGNUP,
+  isSignUpDisabled: process.env.DISABLE_SIGNUP === 'true',
   isBridgesCodeCamp: (process.env.BUSINESS_NAME === "Bridges"),
   businessName: process.env.BUSINESS_NAME,
   appName: process.env.APP_NAME,
