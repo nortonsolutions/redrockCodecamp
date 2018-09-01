@@ -1,0 +1,36 @@
+{
+	"name": "How to Use the LearnBench",
+	"order": 0,
+	"time": "5 hours",
+	"helpRoom": "Help",
+	"challenges": [
+	  {
+		"id": "57e5a190ae2549e2d8927356",
+		"title": "Welcome to the LearnBench",
+		"description": [
+		  [
+			"",
+			"",
+			"Welcome to the LearnBench.  Click the 'Go to my next step' button to continue.",
+			""
+		  ],
+		  [
+			"",
+			"",
+			"Great! This is how you will complete several lessons, by reading and clicking next. Please <strong>always</strong> read and understand every word before continuing.",
+			""
+		  ],
+		  [
+			"",
+			"",
+			"You will keep going through each step until you get to the 'Finish lesson' button. When you click 'Finish lesson' the next lesson will start.",
+			""
+		  ]
+		],
+		"challengeSeed": [],
+		"tests": [],
+		"type": "Waypoint",
+		"challengeType": 7
+	  }
+	]
+  }
