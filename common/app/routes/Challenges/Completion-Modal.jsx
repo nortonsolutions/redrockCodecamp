@@ -90,7 +90,7 @@ export class CompletionModal extends PureComponent {
             bsStyle='primary'
             onClick={ submitChallenge }
             >
-            Submit and go to next challenge (Ctrl + Enter)
+            Submit and go to next lesson (Ctrl + Enter)
           </Button>
         </Modal.Footer>
       </Modal>

@@ -164,7 +164,7 @@ export class Settings extends React.Component {
                 className='btn-link-social'
                 href={ `/${username}` }
                 >
-                <FA name='user' />
+                <FA name='user-o' />
                 Show me my public profile
               </Button>
               <Button

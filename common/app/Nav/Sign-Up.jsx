@@ -30,7 +30,7 @@ export default function SignUpButton({ showLoading, showSignUp }) {
       key='user'
       >
       <Link to={ onRouteSettings() }>
-        My Profile
+      <FA name='user-o' /> My Profile
       </Link>
     </li>
   );

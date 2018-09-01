@@ -100,8 +100,8 @@ export function nextChallengeEpic(actions, { getState }) {
         if (nextChallenge.isLocked) {
           return Observable.of(
             makeToast({
-              message: 'The next challenge has not been unlocked. ' +
-              'Please revisit the required (*) challenges ' +
+              message: 'The next lesson has not been unlocked. ' +
+              'Please revisit the required (*) lessons ' +
               'that have not been passed yet. ',
               timeout: 15000
             }),
@@ -114,7 +114,7 @@ export function nextChallengeEpic(actions, { getState }) {
           // enhancers/middlewares and RFR orders things this action will not
           // see addLangToRoutesEnhancer and cause RFR to render NotFound
           onRouteChallenges({ lang, ...nextChallenge }),
-          makeToast({ message: 'Your next challenge has arrived.' })
+          makeToast({ message: 'Your next lesson has arrived.' })
         );
       } catch (err) {
         return createErrorObservable(err);
