@@ -6,6 +6,11 @@ const Visualizer = require('webpack-visualizer-plugin');
 
 var __DEV__ = process.env.NODE_ENV !== 'production';
 
+const envKeys = Object.keys(process.env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(process.env[next]);
+  return prev;
+}, {});
+
 module.exports = {
   entry: {
     bundle: './client'
@@ -50,9 +55,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(__DEV__ ? 'development' : 'production')
-      },
+      'process.env': envKeys,
       __DEVTOOLS__: !__DEV__
     }),
     // Use browser version of visionmedia-debug

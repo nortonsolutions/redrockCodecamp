@@ -31,6 +31,8 @@ import supportedLanguages from '../../common/utils/supported-languages';
 import { getChallengeInfo, cachedMap } from '../utils/map';
 
 const isSignUpDisabled = !!process.env.DISABLE_SIGNUP;
+const isBridgesCodeCamp = (process.env.BUSINESS_NAME === "Bridges");
+
 const debug = debugFactory('fcc:boot:user');
 const sendNonUserToMap = ifNoUserRedirectTo('/map');
 const certIds = {
@@ -624,6 +626,18 @@ module.exports = function (app) {
 
 
   function getSignUp(req, res) {
+    
+    if (isSignUpDisabled) {
+
+      if(isBridgesCodeCamp){
+        return res.render('account/signup-disabled', {
+          title: 'New sign ups are disabled'
+        });
+      }
+
+      return res.redirect('/');
+    }
+
     res.render('account/signup', {
       title: 'Create a new CodeCamp Workbench account',
       flashMessage: req.flashMessage,
@@ -705,11 +719,7 @@ module.exports = function (app) {
     if (req.user) {
       return res.redirect('/');
     }
-    if (isSignUpDisabled) {
-      return res.render('account/beta', {
-        title: 'New sign ups are disabled'
-      });
-    }
+
     return res.render('account/email-signin', {
       title: 'Sign in to freeCodeCamp using your Email Address',
       flashMessage: req.flashMessage,

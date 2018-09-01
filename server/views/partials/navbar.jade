@@ -6,10 +6,15 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
                 .col-xs-12
                     span.hamburger-text Menu
             a.navbar-brand(href='/challenges/current-challenge').
-                CodeCamp Workbench
+                #{settings.businessAppName}
         .collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right.hamburger-dropdown
                 li
-                    a(href='/map') Map
+                    a(href='/map') All Lessons
                 li
                     a(href='/settings') My Profile
+
+    else
+        .navbar-header
+            a.navbar-brand(href='/challenges/current-challenge').
+                #{settings.businessAppName}
