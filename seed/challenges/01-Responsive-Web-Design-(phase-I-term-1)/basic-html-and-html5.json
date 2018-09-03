@@ -685,7 +685,7 @@
         "Let's try to add an image to our website:",
         "Insert an <code>img</code> tag, before the <code>h2</code> element.",
         "Now set the <code>src</code> attribute so that it points to this url:",
-        "<code>/assets/photos/cute_orange_cat.jpg</code>",
+        "<code>/images/cute_orange_cat.jpg</code>",
         "Finally don't forget to give your image an <code>alt</code> text."
       ],
       "challengeSeed": [
@@ -713,7 +713,7 @@
             "Beachte, dass <code>img<code> Elemente in den meisten Fällen selbstschließend sind.",
             "<hr>",
             "Versuche es mit diesem Bild:",
-            "<code>/assets/photos/cute_orange_cat.jpg</code>"
+            "<code>/images/cute_orange_cat.jpg</code>"
           ]
         },
         "fr": {
@@ -726,7 +726,7 @@
             "Prenez note que dans la plupart des cas, les éléments <code>img</code> sont auto-fermants.",
             "<hr>",
             "Essayez avec cette image :",
-            "<code>/assets/photos/cute_orange_cat.jpg</code>"
+            "<code>/images/cute_orange_cat.jpg</code>"
           ]
         },
         "pt-br": {
@@ -743,7 +743,7 @@
             "Vamos tentar adicionar uma imagem ao nosso site:",
             "Insira uma tag <code>img</code>, antes do elemento <code>h2</code>.",
             "Agora coloque essa URL no seu atributo <code>src</code>:",
-            "<code>/assets/photos/cute_orange_cat.jpg</code>",
+            "<code>/images/cute_orange_cat.jpg</code>",
             "Finalmente, não esqueça de dar à sua imagem um texto <code>alt</code>."
           ]
         },
@@ -756,7 +756,7 @@
             "Обратите внимание, что в большинстве случаев элементы <code>img</code> являются самозакрывающимися.",
             "<hr>",
             "Попробуйте добавить изображение используя следующую ссылку:",
-            "<code>/assets/photos/cute_orange_cat.jpg</code>"
+            "<code>/images/cute_orange_cat.jpg</code>"
           ]
         }
       }
@@ -779,7 +779,7 @@
         "  ",
         "  ",
         "  ",
-        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  <img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
         "  ",
         "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
         "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
@@ -863,7 +863,7 @@
         "  ",
         "  <a href=\"http://freecatphotoapp.com\" target=\"_blank\">cat photos</a>",
         "  ",
-        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  <img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
         "  ",
         "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched. Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
         "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched. Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
@@ -921,7 +921,7 @@
         "  ",
         "  <a href=\"http://freecatphotoapp.com\" target=\"_blank\">cat photos</a>",
         "  ",
-        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  <img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
         "  ",
         "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
         "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
@@ -1005,7 +1005,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"http://freecatphotoapp.com\" target=\"_blank\">cat photos</a>.</p>",
         "  ",
-        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  <img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
         "  ",
         "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
         "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
@@ -1061,7 +1061,7 @@
       "description": [
         "You can make elements into links by nesting them within an <code>a</code> element.",
         "Nest your image within an <code>a</code> element. Here's an example:",
-        "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/assets/photos/two_kittens.jpg\" alt=\"Two kittens playing.\"&#62;&#60;/a&#62;</code>",
+        "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/images/two_kittens.jpg\" alt=\"Two kittens playing.\"&#62;&#60;/a&#62;</code>",
         "Remember to use <code>#</code> as your <code>a</code> element's <code>href</code> property in order to turn it into a dead link.",
         "<hr>",
         "Place the existing image element within an anchor element.",
@@ -1072,7 +1072,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  <img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
         "  ",
         "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
         "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
@@ -1092,7 +1092,7 @@
             "Du kannst jedes Element in einen Link verwandeln, indem du es mit einem <code>a</code> Element umschließt.",
             "<hr>",
             "Umschließe dein Bild mit einem <code>a</code> Element. Hier ist ein Beispiel:",
-            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/assets/photos/two_kittens.jpg\"&#62;&#60;/a&#62;</code>",
+            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/images/two_kittens.jpg\"&#62;&#60;/a&#62;</code>",
             "Vergewissere dich, dass du ein <code>#</code> innerhalb des <code>href</code> Attributs des <code>a</code> Elements nutzt, um daraus einen toten Link zu machen.",
             "Sobald du das gemacht hast, kannst du mit der Maus über dein Bild fahren. Der normale Mauszeiger sollte nun zu einer Hand für Links werden. Das Bild ist jetzt ein Link."
           ]
@@ -1103,7 +1103,7 @@
             "Puedes convertir elementos en enlaces al anidarlos dentro de un elemento <code>a</code>.",
             "<hr>",
             "Anida tu imagen dentro de un elemento <code>a</code>. He aquí un ejemplo: ",
-            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/assets/photos/two_kittens.jpg\"/&#62;&#60;/a&#62;</code>",
+            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/images/two_kittens.jpg\"/&#62;&#60;/a&#62;</code>",
             "Recuerda usar <code>#</code> como atributo <code>href</code> de tu elemento <code>a</code> con el fin de convertirlo en un vínculo muerto.",
             "Una vez hayas hecho esto, coloca el cursor sobre tu imagen. El puntero normal de tu cursor debería convertirse en el puntero de enlace. La foto es ahora un vínculo ."
           ]
@@ -1113,7 +1113,7 @@
           "description": [
             "Você pode transformar elementos em links aninhando-os a um elemento <code>a</code>.",
             "Aninhe sua imagem a um elemento <code>a</code>. Aqui está um exemplo:",
-            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/assets/photos/two_kittens.jpg\" alt=\"Dos gatinhos correndo em direção à câmera.\"&#62;&#60;/a&#62;</code>",
+            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/images/two_kittens.jpg\" alt=\"Dos gatinhos correndo em direção à câmera.\"&#62;&#60;/a&#62;</code>",
             "Lembre-se de usar <code>#</code> no atributo <code>href</code> do seu elemento <code>a</code> para que o link esteja morto.",
             "<hr>",
             "Coloque a imagem existente dentro de um elemento âncora.",
@@ -1126,7 +1126,7 @@
             "Вы можете превратить элементы в ссылки путём их вложения внутрь элементов <code>a</code>.",
             "<hr>",
             "Вложите ваше изображение в элемент <code>a</code>. Вот пример:",
-            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/assets/photos/two_kittens.jpg\"&#62;&#60;/a&#62;</code>",
+            "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/images/two_kittens.jpg\"&#62;&#60;/a&#62;</code>",
             "Не забывайте использовать <code>#</code> в качестве значения атрибута <code>href</code> вашего элемента <code>a</code> для превращения ссылки в мёртвую.",
             "Как только вы это сделаете, наведите курсор мыши на ваше изображение. При этом курсор должен изменить вид с обычного на используемый при наведении на ссылки. Ваше фото теперь является ссылкой."
           ]
@@ -1150,7 +1150,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
         "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
@@ -1232,7 +1232,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1325,7 +1325,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1414,7 +1414,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1532,7 +1532,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1614,7 +1614,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1700,7 +1700,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1791,7 +1791,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1895,7 +1895,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -1995,7 +1995,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",
@@ -2085,7 +2085,7 @@
         "<main>",
         "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
         "  ",
-        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  <a href=\"#\"><img src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
         "  ",
         "  <p>Things cats love:</p>",
         "  <ul>",

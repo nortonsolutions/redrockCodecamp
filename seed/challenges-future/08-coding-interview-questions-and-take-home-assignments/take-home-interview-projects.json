@@ -216,7 +216,7 @@
         "<strong>User Story:</strong> If I want to restart, I can hit a button to do so, and the game will return to a single step.",
         "<strong>User Story:</strong> I can play in strict mode where if I get a button press wrong, it notifies me that I have done so, and the game restarts at a new random series of button presses.",
         "<strong>User Story:</strong> I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.",
-        "<strong>Hint:</strong> Here are mp3s you can use for each button: <code>https://s3.amazonaws.com/freecodecamp/simonSound1.mp3</code>, <code>https://s3.amazonaws.com/freecodecamp/simonSound2.mp3</code>, <code>https://s3.amazonaws.com/freecodecamp/simonSound3.mp3</code>, <code>https://s3.amazonaws.com/freecodecamp/simonSound4.mp3</code>.",
+        "<strong>Hint:</strong> Here are mp3s you can use for each button: <code>/images/simonSound1.mp3</code>, <code>/images/simonSound2.mp3</code>, <code>/images/simonSound3.mp3</code>, <code>/images/simonSound4.mp3</code>.",
         "Remember to use the Read-Search-Ask methodology if you get stuck.",
         "When you are finished, click the \"I've completed this challenge\" button and include a link to your CodePen.",
         "You can get feedback on your project by sharing it with your friends on Facebook."
@@ -242,7 +242,7 @@
             "<span class='text-info'>Historia de usuario:</span> Si deseo reiniciar, puedo pulsar un botón para hacerlo, y el juego comenzará desde una secuencia con un solo paso.",
             "<span class='text-info'>Historia de usuario:</span> Puedo jugar en modo estricto donde si presiono el botón equivocado, se me notifica de mi error, y el juego vuelve a comenzar con una nueva serie aleatoria de colores.",
             "<span class='text-info'>Historia de usuario:</span> Puedo ganar el juego si completo 20 pasos correctos. Se me notifica sobre mi victoria, tras lo cual el juego se reinicia.",
-            "<span class='text-info'>Pista:</span> Aquí hay algunos mp3s que puedes utilizar para tus botones: <code>https://s3.amazonaws.com/freecodecamp/simonSound1.mp3</code>, <code>https://s3.amazonaws.com/freecodecamp/simonSound2.mp3</code>, <code>https://s3.amazonaws.com/freecodecamp/simonSound3.mp3</code>, <code>https://s3.amazonaws.com/freecodecamp/simonSound4.mp3</code>.",
+            "<span class='text-info'>Pista:</span> Aquí hay algunos mp3s que puedes utilizar para tus botones: <code>/images/simonSound1.mp3</code>, <code>/images/simonSound2.mp3</code>, <code>/images/simonSound3.mp3</code>, <code>/images/simonSound4.mp3</code>.",
             "Recuerda utilizar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leer-Buscar-Preguntar</a> si te sientes atascado.",
             "Cuando hayas terminado, pulsa el botón de \"I've completed this challenge\" e incluye un enlace a tu CodePen.",
             "Puedes obtener retroalimentación sobre tu proyecto por parte de otros campistas, compartiéndolo en nuestra <a href='//gitter.im/freecodecamp/codereview' target='_blank'>Sala de chat para revisión de código</a>. También puedes compartirlo en Twitter y en el campamento de tu ciudad (en Facebook)."

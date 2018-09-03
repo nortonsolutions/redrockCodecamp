@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "imageLink": "http://s3.amazonaws.com/freecodecamp/funny-cat.jpg",
+    "imageLink": "/images/funny-cat.jpg",
     "altText": "A white cat wearing a green, helmet shaped melon on its head. ",
     "codeNames": [
       "Juggernaut",
@@ -11,7 +11,7 @@
   },
   {
     "id": 1,
-    "imageLink": "http://s3.amazonaws.com/freecodecamp/grumpy-cat.jpg",
+    "imageLink": "/images/grumpy-cat.jpg",
     "altText": "A white cat with blue eyes, looking very grumpy. ",
     "codeNames": [
       "Oscar",
@@ -21,7 +21,7 @@
   },
   {
     "id": 2,
-    "imageLink": "http://s3.amazonaws.com/freecodecamp/mischievous-cat.jpg",
+    "imageLink": "/images/mischievous-cat.jpg",
     "altText": "A ginger cat with one eye closed and mouth in a grin-like expression. Looking very mischievous. ",
     "codeNames": [
       "The Doctor",

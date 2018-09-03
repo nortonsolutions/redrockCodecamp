@@ -380,7 +380,7 @@
 				"<hr>",
 				"Add a <code>forEach</code> method to loop over the JSON data and create the HTML elements to display it.",
 				"Here is some example JSON",
-				"<blockquote>[</br>&nbsp;&nbsp;{</br>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":0,</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"imageLink\":\"https://s3.amazonaws.com/freecodecamp/funny-cat.jpg\",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"altText\":\"A white cat wearing a green helmet shaped melon on its head. \",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"codeNames\":[ \"Juggernaut\", \"Mrs. Wallace\", \"Buttercup\"</br>&nbsp;&nbsp;&nbsp;&nbsp;]</br>&nbsp;&nbsp;}</br>]</blockquote>"
+				"<blockquote>[</br>&nbsp;&nbsp;{</br>&nbsp;&nbsp;&nbsp;&nbsp;\"id\":0,</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"imageLink\":\"/images/funny-cat.jpg\",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"altText\":\"A white cat wearing a green helmet shaped melon on its head. \",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"codeNames\":[ \"Juggernaut\", \"Mrs. Wallace\", \"Buttercup\"</br>&nbsp;&nbsp;&nbsp;&nbsp;]</br>&nbsp;&nbsp;}</br>]</blockquote>"
 			],
 			"tests": [
 				{

@@ -337,7 +337,7 @@
         "<hr>",
         "Add a <code>forEach</code> method to loop over the JSON data and create the HTML elements to display it.",
         "Here is some example JSON",
-        "<blockquote>[</br>  {</br>    \"id\":0,</br>    \"imageLink\":\"https://s3.amazonaws.com/freecodecamp/funny-cat.jpg\",</br>    \"altText\":\"A white cat wearing a green helmet shaped melon on its head. \",</br>    \"codeNames\":[</br>      \"Juggernaut\",</br>      \"Mrs. Wallace\",</br>      \"Buttercup\"</br>    ]</br>  }</br>]</blockquote>"
+        "<blockquote>[</br>  {</br>    \"id\":0,</br>    \"imageLink\":\"/images/funny-cat.jpg\",</br>    \"altText\":\"A white cat wearing a green helmet shaped melon on its head. \",</br>    \"codeNames\":[</br>      \"Juggernaut\",</br>      \"Mrs. Wallace\",</br>      \"Buttercup\"</br>    ]</br>  }</br>]</blockquote>"
       ],
       "challengeSeed": [
         "<script>",
