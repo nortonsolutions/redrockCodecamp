@@ -167,6 +167,34 @@
 			],
 			"type": "waypoint",
 			"challengeType": 0
+		},
+		{
+			"id": "8d463170af8cef02e9ed909c",
+			"title": "** Commit to Learn in Order",
+			"description": [
+				[
+					"",
+					"",
+					"Just like in math, many parts of coding build apon previous knowledge.",
+					""
+				],
+				[
+					"",
+					"",
+					"These lessons have been created in a specific order to help your knowledge build.",
+					""
+				],
+				[
+					"",
+					"",
+					"Commit do the lessons in order and not jump ahead.",
+					"#"
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
 		}
 	]
 }

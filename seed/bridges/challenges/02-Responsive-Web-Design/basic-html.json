@@ -1,0 +1,1175 @@
+{
+  "name": "Basic HTML",
+  "order": 0,
+  "time": "5 hours",
+  "helpRoom": "Help",
+  "challenges": [
+    {
+      "id": "13696380af9209326bb14361",
+      "title": "Introduction to Basic HTML",
+      "description": [
+        [
+          "",
+          "",
+          "You will now be learning HTML, the language of the web.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "HTML is a language for making documents. It uses special symbols (codes) for describing a document. For example, there are different codes to indicate a heading, a paragraph, or a list.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "HTML is a 'Markup Language' which uses annotations to give information to text and also structure to the 'User Interface' or what you see on a web page.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "1d15b570af95cd1413d3bd58",
+      "title": "Documentation for HTML",
+      "description": [
+        [
+          "",
+          "",
+          "You will need documentation for HTML.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "A great place to look for word definitions is in Wikipedia.<p> You can quickly look up the words HTML, Markup Language and other terms.</p>",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Always look up words or terms you do not know. <p>Such as 'markup language' or 'hypertext'.</p>",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Usually wikipedia will be at the top of the search results on Google for most terms. However you can always add the work wiki or wikipedia to any search.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Try it out. Use this search on Google: html wikipedia",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "The best documentation for HTML is found on the Mozilla Developer Network (MDN). You can add the word MDN to any search to find the document on the MDN.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Try it out. Use this search on Google: p mdn",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "The official specification for HTML is found at the W3C website. These docs have all the information about HTML but are generally harder to read than the MDN.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Checkout the W3C website by searching for: w3c html 5",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887b",
+      "title": "** Read Beginning HTML And CSS Chapter 1 &amp; 2",
+      "description": [
+        [
+          "",
+          "",
+          "For the topic of HTML we suggest reading from Beginning HTML And CSS by Rob Larsen.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "You may find a free pdf or html version of the book online. You can search Google for a pdf version of the book by including the words 'pdf'.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Please commit to reading chapters 1 and 2 of Beginning HTML And CSS before you reach the next reading commitment.",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bd7123c8c441eddfaeb5bdef",
+      "title": "Say Hello to HTML Elements",
+      "description": [
+        "Welcome. These will walk you through web development step-by-step.",
+        "You should do the challenges in order, but feel free to explore by clicking around the challenges map.",
+        "First, you'll start by building a simple web page using HTML. You can edit <code>code</code> in your <code>text editor</code>, which is embedded into this web page.",
+        "Do you see the code in your text editor that says <code>&#60;h1&#62;Hello&#60;/h1&#62;</code>? That's an HTML <code>element</code>.",
+        "Most HTML elements have an <code>opening tag</code> and a <code>closing tag</code>.",
+        "Opening tags look like this:",
+        "<code>&#60;h1&#62;</code>",
+        "Closing tags look like this:",
+        "<code>&#60;/h1&#62;</code>",
+        "The only difference between opening and closing tags is the forward slash after the opening bracket of a closing tag.",
+        "Each challenge has tests you can run at any time by clicking the \"Run tests\" button. When you pass all tests, you'll be prompted to submit your solution and go to the next coding challenge.",
+        "<hr>",
+        "To pass the test on this challenge, change your <code>h1</code> element's text to say \"Hello World\"."
+      ],
+      "challengeSeed": [
+        "<h1>Hello</h1>"
+      ],
+      "tests": [
+        {
+          "text": "Your <code>h1</code> element should have the text \"Hello World\".",
+          "testString": "assert.isTrue((/hello(\\s)+world/gi).test($('h1').text()), 'Your <code>h1</code> element should have the text \"Hello World\".');"
+        }
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887a",
+      "title": "Headline with the h2 Element",
+      "description": [
+        "Over the next two sections, we'll build an HTML5 app that will look something like this:",
+        "<a href=\"/images/jOc1JF1.png\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/jOc1JF1.png\" title=\"Click to enlarge\" alt=\"A screen shot of our finished Cat Photo App\"></a>",
+        "The <code>h2</code> element you enter will create an <code>h2</code> element on the website.",
+        "This element tells the browser about the structure of your website. <code>h1</code> elements are often used for main headings, while <code>h2</code> elements are generally used for subheadings. There are also <code>h3</code>, <code>h4</code>, <code>h5</code> and <code>h6</code> elements to indicate different and new sections.",
+        "<hr>",
+        "Add an <code>h2</code> tag that says \"CatPhotoApp\" to create a second HTML <code>element</code> below your \"Hello World\" <code>h1</code> element."
+      ],
+      "challengeSeed": [
+        "<h1>Hello World</h1>"
+      ],
+      "tests": [
+        "assert(($(\"h2\").length > 0), 'message: Create an <code>h2</code> element.');",
+        "assert(code.match(/<\\/h2>/g) && code.match(/<\\/h2>/g).length === code.match(/<h2>/g).length, 'message: Make sure your <code>h2</code> element has a closing tag.');",
+        "assert.isTrue((/cat(\\s)?photo(\\s)?app/gi).test($(\"h2\").text()), 'message: Your <code>h2</code> element should have the text \"CatPhotoApp\".');",
+        "assert.isTrue((/hello(\\s)+world/gi).test($(\"h1\").text()), 'message: Your <code>h1</code> element should have the text \"Hello World\".');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08801",
+      "title": "Inform with the Paragraph Element",
+      "description": [
+        "<code>p</code> elements are the preferred element for normal-sized paragraph text on websites. P is short for \"paragraph\".",
+        "You can create a <code>p</code> element like this:",
+        "<code>&#60;p&#62;I'm a p tag!&#60;/p&#62;</code>",
+        "<hr>",
+        "Create a <code>p</code> element below your <code>h2</code> element, and give it the text \"Hello Paragraph\"."
+      ],
+      "challengeSeed": [
+        "<h1>Hello World</h1>",
+        "<h2>CatPhotoApp</h2>"
+      ],
+      "tests": [
+        "assert(($(\"p\").length > 0), 'message: Create a <code>p</code> element.');",
+        "assert.isTrue((/hello(\\s)+paragraph/gi).test($(\"p\").text()), 'message: Your <code>p</code> element should have the text \"Hello Paragraph\".');",
+        "assert(code.match(/<\\/p>/g) && code.match(/<\\/p>/g).length === code.match(/<p/g).length, 'message: Make sure your <code>p</code> element has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08833",
+      "title": "Fill in the Blank with Placeholder Text",
+      "description": [
+        "Web developers traditionally use <code>lorem ipsum text</code> as placeholder text. The 'lorem ipsum' text is randomly scraped from a famous passage by Cicero of Ancient Rome.",
+        "Lorem ipsum text has been used as placeholder text by typesetters since the 16th century, and this tradition continues on the web.",
+        "Well, 5 centuries is long enough. Since we're building a CatPhotoApp, let's use something called <code>kitty ipsum text</code>.",
+        "<hr>",
+        "Replace the text inside your <code>p</code> element with the first few words of this kitty ipsum text: <code>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</code>"
+      ],
+      "challengeSeed": [
+        "<h1>Hello World</h1>",
+        "",
+        "<h2>CatPhotoApp</h2>",
+        "",
+        "<p>Hello Paragraph</p>"
+      ],
+      "tests": [
+        "assert.isTrue((/Kitty(\\s)+ipsum/gi).test($(\"p\").text()), 'message: Your <code>p</code> element should contain the first few words of the provided <code>kitty ipsum text</code>.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08802",
+      "title": "Uncomment HTML",
+      "description": [
+        "Commenting is a way that you can leave comments within your code without affecting the code itself.",
+        "Commenting is also a convenient way to make code inactive without having to delete it entirely.",
+        "You can start a comment with <code>&#60;!--</code> and end a comment with <code>--&#62;</code>",
+        "<hr>",
+        "Uncomment your <code>h1</code>, <code>h2</code> and <code>p</code> elements."
+      ],
+      "challengeSeed": [
+        "<!--",
+        "<h1>Hello World</h1>",
+        "",
+        "<h2>CatPhotoApp</h2>",
+        "",
+        "<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "-->"
+      ],
+      "tests": [
+        "assert($(\"h1\").length > 0, 'message: Make your <code>h1</code> element visible on your page by uncommenting it.');",
+        "assert($(\"h2\").length > 0, 'message: Make your <code>h2</code> element visible on your page by uncommenting it.');",
+        "assert($(\"p\").length > 0, 'message: Make your <code>p</code> element visible on your page by uncommenting it.');",
+        "assert(!/[^fc]-->/gi.test(code.replace(/ *<!--[^fc]*\\n/g,'')), 'message: Be sure to delete all trailing comment tags&#44; i.e. <code>--&#62;</code>.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08804",
+      "title": "Comment out HTML",
+      "description": [
+        "Remember that in order to start a comment, you need to use <code>&#60;!--</code> and to end a comment, you need to use <code>--&#62;</code>",
+        "Here you'll need to end the comment before your <code>h2</code> element begins.",
+        "<hr>",
+        "Comment out your <code>h1</code> element and your <code>p</code> element, but leave your <code>h2</code> element uncommented."
+      ],
+      "challengeSeed": [
+        "<!--",
+        "<h1>Hello World</h1>",
+        "",
+        "<h2>CatPhotoApp</h2>",
+        "",
+        "<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "-->"
+      ],
+      "tests": [
+        "assert(($(\"h1\").length === 0), 'message: Comment out your <code>h1</code> element so that it is not visible on your page.');",
+        "assert(($(\"h2\").length > 0), 'message: Leave your <code>h2</code> element uncommented so that it is visible on your page.');",
+        "assert(($(\"p\").length === 0), 'message: Comment out your <code>p</code> element so that it is not visible on your page.');",
+        "assert(code.match(/[^fc]-->/g).length > 1, 'message: Be sure to close each of your comments with <code>--&#62;</code>.');",
+        "assert((code.match(/<([a-z0-9]){1,2}>/g)[0]===\"<h1>\" && code.match(/<([a-z0-9]){1,2}>/g)[1]===\"<h2>\" && code.match(/<([a-z0-9]){1,2}>/g)[2]===\"<p>\") , 'message: Do not change the order of the <code>h1</code> <code>h2</code> or <code>p</code> in the code.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fed1348bd9aedf08833",
+      "title": "Delete HTML Elements",
+      "description": [
+        "Our phone doesn't have much vertical space.",
+        "Let's remove the unnecessary elements so we can start building our CatPhotoApp.",
+        "<hr>",
+        "Delete your <code>h1</code> element so we can simplify our view."
+      ],
+      "challengeSeed": [
+        "<h1>Hello World</h1>",
+        "",
+        "<h2>CatPhotoApp</h2>",
+        "",
+        "<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>"
+      ],
+      "tests": [
+        "assert(($(\"h1\").length == 0), 'message: Delete your <code>h1</code> element.');",
+        "assert(($(\"h2\").length > 0), 'message: Leave your <code>h2</code> element on the page.');",
+        "assert(($(\"p\").length > 0), 'message: Leave your <code>p</code> element on the page.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aecf08801",
+      "title": "Introduction to HTML5 Elements",
+      "description": [
+        "HTML5 introduces more descriptive HTML tags. These include <code>header</code>, <code>footer</code>, <code>nav</code>, <code>video</code>, <code>article</code>, <code>section</code> and others.",
+        "These tags make your HTML easier to read, and also help with Search Engine Optimization (SEO) and accessibility.",
+        "The <code>main</code> HTML5 tag helps search engines and other developers find the main content of your page.",
+        "<strong>Note</strong><br>Many of the new HTML5 tags and their benefits are covered in the Applied Accessibility section.",
+        "<hr>",
+        "Create a second <code>p</code> element after the existing <code>p</code> element with the following kitty ipsum text: <code>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</code>",
+        "Wrap the paragraphs with an opening and closing <code>main</code> tag."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "",
+        "<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>"
+      ],
+      "tests": [
+        "assert($(\"p\").length > 1, 'message: You need 2 <code>p</code> elements with Kitty Ipsum text.');",
+        "assert(code.match(/<\\/p>/g) && code.match(/<\\/p>/g).length === code.match(/<p/g).length, 'message: Make sure each of your <code>p</code> elements has a closing tag.');",
+        "assert.isTrue((/Purr\\s+jump\\s+eat/gi).test($(\"p\").text()), 'message: Your <code>p</code> element should contain the first few words of the provided additional <code>kitty ipsum text</code>.');",
+        "assert($('main').length === 1, 'message: Your code should have one <code>main</code> element.');",
+        "assert($(\"main\").children(\"p\").length === 2, 'message: The <code>main</code> element should have two paragraph elements as children.');",
+        "assert(code.match(/<main>\\s*?<p>/g), 'message: The opening <code>main</code> tag should come before the first paragraph tag.');",
+        "assert(code.match(/<\\/p>\\s*?<\\/main>/g), 'message: The closing <code>main</code> tag should come after the second closing paragraph tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887c",
+      "title": "**Commit to having read HTML & CSS chapters 1 & 2",
+      "description": [
+        [
+          "",
+          "",
+          "At this point you should have finished reading chapters 1 and 2 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887d",
+      "title": "**Commit to read HTML & CSS chapters 3-6",
+      "description": [
+        [
+          "",
+          "",
+          "The following sections cover material that will be covered in chapters 3-6 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you reach the challenge \"Create a Form Element\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf08812",
+      "title": "Add Images to Your Website",
+      "description": [
+        "You can add images to your website by using the <code>img</code> element, and point to a specific image's URL using the <code>src</code> attribute.",
+        "An example of this would be:",
+        "<code>&#60img src=\"https://www.your-image-source.com/your-image.jpg\"&#62</code>",
+        "Note that in most cases, <code>img</code> elements are self-closing.",
+        "All <code>img</code> elements <strong>must</strong> have an <code>alt</code> attribute. The text inside an <code>alt</code> attribute is used for screen readers to improve accessibility and is displayed if the image fails to load.",
+        "Ideally the <code>alt</code> attribute should not contain special chars unless needed.",
+        "Let's add an <code>alt</code> attribute to our <code>img</code> example above:",
+        "<code>&#60img src=\"https://www.your-image-source.com/your-image.jpg\" alt=\"Author standing on a beach with two thumbs up.\"&#62</code>",
+        "<hr>",
+        "Let's try to add an image to our website:",
+        "Insert an <code>img</code> tag, before the <code>h2</code> element.",
+        "Now set the <code>src</code> attribute so that it points to this url:",
+        "<code>/assets/photos/cute_orange_cat.jpg</code>",
+        "Finally don't forget to give your image an <code>alt</code> text."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  ",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"img\").length > 0, 'message: Your page should have an image element.');",
+        "assert(new RegExp(\"\\/cute_orange_cat.jpg\", \"gi\").test($(\"img\").attr(\"src\")), 'message: Your image should have a <code>src</code> attribute that points to the kitten image.');",
+        "assert(code.match(/alt\\s*?=\\s*?(\\\"|\\').*(\\\"|\\')/), 'message: Your image element <strong>must</strong> have an <code>alt</code> attribute.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08816",
+      "title": "Link to External Pages with Anchor Elements",
+      "description": [
+        "<code>a</code> elements, also known as <code>anchor</code> elements, are used to link to content outside of the current page.",
+        "Here's a diagram of an <code>a</code> element. In this case, the <code>a</code> element is used in the middle of a paragraph element, which means the link will appear in the middle of a sentence.",
+        "<a href=\"http://cua.cucfcua.edu/informationTech/CTE%20(Html)/html.site/html-css/getting-to-know-html/getting-to-know-html.html#creating-hyperlinks\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" title=\"Click to enlarge\" alt=\"a diagram of how anchor tags are composed with the same text as on the following line\" src=\"/images/anchors.png\"></a>",
+        "Here's an example:",
+        "<code>&#60;p&#62;Here's a &#60;a href=\"http://cua.cucfcua.edu\"&#62; Link to cua.cucfcua.edu&#60;/a&#62; for you to follow.&#60;/p&#62;</code>",
+        "<hr>",
+        "Create an <code>a</code> element that links to <code>http://freecatphotoapp.com</code> and has \"cat photos\" as its <code>anchor text</code>."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  ",
+        "  ",
+        "  ",
+        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "</main>"
+      ],
+      "tests": [
+        "assert((/cat photos/gi).test($(\"a\").text()), 'message: Your <code>a</code> element should have the <code>anchor text</code> of \"cat photos\".');",
+        "assert(/http:\\/\\/(www\\.)?freecatphotoapp\\.com/gi.test($(\"a\").attr(\"href\")), 'message: You need an <code>a</code> element that links to <code>http&#58;//freecatphotoapp<wbr>.com</code>');",
+        "assert(code.match(/<\\/a>/g) && code.match(/<\\/a>/g).length === code.match(/<a/g).length, 'message: Make sure your <code>a</code> element has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad88fee1348bd9aedf08816",
+      "title": "Link to Internal Sections of a Page with Anchor Elements",
+      "description": [
+        "Anchor elements can also be used to create internal links to jump to different sections within a webpage.",
+        "To create an internal link, you assign a link's <code>href</code> attribute to a hash symbol <code>#</code> plus the value of the <code>id</code> attribute for the element that you want to internally link to, usually further down the page. You then need to add the same <code>id</code> attribute to the element you are linking to. An <code>id</code> is an attribute that uniquely describes an element.",
+        "Below is an example of an internal anchor link and its target element:",
+        "<blockquote>&lt;a href=\"#contacts-header\"&gt;Contacts&lt;/a&gt;<br>...<br>&lt;h2 id=\"contacts-header\"&gt;Contacts&lt;/h2&gt;</blockquote>",
+        "When users click the <u>Contacts</u> link, they'll be taken to the section of the webpage with the <b>Contacts</b> header element.",
+        "<hr>",
+        "Change your external link to an internal link by changing the <code>href</code> attribute to \"#footer\" and the text from \"cat photos\" to \"Jump to Bottom\".",
+        "Remove the <code>target=\"_blank\"</code> attribute from the anchor tag since this causes the linked document to open in a new window tab.",
+        "Then add an <code>id</code> attribute with a value of \"footer\" to the <code>&lt;footer&gt;</code> element at the bottom of the page."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  ",
+        "  <a href=\"http://freecatphotoapp.com\" target=\"_blank\">cat photos</a>",
+        "  ",
+        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched. Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched. Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "  <p>Meowwww loved it, hated it, loved it, hated it yet spill litter box, scratch at owner, destroy all furniture, especially couch or lay on arms while you're using the keyboard. Missing until dinner time toy mouse squeak roll over. With tail in the air lounge in doorway. Man running from cops stops to pet cats, goes to jail.</p>",
+        "  <p>Intently stare at the same spot poop in the plant pot but kitten is playing with dead mouse. Get video posted to internet for chasing red dot leave fur on owners clothes meow to be let out and mesmerizing birds leave fur on owners clothes or favor packaging over toy so purr for no reason. Meow to be let out play time intently sniff hand run outside as soon as door open yet destroy couch.</p>",
+        "  ",
+        "</main>",
+        "  ",
+        "<footer>Copyright Cat Photo App</footer>"
+      ],
+      "tests": [
+        "assert($('a').length == 1, 'message: There should be only one anchor tag on your page.');",
+        "assert($('footer').length == 1, 'message: There should be only one <code>footer</code> tag on your page.');",
+        "assert($('a').eq(0).attr('href') == \"#footer\", 'message: The <code>a</code> tag should have an <code>href</code> attribute set to \"#footer\".');",
+        "assert(typeof $('a').eq(0).attr('target') == typeof undefined || $('a').eq(0).attr('target') == true, 'message: The <code>a</code> tag should not have a <code>target</code> attribute');",
+        "assert($('a').eq(0).text().match(/Jump to Bottom/gi), 'message: The <code>a</code> text should be \"Jump to Bottom\".');",
+        "assert($('footer').eq(0).attr('id') == \"footer\", 'message: The <code>footer</code> tag should have an <code>id</code> attribute set to \"footer\".');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aede08817",
+      "title": "Nest an Anchor Element within a Paragraph",
+      "description": [
+        "Again, here's a diagram of an <code>a</code> element for your reference:",
+        "<a href=\"http://cua.cucfcua.edu/informationTech/CTE%20(Html)/html.site/html-css/getting-to-know-html/getting-to-know-html.html#creating-hyperlinks\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" title=\"Click to enlarge\" alt=\"a diagram of how anchor tags are composed with the same text as on the following line\" src=\"/images/anchors.png\"></a>",
+        "Here's an example:",
+        "<code>&#60;p&#62;Here's a &#60;a href=\"http://cua.cucfcua.edu\"&#62; link to cua.cucfcua.edu&#60;/a&#62; for you to follow.&#60;/p&#62;</code>",
+        "<code>Nesting</code> just means putting one element inside of another element.",
+        "<hr>",
+        "Now nest your existing <code>a</code> element within a new <code>p</code> element (just after the existing <code>main</code> element) so that the surrounding paragraph says \"View more cat photos\", but where only \"cat photos\" is a link, and the rest of the text is plain text."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  ",
+        "  <a href=\"http://freecatphotoapp.com\" target=\"_blank\">cat photos</a>",
+        "  ",
+        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "</main>"
+      ],
+      "tests": [
+        "assert(($(\"a[href=\\\"http://freecatphotoapp.com\\\"]\").length > 0 || $(\"a[href=\\\"http://www.freecatphotoapp.com\\\"]\").length > 0), 'message: You need an <code>a</code> element that links to \"http://freecatphotoapp.com\".');",
+        "assert($(\"a\").text().match(/cat\\sphotos/gi), 'message: Your <code>a</code> element should have the anchor text of \"cat photos\"');",
+        "assert($(\"p\") && $(\"p\").length > 2, 'message: Create a new <code>p</code> element around your <code>a</code> element. There should be at least 3 total <code>p</code> tags in your HTML code.');",
+        "assert(($(\"a[href=\\\"http://freecatphotoapp.com\\\"]\").parent().is(\"p\") || $(\"a[href=\\\"http://www.freecatphotoapp.com\\\"]\").parent().is(\"p\")), 'message: Your <code>a</code> element should be nested within your new <code>p</code> element.');",
+        "assert(($(\"a[href=\\\"http://freecatphotoapp.com\\\"]\").parent().text().match(/View\\smore\\s/gi) || $(\"a[href=\\\"http://www.freecatphotoapp.com\\\"]\").parent().text().match(/View\\smore\\s/gi)), 'message: Your <code>p</code> element should have the text \"View more \" (with a space after it).');",
+        "assert(!$(\"a\").text().match(/View\\smore/gi), 'message: Your <code>a</code> element should <em>not</em> have the text \"View more\".');",
+        "assert(code.match(/<\\/p>/g) && code.match(/<p/g) && code.match(/<\\/p>/g).length === code.match(/<p/g).length, 'message: Make sure each of your <code>p</code> elements has a closing tag.');",
+        "assert(code.match(/<\\/a>/g) && code.match(/<a/g) && code.match(/<\\/a>/g).length === code.match(/<a/g).length, 'message: Make sure each of your <code>a</code> elements has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08817",
+      "title": "Make Dead Links Using the Hash Symbol",
+      "description": [
+        "Sometimes you want to add <code>a</code> elements to your website before you know where they will link.",
+        "This is also handy when you're changing the behavior of a link using <code>jQuery</code>, which we'll learn about later.",
+        "<hr>",
+        "The current value of the <code>href</code> attribute is a link that points to \"http://freecatphotoapp.com\". Replace the <code>href</code> attribute value with a <code>#</code>, also known as a hash symbol, to create a dead link.",
+        "For example: <code>href=\"#\"</code>"
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"http://freecatphotoapp.com\" target=\"_blank\">cat photos</a>.</p>",
+        "  ",
+        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"a\").attr(\"href\") === \"#\", 'message: Your <code>a</code> element should be a dead link with the value of the <code>href</code> attribute set to \"#\".');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08820",
+      "title": "Turn an Image into a Link",
+      "description": [
+        "You can make elements into links by nesting them within an <code>a</code> element.",
+        "Nest your image within an <code>a</code> element. Here's an example:",
+        "<code>&#60;a href=\"#\"&#62;&#60;img src=\"/assets/photos/two_kittens.jpg\" alt=\"Two kittens playing.\"&#62;&#60;/a&#62;</code>",
+        "Remember to use <code>#</code> as your <code>a</code> element's <code>href</code> property in order to turn it into a dead link.",
+        "<hr>",
+        "Place the existing image element within an anchor element.",
+        "Once you've done this, hover over your image with your cursor. Your cursor's normal pointer should become the link clicking pointer. The photo is now a link."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\">",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"a\").children(\"img\").length > 0, 'message: Nest the existing <code>img</code> element within an <code>a</code> element.');",
+        "assert(new RegExp(\"#\").test($(\"a\").children(\"img\").parent().attr(\"href\")), 'message: Your <code>a</code> element should be a dead link with a <code>href</code> attribute set to <code>#</code>.');",
+        "assert(code.match(/<\\/a>/g) && code.match(/<a/g) && code.match(/<\\/a>/g).length === code.match(/<a/g).length, 'message: Make sure each of your <code>a</code> elements has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08827",
+      "title": "Create a Bulleted Unordered List",
+      "description": [
+        "HTML has a special element for creating <code>unordered lists</code>, or bullet point-style lists.",
+        "Unordered lists start with a <code>&#60;ul&#62;</code> element. Then they contain some number of <code>&#60;li&#62;</code> elements.",
+        "For example: ",
+        "<blockquote>&#60;ul&#62;<br>&nbsp;&nbsp;&#60;li&#62;milk&#60;/li&#62;<br>&nbsp;&nbsp;&#60;li&#62;cheese&#60;/li&#62;<br>&#60;/ul&#62;</blockquote>",
+        "would create a bullet point-style list of \"milk\" and \"cheese\".",
+        "<hr>",
+        "Remove the last two <code>p</code> elements and create an unordered list of three things that cats love at the bottom of the page."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"ul\").length > 0, 'message: Create a <code>ul</code> element.');",
+        "assert($(\"ul li\").length > 2, 'message: You should have three <code>li</code> elements within your <code>ul</code> element.');",
+        "assert(code.match(/<\\/ul>/gi) && code.match(/<ul/gi) && code.match(/<\\/ul>/gi).length === code.match(/<ul/gi).length, 'message: Make sure your <code>ul</code> element has a closing tag.');",
+        "assert(code.match(/<\\/li>/gi) && code.match(/<li[\\s>]/gi) && code.match(/<\\/li>/gi).length === code.match(/<li[\\s>]/gi).length, 'message: Make sure your <code>li</code> elements have closing tags.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08828",
+      "title": "Create an Ordered List",
+      "description": [
+        "HTML has a special element for creating <code>ordered lists</code>, or numbered-style lists.",
+        "Ordered lists start with a <code>&#60;ol&#62;</code> element. Then they contain some number of <code>&#60;li&#62;</code> elements.",
+        "For example:",
+        "<blockquote>&#60;ol&#62;<br>&nbsp;&nbsp;&#60;li&#62;Garfield&#60;/li&#62;<br>&nbsp;&nbsp;&#60;li&#62;Sylvester&#60;/li&#62;<br>&#60;/ol&#62;</blockquote>",
+        "would create a numbered list of \"Garfield\" and \"Sylvester\".",
+        "<hr>",
+        "Create an ordered list of the top 3 things cats hate the most."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  ",
+        "</main>"
+      ],
+      "tests": [
+        "assert((/Top 3 things cats hate:/i).test($(\"ol\").prev().text()), 'message: You should have an ordered list for \"Top 3 things cats hate:\"');",
+        "assert((/Things cats love:/i).test($(\"ul\").prev().text()), 'message: You should have an unordered list for \"Things cats love:\"');",
+        "assert.equal($(\"ul\").length, 1, 'message: You should have only one <code>ul</code> element.');",
+        "assert.equal($(\"ol\").length, 1, 'message: You should have only one <code>ol</code> element.');",
+        "assert.equal($(\"ul li\").length, 3, 'message: You should have three <code>li</code> elements within your <code>ul</code> element.');",
+        "assert.equal($(\"ol li\").length, 3, 'message: You should have three <code>li</code> elements within your <code>ol</code> element.');",
+        "assert(code.match(/<\\/ul>/g) && code.match(/<\\/ul>/g).length === code.match(/<ul>/g).length, 'message: Make sure your <code>ul</code> element has a closing tag.');",
+        "assert(code.match(/<\\/ol>/g) && code.match(/<\\/ol>/g).length === code.match(/<ol>/g).length, 'message: Make sure your <code>ol</code> element has a closing tag.');",
+        "assert(code.match(/<\\/li>/g) && code.match(/<li>/g) && code.match(/<\\/li>/g).length === code.match(/<li>/g).length, 'message: Make sure your <code>li</code> element has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08829",
+      "title": "Create a Text Field",
+      "description": [
+        "Now let's create a web form.",
+        "Text inputs are a convenient way to get input from your user.",
+        "You can create one like this:",
+        "<code>&#60;input type=\"text\"&#62;</code>",
+        "Note that <code>input</code> elements are self-closing.",
+        "<hr>",
+        "Create an <code>input</code> element of type <code>text</code> below your lists."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  ",
+        "  ",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"input[type=text]\").length > 0, 'message: Your app should have an <code>input</code> element of type <code>text</code>.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08830",
+      "title": "Add Placeholder Text to a Text Field",
+      "description": [
+        "Your placeholder text is what appears in your text <code>input</code> before your user has input anything.",
+        "You can create placeholder text like so:",
+        "<code>&#60;input type=\"text\" placeholder=\"this is placeholder text\"&#62;</code>",
+        "<hr>",
+        "Set the <code>placeholder</code> value of your text <code>input</code> to \"cat photo URL\"."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <input type=\"text\">",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"input[placeholder]\").length > 0, 'message: Add a <code>placeholder</code> attribute to the existing text <code>input</code> element.');",
+        "assert($(\"input\") && $(\"input\").attr(\"placeholder\") && $(\"input\").attr(\"placeholder\").match(/cat\\s+photo\\s+URL/gi), 'message: Set the value of your placeholder attribute to \"cat photo URL\".');",
+        "assert($(\"input[type=text]\").length > 0 && code.match(/<input((\\s+\\w+(\\s*=\\s*(?:\".*?\"|'.*?'|[\\^'\">\\s]+))?)+\\s*|\\s*)\\/?>/gi), 'message: The finished <code>input</code> element should have valid syntax.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887e",
+      "title": "**Commit to having read HTML & CSS chapters 3 through 6",
+      "description": [
+        [
+          "",
+          "",
+          "At this point you should have finished reading chapters 3 through 6 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these four chapters.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aedf0887f",
+      "title": "**Commit to read HTML & CSS chapters 7 & 8",
+      "description": [
+        [
+          "",
+          "",
+          "The following sections cover material that will be covered in chapters 7 & 8 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you move on from \"Basic HTML and HTML5\"",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "bad87fee1348bd9aede08830",
+      "title": "Create a Form Element",
+      "description": [
+        "You can build web forms that actually submit data to a server using nothing more than pure HTML. You can do this by specifying an action on your <code>form</code> element.",
+        "For example:",
+        "<code>&#60;form action=\"/url-where-you-want-to-submit-form-data\"&#62;&#60;/form&#62;</code>",
+        "<hr>",
+        "Nest your text field in a <code>form</code> element. Add the <code>action=\"/submit-cat-photo\"</code> attribute to this form element."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <input type=\"text\" placeholder=\"cat photo URL\">",
+        "<main>"
+      ],
+      "tests": [
+        "assert($(\"form\") && $(\"form\").children(\"input\") && $(\"form\").children(\"input\").length > 0, 'message: Nest your text input element within a <code>form</code> element.');",
+        "assert($(\"form\").attr(\"action\") === \"/submit-cat-photo\", 'message: Make sure your <code>form</code> has an <code>action</code> attribute which is set to <code>/submit-cat-photo</code>');",
+        "assert(code.match(/<\\/form>/g) && code.match(/<form [^<]*>/g) && code.match(/<\\/form>/g).length === code.match(/<form [^<]*>/g).length, 'message: Make sure your <code>form</code> element has well-formed open and close tags.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedd08830",
+      "title": "Add a Submit Button to a Form",
+      "description": [
+        "Let's add a <code>submit</code> button to your form. Clicking this button will send the data from your form to the URL you specified with your form's <code>action</code> attribute.",
+        "Here's an example submit button:",
+        "<code>&#60;button type=\"submit\"&#62;this button submits the form&#60;/button&#62;</code>",
+        "<hr>",
+        "Add a submit button to your <code>form</code> element with type <code>submit</code> and \"Submit\" as its text."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <input type=\"text\" placeholder=\"cat photo URL\">",
+        "  </form>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"form\").children(\"button\").length > 0, 'message: Your form should have a button inside it.');",
+        "assert($(\"button\").attr(\"type\") === \"submit\", 'message: Your submit button should have the attribute <code>type</code> set to <code>submit</code>.');",
+        "assert($(\"button\").text().match(/^\\s*submit\\s*$/gi), 'message: Your submit button should only have the text \"Submit\".');",
+        "assert(code.match(/<\\/button>/g) && code.match(/<button/g) && code.match(/<\\/button>/g).length === code.match(/<button/g).length, 'message: Make sure your <code>button</code> element has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedc08830",
+      "title": "Use HTML5 to Require a Field",
+      "description": [
+        "You can require specific form fields so that your user will not be able to submit your form until he or she has filled them out.",
+        "For example, if you wanted to make a text input field required, you can just add the word <code>required</code> within your <code>input</code> element, like this: <code>&#60;input type=\"text\" required&#62;</code>",
+        "<hr>",
+        "Make your text <code>input</code> a <code>required</code> field, so that your user can't submit the form without completing this field.",
+        "Then try to submit the form without inputting any text. See how your HTML5 form notifies you that the field is required?",
+        "<strong>Note</strong><br>This field may not work in Safari Browser."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <input type=\"text\" placeholder=\"cat photo URL\">",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"input\").prop(\"required\"), 'message: Your text <code>input</code> element should have the <code>required</code> attribute.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08834",
+      "title": "Create a Set of Radio Buttons",
+      "description": [
+        "You can use <code>radio buttons</code> for questions where you want the user to only give you one answer out of multiple options.",
+        "Radio buttons are a type of <code>input</code>",
+        "Each of your radio buttons should be nested within its own <code>label</code> element.",
+        "All related radio buttons should have the same <code>name</code> attribute.",
+        "Here's an example of a radio button:",
+        "<blockquote>&#60;label for=\"indoor\"&#62; <br> &#60;input type=\"radio\" name=\"indoor-outdoor\"&#62;Indoor <br>&#60;/label&#62;</blockquote>",
+        "It is considered best practice to set the <code>for</code> attribute for assistive technologies to be able to link the relationship between the label and the child elements such as an <code>input</code> in this case.",
+        "<hr>",
+        "Add a pair of radio buttons to your form. One should have the option of <code>indoor</code> and the other should have the option of <code>outdoor</code>. Both should share the <code>name</code> attribute of <code>indoor-outdoor</code>."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <input type=\"text\" placeholder=\"cat photo URL\" required>",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($('input[type=\"radio\"]').length > 1, 'message: Your page should have two radio button elements.');",
+        "assert($('label > input[type=\"radio\"]').filter(\"[name='indoor-outdoor']\").length > 1, 'message: Give your radio buttons the <code>name</code> attribute of <code>indoor-outdoor</code>.');",
+        "assert($('label > input[type=\"radio\"]:only-child').length > 1, 'message: Each of your two radio button elements should be nested in its own <code>label</code> element.');",
+        "assert((code.match(/<\\/label>/g) && code.match(/<label/g) && code.match(/<\\/label>/g).length === code.match(/<label/g).length), 'message: Make sure each of your <code>label</code> elements has a closing tag.');",
+        "assert($(\"label\").text().match(/indoor/gi), 'message: One of your radio buttons should have the label <code>indoor</code>.');",
+        "assert($(\"label\").text().match(/outdoor/gi), 'message: One of your radio buttons should have the label <code>outdoor</code>.');",
+        "assert($(\"label\").parent().get(0).tagName.match('FORM'), 'message: Each of your radio button elements should be added within the <code>form</code> tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedf08835",
+      "title": "Create a Set of Checkboxes",
+      "description": [
+        "Forms commonly use <code>checkboxes</code> for questions that may have more than one answer.",
+        "Checkboxes are a type of <code>input</code>",
+        "Each of your checkboxes should be nested within its own <code>label</code> element.",
+        "All related checkbox inputs should have the same <code>name</code> attribute.",
+        "Here's an example of a checkbox:",
+        "<code>&#60;label&#62;&#60;input type=\"checkbox\" name=\"personality\"&#62; Loving&#60;/label&#62;</code>",
+        "<hr>",
+        "Add to your form a set of three checkboxes. Each checkbox should be nested within its own <code>label</code> element. All three should share the <code>name</code> attribute of <code>personality</code>."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Indoor</label>",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Outdoor</label><br>",
+        "    <input type=\"text\" placeholder=\"cat photo URL\" required>",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($('input[type=\"checkbox\"]').length > 2, 'message: Your page should have three checkbox elements.');",
+        "assert($('label > input[type=\"checkbox\"]:only-child').length > 2, 'message: Each of your three checkbox elements should be nested in its own <code>label</code> element.');",
+        "assert(code.match(/<\\/label>/g) && code.match(/<label/g) && code.match(/<\\/label>/g).length === code.match(/<label/g).length, 'message: Make sure each of your <code>label</code> elements has a closing tag.');",
+        "assert($('label > input[type=\"checkbox\"]').filter(\"[name='personality']\").length > 2, 'message: Give your checkboxes the <code>name</code> attribute of <code>personality</code>.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aedd08835",
+      "title": "Check Radio Buttons and Checkboxes by Default",
+      "description": [
+        "You can set a checkbox or radio button to be checked by default using the <code>checked</code> attribute.",
+        "To do this, just add the word \"checked\" to the inside of an input element. For example:",
+        "<code>&#60;input type=\"radio\" name=\"test-name\" checked&#62;</code>",
+        "<hr>",
+        "Set the first of your <code>radio buttons</code> and the first of your <code>checkboxes</code> to both be checked by default."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Indoor</label>",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Outdoor</label><br>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Loving</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Lazy</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Energetic</label><br>",
+        "    <input type=\"text\" placeholder=\"cat photo URL\" required>",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($('input[type=\"radio\"]').prop(\"checked\"), 'message: Your first radio button on your form should be checked by default.');",
+        "assert($('input[type=\"checkbox\"]').prop(\"checked\"), 'message: Your first checkbox on your form should be checked by default.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "bad87fee1348bd9aede08835",
+      "title": "Nest Many Elements within a Single div Element",
+      "description": [
+        "The <code>div</code> element, also known as a division element, is a general purpose container for other elements.",
+        "The <code>div</code> element is probably the most commonly used HTML element of all.",
+        "Just like any other non-self-closing element, you can open a <code>div</code> element with <code>&#60;div&#62;</code> and close it on another line with <code>&#60;/div&#62;</code>.",
+        "<hr>",
+        "Nest your \"Things cats love\" and \"Things cats hate\" lists all within a single <code>div</code> element.",
+        "Hint: Try putting your opening <code>div</code> tag above your \"Things cats love\" <code>p</code> element and your closing <code>div</code> tag after your closing <code>ol</code> tag so that both of your lists are within one <code>div</code>."
+      ],
+      "challengeSeed": [
+        "<h2>CatPhotoApp</h2>",
+        "<main>",
+        "  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>",
+        "  ",
+        "  <a href=\"#\"><img src=\"/assets/photos/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "  ",
+        "  <p>Things cats love:</p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  ",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\" checked> Indoor</label>",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Outdoor</label><br>",
+        "    <label><input type=\"checkbox\" name=\"personality\" checked> Loving</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Lazy</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Energetic</label><br>",
+        "    <input type=\"text\" placeholder=\"cat photo URL\" required>",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</main>"
+      ],
+      "tests": [
+        "assert($(\"div\").children(\"p\").length > 1, 'message: Nest your <code>p</code> elements inside your <code>div</code> element.');",
+        "assert($(\"div\").children(\"ul\").length > 0, 'message: Nest your <code>ul</code> element inside your <code>div</code> element.');",
+        "assert($(\"div\").children(\"ol\").length > 0, 'message: Nest your <code>ol</code> element inside your <code>div</code> element.');",
+        "assert(code.match(/<\\/div>/g) && code.match(/<\\/div>/g).length === code.match(/<div>/g).length, 'message: Make sure your <code>div</code> element has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "587d78aa367417b2b2512aed",
+      "title": "Declare the Doctype of an HTML Document",
+      "description": [
+        "The challenges so far have covered specific HTML tags and their uses. However, there are a few elements that give overall structure to your page, and should be included in every HTML document.",
+        "At the top of your document, you need to tell the browser which version of HTML your page is using. HTML is an evolving language, and is updated regularly. Most major browsers support the latest specification, which is HTML5. However, older web pages may use previous versions of the language.",
+        "You tell the browser this information by adding the <code>&lt;!DOCTYPE ...&gt;</code> tag on the first line, where the \"<code>...</code>\" part is the version of HTML. For HTML5, you use <code>&lt;!DOCTYPE html&gt;</code>.",
+        "The <code>!</code> and uppercase <code>DOCTYPE</code> is important, especially for older browsers. The <code>html</code> is not case sensitive.",
+        "Next, the rest of your HTML code needs to be wrapped in <code>html</code> tags. The opening <code>&lt;html&gt;</code> goes directly below the <code>&lt;!DOCTYPE html&gt;</code> line, and the closing <code>&lt;/html&gt;</code> goes at the end of the page.",
+        "Here's an example of the page structure:",
+        "<blockquote>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>  &lt;!-- Your HTML code goes here --&gt;<br>&lt;/html&gt;</blockquote>",
+        "<hr>",
+        "Add a <code>DOCTYPE</code> tag for HTML5 to the top of the blank HTML document in the code editor. Under it, add opening and closing <code>html</code> tags, which wrap around an <code>h1</code> element. The heading can include any text."
+      ],
+      "challengeSeed": [
+        "",
+        "",
+        ""
+      ],
+      "tests": [
+        "assert(code.match(/<!DOCTYPE\\s+?html\\s*?>/gi), 'message: Your code should include a <code>&lt;!DOCTYPE html&gt;</code> tag.');",
+        "assert($('html').length == 1, 'message: There should be one <code>html</code> element.');",
+        "assert(code.match(/<html>\\s*?<h1>\\s*?.*?\\s*?<\\/h1>\\s*?<\\/html>/gi), 'message: The <code>html</code> tags should wrap around one <code>h1</code> element.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0
+    },
+    {
+      "id": "587d78aa367417b2b2512aec",
+      "title": "Define the Head and Body of an HTML Document",
+      "description": [
+        "You can add another level of organization in your HTML document within the <code>html</code> tags with the <code>head</code> and <code>body</code> elements. Any markup with information about your page would go into the <code>head</code> tag. Then any markup with the content of the page (what displays for a user) would go into the <code>body</code> tag.",
+        "Metadata elements, such as <code>link</code>, <code>meta</code>, <code>title</code>, and <code>style</code>, typically go inside the <code>head</code> element.",
+        "Here's an example of a page's layout:",
+        "<blockquote>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>  &lt;head&gt;<br>    &lt;!-- metadata elements --&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br>    &lt;!-- page contents --&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt;</blockquote>",
+        "<hr>",
+        "Edit the markup so there's a <code>head</code> and a <code>body</code>. The <code>head</code> element should only include the <code>title</code>, and the <code>body</code> element should only include the <code>h1</code> and <code>p</code>."
+      ],
+      "challengeSeed": [
+        "<!DOCTYPE html>",
+        "<html>",
+        "  <title>The best page ever</title>",
+        "  ",
+        "  <h1>The best page ever</h1>",
+        "  <p>Cat ipsum dolor sit amet, jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed. Go into a room to decide you didn't want to be in there anyway. I like big cats and i can not lie kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Meow i could pee on this if i had the energy for slap owner's face at 5am until human fills food dish yet scamper. Knock dish off table head butt cant eat out of my own dish scratch the furniture. Make meme, make cute face. Sleep in the bathroom sink chase laser but pee in the shoe. Paw at your fat belly licks your face and eat grass, throw it back up kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+        "  ",
+        "</html>  "
+      ],
+      "tests": [
+        "assert($('head').length == 1, 'message: There should be only one <code>head</code> element on the page.');",
+        "assert($('body').length == 1, 'message: There should be only one <code>body</code> element on the page.');",
+        "assert($('html').children('head').length == 1, 'message: The <code>head</code> element should be a child of the <code>html</code> element.');",
+        "assert($('html').children('body').length == 1, 'message: The <code>body</code> element should be a child of the <code>html</code> element.');",
+        "assert(code.match(/<head>\\s*?<title>\\s*?.*?\\s*?<\\/title>\\s*?<\\/head>/gi), 'message: The <code>head</code> element should wrap around the <code>title</code> element.');",
+        "assert($('body').children('h1').length == 1 && $('body').children('p').length == 1, 'message: The <code>body</code> element should wrap around both the <code>h1</code> and <code>p</code> elements.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0,
+      "ru": {}
+    },
+    {
+      "id": "bad87fee1348bd9aedf0886a",
+      "title": "**Commit to having read HTML & CSS chapters 7 & 8",
+      "description": [
+        [
+          "",
+          "",
+          "At this point you should have finished reading chapters 7 and 8 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
+          ""
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    }
+  ]
+}
