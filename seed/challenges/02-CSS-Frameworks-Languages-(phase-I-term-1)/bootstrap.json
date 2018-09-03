@@ -84,7 +84,7 @@
         "To get started, we should nest all of our HTML (except the <code>link</code> tag and the <code>style</code> element) in a <code>div</code> element with the class <code>container-fluid</code>."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -182,7 +182,7 @@
         "Fortunately, with Bootstrap, all we need to do is add the <code>img-fluid</code> class to your image. Do this, and the image should perfectly fit the width of your page."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -278,7 +278,7 @@
         "<code>&#60h2 class=\"red-text text-center\"&#62your text&#60/h2&#62</code>"
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -369,7 +369,7 @@
         "Create a new <code>button</code> element below your large kitten photo. Give it the class <code>btn</code> and the text of \"Like\"."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -470,7 +470,7 @@
         "Add Bootstrap's <code>btn-block</code> class to your Bootstrap button."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -580,7 +580,7 @@
         "Note that this button will still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -676,7 +676,7 @@
         "Note that these buttons still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -774,7 +774,7 @@
         "Note that these buttons still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -879,7 +879,7 @@
         "Note: notice that for xs bootstap doesn't require that the size of the screen be specified, in fact doing so will produce different results than you'd expect"
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -988,7 +988,7 @@
         "Finally, remove the \"smaller-image\" class from your first <code>img</code> element and replace it with the <code>img-fluid</code> class."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1102,7 +1102,7 @@
         "<code>&#60;p&#62;Top 3 things cats &#60;span class=\"text-danger\"&#62;hate:&#60;/span&#62;&#60;/p&#62;</code>"
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "",
         "  h2 {",
@@ -1209,7 +1209,7 @@
         "Notice how the image is now just the right size to fit along the text?"
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "",
         "<style>",
         "  h2 {",
@@ -1321,7 +1321,7 @@
         "Use Font Awesome to add a <code>thumbs-up</code> icon to your like button by giving it an <code>i</code> element with the classes <code>fa</code> and <code>fa-thumbs-up</code>; make sure to keep the text \"Like\" next to the icon."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1429,7 +1429,7 @@
         "Note: The <code>span</code> element is an acceptable alternative to the <code>i</code> element for the directions below."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1526,7 +1526,7 @@
         "<strong>Note:</strong> As a reminder, radio buttons are <code>input</code> elements of type <code>radio</code>."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1624,7 +1624,7 @@
         "Nest all three of your checkboxes in a <code>&#60;div class=\"row\"&#62;</code> element. Then nest each of them in a <code>&#60;div class=\"col-4\"&#62;</code> element."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1731,7 +1731,7 @@
         "All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code> elements with the class <code>.form-control</code> have a width of 100%."
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1844,7 +1844,7 @@
         "This is the last challenge we'll do for our Cat Photo App for now. We hope you've enjoyed learning Font Awesome, Bootstrap, and responsive design!"
       ],
       "challengeSeed": [
-        "<link href=\"/assets/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
