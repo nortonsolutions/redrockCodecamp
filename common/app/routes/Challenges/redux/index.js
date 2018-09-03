@@ -233,10 +233,7 @@ export const challengeMetaSelector = createSelector(
     const challengeType = challenge && challenge.challengeType;
     const type = challenge && challenge.type;
     const viewType = viewTypes[type] || viewTypes[challengeType] || 'classic';
-    const blockName = blockNameify(challenge.block);
-    const title = blockName && challenge.title ?
-      `${blockName}: ${challenge.title}` :
-      challenge.title;
+    const title = challenge.title;
 
     return {
       type,
