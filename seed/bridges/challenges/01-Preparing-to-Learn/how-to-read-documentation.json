@@ -1,29 +1,41 @@
 {
-	"name": "How to Use the LearnBench",
-	"order": 0,
-	"time": "5 hours",
+	"name": "How to Read Documentation",
+	"order": 1,
+	"time": "15 minutes",
 	"helpRoom": "Help",
 	"challenges": [
 	  {
 		"id": "57e5a190ae2549e2d8927356",
-		"title": "Welcome to the LearnBench",
+		"title": "Coding and Documentation",
 		"description": [
 		  [
 			"",
 			"",
-			"Welcome to the LearnBench.  Click the 'Go to my next step' button to continue.",
+			"All aspects of coding are documented. This documentation is sometimes called <em>docs</em>, <em>specifications</em>, or <em>specs</em>.",
 			""
 		  ],
 		  [
 			"",
 			"",
-			"Great! This is how you will complete several lessons, by reading and clicking next. Please <strong>always</strong> read and understand every word before continuing.",
+			"This documentation is like a dictionary.  You can look up a word and find the meaning along with an example.",
 			""
 		  ],
 		  [
 			"",
 			"",
-			"You will keep going through each step until you get to the 'Finish lesson' button. When you click 'Finish lesson' the next lesson will start.",
+			"Coding requires <strong>a lot</strong> of documentation.",
+			""
+		  ],
+		  [
+			"",
+			"",
+			"You must know where to find official documentation for each aspect. We will show you as we introduce each technology.",
+			""
+		  ],
+		  [
+			"",
+			"",
+			"You must go to the docs often to clarify your understanding.",
 			""
 		  ]
 		],
@@ -31,6 +43,50 @@
 		"tests": [],
 		"type": "Waypoint",
 		"challengeType": 7
-	  }
+		},
+		{
+			"id": "982ac020ae2db33a535efc66",
+			"title": "Example of Documentation",
+			"description": [
+				[
+				"",
+				"",
+				"Here is an example of a doc that defines the heading elements of HTML.<p><a href='http://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements.html' target='_blank'>Click here</a>.</p>",
+				""
+				],
+				[
+				"",
+				"",
+				"This is only an example and you do not need to understand the topic just yet.",
+				""
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+			},
+		{
+			"id": "e9a30850ae2cb59fbf9b5160",
+			"title": "Searching for Documention",
+			"description": [
+				[
+				"",
+				"",
+				"You can use Google to find the docs that you need.",
+				""
+				],
+				[
+				"",
+				"",
+				"We will show you how to search on Google as we introduce each technology.",
+				""
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+			}
 	]
   }
