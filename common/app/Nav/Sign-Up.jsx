@@ -12,6 +12,11 @@ const propTypes = {
 };
 
 export default function SignUpButton({ showLoading, showSignUp }) {
+
+  if (process.env.isTrialMode) {
+    return null;
+  }
+
   if (showLoading) {
     return null;
   }

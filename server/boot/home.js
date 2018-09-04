@@ -4,6 +4,8 @@ import dedent from 'dedent';
 
 const message =
   'Learn to Code and Help Nonprofits';
+  
+const isTrialMode = process.env.IS_TRIAL_MODE;
 
 module.exports = function(app) {
   var router = app.loopback.Router();
@@ -36,7 +38,7 @@ module.exports = function(app) {
       return next();
     }
 
-    if (!req.user) {
+    if (!req.user && !isTrialMode) {
       return res.redirect('/signin');
     }
 

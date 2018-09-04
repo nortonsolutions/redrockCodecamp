@@ -13,5 +13,6 @@ module.exports = {
   isBridgesCodeCamp: (process.env.BUSINESS_NAME === "Bridges"),
   businessName: process.env.BUSINESS_NAME,
   appName: process.env.APP_NAME,
-  businessAppName: process.env.BUSINESS_NAME + " " + process.env.APP_NAME
+  businessAppName: process.env.BUSINESS_NAME + " " + process.env.APP_NAME,
+  isTrialMode: process.env.IS_TRIAL_MODE
 };

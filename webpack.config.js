@@ -54,7 +54,8 @@ module.exports = {
         NODE_ENV: JSON.stringify(__DEV__ ? 'development' : 'production'),
         businessName: JSON.stringify(process.env.BUSINESS_NAME),
         appName: JSON.stringify(process.env.APP_NAME),
-        businessAppName: JSON.stringify(process.env.BUSINESS_NAME + " " + process.env.APP_NAME)
+        businessAppName: JSON.stringify(process.env.BUSINESS_NAME + " " + process.env.APP_NAME),
+        isTrialMode: JSON.stringify(process.env.IS_TRIAL_MODE)
       },
       __DEVTOOLS__: !__DEV__
     }),
