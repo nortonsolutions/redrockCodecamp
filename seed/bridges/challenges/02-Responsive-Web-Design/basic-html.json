@@ -17,13 +17,13 @@
         [
           "",
           "",
-          "HTML is a language for making documents. It uses special symbols (codes) for describing a document. For example, there are different codes to indicate a heading, a paragraph, or a list.",
+          "HTML is a language for making documents.<br><br> It uses special symbols (codes) for describing a document.<br><br> For example, there are different codes to indicate a heading, a paragraph, or a list.",
           ""
         ],
         [
           "",
           "",
-          "HTML is a 'Markup Language' which uses annotations to give information to text and also structure to the 'User Interface' or what you see on a web page.",
+          "HTML is a 'Markup Language' which uses annotations to give information to text.<br><br>It also gives structure to the 'User Interface' or what you see on a web page.",
           ""
         ]
       ],

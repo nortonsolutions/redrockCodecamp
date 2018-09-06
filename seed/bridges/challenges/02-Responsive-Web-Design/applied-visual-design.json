@@ -24,24 +24,6 @@
       "translations": {}
     },
     {
-      "id": "aad87fee1348bd9aedf08871",
-      "title": "**Commit to read HTML & CSS chapter 16-19",
-      "description": [
-        [
-          "",
-          "",
-          "Congratulations, you are nearly done with your first HTML book, the rest of the information in chapters 16 through 19 of Jon Duckett's \"HTML & CSS\" will be important to know as you approach your first projects at the end of \"responsive web design (phase i)\". Please commit that you will read these chapters before you begin your projects in \"Applied Responsive Web Design Projects\"",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
       "id": "587d7791367417b2b2512ab3",
       "title": "Create Visual Balance Using the text-align Property",
       "description": [
@@ -2762,40 +2744,6 @@
       "releasedOn": "Feb 17, 2017",
       "challengeType": 0,
       "translations": {}
-    },
-    {
-      "id": "b082ae802ba6cfa49b64e3bb",
-      "title": "CSS Resets",
-      "description": [
-        [
-          "",
-          "",
-          "Every web browser has its own default styles for different elements. How Google Chrome renders headings, paragraphs, lists, and so forth may be different from how Internet Explorer does. To ensure cross-browser compatibility, CSS resets have become widely used.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "CSS resets take every common HTML element with a predefined style and provide one unified style for all browsers. These resets generally involve removing any sizing, margins, paddings, or additional styles and toning these values down.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Because CSS cascades from top to bottom our reset needs to be at the very top of our style sheet.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "To see a very simple css reset <a href='http://codecamp.edu/educationMaterials/frameworks/css/simple-css-reset.css' target='_blank'>click here</a>.",
-          ""
-        ]
-      ],
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7
     }
   ]
 }
