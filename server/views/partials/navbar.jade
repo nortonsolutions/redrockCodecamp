@@ -5,16 +5,20 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
             button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
                 .col-xs-12
                     span.hamburger-text Menu
-            a.navbar-brand(href='/challenges/current-challenge').
-                #{settings.businessAppName}
+            a.navbar-brand(href='/')
+                img(src='/images/logos/logo-brackets-beige.svg', style='width:38px;display:inline;vertical-align:text-bottom;margin-right:5px')
+                span #{settings.businessAppName}
         .collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right.hamburger-dropdown
                 li
-                    a(href='/map') All Lessons
+                    a(href='/') All Lessons
                 li
-                    a(href='/settings') My Profile
+                    a(href='/settings')
+                        span.fa.fa-user-o
+                        span My Profile
 
     else
-        .navbar-header
-            a.navbar-brand(href='/challenges/current-challenge').
-                #{settings.businessAppName}
+        .navbar-header        
+            a.navbar-brand(href='/')
+                img(src='/images/logos/logo-brackets-beige.svg', style='width:38px;display:inline;vertical-align:text-bottom;margin-right:5px')
+                span #{settings.businessAppName}

@@ -11,19 +11,19 @@
 				[
 					"",
 					"",
-					"Welcome to the LearnBench.  Click the 'Go to my next step' button to continue.",
+					"Welcome to the LearnBench.<br><br> Click the 'Go to my next step' button to continue.",
 					""
 				],
 				[
 					"",
 					"",
-					"Great! This is how you will complete several lessons, by reading and clicking next. Please <strong>always</strong> read and understand every word before continuing.",
+					"Great! This is how you will complete several lessons, by reading and clicking next.<br><br> Please <strong>always</strong> read and understand every word before continuing.",
 					""
 				],
 				[
 					"",
 					"",
-					"You will keep going through each step until you get to the 'Finish lesson' button. When you click 'Finish lesson' the next lesson will start.",
+					"You will keep going through each step until you get to the 'Finish lesson' button.<br><br> When you click 'Finish lesson' the next lesson will start.",
 					""
 				]
 			],
@@ -39,7 +39,7 @@
 				[
 					"",
 					"",
-					"There are different types of lessons.  Some are steps to read like these.  Some are videos to watch. Others are coding lessons where you will write code.",
+					"There are different types of lessons.<br><br>Some are steps to read like these.<br><br> Some are videos to watch.<br><br> Others are coding lessons where you will write code.",
 					""
 				],
 				[
@@ -61,13 +61,13 @@
 				[
 					"",
 					"",
-					"It is critical that you do not skim the reading.",
+					"It is critical that you <b>do not skim</b> the reading.",
 					""
 				],
 				[
 					"",
 					"",
-					"Commit to read and understand <strong>all</strong> the words in each lesson.",
+					"Commit to read and understand <strong>all</strong> the words in each lesson.<br><br>Click the 'Confirm' button below to unlock the next step.",
 					"#"
 				]
 			],
@@ -89,13 +89,13 @@
 				[
 					"",
 					"",
-					"They are the 'All Lessons', 'Lesson', 'Code Editor' and the 'Preview'.",
+					"They are:<br><br> 'All Lessons'<br> 'Lesson'<br> 'Code Editor'<br> 'Preview'",
 					""
 				],
 				[
 					"",
 					"",
-					"Not all lessons use all of the windows. You can show and hide these windows by clicking on their buttons on the upper right in the Navigation Bar.",
+					"Not all lessons use all of the windows.<br><br>You can show and hide these windows by clicking on their buttons on the upper right in the Navigation Bar.",
 					""
 				],
 				[
@@ -117,7 +117,7 @@
 				[
 					"",
 					"",
-					"On a coding lesson you must complete the requested objective. You complete the task by clicking the 'Run Tests' button found in the 'Lesson' window.",
+					"On a coding lesson you must complete the requested objective.<br><br>You complete the task by clicking the 'Run Tests' button found in the 'Lesson' window.",
 					""
 				],
 				[
@@ -129,13 +129,13 @@
 				[
 					"",
 					"",
-					"If you have not passed all the tests then <strong>read</strong> the error messages to get information on what to correct. Keep correcting and testing your work. Re-read the lesson to get more help.",
+					"If you have not passed all the tests then <strong>read</strong> the error messages to get information on what to correct.<br><br>Keep correcting and testing your work.<br><br>Re-read the lesson to get more help.",
 					""
 				],
 				[
 					"",
 					"",
-					"Some lessons can be very challenging, and you may get stuck. We will teach you later how to get help. If necessary you can use the 'All Lessons' window to skip to the next lesson.",
+					"Some lessons can be very challenging, and you may get stuck.<br><br>We will teach you later how to get help.<br><br>If necessary you can use the 'All Lessons' window to skip to the next lesson.",
 					""
 				]
 			],
@@ -175,7 +175,7 @@
 				[
 					"",
 					"",
-					"Just like in math, many parts of coding build apon previous knowledge.",
+					"Just like in math, many parts of coding build upon previous knowledge.",
 					""
 				],
 				[
@@ -189,6 +189,46 @@
 					"",
 					"Commit do the lessons in order and not jump ahead.",
 					"#"
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+		},
+		{
+			"id": "1b4358c0b13de5e46bbe090b",
+			"title": "Coding Tips",
+			"description": [
+				[
+					"",
+					"",
+					"Coding is very specific.<br><br>Here are some tips for when you get stuck.",
+					""
+				],
+				[
+					"",
+					"",
+					"<b>All</b> coding is case sensitive.<br><br>This means that hello and Hello are two different words.<br><br>Always check your casing.",
+					""
+				],
+				[
+					"",
+					"",
+					"Read the error messages.<br><br>Error messages are sometimes very literal.<br><br>Read and re-read all the available error messages.",
+					""
+				],
+				[
+					"",
+					"",
+					"Coding uses symbols.<br><br>count = 1; is different from count = 1,<br><br>Keep an eye out for symbol typos.",
+					""
+				],
+				[
+					"",
+					"",
+					"Delete some work and check again.<br><br>When fixing a problem, make the problem smaller by temporarily deleting other unrelated code.",
+					""
 				]
 			],
 			"challengeSeed": [],
@@ -243,6 +283,6 @@
 			"type": "Waypoint",
 			"challengeType": 7,
 			"isRequired": true
-		  },
+		  }
 	]
 }

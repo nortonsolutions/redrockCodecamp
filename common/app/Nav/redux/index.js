@@ -31,7 +31,7 @@ export const clickOnLogo = createAction(
   createEventMetaCreator({
     category: 'Nav',
     action: 'clicked',
-    label: 'fcc logo clicked'
+    label: 'logo clicked'
   })
 );
 

@@ -7,6 +7,7 @@ import { createSelector } from 'reselect';
 import FCCSearchBar from 'react-freecodecamp-search';
 
 import {
+  Image,
   MenuItem,
   Nav,
   NavDropdown,
@@ -208,6 +209,11 @@ export class FCCNav extends React.Component {
               href='/challenges/current-challenge'
               onClick={ clickOnLogo }
               >
+              <Image
+                alt='logo'
+                style={{width:'38px',display:'inline',verticalAlign:'text-bottom',marginRight:'5px'}}
+                src='/images/logos/logo-brackets-beige.svg'
+              />
               { process.env.businessAppName }
             </a>
           </NavbarBrand>
@@ -234,7 +240,6 @@ export class FCCNav extends React.Component {
                 /> :
                 null
             }
-            <li style={{marginRight:'20px'}}>&nbsp;</li>
             <SignUp
               showLoading={ showLoading }
               showSignUp={ !isSignedIn }
