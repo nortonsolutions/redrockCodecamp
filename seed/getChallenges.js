@@ -52,9 +52,9 @@ function getSupName(filePath) {
 module.exports = function getChallenges() {
   try {
 
-    // const challengesDirectoryName = 'challenges';
+    const challengesDirectoryName = 'brick-house/challenges';
     // const challengesDirectoryName = 'challenges-future';
-    const challengesDirectoryName = 'bridges/challenges';
+    //const challengesDirectoryName = 'bridges/challenges';
 
     return getFilesFor(challengesDirectoryName)
       .map(function(data) {
