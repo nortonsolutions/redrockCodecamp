@@ -5,41 +5,25 @@
   "helpRoom": "Help",
   "challenges": [
     {
-      "id": "560add10cb82ac38a17513be",
-      "title": "Learn How CodeCamp Works",
+      "id": "13696380af9209326bb14361",
+      "title": "Introduction to Basic HTML",
       "description": [
         [
           "",
           "",
-          "Welcome to CodeCamp.",
+          "You will now be learning HTML, the language of the web.",
           ""
         ],
         [
           "",
           "",
-          "You'll learn to code by completing coding challenges and building projects. You'll also earn verified certificates along the way.",
-          ""
-        ]
-      ],
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7
-    },
-    {
-      "id": "587d774b367417c4c2512a9b",
-      "title": "Introduction to the Basic HTML and HTML5 Challenges",
-      "description": [
-        [
-          "",
-          "",
-          "HTML, or HyperText Markup Language, is a markup language to describe the structure of a web page. It uses a special syntax of elements to organize and give information about your content to the browser. Elements usually have opening and closing tags that surround and give meaning to content. For example, there are different tag options to place around text to show whether it's a heading, a paragraph, or a list.",
+          "HTML is a language for making documents.<br><br> It uses special symbols (codes) for describing a document.<br><br> For example, there are different codes to indicate a heading, a paragraph, or a list.",
           ""
         ],
         [
           "",
           "",
-          "The HyperText part of HTML comes from the early days of the web. Pages usually contained static documents that connected to other documents with hypertext links. As web pages and web applications grow more complex, the W3 Consortium updates HTML. The latest version, or specification, is HTML5.<br><br>This section introduces how to use HTML elements to give structure and meaning to your web content.",
+          "HTML is a 'Markup Language' which uses annotations to give information to text.<br><br>It also gives structure to the 'User Interface' or what you see on a web page.",
           ""
         ]
       ],
@@ -48,48 +32,89 @@
       "tests": [],
       "type": "Waypoint",
       "challengeType": 7,
-      "isRequired": false,
-      "translations": {
-        "pt-br": {
-          "title": "Introdução aos desafios básicos de HTML e HTML5",
-          "description": [
-            [
-              "",
-              "",
-              "HTML, do inglês HyperText Markup Language (Linguagem de Marcação de Hipertexto), é uma linguagem de marcação usada para descrever a estrutura de uma página da web. Ela usa uma sintaxe especial de elementos para organizar seu conteúdo e dar ao seu navegador informações sobre ele. Esses elementos geralmente possuem tags (marcadores) de abertura e fechamento que delimitam uma parte do conteúdo e dão significado a ela. Por exemplo, para delimitar texto, existem diferentes opções de tags que mostram se esse texto é um título, um parágrafo ou uma lista.",
-              ""
-            ],
-            [
-              "",
-              "",
-              "A parte de \"hipertexto\" do HTML vem dos primórdios da web. As páginas geralmente eram documentos estáticos que se conectavam a outros documentos por meio de links de hipertexto. Conforme as páginas e aplicações web ficam mais complexas, o consórcio W3 atualiza o HTML. A última versão, ou especificação, é o HTML5.<br><br>Essa seção apresenta como usar os elementos do HTML para dar estrutura e significado ao seu conteúdo na web.",
-              ""
-            ]
-          ]
-        }
-      }
+      "isRequired": false
     },
     {
-      "id": "bad87fee1348bd9aedf0887b",
-      "title": "**Commit to checkout HTML & CSS",
+      "id": "1d15b570af95cd1413d3bd58",
+      "title": "Documentation for HTML",
       "description": [
         [
           "",
           "",
-          "For this course we will be using Jon Duckett's book \"HTML & CSS\", you will need to check out a copy of this book from the tutor's office room 2054C.",
+          "You will need documentation for HTML.",
           ""
         ],
         [
           "",
           "",
-          "As you work through the challenges in this section you will be expected to read certain sections from your book. We will use challenges such as this one to have you commit to reading and having read those chapters.",
+          "A great place to look for word definitions is in Wikipedia.<br><br> You can quickly look up the words HTML, Markup Language and other terms.",
           ""
         ],
         [
           "",
           "",
-          "Please commit to reading chapters 1 and 2 of HTML & CSS before you reach the challenge \"Add Images to Your Website\"",
+          "Always look up words or terms you do not know.<br><br>Such as 'markup language' or 'hypertext'.",
           ""
+        ],
+        [
+          "",
+          "",
+          "Wikipedia is found at <a href='http://en.wikipedia.org' target='_blank'>en.wikipedia.org</a>.<br><br>Use the search bar on the upper right of the screen.<br><br>Type slowly to let the typeahead feature show you results.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Try it out. Use this search on Wikipedia:<br><br><div>HTML</div>",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "The best documentation for HTML is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://codecamp.edu/docs/html/developer.mozilla.org/en-US/docs/Web/HTML.html' target='_blank'>here (developer.mozilla.org HTML)</a>",
+          ""
+        ],
+        [
+          "",
+          "",
+          "You will want to use the References part of the website. You need to get very familiar with this site.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Try it out. Go to the HMTL docs and look for the definition of the <b>p</b> element.",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "03bd33c0afb6ad4da8fc4fed",
+      "title": "** Read Beginning HTML And CSS Chapter 1 & 2",
+      "description": [
+        [
+          "",
+          "",
+          "For the topic of HTML you wil be reading Beginning HTML And CSS by Rob Larsen.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "This is required reading.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Please commit to reading chapters 1 and 2 of Beginning HTML And CSS before you reach the next reading commitment.",
+          "#"
         ]
       ],
       "releasedOn": "",
@@ -634,32 +659,20 @@
       }
     },
     {
-      "id": "bad87fee1348bd9aedf0887c",
-      "title": "**Commit to having read HTML & CSS chapters 1 & 2",
+      "id": "510d87b0afb6c7d2fccee811",
+      "title": "** Read Beginning HTML And CSS Chapter 3 & 4",
       "description": [
         [
           "",
           "",
-          "At this point you should have finished reading chapters 1 and 2 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "bad87fee1348bd9aedf0887d",
-      "title": "**Commit to read HTML & CSS chapters 3-6",
-      "description": [
+          "Your previous reading commitment should now be complete.",
+          "#"
+        ],
         [
           "",
           "",
-          "The following sections cover material that will be covered in chapters 3-6 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you reach the challenge \"Create a Form Element\"",
-          ""
+          "Please commit to reading chapters 3 and 4 of Beginning HTML And CSS before you reach the next reading commitment.",
+          "#"
         ]
       ],
       "releasedOn": "",
@@ -1482,32 +1495,20 @@
       }
     },
     {
-      "id": "bad87fee1348bd9aedf0887e",
-      "title": "**Commit to having read HTML & CSS chapters 3 through 6",
+      "id": "fd2df8f0afb565914863e11d",
+      "title": "** Read Beginning HTML And CSS Chapter 5 & 6",
       "description": [
         [
           "",
           "",
-          "At this point you should have finished reading chapters 3 through 6 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these four chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "bad87fee1348bd9aedf0887f",
-      "title": "**Commit to read HTML & CSS chapters 7 & 8",
-      "description": [
+          "Your previous reading commitment should now be complete.",
+          "#"
+        ],
         [
           "",
           "",
-          "The following sections cover material that will be covered in chapters 7 & 8 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you move on from \"Basic HTML and HTML5\"",
-          ""
+          "Please commit to reading chapters 5 and 6 of Beginning HTML And CSS before you reach the next reading commitment.",
+          "#"
         ]
       ],
       "releasedOn": "",
@@ -2254,24 +2255,6 @@
         }
       },
       "ru": {}
-    },
-    {
-      "id": "bad87fee1348bd9aedf0886a",
-      "title": "**Commit to having read HTML & CSS chapters 7 & 8",
-      "description": [
-        [
-          "",
-          "",
-          "At this point you should have finished reading chapters 7 and 8 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     }
   ]
 }
