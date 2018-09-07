@@ -1,10 +1,11 @@
 
 import { adminRoot } from '../utils/constantStrings.json';
 import debug from 'debug';
-import { ifNoUser401 } from '../utils/middleware';
+import { ifNoAdminUser401 } from '../utils/middleware';
 
 const log = debug('fcc:boot:admin');
 const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
+const isAdminUnrestricted = process.env.IS_ADMIN_UNRESTRICTED === 'true';
 
 module.exports = function (app) {
 
@@ -16,7 +17,7 @@ module.exports = function (app) {
 	router.get('/' + adminRoot + '/create-account',
 			(req, res) => {
 						
-				if (!req.user) {      
+				if (!isAdminUnrestricted && !req.user) {      
 					return res.redirect('/signin');
 				}
 
@@ -27,7 +28,7 @@ module.exports = function (app) {
 	);
 
 	api.post('/' + adminRoot + '/create-account',
-		ifNoUser401,
+		ifNoAdminUser401,
 		(req, res) => {
 
 			const { body: {email, username, name, password, confirmPassword } } = req;
@@ -58,7 +59,7 @@ module.exports = function (app) {
 	router.get('/' + adminRoot + '/update-account',
 		(req, res) => {
 					
-			if (!req.user) {      
+			if (!isAdminUnrestricted && !req.user) {
 				return res.redirect('/signin');
 			}
 
@@ -69,7 +70,7 @@ module.exports = function (app) {
 	);
 
 	api.post('/' + adminRoot + '/update-account',
-		ifNoUser401,
+		ifNoAdminUser401,
 		(req, res) => {
 
 			const { body: {email, newEmail, username, name, password, confirmPassword} } = req;

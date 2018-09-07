@@ -2,6 +2,8 @@
 import { validationResult } from 'express-validator/check';
 import { createValidatorErrorFormatter } from './create-handled-error.js';
 
+const isAdminUnrestricted = process.env.IS_ADMIN_UNRESTRICTED === 'true';
+
 export function ifNoUserRedirectTo(url, message, type = 'errors') {
   return function(req, res, next) {
     const { path } = req;
@@ -28,6 +30,13 @@ export function ifNoUserSend(sendThis) {
 
 export function ifNoUser401(req, res, next) {
   if (req.user) {
+    return next();
+  }
+  return res.status(401).end();
+}
+
+export function ifNoAdminUser401(req, res, next) {
+  if (isAdminUnrestricted || req.user) {
     return next();
   }
   return res.status(401).end();
