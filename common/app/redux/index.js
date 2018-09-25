@@ -234,9 +234,9 @@ export const firstChallengeSelector = createSelector(
 
 export default handleActions(
   () => ({
-    [types.updateTitle]: (state, { payload = 'Learn To Code' }) => ({
+    [types.updateTitle]: (state, { payload = 'Code Grow Change' }) => ({
       ...state,
-      title: payload + ' | freeCodeCamp'
+      title: payload
     }),
 
     [types.fetchUser.complete]: (state, { payload: user }) => ({
