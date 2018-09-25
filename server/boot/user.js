@@ -722,7 +722,7 @@ module.exports = function (app) {
     }
 
     return res.render('account/email-signin', {
-      title: 'Sign in to freeCodeCamp using your Email Address',
+      title: 'Sign in using your Email Address',
       flashMessage: req.flashMessage,
       email: req.body.email,
       password: req.body.password

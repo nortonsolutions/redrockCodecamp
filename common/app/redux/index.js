@@ -155,7 +155,7 @@ export const postThemeComplete = createAction(
 );
 
 const defaultState = {
-  title: 'Learn To Code | freeCodeCamp',
+  title: 'Grow Code Change',
   isSignInAttempted: false,
   user: '',
   csrfToken: '',
