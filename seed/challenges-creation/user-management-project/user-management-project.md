@@ -1,23 +1,9 @@
 
 
-
-Javascript
-
-JSON
-
-
-ES6 Imports
-DOM Elements
-DOM Events
-Web Storage API
-DOM Ajax
-MVC Pattern
-Data Binding Pattern
-Handlebars
-
 # User Management Page
 
 	* HTML, CSS, Javascript
+	* Bootstrap
 	* DOM Elements
 	* DOM Events
 	* ES6 Modules
@@ -25,6 +11,7 @@ Handlebars
 	* Web Storage API (http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
 
 	* 1 Page with half for User Details and half for Users Master (all users)
+	* Do not use the <form> element
 	* User has the following attributes
 		* unique id (generated)
 		* name
@@ -42,13 +29,6 @@ Handlebars
 	* Each row of Users Master should have the following action links
 		* edit
 		* delete
-
-
-# User Management Page (Binding Functions)
-
-	* HTML, CSS, Javascript
-	* DOM Elements
-	* DOM Events
-	* ES6 Modules
-	* JSON
-	* Web Storage API
+	* All users should be stored in local storage
+	* Use bootstrap for forms, grids, buttons and layout
+	* Use a detail view for the user details form (left side labels, right side form elements)

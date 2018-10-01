@@ -1,6 +1,6 @@
 {
     "name": "Git Source Control",
-    "order": 1,
+    "order": 0,
     "time": "5 hours",
     "helpRoom": "Help",
     "challenges": [
