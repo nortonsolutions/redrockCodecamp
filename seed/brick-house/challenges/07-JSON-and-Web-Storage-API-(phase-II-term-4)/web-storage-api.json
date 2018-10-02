@@ -1,0 +1,92 @@
+{
+	"name": "Web Storage API",
+	"order": 0,
+	"time": "2 hours",
+	"helpRoom": "Help",
+	"challenges": [
+		{
+		  "id": "7ca053b0c58e0537242c43f8",
+		  "title": "Introduction to Web Storage API",
+		  "description": [
+				[
+					"",
+					"",
+					"The <a href='http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html'> <strong>Web Storage API</strong> </a> provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.",
+					""
+				],
+				[
+					"",
+					"",
+					"The two mechanisms within Web Storage are as follows:<br><br><ul><li><code>sessionStorage</code> maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores)</li><li><code>localStorage</code> does the same thing, but persists even when the browser is closed and reopened.</li></ul>",
+					""
+				],
+				[
+					"",
+					"",
+					"The Web Storage API extends the <code>Window</code> object with two properties — <code>Window.sessionStorage</code> and <code>Window.localStorage</code>.<br><br> These two objects implement the <code>Storage</code> interface.<br><br> There is also <code>Window.onstorage</code> event handler that fires when a storage area changes.",
+					""
+				],
+				[
+					"",
+					"",
+					"There are also alias' for these objects globally as sessionStorage and localStorage.<br><br>For these challenges we will focus only on localStorage.",
+					""
+				]
+		  ],
+			"releasedOn": "Oct 1, 2018",
+		  "challengeSeed": [],
+		  "tests": [],
+		  "type": "Waypoint",
+		  "challengeType": 7,
+		  "isRequired": false,
+		  "translations": {}
+		},
+		{
+			"id": "a5188bb0c58d118854072f21",
+			"title": "Storage.setItem()",
+			"description": [
+				"The <code>setItem()</code> method of the <a href='http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage/setItem.html' title='The Storage interface of the Web Storage API provides access to the session storage or local storage for a particular domain, allowing you to for example add, modify or delete stored data items.' target='_blank'> <code>Storage</code> </a> interface, when passed a key name and value, will add that key to the storage, or update that key's value if it already exists.",
+				"<blockquote><em>storage</em>.setItem(<em>keyName</em>, <em>keyValue</em>);</blockquote>",
+				"For example:",
+				"The following creates two data items inside local storage.",
+				"<blockquote>localStorage.setItem('bgcolor', 'red');<br>localStorage.setItem('font', 'Helvetica'); </blockquote>",
+				"Values can also be set by using array notation and assignment.",
+				"<blockquote>localStorage['bgcolor'] = 'red';<br>localStorage['font'] = 'Helvetica'; </blockquote>",
+				"<hr>",
+				"Add a click mouse event to the save button.<br>In the event handler use local storage to save the background color value with the key <em>background-color</em>.<br>Then click the save button to save the value to local storage."
+			],
+      "challengeSeed": [
+				"<h1>local web storage</h1>",
+				"",
+				"<div>",
+				"  Choose background color:",
+				"  <input id='background-color-text' value='FF0000'>",
+				"</div>",
+				"",
+				"<button id='save-button'>Save</button>"
+      ],
+			"tests": [
+				{
+					"text": "Add a click event listener to the save-button.",
+					"testString": "assert(code.match(/addEventListener/,'message: There must be a click event listener on the save-button;)"
+				},
+				{
+					"text": "When clicking save your code should have saved a storage item to local storage with a key name of background-color.",
+					"testString": "assert.isDefined(localStorage['background-color'],'message: The background-color key must be set on the localStorage.');"
+				},
+				{
+					"text": "The storage item for background-color should have a value that is not null.",
+					"testString": "assert.isDefined(localStorage['background-color'],assert.isNotNull(localStorage['background-color'],'message: The background-color key must not be null.');"
+				},
+				{
+					"text": "The storage item for background-color should have a value that is not empty.",
+					"testString": "assert.isDefined(localStorage['background-color'],assert.notStrictEqual(localStorage['background-color'],'','message: The background-color key must not be empty.');"
+				}
+			],
+			"solutions": [],
+			"hints": [],
+			"releasedOn": "Oct 1, 2018",
+			"challengeType": 0
+		}
+	]
+}
