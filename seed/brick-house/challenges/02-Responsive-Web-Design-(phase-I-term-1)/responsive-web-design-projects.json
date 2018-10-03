@@ -306,7 +306,7 @@
         "<strong>Content:</strong> 1. I can see a <code>main</code> element with a corresponding id=\"main-doc\", which contains the page main content (technical documentation).",
         "<strong>Content:</strong> 2. Within the #main-doc ( <code>main</code> ) element, I can see several <code>section</code> elements, each with a class of \"main-section\". There should be a minimum of 5.",
         "<strong>Content:</strong> 3. The first element within each .main-section should be a <code>header</code> element which contains text that describes the topic of that section.",
-        "<strong>Content:</strong> 4. Each <section> element with the class of \"main-section\" should also have an id that corresponds with the text of each <code>header</code> contained within it. Any spaces should be replaced with underscores (e.g. The <code>section</code> that contains the header \"Javascript and Java\" should have a corresponding id=\"Javascript_and_Java\").",
+        "<strong>Content:</strong> 4. Each <section> element with the class of \"main-section\" should also have an id that corresponds with the text of each <code>header</code> contained within it. Any spaces should be replaced with underscores (e.g. The <code>section</code> that contains the header \"JavaScript and Java\" should have a corresponding id=\"Javascript_and_Java\").",
         "<strong>Content:</strong> 5. The .main-section elements should contain at least 10 <code>p</code> elements total (not each).",
         "<strong>Content:</strong> 6. The .main-section elements should contain at least 5 <code>code</code> elements total (not each).",
         "<strong>Content:</strong> 7. The .main-section elements should contain at least 5 <code>li</code> items total (not each).",

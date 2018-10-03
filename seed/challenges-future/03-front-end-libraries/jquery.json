@@ -108,7 +108,7 @@
         "fr": {
           "title": "Apprendre comment fonctionnent les balises Script et Document Ready",
           "description": [
-            "Nous sommes maintenant prêt à apprendre jQuery, l'outil Javascript le plus populaire de tout les temps. Ne vous inquiétez pas à propos de JavaScript lui-même, nous y viendrons bientôt.",
+            "Nous sommes maintenant prêt à apprendre jQuery, l'outil JavaScript le plus populaire de tout les temps. Ne vous inquiétez pas à propos de JavaScript lui-même, nous y viendrons bientôt.",
             "Avant de pouvoir utiliser jQuery, nous avons besoin d'ajouter certaines choses à notre HTML.",
             "Premièrement, ajoutez un élément <code>script</code> en haut de votre page. Assurez-vous de le fermer à la ligne suivante.",
             "Votre navigateur exécutera JavaScript à l'intérieur de l'élement <code>script</code>, y compris jQuery.",

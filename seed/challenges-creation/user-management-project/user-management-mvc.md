@@ -16,13 +16,14 @@
 	* http://en.wikipedia.org/wiki/Separation_of_concerns
 
 	* Refactor your code using the MVC Pattern
-	* Use a single controller to the page to handle all the following events
-		* page load
-		* new click
-		* save click
-		* cancel click
-		* edit click
-		* delete click
+	* Use a single controller for the page with methods for
+		* load
+		* new
+		* save
+		* cancel
+		* edit
+		* delete
+		* The controller should not know anything about the view or its technology ie: DOM and DOM events
 	* The data object for the user data does not need to have identity (it does not have to be a prototyped object)
 	* Create a Store object that handles all storage responsibilities with the following methods
 		* Add(object)

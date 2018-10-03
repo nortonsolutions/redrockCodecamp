@@ -40,7 +40,7 @@
         },
         {
           "id": "c72f1c10548fc9cce4720605",
-          "title": "**Commit to read Eloquent Javascript ch. 12 - 14",
+          "title": "**Commit to read Eloquent JavaScript ch. 12 - 14",
           "description": [
             [
               "",
@@ -61,17 +61,17 @@
             "title": "Select an Element By Its id",
             "description": [
                 "The DOM is a way of organizing the elements of an HTML document, for example, the following HTML code:",
-                "<a href=\"/images/html-body.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/html-body.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating an example of html code\"></a>",
+                "<a href=\"/images/html-body.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/html-body.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating an example of html code\"></a>",
                 "In the DOM may be thought of more like:",
-                "<a href=\"/images/dom-tree.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/dom-tree.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating the organization of the DOM\"></a>",
+                "<a href=\"/images/dom-tree.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/dom-tree.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating the organization of the DOM\"></a>",
                 "The DOM allows us to access the elements of a page through their id's, classes, tags, parent/child elements etc.",
                 "Methods that find elements in the DOM tree are called DOM queries.",
                 "When you need to work with an element more than once, you should use a variable to store the result of this query.",
-                "<a href=\"/images/elementById.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/elementById.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating how to capture an element by its id\"></a>",
+                "<a href=\"/images/elementById.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/elementById.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how to capture an element by its id\"></a>",
                 "<hr>",
                 "Capture the second item in the list in this way.",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"#185\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"#185\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -125,9 +125,9 @@
                 "Now that we have the element stored as a variable we can add and remove classes from it, change its text etc.",
                 "In our css code for our shopping list you may have noticed that we have a class called \"on-sale\", suppose we were to run a query that told us that bread was now on sale. We would then want to add the class \"on-sale\" to that list item so it'd also be highlighted.",
                 "To do this we will assign the className on the element we captured.",
-                "<a href=\"/images/assigningClassName.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/assigningClassName.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating how to change the class name attribute of an element\"></a>",
+                "<a href=\"/images/assigningClassName.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/assigningClassName.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how to change the class name attribute of an element\"></a>",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -183,7 +183,7 @@
                 "This seems like a lot of work, but JavaScript has a method for us in the elements <code>classList</code> attribute called <code>add</code> that takes care of that for us. This way of handling the problem will also only add the class if the element doesn't already possess it.",
                 "",
                 "Add the class <code>on-sale</code> to the second item in the list without removing the classes it already has.",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -238,11 +238,11 @@
             "description": [
                 "Now that we know how to add classes to elements with or without removing those it already has, lets pretend we waited to long and now our 'near-expiration' items are now expired, so we need to find all items with the class 'near-expired' and change their class to 'expired' (this time we don't need to preserve the old classes).",
                 "There are many ways to capture multiple elements from a page, the most common of which are shown here:",
-                "<a href=\"/images/elementSelectors.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/elementSelectors.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating the different ways of selecting items through the DOM\"></a>",
+                "<a href=\"/images/elementSelectors.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/elementSelectors.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating the different ways of selecting items through the DOM\"></a>",
                 "",
                 "LIVE & STATIC NODELISTS \n There are times when you will want to work with the same selection of elements several times, so the NodeList can be stored in a variable and re-used (rather than collecting the same elements again). In a live Nodelist, when your script updates the page, the Node list is updated at the same time. The methods beginning getElementsBy... return live Nodelists. They are also typically faster to generate than static Nodelists. ",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -307,7 +307,7 @@
                 "For this Challenge, we're going to change the inner text of an element on our list. We will change honey to peanut butter",
                 "To do this we need to select the element, we could capture it's inner text as a string, but since we are just replacing what's there we will simply reassign the elements inner text.",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -359,7 +359,7 @@
                 "You should find that it doesn't actually read the tags, instead it assumes that everything that you enter is meant to be displayed as text. This is helpful for some situations, but doesn't work for others. If we want to use HTML tags in what we're adding to our elements then we instead have to modify it's innerHTML property.",
                 "So lets do that, lets change figs on our list to <em>fresh</em> figs. (again the italics are <code>em</code> tags).",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -411,7 +411,7 @@
                 "In this case we will be removing apples from our list.",
                 "We can capture this element in several ways as we now know, but the most efficient way is to capture the <code>Element</code> we want to remove, then Capture the <code>Parent</code> by asking the element for it's parentNode and remove the child from the parent.",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",
@@ -469,9 +469,9 @@
                 "oranges",
                 "bananas",
                 "apples",
-                "<a href=\"/images/creatingElements.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/creatingElements.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating how to create a new element in the DOM\"></a>",
+                "<a href=\"/images/creatingElements.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/creatingElements.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how to create a new element in the DOM\"></a>",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">Javascript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
             ],
             "challengeSeed": [
                 "<html>",

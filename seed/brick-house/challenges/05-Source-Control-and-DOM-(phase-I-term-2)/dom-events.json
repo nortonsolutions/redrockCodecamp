@@ -199,9 +199,9 @@
             "id": "84ee88402700db21189de996",
             "title": "Stopping event bubbling",
             "description": [
-                "<a href=\"/images/eventFlow.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/eventFlow.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating how events bubble from most specific to least specific\"></a>",
+                "<a href=\"/images/eventFlow.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/eventFlow.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how events bubble from most specific to least specific\"></a>",
                 "when an event is triggered it will be triggered on the most specific item that recieved the event then each of it's parent elements recieve the event up until there are no more parent elements",
-                "<a href=\"/images/eventObject.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/eventObject.png\" title=\"An image taken From Ducket's Javascript & JQuery\" alt=\"an image illustrating the event object\"></a>",
+                "<a href=\"/images/eventObject.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/eventObject.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating the event object\"></a>",
                 "<hr>",
                 "add code such that if the unordered list or any item inside the list is clicked it will call the function printInnerHTML, however ensure that there is only one call to printInnerHTML."
             ],
