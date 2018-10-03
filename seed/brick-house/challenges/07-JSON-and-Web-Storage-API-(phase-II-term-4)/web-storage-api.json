@@ -11,13 +11,13 @@
 				[
 					"",
 					"",
-					"The <a href='http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html'> <strong>Web Storage API</strong> </a> provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies.",
+					"The <a href='http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html'> <strong>Web Storage API</strong> </a> allows for the storage of key value pairs in the browser.",
 					""
 				],
 				[
 					"",
 					"",
-					"The two mechanisms within Web Storage are as follows:<br><br><ul><li><code>sessionStorage</code> maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores)</li><li><code>localStorage</code> does the same thing, but persists even when the browser is closed and reopened.</li></ul>",
+					"The Web Storage API can store values using two different systems, <code>sessionStorage</code> and <code>localStorage</code>.<br><br><ul><li><code>sessionStorage</code> is a storage area for the duration of the page session (as long as the browser is open and is removed when the browser is closed).</li><li><code>localStorage</code> persists even when the browser is closed and reopened.</li></ul>",
 					""
 				],
 				[
@@ -29,7 +29,7 @@
 				[
 					"",
 					"",
-					"There are also alias' for these objects globally as sessionStorage and localStorage.<br><br>For these challenges we will focus only on localStorage.",
+					"For these challenges we will use localStorage.",
 					""
 				]
 		  ],
@@ -53,7 +53,7 @@
 				"Values can also be set by using array notation and assignment.",
 				"<blockquote>localStorage['bgcolor'] = 'red';<br>localStorage['font'] = 'Helvetica'; </blockquote>",
 				"<hr>",
-				"Add a click mouse event to the save button.<br>In the event handler use local storage to save the background color value with the key <em>background-color</em>.<br>Then click the save button to save the value to local storage."
+				"Add a click mouse event to the save button.<br>In the event handler use local storage to save the background color value with the key <em>background-color</em>.<br>Before running the test, click the save button to save the value to local storage."
 			],
       "challengeSeed": [
 				"<h1>local web storage</h1>",
@@ -67,20 +67,71 @@
       ],
 			"tests": [
 				{
-					"text": "Add a click event listener to the save-button.",
-					"testString": "assert(code.match(/addEventListener/,'message: There must be a click event listener on the save-button;)"
-				},
+					"text": "When clicking save your code should save a storage item to local storage with a key name of background-color.",
+					"testString": "assert(code.match(/localStorage\\[[\"|']background-color[\"|']\\]\\s*?=|localStorage\\.setItem\\([\"|']background-color[\"|'],/gi), 'message: Set a local storage item to localStorage with the key background-color.');"
+				}
+			],
+			"solutions": [],
+			"hints": [],
+			"releasedOn": "Oct 1, 2018",
+			"challengeType": 0
+		},
+		{
+			"id": "26eb30a0c6492d38478f1682",
+			"title": "Storage.getItem()",
+			"description": [
+				"The <code>getItem()</code> method of the <a href='http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage/getItem.html' target='_blank'> <code>Storage</code> </a> interface, when passed a key name, will return that key's value.",
+				"<blockquote>var <em>aValue</em> = <em>storage</em>.getItem(<em>keyName</em>);</blockquote>",
+				"For example:",
+				"The following creates two data items inside local storage.",
+				"<blockquote>var currentColor = localStorage.getItem('bgcolor');<br>var currentFont = localStorage.getItem('font');</blockquote>",
+				"You can also get values by using array notation.",
+				"<blockquote>var currentColor = localStorage['bgcolor'];<br>var currentFont = localStorage['font'];</blockquote>",
+				"<hr>",
+				"Add a click mouse event to the load button and load the background color value into the background color textbox with the key <em>background-color</em>."
+			],
+      "challengeSeed": [
+				"<h1>local web storage</h1>",
+				"",
+				"<div>",
+				"  Saved background color:",
+				"  <input id='background-color-text'>",
+				"</div>",
+				"",
+				"<button id='load-button'>Load</button>"
+      ],
+			"tests": [
 				{
-					"text": "When clicking save your code should have saved a storage item to local storage with a key name of background-color.",
-					"testString": "assert.isDefined(localStorage['background-color'],'message: The background-color key must be set on the localStorage.');"
-				},
+					"text": "There should be a local storage item with a key name of background-color from the last lesson.",
+					"testString": "assert(code.match(/=\\s*?localStorage\\[[\"|']background-color[\"|']\\]|=\\s*?localStorage\\.getItem\\([\"|']background-color[\"|'],/gi), 'message: Get a value from a local storage item with the key background-color.');"
+				}
+			],
+			"solutions": [],
+			"hints": [],
+			"releasedOn": "Oct 1, 2018",
+			"challengeType": 0
+		},
+		{
+			"id": "b28f7c70c74ca5e4c5e3f231",
+			"title": "Other Storage Methods",
+			"description": [
+				"The full API for Storage can be found <a href='http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html' target='_blank'> here </a>.",
+				"These methods include removeItem (for removing a single item by key) and clear (for removing all items).",
+				"For example:",
+				"The following removes an item from local storage.",
+				"<blockquote>localStorage.removeItem('bgcolor');</blockquote>",
+				"<hr>",
+				"Add a click mouse event to the remove button and remove the background color item with the key <em>background-color</em>."
+			],
+      "challengeSeed": [
+				"<h1>local web storage</h1>",
+				"",
+				"<button id='remove-button'>Remove</button>"
+      ],
+			"tests": [
 				{
-					"text": "The storage item for background-color should have a value that is not null.",
-					"testString": "assert.isDefined(localStorage['background-color'],assert.isNotNull(localStorage['background-color'],'message: The background-color key must not be null.');"
-				},
-				{
-					"text": "The storage item for background-color should have a value that is not empty.",
-					"testString": "assert.isDefined(localStorage['background-color'],assert.notStrictEqual(localStorage['background-color'],'','message: The background-color key must not be empty.');"
+					"text": "When clicking remove the local storage item with a key name of background-color should be removed from local storage.",
+					"testString": "assert(code.match(/localStorage\\.removeItem\\([\"|']background-color[\"|']/gi), 'message: Remove the local storage item with the key background-color.');"
 				}
 			],
 			"solutions": [],
