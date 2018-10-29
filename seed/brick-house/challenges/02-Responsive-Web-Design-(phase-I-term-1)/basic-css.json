@@ -980,6 +980,216 @@
       }
     },
     {
+      "id": "bad87fee1348bd9aedd08845",
+      "title": "Add Font Awesome Icons to our Buttons",
+      "required": [
+        {
+          "link": "/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css",
+          "raw": true
+        }
+      ],
+      "description": [
+        "Font Awesome is a convenient library of icons. These icons are vector graphics, stored in the <code>.svg</code> file format. These icons are treated just like fonts. You can specify their size using pixels, and they will assume the font size of their parent HTML elements.",
+        "You can include Font Awesome in any app by adding the following code to the top of your HTML:",
+        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\"&#62;</code>",
+        "In this case, we've already added it for you to this page behind the scenes.",
+        "The <code>i</code> element was originally used to make other elements italic, but is now commonly used for icons. You can add the Font Awesome classes to the <code>i</code> element to turn it into an icon, for example:",
+        "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
+        "Note that the <code>span</code> element is also acceptable for use with icons.",
+        "Use Font Awesome to add a <code>thumbs-up</code> icon to your like button by giving it an <code>i</code> element with the classes <code>fa</code> and <code>fa-thumbs-up</code>; make sure to keep the text \"Like\" next to the icon."
+      ],
+      "challengeSeed": [
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<style>",
+        "  h2 {",
+        "    font-family: Lobster, Monospace;",
+        "  }",
+        "",
+        "  .thick-green-border {",
+        "    border-color: green;",
+        "    border-width: 10px;",
+        "    border-style: solid;",
+        "    border-radius: 50%;",
+        "  }",
+        "</style>",
+        "",
+        "<div class=\"container-fluid\">",
+        "  <div class=\"row\">",
+        "    <div class=\"col-8\">",
+        "      <h2 class=\"text-primary text-center\">CatPhotoApp</h2>",
+        "    </div>",
+        "    <div class=\"col-4\">",
+        "      <a href=\"#\"><img class=\"img-fluid thick-green-border\" src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "    </div>",
+        "  </div>",
+        "  <img src=\"/images/two_kittens.jpg\" class=\"img-fluid\" alt=\"Two kittens playing.\">",
+        "  <div class=\"row\">",
+        "    <div class=\"col-4\">",
+        "      <button class=\"btn btn-block btn-primary\">Like</button>",
+        "    </div>",
+        "    <div class=\"col-4\">",
+        "      <button class=\"btn btn-block btn-info\">Info</button>",
+        "    </div>",
+        "    <div class=\"col-4\">",
+        "      <button class=\"btn btn-block btn-danger\">Delete</button>",
+        "    </div>",
+        "  </div>",
+        "  <p>Things cats <span class=\"text-danger\">love:</span></p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Indoor</label>",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Outdoor</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Loving</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Lazy</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Crazy</label>",
+        "    <input type=\"text\" placeholder=\"cat photo URL\" required>",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</div>"
+      ],
+      "tests": [
+        "assert($(\"i\").is(\".fa.fa-thumbs-up\") || $(\"span\").is(\".fa.fa-thumbs-up\"), 'message: Add an <code>i</code> element with the classes <code>fa</code> and <code>fa-thumbs-up</code>.');",
+        "assert(($(\"i.fa-thumbs-up\").parent().text().match(/Like/gi) && $(\".btn-primary > i\").is(\".fa.fa-thumbs-up\")) || ($(\"span.fa-thumbs-up\").parent().text().match(/Like/gi) && $(\".btn-primary > span\").is(\".fa.fa-thumbs-up\")), 'message: Your <code>fa-thumbs-up</code> icon should be located within the Like button.');",
+        "assert($(\"button\").children(\"i\").length > 0 || $(\"button\").children(\"span\").length > 0, 'message: Nest your <code>i</code> element within your <code>button</code> element.');",
+        "assert(code.match(/<\\/i>|<\\/span>/g), 'message: Make sure your icon element has a closing tag.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0,
+      "translations": {
+        "es": {
+          "title": "Agrega iconos de Font Awesome a los botones",
+          "description": [
+            "Font Awesome es una librería de iconos muy conveniente. Estos iconos son imágenes vectoriales, almacenadas en formato <code>.svg</code>, y son tratados como si fueran fuentes. Puedes especificar su tamaño usando pixeles, y tomarán el tamaño de fuente de su elemento HTML padre.",
+            "Puedes añadir Font Awesome a cualquier aplicación sólo incluyendo y agregando el siguiente código al comienzo de tu HTML:",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\"/&#62;</code>",
+            "En este caso, ya lo hemos agregado por tí a esta página tras bambalinas.",
+            "El elemento <code>i</code> originalmente era usado para hacer textos en itálicas, pero ahora comunmente se usa para iconos.  Le agregas clases de Font Awesome al elemento <code>i</code> para convertirlo en un ícono, por ejemplo:",
+            "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
+            "Usa Font Awesome para agregar un icono de \"pulgar arriba\" <code>thumbs-up</code> a tu botón de like dándole un elemento <code>i</code> con las clases <code>fa</code> y <code>fa-thumbs-up</code>."
+          ]
+        },
+        "fr": {
+          "title": "Ajouter des icônes Font Awesome à nos boutons",
+          "description": [
+            "Font Awesome est une librairie d'icônes très pratique. Ces icones sont des images vectorielles, stockées en format <code>.svg</code>. Ces icônes sont traités exactemeent comme des polices. Vous pouvez choisir leur taille en pixel, et ils prendront la taille de police de leur élémment parent HTML.",
+            "Vous poyvez ajouter Font Awesome à n'importe quell application en ajoutant le code suivant en haut de votre HTML:",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\">/&#62;</code>",
+            "Ici, nous l'avons déjà ajouté pour vous dans le back-office.",
+            "La balise <code>i</code> eétait utilisé à la base pour mettre les autres éléments en italique, mais maintenant elle est utilisée pour les icones. Vous ajoutez des classes Font Awesome à un élément <code>i</code> pour les les transformer en icones, par exemple:",
+            "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
+            "Utilisez Font Awesome pour ajouter un icone <code>thumbs-up</code> à votre bouton de like en lui donnant un élément <code>i</code> ayant les classes <code>fa</code> et <code>fa-thumbs-up</code>."
+          ]
+        }
+      }
+    },
+    {
+      "id": "bad87fee1348bd9aedc08845",
+      "title": "Add Font Awesome Icons to all of our Buttons",
+      "required": [
+        {
+          "link": "/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css",
+          "raw": true
+        }
+      ],
+      "description": [
+        "Font Awesome is a convenient library of icons. These icons are vector graphics, stored in the <code>.svg</code> file format. These icons are treated just like fonts. You can specify their size using pixels, and they will assume the font size of their parent HTML elements.",
+        "Use Font Awesome to add an <code>info-circle</code> icon to your info button and a <code>trash</code> icon to your delete button.",
+        "Note: The <code>span</code> element is an acceptable alternative to the <code>i</code> element for the directions below."
+      ],
+      "challengeSeed": [
+        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<style>",
+        "  h2 {",
+        "    font-family: Lobster, Monospace;",
+        "  }",
+        "",
+        "  .thick-green-border {",
+        "    border-color: green;",
+        "    border-width: 10px;",
+        "    border-style: solid;",
+        "    border-radius: 50%;",
+        "  }",
+        "</style>",
+        "",
+        "<div class=\"container-fluid\">",
+        "  <div class=\"row\">",
+        "    <div class=\"col-8\">",
+        "      <h2 class=\"text-primary text-center\">CatPhotoApp</h2>",
+        "    </div>",
+        "    <div class=\"col-4\">",
+        "      <a href=\"#\"><img class=\"img-fluid thick-green-border\" src=\"/images/cute_orange_cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>",
+        "    </div>",
+        "  </div>",
+        "  <img src=\"/images/two_kittens.jpg\" class=\"img-fluid\" alt=\"Two kittens playing.\">",
+        "  <div class=\"row\">",
+        "    <div class=\"col-4\">",
+        "      <button class=\"btn btn-block btn-primary\"><i class=\"fa fa-thumbs-up\"></i> Like</button>",
+        "    </div>",
+        "    <div class=\"col-4\">",
+        "      <button class=\"btn btn-block btn-info\">Info</button>",
+        "    </div>",
+        "    <div class=\"col-4\">",
+        "      <button class=\"btn btn-block btn-danger\">Delete</button>",
+        "    </div>",
+        "  </div>",
+        "  <p>Things cats <span class=\"text-danger\">love:</span></p>",
+        "  <ul>",
+        "    <li>cat nip</li>",
+        "    <li>laser pointers</li>",
+        "    <li>lasagna</li>",
+        "  </ul>",
+        "  <p>Top 3 things cats hate:</p>",
+        "  <ol>",
+        "    <li>flea treatment</li>",
+        "    <li>thunder</li>",
+        "    <li>other cats</li>",
+        "  </ol>",
+        "  <form action=\"/submit-cat-photo\">",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Indoor</label>",
+        "    <label><input type=\"radio\" name=\"indoor-outdoor\"> Outdoor</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Loving</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Lazy</label>",
+        "    <label><input type=\"checkbox\" name=\"personality\"> Crazy</label>",
+        "    <input type=\"text\" placeholder=\"cat photo URL\" required>",
+        "    <button type=\"submit\">Submit</button>",
+        "  </form>",
+        "</div>"
+      ],
+      "tests": [
+        "assert($(\".btn-info > i\").is(\".fa.fa-info-circle\") || $(\".btn-info > span\").is(\".fa.fa-info-circle\"), 'message: You should add a <code>&#60;i class=\"fa fa-info-circle\"&#62;&#60;/i&#62;</code> within your info button element.');",
+        "assert($(\".btn-danger > i\").is(\".fa.fa-trash\") || $(\".btn-danger > span\").is(\".fa.fa-trash\"), 'message: You should add a <code>&#60;i class=\"fa fa-trash\"&#62;&#60;/i&#62;</code> within your delete button element.');",
+        "assert(code.match(/<\\/i>|<\\/span/g) && code.match(/<\\/i|<\\/span>/g).length > 2 && ($(\".btn-primary > i\").is(\".fa.fa-thumbs-up\") || $(\".btn-primary > span\").is(\".fa.fa-thumbs-up\")), 'message: Make sure each of your <code>i</code> elements has a closing tag and <code>&#60;i class=\"fa fa-thumbs-up\"&#62;&#60;/i&#62;</code> is in your like button element.');"
+      ],
+      "type": "waypoint",
+      "challengeType": 0,
+      "translations": {
+        "es": {
+          "title": "Agrega Font Awesome a todos los botones",
+          "description": [
+            "Font Awesome es una librería de iconos muy conveniente. Estos iconos son imágenes vectoriales, almacenadas en formato <code>.svg</code>, y son tratados como si fueran fuentes. Puedes especificar su tamaño usando pixeles, y tomarán el tamaño de fuente de su elemento HTML padre.",
+            "Utiliza Font Awesome para agregar un icono <code>info-circle</code> a tu botón informativo y un icono <code>trash</code> a tu botón de eliminar."
+          ]
+        },
+        "fr": {
+          "title": "Ajoutez des icones Font Awesome à tous nos boutons",
+          "description": [
+            "Font Awesome est une librairie d'icônes très pratique. Ces icones sont des images vectorielles, stockées en format <code>.svg</code>. Ces icônes sont traités exactemeent comme des polices. Vous pouvez choisir leur taille en pixel, et ils prendront la taille de police de leur élémment parent HTML.",
+            "Utilisez Font Awesome pour ajouter un icone <code>info-circle</code> à votre bouton d'info et un icone <code>trash</code> à votre bouton de suppression."
+          ]
+        }
+      }
+    },
+    {
       "id": "aad87fee1348bd9aedf0827a",
       "title": "**Commit to having read HTML & CSS chapter 12",
       "description": [
