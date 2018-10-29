@@ -1,0 +1,52 @@
+{
+	"name": "Chrome DevTools",
+	"order": 7,
+	"time": "5 hours",
+	"helpRoom": "Help",
+	"challenges": [
+		{
+			"id": "e09d80c0dba715b9c25d5bdb",
+			"title": "Introduction to Chrome DevTools",
+			"description": [
+				[
+					"",
+					"",
+					"asdfasd fasdf asdf asd fda.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Reading is a daily activity and a big part of coding. All the information could never be memorized.",
+					""
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+		},
+		{
+			"id": "e09d80c0dba715b9c25d5bdb",
+			"title": "Introduction to Chrome DevTools",
+			"description": [
+				[
+					"",
+					"",
+					"asdfasd fasdf asdf asd fda.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Reading is a daily activity and a big part of coding. All the information could never be memorized.",
+					""
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+		}
+	]
+}
