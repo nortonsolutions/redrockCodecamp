@@ -2,10 +2,11 @@
 
 # User Management Page
 
-* HTML, CSS, Javascript
+* HTML, CSS, Javascript ES5
 * Bootstrap, Font Awesome
 * DOM Elements, Events
-* ES6 Modules, for of, Template Literals
+* These features of ES6 should be used: Modules
+* These features of ES6 may be used: for of, and Template Literals
 * JSON
 * Web Storage API (http://codecamp.edu/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
 
