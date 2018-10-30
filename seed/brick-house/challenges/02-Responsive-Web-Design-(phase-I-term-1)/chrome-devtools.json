@@ -27,13 +27,13 @@
 			"challengeType": 7
 		},
 		{
-			"id": "e09d80c0dba715b9c25d5bdb",
+			"id": "ddaa0620dbae5db530b8ec6f",
 			"title": "Introduction to Chrome DevTools",
 			"description": [
 				[
 					"",
 					"",
-					"asdfasd fasdf asdf asd fda.",
+					"asdfasd fasdf asdf asd fda.<button id='asdf'>complete</button><script>document.addEventListener('DOMContentLoaded', function() {document.getElementById('asdf').addEventListener('click', function () {document.querySelector('.step-button-block button[disabled]').classList.remove('disabled');document.querySelector('.step-button-block button[disabled]').disabled = false;});});</script>",
 					"#"
 				],
 				[
