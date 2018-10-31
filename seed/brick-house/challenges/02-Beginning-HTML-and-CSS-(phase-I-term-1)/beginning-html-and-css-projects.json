@@ -1,23 +1,59 @@
 {
-  "name": "Applied Responsive Web Design Projects with Tests",
+  "name": "Beginning HTML and CSS Projects",
   "order": 8,
   "time": "150 hours",
   "helpRoom": "Help",
   "challenges": [
     {
-      "id": "587d78af367417b2b2512b02",
-      "title": "Get Set for our Responsive Web Design Projects",
+      "id": "9168acf0dc79c71a2a438633",
+      "title": "Beginning HTML and CSS Projects with Tests",
       "description": [
         [
           "",
           "",
-          "Our front end development projects will give you a chance to apply the front end skills you've developed up to this point. We'll use a browser-based code editor called JS Bin.",
+          "Our front end development projects will give you a chance to apply the front end skills you've learned up to this point.",
           ""
         ],
         [
           "",
           "",
-          "These projects are harder. It can take several hours to complete each project.",
+          "These projects come with tests that you will need to pass.<br><br> You will need to add the test scripts to your project by choosing CodeCamp Test Suite from the Library button at the top left of JSBIN.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "You can add the test scripts to your project when you are ready to start testing.<br><br> You can also comment out or remove the scripts while you are working to remove the testing interface.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "The projects will give you guidance on the web page you are to build.<br><br> Do <b>NOT</b> spend a lot of time on the design or content of your web page.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "The goal of these projects are to get you familiar with writing a complete page of HTML and CSS.<br><br> You are working towards being a Front End Developer not a graphics or web designer.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "In all future projects you will be given the design for you project.<br><br>Focus on the code and how it looks, do <b>NOT</b> focus on how your output looks.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "In the test interface you will need to pick the project you are working on in the drop down box.<br><br> Click the <em>Run Tests</em> button to run the tests and the <em>Test 10/10</em> to see the results.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "To get the tests to pass you will need to <b>READ</b> the error messages.<br><br>Please fully read both the error message (next to the number) and AssertionError (at the top of the highlighted box), they provide the clues for what needs to be fixed.",
           ""
         ],
         [
@@ -25,23 +61,52 @@
           "",
           "If you get stuck, please use the methodology: <h3>Research-Ask</h3>",
           ""
-        ],
+        ]
+      ],
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "isRequired": false,
+      "challengeType": 7
+    },
+    {
+      "id": "587d78af367417b2b2512b02",
+      "title": "Introduction to JSBIN",
+      "description": [
         [
           "",
           "",
-          "For our front end project challenges, we'll use the browser-based code editor called JS Bin.<br><br> Click the \"Open link in new tab\" button below to open JS Bin.<br><br> If you don't have an account please register.",
+          "For these projects we will use a browser-based code editor called JS Bin.<br><br> Click the \"Open link in new tab\" button below to open JS Bin.<br><br> If you don't have an account please register.",
           "http://jsbin.codecamp.edu/login"
         ],
         [
           "",
           "",
-          "Once you are logged in on JS Bin in the HTML box, create an <code>h1</code> element with the text \"Hello World\".<br><br> You can drag the edges of the frames around to resize them.<br><br> You can also click the buttons at the top to show and hide the frames.",
+          "Once you are logged in to JS Bin you will see a few buttons at the top in the center of the screen.<br><br> Turn on the HTML, CSS, and Output panes by clicking their buttons.",
           ""
         ],
         [
           "",
           "",
-          "Your work will be automatically saved every few minutes, however, you can save your work immediately by using ctrl+s or choosing \"Save snapshot\" from the File menu in the top left hand corner.<br><br>  You can get a public link to your page by clicking the Share drop down in the upper left hand corner.",
+          "In the HTML pane create an <code>h1</code> element with the text \"Hello World\".<br><br> Notice that you can drag the edges of the panes around to resize them.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "In JSBIN your work will be automatically saved every few minutes, however, you can save your work immediately by using ctrl+s or choosing \"Save snapshot\" from the File menu in the top left hand corner.<br><br>  You can get a link to your page by clicking the Share drop down in the upper left hand corner.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "You can see all the saved bins you have created by clicking My Bins from the File menu. Take some time to explore the features of JSBIN by clicking around.  You can also adjust editor settings by clicking on the Account button in the top right hand corner.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If you get stuck, please use the methodology: <h3>Research-Ask</h3>",
           ""
         ]
       ],
