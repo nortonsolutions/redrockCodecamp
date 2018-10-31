@@ -12,7 +12,7 @@
 					"",
 					"",
 					"asdfasd fasdf asdf asd fda.",
-					"#"
+					""
 				],
 				[
 					"",
@@ -27,14 +27,14 @@
 			"challengeType": 7
 		},
 		{
-			"id": "e09d80c0dba715b9c25d5bdb",
-			"title": "Introduction to Chrome DevTools",
+			"id": "ac70bf30dbaf3d83f01f772f",
+			"title": "Viewing and Changing CSS",
 			"description": [
 				[
 					"",
 					"",
-					"asdfasd fasdf asdf asd fda.",
-					"#"
+					"<style>.aloha{padding:1em}</style>Right-click the <code>Inspect Me!</code> text below and select <strong>Inspect</strong>.  The <strong>Elements</strong> panel of DevTools opens.  The <code>Inspect Me!</code> element is highlighted in the <strong>DOM Tree</strong><p class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" data-message=\"peekaboo!\">Inspect Me!</p><br>In the <strong>DOM Tree</strong>, find the value of the <code>data-message</code> attribute for the <code>Inspect Me!</code> element.<br>Enter the value in the text box below.<br> Value of <code>data-message</code>: <input id=\"target\" type=\"text\" size=\"10\">" ,
+					""
 				],
 				[
 					"",
@@ -47,6 +47,71 @@
 			"tests": [],
 			"type": "Waypoint",
 			"challengeType": 7
+		},
+		{
+			"id": "42",
+			"title": "View an element's CSS",
+			"description": [
+				[
+					"",
+					"",
+					"The <strong>Styles</strong> tab on the <strong>Elements</strong> panel lists the CSS rules being applied to whatever element is currently selected in the <strong>DOM Tree</strong>.  Right-click the <code>Go to my next step</code> button element and select <strong>Inspect</strong>. Find the <code>btn</code> class rule.  The fact that you see this rule means that it's being applied to the <code>Go to my next step</code> button element.<br> The <code>btn</code> class is dclaring a value for <code>font-weight</code>" ,
+					""
+				],
+				[
+					"",
+					"",
+					"Reading is a daily activity and a big part of coding. All the information could never be memorized.",
+					""
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+		},
+		{
+			"id": "853421e0dd18814785638af2",
+			"title": "View an Element's CSS",
+			"description": [
+				"<style>.aloha{padding:1em}</style>Right-click the <code>Inspect Me!</code> text below and select <strong>Inspect</strong>.  The <strong>Elements</strong> panel of DevTools opens.  The <code>Inspect Me!</code> element is highlighted in the <strong>DOM Tree</strong><p class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" data-message=\"peekaboo!\">Inspect Me!</p><br><br> Value of <code>data-message</code>:",
+				"",
+				"<hr>",
+				"In the <strong>DOM Tree</strong>, find the value of the <code>data-message</code> attribute for the <code>Inspect Me!</code> element.<br>Change the text in the <code>Data-Message</code> div to reflect this value.<br>The <strong>Styles</strong> tab on the <strong>Elements</strong> panel lists the CSS rules being applied to whatever element is currently selected in the <strong>DOM Tree</strong>, which should still be the <code>Inspect Me!</code> element in this case.  Find the <code>aloha</code> class rule.  the factt that you see this rule means that it's being applied to the <code>Inspect Me!</code> element.<br>The <code>aloha</code> class is declaring a value for <code>padding</code>.  Change the text in the <code>Padding-Value<code> div element to reflect this value."
+			],
+			"tests": [
+				{
+					"text": "<code>Data-Message</code> div element should contain the value of the <code>data-message</code> attribute.",
+					"testString": "assert(code.match(/.container\\s*?{[\\s\\S]*display\\s*?:\\s*?grid\\s*?;[\\s\\S]*}/gi), '<code>container</code> class should have a <code>display</code> property with a value of <code>grid</code>.');"
+				},
+				{
+					"text": "<code>Padding-Value</code> div element should contain the <code>padding</code> value assigned to the <code>aloha</code> class.",
+					"testString": "assert(code.match(/.container\\s*?{[\\s\\S]*display\\s*?:\\s*?grid\\s*?;[\\s\\S]*}/gi), '<code>container</code> class should have a <code>display</code> property with a value of <code>grid</code>.');"
+				}
+			],
+			"solutions": [],
+			"hints": [],
+			"releasedOn": "Feb 15, 2018",
+			"challengeType": 0,
+			"translations": {},
+			"challengeSeed": [
+				"<style>",
+				"  .d1{background:LightSkyBlue;}",
+				"  .d2{background:LightSalmon;}",
+
+				"  ",
+				"  .container {",
+				"    font-size: 28px;",
+				"    width: 100%;",
+				"  }",
+				"</style>",
+				"  ",
+				"<div class=\"container\">",
+				"  <div class=\"Data-Message\">Update Me</div>",
+				"  <div class=\"Padding-Value\">Update Me</div>",
+
+				"</div>"
+			]
 		}
 	]
 }
