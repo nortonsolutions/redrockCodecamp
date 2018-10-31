@@ -65,6 +65,48 @@
 			"challengeType": 7
 		},
 		{
+			"id": "dc9e9930dd2553f86378981e",
+			"title": "temp",
+			"description": [
+				[
+					"",
+					"",
+					"asd fasd fasdf.",
+					""
+				],
+				[
+					"",
+					"",
+					"<button class='btn btn-primary' onclick=\"document.querySelector('.step-button-block a').click()\">complete</button><style>.step-button-block a{display:none;}</style>",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Type test<br><br><input class='challenge-value form-control' type='text' size='10' onkeyup=\"if(document.querySelector('.challenge-value').value === 'test'){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\"><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>",
+					"#"
+				],
+				[
+					"",
+					"",
+					"<button onclick=\"document.querySelector('.step-button-block a').click()\">complete</button><style>.step-button-block a{display:none;}</style>",
+					"#"
+				],
+				[
+					"",
+					"",
+					" asdf asd as f.",
+					""
+				]
+			],
+			"releasedOn": "November 1, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": false,
+			"challengeType": 7
+		},
+		{
 			"id": "14b84c60dd1e2f8469fbdc80",
 			"title": "Interphase Webpage",
 			"description": [
