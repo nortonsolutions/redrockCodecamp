@@ -33,14 +33,14 @@
 				[
 					"",
 					"",
-					"<style>.aloha{padding:1em}</style>Right-click the <code>Inspect Me!</code> text below and select <strong>Inspect</strong>.  The <strong>Elements</strong> panel of DevTools opens.  The <code>Inspect Me!</code> element is highlighted in the <strong>DOM Tree</strong><p class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" data-message=\"peekaboo!\">Inspect Me!</p><br>In the <strong>DOM Tree</strong>, find the value of the <code>data-message</code> attribute for the <code>Inspect Me!</code> element.<br>Enter the value in the text box below.<br> Value of <code>data-message</code>: <input id=\"target\" type=\"text\" size=\"10\">" ,
-					""
+					"<style>.aloha{padding:1em}</style>Right-click the <code>Inspect Me!</code> text below and select <strong>Inspect</strong>.<br> <p class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" data-message=\"peekaboo!\">Inspect Me!</p><br>  The <strong>Elements</strong> panel of DevTools opens.  The <code>Inspect Me!</code> element is highlighted in the <strong>DOM Tree</strong>.<br><br>In the <strong>DOM Tree</strong>, find the value of the <code>data-message</code> attribute for the <code>Inspect Me!</code> element.<br><br>Enter the value in the text box below.<br> Value of <code>data-message</code>: <input class='challenge-value form-control' type='text' size='10' onkeyup=\"if(document.querySelector('.challenge-value').value === 'peekaboo!'){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\"><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>" ,
+					"#"
 				],
 				[
 					"",
 					"",
-					"Reading is a daily activity and a big part of coding. All the information could never be memorized.",
-					""
+					"<style>.aloha{padding:1em}</style>The <strong>Styles</strong> tab on the <strong>Elements</strong> panel lists the CSS rules being applied to whatever element is currently selected in the <strong>DOM Tree</strong>. <hr>Right click the <code>Inspect Me!</code> text below and select <strong>Inspect</strong>.<br><p class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" data-message=\"peekaboo!\">Inspect Me!</p><br>Find the <code>aloha</code> class rule.  the fact that you see this rule means that it's being applied to the <code>Inspect Me!</code> element.<br><br> The <code>aloha</code> class is declaring a value for <code>padding</code>.  enter that value in the text box below. <br>Value of <code>padding</code>: <input class='challenge-value form-control' type='text' size='10' onkeyup=\"if(document.querySelector('.challenge-value').value === '1em'){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\"><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>",
+					"#"
 				]
 			],
 			"challengeSeed": [],
@@ -49,20 +49,14 @@
 			"challengeType": 7
 		},
 		{
-			"id": "42",
-			"title": "View an element's CSS",
+			"id": "035f1dd0e201fd3e5008016b",
+			"title": "Add a CSS Declaration to an Element",
 			"description": [
 				[
 					"",
 					"",
-					"The <strong>Styles</strong> tab on the <strong>Elements</strong> panel lists the CSS rules being applied to whatever element is currently selected in the <strong>DOM Tree</strong>.  Right-click the <code>Go to my next step</code> button element and select <strong>Inspect</strong>. Find the <code>btn</code> class rule.  The fact that you see this rule means that it's being applied to the <code>Go to my next step</code> button element.<br> The <code>btn</code> class is dclaring a value for <code>font-weight</code>" ,
-					""
-				],
-				[
-					"",
-					"",
-					"Reading is a daily activity and a big part of coding. All the information could never be memorized.",
-					""
+					"Use the <strong>Styles</strong> tab when you want to change or add CSS declarations to an element.<hr> Right-click the <code>Add A Background Color To Me</code> text below and select <strong>inspect</strong>. <p id=\"test-element\" class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" >Add A Background Color To Me!</p><br>Click <code>element.style</code> near the top of the <strong>Styles</strong> tab. <br><br>Type <code>background-color</code> and press <kbd>Enter</kbd>.<br><br>Type <code>honeydew</code> and press <kbd>Enter</kbd>.  In the <strong>Dom Tree</strong> you can see that an inline style declaration was applied to the element.<br> <button class='btn btn-primary' onclick=\"if(document.getElementById('test-element').style.backgroundColor==='honeydew'){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\">Complete</button><br><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>" ,
+					"#"
 				]
 			],
 			"challengeSeed": [],
@@ -71,47 +65,37 @@
 			"challengeType": 7
 		},
 		{
-			"id": "853421e0dd18814785638af2",
-			"title": "View an Element's CSS",
+			"id": "ef42e560e206796171f8a7a9",
+			"title": "Add a CSS Class to an Element",
 			"description": [
-				"<style>.aloha{padding:1em}</style>Right-click the <code>Inspect Me!</code> text below and select <strong>Inspect</strong>.  The <strong>Elements</strong> panel of DevTools opens.  The <code>Inspect Me!</code> element is highlighted in the <strong>DOM Tree</strong><p class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" data-message=\"peekaboo!\">Inspect Me!</p><br><br> Value of <code>data-message</code>:",
-				"",
-				"<hr>",
-				"In the <strong>DOM Tree</strong>, find the value of the <code>data-message</code> attribute for the <code>Inspect Me!</code> element.<br>Change the text in the <code>Data-Message</code> div to reflect this value.<br>The <strong>Styles</strong> tab on the <strong>Elements</strong> panel lists the CSS rules being applied to whatever element is currently selected in the <strong>DOM Tree</strong>, which should still be the <code>Inspect Me!</code> element in this case.  Find the <code>aloha</code> class rule.  the factt that you see this rule means that it's being applied to the <code>Inspect Me!</code> element.<br>The <code>aloha</code> class is declaring a value for <code>padding</code>.  Change the text in the <code>Padding-Value<code> div element to reflect this value."
+				[
+					"",
+					"",
+					"<style>.color_me{background-color:red}</style>Use the <strong>Styles</strong> tab to see how an element looks when a CSS class is applied to or remove from an element.<hr> Right-click the <code>Add A Class To Me!</code> element below and select <strong>Inspect</strong>. <br> <p id=\"test-element\" class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" >Add A Class To Me!</p><br> Click <strong>.cls</strong>. DevTools reveals a text box where you can add classes to the selected element.<br><br>Type <code>color-me</code> in the <strong>Add new class</strong> text box and then press <kbd>Enter</kbd>.  A checkbox appears below the <strong>Add new class</strong> text box, where you can toggle the class on and off.  If the <code>Add A Class To Me!</code> element had any other classes applied to it, you'd also be able to toggle them from here. <br> <button class='btn btn-primary' onclick=\"if(document.getElementById('test-element').classList.contains('color_me')){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\">Complete</button><br><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>" ,
+					"#"
+				]
 			],
-			"tests": [
-				{
-					"text": "<code>Data-Message</code> div element should contain the value of the <code>data-message</code> attribute.",
-					"testString": "assert(code.match(/.container\\s*?{[\\s\\S]*display\\s*?:\\s*?grid\\s*?;[\\s\\S]*}/gi), '<code>container</code> class should have a <code>display</code> property with a value of <code>grid</code>.');"
-				},
-				{
-					"text": "<code>Padding-Value</code> div element should contain the <code>padding</code> value assigned to the <code>aloha</code> class.",
-					"testString": "assert(code.match(/.container\\s*?{[\\s\\S]*display\\s*?:\\s*?grid\\s*?;[\\s\\S]*}/gi), '<code>container</code> class should have a <code>display</code> property with a value of <code>grid</code>.');"
-				}
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
+		},
+		{
+			"id": "0eb889e0e20cfd137b35192e",
+			"title": "Add a Pseudostate to a Class",
+			"description": [
+				[
+					"",
+					"",
+					"<style>#alohoa:hover{background-color:'cornflowerblue';}</style>Use the <strong>Styles</strong> tab to permanently apply a CSS pseudostate to an element.  DevTools supports <code>:active</code>, <code>:focus</code:>,:hover<code>, and <code>:visited</code>.<hr> Hover over the <code>Hover Over Me!</code> text below.  The background color changes. <br> <p id=\"test-element\" class=\"aloha\" style=\"border-style:dashed; display:inline-block; border-color:red;\" >Add A Class To Me!</p><br> Right-click the <code>Hover Over Me!<code> text and select <strong>Inspect<strong>. In the <strong>Styles</strong> tab, click <strong>:hov</strong>. <button class='btn btn-primary' onclick=\"if(document.getElementById('test-element').classList.contains('color_me')){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\">Complete</button><br><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>" ,
+					"#"
+				]
 			],
-			"solutions": [],
-			"hints": [],
-			"releasedOn": "Feb 15, 2018",
-			"challengeType": 0,
-			"translations": {},
-			"challengeSeed": [
-				"<style>",
-				"  .d1{background:LightSkyBlue;}",
-				"  .d2{background:LightSalmon;}",
-
-				"  ",
-				"  .container {",
-				"    font-size: 28px;",
-				"    width: 100%;",
-				"  }",
-				"</style>",
-				"  ",
-				"<div class=\"container\">",
-				"  <div class=\"Data-Message\">Update Me</div>",
-				"  <div class=\"Padding-Value\">Update Me</div>",
-
-				"</div>"
-			]
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7
 		}
+		
 	]
 }
