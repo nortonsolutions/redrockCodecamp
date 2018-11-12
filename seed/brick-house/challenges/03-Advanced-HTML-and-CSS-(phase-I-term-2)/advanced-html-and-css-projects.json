@@ -81,7 +81,7 @@
 				"<a href='/projects/phase-i/interphase-webpage/project/interphase-webpage.png' target='_blank'><img src='/projects/phase-i/interphase-webpage/project/interphase-webpage.png' style='width:500px;'></a>",
 				"<a href='/projects/phase-i/interphase-webpage/project/interphase-webpage-use.mp4' target='_blank'>Click here</a> to watch a video of the interactive features of the project.",
 				"<a href='http://codecamp.edu/educationMaterials/workbenchProjects/phase-i/interphase-webpage' target='_blank'>Click here</a> for the assets needed to build this project.",
-				"Link directly to the font-awesome css <a href='/fonts/font-awesome/4.7.0/css/font-awesome.min.css' target='_blank'>here</a>",
+				"Link directly to the font-awesome css <a href='/cdn/vendor/font-awesome/4.7.0/css/font-awesome.min.css' target='_blank'>here</a>",
 				"The font used for this project is lato, link directly to the css <a href='http://codecamp.edu/educationMaterials/workbenchProjects/phase-i/interphase-webpage/assets/css/lato.css' target='_blank'>here</a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
