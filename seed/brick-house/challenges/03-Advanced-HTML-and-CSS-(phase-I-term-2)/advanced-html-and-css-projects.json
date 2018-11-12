@@ -1,6 +1,6 @@
 {
 	"name": "Advanced HTML and CSS Projects",
-	"order": 0,
+	"order": 3,
 	"time": "150 hours",
 	"helpRoom": "Help",
 	"challenges": [
@@ -11,19 +11,19 @@
 				[
 					"",
 					"",
-					"These projects will have you build a webpage based on an existing design.<br><br> After you finish each page you will read the page's original source code and compare it against your own.",
+					"These projects will have you build a webpage based on a design.",
 					""
 				],
 				[
 					"",
 					"",
-					"You will be provided with the resources like text, fonts and images.",
+					"You will be provided with the assets like text, fonts and images.",
 					""
 				],
 				[
 					"",
 					"",
-					"Your webpage should complete the design with the same look and feel as much as possible<br><br> It does not have to be exact, however, you do have the tools to make it identical.",
+					"Your webpage should complete the design with the same look and feel as much as possible<br><br> It does not have to be exact.",
 					""
 				]
 			],
@@ -35,26 +35,32 @@
 			"challengeType": 7
 		},
 		{
-			"id": "7dfbc650dc8ae3530c9e5ae3",
-			"title": "Introduction to Visual Studio Code",
+			"id": "e4943b40e6bc0d2123847e49",
+			"title": "** Reviewing Professional Source Code",
 			"description": [
 				[
 					"",
 					"",
-					"It is recommended that you use Visual Studio Code for these projects.",
+					"Reading professional source code is a great way to learn.",
 					""
 				],
 				[
 					"",
 					"",
-					"Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS.",
+					"You will be provided with professional source code after you complete each of these projects.",
 					""
 				],
 				[
 					"",
 					"",
-					"Please read the Getting Started guide starting with the tips and tricks section.",
-					"http://uprep.edu/computerscience/docs/vscode/code.visualstudio.com/docs/getstarted/tips-and-tricks.html"
+					"Take time to compare your source code to the professional version to learn what strategies and techniques were used.",
+					""
+				],
+				[
+					"",
+					"",
+					"Commit to not look at the professional source code <strong>until</strong> you have completed and submitted your project.",
+					"#"
 				]
 			],
 			"releasedOn": "November 1, 2018",
@@ -65,68 +71,58 @@
 			"challengeType": 7
 		},
 		{
-			"id": "dc9e9930dd2553f86378981e",
-			"title": "temp",
-			"description": [
-				[
-					"",
-					"",
-					"asd fasd fasdf.",
-					""
-				],
-				[
-					"",
-					"",
-					"<button class='btn btn-primary' onclick=\"document.querySelector('.step-button-block a').click()\">complete</button><style>.step-button-block a{display:none;}</style>",
-					"#"
-				],
-				[
-					"",
-					"",
-					"Type test<br><br><input class='challenge-value form-control' type='text' size='10' onkeyup=\"if(document.querySelector('.challenge-value').value === 'test'){document.querySelector('.step-button-block a').click();document.querySelector('.challenge-fail').classList.add('hide');document.querySelector('.challenge-success').classList.remove('invisible');}else{document.querySelector('.challenge-fail').classList.remove('hide');document.querySelector('.challenge-success').classList.add('invisible');}\"><span class='hide challenge-fail'><small>Keep Trying</small></span><span class='invisible challenge-success'><b>Correct!</b></span>  <style>.step-button-block a{display:none;}</style>",
-					"#"
-				],
-				[
-					"",
-					"",
-					"<button onclick=\"document.querySelector('.step-button-block a').click()\">complete</button><style>.step-button-block a{display:none;}</style>",
-					"#"
-				],
-				[
-					"",
-					"",
-					" asdf asd as f.",
-					""
-				]
-			],
-			"releasedOn": "November 1, 2018",
-			"challengeSeed": [],
-			"tests": [],
-			"type": "Waypoint",
-			"isRequired": false,
-			"challengeType": 7
-		},
-		{
-			"id": "14b84c60dd1e2f8469fbdc80",
+			"id": "8b9f8e90e6bc19dfbda33527",
 			"title": "Interphase Webpage",
 			"description": [
-				"Build this pre designed webpage.",
+				"Build this designed webpage.",
 				"The page must match the design as close as possible.",
-				"<strong>Technology Stack:</strong> 1. Use only HTML, CSS, Font Awesome, and the provided resources to complete this project.",
-				"<a href=\"http://codecamp.edu/educationMaterials/projects/workbenchProjects/osmo/osmo.png\" target=\"_blank\"><div><strong>Click</strong> to view full size image.</div><img src=\"http://codecamp.edu/educationMaterials/projects/workbenchProjects/osmo/osmo.png\" style=\"width:500px;\"></a>",
-				"For all the assets need to build this site <a href=\"http://codecamp.edu/educationMaterials/projects/workbenchProjects/osmo\" target=\"_blank\">click here</a>.",
-				"The font used is sans-serif.",
-				"Buttons should be done with css NOT images.",
+				"<strong>Technology Stack:</strong> 1. Use only HTML and CSS.",
+				"<a href='/projects/phase-i/interphase-webpage/project/interphase-webpage.png' target='_blank'>Click here</a> to view the full size image.",
+				"<a href='/projects/phase-i/interphase-webpage/project/interphase-webpage.png' target='_blank'><img src='/projects/phase-i/interphase-webpage/project/interphase-webpage.png' style='width:500px;'></a>",
+				"<a href='/projects/phase-i/interphase-webpage/project/interphase-webpage-use.mp4' target='_blank'>Click here</a> to watch a video of the interactive features of the project.",
+				"<a href='http://codecamp.edu/educationMaterials/workbenchProjects/phase-i/interphase-webpage' target='_blank'>Click here</a> for the assets needed to build this project.",
+				"Link directly to the font-awesome css <a href='/fonts/font-awesome/4.7.0/css/font-awesome.min.css' target='_blank'>here</a>",
+				"The font used for this project is lato, link directly to the css <a href='http://codecamp.edu/educationMaterials/workbenchProjects/phase-i/interphase-webpage/assets/css/lato.css' target='_blank'>here</a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "November 1, 2018",
 			"challengeSeed": [
-				"5lch1Bd"
+				"phTo6Ap"
 			],
 			"tests": [],
 			"type": "zipline",
 			"isRequired": true,
 			"challengeType": 3
+		},
+		{
+			"id": "8cba2650e6bc156bcc2d1c77",
+			"title": "Interphase Webpage Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Interphase Webpage project.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='/projects/phase-i/interphase-webpage/review-8cba2650e6bc156bcc2d1c77' target='_blank'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "November 1, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
 		}
 	]
 }
