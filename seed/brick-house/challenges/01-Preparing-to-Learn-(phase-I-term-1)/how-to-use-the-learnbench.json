@@ -74,7 +74,8 @@
 			"challengeSeed": [],
 			"tests": [],
 			"type": "Waypoint",
-			"challengeType": 7
+			"challengeType": 7,
+			"isRequired": true
 		},
 		{
 			"id": "0dd08700ae1b4fab354e4087",
@@ -194,7 +195,8 @@
 			"challengeSeed": [],
 			"tests": [],
 			"type": "Waypoint",
-			"challengeType": 7
+			"challengeType": 7,
+			"isRequired": true
 		},
 		{
 			"id": "1b4358c0b13de5e46bbe090b",

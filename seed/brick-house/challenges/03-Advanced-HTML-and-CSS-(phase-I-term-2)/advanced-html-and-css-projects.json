@@ -67,7 +67,7 @@
 			"challengeSeed": [],
 			"tests": [],
 			"type": "Waypoint",
-			"isRequired": false,
+			"isRequired": true,
 			"challengeType": 7
 		},
 		{

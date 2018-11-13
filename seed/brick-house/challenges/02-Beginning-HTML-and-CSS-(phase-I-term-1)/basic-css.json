@@ -111,7 +111,7 @@
       "tests": [],
       "type": "Waypoint",
       "challengeType": 7,
-      "isRequired": false
+      "isRequired": true
     },
     {
       "id": "bad87fee1348bd9aedf08803",
