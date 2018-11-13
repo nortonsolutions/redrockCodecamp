@@ -42,24 +42,6 @@
       "translations": {}
     },
     {
-      "id": "aad87fee1348bd9aedf0887d",
-      "title": "**Commit to read HTML & CSS chapters 10-11",
-      "description": [
-        [
-          "",
-          "",
-          "The following sections cover material that will be covered in chapters 10-11 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you reach the challenge \"Change the Font Size of an Element\"",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
       "id": "bad87fee1348bd9aedf08803",
       "title": "Change the Color of Text",
       "description": [
@@ -523,24 +505,6 @@
           "",
           "",
           "At this point you should have finished reading chapters 10 and 11 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "aad87fee1348bd9aedf0887a",
-      "title": "**Commit to read HTML & CSS chapter 12",
-      "description": [
-        [
-          "",
-          "",
-          "The following sections cover material that will be covered in chapter 12 of Jon Duckett's \"HTML & CSS\". Please commit that you will read this chapter before you reach the challenge \"Size Your Images\"",
           ""
         ]
       ],
@@ -1197,24 +1161,6 @@
           "",
           "",
           "At this point you should have finished reading chapter 12 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished this chapter",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "aad87fee1348bd9aedf0887b",
-      "title": "**Commit to read HTML & CSS chapters 13 & 14",
-      "description": [
-        [
-          "",
-          "",
-          "The following sections cover material that will be covered in chapters 13 & 14 of Jon Duckett's \"HTML & CSS\". Please commit that you will read these chapters before you reach the challenge \"Understand Absolute versus Relative Units\"",
           ""
         ]
       ],
@@ -2858,24 +2804,6 @@
           "",
           "",
           "At this point you should have finished reading chapter 13 & 14 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "aad87fee1348bd9aedf0887c",
-      "title": "**Commit to read HTML & CSS chapter 15",
-      "description": [
-        [
-          "",
-          "",
-          "The following sections cover material that will be covered in chapter 15 of Jon Duckett's \"HTML & CSS\". Please commit that you will read this chapter before you move on from \"Basic CSS\"",
           ""
         ]
       ],

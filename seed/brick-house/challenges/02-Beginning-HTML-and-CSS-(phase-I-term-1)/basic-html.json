@@ -71,7 +71,7 @@
         [
           "",
           "",
-          "The best documentation for HTML is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://codecamp.edu/docs/html/developer.mozilla.org/en-US/docs/Web/HTML.html' target='_blank'>here (developer.mozilla.org HTML)</a>",
+          "The best documentation for HTML is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://codecamp.edu/docs/phase-i/html/developer.mozilla.org/en-US/docs/Web/HTML.html' target='_blank'>here (developer.mozilla.org HTML)</a>",
           ""
         ],
         [
@@ -96,24 +96,24 @@
     },
     {
       "id": "03bd33c0afb6ad4da8fc4fed",
-      "title": "** Read Beginning HTML And CSS Chapter 1 & 2",
+      "title": "** Read Beginning HTML And CSS 1 through 6",
       "description": [
         [
           "",
           "",
-          "For the topic of HTML you wil be reading Beginning HTML And CSS by Rob Larsen.",
+          "It is recommended that you read the chapters 1 through 6 of the book <em>Beginning HTML And CSS</em> by Rob Larsen.",
           ""
         ],
         [
           "",
           "",
-          "This is required reading.",
+          "A different book will be recommended for CSS.",
           ""
         ],
         [
           "",
           "",
-          "Please commit to reading chapters 1 and 2 of Beginning HTML And CSS before you reach the next reading commitment.",
+          "Please commit to reading chapters 1 through 6 before you reach the CSS lessons.",
           "#"
         ]
       ],
@@ -657,30 +657,6 @@
           ]
         }
       }
-    },
-    {
-      "id": "510d87b0afb6c7d2fccee811",
-      "title": "** Read Beginning HTML And CSS Chapter 3 & 4",
-      "description": [
-        [
-          "",
-          "",
-          "Your previous reading commitment should now be complete.",
-          "#"
-        ],
-        [
-          "",
-          "",
-          "Please commit to reading chapters 3 and 4 of Beginning HTML And CSS before you reach the next reading commitment.",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     },
     {
       "id": "bad87fee1348bd9aedf08812",
@@ -1493,30 +1469,6 @@
           ]
         }
       }
-    },
-    {
-      "id": "fd2df8f0afb565914863e11d",
-      "title": "** Read Beginning HTML And CSS Chapter 5 & 6",
-      "description": [
-        [
-          "",
-          "",
-          "Your previous reading commitment should now be complete.",
-          "#"
-        ],
-        [
-          "",
-          "",
-          "Please commit to reading chapters 5 and 6 of Beginning HTML And CSS before you reach the next reading commitment.",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     },
     {
       "id": "bad87fee1348bd9aede08830",

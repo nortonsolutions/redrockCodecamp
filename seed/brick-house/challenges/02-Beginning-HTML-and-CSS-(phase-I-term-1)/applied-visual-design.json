@@ -24,24 +24,6 @@
       "translations": {}
     },
     {
-      "id": "aad87fee1348bd9aedf08871",
-      "title": "**Commit to read HTML & CSS chapter 16-19",
-      "description": [
-        [
-          "",
-          "",
-          "Congratulations, you are nearly done with your first HTML book, the rest of the information in chapters 16 through 19 of Jon Duckett's \"HTML & CSS\" will be important to know as you approach your first projects at the end of \"responsive web design (phase i)\". Please commit that you will read these chapters before you begin your projects in \"Applied Responsive Web Design Projects\"",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
       "id": "587d7791367417b2b2512ab3",
       "title": "Create Visual Balance Using the text-align Property",
       "description": [

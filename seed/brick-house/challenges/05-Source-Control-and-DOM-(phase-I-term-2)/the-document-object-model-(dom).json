@@ -39,24 +39,6 @@
             "translations": {}
         },
         {
-          "id": "c72f1c10548fc9cce4720605",
-          "title": "**Commit to read Eloquent JavaScript ch. 12 - 14",
-          "description": [
-            [
-              "",
-              "",
-              "By clicking below you commit to reading chapters 12 - 14 of <em>Eloquent JavaScript</em> before you complete the <em>Document Object Model</em> challenges.",
-              "#"
-            ]
-          ],
-          "releasedOn": "",
-          "challengeSeed": [],
-          "tests": [],
-          "type": "Waypoint",
-          "challengeType": 7,
-          "isRequired": true
-        },
-        {
             "id": "87ee88402700db21189de995",
             "title": "Select an Element By Its id",
             "description": [

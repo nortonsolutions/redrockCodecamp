@@ -96,24 +96,18 @@
             },
             {
               "id": "bf6b4c40c0d4d15140816214",
-              "title": "** Read Pro Git Chapters 1 through 3",
+              "title": "** Read Pro Git 1 through 3",
               "description": [
                 [
                   "",
                   "",
-                  "For the topic of Git you wil be reading Pro Git by Scott Chacon and Ben Straub .",
+                  "It is recommended that you read chapters 1 through 3 of the book <em>Pro Git</em> by Scott Chacon and Ben Straub.",
                   ""
                 ],
                 [
                   "",
                   "",
-                  "This is required reading.",
-                  ""
-                ],
-                [
-                  "",
-                  "",
-                  "Please commit to reading chapters 1 through 3 of Pro Git before you reach the next reading commitment.",
+                  "Please commit to reading chapters 1 through 3.",
                   "#"
                 ]
               ],

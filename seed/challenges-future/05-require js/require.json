@@ -30,24 +30,6 @@
             "type": 7,
             "isRequired": false,
             "translations": {}
-        },
-        {
-            "id": "11d04b805d15a32cfefdc74c",
-            "title": "**Commit to read Eloquent JavaScript ch. 10",
-            "description": [
-                [
-                    "",
-                    "",
-                    "By clicking below you commit to reading chapter 10 of <em>Eloquent JavaScript</em> before you complete the <em>require js</em> challenges.",
-                    "#"
-                ]
-            ],
-            "releasedOn": "",
-            "challengeSeed": [],
-            "tests": [],
-            "type": "Waypoint",
-            "challengeType": 7,
-            "isRequired": true
         }
     ]
 }
