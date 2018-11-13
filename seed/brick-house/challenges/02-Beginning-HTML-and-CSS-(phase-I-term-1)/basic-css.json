@@ -17,19 +17,25 @@
         [
           "",
           "",
-          "CSS has been adopted by all major browsers and allows you to control:<br><ul><li>color</li><li>fonts</li><li>positioning</li><li>spacing</li><li>sizing</li><li>decorations</li><li>transitions</li></ul>",
+          "CSS allows you to control:<br><ul><li>color</li><li>fonts</li><li>positioning</li><li>spacing</li><li>sizing</li><li>decorations</li><li>transitions</li></ul>",
           ""
         ],
         [
           "",
           "",
-          "There are three main ways to apply CSS styling. You can apply inline styles directly to HTML elements with the <code>style</code> attribute. Alternatively, you can place CSS rules within <code>style</code> tags in an HTML document. Finally, you can write CSS rules in an external style sheet, then reference that file in the HTML document. Even though the first two options have their use cases, most developers prefer external style sheets because they keep the styles separate from the HTML elements. This improves the readability and reusability of your code.",
+          "There are three main ways to apply CSS styling.<br><br>You can apply inline styles directly to HTML elements with the <code>style</code> attribute.<br><br>You can place CSS rules within <code>style</code> tags in an HTML document.<br><br>You can also write CSS rules in an external style sheet file, then reference that file in the HTML document.",
           ""
         ],
         [
           "",
           "",
-          "The idea behind CSS is that you can use a selector to target an HTML element in the DOM (Document Object Model) and then apply a variety of attributes to that element to change the way it is displayed on the page.<br><br>In this section, you'll see how adding CSS styles to the elements of your CatPhotoApp can change it from simple text to something more.",
+          "You apply these CSS styles or rules by targeting some part of your HTML.<br><br>A CSS selector is used to do this targeting.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "The style or rule is a defined property followed by a value.",
           ""
         ]
       ],
@@ -40,6 +46,72 @@
       "challengeType": 7,
       "isRequired": false,
       "translations": {}
+    },
+    {
+      "id": "8805bf60e753d130b19e1184",
+      "title": "Documentation for CSS",
+      "description": [
+        [
+          "",
+          "",
+          "You will need documentation for CSS.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "The best documentation for CSS is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://codecamp.edu/docs/phase-i/css/developer.mozilla.org/en-US/docs/Web/CSS/Reference.html' target='_blank'>here (developer.mozilla.org CSS)</a>",
+          ""
+        ],
+        [
+          "",
+          "",
+          "You need to get very familiar with this site.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Try it out. Go to the CSS docs and look for the definition of the <b>background-color</b> property.",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
+    },
+    {
+      "id": "c9761120e753df9ce3be49b5",
+      "title": "** Read CSS The Definitive Guide 1 through 20",
+      "description": [
+        [
+          "",
+          "",
+          "It is recommended that you read the chapters 1 through 20 of the book<br><br> <em>CSS The Definitive Guide</em> by Eric Meyer.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Please commit to reading chapters 1 through 20 before you reach the Javascript lessons.",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "This book should be your primary focus. However, secondarily we recommend<br><br> <em>CSS Secrets</em> by Lea Verou",
+          "#"
+        ]
+      ],
+      "releasedOn": "",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": false
     },
     {
       "id": "bad87fee1348bd9aedf08803",
@@ -496,24 +568,6 @@
           ]
         }
       }
-    },
-    {
-      "id": "aad87fee1348bd9aedf0817a",
-      "title": "**Commit to having read HTML & CSS chapters 10 & 11",
-      "description": [
-        [
-          "",
-          "",
-          "At this point you should have finished reading chapters 10 and 11 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     },
     {
       "id": "bad87fee1348bd9aedf08806",
@@ -1152,24 +1206,6 @@
           ]
         }
       }
-    },
-    {
-      "id": "aad87fee1348bd9aedf0827a",
-      "title": "**Commit to having read HTML & CSS chapter 12",
-      "description": [
-        [
-          "",
-          "",
-          "At this point you should have finished reading chapter 12 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished this chapter",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     },
     {
       "id": "bad87fee1348bd9acdf08812",
@@ -2795,24 +2831,6 @@
       "releasedOn": "Feb 17, 2017",
       "challengeType": 0,
       "translations": {}
-    },
-    {
-      "id": "aad87fee1348bd9aedf08275",
-      "title": "**Commit to having read HTML & CSS chapter 13 & 14",
-      "description": [
-        [
-          "",
-          "",
-          "At this point you should have finished reading chapter 13 & 14 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished these two chapters.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     },
     {
       "id": "bad82fee1322bd9aedf08721",

@@ -22,30 +22,6 @@
       "translations": {}
     },
     {
-      "id": "bad87fee1348bd9aedf0881b",
-      "title": "**Commit to checkout and read Eloquent JavaScript ch. 1 - 3",
-      "description": [
-        [
-          "",
-          "",
-          "For this part of the course we will be using <em>Eloquent JavaScript</em> by Marijn Haverbeke, you will need to check out a copy of this book from the tutor's office room 2054C.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "By clicking below you commit to reading chapters 1 - 3 of <em>Eloquent JavaScript</em> before you complete the <em>Basic JavaScript</em> challenges.",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": true
-    },
-    {
       "id": "bd7123c9c441eddfaeb4bdef",
       "title": "Comment Your JavaScript Code",
       "description": [

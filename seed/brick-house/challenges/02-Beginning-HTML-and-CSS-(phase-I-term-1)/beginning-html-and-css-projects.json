@@ -17,7 +17,7 @@
         [
           "",
           "",
-          "These projects come with tests that you will need to pass.<br><br> You will need to add the test scripts to your project by choosing CodeCamp Test Suite from the Library button at the top left of JSBIN.",
+          "These projects come with tests that you will need to pass.<br><br> You will need to add the test scripts to your project by choosing CodeCamp Test Suite from the Library button at the top left of JS Bin.",
           ""
         ],
         [
@@ -71,7 +71,7 @@
     },
     {
       "id": "587d78af367417b2b2512b02",
-      "title": "Introduction to JSBIN",
+      "title": "Introduction to JS Bin",
       "description": [
         [
           "",
@@ -94,13 +94,13 @@
         [
           "",
           "",
-          "In JSBIN your work will be automatically saved every few minutes, however, you can save your work immediately by using ctrl+s or choosing \"Save snapshot\" from the File menu in the top left hand corner.<br><br>  You can get a link to your page by clicking the Share drop down in the upper left hand corner.",
+          "In JS Bin your work will be automatically saved every few minutes, however, you can save your work immediately by using ctrl+s or choosing \"Save snapshot\" from the File menu in the top left hand corner.<br><br>  You can get a link to your page by clicking the Share drop down in the upper left hand corner.",
           ""
         ],
         [
           "",
           "",
-          "You can see all the saved bins you have created by clicking My Bins from the File menu. Take some time to explore the features of JSBIN by clicking around.  You can also adjust editor settings by clicking on the Account button in the top right hand corner.",
+          "You can see all the saved bins you have created by clicking My Bins from the File menu. Take some time to explore the features of JS Bin by clicking around.  You can also adjust editor settings by clicking on the Account button in the top right hand corner.",
           ""
         ],
         [
@@ -115,6 +115,60 @@
       "type": "Waypoint",
       "isRequired": false,
       "challengeType": 7
+    },
+    {
+      "id": "249d11b0e7552385abe53a9d",
+      "title": "** Commit to not solve other students problems, share code or give away answers",
+      "description": [
+        [
+          "",
+          "",
+          "Computer programming requires excellent problem solving skills.<br><br>Working through problems with the help of documentation is a daily activity for all programmers.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Students should never give away a solution to a problem or share code that completes a problem.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If a student is still unable to solve a problem, please, refer them to the tutor.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
+          "#"
+        ]
+      ],
+      "releasedOn": "May 10, 2018",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": true
     },
     {
       "id": "bd7158d8c442eddfaeb5bd18",
