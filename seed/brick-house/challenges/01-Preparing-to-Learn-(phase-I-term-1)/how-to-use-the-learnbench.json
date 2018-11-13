@@ -1,17 +1,17 @@
 {
-	"name": "How to Use the LearnBench",
+	"name": "How to Use the WorkBench",
 	"order": 0,
 	"time": "5 minutes",
 	"helpRoom": "Help",
 	"challenges": [
 		{
 			"id": "d5885fe0ae19898d7697c25a",
-			"title": "Welcome to the LearnBench",
+			"title": "Welcome to the WorkBench",
 			"description": [
 				[
 					"",
 					"",
-					"Welcome to the LearnBench.<br><br> Click the 'Go to my next step' button to continue.",
+					"Welcome to the WorkBench.<br><br> Click the 'Go to my next step' button to continue.",
 					""
 				],
 				[
@@ -79,12 +79,12 @@
 		},
 		{
 			"id": "0dd08700ae1b4fab354e4087",
-			"title": "The LearnBench Windows",
+			"title": "The WorkBench Windows",
 			"description": [
 				[
 					"",
 					"",
-					"There are 4 different windows that are used for the LearnBench.",
+					"There are 4 different windows that are used for the WorkBench.",
 					""
 				],
 				[
