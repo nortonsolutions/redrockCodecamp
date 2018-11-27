@@ -1,0 +1,58 @@
+{
+	"name": "Advanced Web Development Projects",
+	"order": 2,
+	"time": "150 hours",
+	"helpRoom": "Help",
+	"challenges": [
+		{
+			"id": "0e749670f18bfbc0ce1ab47f",
+			"title": "User Management Page with Templates",
+			"description": [
+				"Build this designed webpage.",
+				"The page must match the design as close as possible.",
+				"<strong>Technology Stack:</strong> 1. Use only HTML, CSS, Javascript, Bootstrap, Font Awesome, and Handlebars.",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [
+				"ColjKR0"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3,
+			"hasExternalLink": true
+		},
+		{
+			"id": "19bcc570f18befafb884866b",
+			"title": "User Management Page with Templates Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the User Management Page with Templates.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://codecamp.edu/educationMaterials/workbenchProjects/review/user-management-templates-19bcc570f18befafb884866b/' target='_blank'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"hasExternalLink": true
+		}
+	]
+}

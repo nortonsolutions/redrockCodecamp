@@ -1,0 +1,92 @@
+{
+	"name": "Beginning Web Development Projects MVC",
+	"order": 2,
+	"time": "150 hours",
+	"helpRoom": "Help",
+	"challenges": [
+		{
+			"id": "0b02af20ecd3bd3fb1666ecc",
+			"title": "** Reviewing Professional Source Code",
+			"description": [
+				[
+					"",
+					"",
+					"Reading professional source code is a great way to learn.",
+					""
+				],
+				[
+					"",
+					"",
+					"You will be provided with professional source code after you complete each of these projects.",
+					""
+				],
+				[
+					"",
+					"",
+					"Take time to compare your source code to the professional version to learn what strategies and techniques were used.",
+					""
+				],
+				[
+					"",
+					"",
+					"Commit to not look at the professional source code <strong>until</strong> you have completed and submitted your project.",
+					"#"
+				]
+			],
+			"releasedOn": "November 1, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "ea31b1a0ecd3fdfa707d31a3",
+			"title": "User Management Page with MVC",
+			"description": [
+				"Build this designed webpage.",
+				"The page must match the design as close as possible.",
+				"<strong>Technology Stack:</strong> 1. Use only HTML, CSS, Javascript, Bootstrap, and Font Awesome.",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "November 1, 2018",
+			"challengeSeed": [
+				"AICDqMD"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "ed8ff7d0ecd3bf1db27beec9",
+			"title": "User Management Page with MVC Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the User Management Page with MVC project.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://codecamp.edu/educationMaterials/workbenchProjects/review/user-management-mvc-ed8ff7d0ecd3bf1db27beec9/' target='_blank'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "November 1, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		}
+	]
+}
