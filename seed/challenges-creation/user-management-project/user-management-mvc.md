@@ -27,7 +27,7 @@
 	* cancel
 	* edit
 	* delete
-	* The controller should not know anything about the technology used in the view. ie: DOM and DOM events
+	* The controller should not know anything about the technology used in the view. i.e. DOM and DOM events
 * The data object for the user data does not need to have identity (it does not have to be a prototyped object)
 * Create a User's Store object that handles all storage responsibilities with the following methods
 	* add(object)
