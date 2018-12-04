@@ -5,23 +5,6 @@
   "helpRoom": "HelpJavaScript",
   "challenges": [
     {
-      "id": "bd6123c9c441eddfaeb4bdef",
-      "title": "Introduction to JavaScript",
-      "description": [
-        [
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/480px-JavaScript-logo.png",
-          "A yellow square with the letters, JS, in the bottom right to represent the JS logo",
-          "JavaScript (JS) is a high-level programming language that all modern web browsers support. It is also one of the core technologies of the web, along with HTML and CSS that you may have learned previously. This section will cover basic programming concepts in JavaScript, which range from variables and arithemtic to objects and loops."
-        ]
-      ],
-      "challengeSeed": [],
-      "tests": [],
-      "type": "waypoint",
-      "challengeType": 7,
-      "isRequired": false,
-      "translations": {}
-    },
-    {
       "id": "bd7123c9c441eddfaeb4bdef",
       "title": "Comment Your JavaScript Code",
       "description": [
@@ -611,7 +594,7 @@
       "title": "Create Decimal Numbers with JavaScript",
       "description": [
         "We can store decimal numbers in variables too. Decimal numbers are sometimes referred to as <dfn>floating point</dfn> numbers or <dfn>floats</dfn>.",
-        "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href=\"http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems\" target=\"_blank\">Details Here</a>.",
+        "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href='http://codecamp.edu/wikipedia/Floating_point#Accuracy_problems.html' target=\"_blank\">Details Here</a>.",
         "<hr>",
         "Create a variable <code>myDecimal</code> and give it a decimal value with a fractional part (e.g. <code>5.7</code>)."
       ],
@@ -633,18 +616,7 @@
         "assert(myDecimal % 1 != 0, 'message: <code>myDecimal</code> should have a decimal point'); "
       ],
       "type": "waypoint",
-      "challengeType": 1,
-      "translations": {
-        "es": {
-          "title": "Crea números decimales con JavaScript",
-          "description": [
-            "Podemos almacenar números decimales en variables también. Los números decimales a veces son referidos como números de <dfn>punto flotante</dfn> o <dfn>flotantes</dfn>.",
-            "<strong>Nota</strong><br>No todos los números reales pueden ser exactamente representados en <dfn>punto flotante</dfn>. Esto puede conducir a errores de redondeo. <a href=\"http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems\" target=\"_blank\">Detalles aquí</a>.",
-            "<h4>Instrucciones</h4>",
-            "Crea una variable <code>myDecimal</code> y dale un valor decimal con una parte fraccional (p.e. <code>5.7</code>)."
-          ]
-        }
-      }
+      "challengeType": 1
     },
     {
       "id": "bd7993c9c69feddfaeb7bdef",
@@ -1285,7 +1257,7 @@
       "id": "56533eb9ac21ba0edf2244b9",
       "title": "Constructing Strings with Variables",
       "description": [
-        "Sometimes you will need to build a string, <a href=\"http://en.wikipedia.org/wiki/Mad_Libs\" target=\"_blank\">Mad Libs</a> style. By using the concatenation operator (<code>+</code>), you can insert one or more variables into a string you're building.",
+        "Sometimes you will need to build a string, <a href='http://codecamp.edu/wikipedia/Mad_Libs.html' target=\"_blank\">Mad Libs</a> style. By using the concatenation operator (<code>+</code>), you can insert one or more variables into a string you're building.",
         "<hr>",
         "Set <code>myName</code> to a string equal to your name and build <code>myStr</code> with <code>myName</code> between the strings <code>\"My name is \"</code> and <code>\" and I am well!\"</code>"
       ],
@@ -1325,17 +1297,7 @@
         "assert(code.match(/[\"']\\s*\\+\\s*myName\\s*\\+\\s*[\"']/g).length > 0, 'message: Use two <code>+</code> operators to build <code>myStr</code> with <code>myName</code> inside it');"
       ],
       "type": "waypoint",
-      "challengeType": 1,
-      "translations": {
-        "es": {
-          "title": "Construir cadenas con variables",
-          "description": [
-            "A veces necesitarás construir una cadena, al estilo <a href=\"http://en.wikipedia.org/wiki/Mad_Libs\" target=\"_blank\">Mad Libs</a>. Mediante el uso del operador concatenación (<code>+</code>), puedes insertar una o más variables dentro de una cadena que estés construyendo.",
-            "<h4>Instrucciones</h4>",
-            "Asigna <code>myName</code> a una cadena igual a tu nombre y construye <code>myStr</code> con <code>myName</code> entre las cadenas <code>\"My name is \"</code> and <code>\" and I am well!\"</code>"
-          ]
-        }
-      }
+      "challengeType": 1
     },
     {
       "id": "56533eb9ac21ba0edf2244ed",
@@ -1694,7 +1656,7 @@
       "id": "56533eb9ac21ba0edf2244bb",
       "title": "Word Blanks",
       "description": [
-        "We will now use our knowledge of strings to build a \"<a href='http://en.wikipedia.org/wiki/Mad_Libs' target='_blank'>Mad Libs</a>\" style word game we're calling \"Word Blanks\". You will create an (optionally humorous) \"Fill in the Blanks\" style sentence. Here's an example of an incomplete sentence.",
+        "We will now use our knowledge of strings to build a \"<a href='http://codecamp.edu/wikipedia/Mad_Libs.html' target='_blank'>Mad Libs</a>\" style word game we're calling \"Word Blanks\". You will create an (optionally humorous) \"Fill in the Blanks\" style sentence. Here's an example of an incomplete sentence.",
         "In a \"Mad Libs\" game, you are provided sentences with some missing words, like nouns, verbs, adjectives and adverbs. You then fill in the missing pieces with words of your choice in a way that the completed sentence makes sense.",
         "Consider this sentence - \"It was really <strong>____</strong>, and we <strong>____</strong> ourselves <strong>____</strong>\". This sentence has three missing pieces- an adjective, a verb and an adverb, and we can add words of our choice to complete it. We can then assign the completed sentence to a variable as follows:",
         "<blockquote>var sentence = \"It was really\" + \"hot\" + \", and we\" + \"laughed\" + \"ourselves\" + \"silly.\";</blockquote>",
@@ -1729,18 +1691,7 @@
         "assert(/\\bcat\\b/.test(test2) && /\\blittle\\b/.test(test2) && /\\bhit\\b/.test(test2) && /\\bslowly\\b/.test(test2),'message: <code>wordBlanks(\"cat\", \"little\", \"hit\", \"slowly\")</code> should contain all of the passed in words separated by non-word characters (and any additional words in your madlib).');"
       ],
       "type": "checkpoint",
-      "challengeType": 1,
-      "translations": {
-        "es": {
-          "title": "Espacios en blanco de palabras",
-          "description": [
-            "Ahora usaremos nuestro conocimiento de cadenas para construir un juego de palabras estilo \"<a href='http://en.wikipedia.org/wiki/Mad_Libs' target='_blank'>Mad Libs</a>\" que llamaremos \"Espacios en Blanco de Palabras\". Vas a crear unas oraciones estilo (opcionalmente graciosa) \"Llena los espacios en blanco\".",
-            "Necesitarás usar operadores de cadenas para construir una nueva cadena <code>result</code>, usando las variables previstas: <code>myNoun</code>, <code>myAdjective</code>, <code>myVerb</code> y <code>myAdverb</code>.",
-            "Además, necesitarás proporcionar cadenas adicionales, las cuales no cambiarán entre las palabras proporcionadas.",
-            "Nosotros hemos proporcionado un marco de referencia para probar tus resultados con diferentes palabras. La prueba correrá tu función con varias palabras diferentes para asegurarse  que todas las palabras proporcionadas aparezcan en la salida, así como en tus cadenas adicionales."
-          ]
-        }
-      }
+      "challengeType": 1
     },
     {
       "id": "bd7993c9c69feddfaeb8bdef",
@@ -3768,7 +3719,7 @@
       "id": "5664820f61c48e80c9fa476c",
       "title": "Golf Code",
       "description": [
-        "In the game of <a href=\"http://en.wikipedia.org/wiki/Golf\" target=\"_blank\">golf</a> each hole has a <code>par</code> meaning the average number of <code>strokes</code> a golfer is expected to make in order to sink the ball in a hole to complete the play. Depending on how far above or below <code>par</code> your <code>strokes</code> are, there is a different nickname.",
+        "In the game of <a href='http://codecamp.edu/wikipedia/Golf.html' target=\"_blank\">golf</a> each hole has a <code>par</code> meaning the average number of <code>strokes</code> a golfer is expected to make in order to sink the ball in a hole to complete the play. Depending on how far above or below <code>par</code> your <code>strokes</code> are, there is a different nickname.",
         "Your function will be passed <code>par</code> and <code>strokes</code> arguments. Return the correct string according to this table which lists the strokes in order of priority; top (highest) to bottom (lowest):",
         "<table class=\"table table-striped\"><thead><tr><th>Strokes</th><th>Return</th></tr></thead><tbody><tr><td>1</td><td>\"Hole-in-one!\"</td></tr><tr><td>&lt;= par - 2</td><td>\"Eagle\"</td></tr><tr><td>par - 1</td><td>\"Birdie\"</td></tr><tr><td>par</td><td>\"Par\"</td></tr><tr><td>par + 1</td><td>\"Bogey\"</td></tr><tr><td>par + 2</td><td>\"Double Bogey\"</td></tr><tr><td>&gt;= par + 3</td><td>\"Go Home!\"</td></tr></tbody></table>",
         "<code>par</code> and <code>strokes</code> will always be numeric and positive. We have added an array of all the names for your convenience."
@@ -3804,18 +3755,7 @@
         "assert(golfScore(5, 9) === \"Go Home!\", 'message: <code>golfScore(5, 9)</code> should return \"Go Home!\"');"
       ],
       "type": "checkpoint",
-      "challengeType": 1,
-      "translations": {
-        "es": {
-          "title": "Código de golf",
-          "description": [
-            "En el juego de <a href='http://es.wikipedia.org/wiki/Golf' target='_blank'>golf</a> cada hoyo tiene un <dfn>par</dfn> promedio para el número de <dfn>golpes</dfn> necesarios para meter la pelota. Dependiendo de que tan lejos por encima o por debajo del <code>par</code> estén tus <code>golpes</code>, habrá un sobrenombre diferente.",
-            "Tu función pasará un <code>par</code> y el número de <code>golpes</code>, y retornará una cadena de acuerdo a esta tabla (basada en el orden de prioridad - arriba (lo más alto) hacia abajo (lo más bajo)):",
-            "<table class=\"table table-striped\"><thead><tr><th>Golpes</th><th>Retorna</th></tr></thead><tbody><tr><td>1</td><td>\"Hole-in-one!\"</td></tr><tr><td>&lt;= par - 2</td><td>\"Eagle\"</td></tr><tr><td>par - 1</td><td>\"Birdie\"</td></tr><tr><td>par</td><td>\"Par\"</td></tr><tr><td>par + 1</td><td>\"Bogey\"</td></tr><tr><td>par + 2</td><td>\"Double Bogey\"</td></tr><tr><td>&gt;= par + 3</td><td>\"Go Home!\"</td></tr></tbody></table>",
-            "Tanto <code>par</code> como <code>golpes</code> siempre serán numéricos y positivos."
-          ]
-        }
-      }
+      "challengeType": 1
     },
     {
       "id": "56533eb9ac21ba0edf2244dd",
@@ -4172,7 +4112,7 @@
       "id": "565bbe00e9cc8ac0725390f4",
       "title": "Counting Cards",
       "description": [
-        "In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called <a href='http://en.wikipedia.org/wiki/Card_counting' target='_blank'>Card Counting</a>.",
+        "In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called <a href='http://codecamp.edu/wikipedia/Card_counting.html' target='_blank'>Card Counting</a>.",
         "Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.",
         "<table class=\"table table-striped\"><thead><tr><th>Count Change</th><th>Cards</th></tr></thead><tbody><tr><td>+1</td><td>2, 3, 4, 5, 6</td></tr><tr><td>0</td><td>7, 8, 9</td></tr><tr><td>-1</td><td>10, 'J', 'Q', 'K', 'A'</td></tr></tbody></table>",
         "You will write a card counting function. It will receive a <code>card</code> parameter, which can be a number or a string, and increment or decrement the global <code>count</code> variable according to the card's value (see table). The function will then return a string with the current count and the string <code>Bet</code> if the count is positive, or <code>Hold</code> if the count is zero or negative. The current count and the player's decision (<code>Bet</code> or <code>Hold</code>) should be separated by a single space.",
@@ -4208,19 +4148,7 @@
         "assert((function(){ count = 0; cc(3);cc(2);cc('A');cc(10);var out = cc('K'); if(out === \"-1 Hold\") {return true;} return false; })(), 'message: Cards Sequence 3, 2, A, 10, K should return <code>-1 Hold</code>');"
       ],
       "type": "checkpoint",
-      "challengeType": 1,
-      "translations": {
-        "es": {
-          "title": "Contar cartas",
-          "description": [
-            "En el juego de casino Blackjack, un jugador puede conseguir ventaja sobre la casa manteniendo un registro del número relativo de cartas altas y bajas restantes en la baraja. Esto es llamado <a href='http://en.wikipedia.org/wiki/Card_counting' target='_blank'>Conteo de Cartas</a>.",
-            "Tener más cartas altas restantes en la baraja favorece al jugador. A cada carta se le asigna un valor de acuerdo a la tabla de abajo. Cuando el conteo es positivo, el jugador debe apostar alto. Cuando el conteo es cero o negativo, el jugador debe apostar bajo.",
-            "<table class=\"table table-striped\"><thead><tr><th>Valor</th><th>Cartas</th></tr></thead><tbody><tr><td>+1</td><td>2, 3, 4, 5, 6</td></tr><tr><td>0</td><td>7, 8, 9</td></tr><tr><td>-1</td><td>10, 'J', 'Q', 'K','A'</td></tr></tbody></table>",
-            "Vas a escribir una función de conteo de cartas. Esta recibirá un parametro <code>card</code> (carta) e incrementa o decrementa la variable <code>count</code> (conteo) global de acuerdo al valor de la carta (ver tabla). La función retornará entonces una cadena con el presente conteo y la cadena <code>Bet</code> si el conteo es positivo o <code>Hold</code> si el conteo es cero o negativo. El presente conteo y la desición del jugador (<code>Bet</code> o <code>Hold</code>) deben quedar separada por un único espacio.",
-            "<strong>Ejemplo de Salida</strong><br><code>-3 Hold<br>5 Bet</code>"
-          ]
-        }
-      }
+      "challengeType": 1
     },
     {
       "id": "56bbb991ad1ed5201cd392d0",

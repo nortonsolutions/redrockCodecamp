@@ -1,129 +1,9 @@
 {
-  "name": "Basic HTML and HTML5",
-  "order": 0,
+  "name": "Basic HTML",
+  "order": 1,
   "time": "5 hours",
   "helpRoom": "Help",
-  "challenges": [
-    {
-      "id": "13696380af9209326bb14361",
-      "title": "Introduction to Basic HTML",
-      "description": [
-        [
-          "",
-          "",
-          "You will now be learning HTML, the language of the web.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "HTML is a language for making documents.<br><br> It uses special symbols (codes) for describing a document.<br><br> For example, there are different codes to indicate a heading, a paragraph, or a list.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "HTML is a 'Markup Language' which uses annotations to give information to text.<br><br>It also gives structure to the 'User Interface' or what you see on a web page.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "1d15b570af95cd1413d3bd58",
-      "title": "Documentation for HTML",
-      "description": [
-        [
-          "",
-          "",
-          "You will need documentation for HTML.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "A great place to look for word definitions is in Wikipedia.<br><br> You can quickly look up the words HTML, Markup Language and other terms.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Always look up words or terms you do not know.<br><br>Such as 'markup language' or 'hypertext'.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Wikipedia is found at <a href='http://en.wikipedia.org' target='_blank'>en.wikipedia.org</a>.<br><br>Use the search bar on the upper right of the screen.<br><br>Type slowly to let the typeahead feature show you results.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Try it out. Use this search on Wikipedia:<br><br><div>HTML</div>",
-          "#"
-        ],
-        [
-          "",
-          "",
-          "The best documentation for HTML is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://codecamp.edu/docs/phase-i/html/developer.mozilla.org/en-US/docs/Web/HTML.html' target='_blank'>here (developer.mozilla.org HTML)</a>",
-          ""
-        ],
-        [
-          "",
-          "",
-          "You will want to use the References part of the website. You need to get very familiar with this site.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Try it out. Go to the HMTL docs and look for the definition of the <b>p</b> element.",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "03bd33c0afb6ad4da8fc4fed",
-      "title": "** Read Beginning HTML And CSS 1 through 6",
-      "description": [
-        [
-          "",
-          "",
-          "It is recommended that you read the chapters 1 through 6 of the book<br><br> <em>Beginning HTML And CSS</em> by Rob Larsen.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "A different book will be recommended for CSS.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Please commit to reading chapters 1 through 6 before you reach the CSS lessons.",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": true
-    },
+  "challenges": [    
     {
       "id": "bd7123c8c441eddfaeb5bdef",
       "title": "Say Hello to HTML Elements",
@@ -229,7 +109,7 @@
       "id": "bad87fee1348bd9aedf0887a",
       "title": "Headline with the h2 Element",
       "description": [
-        "Over the next two sections, we'll build an HTML5 app that will look something like this:",
+        "Over the next two sections, we'll build an HTML app that will look something like this:",
         "<a href=\"/images/jOc1JF1.png\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/jOc1JF1.png\" title=\"Click to enlarge\" alt=\"A screen shot of our finished Cat Photo App\"></a>",
         "The <code>h2</code> element you enter will create an <code>h2</code> element on the website.",
         "This element tells the browser about the structure of your website. <code>h1</code> elements are often used for main headings, while <code>h2</code> elements are generally used for subheadings. There are also <code>h3</code>, <code>h4</code>, <code>h5</code> and <code>h6</code> elements to indicate different and new sections.",
@@ -250,7 +130,7 @@
       "translations": {
         "de": {
           "description": [
-            "In den nächsten Challenges werden wir eine HTML5 App entwickeln die ungefähr so aussehen wird:",
+            "In den nächsten Challenges werden wir eine HTML App entwickeln die ungefähr so aussehen wird:",
             "<a href=\"/images/jOc1JF1.png\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/jOc1JF1.png\" title=\"Klicke zum Vergrößern\" alt=\"Ein Screenshot von unserer beendeted Katzenfoto App\"></a>",
             "Das eingetragene <code>h2</code> Element wird ein <code>h2</code> Element auf der Website erzeugen.",
             "Dieses Element sagt dem Browser, wie die Struktur deiner Website aufgebaut ist. <code>h1</code> Elemente werden oft für Hauptüberschriften verwendet, während <code>h2</code> Elemente üblicherweise für Zwischenüberschriften verwendet werden. Es gibt auch <code>h3</code>, <code>h4</code>, <code>h5</code> und <code>h6</code> Elemente die verschiedene und neue Bereiche kennzeichnen.",
@@ -261,7 +141,7 @@
         "fr": {
           "title": "Un titre avec l'élément h2",
           "description": [
-            "Pour les quelques prochains défis, nous construirons une application HTML5 qui ressemblera à ceci :",
+            "Pour les quelques prochains défis, nous construirons une application HTML qui ressemblera à ceci :",
             "<a href=\"/images/jOc1JF1.png\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/jOc1JF1.png\" title=\"Cliquez pour agrandir\" alt=\"Une capture écran de notre application de photo de chats\"></a>",
             "L'élément <code>h2</code> que vous entrerez créera un élément <code>h2</code> sur le site.",
             "Cet élément renseigne votre navigateur sur la structure de votre site. Les éléments <code>h1</code> sont souvent utilisés comme titre, tandis que les éléments <code>h2</code> sont généralement utilisés comme sous-titres. Il existe également les éléments <code>h3</code>, <code>h4</code>, <code>h5</code> et <code>h6</code> qui indiquent une nouvelle et différente section.",
@@ -272,7 +152,7 @@
         "pt-br": {
           "title": "Título com o elemento h2",
           "description": [
-            "Nas próximas duas seções, nós vamos construir um app HTML5 que vai ficar mais ou menos assim:",
+            "Nas próximas duas seções, nós vamos construir um app HTML que vai ficar mais ou menos assim:",
             "<a href=\"/images/jOc1JF1.png\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/jOc1JF1.png\" title=\"Clique para ampliar\" alt=\"Um screenshot do app de fotos de gatos terminado\"></a>",
             "O elemento <code>h2</code> que você vai adicionar vai criar um elemento <code>h2</code> na página.",
             "Esse elemento indica ao navegador a estrutura do seu site. Elementos <code>h1</code> são geralmente usados para os títulos principais, enquanto elementos <code>h2</code> são usados para subtítulos. Também existem os elementos <code>h3</code>, <code>h4</code>, <code>h5</code> e <code>h6</code>, que indicam seções novas e diferentes.",
@@ -283,7 +163,7 @@
         "ru": {
           "title": "Заголовок с применением элемента h2",
           "description": [
-            "В результате прохождения нескольких следующих испытаний, мы построим HTML5 приложение, которое будет похоже на это:",
+            "В результате прохождения нескольких следующих испытаний, мы построим HTML приложение, которое будет похоже на это:",
             "<a href=\"/images/jOc1JF1.png\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" src=\"/images/jOc1JF1.png\" title=\"Click to enlarge\" alt=\"A screen shot of our finished Cat Photo App\"></a>",
             "Вводимый вами элемент <code>h2</code> создаст соответствующий элемент <code>h2</code> на web-странице.",
             "Этот элемент сообщает браузеру о структуре вашего web-сайта. Элементы <code>h1</code> часто применяют в качестве главных заголовков, в то время как элементы <code>h2</code> обычно используют для обозначения позаголовков. Также существуют элементы <code>h3</code>, <code>h4</code>, <code>h5</code> и <code>h6</code> для обозначения отдельных секций.",
@@ -617,12 +497,12 @@
     },
     {
       "id": "bad87fee1348bd9aecf08801",
-      "title": "Introduction to HTML5 Elements",
+      "title": "Introduction to HTML Elements",
       "description": [
-        "HTML5 introduces more descriptive HTML tags. These include <code>header</code>, <code>footer</code>, <code>nav</code>, <code>video</code>, <code>article</code>, <code>section</code> and others.",
+        "HTML introduces more descriptive HTML tags. These include <code>header</code>, <code>footer</code>, <code>nav</code>, <code>video</code>, <code>article</code>, <code>section</code> and others.",
         "These tags make your HTML easier to read, and also help with Search Engine Optimization (SEO) and accessibility.",
-        "The <code>main</code> HTML5 tag helps search engines and other developers find the main content of your page.",
-        "<strong>Note</strong><br>Many of the new HTML5 tags and their benefits are covered in the Applied Accessibility section.",
+        "The <code>main</code> HTML tag helps search engines and other developers find the main content of your page.",
+        "<strong>Note</strong><br>Many of the new HTML tags and their benefits are covered in the Applied Accessibility section.",
         "<hr>",
         "Create a second <code>p</code> element after the existing <code>p</code> element with the following kitty ipsum text: <code>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</code>",
         "Wrap the paragraphs with an opening and closing <code>main</code> tag."
@@ -645,12 +525,12 @@
       "challengeType": 0,
       "translations": {
         "pt-br": {
-          "title": "Introdução aos elementos HTML5",
+          "title": "Introdução aos elementos HTML",
           "description": [
-            "O HTML5 introduziu tags mais descritivas, como <code>header</code> (cabeçalho), <code>footer</code> (rodapé), <code>nav</code> (navegação), <code>video</code> (vídeo), <code>article</code> (artigo), <code>section</code> (seção), entre outras.",
+            "O HTML introduziu tags mais descritivas, como <code>header</code> (cabeçalho), <code>footer</code> (rodapé), <code>nav</code> (navegação), <code>video</code> (vídeo), <code>article</code> (artigo), <code>section</code> (seção), entre outras.",
             "Essas tags deixam seu HTML mais fácil de ler e também ajudam na otimização para motores de busca (SEO) e acessibilidade.",
-            "A tag HTML5 <code>main</code> (principal) ajuda mecanismos de busca e outros desenvolvedores a encontrar o conteúdo principal da sua página.",
-            "<strong>Nota</strong><br>Várias das novas tags HTML5 e seus benefícios são discutidos na seção de Acessibilidade aplicada.",
+            "A tag HTML <code>main</code> (principal) ajuda mecanismos de busca e outros desenvolvedores a encontrar o conteúdo principal da sua página.",
+            "<strong>Nota</strong><br>Várias das novas tags HTML e seus benefícios são discutidos na seção de Acessibilidade aplicada.",
             "<hr>",
             "Crie um segundo elemento <code>p</code> depois dos elementos <code>p</code> existentes com o seguinte texto gatinho ipsum: <code>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</code>",
             "Coloque tags <code>main</code> de abertura e fechamento ao redor dos parágrafos."
@@ -1639,13 +1519,13 @@
     },
     {
       "id": "bad87fee1348bd9aedc08830",
-      "title": "Use HTML5 to Require a Field",
+      "title": "Use HTML to Require a Field",
       "description": [
         "You can require specific form fields so that your user will not be able to submit your form until he or she has filled them out.",
         "For example, if you wanted to make a text input field required, you can just add the word <code>required</code> within your <code>input</code> element, like this: <code>&#60;input type=\"text\" required&#62;</code>",
         "<hr>",
         "Make your text <code>input</code> a <code>required</code> field, so that your user can't submit the form without completing this field.",
-        "Then try to submit the form without inputting any text. See how your HTML5 form notifies you that the field is required?",
+        "Then try to submit the form without inputting any text. See how your HTML form notifies you that the field is required?",
         "<strong>Note</strong><br>This field may not work in Safari Browser."
       ],
       "challengeSeed": [
@@ -1680,46 +1560,46 @@
       "challengeType": 0,
       "translations": {
         "de": {
-          "title": "Nutze HTML5 um ein Pflichtfeld zu erstellen",
+          "title": "Nutze HTML um ein Pflichtfeld zu erstellen",
           "description": [
             "Du kannst bestimmte Felder eines Formulars zu Pflichtfeldern erklären. Damit ist es deinen Usern nicht mehr möglich, das Formular abzuschicken, ohne die Pflichtfelder auszufüllen.",
             "Um zum Beispiel ein Textfeld zum Pflichtfeld zu erklären, kannst du einfach ein <code>required</code> innerhalb deines <code>input</code> Elements hinzufügen: <code>&#60;input type=\"text\" required&#62;</code>",
             "<hr>",
             "Mache aus deinem <code>input</code> Feld ein Pflichtfeld – \"required\" – damit deine Nutzer das Formular nicht abschicken können, ohne dieses Feld auszufüllen.",
-            "Probier dann dein Formular ohne einen Text abzuschicken. Siehst du wie dein HTML5 Formular dich darauf hinweißt dass das Feld verpflichtend ist?",
+            "Probier dann dein Formular ohne einen Text abzuschicken. Siehst du wie dein HTML Formular dich darauf hinweißt dass das Feld verpflichtend ist?",
             "Beachte: dieses Feld funktioniert nicht in Safari."
           ]
         },
         "es": {
-          "title": "Utiliza HTML5 para especificar campos obligatorios",
+          "title": "Utiliza HTML para especificar campos obligatorios",
           "description": [
             "Puedes especificar un campo obligatorio en un formulario para que tu usuario no pueda enviar el formulario hasta que lo haya llenado.",
             "Por ejemplo, si quieres requerir obligatoriamente un campo de texto, puedes agregar la palabra <code>required</code> dentro de tu elemento <code>input</code>, usarías: <code>&#60;input type=\"text\" required&#62;</code> ",
             "<hr>",
             "Haz de tu campo de texto un campo obligatorio, de manera que tu usuario no pueda enviar el formulario sin completar este campo.",
-            "Luego, intenta enviar el formulario sin ingresar texto alguno. ¿Ves cómo tu formulario HTML5 te notifica que el campo es obligatorio?",
+            "Luego, intenta enviar el formulario sin ingresar texto alguno. ¿Ves cómo tu formulario HTML te notifica que el campo es obligatorio?",
             "Nota: Este campo no funciona en Safari."
           ]
         },
         "pt-br": {
-          "title": "Use HTML5 para tornar campos obrigatórios",
+          "title": "Use HTML para tornar campos obrigatórios",
           "description": [
             "Você pode tornar obrigatórios campos específicos do seu formulário, assim seu usuário não conseguirá enviar os dados sem preencher esses campos.",
             "Por exemplo, se você quiser que um campo de texto seja obrigatório, basta adicionar a palavra <code>required</code> ao seu elemento <code>input</code>, assim: <code>&#60;input type=\"text\" required&#62;</code>",
             "<hr>",
             "Torne seu campo de texto obrigatório, de forma que seu usuário não consiga enviar o formulário sem preencher esse campo.",
-            "Então, tente enviar o formulário sem preencher esse campo. Viu como o formulário HTML5 avisa que o campo é obrigatório?",
+            "Então, tente enviar o formulário sem preencher esse campo. Viu como o formulário HTML avisa que o campo é obrigatório?",
             "<strong>Nota</strong><br>Esse campo não funciona no Safari."
           ]
         },
         "ru": {
-          "title": "Используйте HTML5, чтобы сделать заполнение поля обязательным",
+          "title": "Используйте HTML, чтобы сделать заполнение поля обязательным",
           "description": [
             "Вы можете требовать заполнения определённых полей формы, таким образом пользователь не сможет отправить данные формы до их заполнения.",
             "Например, если бы вы хотели сделать заполнение текстового поля обязательным, вы могли бы добавить слово <code>required</code> внутрь вашего элемента <code>input</code>: <code>&#60;input type=\"text\" required&#62;</code>",
             "<hr>",
             "Сделайте ваше текстовое поле <code>input</code> обязательным <code>required</code> для заполнения, чтобы пользователь не мог отправить данные формы без заполнения этого поля.",
-            "Далее попробуйте отправить данные формы без ввода какого-либо текста. Видите как ваша HTML5-форма уведомляет вас о том, что поле обязательное для заполнения?",
+            "Далее попробуйте отправить данные формы без ввода какого-либо текста. Видите как ваша HTML-форма уведомляет вас о том, что поле обязательное для заполнения?",
             "Внимание: это поле не работает в Safari."
           ]
         }
@@ -2124,14 +2004,14 @@
       "title": "Declare the Doctype of an HTML Document",
       "description": [
         "The challenges so far have covered specific HTML tags and their uses. However, there are a few elements that give overall structure to your page, and should be included in every HTML document.",
-        "At the top of your document, you need to tell the browser which version of HTML your page is using. HTML is an evolving language, and is updated regularly. Most major browsers support the latest specification, which is HTML5. However, older web pages may use previous versions of the language.",
-        "You tell the browser this information by adding the <code>&lt;!DOCTYPE ...&gt;</code> tag on the first line, where the \"<code>...</code>\" part is the version of HTML. For HTML5, you use <code>&lt;!DOCTYPE html&gt;</code>.",
+        "At the top of your document, you need to tell the browser which version of HTML your page is using. HTML is an evolving language, and is updated regularly. Most major browsers support the latest specification, which is HTML. However, older web pages may use previous versions of the language.",
+        "You tell the browser this information by adding the <code>&lt;!DOCTYPE ...&gt;</code> tag on the first line, where the \"<code>...</code>\" part is the version of HTML. For HTML, you use <code>&lt;!DOCTYPE html&gt;</code>.",
         "The <code>!</code> and uppercase <code>DOCTYPE</code> is important, especially for older browsers. The <code>html</code> is not case sensitive.",
         "Next, the rest of your HTML code needs to be wrapped in <code>html</code> tags. The opening <code>&lt;html&gt;</code> goes directly below the <code>&lt;!DOCTYPE html&gt;</code> line, and the closing <code>&lt;/html&gt;</code> goes at the end of the page.",
         "Here's an example of the page structure:",
         "<blockquote>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>  &lt;!-- Your HTML code goes here --&gt;<br>&lt;/html&gt;</blockquote>",
         "<hr>",
-        "Add a <code>DOCTYPE</code> tag for HTML5 to the top of the blank HTML document in the code editor. Under it, add opening and closing <code>html</code> tags, which wrap around an <code>h1</code> element. The heading can include any text."
+        "Add a <code>DOCTYPE</code> tag for HTML to the top of the blank HTML document in the code editor. Under it, add opening and closing <code>html</code> tags, which wrap around an <code>h1</code> element. The heading can include any text."
       ],
       "challengeSeed": [
         "",
@@ -2150,14 +2030,14 @@
           "title": "Declare o DOCTYPE de um documento HTML",
           "description": [
             "Os desafios até agora trataram de tags HTML específicas e seus usos. No entanto, há alguns elementos que determinam a estrutura geral da sua página e devem ser incluídos em todos os documentos HTML.",
-            "No começo do seu documento, você precisa dizer ao navegador qual versão do HTML sua página está usando. O HTML é uma linguagem em evolução e é atualizado regularmente. A maioria dos navegadores mais populares suporta a última especificação, que é o HTML5. No entanto, páginas mais antigas podem estar usando versões anteriores da linguagem.",
-            "Você pode dar ao navegador essa informação adicionando a tag <code>&lt;!DOCTYPE ...&gt;</code> na primeira linha, onde a parte \"<code>...</code>\" é a versão do HTML. Para o HTML5, o código é <code>&lt;!DOCTYPE html&gt;</code>.",
+            "No começo do seu documento, você precisa dizer ao navegador qual versão do HTML sua página está usando. O HTML é uma linguagem em evolução e é atualizado regularmente. A maioria dos navegadores mais populares suporta a última especificação, que é o HTML. No entanto, páginas mais antigas podem estar usando versões anteriores da linguagem.",
+            "Você pode dar ao navegador essa informação adicionando a tag <code>&lt;!DOCTYPE ...&gt;</code> na primeira linha, onde a parte \"<code>...</code>\" é a versão do HTML. Para o HTML, o código é <code>&lt;!DOCTYPE html&gt;</code>.",
             "O <code>!</code> e o <code>DOCTYPE</code> todo em maiúsculas são importantes, especialmente para navegadores mais velhos. O <code>html</code> não é sensível a maiúsculas e minúsculas.",
             "Em seguida, o resto do seu código HTML deve estar delimitado por tags <code>html</code>. A tag <code>&lt;html&gt;</code> vai diretamente abaixo da linha <code>&lt;!DOCTYPE html&gt;</code>, e a tag <code>&lt;/html&gt;</code> vai no final da página.",
             "Aqui está um exemplo da estrutura de uma página:",
             "<blockquote>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>  &lt;!-- Seu código HTML vai aqui --&gt;<br>&lt;/html&gt;</blockquote>",
             "<hr>",
-            "Adicione uma tag <code>DOCTYPE</code> para HTML5 no topo do documento HTML em branco no editor de texto. Abaixo dela, adicione tags <code>html</code> de abertura e fechamento, ao redor de um elemento <code>h1</code>. O texto do <code>h1</code> pode ser qualquer um."
+            "Adicione uma tag <code>DOCTYPE</code> para HTML no topo do documento HTML em branco no editor de texto. Abaixo dela, adicione tags <code>html</code> de abertura e fechamento, ao redor de um elemento <code>h1</code>. O texto do <code>h1</code> pode ser qualquer um."
           ]
         }
       }

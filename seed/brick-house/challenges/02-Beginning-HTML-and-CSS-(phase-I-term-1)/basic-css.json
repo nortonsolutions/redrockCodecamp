@@ -1,118 +1,9 @@
 {
   "name": "Basic CSS",
-  "order": 1,
+  "order": 3,
   "time": "5 hours",
   "helpRoom": "Help",
-  "challenges": [
-    {
-      "id": "597d77903675177232517ab2",
-      "title": "Introduction to Basic CSS",
-      "description": [
-        [
-          "",
-          "",
-          "Cascading Style Sheets (CSS) tell the browser how to display the text and other content that you write in HTML.<br><br>Note that CSS is case-sensitive so be careful with your capitalization.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "CSS allows you to control:<br><ul><li>color</li><li>fonts</li><li>positioning</li><li>spacing</li><li>sizing</li><li>decorations</li><li>transitions</li></ul>",
-          ""
-        ],
-        [
-          "",
-          "",
-          "There are three main ways to apply CSS styling.<br><br>You can apply inline styles directly to HTML elements with the <code>style</code> attribute.<br><br>You can place CSS rules within <code>style</code> tags in an HTML document.<br><br>You can also write CSS rules in an external style sheet file, then reference that file in the HTML document.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "You apply these CSS styles or rules by targeting some part of your HTML.<br><br>A CSS selector is used to do this targeting.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "The style or rule is a defined property followed by a value.",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false,
-      "translations": {}
-    },
-    {
-      "id": "8805bf60e753d130b19e1184",
-      "title": "Documentation for CSS",
-      "description": [
-        [
-          "",
-          "",
-          "You will need documentation for CSS.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "The best documentation for CSS is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://codecamp.edu/docs/phase-i/css/developer.mozilla.org/en-US/docs/Web/CSS/Reference.html' target='_blank'>here (developer.mozilla.org CSS)</a>",
-          ""
-        ],
-        [
-          "",
-          "",
-          "You need to get very familiar with this site.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Try it out. Go to the CSS docs and look for the definition of the <b>background-color</b> property.",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
-    },
-    {
-      "id": "c9761120e753df9ce3be49b5",
-      "title": "** Read CSS The Definitive Guide 1 through 20",
-      "description": [
-        [
-          "",
-          "",
-          "It is recommended that you read the chapters 1 through 20 of the book<br><br> <em>CSS The Definitive Guide</em> by Eric Meyer.",
-          ""
-        ],
-        [
-          "",
-          "",
-          "Please commit to reading chapters 1 through 20 before you reach the Javascript lessons.",
-          "#"
-        ],
-        [
-          "",
-          "",
-          "This book should be your primary focus. However, secondarily we recommend<br><br> <em>CSS Secrets</em> by Lea Verou",
-          "#"
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": true
-    },
+  "challenges": [    
     {
       "id": "bad87fee1348bd9aedf08803",
       "title": "Change the Color of Text",
@@ -3495,8 +3386,8 @@
       "title": "Use Hex Code for Specific Colors",
       "description": [
         "Did you know there are other ways to represent colors in CSS? One of these ways is called hexadecimal code, or <code>hex code</code> for short.",
-        "We usually use <code>decimals</code>, or base 10 numbers, which use the symbols 0 to 9 for each digit. <code>Hexadecimals</code> (or <code>hex</code>) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represent the values zero to nine. Then A,B,C,D,E,F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in <code>hexadecimal</code>, giving us 16 total possible values. You can find more information about <a target='_blank' href='http://en.wikipedia.org/wiki/Hexadecimal'>hexadecimal numbers here</a>.",
-        "In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) components. For example, <code>#000000</code> is black and is also the lowest possible value. You can find more information about the <a target='_blank' href='http://en.wikipedia.org/wiki/RGB_color_model'>RGB color system here</a>.",
+        "We usually use <code>decimals</code>, or base 10 numbers, which use the symbols 0 to 9 for each digit. <code>Hexadecimals</code> (or <code>hex</code>) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represent the values zero to nine. Then A,B,C,D,E,F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in <code>hexadecimal</code>, giving us 16 total possible values. You can find more information about <a target='_blank' href='http://codecamp.edu/wikipedia/Hexadecimal.html'>hexadecimal numbers here</a>.",
+        "In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) components. For example, <code>#000000</code> is black and is also the lowest possible value. You can find more information about the <a target='_blank' href='http://codecamp.edu/wikipedia/RGB_color_model.html'>RGB color system here</a>.",
         "<blockquote>body {<br>  color: #000000;<br>}</blockquote>",
         "<hr>",
         "Replace the word <code>black</code> in our <code>body</code> element's background-color with its <code>hex code</code> representation, <code>#000000</code>."
@@ -3513,49 +3404,7 @@
         "assert(code.match(/body\\s*{(([\\s\\S]*;\\s*?)|\\s*?)background.*\\s*:\\s*?#000(000)?((\\s*})|(;[\\s\\S]*?}))/gi), 'message: Use the <code>hex code</code> for the color black instead of the word <code>black</code>.');"
       ],
       "type": "waypoint",
-      "challengeType": 0,
-      "translations": {
-        "de": {
-          "title": "Verwende hexadezimal Code für spezifische Farben",
-          "description": [
-            "Wusstest du dass es andere Möglichkeiten gibt Farben in CSS darzustellen? Eine dieser Möglichkeiten ist \"Hexadezimal Code\" genannt, oder kurz <code>hex code</code>.",
-            "Wir verwenden üblicherweise <code>decimals</code> (Dezimalen), oder Zehnersystem, das für jede Ziffer eine Symbol von 0 bis 9 verwendet. <code>Hexadecimals</code> (Hexadezimalzahlen oder <code>hex</code>) beruhen auf einer 16er Basis. Das bedeuted dass sie 16 verschiedene Symbole verwenden. Wie auch Dezimalzahlen, repräsentiern die Symbole \"0\"-\"9\" Null bis Neun. Dann allerdings geht es weiter mit A,B,C,D,E,F für die Zahlen 10-15. Alles in Allem kann eine einzige Ziffer, mit 0 bis F, in <code>hexadecimal</code> 16 mögliche Werte ausdrücken. Mehr Informationen über das Hexadezimalsystem kannst du <a target='_blank' href='http://de.wikipedia.org/wiki/Hexadezimalsystem'>hier</a> finden.",
-            "In CSS können wir 6 Hexadezimalziffern verwenden um eine Farbe auszudrücken, je zwei für den Rot- (R), Grün (G)- und Blauanteil (B). <code>#000000</code> ist zum Beispiel schwarz und der niedrigst mögliche Wert. Mehr Information über den RGB Farbraum findest du <a target:'_blank' href='http://de.wikipedia.org/wiki/RGB-Farbraum'>hier</a>.",
-            "<hr>",
-            "Ersetzte das Wort <code>black</code> in der Hintergrundfarbe deines <code>body</code> Elements mit dem <code>hex code</code> <code>#000000</code>."
-          ]
-        },
-        "es": {
-          "title": "Usa el código hexadecimal para especificar colores",
-          "description": [
-            "¿Sabías que hay otras maneras de representar los colores en CSS? Una de estas formas es llamada código hexadecimal o <code>código hex</code> para abreviar. ",
-            "El sistema <code>Decimal</code> se refiere al que nos permite representar cantidades empleando los dígitos del cero al nueve - los números que la gente usa en la vida cotidiana. El sistema <code>Hexadecimal</code> incluye estos 10 dígitos más las letras A, B, C, D, E y F. Esto significa que Hexadecimal tiene un total de 16 dígitos posibles, en lugar de las 10 posibles que nos da nuestro sistema numérico normal en base 10. ",
-            "Con CSS, utilizamos 6 dígitos hexadecimales para representar los colores. Por ejemplo, <code>#000000</code> es el valor más bajo posible, y representa el color negro. ",
-            "<hr>",
-            "Reemplaza la palabra <code>black</code> en el color de fondo (<code>background-color</code>) de nuestro elemento <code>body</code> por su representación hexadecimal <code>#000000</code>"
-          ]
-        },
-        "pt-br": {
-          "title": "Use Código Hexadecimal para Especificar Cores",
-          "description": [
-            "Você sabia que existem outras formas para representar as cores em CSS? Uma dessas formas é com o que chamamos de código hexadecimal, ou <code>código hex</code> para abreviar.",
-            "O sistema <code>Decimal</code> nos permite representar quantidades numéricas com os dígitos de zero a nove - assim como nós os utilizamos durante o nosso dia a dia. Já o sistema <code>Hexadecimal</code> inclui estes 10 dígitos e também as letras A, B, C, D, E e F. Isso significa que o Hexadecimal possui um total de 16 dígitos possíveis, ao invés dos 10 possíveis que podemos usar com nosso sistema numérico normal de base 10.",
-            "No CSS, utilizamos 6 dígitos hexadecimais para representar as cores. Por exemplo, <code>#000000</code> é o valor mais baixo possível, e representa a cor preta.",
-            "<hr>",
-            "Substitua a palavra <code>black</code> na cor de fundo (<code>background-color</code>) de nosso elemento <code>body</code> pela sua representação hexadecimal <code>#000000</code>."
-          ]
-        },
-        "ru": {
-          "title": "Используйте hex-цвета для выбора определённых цветов",
-          "description": [
-            "Знали ли вы, что существуют другие способы представления цветов в CSS? Одним из этих способов является шестнадцатиричный код, <code>hex-код</code>, если короче.",
-            "Обычно мы используем <code>десятки</code>, или десятичную систему счисления, в основе которой лежит число 10, которая использует символы от 0 до 9 для каждого числа. В основе <code>Шестнадцатиричной</code> системы лежит число 16. Это значит, что она использует шестнадцать различных символов. Как в десятичной, символы 0-9 соответствуют значениям от нуля до девяти. Далее A,B,C,D,E,F соответствуют значениям от десяти до пятнадцати. Вместе, от 0 до F, с их помощью можно представить число в <code>шестнадцатиричной</code> системе счисления, что даёт нам в целом 16 возможных значений. Вы можете найти больше информации о <a target='_blank' href='http://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D0%B4%D1%86%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F'>шестнадцатиричной системе счисления тут</a>.",
-            "В CSS, мы можем использовать 6 шестнадцатиричных чисел для представления цвета, по два на каждый компонент: красный (R), зелёный (G), синий (B). Например, <code>#000000</code> - черный цвет и минимальное значение. Вы можете найти больше информации о <a target='_blank' href='http://ru.wikipedia.org/wiki/RGB'>цветовой модели RGB</a>.",
-            "<hr>",
-            "Замените слово <code>black</code> в свойстве <code>background-color</code> нашего элемента <code>body</code> на представление в виде <code>hex-кода</code>, <code>#000000</code>."
-          ]
-        }
-      }
+      "challengeType": 0
     },
     {
       "id": "bad87fee1348bd9aedf08721",

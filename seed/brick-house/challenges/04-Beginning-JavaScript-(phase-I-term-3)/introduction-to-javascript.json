@@ -1,0 +1,26 @@
+{
+	"name": "Introduction to JavaScript",
+	"time": "5 minutes",
+	"order": 0,
+	"helpRoom": "HelpJavaScript",
+	"challenges": [
+	  {
+		"id": "bd6123c9c441eddfaeb4bdef",
+		"title": "Introduction to JavaScript",
+		"description": [
+		  [
+			"",
+			"",
+			"JavaScript (JS) is a high-level programming language that all modern web browsers support. It is also one of the core technologies of the web, along with HTML and CSS that you may have learned previously. This section will cover basic programming concepts in JavaScript, which range from variables and arithemtic to objects and loops.",
+			""
+		  ]
+		],
+		"challengeSeed": [],
+		"tests": [],
+		"type": "waypoint",
+		"challengeType": 7,
+		"isRequired": false,
+		"translations": {}
+	  }
+	]
+  }

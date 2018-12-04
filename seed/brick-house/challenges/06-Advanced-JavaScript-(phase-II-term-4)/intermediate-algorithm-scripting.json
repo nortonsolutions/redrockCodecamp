@@ -291,7 +291,7 @@
       "title": "Pig Latin",
       "description": [
         "Translate the provided string to pig latin.",
-        "<a href=\"http://en.wikipedia.org/wiki/Pig_Latin\" target=\"_blank\">Pig Latin</a> takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an \"ay\".",
+        "<a href='http://codecamp.edu/wikipedia/Pig_Latin.html' target=\"_blank\">Pig Latin</a> takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an \"ay\".",
         "If a word begins with a vowel you just add \"way\" to the end.",
         "Input strings are guaranteed to be English words in all lowercase.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code.",
@@ -325,29 +325,7 @@
         "String.prototype.split()"
       ],
       "isRequired": true,
-      "challengeType": 5,
-      "translations": {
-        "es": {
-          "title": "Latín de los cerdos",
-          "description": [
-            "Traduce la cadena de texto que se te provee al Latín de los cerdos (Pig Latin)",
-            "<a href=\"http://es.wikipedia.org/wiki/Pig_Latin\" target=\"_blank\">Pig Latin</a> toma la primera consonante (o grupo de consonantes) de una palabra en inglés, la mueve al final de la palabra y agrega un \"ay\".",
-            "Si la palabra comienza con una vocal, simplemente añade \"way\" al final.",
-            "Cadenas de entrada están garantizadas de ser palabras en Inglés en minúscula.",
-            "Recuerda utilizar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leer-Buscar-Preguntar</a> si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
-          ]
-        },
-        "fr": {
-          "title": "Pig latin",
-          "description": [
-            "Traduis la phrase donnée en pig latin (verlan anglais)",
-            "Le <a href=\"http://fr.wikipedia.org/wiki/Pig_Latin\" target=\"_blank\">Pig Latin</a> prend la ou les première(s) consonne(s) d'un mot en anglais et les mets à la fin du mot accompagné par le suffixe \"ay\".",
-            "Si un mot commence par une voyelle ajoute \"way\" à la fin du mot.",
-            "Les chaînes de caractères entrées sont garanties d'être des mots anglais, en lettres minuscules.",
-            "N'oublie pas d'utiliser <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Lire-Chercher-Demander</a> si tu es bloqué. Essaye de trouver un partenaire. Écris ton propre code."
-          ]
-        }
-      }
+      "challengeType": 5
     },
     {
       "id": "a0b5010f579e69b815e7c5d6",
@@ -415,7 +393,7 @@
       "title": "DNA Pairing",
       "description": [
         "The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.",
-        "<a href=\"http://en.wikipedia.org/wiki/Base_pair\" target=\"_blank\">Base pairs</a> are a pair of AT and CG. Match the missing element to the provided character.",
+        "<a href='http://codecamp.edu/wikipedia/Base_pair.html' target=\"_blank\">Base pairs</a> are a pair of AT and CG. Match the missing element to the provided character.",
         "Return the provided character as the first element in each array.",
         "For example, for the input GCG, return [[\"G\", \"C\"], [\"C\",\"G\"],[\"G\", \"C\"]]",
         "The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.",
@@ -442,31 +420,7 @@
         "String.prototype.split()"
       ],
       "isRequired": true,
-      "challengeType": 5,
-      "translations": {
-        "es": {
-          "title": "Emparejando bases de ADN",
-          "description": [
-            "A la cadena de ADN que se te pasa le hace falta una hebra. Toma cada una de las letras, obtén su pareja correspondiente y devuelve los resultados en un segundo vector",
-            "<a href=\"http://es.wikipedia.org/wiki/Apareamiento_de_bases\" target=\"_blank\">Parejas de bases</a> son pares de AT y CG. Encuentra el elemento que hace falta para cada una de las letras que se te presentan.",
-            "Devuelve la letra que se te provee como el primer elemento en cada vector",
-            "Por ejemplo, si te pasáramos la cadena GCG, tu función debería devolver el vector: [[\"G\", \"C\"], [\"C\",\"G\"],[\"G\", \"C\"]]",
-            "Cada letra que se te provee y su pareja deben estar contenidos en un vector, y cada uno de estos vectores debe estar contenidos en un vector.",
-            "Recuerda utilizar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leer-Buscar-Preguntar</a> si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
-          ]
-        },
-        "fr": {
-          "title": "Coupler les bases d'ADN",
-          "description": [
-            "Une base d'ADN a perdu sa paire. Assemble chaque paire de caractères et renvoie les résultats dans un second tableau.",
-            "Les <a href=\"http://fr.wikipedia.org/wiki/Paire_de_bases\" target=\"_blank\">paires de bases</a> sont des paires d'AT et CG. Associe l'élement manquant au caractère donné.",
-            "Renvoie le caractère donné comme premier élément de chaque tableau.",
-            "Par exemple, pour GCG, il faut renvoyer [[\"G\", \"C\"], [\"C\",\"G\"],[\"G\", \"C\"]]",
-            "Chaque caractère et sa paire sont couplées dans un tableau, et tous les tableaux sont groupés dans un tableau.",
-            "N'oublie pas d'utiliser <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Lire-Chercher-Demander</a> si tu es bloqué. Essaye de trouver un partenaire. Écris ton propre code."
-          ]
-        }
-      }
+      "challengeType": 5
     },
     {
       "id": "af7588ade1100bde429baf20",
@@ -1103,42 +1057,7 @@
         "Closures",
         "Details of the Object Model"
       ],
-      "challengeType": 5,
-      "translations": {
-        "es": {
-          "title": "Crea una Persona",
-          "description": [
-            "Completa el constructor de objetos con los métodos especificados a continuación:",
-            "<blockquote>getFirstName()\ngetLastName()\ngetFullName()\nsetFirstName(first)\nsetLastName(last)\nsetFullName(firstAndLast)</blockquote>",
-            "Ejecuta las pruebas para ver el resultado esperado de cada método.",
-            "Las funciones que aceptan argumentos deben aceptar sólo uno, y este tiene que ser una cadena.",
-            "Estos métodos deben ser el único medio para interactuar con el objeto.",
-            "Recuerda utilizar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leer-Buscar-Preguntar</a> si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
-          ]
-        },
-        "it": {
-          "title": "Crea una Persona",
-          "description": [
-            "Completa il costruttore dell'oggetto con i metodi specificati qui sotto:",
-            "<blockquote>getFirstName()\ngetLastName()\ngetFullName()\nsetFirstName(first)\nsetLastName(last)\nsetFullName(firstAndLast)</blockquote>",
-            "Esegui i test per vedere il risultato atteso per ogni metodo.",
-            "I metodi che richiedono un argomento devono accettarne solo uno e questo deve essere una stringa.",
-            "Questi metodi devono essere l'unica maniera possibile di interagire con l'oggetto.",
-            "Ricorda di usare <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leggi-Cerca-Chiedi</a> se rimani bloccato. Prova a programmare in coppia. Scrivi il codice da te."
-          ]
-        },
-        "pt-br": {
-          "title": "Faça uma Pessoa",
-          "description": [
-            "Preencha o contrutor do objeto com seguintes métodos:",
-            "<blockquote>getFirstName()\ngetLastName()\ngetFullName()\nsetFirstName(first)\nsetLastName(last)\nsetFullName(firstAndLast)</blockquote>",
-            "Rode os testes para ver o resultado esperado de cada método.",
-            "Os métodos que recebem um argumento deve aceitar somente um argumento e deve ser uma string.",
-            "Esses métodos devem ser o único meio de interação com o objeto.",
-            "Lembre-se de usar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Ler-Procurar-Perguntar</a> se você ficar preso. Tente programar em par. Escreva seu próprio código."
-          ]
-        }
-      }
+      "challengeType": 5
     },
     {
       "id": "af4afb223120f7348cdfc9fd",
@@ -1146,7 +1065,7 @@
       "description": [
         "Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).",
         "The array will contain objects in the format <code>{name: 'name', avgAlt: avgAlt}</code>.",
-        "You can read about orbital periods <a href=\"http://en.wikipedia.org/wiki/Orbital_period\" target='_blank'>on Wikipedia</a>.",
+        "You can read about orbital periods <a href='http://codecamp.edu/wikipedia/Orbital_period.html' target='_blank'>on Wikipedia</a>.",
         "The values should be rounded to the nearest whole number. The body being orbited is Earth.",
         "The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
@@ -1171,42 +1090,7 @@
       "MDNlinks": [
         "Math.pow()"
       ],
-      "challengeType": 5,
-      "translations": {
-        "es": {
-          "title": "Ubica los Escombros",
-          "description": [
-            "Crea una función que devuelva un nuevo arreglo que transforme la altitud promedio del elemento en su período orbital.",
-            "El arreglo debe contener objetos en el formato <code>{name: 'name', avgAlt: avgAlt}</code>.",
-            "Puedes leer acerca de períodos orbitales <a href=\"http://en.wikipedia.org/wiki/Orbital_period\" target='_blank'>en Wikipedia</a>.",
-            "Los valores deben estar redondeados al número entero más próximo. El cuerpo orbitado es la Tierra",
-            "El radio de la Tierra es 6367.4447 kilómetros, y el valor GM del planeta es de 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
-            "Recuerda utilizar the Read-Search-Ask methodology si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
-          ]
-        },
-        "it": {
-          "title": "Mappa i Detriti",
-          "description": [
-            "Ritorna un nuovo array che trasformi l'altitudine media degli elementi nel loro periodo orbitale.",
-            "L'array conterrà oggetti in formato <code>{name: 'name', avgAlt: avgAlt}</code>.",
-            "Puoi leggere riguardo i periodi orbitali <a href=\"http://en.wikipedia.org/wiki/Orbital_period\" target='_blank'>su Wikipedia</a>.",
-            "I valori devono essere arrotondati al numero intero più vicino. Il corpo attorno a cui orbitano gli elementi è la Terra.",
-            "Il raggio della Terra è di 6367.4447 kilometri, e il valore GM della Terra è di 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
-            "Ricorda di usare <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leggi-Cerca-Chiedi</a> se rimani bloccato. Prova a programmare in coppia. Scrivi il codice da te."
-          ]
-        },
-        "pt-br": {
-          "title": "Mapeie o Lixo espacial",
-          "description": [
-            "Retorne uma nova matriz que transforma a altitude média do elemento em seu período orbital.",
-            "A matriz vai conter objetos no formato <code>{name: 'name', avgAlt: avgAlt}</code>.",
-            "Você pode ler sobre período orbital <a href=\"http://pt.wikipedia.org/wiki/Per%C3%ADodo_orbital\" target='_blank'>na Wikipedia</a>.",
-            "Os valores devem ser arredondados para número inteiro mais próximo. O corpe sendo orbitado é a Terra.",
-            "O raio da terra é 6367.4447 quilômetros, e o valor GM da terra é 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
-            "Lembre-se de usar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Ler-Procurar-Perguntar</a> se você ficar preso. Tente programar em par. Escreva seu próprio código."
-          ]
-        }
-      }
+      "challengeType": 5
     }
   ]
 }
