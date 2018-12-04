@@ -7,39 +7,55 @@
 
 * Copy your User Management Templates project to a new git repository for the starting point
 
-* Add a Router to your project with the following functions
+### Feature Objective
+
+* Create a Single Page Application (SPA)
+* The SPA will have a single static index.html page
+* The other pages are dynamic pages that change the url, add navigation history, and change the index.html body content
+* The SPA has three dynamic page views with unique urls:
+	* /index.html - (home) welcome message
+	* /user-management.html - same functionality from previous project
+	* /user.html - read-only view of a single user
+* Clicking anchor links, to navigate to any page view, will change the url, add navigation history, and change the index.html body content
+* Browser's back and forward buttons will change the url and the index.html body content appropriately
+* The SPA will have to always be started from the /index.html page
+* Only the /index.html page will be bookmarkable
+* Refreshing the page on any page other than /index.html will result in a 404
+
+### Code Design
+
+* Add a home page with a simple welcome message and a link to user management
+	* Url: / and /index.html
+	* Use the MVC pattern with a controller and view
+* Add a user page for viewing the user information with no use of a form or form controls (strictly a read-only view)
+	* Url: /user.html?userId=value
+* Use the user management page from the previous project
+	* Url: /user-mangement.html
+	* Edit user url: /user-mangement.html?userId=value
+	* Change the edit links to navigate to /user-mangement.html?userId=value
+		* These links must update the url and create navigation history
+		* Use the router to route these links to the appropriate handler
+	* Update the User Masters View
+		* Add a view link that will navigate to the /user.html?userId=value page to view the user's information
+* Add a router to your project with the following functions
 	* Add(path, handler) - adds a path to the router list with a handler function that takes a request object
 		* The request object should have a parameters property with any parameters provided by the path
-		* All path parameters will be querystring parameters, i.e. /user.html?userId=4
-	* navigateTo(path) - calls the handler method from the router list and passes the request object
-		* This function will need to parse out the querystring parameters and build the request object
+		* All path parameters will be parsed from query string parameters, i.e. /user.html?userId=4
+	* navigateTo(path, query) - calls the handler method from the router list and passes a request object
+		* This function will need to parse out the query string parameters and build the request object
 	* setRouteLinks - finds all the links (anchors) that need to be handled by the router and attaches a method to call navigateTo
-		* The HTMLAnchorElement element has a pathname property with the path from the href attribute
+		* Note: the HTMLAnchorElement has the following properties:
+			* pathname - path from the href attribute (no query string)
+			* search - query string including leading ? from the href attribute
 * Browse History must be created between different route paths
 	* Use the history.pushState() to add new history to the browser on navigateTo include a history State object
-	* Use the history.replaceState() to update the history of the first page to set the history State object
 	* Add an event listener to the window's popstate event and navigate to the path (event.state has the history State object)
 	* Include enough information in the history State object to get a path for navigateTo
 	* Do not create history when handling the popstate event
 	* Forward and back history should work properly just like other websites
 * Use root relative for all paths i.e. /user.html and href="/user.html"
-* Set the path of the user management page to /user-management.html
-	* Change the edit links to navigate to /user-mangement.html?userId=value
-		* This will put the user-management page into edit mode for that user
-	* Add a view link that will navigate to a new page to view the individual user at /user.html?userId=value
-* Add a home page with a simple welcome message and a link to user management with a path of / and /index.html
-	* Use the MVC pattern with a controller and view
-* Add a new user page to view of the user information with no use of form or form controls (strictly view like a profile page)
-	* Path the user view page to /user.html?userId=value
-* Add a bootstrap navbar at the top of each page with a link to the home and user management page
-	* Use a handlebars partial for the navbar
-	* Use handlebars to set the active class on the current page's link (user.html will not have a link)
-* Create static html app start pages for each possible bookmarkable path
-	* The html for the page should have only a head, body and links to Handlebars and your single application javascript file (app.js)
-* Create an app controller and view to set the head and body html
-	* Use an html file to store all the head html
-	* Use DOM to create the necessary body changes for the by the app (placeholder div for html changes to the body)
-* setRouteLinks will need to be called every time the html in the body changes
+* setRouteLinks will need to be called every time the html content is changed that includes route links
+	* use a data- attribute on the route links for querySelectorAll identification i.e. "a[data-route-link]"
 	* consider a base view object that has a standard render method that might raise a render event
 	* consider adding the setRouteLinks as an event listener to this event
 * Use router.add() in the controllers to add a handler function that will call one of the controller methods
@@ -48,5 +64,4 @@
 
 ### References
 
-* Web Storage API (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
 * Web API History (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
