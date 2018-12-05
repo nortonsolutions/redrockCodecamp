@@ -485,7 +485,7 @@ module.exports = function (User) {
     }
   );
 
-  User.createAccount = function createAccount(email, username, name, password) {
+  User.createAccount = function createAccount(email, username, name, location, password) {
     if (!isEmail(email)) {
       return Promise.reject(
         new Error('The email not valid.')
@@ -512,6 +512,7 @@ module.exports = function (User) {
       name: name,
       email: email,
       emailVerified: false,
+      location: location,
       password: hashedPassword,
       passwordSalt: salt
     };
@@ -538,7 +539,7 @@ module.exports = function (User) {
       .toPromise();
   };
 
-  User.changeAccount = function changeAccount(email, newEmail, username, name, password) {
+  User.changeAccount = function changeAccount(email, newEmail, username, name, location, password) {
     if (!isEmail(email)) {
       return Promise.reject(
         new Error('The account email not valid.')
@@ -571,6 +572,10 @@ module.exports = function (User) {
 
       if (name) {
         updateUser.name = name;    
+      }
+
+      if (location) {
+        updateUser.location = location;    
       }
 
       if (password) {

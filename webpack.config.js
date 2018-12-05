@@ -55,7 +55,8 @@ module.exports = {
         businessName: JSON.stringify(process.env.BUSINESS_NAME),
         appName: JSON.stringify(process.env.APP_NAME),
         businessAppName: JSON.stringify(process.env.BUSINESS_NAME + " " + process.env.APP_NAME),
-        isTrialMode: JSON.stringify(process.env.IS_TRIAL_MODE === 'true')
+        isTrialMode: JSON.stringify(process.env.IS_TRIAL_MODE === 'true'),
+        hasLocation: JSON.stringify(process.env.HAS_LOCATION === 'true')
       },
       __DEVTOOLS__: !__DEV__
     }),

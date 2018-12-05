@@ -14,6 +14,19 @@ module.exports = function (app) {
 	const User = app.models.User;
 
 
+	router.get('/' + adminRoot,
+			(req, res) => {
+						
+				if (!isAdminUnrestricted && !req.user) {      
+					return res.redirect('/signin');
+				}
+
+				res.render('admin/admin-home', {
+					title: `Admin Home`
+				})
+			}
+	);
+
 	router.get('/' + adminRoot + '/create-account',
 			(req, res) => {
 						
@@ -31,7 +44,7 @@ module.exports = function (app) {
 		ifNoAdminUser401,
 		(req, res) => {
 
-			const { body: {email, username, name, password, confirmPassword } } = req;
+			const { body: {email, username, name, location, password, confirmPassword } } = req;
 		
 			if (password && password !== confirmPassword) {
 			  return res.status(403).json({
@@ -40,7 +53,7 @@ module.exports = function (app) {
 			}
 
 
-			return User.createAccount(email, username, name, password)
+			return User.createAccount(email, username, name, location, password)
 				.then((result) => {
 					return res.json({
 						message: result.message
@@ -73,7 +86,7 @@ module.exports = function (app) {
 		ifNoAdminUser401,
 		(req, res) => {
 
-			const { body: {email, newEmail, username, name, password, confirmPassword} } = req;
+			const { body: {email, newEmail, username, name, location, password, confirmPassword} } = req;
 		
 			if (password && password !== confirmPassword) {
 			  return res.status(403).json({
@@ -81,7 +94,7 @@ module.exports = function (app) {
 			  });
 			}
 
-			return User.changeAccount(email, newEmail, username, name, password)
+			return User.changeAccount(email, newEmail, username, name, location, password)
 				.then(() => {
 					return res.json({						
 						message: `Account updated for: '${email}'`

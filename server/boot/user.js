@@ -651,14 +651,14 @@ module.exports = function (app) {
 
   function postSignUp(req, res) {
 
-    const { body: {email, name, password, confirmPassword } } = req;
+    const { body: {email, name, location, password, confirmPassword } } = req;
   
     if (password && password !== confirmPassword) {        
       req.flashMessage = `Passwords do not match, please try again.`;
       return getSignUp(req, res);
     }
 
-    return User.createAccount(email, null, name, password)
+    return User.createAccount(email, null, name, location, password)
       .then((result) => {
 
         var user = result.user;

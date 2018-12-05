@@ -14,5 +14,6 @@ module.exports = {
   businessName: process.env.BUSINESS_NAME,
   appName: process.env.APP_NAME,
   businessAppName: process.env.BUSINESS_NAME + " " + process.env.APP_NAME,
-  isTrialMode: process.env.IS_TRIAL_MODE === 'true'
+  isTrialMode: process.env.IS_TRIAL_MODE === 'true',
+  hasLocation: process.env.HAS_LOCATION === 'true'
 };

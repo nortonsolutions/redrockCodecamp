@@ -21,6 +21,9 @@ block content
 						input.input-lg.form-control.success-clear-value(type='email', name='email', id='email', value='#{email ? email : ""}', placeholder='Email', autofocus=true, required)
 					.form-group
 						input.input-lg.form-control.success-clear-value(type='text', name='name', id='name', value='#{name ? name : ""}', placeholder='Name', required)
+					if settings.hasLocation
+						.form-group
+							input.input-lg.form-control.success-clear-value(type='text', name='location', id='location', value='#{location ? location : ""}', placeholder='Location')
 					.form-group
 						input.input-lg.form-control.success-clear-value(type='password', name='password', id='password', value='#{password ? password : ""}', placeholder='Password', required)
 					.form-group
