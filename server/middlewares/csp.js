@@ -22,7 +22,11 @@ export default function csp() {
         '*.cloudflare.com',
         'https://*.optimizely.com',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ]),
       connectSrc: trusted.concat([
         'https://glitch.com',
@@ -30,7 +34,11 @@ export default function csp() {
         'https://*.glitch.me',
         'https://*.cloudflare.com',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ]),
       scriptSrc: [
         "'unsafe-eval'",
@@ -50,7 +58,11 @@ export default function csp() {
         '*.ytimg.com',
         'https://*.optimizely.com',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ].concat(trusted),
       styleSrc: [
         "'unsafe-inline'",
@@ -62,7 +74,11 @@ export default function csp() {
         'https://*.cloudflare.com',
         'https://*.optimizely.com',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ].concat(trusted),
       fontSrc: [
         '*.cloudflare.com',
@@ -73,7 +89,11 @@ export default function csp() {
         'https://*.bootstrapcdn.com',
         'https://*.optimizely.com',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ].concat(trusted),
       imgSrc: [
         // allow all input since we have user submitted images for
@@ -86,7 +106,11 @@ export default function csp() {
         '*.amazonaws.com',
         '*.twitter.com',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ].concat(trusted),
       frameSrc: [
         '*.gitter.im',
@@ -97,7 +121,11 @@ export default function csp() {
         '*.freecatphotoapp.com',
         'freecodecamp.github.io',
         'codecamp.edu',
-        '*.codecamp.edu'
+        '*.codecamp.edu',
+        'brickhousecodecamp.org',
+        '*.brickhousecodecamp.org',
+        'bridgescodecamp.org',
+        '*.bridgescodecamp.org'
       ].concat(trusted)
     },
     // set to true if you only want to report errors

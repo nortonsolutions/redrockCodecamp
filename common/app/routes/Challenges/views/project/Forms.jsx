@@ -81,7 +81,7 @@ export function _FrontEndForm({
       {
         isSubmitting ?
           <SolutionInput
-            placeholder='http://jsbin.codecamp.edu/your-url/'
+            placeholder='http://your-url/'
             { ...fields }
           /> :
           null

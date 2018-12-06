@@ -8,7 +8,7 @@
 * These features of ES6 should be used: Modules
 * These features of ES6 may be used: for of, and Template Literals
 * JSON
-* Web Storage API (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
+* Web Storage API (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
 
 * 1 Page with half for User Details and half for Users Master (all users)
 * Use bootstrap for look and feel, forms, grids, buttons and layout (see the docs)

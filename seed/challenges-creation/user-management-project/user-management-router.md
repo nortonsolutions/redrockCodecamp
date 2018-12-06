@@ -68,4 +68,4 @@
 
 ### References
 
-* Web API History (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
+* Web API History (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)

@@ -8,7 +8,7 @@
 * These features of ES6 should be used: Modules
 * These features of ES6 may be used: for of, and Template Literals
 * JSON
-* Web Storage API (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
+* Web Storage API (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
 * MVC Pattern
 * Git
 

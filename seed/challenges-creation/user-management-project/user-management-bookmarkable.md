@@ -48,15 +48,15 @@
 
 ### References
 
-* Web Storage API (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
-* Web API History (http://codecamp.edu/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
+* Web Storage API (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
+* Web API History (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
 
 ### Notes
 
 * How to append a string of HTML to an element
 	* Do not use the experimental element.insertAdjacentHTML()
 	* Use an HTMLTemplateElement
-	* (http://codecamp.edu/docs/phase-i/Javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
+	* (http://brickhousecodecamp.org/docs/phase-i/Javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
 			var template = document.createElement("template");
 			template.innerHTML = html;
 			element.appendChild(template.content);
