@@ -8,9 +8,10 @@
 			"id": "0e749670f18bfbc0ce1ab47f",
 			"title": "User Management Page with Templates",
 			"description": [
-				"Build this designed webpage.",
-				"The page must match the design as close as possible.",
-				"<strong>Technology Stack:</strong> 1. Use only HTML, CSS, Javascript, Bootstrap, Font Awesome, and Handlebars.",
+				"Build the page as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-03-templates/user-management-03-templates.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-03-templates/user-management-03-templates.png' target='_blank'>Click here</a> to view the full size image.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-03-templates/user-management-03-templates.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-03-templates/user-management-03-templates.png' style='width:500px;'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "November 26, 2018",
@@ -36,7 +37,59 @@
 				[
 					"",
 					"",
-					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/user-management-templates-19bcc570f18befafb884866b/' target='_blank'>Click here</a> to view the professional source code.",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/user-management-03-templates-19bcc570f18befafb884866b/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"hasExternalLink": true
+		},
+		{
+			"id": "efd58d40fc85274deed8d559",
+			"title": "User Management Page with Routing",
+			"description": [
+				"Build the page as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-04-router/user-management-04-router.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-04-router/user-management-04-router.png' target='_blank'>Click here</a> to view the full size image.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-04-router/user-management-04-router.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-04-router/user-management-04-router.png' style='width:500px;'></a>",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-04-router/user-management-04-router.mp4' target='_blank'>Click here</a> to watch a video of the interactive features of the project.",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [
+				"nB3WiFG"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3,
+			"hasExternalLink": true
+		},
+		{
+			"id": "f07cc9c0fc85a7361dd682d0",
+			"title": "User Management Page with Routing Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the User Management Page with Routing.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/user-management-04-router-f07cc9c0fc85a7361dd682d0/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
 					""
 				],
 				[

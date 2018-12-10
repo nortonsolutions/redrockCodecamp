@@ -1,9 +1,12 @@
+
 # User Management Router
 
-* Technology Stack: HTML, CSS, Javascript, DOM, Web API, Bootstrap, Handlebars, JSON
-* Additional Technology Stack: ES6 only the following feature: Modules, for of, Template Literals
-* Technology Features: DOM Elements, Events, Storage API, History
-* Patterns: MVC, consider Event Listener
+* Languages: HTML, CSS, Javascript ES5, JSON
+* Languages Additional: ES6, only the following feature: Modules, for of, Template Literals
+* Libraries: Bootstrap, Font Awesome, Handlebars
+* API Features: DOM Elements, Events, Web Storage API, XMLHttpRequest, History API
+* Tools: VS Code, Live Server extension, Git
+* Patterns and Practices: Master Details, MVC, Separation of Concerns, consider Event Listener
 
 * Copy your User Management Templates project to a new git repository for the starting point
 
@@ -24,7 +27,7 @@
 
 ### Code Design
 
-* Add a home page with a simple welcome message and a link to user management
+* Add a home page with a welcome message, a short app description and a link to user management page
 	* Url: / and /index.html
 	* Use the MVC pattern with a controller and view
 * Add a user page for viewing the user information with no use of a form or form controls (strictly a read-only view)
@@ -68,4 +71,4 @@
 
 ### References
 
-* Web API History (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
+* History API (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)

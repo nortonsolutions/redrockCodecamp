@@ -62,9 +62,10 @@
 			"id": "74c80400ecd32f9f26dfed57",
 			"title": "User Management Page",
 			"description": [
-				"Build this designed webpage.",
-				"The page must match the design as close as possible.",
-				"<strong>Technology Stack:</strong> 1. Use only HTML, CSS, Javascript, Bootstrap, and Font Awesome.",
+				"Build the page as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'>Click here</a> to view the full size image.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' style='width:500px;'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "November 1, 2018",
