@@ -106,6 +106,57 @@
 			"isRequired": true,
 			"challengeType": 7,
 			"hasExternalLink": true
+		},
+		{
+			"id": "a5649440fcc17faeab614b31",
+			"title": "User Management Page with Bookmarking",
+			"description": [
+				"Build the page as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-05-bookmarkable/user-management-05-bookmarkable.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-05-bookmarkable/user-management-05-bookmarkable.png' target='_blank'>Click here</a> to view the full size image.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-05-bookmarkable/user-management-05-bookmarkable.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-05-bookmarkable/user-management-05-bookmarkable.png' style='width:500px;'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [
+				"rTThlV8"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3,
+			"hasExternalLink": true
+		},
+		{
+			"id": "a6171b60fcc191344e40b886",
+			"title": "User Management Page with Bookmarking Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the User Management Page with Routing.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/user-management-05-bookmarkable-a6171b60fcc191344e40b886/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"hasExternalLink": true
 		}
 	]
 }
