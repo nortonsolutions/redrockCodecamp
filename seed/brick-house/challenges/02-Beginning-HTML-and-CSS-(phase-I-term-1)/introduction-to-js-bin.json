@@ -50,6 +50,35 @@
 			"type": "Waypoint",
 			"isRequired": false,
 			"challengeType": 7
+		},
+		{
+			"id": "de857480fc88b5297c923ba4",
+			"title": "Testing Projects in JS Bin",
+			"description": [
+				[
+					"",
+					"",
+					"Beginning HTML and CSS Projects with Tests requires linking to two JavaScript files for testing.",
+					""
+				],
+				[
+					"",
+					"",
+					"You will need to link to these scripts in each project by choosing CodeCamp Test Suite from the Library button at the top left of JS Bin.",
+					""
+				],
+				[
+					"",
+					"",
+					"This will create two links to the test suite for use with the project.",
+					""
+				]
+			],
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": false,
+			"challengeType": 7
 		}
 	]
 }

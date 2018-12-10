@@ -129,6 +129,6 @@
 			"type": "Waypoint",
 			"challengeType": 7,
 			"isRequired": true
-		},
+		}
 	]
 }
