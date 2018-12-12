@@ -5,6 +5,60 @@
 	"helpRoom": "Help",
 	"challenges": [
 		{
+		  "id": "4bb40e50fe4565f96cc7b608",
+		  "title": "** Commit to not solve other students problems - Advanced Web",
+		  "description": [
+			[
+			  "",
+			  "",
+			  "Computer programming requires excellent problem solving skills.<br><br>Working through problems with the help of documentation is a daily activity for all programmers.",
+			  ""
+			],
+			[
+			  "",
+			  "",
+			  "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
+			  ""
+			],
+			[
+			  "",
+			  "",
+			  "Students should never give away a solution to a problem or share code that completes a problem.",
+			  ""
+			],
+			[
+			  "",
+			  "",
+			  "If a student is still unable to solve a problem, please, refer them to the tutor.",
+			  ""
+			],
+			[
+			  "",
+			  "",
+			  "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
+			  ""
+			],
+			[
+			  "",
+			  "",
+			  "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
+			  ""
+			],
+			[
+			  "",
+			  "",
+			  "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
+			  "#"
+			]
+		  ],
+		  "releasedOn": "May 10, 2018",
+		  "challengeSeed": [],
+		  "tests": [],
+		  "type": "Waypoint",
+		  "challengeType": 7,
+		  "isRequired": true
+		},
+		{
 			"id": "0e749670f18bfbc0ce1ab47f",
 			"title": "User Management Page with Templates",
 			"description": [
