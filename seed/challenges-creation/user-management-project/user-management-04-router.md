@@ -12,6 +12,7 @@
 
 ### Feature Specification
 
+* Same features as User Management Template project with the following changes
 * Create a Single Page Application (SPA)
 * The SPA will have a single static index.html page
 * The other pages are dynamic pages that upon navigation will change the url, add navigation history, and change the index.html body content

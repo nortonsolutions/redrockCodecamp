@@ -8,11 +8,11 @@
 * Tools: VS Code, Live Server extension, Git
 * Patterns and Practices: Master Details, MVC, Separation of Concerns
 
-* Copy your User Management project to a new git repository for the starting point
+* Copy your User Management page project to a new git repository for the starting point
 
 ### Feature Specification
 
-* Same features as User Management MVC project
+* Same features as User Management page project
 * Add a message box at the top of the screen to communicate the success or failure of changes
 	* Use bootstrap alerts for the message box, use success and danger
 * Add a global error handler and display any errors in the message box

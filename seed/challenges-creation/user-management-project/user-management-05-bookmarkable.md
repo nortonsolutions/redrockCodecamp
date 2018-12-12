@@ -12,6 +12,7 @@
 
 ### Feature Specification
 
+* Same features as User Management Router project with the following changes
 * Make the SPA bookmarkable by having page placeholders for all possible navigation paths
 * Add a bootstrap navbar at the top of each page with a link to the home and user management page
 
