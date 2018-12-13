@@ -594,7 +594,7 @@
       "title": "Create Decimal Numbers with JavaScript",
       "description": [
         "We can store decimal numbers in variables too. Decimal numbers are sometimes referred to as <dfn>floating point</dfn> numbers or <dfn>floats</dfn>.",
-        "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href='http://brickhousecodecamp.org/wikipedia/Floating_point#Accuracy_problems.html' target=\"_blank\">Details Here</a>.",
+        "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href='http://brickhousecodecamp.org/wikipedia/Floating_point.html#Accuracy_problems' target=\"_blank\">Details Here</a>.",
         "<hr>",
         "Create a variable <code>myDecimal</code> and give it a decimal value with a fractional part (e.g. <code>5.7</code>)."
       ],
