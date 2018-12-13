@@ -23,7 +23,7 @@ export default class SidePanel extends PureComponent {
   render() {
     const { title, description, isCompleted } = this.props;
     return (
-      <div>
+      <div className='challenge-project'>
         <ChallengeTitle isCompleted={ isCompleted }>
           { title }
         </ChallengeTitle>

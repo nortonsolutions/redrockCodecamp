@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import { createSelector } from 'reselect';
 import LightBox from 'react-images';
 import { Button, Col, Image, Row } from 'react-bootstrap';
+import ChallengeTitle from '../../Challenge-Title.jsx';
 
 import ns from './ns.json';
 import {
@@ -21,30 +22,41 @@ import {
   previousIndexSelector,
   lightBoxSelector
 } from './redux';
+
+import { userSelector } from '../../../../redux';
 import { submitChallenge } from '../../redux';
 import { challengeSelector } from '../../../../redux';
 
 const mapStateToProps = createSelector(
+  userSelector,
   challengeSelector,
   currentIndexSelector,
   previousIndexSelector,
   actionCompletedSelector,
   lightBoxSelector,
   (
-    { description = [] },
+    { challengeMap: userChallengeMap },
+    { id, description = [], title },
     currentIndex,
     previousIndex,
     isActionCompleted,
     isLightBoxOpen
-  ) => ({
-    currentIndex,
-    isActionCompleted,
-    isLightBoxOpen,
-    step: description[currentIndex],
-    steps: description,
-    numOfSteps: description.length,
-    isLastStep: currentIndex + 1 >= description.length
-  })
+  ) => {
+
+    const isChallengeCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
+
+    return {
+      currentIndex,
+      isActionCompleted,
+      isLightBoxOpen,
+      isChallengeCompleted,
+      title,
+      step: description[currentIndex],
+      steps: description,
+      numOfSteps: description.length,
+      isLastStep: currentIndex + 1 >= description.length
+    };
+  }
 );
 
 function mapDispatchToProps(dispatch) {
@@ -72,6 +84,7 @@ const propTypes = {
   completeAction: PropTypes.func.isRequired,
   currentIndex: PropTypes.number,
   isActionCompleted: PropTypes.bool,
+  isChallengeCompleted: PropTypes.bool,
   isLastStep: PropTypes.bool,
   isLightBoxOpen: PropTypes.bool,
   numOfSteps: PropTypes.number,
@@ -80,6 +93,7 @@ const propTypes = {
   stepForward: PropTypes.func,
   steps: PropTypes.array,
   submitChallenge: PropTypes.func.isRequired,
+  title: PropTypes.string,
   updateUnlockedSteps: PropTypes.func.isRequired
 };
 
@@ -112,14 +126,14 @@ export class StepChallenge extends PureComponent {
     return (
       <div>
         <Button
-          block={ true }
+          block={true}
           bsSize='large'
           bsStyle='primary'
-          href={ action }
-          onClick={ completeAction }
+          href={action}
+          onClick={completeAction}
           target='_blank'
-          >
-          { buttonCopy }  (this unlocks the next step)
+        >
+          {buttonCopy}  (this unlocks the next step)
         </Button>
         <div className='spacer' />
       </div>
@@ -131,9 +145,9 @@ export class StepChallenge extends PureComponent {
       return (
         <Col
           className='hidden-xs'
-          md={ 4 }
-          >
-          { ' ' }
+          md={4}
+        >
+          {' '}
         </Col>
       );
     }
@@ -142,8 +156,8 @@ export class StepChallenge extends PureComponent {
         bsSize='large'
         bsStyle='primary'
         className='col-sm-4 col-xs-12'
-        onClick={ stepBackward }
-        >
+        onClick={stepBackward}
+      >
         Go to my previous step
       </Button>
     );
@@ -158,11 +172,11 @@ export class StepChallenge extends PureComponent {
       <Button
         bsSize='large'
         bsStyle='primary'
-        className={ btnClass }
-        disabled={ hasAction && !isCompleted }
-        onClick={ stepForward }
-        >
-        { isLastStep ? 'Finish lesson' : 'Go to my next step'}
+        className={btnClass}
+        disabled={hasAction && !isCompleted}
+        onClick={stepForward}
+      >
+        {isLastStep ? 'Finish lesson' : 'Go to my next step'}
       </Button>
     );
   }
@@ -173,55 +187,62 @@ export class StepChallenge extends PureComponent {
       completeAction,
       currentIndex,
       isActionCompleted,
+      isChallengeCompleted,
       isLastStep,
       numOfSteps,
       step,
       stepBackward,
-      stepForward
-  }) {
+      stepForward,
+      title
+    }) {
     if (!Array.isArray(step)) {
       return null;
     }
     const [imgUrl, imgAlt, info, action] = step;
     return (
-      <div key={ `${info.slice(0, 15)}` }>
+      <div className='challenge-step' key={`${info.slice(0, 15)}`}>
+
+        <ChallengeTitle isCompleted={isChallengeCompleted}>
+          {title}
+        </ChallengeTitle>
+
         <a
-          href={ imgUrl }
-          onClick={ clickOnImage }
+          href={imgUrl}
+          onClick={clickOnImage}
           target='_blank'
-          >
+        >
           <Image
-            alt={ imgAlt }
+            alt={imgAlt}
             className='center-block'
-            responsive={ true }
-            src={ imgUrl }
+            responsive={true}
+            src={imgUrl}
           />
         </a>
         <Row>
           <div className='spacer' />
           <Col
-            md={ 8 }
-            mdOffset={ 2 }
-            sm={ 10 }
-            smOffset={ 1 }
-            xs={ 12 }
-            >
+            md={8}
+            mdOffset={2}
+            sm={10}
+            smOffset={1}
+            xs={12}
+          >
             <div
-              className={ `${ns}-description` }
+              className={`${ns}-description`}
               dangerouslySetInnerHTML={{ __html: info }}
             />
           </Col>
         </Row>
         <div className='spacer' />
-        <div className={ `${ns}-button-block` }>
-          { this.renderActionButton(action, completeAction) }
-          { this.renderBackButton(currentIndex, stepBackward) }
+        <div className={`${ns}-button-block`}>
+          {this.renderActionButton(action, completeAction)}
+          {this.renderBackButton(currentIndex, stepBackward)}
           <Col
-            className={ `${ns}-counter large-p text-center` }
-            sm={ 4 }
-            xs={ 12 }
-            >
-            ( { currentIndex + 1 } / { numOfSteps } )
+            className={`${ns}-counter large-p text-center`}
+            sm={4}
+            xs={12}
+          >
+            ( {currentIndex + 1} / {numOfSteps} )
           </Col>
           {
             this.renderNextButton(
@@ -242,12 +263,12 @@ export class StepChallenge extends PureComponent {
     if (!Array.isArray(steps)) {
       return null;
     }
-    return steps.map(([ imgUrl, imgAlt, info ]) => (
-      <div key={ `${info.slice(0, 15)}` }>
+    return steps.map(([imgUrl, imgAlt, info]) => (
+      <div key={`${info.slice(0, 15)}`}>
         <Image
-          alt={ imgAlt }
-          responsive={ true }
-          src={ imgUrl }
+          alt={imgAlt}
+          responsive={true}
+          src={imgUrl}
         />
       </div>
     ));
@@ -263,19 +284,19 @@ export class StepChallenge extends PureComponent {
     return (
       <Row>
         <Col
-          md={ 8 }
-          mdOffset={ 2 }
-          >
-          { this.renderStep(this.props) }
+          md={8}
+          mdOffset={2}
+        >
+          {this.renderStep(this.props)}
           <div className='hidden'>
-            { this.renderImages(steps) }
+            {this.renderImages(steps)}
           </div>
           <LightBox
-          backdropClosesModal={ true }
-          images={ [ { src: step[0] } ] }
-          isOpen={ isLightBoxOpen }
-          onClose={ closeLightBoxImage }
-          showImageCount={ false }
+            backdropClosesModal={true}
+            images={[{ src: step[0] }]}
+            isOpen={isLightBoxOpen}
+            onClose={closeLightBoxImage}
+            showImageCount={false}
           />
           <div className='spacer' />
         </Col>
