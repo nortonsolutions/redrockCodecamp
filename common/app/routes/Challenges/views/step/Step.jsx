@@ -219,7 +219,6 @@ export class StepChallenge extends PureComponent {
           />
         </a>
         <Row>
-          <div className='spacer' />
           <Col
             md={8}
             mdOffset={2}
