@@ -1,19 +1,22 @@
 
-# Virtual Life Generator
+# Virtual Life Item
 
 * Languages: Javascript ES5
 * Tools: VS Code, Live Server extension, Git
 * Libraries: animate-world.js
 
+* Copy your Virtual Life app project to a new git repository for the starting point
+
 ### Feature Specification
 
-* Create a world plan generator
-* The generator will create a string in the same format as world.toString()
-* The world will be initialized with the generated world plan
+* Same features as Virtual Life app project
 
 ### Code Design
 
-* Create a world object in an world.js script
+* Create an item object prototype to represent an item that occupies a cell in a world-item script
+* 
+* Create a world builder object in an world-builder.js script
+* Add a worldBuilder.buildWorldPlan() method that returns world plan string
 * Create a world object with the following methods
 	* toString() - Will output a string that displays the current state of the world
 			######
