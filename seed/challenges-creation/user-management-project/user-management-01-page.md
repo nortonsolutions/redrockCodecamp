@@ -59,4 +59,4 @@
 
 ### References
 
-* Web Storage API (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)
+* Web Storage API (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)

@@ -36,7 +36,7 @@
 
 ### References
 
-* Location (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
+* Location (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
 
 ### Notes
 
@@ -48,7 +48,7 @@
 
 * How to append a string of HTML to an element
 	* Do not use the experimental element.insertAdjacentHTML()
-	* Use an HTMLTemplateElement (http://brickhousecodecamp.org/docs/phase-i/Javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
+	* Use an HTMLTemplateElement (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
 			var template = document.createElement("template");
 			template.innerHTML = html;
 			element.appendChild(template.content);

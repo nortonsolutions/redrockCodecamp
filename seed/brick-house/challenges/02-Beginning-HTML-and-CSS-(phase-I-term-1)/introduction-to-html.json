@@ -47,37 +47,13 @@
 				[
 					"",
 					"",
-					"A great place to look for word definitions is in Wikipedia.<br><br> You can quickly look up the words HTML, Markup Language and other terms.",
+					"The best documentation for HTML is found on the Mozilla Developer Network (MDN).<br><br> You can find the MDN docs<br><br> <a href='http://brickhousecodecamp.org/docs/html/developer.mozilla.org/en-US/docs/Web/HTML.html' target='_blank'>here (developer.mozilla.org HTML)</a>",
 					""
 				],
 				[
 					"",
 					"",
-					"Always look up words or terms you do not know.<br><br>Such as 'markup language' or 'hypertext'.",
-					""
-				],
-				[
-					"",
-					"",
-					"Wikipedia is found at <a href='http://en.wikipedia.org' target='_blank'>en.wikipedia.org</a>.<br><br>Use the search bar on the upper right of the screen.<br><br>Type slowly to let the typeahead feature show you results.",
-					""
-				],
-				[
-					"",
-					"",
-					"Try it out. Use this search on Wikipedia:<br><br><div>HTML</div>",
-					"#"
-				],
-				[
-					"",
-					"",
-					"The best documentation for HTML is found on the Mozilla Developer Network (MDN). You can find the MDN docs <a href='http://brickhousecodecamp.org/docs/phase-i/html/developer.mozilla.org/en-US/docs/Web/HTML.html' target='_blank'>here (developer.mozilla.org HTML)</a>",
-					""
-				],
-				[
-					"",
-					"",
-					"You will want to use the References part of the website. You need to get very familiar with this site.",
+					"You will want to use the References part of the website.<br><br> You need to get very familiar with this site.",
 					""
 				],
 				[

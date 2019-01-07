@@ -11,7 +11,7 @@
 				[
 					"",
 					"",
-					"The <a href='http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html'> <strong>Web Storage API</strong> </a> allows for the storage of key value pairs in the browser.",
+					"The <a href='http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html'> <strong>Web Storage API</strong> </a> allows for the storage of key value pairs in the browser.",
 					""
 				],
 				[
@@ -45,7 +45,7 @@
 			"id": "a5188bb0c58d118854072f21",
 			"title": "Storage.setItem()",
 			"description": [
-				"The <code>setItem()</code> method of the <a href='http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage/setItem.html' title='The Storage interface of the Web Storage API provides access to the session storage or local storage for a particular domain, allowing you to for example add, modify or delete stored data items.' target='_blank'> <code>Storage</code> </a> interface, when passed a key name and value, will add that key to the storage, or update that key's value if it already exists.",
+				"The <code>setItem()</code> method of the <a href='http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Storage/setItem.html' title='The Storage interface of the Web Storage API provides access to the session storage or local storage for a particular domain, allowing you to for example add, modify or delete stored data items.' target='_blank'> <code>Storage</code> </a> interface, when passed a key name and value, will add that key to the storage, or update that key's value if it already exists.",
 				"<blockquote><em>storage</em>.setItem(<em>keyName</em>, <em>keyValue</em>);</blockquote>",
 				"For example:",
 				"The following creates two data items inside local storage.",
@@ -80,7 +80,7 @@
 			"id": "26eb30a0c6492d38478f1682",
 			"title": "Storage.getItem()",
 			"description": [
-				"The <code>getItem()</code> method of the <a href='http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage/getItem.html' target='_blank'> <code>Storage</code> </a> interface, when passed a key name, will return that key's value.",
+				"The <code>getItem()</code> method of the <a href='http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Storage/getItem.html' target='_blank'> <code>Storage</code> </a> interface, when passed a key name, will return that key's value.",
 				"<blockquote>var <em>aValue</em> = <em>storage</em>.getItem(<em>keyName</em>);</blockquote>",
 				"For example:",
 				"The following creates two data items inside local storage.",
@@ -115,7 +115,7 @@
 			"id": "b28f7c70c74ca5e4c5e3f231",
 			"title": "Other Storage Methods",
 			"description": [
-				"The full API for Storage can be found <a href='http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/Storage.html' target='_blank'> here </a>.",
+				"The full API for Storage can be found <a href='http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html' target='_blank'> here </a>.",
 				"These methods include removeItem (for removing a single item by key) and clear (for removing all items).",
 				"For example:",
 				"The following removes an item from local storage.",

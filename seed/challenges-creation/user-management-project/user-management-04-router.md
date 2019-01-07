@@ -72,4 +72,4 @@
 
 ### References
 
-* History API (http://brickhousecodecamp.org/docs/phase-i/JavaScript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
+* History API (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
