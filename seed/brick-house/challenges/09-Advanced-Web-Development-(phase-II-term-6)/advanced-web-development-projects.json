@@ -75,8 +75,7 @@
 			"tests": [],
 			"type": "zipline",
 			"isRequired": true,
-			"challengeType": 3,
-			"hasExternalLink": true
+			"challengeType": 3
 		},
 		{
 			"id": "19bcc570f18befafb884866b",
@@ -106,8 +105,7 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7,
-			"hasExternalLink": true
+			"challengeType": 7
 		},
 		{
 			"id": "efd58d40fc85274deed8d559",
@@ -127,8 +125,7 @@
 			"tests": [],
 			"type": "zipline",
 			"isRequired": true,
-			"challengeType": 3,
-			"hasExternalLink": true
+			"challengeType": 3
 		},
 		{
 			"id": "f07cc9c0fc85a7361dd682d0",
@@ -158,8 +155,7 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7,
-			"hasExternalLink": true
+			"challengeType": 7
 		},
 		{
 			"id": "a5649440fcc17faeab614b31",
@@ -178,8 +174,7 @@
 			"tests": [],
 			"type": "zipline",
 			"isRequired": true,
-			"challengeType": 3,
-			"hasExternalLink": true
+			"challengeType": 3
 		},
 		{
 			"id": "a6171b60fcc191344e40b886",
@@ -209,8 +204,7 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7,
-			"hasExternalLink": true
+			"challengeType": 7
 		},
 		{
 			"id": "36a8b4d0fda447acb4971b9d",
@@ -235,8 +229,7 @@
 			"tests": [],
 			"type": "zipline",
 			"isRequired": true,
-			"challengeType": 3,
-			"hasExternalLink": true
+			"challengeType": 3
 		}
 	]
 }

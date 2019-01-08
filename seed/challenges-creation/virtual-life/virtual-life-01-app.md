@@ -19,12 +19,12 @@
 * Plants will not move and will have a chance to reproduce or die
 * Animals will have a chance to move, reproduce or die
 	* If an animal moves to a cell with a plant, that plant will die
-	* An animal cannot move to a cell occupied by a wall
+	* An animal cannot move to a cell occupied by a wall or another animal
 
 ### Code Design
 
-* Create a world object in an world.js script
-* Create a world object with the following methods
+* Create a world object in an world.js script file
+* Add the following methods to the world object
 	* toString() - Will output a string that displays the current state of the world
 			######
 			# p# #
@@ -43,9 +43,10 @@
 	* Each animal, if it lives, should get a random chance to move
 		* If it moves it should be to an immediately nearby cell
 * Use the animate-world.js library to animate your world object
-* The animate-world.js library creates a single global function name animateWorld() that takes a world object
-* Create an index.html page to link in animate-world.js library
-* Create a link to your world.js script
+* The animate-world.js library creates a single global function named animateWorld() that takes a world object as a parameter
+* Create an index.html page to link to the script files
+* Create a link to the animate-world.js library
+* Create a link to your world.js script file
 * Create a script element in the index.html and call animateWorld()
 		<body>
 			<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>

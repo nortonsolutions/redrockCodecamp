@@ -1,6 +1,6 @@
 {
     "name": "Git Source Control",
-    "order": 0,
+    "order": 6,
     "time": "5 hours",
     "helpRoom": "Help",
     "challenges": [
@@ -83,7 +83,7 @@
                 [
                 "",
                 "",
-                "The best documentation for Git can be found <a href='http://uprep.edu/computerscience/docs/git/git-scm.com/doc.html' target='_blank'>here <span class='fa fa-external-link'></span></a>",
+                "The best documentation for Git can be found <a href='http://brickhousecodecamp.org/docs/git/git-scm.com/docs.html' target='_blank'>here <span class='fa fa-external-link'></span></a>",
                 ""
                 ]
             ],

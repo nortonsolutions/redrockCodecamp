@@ -2,7 +2,7 @@
 # User Management Templates
 
 * Languages: HTML, CSS, Javascript ES5, JSON
-* Languages Additional: ES6, only the following feature: Modules, for of, Template Literals
+* Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome, Handlebars
 * API Features: DOM Elements, Events, Web Storage API, XMLHttpRequest
 * Tools: VS Code, Live Server extension, Git

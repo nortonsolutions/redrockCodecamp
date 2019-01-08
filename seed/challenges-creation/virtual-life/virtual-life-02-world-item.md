@@ -1,9 +1,10 @@
 
-# Virtual Life Item
+# Virtual Life World Item
 
 * Languages: Javascript ES5
 * Tools: VS Code, Live Server extension, Git
 * Libraries: animate-world.js
+* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
 
 * Copy your Virtual Life app project to a new git repository for the starting point
 
@@ -13,35 +14,29 @@
 
 ### Code Design
 
-* Create an item object prototype to represent an item that occupies a cell in a world-item script
-* 
-* Create a world builder object in an world-builder.js script
-* Add a worldBuilder.buildWorldPlan() method that returns world plan string
-* Create a world object with the following methods
-	* toString() - Will output a string that displays the current state of the world
-			######
-			# p# #
-			# # a#
-			# pa #
-			# #p #
-			######
-		* The string must have a new line "\n" at the end of each row.
-		* A string example of the above world
-				"######\n# p# #\n# # a#\n# pa #\n# #p #######"
-	* turn() - Will advance the world by one turn
-* During a turn
-	* Each plant and animal should get a random chance to live or die
-	* Each plant and animal, if it lives, should get a random chance to reproduce
-		* If it reproduces it should be to an immediately nearby cell
-	* Each animal, if it lives, should get a random chance to move
-		* If it moves it should be to an immediately nearby cell
-* Use the animate-world.js library to animate your world object
-* The animate-world.js library creates a single global function name animateWorld() that takes a world object
-* Create an index.html page to link in animate-world.js library
-* Create a link to your world.js script
-* Create a script element in the index.html and call animateWorld()
+* The design of the code will change to make the virtual life app more modular
+* Concerns will be separated between the world, a world item, and a factory for creating a new world item
+* The world will need to be extended with more methods for use by the world item
+* Add the following methods to the world object
+	* look(worldItem, targetWorldItemTypes) - Will return an array of items immediately nearby
+		* Takes a world item and an array of world item types to look for
+	* copy(targetWorldItem, sourceWorldItem) - Will copy the source world item to the location of the target world item
+	* move(targetWorldItem, sourceWorldItem) - Will move the source world item to the location of the target world item
+	* remove(worldItem) - Will remove the world item and replace it with an empty space
+* Create an object prototype (with a constructor) named world item to represent an item that occupies a cell in a world-item script file
+* The world item object should keep track of its location in the world and other information related to the world item
+* Add the following methods to the world item object
+	* act(world) - Will complete the action for a single world item during it's turn i.e. die, reproduce, move
+		* Takes the world object for use to look, move, remove etc.
+* Create a world item factory object create a new world item
+* Add the following methods to the world item factory object
+	* build() - Will return a new world item
+		* Will take a symbol and information used for location
+* Create links to your world-item.js and world-item-factory.js files
 		<body>
 			<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
+			<script src="world-item.js"></script>
+			<script src="world-item-factory.js"></script>
 			<script src="world.js"></script>
 			<script>
 				animateWorld(world)
@@ -50,10 +45,15 @@
 
 ### References
 
-* How to define an object
-		var world = {};
+* How to define a prototyped object
+	* Make a constructor (use upper camel case)
+			function WorldItem(data) { this.data = data }
 
-* How to define a function for an object
-		world.turn = function() {
-			console.log("Taking a turn");
-		}
+	* Add functions
+			WorldItem.prototype.act = function() {
+				console.log(this.data);
+			}
+
+	* Create an instance of the object
+			var worldItem = new WorldItem(data);
+			worldItem.act();
