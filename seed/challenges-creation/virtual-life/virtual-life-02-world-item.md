@@ -31,7 +31,7 @@
 * Create a world item factory object create a new world item
 * Add the following methods to the world item factory object
 	* build() - Will return a new world item
-		* Will take a symbol and information used for location
+		* Takes a symbol and information used for location
 * Create links to your world-item.js and world-item-factory.js files
 		<body>
 			<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>

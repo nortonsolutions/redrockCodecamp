@@ -75,16 +75,16 @@
             "title": "Documentation for Git",
             "description": [
                 [
-                "",
-                "",
-                "You will need documentation for Git.",
-                ""
+                    "",
+                    "",
+                    "You will need documentation for Git.",
+                    ""
                 ],
                 [
-                "",
-                "",
-                "The best documentation for Git can be found <a href='http://brickhousecodecamp.org/docs/git/git-scm.com/docs.html' target='_blank'>here <span class='fa fa-external-link'></span></a>",
-                ""
+                    "",
+                    "",
+                    "The best documentation for Git can be found <a href='http://brickhousecodecamp.org/docs/git/git-scm.com/docs.html' target='_blank'>here <span class='fa fa-external-link'></span></a>",
+                    ""
                 ]
             ],
             "releasedOn": "",
@@ -93,30 +93,66 @@
             "type": "Waypoint",
             "challengeType": 7,
             "isRequired": false
-            },
-            {
-              "id": "bf6b4c40c0d4d15140816214",
-              "title": "** Read Pro Git 1 through 3",
-              "description": [
+        },
+        {
+            "id": "bf6b4c40c0d4d15140816214",
+            "title": "** Read Pro Git 1 through 3",
+            "description": [
                 [
-                  "",
-                  "",
-                  "It is recommended that you read chapters 1 through 3 of the book <em>Pro Git</em> by Scott Chacon and Ben Straub.",
-                  ""
+                    "",
+                    "",
+                    "It is recommended that you read chapters 1 through 3 of the book <em>Pro Git</em> by Scott Chacon and Ben Straub.",
+                    ""
                 ],
                 [
-                  "",
-                  "",
-                  "Please commit to reading chapters 1 through 3.",
-                  "#"
+                    "",
+                    "",
+                    "Please commit to reading chapters 1 through 3.",
+                    "#"
                 ]
-              ],
-              "releasedOn": "",
-              "challengeSeed": [],
-              "tests": [],
-              "type": "Waypoint",
-              "challengeType": 7,
-              "isRequired": false
-            }        
+            ],
+            "releasedOn": "",
+            "challengeSeed": [],
+            "tests": [],
+            "type": "Waypoint",
+            "challengeType": 7,
+            "isRequired": false
+        },
+        {
+            "id": "c3dadf3013850f03e526b29a",
+            "title": "Using git with VS Code",
+            "description": [
+                [
+                    "",
+                    "",
+                    "Git is integrated into VS Code.",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "From the terminal in VS Code you can easily start using git for a project by using the command: git init",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "After a project (folder) is using git, you can use the Source Control feature from the Activity Bar to manage your git repository.",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "Read <em>Using Version Control in VS Code</em> <a href='http://brickhousecodecamp.org/docs/vscode/code.visualstudio.com/docs/editor/versioncontrol.html' target='_blank'>here</a> to learn more",
+                    ""
+                ]
+            ],
+            "releasedOn": "",
+            "challengeSeed": [],
+            "tests": [],
+            "type": "Waypoint",
+            "challengeType": 7,
+            "isRequired": false
+        }
     ]
 }

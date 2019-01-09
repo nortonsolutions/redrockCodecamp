@@ -64,8 +64,7 @@
 			"description": [
 				"Build the app as defined in the project definition.",
 				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/virtual-life-01-app.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/virtual-life-01-app.png' target='_blank'>Click here</a> to view the full size image.",
-				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/virtual-life-01-app.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/virtual-life-01-app.png' style='width:500px;'></a>",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/virtual-life-01-app.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/virtual-life-01-app.png'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "January 8, 2019",
@@ -113,8 +112,7 @@
 			"description": [
 				"Build the app as defined in the project definition.",
 				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-02-world-item/virtual-life-02-world-item.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-02-world-item/virtual-life-02-world-item.png' target='_blank'>Click here</a> to view the full size image.",
-				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-02-world-item/virtual-life-02-world-item.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-02-world-item/virtual-life-02-world-item.png' style='width:500px;'></a>",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-02-world-item/virtual-life-02-world-item.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-02-world-item/virtual-life-02-world-item.png'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "January 8, 2019",
@@ -133,13 +131,205 @@
 				[
 					"",
 					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App.",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with World Item.",
 					"#"
 				],
 				[
 					"",
 					"",
 					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-02-world-item-e107c5d01382176f5345e430/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "22b3be0013a42b2b8a0d8c83",
+			"title": "Virtual Life App with Plan Builder",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-03-plan-builder/virtual-life-03-plan-builder.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-03-plan-builder/virtual-life-03-plan-builder.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-03-plan-builder/virtual-life-03-plan-builder.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"scYuH8R"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "2379cd2013a4f7ef2eb7e7f5",
+			"title": "Virtual Life App with Plan Builder Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with World Item.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-03-plan-builder-2379cd2013a4f7ef2eb7e7f5/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "49aaa9901419a1dace811077",
+			"title": "Virtual Life App with ES6 Modules",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-04-es6-modules/virtual-life-04-es6-modules.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-04-es6-modules/virtual-life-04-es6-modules.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-04-es6-modules/virtual-life-04-es6-modules.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"qHu6mXf"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "48e3d7201419772eb9859df1",
+			"title": "Virtual Life App with ES6 Modules Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Plan Builder.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-04-es6-modules-48e3d7201419772eb9859df1/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "9dbbaaf0144d3f38b286fad2",
+			"title": "Virtual Life App with Inheritance",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-05-inheritance/virtual-life-05-inheritance.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-05-inheritance/virtual-life-05-inheritance.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-05-inheritance/virtual-life-05-inheritance.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"68yNN2h"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "9e5f3df0144dcf91eb372a55",
+			"title": "Virtual Life App with Inheritance Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with ES6 Modules.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-05-inheritance-9e5f3df0144dcf91eb372a55/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "7967a460145235cb14329ba6",
+			"title": "Virtual Life App with Carnivore",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-06-carnivore/virtual-life-06-carnivore.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-06-carnivore/virtual-life-06-carnivore.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-06-carnivore/virtual-life-06-carnivore.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"3uYZjoh"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "7a00d7201452f17f153f9f7f",
+			"title": "Virtual Life App with Carnivore Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Inheritance.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-06-carnivore-7a00d7201452f17f153f9f7f/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
 					""
 				],
 				[
