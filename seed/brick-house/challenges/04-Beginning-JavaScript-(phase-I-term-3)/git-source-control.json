@@ -143,7 +143,7 @@
                 [
                     "",
                     "",
-                    "Read <em>Using Version Control in VS Code</em> <a href='http://brickhousecodecamp.org/docs/vscode/code.visualstudio.com/docs/editor/versioncontrol.html' target='_blank'>here</a> to learn more",
+                    "Read <em>Using Version Control in VS Code</em> <a href='http://brickhousecodecamp.org/docs/vscode/code.visualstudio.com/docs/editor/versioncontrol.html' target='_blank'>here <span class='fa fa-external-link'></span></a> to learn more",
                     ""
                 ]
             ],
