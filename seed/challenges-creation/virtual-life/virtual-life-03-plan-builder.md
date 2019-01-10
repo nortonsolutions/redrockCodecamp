@@ -4,6 +4,7 @@
 * Languages: Javascript ES5
 * Tools: VS Code, Live Server extension, Git
 * Libraries: animate-world.js
+* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
 
 ### Feature Specification
 

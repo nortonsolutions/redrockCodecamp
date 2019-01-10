@@ -5,6 +5,7 @@
 * Languages Additional: Javascript ES6 Modules
 * Tools: VS Code, Live Server extension, Git
 * Libraries: animate-world.js
+* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
 
 ### Feature Specification
 
@@ -31,7 +32,7 @@
 			</script>
 		</body>
 
-### References
+### Notes
 
 * How to use ES6 Modules for the browser
 	* Set scripts in the html to type module
@@ -45,3 +46,10 @@
 		* Paths must use ./ or ../ at the beginning
 		* Paths must use the .js file extension after the module name
 				import { app } from "./app.js";
+
+### References
+
+* [ECMAScript modules in browsers](http://brickhousecodecamp.org/educationMaterials/booksMaterials/languages/JavaScript-ES6/ES6-modules/ECMAScript%20modules%20in%20browsers%20-%20JakeArchibald.com.html)
+* [export](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/statements/export.html)
+* [import](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/statements/import.html)
+* [Script element](http://brickhousecodecamp.org/docs/html/developer.mozilla.org/en-US/docs/Web/HTML/Element/script.html#attr-type)

@@ -6,7 +6,7 @@
 * Libraries: Bootstrap, Font Awesome
 * API Features: DOM Elements, Events, Web Storage API
 * Tools: VS Code, Live Server extension, Git
-* Patterns and Practices: Master Details
+* Patterns and Practices: Master details
 
 ### Feature Specification
 
@@ -59,4 +59,4 @@
 
 ### References
 
-* Web Storage API (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)
+* [Web Storage API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)

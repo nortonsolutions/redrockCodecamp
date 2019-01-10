@@ -56,7 +56,7 @@
 			</script>
 		</body>
 
-### References
+### Notes
 
 * How to define an object
 		var world = {};
@@ -65,3 +65,7 @@
 		world.turn = function() {
 			console.log("Taking a turn");
 		}
+
+### References
+
+* [Object basics](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics.html)

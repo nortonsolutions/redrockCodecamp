@@ -6,7 +6,7 @@
 * Libraries: Bootstrap, Font Awesome, Handlebars
 * API Features: DOM Elements, Events, Web Storage API, XMLHttpRequest, History API, Location
 * Tools: VS Code, Live Server extension, Git
-* Patterns and Practices: Master Details, MVC, Separation of Concerns, consider Event Listener
+* Patterns and Practices: Master details, [MVC](http://brickhousecodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Command pattern](http://brickhousecodecamp.org/wikipedia/command_pattern.html)
 
 * Copy your User Management Router project to a new git repository for the starting point
 
@@ -34,10 +34,6 @@
 * Use a handlebars partial for the navbar
 * Use handlebars to set the bootstrap "active" class on the (li) of current page's link (user.html will not have a link)
 
-### References
-
-* Location (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
-
 ### Notes
 
 * How to asynchronously load a JavaScript file after page load
@@ -48,7 +44,11 @@
 
 * How to append a string of HTML to an element
 	* Do not use the experimental element.insertAdjacentHTML()
-	* Use an HTMLTemplateElement (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
+	* Use an [HTMLTemplateElement](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
 			var template = document.createElement("template");
 			template.innerHTML = html;
 			element.appendChild(template.content);
+
+### References
+
+* [Location](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)

@@ -5,7 +5,7 @@
 * Languages Additional: Javascript ES6 Modules
 * Tools: VS Code, Live Server extension, Git
 * Libraries: animate-world.js
-* Patterns and Practices: [Inheritance](http://brickhousecodecamp.org/wikipedia/inheritance_oop.html)
+* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html), [Inheritance](http://brickhousecodecamp.org/wikipedia/inheritance_oop.html)
 
 ### Feature Specification
 
@@ -24,7 +24,7 @@
 	* Override the act method
 * Change the world item factory to build the correct type of world item object for plants and animals
 
-### References
+### Notes
 
 * How to derive from an object
 	* Invoke the parent objects constructor in the constructor
@@ -34,3 +34,7 @@
 
 	* Set the derived object's prototype to a copy of the parent's prototype
 			DerivedObject.prototype = Object.create(ParentObject.prototype);
+
+### References
+
+* [Inheritance in JavaScript](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance.html)

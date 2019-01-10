@@ -43,7 +43,7 @@
 			</script>
 		</body>
 
-### References
+### Notes
 
 * How to define a prototyped object
 	* Make a constructor (use upper camel case)
@@ -57,3 +57,7 @@
 	* Create an instance of the object
 			var worldItem = new WorldItem(data);
 			worldItem.act();
+
+### References
+
+* [Object prototypes](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes.html)

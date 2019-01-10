@@ -5,6 +5,7 @@
 * Languages Additional: Javascript ES6 Modules
 * Tools: VS Code, Live Server extension, Git
 * Libraries: animate-world.js
+* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html), [Inheritance](http://brickhousecodecamp.org/wikipedia/inheritance_oop.html)
 
 ### Feature Specification
 

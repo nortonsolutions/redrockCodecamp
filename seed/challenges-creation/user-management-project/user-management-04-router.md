@@ -6,7 +6,7 @@
 * Libraries: Bootstrap, Font Awesome, Handlebars
 * API Features: DOM Elements, Events, Web Storage API, XMLHttpRequest, History API
 * Tools: VS Code, Live Server extension, Git
-* Patterns and Practices: Master Details, MVC, Separation of Concerns, consider Event Listener
+* Patterns and Practices: Master details, [MVC](http://brickhousecodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Command pattern](http://brickhousecodecamp.org/wikipedia/command_pattern.html)
 
 * Copy your User Management Templates project to a new git repository for the starting point
 
@@ -72,4 +72,4 @@
 
 ### References
 
-* History API (http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)
+* [History API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html)

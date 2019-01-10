@@ -6,7 +6,7 @@
 * Libraries: Bootstrap, Font Awesome
 * API Features: DOM Elements, Events, Web Storage API
 * Tools: VS Code, Live Server extension, Git
-* Patterns and Practices: Master Details, MVC, Separation of Concerns
+* Patterns and Practices: Master details, [MVC](http://brickhousecodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html)
 
 * Copy your User Management page project to a new git repository for the starting point
 
@@ -48,8 +48,3 @@
 	* Use a hidden input field For keeping track of the current user's unique id
 * Your views, controller, and store objects do not need to be prototyped objects, they can be simple objects {}
 * The data object for the user does not need to be a prototyped object
-
-### References
-
-* http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
-* http://en.wikipedia.org/wiki/Separation_of_concerns
