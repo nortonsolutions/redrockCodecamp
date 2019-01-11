@@ -10,7 +10,7 @@
 
 ### Feature Specification
 
-* Create a user interface that displays the state of the world using text symbols i.e. #, a, p, etc.
+* Create a user interface that displays the state of the world using text symbols i.e. #, a, p, etc
 
 ### Code Design
 

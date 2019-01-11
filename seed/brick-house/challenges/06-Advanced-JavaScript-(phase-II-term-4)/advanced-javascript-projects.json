@@ -1,6 +1,6 @@
 {
 	"name": "Advanced JavaScript Projects",
-	"order": 5,
+	"order": 4,
 	"time": "70 hours",
 	"helpRoom": "Help",
 	"challenges": [
@@ -90,6 +90,54 @@
 					"",
 					"",
 					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-07-animate-text-4d5fcbc015ad45d58190084f/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "b76579a015dc81c4130c6dba",
+			"title": "Virtual Life App with Animate Icons",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.png' style='width:500px'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"sFA1bFj"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "b8359ae015dc9d5d3f60a85a",
+			"title": "Virtual Life App with Animate Icons Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Animate Icons.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-08-animate-icons-b8359ae015dc9d5d3f60a85a/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
 					""
 				],
 				[
