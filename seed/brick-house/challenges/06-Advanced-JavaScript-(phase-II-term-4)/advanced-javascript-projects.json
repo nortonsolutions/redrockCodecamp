@@ -1,0 +1,111 @@
+{
+	"name": "Advanced JavaScript Projects",
+	"order": 5,
+	"time": "70 hours",
+	"helpRoom": "Help",
+	"challenges": [
+    {
+      "id": "f7ca76b015acb7ce93ec576c",
+      "title": "** Commit to not solve other students problems - Advanced JavaScript",
+      "description": [
+        [
+          "",
+          "",
+          "Computer programming requires excellent problem solving skills.<br><br>Working through problems with the help of documentation is a daily activity for all programmers.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Students should never give away a solution to a problem or share code that completes a problem.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If a student is still unable to solve a problem, please, refer them to the tutor.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
+          "#"
+        ]
+      ],
+      "releasedOn": "May 10, 2018",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": true
+    },
+		{
+			"id": "4ceff2f015ade7754d1e5c40",
+			"title": "Virtual Life App with Animate Text",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"sFA1bFj"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "4d5fcbc015ad45d58190084f",
+			"title": "Virtual Life App with Animate Text Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Animate Text.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-07-animate-text-4d5fcbc015ad45d58190084f/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		}
+	]
+  }
+  

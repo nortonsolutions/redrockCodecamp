@@ -1,9 +1,9 @@
 
-# Virtual Life Carnivore
+# Virtual Life App with Carnivore
 
 * Languages: Javascript ES5
 * Languages Additional: Javascript ES6 Modules
-* Tools: VS Code, Live Server extension, Git
+* Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
 * Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html), [Inheritance](http://brickhousecodecamp.org/wikipedia/inheritance_oop.html)
 

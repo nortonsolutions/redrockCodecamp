@@ -2,7 +2,7 @@
 # Virtual Life App
 
 * Languages: Javascript ES5
-* Tools: VS Code, Live Server extension, Git
+* Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
 
 ### Feature Specification
@@ -24,18 +24,18 @@
 ### Code Design
 
 * Create a world object in an world.js script file
-* Add the following methods to the world object
-	* toString() - Will output a string that displays the current state of the world
-			######
-			# p# #
-			# # a#
-			# pa #
-			# #p #
-			######
-		* The string must have a new line "\n" at the end of each row.
-		* A string example of the above world
-				"######\n# p# #\n# # a#\n# pa #\n# #p #######"
-	* turn() - Will advance the world by one turn
+	* Add the following methods
+		* toString() - Will output a string that displays the current state of the world
+				######
+				# p# #
+				# # a#
+				# pa #
+				# #p #
+				######
+			* The string must have a new line "\n" at the end of each row.
+			* A string example of the above world
+					"######\n# p# #\n# # a#\n# pa #\n# #p #######"
+		* turn() - Will advance the world by one turn
 * During a turn
 	* Each plant and animal should get a random chance to live or die
 	* Each plant and animal, if it lives, should get a random chance to reproduce

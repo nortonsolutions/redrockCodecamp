@@ -4,8 +4,8 @@
 * Languages: HTML, CSS, Javascript ES5, JSON
 * Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome
-* API Features: DOM Elements, Events, Web Storage API
-* Tools: VS Code, Live Server extension, Git
+* API Features: [DOM Elements](http://brickhousecodecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://brickhousecodecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)
+* Tools: VS Code, Live Server extension, Git (if available)
 * Patterns and Practices: Master details
 
 ### Feature Specification
@@ -56,7 +56,3 @@
 * Do not do any data validation
 * All users should be stored in a single key value pair in window.localStorage
 	* The value should be a JSON string of all users
-
-### References
-
-* [Web Storage API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)

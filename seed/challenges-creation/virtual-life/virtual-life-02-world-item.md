@@ -1,12 +1,12 @@
 
-# Virtual Life World Item
+# Virtual Life App with World Item
 
 * Languages: Javascript ES5
-* Tools: VS Code, Live Server extension, Git
+* Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
 * Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
 
-* Copy your Virtual Life app project to a new git repository for the starting point
+*Copy your previous project for the starting point*
 
 ### Feature Specification
 
@@ -17,21 +17,21 @@
 * The design of the code will change to make the virtual life app more modular
 * Concerns will be separated between the world, a world item, and a factory for creating a new world item
 * The world will need to be extended with more methods for use by the world item
-* Add the following methods to the world object
-	* look(worldItem, targetWorldItemTypes) - Will return an array of items immediately nearby
-		* Takes a world item and an array of world item types to look for
-	* copy(targetWorldItem, sourceWorldItem) - Will copy the source world item to the location of the target world item
-	* move(targetWorldItem, sourceWorldItem) - Will move the source world item to the location of the target world item
-	* remove(worldItem) - Will remove the world item and replace it with an empty space
+	* Add the following methods
+		* look(worldItem, targetWorldItemTypes) - Will return an array of items immediately nearby
+			* Takes a world item and an array of world item types to look for
+		* copy(targetWorldItem, sourceWorldItem) - Will copy the source world item to the location of the target world item
+		* move(targetWorldItem, sourceWorldItem) - Will move the source world item to the location of the target world item
+		* remove(worldItem) - Will remove the world item and replace it with an empty space
 * Create an object prototype (with a constructor) named world item to represent an item that occupies a cell in a world-item script file
 * The world item object should keep track of its location in the world and other information related to the world item
-* Add the following methods to the world item object
-	* act(world) - Will complete the action for a single world item during it's turn i.e. die, reproduce, move
-		* Takes the world object for use to look, move, remove etc.
+	* Add the following methods
+		* act(world) - Will complete the action for a single world item during it's turn i.e. die, reproduce, move
+			* Takes the world object for use to look, move, remove etc.
 * Create a world item factory object create a new world item
-* Add the following methods to the world item factory object
-	* build() - Will return a new world item
-		* Takes a symbol and information used for location
+	* Add the following methods
+		* build() - Will return a new world item
+			* Takes a symbol and information used for location
 * Create links to your world-item.js and world-item-factory.js files
 		<body>
 			<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>

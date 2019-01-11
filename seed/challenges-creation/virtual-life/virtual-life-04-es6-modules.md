@@ -1,9 +1,9 @@
 
-# Virtual Life ES6 Modules
+# Virtual Life App with ES6 Modules
 
 * Languages: Javascript ES5
 * Languages Additional: Javascript ES6 Modules
-* Tools: VS Code, Live Server extension, Git
+* Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
 * Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
 
@@ -15,10 +15,14 @@
 
 * Convert all js files to ES6 modules using import and export
 * Create an app object in an app.js script file
-* Add the following methods to the app object
-	* load() - starting point for the application
-		* Use the world plan, world and animateworld here to initialize and start the world
+	* Add the following methods
+		* load() - starting point for the application
+			* Use the world plan, world and animateworld here to initialize and start the world
 * Export the app, world plan builder, world item factory, world item, world and any other shared objects
+* Improve the file structure with folders
+	* Add an app folder to contain files related directly to the application like world.js
+	* Add a lib folder for any generic script files like math.js or string.js
+	* Keep the index.html and app.js files in the root of the project
 * In the index.html file only link to the animate world file
 * In the index.html use a script of type module to import the app object and call load()
 		<body>

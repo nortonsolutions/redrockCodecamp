@@ -109,7 +109,7 @@
 		},
 		{
 			"id": "efd58d40fc85274deed8d559",
-			"title": "User Management Page with Routing",
+			"title": "User Management Page with Router",
 			"description": [
 				"Build the page as defined in the project definition.",
 				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-04-router/user-management-04-router.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
@@ -129,12 +129,12 @@
 		},
 		{
 			"id": "f07cc9c0fc85a7361dd682d0",
-			"title": "User Management Page with Routing Source Code Review",
+			"title": "User Management Page with Router Source Code Review",
 			"description": [
 				[
 					"",
 					"",
-					"Confirm that you have that you have completed and submitted the User Management Page with Routing.",
+					"Confirm that you have that you have completed and submitted the User User Management Page with Router.",
 					"#"
 				],
 				[
@@ -159,7 +159,7 @@
 		},
 		{
 			"id": "a5649440fcc17faeab614b31",
-			"title": "User Management Page with Bookmarking",
+			"title": "User Management Page with Bookmarkable",
 			"description": [
 				"Build the page as defined in the project definition.",
 				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-05-bookmarkable/user-management-05-bookmarkable.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
@@ -178,12 +178,12 @@
 		},
 		{
 			"id": "a6171b60fcc191344e40b886",
-			"title": "User Management Page with Bookmarking Source Code Review",
+			"title": "User Management Page with Bookmarkable Source Code Review",
 			"description": [
 				[
 					"",
 					"",
-					"Confirm that you have that you have completed and submitted the User Management Page with Routing.",
+					"Confirm that you have that you have completed and submitted the User Management Page with Bookmarkable.",
 					"#"
 				],
 				[

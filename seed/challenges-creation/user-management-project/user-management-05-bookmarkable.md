@@ -1,11 +1,11 @@
 
-# User Management Bookmarkable
+# User Management Page with Bookmarkable
 
 * Languages: HTML, CSS, Javascript ES5, JSON
 * Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome, Handlebars
-* API Features: DOM Elements, Events, Web Storage API, XMLHttpRequest, History API, Location
-* Tools: VS Code, Live Server extension, Git
+* API Features: [DOM Elements](http://brickhousecodecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://brickhousecodecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html), [History API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html), [Location](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
+* Tools: VS Code, Live Server extension, Git (if available)
 * Patterns and Practices: Master details, [MVC](http://brickhousecodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Command pattern](http://brickhousecodecamp.org/wikipedia/command_pattern.html)
 
 * Copy your User Management Router project to a new git repository for the starting point
@@ -48,7 +48,3 @@
 			var template = document.createElement("template");
 			template.innerHTML = html;
 			element.appendChild(template.content);
-
-### References
-
-* [Location](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)

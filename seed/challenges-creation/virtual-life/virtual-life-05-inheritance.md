@@ -1,9 +1,9 @@
 
-# Virtual Life Inheritance
+# Virtual Life App with Inheritance
 
 * Languages: Javascript ES5
 * Languages Additional: Javascript ES6 Modules
-* Tools: VS Code, Live Server extension, Git
+* Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
 * Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html), [Inheritance](http://brickhousecodecamp.org/wikipedia/inheritance_oop.html)
 
@@ -15,7 +15,8 @@
 
 * Use object inheritance with a object of world item and derived objects for plant and animal world items
 * Create a world item prototyped object
-	* This object should have an act method that is overridden in the derived objects
+	* Add the following methods
+		* act() - will be overridden in the derived objects
 	* This object should contain any of the general data for all world item type objects i.e. location data
 	* This object should have any general methods that might be used by derived objects
 * Create a plant world item prototyped object that derives from world item
