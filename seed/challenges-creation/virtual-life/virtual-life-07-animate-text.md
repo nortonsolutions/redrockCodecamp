@@ -19,6 +19,7 @@
 * Create a world animator prototyped object that is responsible for the animation cycle and using the world object
 	* Add the following methods
 		* start() - Will start the animation
+	* Use window.setInterval() for the turn and animation process
 * Create a world view prototyped object that is render the html and state of the world
 	* Add the following methods 
 		* initialize(worldString) - Will prepare any html
@@ -36,3 +37,4 @@
 ### References
 
 * [Introduction to the DOM](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Introduction.html)
+* [setInterval()](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval-2.html)

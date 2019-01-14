@@ -165,7 +165,7 @@
 			],
 			"releasedOn": "January 11, 2019",
 			"challengeSeed": [
-				"mzQKkxo"
+				"efzQzbO"
 			],
 			"tests": [],
 			"type": "zipline",
@@ -186,6 +186,56 @@
 					"",
 					"",
 					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-09-health-ca2bf2d015e601ebc0385d61/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 11, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "7827c550180b1983f7d686bb",
+			"title": "Virtual Life App with Statistics",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' style='width:500px'></a>",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' style='width:500px'></a>",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' style='width:500px'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 11, 2019",
+			"challengeSeed": [
+				"ibgLhpG"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "78be6000180b2b11ae74deba",
+			"title": "Virtual Life App with Statistics Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Statistics.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
 					""
 				],
 				[
