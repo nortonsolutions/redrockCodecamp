@@ -2,11 +2,11 @@
 # Bluesky Website
 
 * Languages: HTML, CSS, Javascript ES5, JSON
-* Languages Additional: ES6, only the following feature: Modules, for of, Template Literals
+* Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome, Handlebars
-* API Features: DOM Elements, Events, Web Storage API, XMLHttpRequest, History API
-* Tools: VS Code, Live Server extension, Git
-* Patterns and Practices: Master Details, MVC, Separation of Concerns, Event Listener
+* API Features: [DOM Elements](http://brickhousecodecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://brickhousecodecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html), [History API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html), [Location](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
+* Tools: VS Code, Live Server extension, Git (if available)
+* Patterns and Practices: Master details, [MVC](http://brickhousecodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Command pattern](http://brickhousecodecamp.org/wikipedia/command_pattern.html)
 
 ### Feature Specification
 
