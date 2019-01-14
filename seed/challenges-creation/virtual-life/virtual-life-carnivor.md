@@ -1,3 +1,0 @@
-
-
-* abstract out all symbols

@@ -13,28 +13,28 @@
 
 ### Code Design
 
-* Use object inheritance with a object of world item and derived objects for plant and animal world items
+* Use object inheritance with a parent object named world item and inherited objects for plant and animal world items
 * Create a world item prototyped object
 	* Add the following methods
-		* act() - will be overridden in the derived objects
+		* act() - will be overridden in the inherited objects
 	* This object should contain any of the general data for all world item type objects i.e. location data
-	* This object should have any general methods that might be used by derived objects
-* Create a plant world item prototyped object that derives from world item
+	* This object should have any general methods that might be used by inherited objects
+* Create a plant world item prototyped object that inherits from world item
 	* Override the act method
-* Create an animal world item prototyped object that derives from world item
+* Create an animal world item prototyped object that inherits from world item
 	* Override the act method
 * Change the world item factory to build the correct type of world item object for plants and animals
 
 ### Notes
 
-* How to derive from an object
-	* Invoke the parent objects constructor in the constructor
-			function DerivedObject(data) {
+* How to inherit from an object
+	* Invoke the parent object's constructor in the inherited object's constructor
+			function InheritedObject(data) {
 				ParentObject.call(data);
 			}
 
-	* Set the derived object's prototype to a copy of the parent's prototype
-			DerivedObject.prototype = Object.create(ParentObject.prototype);
+	* Set the inherited object's prototype to a copy of the parent's prototype
+			InheritedObject.prototype = Object.create(ParentObject.prototype);
 
 ### References
 

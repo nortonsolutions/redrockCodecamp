@@ -64,12 +64,12 @@
 			"description": [
 				"Build the app as defined in the project definition.",
 				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.png'></a>",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.png' style='width:500px'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
-			"releasedOn": "January 8, 2019",
+			"releasedOn": "January 11, 2019",
 			"challengeSeed": [
-				"sFA1bFj"
+				"5lkI2VA"
 			],
 			"tests": [],
 			"type": "zipline",
@@ -99,7 +99,7 @@
 					"#"
 				]
 			],
-			"releasedOn": "January 8, 2019",
+			"releasedOn": "January 11, 2019",
 			"challengeSeed": [],
 			"tests": [],
 			"type": "Waypoint",
@@ -115,9 +115,9 @@
 				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.png' style='width:500px'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
-			"releasedOn": "January 8, 2019",
+			"releasedOn": "January 11, 2019",
 			"challengeSeed": [
-				"sFA1bFj"
+				"7UMSzOr"
 			],
 			"tests": [],
 			"type": "zipline",
@@ -147,7 +147,55 @@
 					"#"
 				]
 			],
-			"releasedOn": "January 8, 2019",
+			"releasedOn": "January 11, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+		{
+			"id": "c9a5d2e015e615ab4534e331",
+			"title": "Virtual Life App with Health",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' target='_blank'><img src='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' style='width:500px'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 11, 2019",
+			"challengeSeed": [
+				"mzQKkxo"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "ca2bf2d015e601ebc0385d61",
+			"title": "Virtual Life App with Health Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Health.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://brickhousecodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-09-health-ca2bf2d015e601ebc0385d61/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm that you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 11, 2019",
 			"challengeSeed": [],
 			"tests": [],
 			"type": "Waypoint",
