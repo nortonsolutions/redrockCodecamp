@@ -44,17 +44,18 @@
 		* If it moves it should be to an immediately nearby cell
 * Use the animate-world.js library to animate your world object
 * The animate-world.js library creates a single global function named animateWorld() that takes a world object as a parameter
-* Create an index.html page to link to the script files
-* Create a link to the animate-world.js library
-* Create a link to your world.js script file
-* Create a script element in the index.html and call animateWorld()
-		<body>
-			<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
-			<script src="world.js"></script>
-			<script>
-				animateWorld(world)
-			</script>
-		</body>
+* Create an index.html page to link to the script files and call animateWorld()
+	* In the body complete the following
+		* Create a script link to the animate-world.js library
+		* Create a script link to your world.js script file
+		* Create a script element call animateWorld() passing your world object
+				<body>
+					<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
+					<script src="world.js"></script>
+					<script>
+						animateWorld(world)
+					</script>
+				</body>
 
 ### Notes
 
