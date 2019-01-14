@@ -1,17 +1,17 @@
 {
-	"name": "Introduction to JavaScript",
+	"name": "Introduction to the Web APIs and the DOM",
 	"time": "5 minutes",
 	"order": 2,
 	"helpRoom": "HelpJavaScript",
 	"challenges": [
 		{
-			"id": "bd6123c9c441eddfaeb4bdef",
+			"id": "19f7ac001821db98be556fe3",
 			"title": "Introduction to the Web APIs and the DOM",
 			"description": [
 				[
 					"",
 					"",
-					"When writing code for the Web with JavaScript, there are a great many <a href='http://brickhousecodecamp.org/wikipedia/application_programming_interface.html' target='_blank'>application programming interfaces (APIs)</a> available.",
+					"When writing code for the Web with JavaScript, there are a many <a href='http://brickhousecodecamp.org/wikipedia/application_programming_interface.html' target='_blank'>application programming interfaces (APIs)</a> available.",
 					""
 				],
 				[
@@ -35,7 +35,7 @@
 			"translations": {}
 		},
 		{
-			"id": "91736300181ca12fd8ac6372",
+			"id": "1a8c71f018210fc90408c93f",
 			"title": "Documentation for the DOM",
 			"description": [
 				[
@@ -71,7 +71,7 @@
 			"isRequired": false
 		},
 		{
-			"id": "91c92420181cabff74e62d59",
+			"id": "1b065ce0182149d3494c2d3a",
 			"title": "** Read Professional JavaScript 8 through 14",
 			"description": [
 				[
