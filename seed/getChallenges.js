@@ -56,6 +56,7 @@ module.exports = function getChallenges() {
     // const challengesDirectoryName = 'challenges-future';
     // const challengesDirectoryName = 'bridges/challenges';
     // const challengesDirectoryName = 'bridges/trial/challenges';
+    // const challengesDirectoryName = 'challenges-freeCodeCamp';
 
     return getFilesFor(challengesDirectoryName)
       .map(function(data) {
