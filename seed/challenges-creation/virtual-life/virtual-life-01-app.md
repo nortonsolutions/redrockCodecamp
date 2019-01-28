@@ -37,6 +37,10 @@
 					"######\n# p# #\n# # a#\n# pa #\n# #p #######"
 		* turn() - Will advance the world by one turn
 * During a turn
+	* Each cell on the grid will be given a chance to act
+		* It is **not** necessary to make a copy of the grid
+		* It is **not** necessary to assure that an animal only acts once
+				i.e. An animal may act more than once if it moves to a cell that has not yet acted
 	* Each plant and animal should get a random chance to live or die
 	* Each plant and animal, if it lives, should get a random chance to reproduce
 		* If it reproduces it should be to an immediately nearby cell
@@ -48,7 +52,7 @@
 	* In the body complete the following
 		* Create a script link to the animate-world.js library
 		* Create a script link to your world.js script file
-		* Create a script element call animateWorld() passing your world object
+		* Create a script element and call animateWorld() passing your world object
 				<body>
 					<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
 					<script src="world.js"></script>
