@@ -10,6 +10,7 @@
     "coveralls": "npm run cover && istanbul-coveralls",
     "create-rev": "node -e \"var fs = require('fs'); fs.access('./server/rev-manifest.json', function(err) { if (err) { console.log('\\n\\ncreating manifest\\n\\n'); return fs.writeFileSync('server/rev-manifest.json', '{}'); } console.log('\\n\\nrev-manifest present\\n\\n'); });\"",
     "develop": "gulp",
+    "develop-serve": "gulp serve",
     "lint": "npm run lint-js && npm run lint-json",
     "lint-challenges": "jsonlint-cli seed/challenges/**/*.json",
     "lint-server": "jsonlint-cli server/*.json",
