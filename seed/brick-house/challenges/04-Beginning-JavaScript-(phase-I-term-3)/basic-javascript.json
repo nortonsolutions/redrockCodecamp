@@ -4226,7 +4226,7 @@
         "There are two ways to access the properties of an object: dot notation (<code>.</code>) and bracket notation (<code>[]</code>), similar to an array.",
         "Dot notation is what you use when you know the name of the property you're trying to access ahead of time.",
         "Here is a sample of using dot notation (<code>.</code>) to read an object's property:",
-        "<blockquote>var myObj = {<br>  property1: \"val1\",<br>  prooperty2: \"val2\"<br>};<br>var prop1val = myObj.property1; // val1<br>var prop2val = myObj.prooperty2; // val2</blockquote>",
+        "<blockquote>var myObject = {<br>  property1: \"val1\",<br>  prooperty2: \"val2\"<br>};<br>var prop1val = myObject.property1; // val1<br>var prop2val = myObject.prooperty2; // val2</blockquote>",
         "<hr>",
         "Read in the property values of <code>testObject</code> using dot notation. Set the variable <code>hatValue</code> equal to the object's property <code>hat</code> and set the variable <code>shirtValue</code> equal to the object's property <code>shirt</code>."
       ],
@@ -4280,7 +4280,7 @@
         "The second way to access the properties of an object is bracket notation (<code>[]</code>). If the property of the object you are trying to access has a space in its name, you will need to use bracket notation.",
         "However, you can still use bracket notation on object properties without spaces.",
         "Here is a sample of using bracket notation to read an object's property:",
-        "<blockquote>var myObj = {<br>  \"Space Name\": \"Kirk\",<br>  \"More Space\": \"Spock\",<br>  \"NoSpace\": \"USS Enterprise\"<br>};<br>myObj[\"Space Name\"]; // Kirk<br>myObj['More Space']; // Spock<br>myObj[\"NoSpace\"];    // USS Enterprise</blockquote>",
+        "<blockquote>var myObject = {<br>  \"Space Name\": \"Kirk\",<br>  \"More Space\": \"Spock\",<br>  \"NoSpace\": \"USS Enterprise\"<br>};<br>myObject[\"Space Name\"]; // Kirk<br>myObject['More Space']; // Spock<br>myObject[\"NoSpace\"];    // USS Enterprise</blockquote>",
         "Note that property names with spaces in them must be in quotes (single or double).",
         "<hr>",
         "Read the values of the properties <code>\"an entree\"</code> and <code>\"the drink\"</code> of <code>testObject</code> using bracket notation and assign them to <code>entreeValue</code> and <code>drinkValue</code> respectively."
@@ -4288,7 +4288,7 @@
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "var testObj = {",
+        "var testObject = {",
         "  \"an entree\": \"hamburger\",",
         "  \"my side\": \"veggies\",",
         "  \"the drink\": \"water\"",
@@ -4296,21 +4296,21 @@
         "",
         "// Only change code below this line",
         "",
-        "var entreeValue = testObj;   // Change this line",
-        "var drinkValue = testObj;    // Change this line"
+        "var entreeValue = testObject;   // Change this line",
+        "var drinkValue = testObject;    // Change this line"
       ],
       "tail": [
         "(function(a,b) { return \"entreeValue = '\" + a + \"', drinkValue = '\" + b + \"'\"; })(entreeValue,drinkValue);"
       ],
       "solutions": [
-        "var testObj = {\n  \"an entree\": \"hamburger\",\n  \"my side\": \"veggies\",\n  \"the drink\": \"water\"\n};\nvar entreeValue = testObj[\"an entree\"];\nvar drinkValue = testObj['the drink'];"
+        "var testObject = {\n  \"an entree\": \"hamburger\",\n  \"my side\": \"veggies\",\n  \"the drink\": \"water\"\n};\nvar entreeValue = testObject[\"an entree\"];\nvar drinkValue = testObject['the drink'];"
       ],
       "tests": [
         "assert(typeof entreeValue === 'string' , 'message: <code>entreeValue</code> should be a string');",
         "assert(entreeValue === 'hamburger' , 'message: The value of <code>entreeValue</code> should be <code>\"hamburger\"</code>');",
         "assert(typeof drinkValue === 'string' , 'message: <code>drinkValue</code> should be a string');",
         "assert(drinkValue === 'water' , 'message: The value of <code>drinkValue</code> should be <code>\"water\"</code>');",
-        "assert(code.match(/testObj\\s*?\\[('|\")[^'\"]+\\1\\]/g).length > 1, 'message: You should use bracket notation twice');"
+        "assert(code.match(/testObject\\s*?\\[('|\")[^'\"]+\\1\\]/g).length > 1, 'message: You should use bracket notation twice');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -4323,7 +4323,7 @@
             "<blockquote>var miObj = {<br>  \"Nombre con espacio\": \"Kirk\",<br>  \"Mas espacio\": \"Spock\"<br>};<br>miObj[\"Nombre con espacio\"]; // Kirk<br>miObj['Mas espacio']; // Spock</blockquote>",
             "Nota que los nombres de propiedades con espacios tienen que estar entre comillas (apóstrofes o comillas).",
             "<h4>Instrucciones</h4>",
-            "Lee los valores de las propiedades <code>\"an entree\"</code> y <code>\"the drink\"</code> de <code>testObj</code> usando la notación corchete."
+            "Lee los valores de las propiedades <code>\"an entree\"</code> y <code>\"the drink\"</code> de <code>testObject</code> usando la notación corchete."
           ]
         }
       }
@@ -4336,15 +4336,15 @@
         "Here is an example of using a variable to access a property:",
         "<blockquote>var dogs = {<br>  Fido: \"Mutt\",\n  Hunter: \"Doberman\",\n  Snoopie: \"Beagle\"<br>};<br>var myDog = \"Hunter\";<br>var myBreed = dogs[myDog];<br>console.log(myBreed); // \"Doberman\"</blockquote>",
         "Another way you can use this concept is when the property's name is collected dynamically during the program execution, as follows:",
-        "<blockquote>var someObj = {<br>  propName: \"John\"<br>};<br>function propPrefix(str) {<br>  var s = \"prop\";<br>  return s + str;<br>}<br>var someProp = propPrefix(\"Name\"); // someProp now holds the value 'propName'<br>console.log(obj[someProp]); // \"John\"</blockquote>",
+        "<blockquote>var someObject = {<br>  propertyName: \"John\"<br>};<br>function propertyPrefix(string) {<br>  var s = \"property\";<br>  return s + string;<br>}<br>var someProperty = propertyPrefix(\"Name\"); // someProperty now holds the value 'propertyName'<br>console.log(object[someProperty]); // \"John\"</blockquote>",
         "Note that we  do <em>not</em> use quotes around the variable name when using it to access the property because we are using the <em>value</em> of the variable, not the <em>name</em>.",
         "<hr>",
-        "Use the <code>playerNumber</code> variable to look up player <code>16</code> in <code>testObj</code> using bracket notation. Then assign that name to the <code>player</code> variable."
+        "Use the <code>playerNumber</code> variable to look up player <code>16</code> in <code>testObject</code> using bracket notation. Then assign that name to the <code>player</code> variable."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "var testObj = {",
+        "var testObject = {",
         "  12: \"Namath\",",
         "  16: \"Montana\",",
         "  19: \"Unitas\"",
@@ -4353,21 +4353,21 @@
         "// Only change code below this line;",
         "",
         "var playerNumber;       // Change this Line",
-        "var player = testObj;   // Change this Line"
+        "var player = testObject;   // Change this Line"
       ],
       "tail": [
         "if(typeof player !== \"undefined\"){(function(v){return v;})(player);}"
       ],
       "solutions": [
-        "var testObj = {\n  12: \"Namath\",\n  16: \"Montana\",\n  19: \"Unitas\"\n};\nvar playerNumber = 16;\nvar player = testObj[playerNumber];"
+        "var testObject = {\n  12: \"Namath\",\n  16: \"Montana\",\n  19: \"Unitas\"\n};\nvar playerNumber = 16;\nvar player = testObject[playerNumber];"
       ],
       "tests": [
         "assert(typeof playerNumber === 'number', 'message: <code>playerNumber</code> should be a number');",
         "assert(typeof player === 'string', 'message: The variable <code>player</code> should be a string');",
         "assert(player === 'Montana', 'message: The value of <code>player</code> should be \"Montana\"');",
-        "assert(/testObj\\s*?\\[.*?\\]/.test(code),'message: You should use bracket notation to access <code>testObj</code>');",
+        "assert(/testObject\\s*?\\[.*?\\]/.test(code),'message: You should use bracket notation to access <code>testObject</code>');",
         "assert(!code.match(/player\\s*=\\s*\"|\\'\\s*Montana\\s*\"|\\'\\s*;/gi),'message: You should not assign the value <code>Montana</code> to the variable <code>player</code> directly.');",
-        "assert(/testObj\\s*?\\[\\s*playerNumber\\s*\\]/.test(code),'message: You should be using the variable <code>playerNumber</code> in your bracket notation');"
+        "assert(/testObject\\s*?\\[\\s*playerNumber\\s*\\]/.test(code),'message: You should be using the variable <code>playerNumber</code> in your bracket notation');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -4382,7 +4382,7 @@
             "<blockquote>var miPerro = \"Cazador\";<br>var perros = {<br>  Fido: \"Mutt\",\n  Cazador: \"Doberman\",\n  Snoopie: \"Beagle\"<br >}<br>var raza = perros[miPerro]; // \"Cazador\"<br>console.log(raza)// \"Doberman\"</blockquote>",
             "Nota que <em>no</em> usamos comillas alrededor del nombre de la variable (<code>miPerro</code>) cuando la usamos para acceder a la propiedad (<code>perros[miPerro]</code> porque estamos usando el <em>valor</em> de la variable y no su <em>nombre</em>",
             "<h4>Instrucciones</h4>",
-            "Usa la variable <code>playerNumber</code> para buscar y asignar a <code>player</code> el jugador <code>16</code> de <code>testObj</code>, usa la notación corchete."
+            "Usa la variable <code>playerNumber</code> para buscar y asignar a <code>player</code> el jugador <code>16</code> de <code>testObject</code>, usa la notación corchete."
           ]
         }
       }
@@ -4655,14 +4655,14 @@
       "description": [
         "Sometimes it is useful to check if the property of a given object exists or not. We can use the <code>.hasOwnProperty(propname)</code> method of objects to determine if that object has the given property name. <code>.hasOwnProperty()</code> returns <code>true</code> or <code>false</code> if the property is found or not.",
         "<strong>Example</strong>",
-        "<blockquote>var myObj = {<br>  top: \"hat\",<br>  bottom: \"pants\"<br>};<br>myObj.hasOwnProperty(\"top\");    // true<br>myObj.hasOwnProperty(\"middle\"); // false</blockquote>",
+        "<blockquote>var myObject = {<br>  top: \"hat\",<br>  bottom: \"pants\"<br>};<br>myObject.hasOwnProperty(\"top\");    // true<br>myObject.hasOwnProperty(\"middle\"); // false</blockquote>",
         "<hr>",
-        "Modify the function <code>checkObj</code> to test <code>myObj</code> for <code>checkProp</code>. If the property is found, return that property's value. If not, return <code>\"Not Found\"</code>."
+        "Modify the function <code>checkObj</code> to test <code>myObject</code> for <code>checkProp</code>. If the property is found, return that property's value. If not, return <code>\"Not Found\"</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "var myObj = {",
+        "var myObject = {",
         "  gift: \"pony\",",
         "  pet: \"kitten\",",
         "  bed: \"sleigh\"",
@@ -4681,7 +4681,7 @@
         ""
       ],
       "solutions": [
-        "var myObj = {\n  gift: \"pony\",\n  pet: \"kitten\",\n  bed: \"sleigh\"\n};\nfunction checkObj(checkProp) {\n  if(myObj.hasOwnProperty(checkProp)) {\n    return myObj[checkProp];\n  } else {\n    return \"Not Found\";\n  }\n}"
+        "var myObject = {\n  gift: \"pony\",\n  pet: \"kitten\",\n  bed: \"sleigh\"\n};\nfunction checkObj(checkProp) {\n  if(myObject.hasOwnProperty(checkProp)) {\n    return myObject[checkProp];\n  } else {\n    return \"Not Found\";\n  }\n}"
       ],
       "tests": [
         "assert(checkObj(\"gift\") === \"pony\", 'message: <code>checkObj(\"gift\")</code> should return  <code>\"pony\"</code>.');",
@@ -4698,7 +4698,7 @@
             "<strong>Ejemplo</strong>",
             "<blockquote>var miObj = {<br>  arriba: \"sombrero\",<br>  abajo: \"pantalones\"<br>};<br>miObj.hasOwnProperty(\"arriba\");    // true<br>miObj.hasOwnProperty(\"medio\"); // false</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Modifica la función <code>checkObj</code> que prueba si <code>myObj</code> tiene la propiedad <code>checkProp</code>. Si la propiedad es encontrada, retorna el valor de esa propiedad. Si no, retorna <code>\"Not Found\"</code>."
+            "Modifica la función <code>checkObj</code> que prueba si <code>myObject</code> tiene la propiedad <code>checkProp</code>. Si la propiedad es encontrada, retorna el valor de esa propiedad. Si no, retorna <code>\"Not Found\"</code>."
           ]
         }
       }
@@ -5633,10 +5633,10 @@
         "<code>var a = parseInt(\"007\");</code>",
         "The above function converts the string \"007\" to an integer 7. If the first character in the string can't be converted into a number, then it returns <code>NaN</code>.",
         "<hr>",
-        "Use <code>parseInt()</code> in the <code>convertToInteger</code> function so it converts the input string <code>str</code> into an integer, and returns it."
+        "Use <code>parseInt()</code> in the <code>convertToInteger</code> function so it converts the input string <code>string</code> into an integer, and returns it."
       ],
       "challengeSeed": [
-        "function convertToInteger(str) {",
+        "function convertToInteger(string) {",
         "  ",
         "}",
         "",
@@ -5670,7 +5670,7 @@
         "Use <code>parseInt()</code> in the <code>convertToInteger</code> function so it converts a binary number to an integer and returns it."
       ],
       "challengeSeed": [
-        "function convertToInteger(str) {",
+        "function convertToInteger(string) {",
         "  ",
         "}",
         "",
