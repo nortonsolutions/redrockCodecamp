@@ -131,8 +131,8 @@
         "<code>myVariable = 5;</code>",
         "This assigns the <code>Number</code> value <code>5</code> to <code>myVariable</code>.",
         "Assignment always goes from right to left. Everything to the right of the <code>=</code> operator is resolved before the value is assigned to the variable to the left of the operator.",
-        "<blockquote>myVar = 5;<br>myNum = myVar;</blockquote>",
-        "This assigns <code>5</code> to <code>myVar</code> and then resolves <code>myVar</code> to <code>5</code>  again and assigns it to <code>myNum</code>.",
+        "<blockquote>myVariable = 5;<br>myNumber = myVariable;</blockquote>",
+        "This assigns <code>5</code> to <code>myVariable</code> and then resolves <code>myVariable</code> to <code>5</code>  again and assigns it to <code>myNumber</code>.",
         "<hr>",
         "Assign the value <code>7</code> to variable <code>a</code>.",
         "Assign the contents of <code>a</code> to variable <code>b</code>."
@@ -190,15 +190,15 @@
       "title": "Initializing Variables with the Assignment Operator",
       "description": [
         "It is common to <dfn>initialize</dfn> a variable to an initial value in the same line as it is declared.",
-        "<code>var myVar = 0;</code>",
-        "Creates a new variable called <code>myVar</code> and assigns it an initial value of <code>0</code>.",
+        "<code>var myVariable = 0;</code>",
+        "Creates a new variable called <code>myVariable</code> and assigns it an initial value of <code>0</code>.",
         "<hr>",
         "Define a variable <code>a</code> with <code>var</code> and initialize it to a value of <code>9</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
-        "var ourVar = 19;",
+        "var ourVariable = 19;",
         "",
         "// Only change code below this line",
         ""
@@ -279,7 +279,7 @@
       "title": "Understanding Case Sensitivity in Variables",
       "description": [
         "In JavaScript all variables and function names are case sensitive. This means that capitalization matters.",
-        "<code>MYVAR</code> is not the same as <code>MyVar</code> nor <code>myvar</code>. It is possible to have multiple distinct variables with the same name but different casing. It is strongly recommended that for the sake of clarity, you <em>do not</em> use this language feature.",
+        "<code>MYVARIABLE</code> is not the same as <code>MyVariable</code> nor <code>myvariable</code>. It is possible to have multiple distinct variables with the same name but different casing. It is strongly recommended that for the sake of clarity, you <em>do not</em> use this language feature.",
         "<h4>Best Practice</h4>",
         "Write variable names in JavaScript in <dfn>camelCase</dfn>. In <dfn>camelCase</dfn>, multi-word variable names have the first word in lowercase and the first letter of each subsequent word is capitalized.",
         "<strong>Examples:</strong>",
@@ -290,23 +290,23 @@
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Declarations",
-        "var StUdLyCapVaR;",
+        "var StUdLyCapVaRiAble;",
         "var properCamelCase;",
         "var TitleCaseOver;",
         "",
         "// Assignments",
-        "STUDLYCAPVAR = 10;",
+        "STUDLYCAPVARIABLE = 10;",
         "PRoperCAmelCAse = \"A String\";",
         "tITLEcASEoVER = 9000;"
       ],
       "solutions": [
-        "var studlyCapVar;\nvar properCamelCase;\nvar titleCaseOver;\n\nstudlyCapVar = 10;\nproperCamelCase = \"A String\";\ntitleCaseOver = 9000;"
+        "var studlyCapVariable;\nvar properCamelCase;\nvar titleCaseOver;\n\nstudlyCapVariable = 10;\nproperCamelCase = \"A String\";\ntitleCaseOver = 9000;"
       ],
       "tests": [
-        "assert(typeof studlyCapVar !== 'undefined' && studlyCapVar === 10, 'message: <code>studlyCapVar</code> is defined and has a value of <code>10</code>');",
+        "assert(typeof studlyCapVariable !== 'undefined' && studlyCapVariable === 10, 'message: <code>studlyCapVariable</code> is defined and has a value of <code>10</code>');",
         "assert(typeof properCamelCase !== 'undefined' && properCamelCase === \"A String\", 'message: <code>properCamelCase</code> is defined and has a value of <code>\"A String\"</code>');",
         "assert(typeof titleCaseOver !== 'undefined' && titleCaseOver === 9000, 'message: <code>titleCaseOver</code> is defined and has a value of <code>9000</code>');",
-        "assert(code.match(/studlyCapVar/g).length === 2, 'message: <code>studlyCapVar</code> should use camelCase in both declaration and assignment sections.');",
+        "assert(code.match(/studlyCapVariable/g).length === 2, 'message: <code>studlyCapVariable</code> should use camelCase in both declaration and assignment sections.');",
         "assert(code.match(/properCamelCase/g).length === 2, 'message: <code>properCamelCase</code> should use camelCase in both declaration and assignment sections.');",
         "assert(code.match(/titleCaseOver/g).length === 2, 'message: <code>titleCaseOver</code> should use camelCase in both declaration and assignment sections.');"
       ],
@@ -336,7 +336,7 @@
         "Now let's try to add two numbers using JavaScript.",
         "JavaScript uses the <code>+</code> symbol as addition operation when placed between two numbers.",
         "<strong>Example</strong>",
-        "<blockquote>myVar = 5 + 10; // assigned 15</blockquote>",
+        "<blockquote>myVariable = 5 + 10; // assigned 15</blockquote>",
         "<hr>",
         "Change the <code>0</code> so that sum will equal <code>20</code>."
       ],
@@ -375,7 +375,7 @@
         "JavaScript uses the <code>-</code> symbol for subtraction.",
         "",
         "<strong>Example</strong>",
-        "<blockquote>myVar = 12 - 6; // assigned 6</blockquote>",
+        "<blockquote>myVariable = 12 - 6; // assigned 6</blockquote>",
         "",
         "<hr>",
         "Change the <code>0</code> so the difference is <code>12</code>."
@@ -416,7 +416,7 @@
         "JavaScript uses the <code>*</code> symbol for multiplication of two numbers.",
         "",
         "<strong>Example</strong>",
-        "<blockquote>myVar = 13 * 13; // assigned 169</blockquote>",
+        "<blockquote>myVariable = 13 * 13; // assigned 169</blockquote>",
         "",
         "<hr>",
         "Change the <code>0</code> so that product will equal <code>80</code>."
@@ -457,7 +457,7 @@
         "JavaScript uses the <code>/</code> symbol for division.",
         "",
         "<strong>Example</strong>",
-        "<blockquote>myVar = 16 / 2; // assigned 8</blockquote>",
+        "<blockquote>myVariable = 16 / 2; // assigned 8</blockquote>",
         "",
         "<hr>",
         "Change the <code>0</code> so that the <code>quotient</code> is equal to <code>2</code>."
@@ -500,28 +500,28 @@
         "<code>i = i + 1;</code>",
         "<strong>Note</strong><br>The entire line becomes <code>i++;</code>, eliminating the need for the equal sign.",
         "<hr>",
-        "Change the code to use the <code>++</code> operator on <code>myVar</code>.",
-        "<strong>Hint</strong><br>Learn more about <a href=\"https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Increment_()\" target=\"_blank\">Arithmetic operators - Increment (++)</a>."
+        "Change the code to use the <code>++</code> operator on <code>myVariable</code>.",
+        "<strong>Hint</strong><br>Learn more about <a href=\"http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators.html#Arithmetic\" target=\"_blank\">Arithmetic operators - Increment (++)</a>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "var myVar = 87;",
+        "var myVariable = 87;",
         "",
         "// Only change code below this line",
-        "myVar = myVar + 1;",
+        "myVariable = myVariable + 1;",
         ""
       ],
       "tail": [
-        "(function(z){return 'myVar = ' + z;})(myVar);"
+        "(function(z){return 'myVariable = ' + z;})(myVariable);"
       ],
       "solutions": [
-        "var myVar = 87;\nmyVar++;"
+        "var myVariable = 87;\nmyVariable++;"
       ],
       "tests": [
-        "assert(myVar === 88, 'message: <code>myVar</code> should equal <code>88</code>');",
-        "assert(/var\\s*myVar\\s*=\\s*87;\\s*\\/*.*\\s*myVar\\+\\+;/.test(code), 'message: <code>myVar = myVar + 1;</code> should be changed');",
-        "assert(/[+]{2}\\s*myVar|myVar\\s*[+]{2}/.test(code), 'message: Use the <code>++</code> operator');",
-        "assert(/var myVar = 87;/.test(code), 'message: Do not change code above the line');"
+        "assert(myVariable === 88, 'message: <code>myVariable</code> should equal <code>88</code>');",
+        "assert(/var\\s*myVariable\\s*=\\s*87;\\s*\\/*.*\\s*myVariable\\+\\+;/.test(code), 'message: <code>myVariable = myVariable + 1;</code> should be changed');",
+        "assert(/[+]{2}\\s*myVariable|myVariable\\s*[+]{2}/.test(code), 'message: Use the <code>++</code> operator');",
+        "assert(/var myVariable = 87;/.test(code), 'message: Do not change code above the line');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -535,7 +535,7 @@
             "<code>i = i + 1;</code>",
             "<strong>Nota</strong><br>Toda la línea equivale a <code>i++</code>, sin necesidad del signo igual.",
             "<h4>Instrucciones</h4>",
-            "Cambia el código para usar el operador <code>++</code> sobre <code>myVar</code>."
+            "Cambia el código para usar el operador <code>++</code> sobre <code>myVariable</code>."
           ]
         }
       }
@@ -550,27 +550,27 @@
         "<code>i = i - 1;</code>",
         "<strong>Note</strong><br>The entire line becomes <code>i--;</code>, eliminating the need for the equal sign.",
         "<hr>",
-        "Change the code to use the <code>--</code> operator on <code>myVar</code>."
+        "Change the code to use the <code>--</code> operator on <code>myVariable</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "var myVar = 11;",
+        "var myVariable = 11;",
         "",
         "// Only change code below this line",
-        "myVar = myVar - 1;",
+        "myVariable = myVariable - 1;",
         ""
       ],
       "tail": [
-        "(function(z){return 'myVar = ' + z;})(myVar);"
+        "(function(z){return 'myVariable = ' + z;})(myVariable);"
       ],
       "solutions": [
-        "var myVar = 11;\nmyVar--;"
+        "var myVariable = 11;\nmyVariable--;"
       ],
       "tests": [
-        "assert(myVar === 10, 'message: <code>myVar</code> should equal <code>10</code>');",
-        "assert(/var\\s*myVar\\s*=\\s*11;\\s*\\/*.*\\s*myVar--;/.test(code), 'message: <code>myVar = myVar - 1;</code> should be changed');",
-        "assert(/[-]{2}\\s*myVar|myVar\\s*[-]{2}/.test(code), 'message: Use the <code>--</code> operator on <code>myVar</code>');",
-        "assert(/var myVar = 11;/.test(code), 'message: Do not change code above the line');"
+        "assert(myVariable === 10, 'message: <code>myVariable</code> should equal <code>10</code>');",
+        "assert(/var\\s*myVariable\\s*=\\s*11;\\s*\\/*.*\\s*myVariable--;/.test(code), 'message: <code>myVariable = myVariable - 1;</code> should be changed');",
+        "assert(/[-]{2}\\s*myVariable|myVariable\\s*[-]{2}/.test(code), 'message: Use the <code>--</code> operator on <code>myVariable</code>');",
+        "assert(/var myVariable = 11;/.test(code), 'message: Do not change code above the line');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -584,7 +584,7 @@
             "<code>i = i - 1;</code>",
             "<strong>Nota</strong><br>Toda la línea equivale a <code>i--;</code>, sin necesidad del signo igual.",
             "<h4>Instrucciones</h4>",
-            "Cambia el código para usar el operador <code>--</code> en <code>myVar</code>."
+            "Cambia el código para usar el operador <code>--</code> en <code>myVariable</code>."
           ]
         }
       }
@@ -745,10 +745,10 @@
       "title": "Compound Assignment With Augmented Addition",
       "description": [
         "In programming, it is common to use assignments to modify the contents of a variable. Remember that everything to the right of the equals sign is evaluated first, so we can say:",
-        "<code>myVar = myVar + 5;</code>",
-        "to add <code>5</code> to <code>myVar</code>. Since this is such a common pattern, there are operators which do both a mathematical operation and assignment in one step.",
+        "<code>myVariable = myVariable + 5;</code>",
+        "to add <code>5</code> to <code>myVariable</code>. Since this is such a common pattern, there are operators which do both a mathematical operation and assignment in one step.",
         "One such operator is the <code>+=</code> operator.",
-        "<blockquote>var myVar = 1;<br>myVar += 5;<br>console.log(myVar); // Returns 6</blockquote>",
+        "<blockquote>var myVariable = 1;<br>myVariable += 5;<br>console.log(myVariable); // Returns 6</blockquote>",
         "<hr>",
         "Convert the assignments for <code>a</code>, <code>b</code>, and <code>c</code> to use the <code>+=</code> operator."
       ],
@@ -800,9 +800,9 @@
       "title": "Compound Assignment With Augmented Subtraction",
       "description": [
         "Like the <code>+=</code> operator, <code>-=</code> subtracts a number from a variable.",
-        "<code>myVar = myVar - 5;</code>",
-        "will subtract <code>5</code> from <code>myVar</code>. This can be rewritten as: ",
-        "<code>myVar -= 5;</code>",
+        "<code>myVariable = myVariable - 5;</code>",
+        "will subtract <code>5</code> from <code>myVariable</code>. This can be rewritten as: ",
+        "<code>myVariable -= 5;</code>",
         "<hr>",
         "Convert the assignments for <code>a</code>, <code>b</code>, and <code>c</code> to use the <code>-=</code> operator."
       ],
@@ -854,9 +854,9 @@
       "title": "Compound Assignment With Augmented Multiplication",
       "description": [
         "The <code>*=</code> operator multiplies a variable by a number.",
-        "<code>myVar = myVar * 5;</code>",
-        "will multiply <code>myVar</code> by <code>5</code>. This can be rewritten as: ",
-        "<code>myVar *= 5;</code>",
+        "<code>myVariable = myVariable * 5;</code>",
+        "will multiply <code>myVariable</code> by <code>5</code>. This can be rewritten as: ",
+        "<code>myVariable *= 5;</code>",
         "<hr>",
         "Convert the assignments for <code>a</code>, <code>b</code>, and <code>c</code> to use the <code>*=</code> operator."
       ],
@@ -894,8 +894,8 @@
           "title": "Asignación con veces igual",
           "description": [
             "El operador <code>*=</code> multiplica una variable por un número.",
-            "<code>miVar = miVar * 5;</code>",
-            "multiplicará <code>miVar</code> por <code>5</code>. Esto puede ser reescrito como: ",
+            "<code>miVariable = miVariable * 5;</code>",
+            "multiplicará <code>miVariable</code> por <code>5</code>. Esto puede ser reescrito como: ",
             "<code>miVar *= 5;</code>",
             "<h4>Instrucciones</h4>",
             "Convierte las asignaciones para <code>a</code>, <code>b</code> y <code>c</code> usando el operador <code>*=</code>."
@@ -908,9 +908,9 @@
       "title": "Compound Assignment With Augmented Division",
       "description": [
         "The <code>/=</code> operator divides a variable by another number.",
-        "<code>myVar = myVar / 5;</code>",
-        "Will divide <code>myVar</code> by <code>5</code>. This can be rewritten as: ",
-        "<code>myVar /= 5;</code>",
+        "<code>myVariable = myVariable / 5;</code>",
+        "Will divide <code>myVariable</code> by <code>5</code>. This can be rewritten as: ",
+        "<code>myVariable /= 5;</code>",
         "<hr>",
         "Convert the assignments for <code>a</code>, <code>b</code>, and <code>c</code> to use the <code>/=</code> operator."
       ],
@@ -1003,32 +1003,32 @@
       "description": [
         "When you are defining a string you must start and end with a single or double quote. What happens when you need a literal quote: <code>\"</code> or <code>'</code> inside of your string?",
         "In JavaScript, you can <dfn>escape</dfn> a quote from considering it as an end of string quote by placing a <dfn>backslash</dfn> (<code>\\</code>) in front of the quote.",
-        "<code>var sampleStr = \"Alan said, \\\"Peter is learning JavaScript\\\".\";</code>",
+        "<code>var sampleString = \"Alan said, \\\"Peter is learning JavaScript\\\".\";</code>",
         "This signals to JavaScript that the following quote is not the end of the string, but should instead appear inside the string. So if you were to print this to the console, you would get:",
         "<code>Alan said, \"Peter is learning JavaScript\".</code>",
         "<hr>",
-        "Use <dfn>backslashes</dfn> to assign a string to the <code>myStr</code> variable so that if you were to print it to the console, you would see:",
+        "Use <dfn>backslashes</dfn> to assign a string to the <code>myString</code> variable so that if you were to print it to the console, you would see:",
         "<code>I am a \"double quoted\" string inside \"double quotes\".</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "var myStr = \"\"; // Change this line",
+        "var myString = \"\"; // Change this line",
         "",
         ""
       ],
       "tail": [
         "(function(){",
-        "  if(typeof myStr === 'string') {",
-        "    console.log(\"myStr = \\\"\" + myStr + \"\\\"\");",
+        "  if(typeof myString === 'string') {",
+        "    console.log(\"myString = \\\"\" + myString + \"\\\"\");",
         "  } else {",
-        "    console.log(\"myStr is undefined\");",
+        "    console.log(\"myString is undefined\");",
         "  }",
         "})();"
       ],
       "solutions": [],
       "tests": [
         "assert(code.match(/'/g) === null, 'message: You should use two double quotes (<code>&quot;</code>) and four escaped double quotes (<code>&#92;&quot;</code>).');",
-        "assert(myStr === \"I am a \\\"double quoted\\\" string inside \\\"double quotes\\\".\", 'message: Variable myStr should contain the string: <code>I am a \"double quoted\" string inside \"double quotes\".</code>');"
+        "assert(myString === \"I am a \\\"double quoted\\\" string inside \\\"double quotes\\\".\", 'message: Variable myString should contain the string: <code>I am a \"double quoted\" string inside \"double quotes\".</code>');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1042,7 +1042,7 @@
             "Esto le indica a JavaScript que la comilla siguiente no es el fin de la cadena, sino que debe aparecer dentro de la cadena. Así que si fueras a imprimir esto en la consola, tu obtendrías:",
             "<code>Alan dijo, \"Pedro está aprendiendo JavaScript\".<code>",
             "<h4>Instructiones</h4>",
-            "Usa <dfn>barras invertidas</dfn>para asigar una cadena a la variable <code>myStr</code> de modo que <em>si</em> tu fueras a imprimirla en la consola, tu verías:",
+            "Usa <dfn>barras invertidas</dfn>para asigar una cadena a la variable <code>myString</code> de modo que <em>si</em> tu fueras a imprimirla en la consola, tu verías:",
             "<code>I am a \"double quoted\" string inside \"double quotes\".</code>"
           ]
         }
@@ -1053,12 +1053,12 @@
       "title": "Quoting Strings with Single Quotes",
       "description": [
         "<dfn>String</dfn> values in JavaScript may be written with single or double quotes, as long as you start and end with the same type of quote. Unlike some other programming languages, single and double quotes work the same in JavaScript.",
-        "<blockquote>doubleQuoteStr = \"This is a string\"; <br/>singleQuoteStr = 'This is also a string';</blockquote>",
+        "<blockquote>doubleQuoteString = \"This is a string\"; <br/>singleQuoteString = 'This is also a string';</blockquote>",
         "The reason why you might want to use one type of quote over the other is if you want to use both in a string. This might happen if you want to save a conversation in a string and have the conversation in quotes. Another use for it would be saving an <code>&#60;a&#62;</code> tag with various attributes in quotes, all within a string.",
         "<blockquote>conversation = 'Finn exclaims to Jake, \"Algebraic!\"';</blockquote>",
         "However, this becomes a problem if you need to use the outermost quotes within it. Remember, a string has the same kind of quote at the beginning and end. But if you have that same quote somewhere in the middle, the string will stop early and throw an error.",
-        "<blockquote>goodStr = 'Jake asks Finn, \"Hey, let\\'s go on an adventure?\"'; <br/>badStr = 'Finn responds, \"Let's go!\"'; // Throws an error</blockquote>",
-        "In the <dfn>goodStr</dfn> above, you can use both quotes safely by using the backslash <code>\\</code> as an escape character.",
+        "<blockquote>goodString = 'Jake asks Finn, \"Hey, let\\'s go on an adventure?\"'; <br/>badString = 'Finn responds, \"Let's go!\"'; // Throws an error</blockquote>",
+        "In the <dfn>goodString</dfn> above, you can use both quotes safely by using the backslash <code>\\</code> as an escape character.",
         "<strong>Note</strong><br/>The backslash <code>\\</code> should not be be confused with the forward slash <code>/</code>. They do not do the same thing.",
         "<hr>",
         "Change the provided string to a string with single quotes at the beginning and end and no escape characters.",
@@ -1066,18 +1066,18 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "var myStr = \"<a href=\\\"http://www.example.com\\\" target=\\\"_blank\\\">Link</a>\";",
+        "var myString = \"<a href=\\\"http://www.example.com\\\" target=\\\"_blank\\\">Link</a>\";",
         "",
         ""
       ],
       "tail": [
-        "(function() { return \"myStr = \" + myStr; })();"
+        "(function() { return \"myString = \" + myString; })();"
       ],
       "solutions": [
-        "/* head */ 'use strict'; /* solution */ var myStr = '<a href=\"http://www.example.com\" target=\"_blank\">Link</a>'; /* tail */ (function() { return \"myStr = \" + myStr; })();"
+        "/* head */ 'use strict'; /* solution */ var myString = '<a href=\"http://www.example.com\" target=\"_blank\">Link</a>'; /* tail */ (function() { return \"myString = \" + myString; })();"
       ],
       "tests": [
-        "assert(!/\\\\/g.test(code) && myStr.match('\\\\s*<a href\\\\s*=\\\\s*\"http://www.example.com\"\\\\s*target\\\\s*=\\\\s*\"_blank\">\\\\s*Link\\\\s*</a>\\\\s*'), 'message: Remove all the <code>backslashes</code> (<code>\\</code>)');"
+        "assert(!/\\\\/g.test(code) && myString.match('\\\\s*<a href\\\\s*=\\\\s*\"http://www.example.com\"\\\\s*target\\\\s*=\\\\s*\"_blank\">\\\\s*Link\\\\s*</a>\\\\s*'), 'message: Remove all the <code>backslashes</code> (<code>\\</code>)');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1103,7 +1103,7 @@
         "<table class=\"table table-striped\"><thead><tr><th>Code</th><th>Output</th></tr></thead><tbody><tr><td><code>\\'</code></td><td>single quote</td></tr><tr><td><code>\\\"</code></td><td>double quote</td></tr><tr><td><code>\\\\</code></td><td>backslash</td></tr><tr><td><code>\\n</code></td><td>newline</td></tr><tr><td><code>\\r</code></td><td>carriage return</td></tr><tr><td><code>\\t</code></td><td>tab</td></tr><tr><td><code>\\b</code></td><td>backspace</td></tr><tr><td><code>\\f</code></td><td>form feed</td></tr></tbody></table>",
         "<em>Note that the backslash itself must be escaped in order to display as a backslash.</em>",
         "<hr>",
-        "Assign the following three lines of text into the single variable <code>myStr</code> using escape sequences.",
+        "Assign the following three lines of text into the single variable <code>myString</code> using escape sequences.",
         "<blockquote>FirstLine<br/>&nbsp;&nbsp;&nbsp;&nbsp;\\SecondLine<br/>ThirdLine</blockquote>",
         "You will need to use escape sequences to insert special characters correctly. You will also need to follow the spacing as it looks above, with no spaces between escape sequences or words.",
         "Here is the text with the escape sequences written out.",
@@ -1111,25 +1111,25 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "var myStr; // Change this line",
+        "var myString; // Change this line",
         "",
         ""
       ],
       "tail": [
         "(function(){",
-        "if (myStr !== undefined){",
-        "console.log('myStr:\\n' + myStr);}})();"
+        "if (myString !== undefined){",
+        "console.log('myString:\\n' + myString);}})();"
       ],
       "solutions": [
-        "var myStr = \"FirstLine\\n\\t\\\\SecondLine\\nThirdLine\";"
+        "var myString = \"FirstLine\\n\\t\\\\SecondLine\\nThirdLine\";"
       ],
       "tests": [
-        "assert(!/ /.test(myStr), 'message: <code>myStr</code> should not contain any spaces');",
-        "assert(/FirstLine/.test(myStr) && /SecondLine/.test(myStr) && /ThirdLine/.test(myStr), 'message: <code>myStr</code> should contain the strings <code>FirstLine</code>, <code>SecondLine</code> and <code>ThirdLine</code> (remember case sensitivity)');",
-        "assert(/FirstLine\\n/.test(myStr), 'message: <code>FirstLine</code> should be followed by the newline character <code>\\n</code>');",
-        "assert(/\\n\\t/.test(myStr), 'message: <code>myStr</code> should contain a tab character <code>\\t</code> which follows a newline character');",
-        "assert(/\\SecondLine/.test(myStr), 'message: <code>SecondLine</code> should be preceded by the backslash character <code>\\\\</code>');",
-        "assert(/SecondLine\\nThirdLine/.test(myStr), 'message: There should be a newline character between <code>SecondLine</code> and <code>ThirdLine</code>');"
+        "assert(!/ /.test(myString), 'message: <code>myString</code> should not contain any spaces');",
+        "assert(/FirstLine/.test(myString) && /SecondLine/.test(myString) && /ThirdLine/.test(myString), 'message: <code>myString</code> should contain the strings <code>FirstLine</code>, <code>SecondLine</code> and <code>ThirdLine</code> (remember case sensitivity)');",
+        "assert(/FirstLine\\n/.test(myString), 'message: <code>FirstLine</code> should be followed by the newline character <code>\\n</code>');",
+        "assert(/\\n\\t/.test(myString), 'message: <code>myString</code> should contain a tab character <code>\\t</code> which follows a newline character');",
+        "assert(/\\SecondLine/.test(myString), 'message: <code>SecondLine</code> should be preceded by the backslash character <code>\\\\</code>');",
+        "assert(/SecondLine\\nThirdLine/.test(myString), 'message: There should be a newline character between <code>SecondLine</code> and <code>ThirdLine</code>');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1155,36 +1155,36 @@
         "<blockquote>'My name is Alan,' + ' I concatenate.'</blockquote>",
         "<strong>Note</strong><br>Watch out for spaces. Concatenation does not add spaces between concatenated strings, so you'll need to add them yourself.",
         "<hr>",
-        "Build <code>myStr</code> from the strings <code>\"This is the start. \"</code> and <code>\"This is the end.\"</code> using the <code>+</code> operator."
+        "Build <code>myString</code> from the strings <code>\"This is the start. \"</code> and <code>\"This is the end.\"</code> using the <code>+</code> operator."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
-        "var ourStr = \"I come first. \" + \"I come second.\";",
+        "var ourString = \"I come first. \" + \"I come second.\";",
         "",
         "// Only change code below this line",
         "",
-        "var myStr;",
+        "var myString;",
         "",
         ""
       ],
       "tail": [
         "(function(){",
-        "  if(typeof myStr === 'string') {",
-        "    return 'myStr = \"' + myStr + '\"';",
+        "  if(typeof myString === 'string') {",
+        "    return 'myString = \"' + myString + '\"';",
         "  } else {",
-        "    return 'myStr is not a string';",
+        "    return 'myString is not a string';",
         "  }",
         "})();"
       ],
       "solutions": [
-        "var ourStr = \"I come first. \" + \"I come second.\";\nvar myStr = \"This is the start. \" + \"This is the end.\";"
+        "var ourString = \"I come first. \" + \"I come second.\";\nvar myString = \"This is the start. \" + \"This is the end.\";"
       ],
       "tests": [
-        "assert(myStr === \"This is the start. This is the end.\", 'message: <code>myStr</code> should have a value of <code>This is the start. This is the end.</code>');",
-        "assert(code.match(/([\"']).*([\"'])\\s*\\+\\s*([\"']).*([\"'])/g).length > 1, 'message: Use the <code>+</code> operator to build <code>myStr</code>');",
-        "assert(/var\\s+myStr/.test(code), 'message: <code>myStr</code> should be created using the <code>var</code> keyword.');",
-        "assert(/myStr\\s*=/.test(code), 'message: Make sure to assign the result to the <code>myStr</code> variable.');"
+        "assert(myString === \"This is the start. This is the end.\", 'message: <code>myString</code> should have a value of <code>This is the start. This is the end.</code>');",
+        "assert(code.match(/([\"']).*([\"'])\\s*\\+\\s*([\"']).*([\"'])/g).length > 1, 'message: Use the <code>+</code> operator to build <code>myString</code>');",
+        "assert(/var\\s+myString/.test(code), 'message: <code>myString</code> should be created using the <code>var</code> keyword.');",
+        "assert(/myString\\s*=/.test(code), 'message: Make sure to assign the result to the <code>myString</code> variable.');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1197,7 +1197,7 @@
             "<blockquote>'Mi nombre es Alan,' + ' Yo concateno.'<blockquote>",
             "<strong>Nota</strong><br>Cuidado con los espacios. La concatenación no agrega espacios entre cadenas concatenadas, así que necesitarás agregarlos tu mismo.",
             "<h4>Instrucciones</h4>",
-            "Construye <code>myStr</code> con las cadenas <code>\"This is the start. \"</code> y <code>\"This is the end.\"</code> usando el operador<code>+</code>."
+            "Construye <code>myString</code> con las cadenas <code>\"This is the start. \"</code> y <code>\"This is the end.\"</code> usando el operador<code>+</code>."
           ]
         }
       }
@@ -1209,35 +1209,35 @@
         "We can also use the <code>+=</code> operator to <dfn>concatenate</dfn> a string onto the end of an existing string variable. This can be very helpful to break a long string over several lines.",
         "<strong>Note</strong><br>Watch out for spaces. Concatenation does not add spaces between concatenated strings, so you'll need to add them yourself.",
         "<hr>",
-        "Build <code>myStr</code> over several lines by concatenating these two strings: <code>\"This is the first sentence. \"</code> and <code>\"This is the second sentence.\"</code> using the <code>+=</code> operator. Use the <code>+=</code> operator similar to how it is shown in the editor. Start by assigning the first string to <code>myStr</code>, then add on the second string."
+        "Build <code>myString</code> over several lines by concatenating these two strings: <code>\"This is the first sentence. \"</code> and <code>\"This is the second sentence.\"</code> using the <code>+=</code> operator. Use the <code>+=</code> operator similar to how it is shown in the editor. Start by assigning the first string to <code>myString</code>, then add on the second string."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
-        "var ourStr = \"I come first. \";",
-        "ourStr += \"I come second.\";",
+        "var ourString = \"I come first. \";",
+        "ourString += \"I come second.\";",
         "",
         "// Only change code below this line",
         "",
-        "var myStr;",
+        "var myString;",
         "",
         ""
       ],
       "tail": [
         "(function(){",
-        "  if(typeof myStr === 'string') {",
-        "    return 'myStr = \"' + myStr + '\"';",
+        "  if(typeof myString === 'string') {",
+        "    return 'myString = \"' + myString + '\"';",
         "  } else {",
-        "    return 'myStr is not a string';",
+        "    return 'myString is not a string';",
         "  }",
         "})();"
       ],
       "solutions": [
-        "var ourStr = \"I come first. \";\nourStr += \"I come second.\";\n\nvar myStr = \"This is the first sentence. \";\nmyStr += \"This is the second sentence.\";"
+        "var ourString = \"I come first. \";\nourStr += \"I come second.\";\n\nvar myString = \"This is the first sentence. \";\nmyStr += \"This is the second sentence.\";"
       ],
       "tests": [
-        "assert(myStr === \"This is the first sentence. This is the second sentence.\", 'message: <code>myStr</code> should have a value of <code>This is the first sentence. This is the second sentence.</code>');",
-        "assert(code.match(/\\w\\s*\\+=\\s*[\"']/g).length > 1 && code.match(/\\w\\s*\\=\\s*[\"']/g).length > 1, 'message: Use the <code>+=</code> operator to build <code>myStr</code>');"
+        "assert(myString === \"This is the first sentence. This is the second sentence.\", 'message: <code>myString</code> should have a value of <code>This is the first sentence. This is the second sentence.</code>');",
+        "assert(code.match(/\\w\\s*\\+=\\s*[\"']/g).length > 1 && code.match(/\\w\\s*\\=\\s*[\"']/g).length > 1, 'message: Use the <code>+=</code> operator to build <code>myString</code>');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1248,7 +1248,7 @@
             "Nosotros también podemos usar el operador <code>+=</code> para <dfn>concatenar</dfn> una cadena al final de una variable de cadena existente. Esto puede ser muy útil para romper una cadena larga sobre varias líneas.",
             "<strong>Nota</strong><br>Cuidado con los espacios. La concatenación no agrega espacios entre cadenas concatenadas, así que necesitarás añadirlos tu mismo.",
             "<h4>Instrucciones</h4>",
-            "Construye <code>myStr</code> sobre varias líneas concatenando estas dos cadenas:<br><code>\"This is the first sentence. \"</code> y <code>\"This is the second sentence.\"</code> usando el operador <code>+=</code>."
+            "Construye <code>myString</code> sobre varias líneas concatenando estas dos cadenas:<br><code>\"This is the first sentence. \"</code> y <code>\"This is the second sentence.\"</code> usando el operador <code>+=</code>."
           ]
         }
       }
@@ -1259,17 +1259,17 @@
       "description": [
         "Sometimes you will need to build a string, <a href='http://brickhousecodecamp.org/wikipedia/Mad_Libs.html' target=\"_blank\">Mad Libs</a> style. By using the concatenation operator (<code>+</code>), you can insert one or more variables into a string you're building.",
         "<hr>",
-        "Set <code>myName</code> to a string equal to your name and build <code>myStr</code> with <code>myName</code> between the strings <code>\"My name is \"</code> and <code>\" and I am well!\"</code>"
+        "Set <code>myName</code> to a string equal to your name and build <code>myString</code> with <code>myName</code> between the strings <code>\"My name is \"</code> and <code>\" and I am well!\"</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
         "var ourName = \"freeCodeCamp\";",
-        "var ourStr = \"Hello, our name is \" + ourName + \", how are you?\";",
+        "var ourString = \"Hello, our name is \" + ourName + \", how are you?\";",
         "",
         "// Only change code below this line",
         "var myName;",
-        "var myStr;",
+        "var myString;",
         "",
         ""
       ],
@@ -1281,20 +1281,20 @@
         "  } else {",
         "    output.push('myName is not a string');",
         "  }",
-        "  if(typeof myStr === 'string') {",
-        "    output.push('myStr = \"' + myStr + '\"');",
+        "  if(typeof myString === 'string') {",
+        "    output.push('myString = \"' + myString + '\"');",
         "  } else {",
-        "    output.push('myStr is not a string');",
+        "    output.push('myString is not a string');",
         "  }",
         "  return output.join('\\n');",
         "})();"
       ],
       "solutions": [
-        "var myName = \"Bob\";\nvar myStr = \"My name is \" + myName + \" and I am well!\";"
+        "var myName = \"Bob\";\nvar myString = \"My name is \" + myName + \" and I am well!\";"
       ],
       "tests": [
         "assert(typeof myName !== 'undefined' && myName.length > 2, 'message: <code>myName</code> should be set to a string at least 3 characters long');",
-        "assert(code.match(/[\"']\\s*\\+\\s*myName\\s*\\+\\s*[\"']/g).length > 0, 'message: Use two <code>+</code> operators to build <code>myStr</code> with <code>myName</code> inside it');"
+        "assert(code.match(/[\"']\\s*\\+\\s*myName\\s*\\+\\s*[\"']/g).length > 0, 'message: Use two <code>+</code> operators to build <code>myString</code> with <code>myName</code> inside it');"
       ],
       "type": "waypoint",
       "challengeType": 1
@@ -1305,19 +1305,19 @@
       "description": [
         "Just as we can build a string over multiple lines out of string <dfn>literals</dfn>, we can also append variables to a string using the plus equals (<code>+=</code>) operator.",
         "<hr>",
-        "Set <code>someAdjective</code> and append it to <code>myStr</code> using the <code>+=</code> operator."
+        "Set <code>someAdjective</code> and append it to <code>myString</code> using the <code>+=</code> operator."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
         "var anAdjective = \"awesome!\";",
-        "var ourStr = \"freeCodeCamp is \";",
-        "ourStr += anAdjective;",
+        "var ourString = \"freeCodeCamp is \";",
+        "ourString += anAdjective;",
         "",
         "// Only change code below this line",
         "",
         "var someAdjective;",
-        "var myStr = \"Learning to code is \";",
+        "var myString = \"Learning to code is \";",
         ""
       ],
       "tail": [
@@ -1328,20 +1328,20 @@
         "  } else {",
         "    output.push('someAdjective is not a string');",
         "  }",
-        "  if(typeof myStr === 'string') {",
-        "    output.push('myStr = \"' + myStr + '\"');",
+        "  if(typeof myString === 'string') {",
+        "    output.push('myString = \"' + myString + '\"');",
         "  } else {",
-        "    output.push('myStr is not a string');",
+        "    output.push('myString is not a string');",
         "  }",
         "  return output.join('\\n');",
         "})();"
       ],
       "solutions": [
-        "var anAdjective = \"awesome!\";\nvar ourStr = \"freeCodeCamp is \";\nourStr += anAdjective;\n\nvar someAdjective = \"neat\";\nvar myStr = \"Learning to code is \";\nmyStr += someAdjective;"
+        "var anAdjective = \"awesome!\";\nvar ourString = \"freeCodeCamp is \";\nourStr += anAdjective;\n\nvar someAdjective = \"neat\";\nvar myString = \"Learning to code is \";\nmyStr += someAdjective;"
       ],
       "tests": [
         "assert(typeof someAdjective !== 'undefined' && someAdjective.length > 2, 'message: <code>someAdjective</code> should be set to a string at least 3 characters long');",
-        "assert(code.match(/myStr\\s*\\+=\\s*someAdjective\\s*/).length > 0, 'message: Append <code>someAdjective</code> to <code>myStr</code> using the <code>+=</code> operator');"
+        "assert(code.match(/myString\\s*\\+=\\s*someAdjective\\s*/).length > 0, 'message: Append <code>someAdjective</code> to <code>myString</code> using the <code>+=</code> operator');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1351,7 +1351,7 @@
           "description": [
             "Al igual que podemos construir una cadena en múltiples líneas a partir de cadenas <dfn>literales</dfn>, nosotros podemos ademas anexar variables a una cadena usando el operador más igual (<code>+=</code>).",
             "<h4>Instructiones</h4>",
-            "Asigna <code>someAdjective</code> y anexalo a <code>myStr</code> usando el operador <code>+=</code>."
+            "Asigna <code>someAdjective</code> y anexalo a <code>myString</code> usando el operador <code>+=</code>."
           ]
         }
       }
@@ -1464,32 +1464,32 @@
       "description": [
         "In JavaScript, <code>String</code> values are <dfn>immutable</dfn>, which means that they cannot be altered once created.",
         "For example, the following code:",
-        "<blockquote>var myStr = \"Bob\";<br>myStr[0] = \"J\";</blockquote>",
-        "cannot change the value of <code>myStr</code> to \"Job\", because the contents of <code>myStr</code> cannot be altered. Note that this does <em>not</em> mean that <code>myStr</code> cannot be changed, just that the individual characters of a <dfn>string literal</dfn> cannot be changed. The only way to change <code>myStr</code> would be to assign it with a new string, like this:",
-        "<blockquote>var myStr = \"Bob\";<br>myStr = \"Job\";</blockquote>",
+        "<blockquote>var myString = \"Bob\";<br>myString[0] = \"J\";</blockquote>",
+        "cannot change the value of <code>myString</code> to \"Job\", because the contents of <code>myString</code> cannot be altered. Note that this does <em>not</em> mean that <code>myString</code> cannot be changed, just that the individual characters of a <dfn>string literal</dfn> cannot be changed. The only way to change <code>myString</code> would be to assign it with a new string, like this:",
+        "<blockquote>var myString = \"Bob\";<br>myString = \"Job\";</blockquote>",
         "<hr>",
-        "Correct the assignment to <code>myStr</code> so it contains the string value of <code>Hello World</code> using the approach shown in the example above."
+        "Correct the assignment to <code>myString</code> so it contains the string value of <code>Hello World</code> using the approach shown in the example above."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "var myStr = \"Jello World\";",
+        "var myString = \"Jello World\";",
         "",
         "// Only change code below this line",
         "",
-        "myStr[0] = \"H\"; // Fix Me",
+        "myString[0] = \"H\"; // Fix Me",
         "",
         ""
       ],
       "tail": [
-        "(function(v){return \"myStr = \" + v;})(myStr);"
+        "(function(v){return \"myString = \" + v;})(myString);"
       ],
       "solutions": [
-        "var myStr = \"Jello World\";\nmyStr = \"Hello World\";"
+        "var myString = \"Jello World\";\nmyStr = \"Hello World\";"
       ],
       "tests": [
-        "assert(myStr === \"Hello World\", 'message: <code>myStr</code> should have a value of <code>Hello World</code>');",
-        "assert(/myStr = \"Jello World\"/.test(code), 'message: Do not change the code above the line');"
+        "assert(myString === \"Hello World\", 'message: <code>myString</code> should have a value of <code>Hello World</code>');",
+        "assert(/myString = \"Jello World\"/.test(code), 'message: Do not change the code above the line');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -1503,7 +1503,7 @@
             "no puede cambiar el valor de <code>miCad</code> a \"Job\" porque el contenido de <code>miCad</code> no puede ser alterado. Nota que esto <em>no</em> significa que <code>miCad</code> no puede ser cambiado, solo que los valores individuales de una <dfn>cadena literal</dfn> no pueden ser cambiados. La única manera de cambiar <code>miCad</code> sería asignandola a una nueva cadena, como esta:",
             "<blockquote>var miCad = \"Bob\";<br>miCad = \"Job\";</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Corrige la asignación de <code>myStr</code> para lograr el efecto deseado."
+            "Corrige la asignación de <code>myString</code> para lograr el efecto deseado."
           ]
         }
       }
@@ -1882,7 +1882,7 @@
       "description": [
         "One way to think of a <dfn>multi-dimensional</dfn> array, is as an <em>array of arrays</em>. When you use brackets to access your array, the first set of brackets refers to the entries in the outer-most (the first level) array, and each additional pair of brackets refers to the next level of entries inside.",
         "<strong>Example</strong>",
-        "<blockquote>var arr = [<br>    [1,2,3],<br>    [4,5,6],<br>    [7,8,9],<br>    [[10,11,12], 13, 14]<br>];<br>arr[3]; // equals [[10,11,12], 13, 14]<br>arr[3][0]; // equals [10,11,12]<br>arr[3][0][1]; // equals 11</blockquote>",
+        "<blockquote>var array = [<br>    [1,2,3],<br>    [4,5,6],<br>    [7,8,9],<br>    [[10,11,12], 13, 14]<br>];<br>arr[3]; // equals [[10,11,12], 13, 14]<br>arr[3][0]; // equals [10,11,12]<br>arr[3][0][1]; // equals 11</blockquote>",
         "<strong>Note</strong><br>There shouldn't be any spaces between the array name and the square brackets, like <code>array [0][0]</code> and even this <code>array [0] [0]</code> is not allowed. Although JavaScript is able to process this correctly, this may confuse other programmers reading your code.",
         "<hr>",
         "Using bracket notation select an element from <code>myArray</code> such that <code>myData</code> is equal to <code>8</code>."
@@ -1927,7 +1927,7 @@
       "description": [
         "An easy way to append data to the end of an array is via the <code>push()</code> function.",
         "<code>.push()</code> takes one or more <dfn>parameters</dfn> and \"pushes\" them onto the end of the array.",
-        "<blockquote>var arr = [1,2,3];<br>arr.push(4);<br>// arr is now [1,2,3,4]</blockquote>",
+        "<blockquote>var array = [1,2,3];<br>array.push(4);<br>// array is now [1,2,3,4]</blockquote>",
         "<hr>",
         "Push <code>[\"dog\", 3]</code> onto the end of the <code>myArray</code> variable."
       ],
@@ -1973,7 +1973,7 @@
         "Another way to change the data in an array is with the <code>.pop()</code> function.",
         "<code>.pop()</code> is used to \"pop\" a value off of the end of an array. We can store this \"popped off\" value by assigning it to a variable. In other words, <code>.pop()</code> removes the last element from an array and returns that element.",
         "Any type of entry can be \"popped\" off of an array - numbers, strings, even nested arrays.",
-        "<blockquote><code>var threeArr = [1, 4, 6];<br> var oneDown = threeArr.pop();<br> console.log(oneDown); // Returns 6<br> console.log(threeArr); // Returns [1, 4]</code></blockquote>",
+        "<blockquote><code>var threeArray = [1, 4, 6];<br> var oneRemoved = threeArray.pop();<br> console.log(oneRemoved); // Returns 6<br> console.log(threeArray); // Returns [1, 4]</code></blockquote>",
         "<hr>",
         "Use the <code>.pop()</code> function to remove the last item from <code>myArray</code>, assigning the \"popped off\" value to <code>removedFromMyArray</code>."
       ],
@@ -2265,12 +2265,12 @@
       "description": [
         "<dfn>Parameters</dfn> are variables that act as placeholders for the values that are to be input to a function when it is called. When a function is defined, it is typically defined along with one or more parameters. The actual values that are input (or <dfn>\"passed\"</dfn>) into a function when it is called are known as <dfn>arguments</dfn>.",
         "Here is a function with two parameters, <code>param1</code> and <code>param2</code>:",
-        "<blockquote>function testFun(param1, param2) {<br>  console.log(param1, param2);<br>}</blockquote>",
-        "Then we can call <code>testFun</code>:",
-        "<code>testFun(\"Hello\", \"World\");</code>",
-        "We have passed two arguments, <code>\"Hello\"</code> and <code>\"World\"</code>. Inside the function, <code>param1</code> will equal \"Hello\" and <code>param2</code> will equal \"World\". Note that you could call <code>testFun</code> again with different arguments and the parameters would take on the value of the new arguments.",
+        "<blockquote>function testFunction(param1, param2) {<br>  console.log(param1, param2);<br>}</blockquote>",
+        "Then we can call <code>testFunction</code>:",
+        "<code>testFunction(\"Hello\", \"World\");</code>",
+        "We have passed two arguments, <code>\"Hello\"</code> and <code>\"World\"</code>. Inside the function, <code>param1</code> will equal \"Hello\" and <code>param2</code> will equal \"World\". Note that you could call <code>testFunction</code> again with different arguments and the parameters would take on the value of the new arguments.",
         "<hr>",
-        "<ol><li>Create a function called <code>functionWithArgs</code> that accepts two arguments and outputs their sum to the dev console.</li><li>Call the function with two numbers as arguments.</li></ol>"
+        "<ol><li>Create a function called <code>functionWithArguments</code> that accepts two arguments and outputs their sum to the dev console.</li><li>Call the function with two numbers as arguments.</li></ol>"
       ],
       "releasedOn": "January 1, 2016",
       "head": [
@@ -2297,10 +2297,10 @@
       ],
       "challengeSeed": [
         "// Example",
-        "function ourFunctionWithArgs(a, b) {",
+        "function ourFunctionWithArguments(a, b) {",
         "  console.log(a - b);",
         "}",
-        "ourFunctionWithArgs(10, 5); // Outputs 5",
+        "ourFunctionWithArguments(10, 5); // Outputs 5",
         "",
         "// Only change code below this line.",
         "",
@@ -2309,20 +2309,20 @@
       "tail": [
         "uncapture();",
         "",
-        "if (typeof functionWithArgs !== \"function\") { ",
-        "  (function() { return \"functionWithArgs is not defined\"; })();",
+        "if (typeof functionWithArguments !== \"function\") { ",
+        "  (function() { return \"functionWithArguments is not defined\"; })();",
         "} else {",
         "  (function() { return logOutput || \"console.log never called\"; })();",
         "}"
       ],
       "solutions": [
-        "function functionWithArgs(a, b) {\n  console.log(a + b);\n}\nfunctionWithArgs(10, 5);"
+        "function functionWithArguments(a, b) {\n  console.log(a + b);\n}\nfunctionWithArgs(10, 5);"
       ],
       "tests": [
-        "assert(typeof functionWithArgs === 'function', 'message: <code>functionWithArgs</code> should be a function');",
-        "if(typeof functionWithArgs === \"function\") { capture(); functionWithArgs(1,2); uncapture(); } assert(logOutput == 3, 'message: <code>functionWithArgs(1,2)</code> should output <code>3</code>');",
-        "if(typeof functionWithArgs === \"function\") { capture(); functionWithArgs(7,9); uncapture(); } assert(logOutput == 16, 'message: <code>functionWithArgs(7,9)</code> should output <code>16</code>');",
-        "assert(/^\\s*functionWithArgs\\s*\\(\\s*\\d+\\s*,\\s*\\d+\\s*\\)\\s*;/m.test(code), 'message: Call <code>functionWithArgs</code> with two numbers after you define it.');"
+        "assert(typeof functionWithArguments === 'function', 'message: <code>functionWithArguments</code> should be a function');",
+        "if(typeof functionWithArguments === \"function\") { capture(); functionWithArguments(1,2); uncapture(); } assert(logOutput == 3, 'message: <code>functionWithArguments(1,2)</code> should output <code>3</code>');",
+        "if(typeof functionWithArguments === \"function\") { capture(); functionWithArguments(7,9); uncapture(); } assert(logOutput == 16, 'message: <code>functionWithArguments(7,9)</code> should output <code>16</code>');",
+        "assert(/^\\s*functionWithArguments\\s*\\(\\s*\\d+\\s*,\\s*\\d+\\s*\\)\\s*;/m.test(code), 'message: Call <code>functionWithArguments</code> with two numbers after you define it.');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -2332,12 +2332,12 @@
           "description": [
             "Los <dfn>parámetros</dfn> son variables que actúan como marcadores de lugar para los valores que han de ser entrada para una función cuando esta es llamada. Cuando una función es definida, es típicamente definida con uno o más parámetros. Los valores actuales que son entrada (or <dfn>\"pasados\"</dfn>) dentro de una función cuando esta es llamada son concidos como <dfn>argumentos</dfn>.",
             "Aquí hay una función con dos parámetros, <code>param1</code> y <code>param2</code>:",
-            "<blockquote>function testFun(param1, param2) {<br>  console.log(param1, param2);<br>}</blockquote>",
-            "Entonces nosotros podemos llamar <code>testFun</code>:",
-            "<code>testFun(\"Hello\", \"World\");</code>",
-            "Nosotros hemos pasado dos argumentos, <code>\"Hello\"</code> y <code>\"World\"</code>. Dentro de la función, <code>param1</code> será igual a \"Hello\" y <code>param2</code> será igual a \"World\". Nota que puedes llamar <code>testFun</code> otra vez con argumentos diferentes y los parámetros asumirían el valor de los nuevos argumentos.",
+            "<blockquote>function testFunction(param1, param2) {<br>  console.log(param1, param2);<br>}</blockquote>",
+            "Entonces nosotros podemos llamar <code>testFunction</code>:",
+            "<code>testFunction(\"Hello\", \"World\");</code>",
+            "Nosotros hemos pasado dos argumentos, <code>\"Hello\"</code> y <code>\"World\"</code>. Dentro de la función, <code>param1</code> será igual a \"Hello\" y <code>param2</code> será igual a \"World\". Nota que puedes llamar <code>testFunction</code> otra vez con argumentos diferentes y los parámetros asumirían el valor de los nuevos argumentos.",
             "<h4>Instrucciones</h4>",
-            "<ol><li>Crea una función llamada <code>functionWithArgs</code> que acepte dos argumentos y da salida a su suma en la consola.</li><li>Llama la función.</li></ol>"
+            "<ol><li>Crea una función llamada <code>functionWithArguments</code> que acepte dos argumentos y da salida a su suma en la consola.</li><li>Llama la función.</li></ol>"
           ]
         }
       }
@@ -2350,7 +2350,7 @@
         "Variables which are used without the <code>var</code> keyword are automatically created in the <code>global</code> scope. This can create unintended consequences elsewhere in your code or when running a function again. You should always declare your variables with <code>var</code>.",
         "<hr>",
         "Using <code>var</code>, declare a <code>global</code> variable <code>myGlobal</code> outside of any function. Initialize it with a value of <code>10</code>.",
-        "Inside function <code>fun1</code>, assign <code>5</code> to <code>oopsGlobal</code> <strong><em>without</em></strong> using the <code>var</code> keyword."
+        "Inside function <code>function1</code>, assign <code>5</code> to <code>oopsGlobal</code> <strong><em>without</em></strong> using the <code>var</code> keyword."
       ],
       "releasedOn": "January 1, 2016",
       "head": [
@@ -2379,13 +2379,13 @@
         "// Declare your variable here",
         "",
         "",
-        "function fun1() {",
+        "function function1() {",
         "  // Assign 5 to oopsGlobal Here",
         "  ",
         "}",
         "",
         "// Only change code above this line",
-        "function fun2() {",
+        "function function2() {",
         "  var output = \"\";",
         "  if (typeof myGlobal != \"undefined\") {",
         "    output += \"myGlobal: \" + myGlobal;",
@@ -2397,13 +2397,13 @@
         "}"
       ],
       "tail": [
-        "fun1();",
-        "fun2();",
+        "function1();",
+        "function2();",
         "uncapture();",
         "(function() { return logOutput || \"console.log never called\"; })();"
       ],
       "solutions": [
-        "// Declare your variable here\nvar myGlobal = 10;\n\nfunction fun1() {\n  // Assign 5 to oopsGlobal Here\n  oopsGlobal = 5;\n}\n\n// Only change code above this line\nfunction fun2() {\n  var output = \"\";\n  if(typeof myGlobal != \"undefined\") {\n    output += \"myGlobal: \" + myGlobal;\n  }\n  if(typeof oopsGlobal != \"undefined\") {\n    output += \" oopsGlobal: \" + oopsGlobal;\n  }\n  console.log(output);\n}"
+        "// Declare your variable here\nvar myGlobal = 10;\n\nfunction function1() {\n  // Assign 5 to oopsGlobal Here\n  oopsGlobal = 5;\n}\n\n// Only change code above this line\nfunction function2() {\n  var output = \"\";\n  if(typeof myGlobal != \"undefined\") {\n    output += \"myGlobal: \" + myGlobal;\n  }\n  if(typeof oopsGlobal != \"undefined\") {\n    output += \" oopsGlobal: \" + oopsGlobal;\n  }\n  console.log(output);\n}"
       ],
       "tests": [
         "assert(typeof myGlobal != \"undefined\", 'message: <code>myGlobal</code> should be defined');",
@@ -2421,7 +2421,7 @@
             "Las variables que pueden ser usadas sin la palabra clave <code>var</code> son automáticamente creadas en el alcance <code>global</code>. Esto puede tener consecuencias no deseadas en otras partes de tu código o cuando se ejecuta una función de nuevo. Tu siempre deberías declarar tus variables con <code>var</code>.",
             "<h4>Instrucciones</h4>",
             "Declara a variable <code>global</code> <code>myGlobal</code> fuera de cualquier función. Inicializala para tener un valor de <code>10</code> ",
-            "Dentro de la función <code>fun1</code>, asigna <code>5</code> a <code>oopsGlobal</code> <strong><em>sin</em></strong> usar la palabra clave <code>var</code>."
+            "Dentro de la función <code>function1</code>, asigna <code>5</code> a <code>oopsGlobal</code> <strong><em>sin</em></strong> usar la palabra clave <code>var</code>."
           ]
         }
       }
@@ -2431,11 +2431,11 @@
       "title": "Local Scope and Functions",
       "description": [
         "Variables which are declared within a function, as well as the function parameters have <dfn>local</dfn> scope. That means, they are only visible within that function.",
-        "Here is a function <code>myTest</code> with a local variable called <code>loc</code>.",
-        "<blockquote>function myTest() {<br>  var loc = \"foo\";<br>  console.log(loc);<br>}<br>myTest(); // logs \"foo\"<br>console.log(loc); // loc is not defined</blockquote>",
-        "<code>loc</code> is not defined outside of the function.",
+        "Here is a function <code>myTest</code> with a local variable called <code>local</code>.",
+        "<blockquote>function myTest() {<br>  var local = \"foo\";<br>  console.log(local);<br>}<br>myTest(); // logs \"foo\"<br>console.log(local); // local is not defined</blockquote>",
+        "<code>local</code> is not defined outside of the function.",
         "<hr>",
-        "Declare a local variable <code>myVar</code> inside <code>myLocalScope</code>. Run the tests and then follow the instructions commented out in the editor.",
+        "Declare a local variable <code>myVariable</code> inside <code>myLocalScope</code>. Run the tests and then follow the instructions commented out in the editor.",
         "<strong>Hint</strong><br>Refreshing the page may help if you get stuck."
       ],
       "releasedOn": "January 1, 2016",
@@ -2464,13 +2464,13 @@
         "function myLocalScope() {",
         "  'use strict'; // you shouldn't need to edit this line",
         "  ",
-        "  console.log(myVar);",
+        "  console.log(myVariable);",
         "}",
         "myLocalScope();",
         "",
         "// Run and check the console",
-        "// myVar is not defined outside of myLocalScope",
-        "console.log(myVar);",
+        "// myVariable is not defined outside of myLocalScope",
+        "console.log(myVariable);",
         "",
         "// Now remove the console log line to pass the test",
         ""
@@ -2480,11 +2480,11 @@
         "(function() { return logOutput || \"console.log never called\"; })();"
       ],
       "solutions": [
-        "function myLocalScope() {\n  'use strict';\n  \n  var myVar;\n  console.log(myVar);\n}\nmyLocalScope();"
+        "function myLocalScope() {\n  'use strict';\n  \n  var myVariable;\n  console.log(myVariable);\n}\nmyLocalScope();"
       ],
       "tests": [
-        "assert(typeof myVar === 'undefined', 'message: No global <code>myVar</code> variable');",
-        "assert(/var\\s+myVar/.test(code), 'message: Add a local <code>myVar</code> variable');"
+        "assert(typeof myVariable === 'undefined', 'message: No global <code>myvariable</code> variable');",
+        "assert(/var\\s+myVariable/.test(code), 'message: Add a local <code>myVariable</code> variable');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -2493,11 +2493,11 @@
           "title": "Alcance local y funciones",
           "description": [
             "Las variables que son declaradas dentro de una función, así como los parámetros de la función tienen alcance <dfn>local</dfn>. Eso significa que solo son visibles dentro de esa función.",
-            "Aquí está una función <code>myTest</code> con una variable local llamada <code>loc</code>.",
-            "<blockquote>function myTest() {<br>  var loc = \"foo\";<br>  console.log(loc);<br>}<br>myTest(); // \"foo\"<br>console.log(loc); // \"undefined\"</blockquote>",
-            "<code>loc</code> no está definida fuera de la función.",
+            "Aquí está una función <code>myTest</code> con una variable local llamada <code>local</code>.",
+            "<blockquote>function myTest() {<br>  var local = \"foo\";<br>  console.log(local);<br>}<br>myTest(); // \"foo\"<br>console.log(local); // \"undefined\"</blockquote>",
+            "<code>local</code> no está definida fuera de la función.",
             "<h4>Instrucciones</h4>",
-            "Declara una variable local <code>myVar</code> dentro de <code>myLocalScope</code>"
+            "Declara una variable local <code>myVariable</code> dentro de <code>myLocalScope</code>"
           ]
         }
       }
@@ -2508,8 +2508,8 @@
       "description": [
         "It is possible to have both <dfn>local</dfn> and <dfn>global</dfn> variables with the same name. When you do this, the <code>local</code> variable takes precedence over the <code>global</code> variable.",
         "In this example:",
-        "<blockquote>var someVar = \"Hat\";<br>function myFun() {<br>  var someVar = \"Head\";<br>  return someVar;<br>}</blockquote>",
-        "The function <code>myFun</code> will return <code>\"Head\"</code> because the <code>local</code> version of the variable is present.",
+        "<blockquote>var someVariable = \"Hat\";<br>function myFunction() {<br>  var someVariable = \"Head\";<br>  return someVariable;<br>}</blockquote>",
+        "The function <code>myFunction</code> will return <code>\"Head\"</code> because the <code>local</code> version of the variable is present.",
         "<hr>",
         "Add a local variable to <code>myOutfit</code> to override the value of <code>outerWear</code> with <code>\"sweater\"</code>."
       ],
@@ -2559,16 +2559,16 @@
       "description": [
         "We can pass values into a function with <dfn>arguments</dfn>. You can use a <code>return</code> statement to send a value back out of a function.",
         "<strong>Example</strong>",
-        "<blockquote>function plusThree(num) {<br>  return num + 3;<br>}<br>var answer = plusThree(5); // 8</blockquote>",
-        "<code>plusThree</code> takes an <dfn>argument</dfn> for <code>num</code> and returns a value equal to <code>num + 3</code>.",
+        "<blockquote>function plusThree(number) {<br>  return number + 3;<br>}<br>var answer = plusThree(5); // 8</blockquote>",
+        "<code>plusThree</code> takes an <dfn>argument</dfn> for <code>number</code> and returns a value equal to <code>number + 3</code>.",
         "<hr>",
         "Create a function <code>timesFive</code> that accepts one argument, multiplies it by <code>5</code>, and returns the new value. See the last line in the editor for an example of how you can test your <code>timesFive</code> function."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
-        "function minusSeven(num) {",
-        "  return num - 7;",
+        "function minusSeven(number) {",
+        "  return number - 7;",
         "}",
         "",
         "// Only change code below this line",
@@ -2579,7 +2579,7 @@
       ],
       "tail": [],
       "solutions": [
-        "function timesFive(num) {\n  return num * 5;\n}\ntimesFive(10);"
+        "function timesFive(number) {\n  return number * 5;\n}\ntimesFive(10);"
       ],
       "tests": [
         "assert(typeof timesFive === 'function', 'message: <code>timesFive</code> should be a function');",
@@ -2596,8 +2596,8 @@
           "description": [
             "Podemos pasar valores a una función mediante los <dfn>argumentos</dfn>. Puedes usar una sentencia <code>return</code> para enviar un valor de vuelta de una función.",
             "<strong>Ejemplo</strong>",
-            "<blockquote>function masTres(num) {<br>  return num + 3;<br>}<br>var respuesta = masTres(5); // 8</blockquote>",
-            "<code>masTres</code> toma un <dfn>argumento</dfn> que es <code>num</code> y retorna un valor igual a <code>num + 3</code>.",
+            "<blockquote>function masTres(number) {<br>  return number + 3;<br>}<br>var respuesta = masTres(5); // 8</blockquote>",
+            "<code>masTres</code> toma un <dfn>argumento</dfn> que es <code>number</code> y retorna un valor igual a <code>number + 3</code>.",
             "<h4>Instrucciones</h4>",
             "Crea una función <code>timesFive</code> que acepte un argumento, lo multiplique por <code>5</code> y retorne el nuevo valor."
           ]
@@ -2610,7 +2610,7 @@
       "description": [
         "A function can include the <code>return</code> statement but it does not have to. In the case that the function doesn't have a <code>return</code> statement, when you call it, the function processes the inner code but the returned value is <code>undefined</code>.",
         "<strong>Example</strong>",
-        "<blockquote>var sum = 0;<br>function addSum(num) {<br>  sum = sum + num;<br>}<br>var returnedValue = addSum(3); // sum will be modified but returned value is undefined</blockquote>",
+        "<blockquote>var sum = 0;<br>function addSum(number) {<br>  sum = sum + number;<br>}<br>var returnedValue = addSum(3); // sum will be modified but returned value is undefined</blockquote>",
         "<code>addSum</code> is a function without a <code>return</code> statement. The function will change the global <code>sum</code> variable but the returned value of the function is <code>undefined</code>",
         "<hr>",
         "Create a function <code>addFive</code> without any arguments. This function adds 5 to the <code>sum</code> variable, but its returned value is <code>undefined</code>."
@@ -2658,15 +2658,15 @@
         "<code>ourSum = sum(5, 12);</code>",
         "will call <code>sum</code> function, which returns a value of <code>17</code> and assigns it to <code>ourSum</code> variable.",
         "<hr>",
-        "Call the <code>processArg</code> function with an argument of <code>7</code> and assign its return value to the variable <code>processed</code>."
+        "Call the <code>processArgument</code> function with an argument of <code>7</code> and assign its return value to the variable <code>processed</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
         "var changed = 0;",
         "",
-        "function change(num) {",
-        "  return (num + 5) / 3;",
+        "function change(number) {",
+        "  return (number + 5) / 3;",
         "}",
         "",
         "changed = change(10);",
@@ -2674,8 +2674,8 @@
         "// Setup",
         "var processed = 0;",
         "",
-        "function processArg(num) {",
-        "  return (num + 3) / 5;",
+        "function processArgument(number) {",
+        "  return (number + 3) / 5;",
         "}",
         "",
         "// Only change code below this line",
@@ -2686,11 +2686,11 @@
         "(function(){return \"processed = \" + processed})();"
       ],
       "solutions": [
-        "var processed = 0;\n\nfunction processArg(num) {\n  return (num + 3) / 5;\n}\n\nprocessed = processArg(7);"
+        "var processed = 0;\n\nfunction processArgument(number) {\n  return (number + 3) / 5;\n}\n\nprocessed = processArgument(7);"
       ],
       "tests": [
         "assert(processed === 2, 'message: <code>processed</code> should have a value of <code>2</code>');",
-        "assert(/processed\\s*=\\s*processArg\\(\\s*7\\s*\\)\\s*;/.test(code), 'message: You should assign <code>processArg</code> to <code>processed</code>');"
+        "assert(/processed\\s*=\\s*processArgument\\(\\s*7\\s*\\)\\s*;/.test(code), 'message: You should assign <code>processArgument</code> to <code>processed</code>');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -2703,7 +2703,7 @@
             "<code>nuestraSuma = suma(5, 12);</code>",
             "llamará la función <code>suma</code>, la cual retornará un valor de <code>17</code> y lo asignará a la variable <code>nuestraSuma</code>.",
             "<h4>Instrucciones</h4>",
-            "Llama la función <code>processArg</code> con un argumento <code>7</code> y asigna su valor de retorno a la variable <code>processed</code>."
+            "Llama la función <code>processArgument</code> con un argumento <code>7</code> y asigna su valor de retorno a la variable <code>processed</code>."
           ]
         }
       }
@@ -2713,7 +2713,7 @@
       "title": "Stand in Line",
       "description": [
         "In Computer Science a <dfn>queue</dfn> is an abstract <dfn>Data Structure</dfn> where items are kept in order. New items can be added at the back of the <code>queue</code> and old items are taken off from the front of the <code>queue</code>.",
-        "Write a function <code>nextInLine</code> which takes an array (<code>arr</code>) and a number (<code>item</code>) as arguments.",
+        "Write a function <code>nextInLine</code> which takes an array (<code>array</code>) and a number (<code>item</code>) as arguments.",
         "Add the number to the end of the array, then remove the first element of the array.",
         "The <code>nextInLine</code> function should then return the element that was removed."
       ],
@@ -2741,34 +2741,34 @@
         "capture();"
       ],
       "challengeSeed": [
-        "function nextInLine(arr, item) {",
+        "function nextInLine(array, item) {",
         "  // Your code here",
         "  ",
         "  return item;  // Change this line",
         "}",
         "",
         "// Test Setup",
-        "var testArr = [1,2,3,4,5];",
+        "var testArray = [1,2,3,4,5];",
         "",
         "// Display Code",
-        "console.log(\"Before: \" + JSON.stringify(testArr));",
-        "console.log(nextInLine(testArr, 6)); // Modify this line to test",
-        "console.log(\"After: \" + JSON.stringify(testArr));"
+        "console.log(\"Before: \" + JSON.stringify(testArray));",
+        "console.log(nextInLine(testArray, 6)); // Modify this line to test",
+        "console.log(\"After: \" + JSON.stringify(testArray));"
       ],
       "tail": [
         "uncapture();",
-        "testArr = [1,2,3,4,5];",
+        "testArray = [1,2,3,4,5];",
         "(function() { return logOutput.join(\"\\n\");})();"
       ],
       "solutions": [
-        "var testArr = [ 1,2,3,4,5];\n\nfunction nextInLine(arr, item) {\n    arr.push(item);\n    return arr.shift();\n}"
+        "var testArray = [ 1,2,3,4,5];\n\nfunction nextInLine(array, item) {\n    array.push(item);\n    return array.shift();\n}"
       ],
       "tests": [
         "assert.isNumber(nextInLine([],5), 'message: <code>nextInLine([], 5)</code> should return a number.');",
         "assert(nextInLine([],1) === 1, 'message: <code>nextInLine([], 1)</code> should return <code>1</code>');",
         "assert(nextInLine([2],1) === 2, 'message: <code>nextInLine([2], 1)</code> should return <code>2</code>');",
         "assert(nextInLine([5,6,7,8,9],1) === 5, 'message: <code>nextInLine([5,6,7,8,9], 1)</code> should return <code>5</code>');",
-        "nextInLine(testArr, 10); assert(testArr[4] === 10, 'message: After <code>nextInLine(testArr, 10)</code>, <code>testArr[4]</code> should be <code>10</code>');"
+        "nextInLine(testArray, 10); assert(testArray[4] === 10, 'message: After <code>nextInLine(testArray, 10)</code>, <code>testArray[4]</code> should be <code>10</code>');"
       ],
       "type": "checkpoint",
       "challengeType": 1,
@@ -2899,18 +2899,18 @@
       "description": [
         "There are many <dfn>Comparison Operators</dfn> in JavaScript. All of these operators return a boolean <code>true</code> or <code>false</code> value.",
         "The most basic operator is the equality operator <code>==</code>. The equality operator compares two values and returns <code>true</code> if they're equivalent or <code>false</code> if they are not. Note that equality is different from assignment (<code>=</code>), which assigns the value at the right of the operator to a variable in the left.",
-        "<blockquote>function equalityTest(myVal) {<br>  if (myVal == 10) {<br>     return \"Equal\";<br>  }<br>  return \"Not Equal\";<br>}</blockquote>",
-        "If <code>myVal</code> is equal to <code>10</code>, the equality operator returns <code>true</code>, so the code in the curly braces will execute, and the function will return <code>\"Equal\"</code>. Otherwise, the function will return <code>\"Not Equal\"</code>.",
+        "<blockquote>function equalityTest(myValue) {<br>  if (myValue == 10) {<br>     return \"Equal\";<br>  }<br>  return \"Not Equal\";<br>}</blockquote>",
+        "If <code>myValue</code> is equal to <code>10</code>, the equality operator returns <code>true</code>, so the code in the curly braces will execute, and the function will return <code>\"Equal\"</code>. Otherwise, the function will return <code>\"Not Equal\"</code>.",
         "In order for JavaScript to compare two different <code>data types</code> (for example, <code>numbers</code> and <code>strings</code>), it must convert one type to another. This is known as \"Type Coercion\". Once it does, however, it can compare terms as follows:",
         "<blockquote>   1   ==  1    // true<br>   1   ==  2    // false<br>   1   == '1'   // true<br>  \"3\"  ==  3    // true</blockquote>",
         "<hr>",
-        "Add the <code>equality operator</code> to the indicated line so that the function will return \"Equal\" when <code>val</code> is equivalent to <code>12</code>"
+        "Add the <code>equality operator</code> to the indicated line so that the function will return \"Equal\" when <code>value</code> is equivalent to <code>12</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "function testEqual(val) {",
-        "  if (val) { // Change this line",
+        "function testEqual(value) {",
+        "  if (value) { // Change this line",
         "    return \"Equal\";",
         "  }",
         "  return \"Not Equal\";",
@@ -2920,7 +2920,7 @@
         "testEqual(10);"
       ],
       "solutions": [
-        "function testEqual(val) {\n  if (val == 12) {\n    return \"Equal\";\n  }\n  return \"Not Equal\";\n}"
+        "function testEqual(value) {\n  if (value == 12) {\n    return \"Equal\";\n  }\n  return \"Not Equal\";\n}"
       ],
       "tests": [
         "assert(testEqual(10) === \"Not Equal\", 'message: <code>testEqual(10)</code> should return \"Not Equal\"');",
@@ -2941,7 +2941,7 @@
             "Para que JavaScript pueda comparar dos <code>tipos de datos</code> diferentes (por ejemplo, <code>números</code> y <code>cadenas de texto</code>), debe convertir un tipo a otro. Una vez que lo hace, sin embargo, puede comparar términos de la siguiente manera:",
             "<blockquote>   1   ==  1    // true<br>   1   ==  2    // false<br>   1   == '1'   // true<br>  \"3\"  ==  3    // true</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Agrega el <code>operador de igualdad</code> a la línea indicada de manera que la función retornará \"Equal\" cuando <code>val</code> sea equivalente a <code>12</code>"
+            "Agrega el <code>operador de igualdad</code> a la línea indicada de manera que la función retornará \"Equal\" cuando <code>value</code> sea equivalente a <code>12</code>"
           ]
         }
       }
@@ -2956,13 +2956,13 @@
         "<blockquote>3 === 3   // true<br>3 === '3' // false</blockquote>",
         "In the second example, <code>3</code> is a <code>Number</code> type and <code>'3'</code> is a <code>String</code> type.",
         "<hr>",
-        "Use the strict equality operator in the <code>if</code> statement so the function will return \"Equal\" when <code>val</code> is strictly equal to <code>7</code>"
+        "Use the strict equality operator in the <code>if</code> statement so the function will return \"Equal\" when <code>value</code> is strictly equal to <code>7</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "function testStrict(val) {",
-        "  if (val) { // Change this line",
+        "function testStrict(value) {",
+        "  if (value) { // Change this line",
         "    return \"Equal\";",
         "  }",
         "  return \"Not Equal\";",
@@ -2972,13 +2972,13 @@
         "testStrict(10);"
       ],
       "solutions": [
-        "function testStrict(val) {\n  if (val === 7) {\n    return \"Equal\";\n  }\n  return \"Not Equal\";\n}"
+        "function testStrict(value) {\n  if (value === 7) {\n    return \"Equal\";\n  }\n  return \"Not Equal\";\n}"
       ],
       "tests": [
         "assert(testStrict(10) === \"Not Equal\", 'message: <code>testStrict(10)</code> should return \"Not Equal\"');",
         "assert(testStrict(7) === \"Equal\", 'message: <code>testStrict(7)</code> should return \"Equal\"');",
         "assert(testStrict(\"7\") === \"Not Equal\", 'message: <code>testStrict(\"7\")</code> should return \"Not Equal\"');",
-        "assert(code.match(/(val\\s*===\\s*\\d+)|(\\d+\\s*===\\s*val)/g).length > 0, 'message: You should use the <code>===</code> operator');"
+        "assert(code.match(/(value\\s*===\\s*\\d+)|(\\d+\\s*===\\s*value)/g).length > 0, 'message: You should use the <code>===</code> operator');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -2991,7 +2991,7 @@
             "<blockquote>3 === 3   // true<br>3 === '3' // falso</blockquote>",
             "En el segundo ejemplo, <code>3</code> es de tipo <code>Número</code> y <code>'3'</code> es de tipo <code>Cadena</code>.",
             "<h4>Instrucciones</h4>",
-            "Usa el operador de igualdad estricta en la sentencia <code>if</code> de manera que la función retorne \"Equal\" cuando <code>val</code> es estrictamente igual a <code>7</code>"
+            "Usa el operador de igualdad estricta en la sentencia <code>if</code> de manera que la función retorne \"Equal\" cuando <code>value</code> es estrictamente igual a <code>7</code>"
           ]
         }
       }
@@ -3042,13 +3042,13 @@
         "<strong>Examples</strong>",
         "<blockquote>1 != 2      // true<br>1 != \"1\"    // false<br>1 != '1'    // false<br>1 != true   // false<br>0 != false  // false</blockquote>",
         "<hr>",
-        "Add the inequality operator <code>!=</code> in the <code>if</code> statement so that the function will return \"Not Equal\" when <code>val</code> is not equivalent to <code>99</code>"
+        "Add the inequality operator <code>!=</code> in the <code>if</code> statement so that the function will return \"Not Equal\" when <code>value</code> is not equivalent to <code>99</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "function testNotEqual(val) {",
-        "  if (val) { // Change this line",
+        "function testNotEqual(value) {",
+        "  if (value) { // Change this line",
         "    return \"Not Equal\";",
         "  }",
         "  return \"Equal\";",
@@ -3058,7 +3058,7 @@
         "testNotEqual(10);"
       ],
       "solutions": [
-        "function testNotEqual(val) {\n  if (val != 99) {\n    return \"Not Equal\";\n  }\n  return \"Equal\";\n}"
+        "function testNotEqual(value) {\n  if (value != 99) {\n    return \"Not Equal\";\n  }\n  return \"Equal\";\n}"
       ],
       "tests": [
         "assert(testNotEqual(99) === \"Equal\", 'message: <code>testNotEqual(99)</code> should return \"Equal\"');",
@@ -3078,7 +3078,7 @@
             "<strong>Ejemplos</strong>",
             "<blockquote>1 != 2      // true<br>1 != \"1\"    // false<br>1 != '1'    // false<br>1 != true   // false<br>0 != false  // false</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Agrega el operador de desigualdad <code>!=</code> en la sentencia <code>if</code> de manera que la función retorne \"Not Equal\" (No igual a) cuando <code>val</code> no es equivalente a <code>99</code>"
+            "Agrega el operador de desigualdad <code>!=</code> en la sentencia <code>if</code> de manera que la función retorne \"Not Equal\" (No igual a) cuando <code>value</code> no es equivalente a <code>99</code>"
           ]
         }
       }
@@ -3091,15 +3091,15 @@
         "<strong>Examples</strong>",
         "<blockquote>3 !== 3   // false<br>3 !== '3' // true<br>4 !== 3   // true</blockquote>",
         "<hr>",
-        "Add the <code>strict inequality operator</code> to the <code>if</code> statement so the function will return \"Not Equal\" when <code>val</code> is not strictly equal to <code>17</code>"
+        "Add the <code>strict inequality operator</code> to the <code>if</code> statement so the function will return \"Not Equal\" when <code>value</code> is not strictly equal to <code>17</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "function testStrictNotEqual(val) {",
+        "function testStrictNotEqual(value) {",
         "  // Only Change Code Below this Line",
         "  ",
-        "  if (val) {",
+        "  if (value) {",
         "",
         "  // Only Change Code Above this Line",
         "",
@@ -3112,7 +3112,7 @@
         "testStrictNotEqual(10);"
       ],
       "solutions": [
-        "function testStrictNotEqual(val) {\n  if (val !== 17) {\n    return \"Not Equal\";\n  }\n  return \"Equal\";\n}"
+        "function testStrictNotEqual(value) {\n  if (value !== 17) {\n    return \"Not Equal\";\n  }\n  return \"Equal\";\n}"
       ],
       "MDNlinks": [
         "Strict Inequality Operator"
@@ -3122,7 +3122,7 @@
         "assert(testStrictNotEqual(\"17\") === \"Not Equal\", 'message: <code>testStrictNotEqual(\"17\")</code> should return \"Not Equal\"');",
         "assert(testStrictNotEqual(12) === \"Not Equal\", 'message: <code>testStrictNotEqual(12)</code> should return \"Not Equal\"');",
         "assert(testStrictNotEqual(\"bob\") === \"Not Equal\", 'message: <code>testStrictNotEqual(\"bob\")</code> should return \"Not Equal\"');",
-        "assert(code.match(/(val\\s*!==\\s*\\d+)|(\\d+\\s*!==\\s*val)/g).length > 0, 'message: You should use the <code>!==</code> operator');"
+        "assert(code.match(/(value\\s*!==\\s*\\d+)|(\\d+\\s*!==\\s*value)/g).length > 0, 'message: You should use the <code>!==</code> operator');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -3134,7 +3134,7 @@
             "<strong>Ejemplos</strong>",
             "<blockquote>3 !== 3   // false<br>3 !== '3' // true<br>4 !== 3   // true</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Agrega el <code>operador de estricta desigualdad</code> a la sentencia <code>if</code> de manera que la función retorne \"Not Equal\" cuando <code>val</code> no es estrictamente igual a <code>17</code>"
+            "Agrega el <code>operador de estricta desigualdad</code> a la sentencia <code>if</code> de manera que la función retorne \"Not Equal\" cuando <code>value</code> no es estrictamente igual a <code>17</code>"
           ]
         }
       }
@@ -3152,12 +3152,12 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testGreaterThan(val) {",
-        "  if (val) {  // Change this line",
+        "function testGreaterThan(value) {",
+        "  if (value) {  // Change this line",
         "    return \"Over 100\";",
         "  }",
         "  ",
-        "  if (val) {  // Change this line",
+        "  if (value) {  // Change this line",
         "    return \"Over 10\";",
         "  }",
         "",
@@ -3168,7 +3168,7 @@
         "testGreaterThan(10);"
       ],
       "solutions": [
-        "function testGreaterThan(val) {\n  if (val > 100) {  // Change this line\n    return \"Over 100\";\n  }\n  if (val > 10) {  // Change this line\n    return \"Over 10\";\n  }\n  return \"10 or Under\";\n}"
+        "function testGreaterThan(value) {\n  if (value > 100) {  // Change this line\n    return \"Over 100\";\n  }\n  if (value > 10) {  // Change this line\n    return \"Over 10\";\n  }\n  return \"10 or Under\";\n}"
       ],
       "tests": [
         "assert(testGreaterThan(0) === \"10 or Under\", 'message: <code>testGreaterThan(0)</code> should return \"10 or Under\"');",
@@ -3178,7 +3178,7 @@
         "assert(testGreaterThan(100) === \"Over 10\", 'message: <code>testGreaterThan(100)</code> should return \"Over 10\"');",
         "assert(testGreaterThan(101) === \"Over 100\", 'message: <code>testGreaterThan(101)</code> should return \"Over 100\"');",
         "assert(testGreaterThan(150) === \"Over 100\", 'message: <code>testGreaterThan(150)</code> should return \"Over 100\"');",
-        "assert(code.match(/val\\s*>\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&gt;</code> operator at least twice');"
+        "assert(code.match(/value\\s*>\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&gt;</code> operator at least twice');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -3209,12 +3209,12 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testGreaterOrEqual(val) {",
-        "  if (val) {  // Change this line",
+        "function testGreaterOrEqual(value) {",
+        "  if (value) {  // Change this line",
         "    return \"20 or Over\";",
         "  }",
         "  ",
-        "  if (val) {  // Change this line",
+        "  if (value) {  // Change this line",
         "    return \"10 or Over\";",
         "  }",
         "",
@@ -3225,7 +3225,7 @@
         "testGreaterOrEqual(10);"
       ],
       "solutions": [
-        "function testGreaterOrEqual(val) {\n  if (val >= 20) {  // Change this line\n    return \"20 or Over\";\n  }\n  \n  if (val >= 10) {  // Change this line\n    return \"10 or Over\";\n  }\n\n  return \"Less than 10\";\n}"
+        "function testGreaterOrEqual(value) {\n  if (value >= 20) {  // Change this line\n    return \"20 or Over\";\n  }\n  \n  if (value >= 10) {  // Change this line\n    return \"10 or Over\";\n  }\n\n  return \"Less than 10\";\n}"
       ],
       "tests": [
         "assert(testGreaterOrEqual(0) === \"Less than 10\", 'message: <code>testGreaterOrEqual(0)</code> should return \"Less than 10\"');",
@@ -3235,7 +3235,7 @@
         "assert(testGreaterOrEqual(19) === \"10 or Over\", 'message: <code>testGreaterOrEqual(19)</code> should return \"10 or Over\"');",
         "assert(testGreaterOrEqual(100) === \"20 or Over\", 'message: <code>testGreaterOrEqual(100)</code> should return \"20 or Over\"');",
         "assert(testGreaterOrEqual(21) === \"20 or Over\", 'message: <code>testGreaterOrEqual(21)</code> should return \"20 or Over\"');",
-        "assert(code.match(/val\\s*>=\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&gt;=</code> operator at least twice');"
+        "assert(code.match(/value\\s*>=\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&gt;=</code> operator at least twice');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -3265,12 +3265,12 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testLessThan(val) {",
-        "  if (val) {  // Change this line",
+        "function testLessThan(value) {",
+        "  if (value) {  // Change this line",
         "    return \"Under 25\";",
         "  }",
         "  ",
-        "  if (val) {  // Change this line",
+        "  if (value) {  // Change this line",
         "    return \"Under 55\";",
         "  }",
         "",
@@ -3281,7 +3281,7 @@
         "testLessThan(10);"
       ],
       "solutions": [
-        "function testLessThan(val) {\n  if (val < 25) {  // Change this line\n    return \"Under 25\";\n  }\n  \n  if (val < 55) {  // Change this line\n    return \"Under 55\";\n  }\n\n  return \"55 or Over\";\n}"
+        "function testLessThan(value) {\n  if (value < 25) {  // Change this line\n    return \"Under 25\";\n  }\n  \n  if (value < 55) {  // Change this line\n    return \"Under 55\";\n  }\n\n  return \"55 or Over\";\n}"
       ],
       "tests": [
         "assert(testLessThan(0) === \"Under 25\", 'message: <code>testLessThan(0)</code> should return \"Under 25\"');",
@@ -3290,7 +3290,7 @@
         "assert(testLessThan(54) === \"Under 55\", 'message: <code>testLessThan(54)</code> should return \"Under 55\"');",
         "assert(testLessThan(55) === \"55 or Over\", 'message: <code>testLessThan(55)</code> should return \"55 or Over\"');",
         "assert(testLessThan(99) === \"55 or Over\", 'message: <code>testLessThan(99)</code> should return \"55 or Over\"');",
-        "assert(code.match(/val\\s*<\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&lt;</code> operator at least twice');"
+        "assert(code.match(/value\\s*<\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&lt;</code> operator at least twice');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -3319,12 +3319,12 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testLessOrEqual(val) {",
-        "  if (val) {  // Change this line",
+        "function testLessOrEqual(value) {",
+        "  if (value) {  // Change this line",
         "    return \"Smaller Than or Equal to 12\";",
         "  }",
         "  ",
-        "  if (val) {  // Change this line",
+        "  if (value) {  // Change this line",
         "    return \"Smaller Than or Equal to 24\";",
         "  }",
         "",
@@ -3336,7 +3336,7 @@
         ""
       ],
       "solutions": [
-        "function testLessOrEqual(val) {\n  if (val <= 12) {  // Change this line\n    return \"Smaller Than or Equal to 12\";\n  }\n  \n  if (val <= 24) {  // Change this line\n    return \"Smaller Than or Equal to 24\";\n  }\n\n  return \"More Than 24\";\n}"
+        "function testLessOrEqual(value) {\n  if (value <= 12) {  // Change this line\n    return \"Smaller Than or Equal to 12\";\n  }\n  \n  if (value <= 24) {  // Change this line\n    return \"Smaller Than or Equal to 24\";\n  }\n\n  return \"More Than 24\";\n}"
       ],
       "tests": [
         "assert(testLessOrEqual(0) === \"Smaller Than or Equal to 12\", 'message: <code>testLessOrEqual(0)</code> should return \"Smaller Than or Equal to 12\"');",
@@ -3346,7 +3346,7 @@
         "assert(testLessOrEqual(24) === \"Smaller Than or Equal to 24\", 'message: <code>testLessOrEqual(24)</code> should return \"Smaller Than or Equal to 24\"');",
         "assert(testLessOrEqual(25) === \"More Than 24\", 'message: <code>testLessOrEqual(25)</code> should return \"More Than 24\"');",
         "assert(testLessOrEqual(55) === \"More Than 24\", 'message: <code>testLessOrEqual(55)</code> should return \"More Than 24\"');",
-        "assert(code.match(/val\\s*<=\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&lt;=</code> operator at least twice');"
+        "assert(code.match(/value\\s*<=\\s*('|\")*\\d+('|\")*/g).length > 1, 'message: You should use the <code>&lt;=</code> operator at least twice');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -3369,19 +3369,19 @@
       "description": [
         "Sometimes you will need to test more than one thing at a time. The <dfn>logical and</dfn> operator (<code>&&</code>) returns <code>true</code> if and only if the <dfn>operands</dfn> to the left and right of it are true.",
         "The same effect could be achieved by nesting an if statement inside another if:",
-        "<blockquote>if (num > 5) {<br>  if (num < 10) {<br>    return \"Yes\";<br>  }<br>}<br>return \"No\";</blockquote>",
-        "will only return \"Yes\" if <code>num</code> is greater than <code>5</code> and less than <code>10</code>. The same logic can be written as:",
-        "<blockquote>if (num > 5 && num < 10) {<br>  return \"Yes\";<br>}<br>return \"No\";</blockquote>",
+        "<blockquote>if (number > 5) {<br>  if (number < 10) {<br>    return \"Yes\";<br>  }<br>}<br>return \"No\";</blockquote>",
+        "will only return \"Yes\" if <code>number</code> is greater than <code>5</code> and less than <code>10</code>. The same logic can be written as:",
+        "<blockquote>if (number > 5 && number < 10) {<br>  return \"Yes\";<br>}<br>return \"No\";</blockquote>",
         "<hr>",
-        "Combine the two if statements into one statement which will return <code>\"Yes\"</code> if <code>val</code> is less than or equal to <code>50</code> and greater than or equal to <code>25</code>. Otherwise, will return <code>\"No\"</code>."
+        "Combine the two if statements into one statement which will return <code>\"Yes\"</code> if <code>value</code> is less than or equal to <code>50</code> and greater than or equal to <code>25</code>. Otherwise, will return <code>\"No\"</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testLogicalAnd(val) {",
+        "function testLogicalAnd(value) {",
         "  // Only change code below this line",
         "",
-        "  if (val) {",
-        "    if (val) {",
+        "  if (value) {",
+        "    if (value) {",
         "      return \"Yes\";",
         "    }",
         "  }",
@@ -3394,7 +3394,7 @@
         "testLogicalAnd(10);"
       ],
       "solutions": [
-        "function testLogicalAnd(val) {\n  if (val >= 25 && val <= 50) {\n    return \"Yes\";\n  }\n  return \"No\";\n}"
+        "function testLogicalAnd(value) {\n  if (value >= 25 && value <= 50) {\n    return \"Yes\";\n  }\n  return \"No\";\n}"
       ],
       "tests": [
         "assert(code.match(/&&/g).length === 1, 'message: You should use the <code>&&</code> operator once');",
@@ -3416,11 +3416,11 @@
           "description": [
             "A veces necesitarás probar más de una cosa a la vez. El operador <dfn>lógico y</dfn> (<code>&&</code>) retorna <code>true</code>(verdadero) si y solo si los <dfn>operandos</dfn> a la izquierda y derecha de este son verdaderos.",
             "El mismo efecto podría lograrse anidando una sentencia if dentro de otro if:",
-            "<blockquote>if (num > 5) {<br>  if (num < 10) {<br>    return \"Yes\";<br>  }<br>}<br>return \"No\";</blockquote>",
-            "solo retornará \"Yes\" si <code>num</code> está entre <code>6</code> y <code>9</code> (6 y 9 incluidos). La misma lógica puede ser escrita como:",
-            "<blockquote>if (num > 5 && num < 10) {<br>  return \"Yes\";<br>}<br>return \"No\";</blockquote>",
+            "<blockquote>if (number > 5) {<br>  if (number < 10) {<br>    return \"Yes\";<br>  }<br>}<br>return \"No\";</blockquote>",
+            "solo retornará \"Yes\" si <code>number</code> está entre <code>6</code> y <code>9</code> (6 y 9 incluidos). La misma lógica puede ser escrita como:",
+            "<blockquote>if (number > 5 && number < 10) {<br>  return \"Yes\";<br>}<br>return \"No\";</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Combina las dos sentencias if dentro de una sentencia la cual retornará <code>\"Yes\"</code> si <code>val</code> es menor o igual a <code>50</code> y mayor o igual a <code>25</code>. De otra manera, retornará <code>\"No\"</code>."
+            "Combina las dos sentencias if dentro de una sentencia la cual retornará <code>\"Yes\"</code> si <code>value</code> es menor o igual a <code>50</code> y mayor o igual a <code>25</code>. De otra manera, retornará <code>\"No\"</code>."
           ]
         }
       }
@@ -3432,22 +3432,22 @@
         "The <dfn>logical or</dfn> operator (<code>||</code>) returns <code>true</code> if either of the <dfn>operands</dfn> is <code>true</code>. Otherwise, it returns <code>false</code>.",
         "The <dfn>logical or</dfn> operator is composed of two pipe symbols (<code>|</code>). This can typically be found between your Backspace and Enter keys.",
         "The pattern below should look familiar from prior waypoints:",
-        "<blockquote>if (num > 10) {<br>  return \"No\";<br>}<br>if (num < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
-        "will return \"Yes\" only if <code>num</code> is between <code>5</code> and <code>10</code> (5 and 10 included). The same logic can be written as:",
-        "<blockquote>if (num > 10 || num < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
+        "<blockquote>if (number > 10) {<br>  return \"No\";<br>}<br>if (number < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
+        "will return \"Yes\" only if <code>number</code> is between <code>5</code> and <code>10</code> (5 and 10 included). The same logic can be written as:",
+        "<blockquote>if (number > 10 || number < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
         "<hr>",
-        "Combine the two <code>if</code> statements into one statement which returns <code>\"Outside\"</code> if <code>val</code> is not between <code>10</code> and <code>20</code>, inclusive. Otherwise, return <code>\"Inside\"</code>."
+        "Combine the two <code>if</code> statements into one statement which returns <code>\"Outside\"</code> if <code>value</code> is not between <code>10</code> and <code>20</code>, inclusive. Otherwise, return <code>\"Inside\"</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testLogicalOr(val) {",
+        "function testLogicalOr(value) {",
         "  // Only change code below this line",
         "",
-        "  if (val) {",
+        "  if (value) {",
         "    return \"Outside\";",
         "  }",
         "",
-        "  if (val) {",
+        "  if (value) {",
         "    return \"Outside\";",
         "  }",
         "",
@@ -3459,7 +3459,7 @@
         "testLogicalOr(15);"
       ],
       "solutions": [
-        "function testLogicalOr(val) {\n  if (val < 10 || val > 20) {\n    return \"Outside\";\n  }\n  return \"Inside\";\n}"
+        "function testLogicalOr(value) {\n  if (value < 10 || value > 20) {\n    return \"Outside\";\n  }\n  return \"Inside\";\n}"
       ],
       "tests": [
         "assert(code.match(/\\|\\|/g).length === 1, 'message: You should use the <code>||</code> operator once');",
@@ -3481,11 +3481,11 @@
           "description": [
             "El operador <dfn>lógico o</dfn> (<code>||</code>) retorna <code>true</code>(verdadero) si cualquiera de los <dfn>operandos</dfn> es <code>true</code>(verdadero). De otra manera, este retorna <code>false</code>(falso).",
             "El patrón de abajo debería ser familiar de los puntos de referencia anteriores:",
-            "<blockquote>if (num > 10) {<br>  return \"No\";<br>}<br>if (num < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
-            "retornará \"Yes\" solo si <code>num</code> está entre <code>5</code> y <code>10</code> (5 y 10 incluidos). La misma lógica puede ser escrita como:",
-            "<blockquote>if (num > 10 || num < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
+            "<blockquote>if (number > 10) {<br>  return \"No\";<br>}<br>if (number < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
+            "retornará \"Yes\" solo si <code>number</code> está entre <code>5</code> y <code>10</code> (5 y 10 incluidos). La misma lógica puede ser escrita como:",
+            "<blockquote>if (number > 10 || number < 5) {<br>  return \"No\";<br>}<br>return \"Yes\";</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Combina las dos sentencias <code>if</code> dentro de una sentencia la cual retorne <code>\"Outside\"</code> si <code>val</code> no está entre <code>10</code> y <code>20</code>, inclusive. De otra manera, retorna <code>\"Inside\"</code>."
+            "Combina las dos sentencias <code>if</code> dentro de una sentencia la cual retorne <code>\"Outside\"</code> si <code>value</code> no está entre <code>10</code> y <code>20</code>, inclusive. De otra manera, retorna <code>\"Inside\"</code>."
           ]
         }
       }
@@ -3495,21 +3495,21 @@
       "title": "Introducing Else Statements",
       "description": [
         "When a condition for an <code>if</code> statement is true, the block of code following it is executed. What about when that condition is false?  Normally nothing would happen. With an <code>else</code> statement, an alternate block of code can be executed.",
-        "<blockquote>if (num > 10) {<br>  return \"Bigger than 10\";<br>} else {<br>  return \"10 or Less\";<br>}</blockquote>",
+        "<blockquote>if (number > 10) {<br>  return \"Bigger than 10\";<br>} else {<br>  return \"10 or Less\";<br>}</blockquote>",
         "<hr>",
         "Combine the <code>if</code> statements into a single <code>if/else</code> statement."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testElse(val) {",
+        "function testElse(value) {",
         "  var result = \"\";",
         "  // Only change code below this line",
         "  ",
-        "  if (val > 5) {",
+        "  if (value > 5) {",
         "    result = \"Bigger than 5\";",
         "  }",
         "  ",
-        "  if (val <= 5) {",
+        "  if (value <= 5) {",
         "    result = \"5 or Smaller\";",
         "  }",
         "  ",
@@ -3522,7 +3522,7 @@
         ""
       ],
       "solutions": [
-        "function testElse(val) {\n  var result = \"\";\n  if(val > 5) {\n    result = \"Bigger than 5\";\n  } else {\n    result = \"5 or Smaller\";\n  }\n  return result;\n}"
+        "function testElse(value) {\n  var result = \"\";\n  if(value > 5) {\n    result = \"Bigger than 5\";\n  } else {\n    result = \"5 or Smaller\";\n  }\n  return result;\n}"
       ],
       "tests": [
         "assert(code.match(/if/g).length === 1, 'message: You should only have one <code>if</code> statement in the editor');",
@@ -3540,7 +3540,7 @@
           "title": "Introducción de las sentencias else",
           "description": [
             "Cuando una condición de una sentencia <code>if</code> es verdadera, el siguiente bloque de código es ejecutado. ¿Y cuando esa condición es falsa? Normalmente nada pasaría. Con una sentencia <code>else</code>(además), un bloque alternativo de código puede ser ejecutado.",
-            "<blockquote>if (num > 10) {<br>  return \"Más grande que 10\";<br>} else {<br>  return \"10 o Menos\";<br>}</blockquote>",
+            "<blockquote>if (number > 10) {<br>  return \"Más grande que 10\";<br>} else {<br>  return \"10 o Menos\";<br>}</blockquote>",
             "<h4>Instrucciones</h4>",
             "Combina las sentencias <code>if</code> dentro de una sola sentencia <code>if/else</code>."
           ]
@@ -3552,18 +3552,18 @@
       "title": "Introducing Else If Statements",
       "description": [
         "If you have multiple conditions that need to be addressed, you can chain <code>if</code> statements together with <code>else if</code> statements.",
-        "<blockquote>if (num > 15) {<br>  return \"Bigger than 15\";<br>} else if (num < 5) {<br>  return \"Smaller than 5\";<br>} else {<br>  return \"Between 5 and 15\";<br>}</blockquote>",
+        "<blockquote>if (number > 15) {<br>  return \"Bigger than 15\";<br>} else if (number < 5) {<br>  return \"Smaller than 5\";<br>} else {<br>  return \"Between 5 and 15\";<br>}</blockquote>",
         "<hr>",
         "Convert the logic to use <code>else if</code> statements."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testElseIf(val) {",
-        "  if (val > 10) {",
+        "function testElseIf(value) {",
+        "  if (value > 10) {",
         "    return \"Greater than 10\";",
         "  }",
         "  ",
-        "  if (val < 5) {",
+        "  if (value < 5) {",
         "    return \"Smaller than 5\";",
         "  }",
         "  ",
@@ -3575,7 +3575,7 @@
         ""
       ],
       "solutions": [
-        "function testElseIf(val) {\n  if(val > 10) {\n    return \"Greater than 10\";\n  } else if(val < 5) {\n    return \"Smaller than 5\";\n  } else {\n    return \"Between 5 and 10\";\n  }\n}"
+        "function testElseIf(value) {\n  if(value > 10) {\n    return \"Greater than 10\";\n  } else if(value < 5) {\n    return \"Smaller than 5\";\n  } else {\n    return \"Between 5 and 10\";\n  }\n}"
       ],
       "tests": [
         "assert(code.match(/else/g).length > 1, 'message: You should have at least two <code>else</code> statements');",
@@ -3593,7 +3593,7 @@
           "title": "Introducción de las sentencias else if",
           "description": [
             "Si tienes múltiples condiciones que deben abordarse, puedes encadenar sentencias <code>if</code> juntas con sentencias <code>else if</code>.",
-            "<blockquote>if (num > 15) {<br>  return \"Más grande que 15\";<br>} else if (num < 5) {<br>  return \"Más pequeño que 5\";<br>} else {<br>  return \"Entre 5 y 15\";<br>}</blockquote>",
+            "<blockquote>if (number > 15) {<br>  return \"Más grande que 15\";<br>} else if (number < 5) {<br>  return \"Más pequeño que 5\";<br>} else {<br>  return \"Entre 5 y 15\";<br>}</blockquote>",
             "<h4>Instrucciones</h4>",
             "Convierte la lógica para usar sentencias <code>else if</code>."
           ]
@@ -3617,10 +3617,10 @@
         "Change the order of logic in the function so that it will return the correct statements in all cases."
       ],
       "challengeSeed": [
-        "function orderMyLogic(val) {",
-        "  if (val < 10) {",
+        "function orderMyLogic(value) {",
+        "  if (value < 10) {",
         "    return \"Less than 10\";",
-        "  } else if (val < 5) {",
+        "  } else if (value < 5) {",
         "    return \"Less than 5\";",
         "  } else {",
         "    return \"Greater than or equal to 10\";",
@@ -3631,7 +3631,7 @@
         "orderMyLogic(7);"
       ],
       "solutions": [
-        "function orderMyLogic(val) {\n  if(val < 5) {\n    return \"Less than 5\";            \n  } else if (val < 10) {\n    return \"Less than 10\";\n  } else {\n    return \"Greater than or equal to 10\";\n  }\n}"
+        "function orderMyLogic(value) {\n  if(value < 5) {\n    return \"Less than 5\";            \n  } else if (value < 10) {\n    return \"Less than 10\";\n  } else {\n    return \"Greater than or equal to 10\";\n  }\n}"
       ],
       "tests": [
         "assert(orderMyLogic(4) === \"Less than 5\", 'message: <code>orderMyLogic(4)</code> should return \"Less than 5\"');",
@@ -3667,11 +3667,11 @@
         "<blockquote>if (<em>condition1</em>) {<br>  <em>statement1</em><br>} else if (<em>condition2</em>) {<br>  <em>statement2</em><br>} else if (<em>condition3</em>) {<br>  <em>statement3</em><br>. . .<br>} else {<br>  <em>statementN</em><br>}</blockquote>",
         "<hr>",
         "Write chained <code>if</code>/<code>else if</code> statements to fulfill the following conditions:",
-        "<code>num &lt;   5</code> - return \"Tiny\"<br><code>num &lt;  10</code> - return \"Small\"<br><code>num &lt; 15</code> - return \"Medium\"<br><code>num &lt; 20</code> - return \"Large\"<br><code>num >= 20</code>  - return \"Huge\""
+        "<code>number &lt;   5</code> - return \"Tiny\"<br><code>number &lt;  10</code> - return \"Small\"<br><code>number &lt; 15</code> - return \"Medium\"<br><code>number &lt; 20</code> - return \"Large\"<br><code>number >= 20</code>  - return \"Huge\""
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function testSize(num) {",
+        "function testSize(number) {",
         "  // Only change code below this line",
         "  ",
         "  ",
@@ -3683,7 +3683,7 @@
         "testSize(7);"
       ],
       "solutions": [
-        "function testSize(num) {\n  if (num < 5) {\n    return \"Tiny\";\n  } else if (num < 10) {\n    return \"Small\";\n  } else if (num < 15) {\n    return \"Medium\";\n  } else if (num < 20) {\n    return \"Large\";\n  } else {\n    return \"Huge\";\n  }\n}"
+        "function testSize(number) {\n  if (number < 5) {\n    return \"Tiny\";\n  } else if (number < 10) {\n    return \"Small\";\n  } else if (number < 15) {\n    return \"Medium\";\n  } else if (number < 20) {\n    return \"Large\";\n  } else {\n    return \"Huge\";\n  }\n}"
       ],
       "tests": [
         "assert(code.match(/else/g).length > 3, 'message: You should have at least four <code>else</code> statements');",
@@ -3710,7 +3710,7 @@
             "<blockquote>if (<em>condicion1</em>) {<br>  <em>sentencias1</em><br>} else if (<em>condicion2</em>) {<br>  <em>sentencias2</em><br>} else if (<em>condicion3</em>) {<br>  <em>sentencias3</em><br>. . .<br>} else {<br>  <em>sentenciasN</em><br>}</blockquote>",
             "<h4>Instrucciones</h4>",
             "Escribe sentencias <code>if</code>/<code>else if</code> encadenadas para cumplir las siguientes condiciones:",
-            "<code>num &lt;   5</code> - retorna \"Tiny\"<br><code>num &lt;  10</code> - retorna \"Small\"<br><code>num &lt; 15</code> - retorna \"Medium\"<br><code>num &lt; 20</code> - retorna \"Large\"<br><code>num >= 20</code>  - retorna \"Huge\""
+            "<code>number &lt;   5</code> - retorna \"Tiny\"<br><code>number &lt;  10</code> - retorna \"Small\"<br><code>number &lt; 15</code> - retorna \"Medium\"<br><code>number &lt; 20</code> - retorna \"Large\"<br><code>number >= 20</code>  - retorna \"Huge\""
           ]
         }
       }
@@ -3763,14 +3763,14 @@
       "description": [
         "If you have many options to choose from, use a <code>switch</code> statement. A <code>switch</code> statement tests a value and can have many <code>case</code> statements which define various possible values. Statements are executed from the first matched <code>case</code> value until a <code>break</code> is encountered.",
         "Here is a <dfn>pseudocode</dfn> example:",
-        "<blockquote>switch(num) {<br>  case value1:<br>    statement1;<br>    break;<br>  case value2:<br>    statement2;<br>    break;<br>...<br>  case valueN:<br>    statementN;<br>    break;<br>}</blockquote>",
+        "<blockquote>switch(number) {<br>  case value1:<br>    statement1;<br>    break;<br>  case value2:<br>    statement2;<br>    break;<br>...<br>  case valueN:<br>    statementN;<br>    break;<br>}</blockquote>",
         "<code>case</code> values are tested with strict equality (<code>===</code>). The <code>break</code> tells JavaScript to stop executing statements. If the <code>break</code> is omitted, the next statement will be executed.",
         "<hr>",
-        "Write a switch statement which tests <code>val</code> and sets <code>answer</code> for the following conditions:<br><code>1</code> - \"alpha\"<br><code>2</code> - \"beta\"<br><code>3</code> - \"gamma\"<br><code>4</code> - \"delta\""
+        "Write a switch statement which tests <code>value</code> and sets <code>answer</code> for the following conditions:<br><code>1</code> - \"alpha\"<br><code>2</code> - \"beta\"<br><code>3</code> - \"gamma\"<br><code>4</code> - \"delta\""
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function caseInSwitch(val) {",
+        "function caseInSwitch(value) {",
         "  var answer = \"\";",
         "  // Only change code below this line",
         "  ",
@@ -3785,7 +3785,7 @@
         ""
       ],
       "solutions": [
-        "function caseInSwitch(val) {\n  var answer = \"\";\n\n  switch(val) {\n    case 1:\n      answer = \"alpha\";\n      break;\n    case 2:\n      answer = \"beta\";\n      break;\n    case 3:\n      answer = \"gamma\";\n      break;\n    case 4:\n      answer = \"delta\";\n  }\n  return answer;  \n}"
+        "function caseInSwitch(value) {\n  var answer = \"\";\n\n  switch(value) {\n    case 1:\n      answer = \"alpha\";\n      break;\n    case 2:\n      answer = \"beta\";\n      break;\n    case 3:\n      answer = \"gamma\";\n      break;\n    case 4:\n      answer = \"delta\";\n  }\n  return answer;  \n}"
       ],
       "tests": [
         "assert(caseInSwitch(1) === \"alpha\", 'message: <code>caseInSwitch(1)</code> should have a value of \"alpha\"');",
@@ -3806,10 +3806,10 @@
           "description": [
             "Si tienes varias opciones para elegir, usa una sentencia <code>switch</code>. Una sentencia <code>switch</code> prueba un valor y puede tener varias sentencias <code>case</code> las cuales definen varios posibles valores. Las sentencias son ejecutadas desde el primer valor <code>case</code> igualado hasta que se encuentr un <code>break</code>.",
             "Aquí hay un <dfn>pseudocódigo</dfn> de ejemplo:",
-            "<blockquote>switch(num) {<br>  case valor1:<br>    sentencia1;<br>    break;<br>  case valor2:<br>    sentencia2;<br>    break;<br>...<br>  case valorN:<br>    sentenciaN;<br>    break;<br>}</blockquote>",
+            "<blockquote>switch(number) {<br>  case valor1:<br>    sentencia1;<br>    break;<br>  case valor2:<br>    sentencia2;<br>    break;<br>...<br>  case valorN:<br>    sentenciaN;<br>    break;<br>}</blockquote>",
             "Los valores <code>case</code> son probados con estricta igualdad (<code>===</code>). El <code>break</code> le dice a JavaScript que pare la ejecución del bloque de sentencias en el que está. Si se omite <code>break</code>, se ejecutará la siguiente sentencia.",
             "<h4>Instrucciones</h4>",
-            "Escribe una sentencia <code>switch</code> que pruebe <code>val</code> y establezca <code>answer</code> para las siguientes condiciones:<br><code>1</code> - \"alpha\"<br><code>2</code> - \"beta\"<br><code>3</code> - \"gamma\"<br><code>4</code> - \"delta\""
+            "Escribe una sentencia <code>switch</code> que pruebe <code>value</code> y establezca <code>answer</code> para las siguientes condiciones:<br><code>1</code> - \"alpha\"<br><code>2</code> - \"beta\"<br><code>3</code> - \"gamma\"<br><code>4</code> - \"delta\""
           ]
         }
       }
@@ -3820,13 +3820,13 @@
       "description": [
         "In a <code>switch</code> statement you may not be able to specify all possible values as <code>case</code> statements. Instead, you can add the <code>default</code> statement which will be executed if no matching <code>case</code> statements are found. Think of it like the final <code>else</code> statement in an <code>if/else</code> chain.",
         "A <code>default</code> statement should be the last case.",
-        "<blockquote>switch (num) {<br>  case value1:<br>    statement1;<br>    break;<br>  case value2:<br>    statement2;<br>    break;<br>...<br>  default:<br>    defaultStatement;<br>    break;<br>}</blockquote>",
+        "<blockquote>switch (number) {<br>  case value1:<br>    statement1;<br>    break;<br>  case value2:<br>    statement2;<br>    break;<br>...<br>  default:<br>    defaultStatement;<br>    break;<br>}</blockquote>",
         "<hr>",
         "Write a switch statement to set <code>answer</code> for the following conditions:<br><code>\"a\"</code> - \"apple\"<br><code>\"b\"</code> - \"bird\"<br><code>\"c\"</code> - \"cat\"<br><code>default</code> - \"stuff\""
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function switchOfStuff(val) {",
+        "function switchOfStuff(value) {",
         "  var answer = \"\";",
         "  // Only change code below this line",
         "  ",
@@ -3841,7 +3841,7 @@
         ""
       ],
       "solutions": [
-        "function switchOfStuff(val) {\n  var answer = \"\";\n\n  switch(val) {\n    case \"a\":\n      answer = \"apple\";\n      break;\n    case \"b\":\n      answer = \"bird\";\n      break;\n    case \"c\":\n      answer = \"cat\";\n      break;\n    default:\n      answer = \"stuff\";\n  }\n  return answer;  \n}"
+        "function switchOfStuff(value) {\n  var answer = \"\";\n\n  switch(value) {\n    case \"a\":\n      answer = \"apple\";\n      break;\n    case \"b\":\n      answer = \"bird\";\n      break;\n    case \"c\":\n      answer = \"cat\";\n      break;\n    default:\n      answer = \"stuff\";\n  }\n  return answer;  \n}"
       ],
       "tests": [
         "assert(switchOfStuff(\"a\") === \"apple\", 'message: <code>switchOfStuff(\"a\")</code> should have a value of \"apple\"');",
@@ -3861,7 +3861,7 @@
           "description": [
             "En una sentencia <code>switch</code> puede que no seas capaz de especificar todos los posibles valores en las sentencias <code>case</code>. En su lugar, puedes agregar la sentencia <code>default</code> la cual será ejecutada si no es encontrada ninguna coincidencia con alguna sentencia <code>case</code>. Piensa en esto como la última sentencia <code>else</code> en una cadena <code>if/else</code>.",
             "Una sentencia <code>default</code> debería ser el último caso.",
-            "<blockquote>switch(num) {<br>  case valor1:<br>    sentencia1;<br>    break;<br>  case valor2:<br>    sentencia2;<br>    break;<br>...<br>  default:<br>    sentenciaDefault;<br>}</blockquote>",
+            "<blockquote>switch(number) {<br>  case valor1:<br>    sentencia1;<br>    break;<br>  case valor2:<br>    sentencia2;<br>    break;<br>...<br>  default:<br>    sentenciaDefault;<br>}</blockquote>",
             "<h4>Instrucciones</h4>",
             "Escribe una sentencia switch para establecer <code>answer</code> para las siguientes condiciones:<br><code>\"a\"</code> - \"apple\"<br><code>\"b\"</code> - \"bird\"<br><code>\"c\"</code> - \"cat\"<br><code>default</code> - \"stuff\""
           ]
@@ -3873,7 +3873,7 @@
       "title": "Multiple Identical Options in Switch Statements",
       "description": [
         "If the <code>break</code> statement is omitted from a <code>switch</code> statement's <code>case</code>, the following <code>case</code> statement(s) are executed until a <code>break</code> is encountered. If you have multiple inputs with the same output, you can represent them in a <code>switch</code> statement like this:",
-        "<blockquote>switch(val) {<br>  case 1:<br>  case 2:<br>  case 3:<br>    result = \"1, 2, or 3\";<br>    break;<br>  case 4:<br>    result = \"4 alone\";<br>}</blockquote>",
+        "<blockquote>switch(value) {<br>  case 1:<br>  case 2:<br>  case 3:<br>    result = \"1, 2, or 3\";<br>    break;<br>  case 4:<br>    result = \"4 alone\";<br>}</blockquote>",
         "Cases for 1, 2, and 3 will all produce the same result.",
         "<hr>",
         "Write a switch statement to set <code>answer</code> for the following ranges:<br><code>1-3</code> - \"Low\"<br><code>4-6</code> - \"Mid\"<br><code>7-9</code> - \"High\"",
@@ -3881,7 +3881,7 @@
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function sequentialSizes(val) {",
+        "function sequentialSizes(value) {",
         "  var answer = \"\";",
         "  // Only change code below this line",
         "  ",
@@ -3896,7 +3896,7 @@
         ""
       ],
       "solutions": [
-        "function sequentialSizes(val) {\n  var answer = \"\";\n  \n  switch(val) {\n    case 1:\n    case 2:\n    case 3:\n      answer = \"Low\";\n      break;\n    case 4:\n    case 5:\n    case 6:\n      answer = \"Mid\";\n      break;\n    case 7:\n    case 8:\n    case 9:\n      answer = \"High\";\n  }\n  \n  return answer;  \n}"
+        "function sequentialSizes(value) {\n  var answer = \"\";\n  \n  switch(value) {\n    case 1:\n    case 2:\n    case 3:\n      answer = \"Low\";\n      break;\n    case 4:\n    case 5:\n    case 6:\n      answer = \"Mid\";\n      break;\n    case 7:\n    case 8:\n    case 9:\n      answer = \"High\";\n  }\n  \n  return answer;  \n}"
       ],
       "tests": [
         "assert(sequentialSizes(1) === \"Low\", 'message: <code>sequentialSizes(1)</code> should return \"Low\"');",
@@ -3918,7 +3918,7 @@
           "title": "Múltiples opciones idénticas en una sentencias switch",
           "description": [
             "Si la sentencia <code>break</code> es omitida de una sentencia <code>case</code> de un <code>switch</code>, las siguientes sentencias <code>case</code> son ejecutadas hasta que sea encontrado un <code>break</code>. Si tienes multiples entradas con la misma salida, puede representarlas en una sentencia <code>switch</code> así:",
-            "<blockquote>switch(val) {<br>  case 1:<br>  case 2:<br>  case 3:<br>    result = \"1, 2, or 3\";<br>    break;<br>  case 4:<br>    result = \"4 alone\";<br>}</blockquote>",
+            "<blockquote>switch(value) {<br>  case 1:<br>  case 2:<br>  case 3:<br>    result = \"1, 2, or 3\";<br>    break;<br>  case 4:<br>    result = \"4 alone\";<br>}</blockquote>",
             "Los casos 1, 2, y 3 producirán el mismo resultado.",
             "<h4>Instrucciones</h4>",
             "Escribe una sentencia <code>switch</code> para establecer <code>answer</code> para los siguientes rangos:<br><code>1-3</code> - \"Low\"<br><code>4-6</code> - \"Mid\"<br><code>7-9</code> - \"High\"",
@@ -3932,27 +3932,27 @@
       "title": "Replacing If Else Chains with Switch",
       "description": [
         "If you have many options to choose from, a <code>switch</code> statement can be easier to write than many chained <code>if</code>/<code>else if</code> statements. The following:",
-        "<blockquote>if (val === 1) {<br>  answer = \"a\";<br>} else if (val === 2) {<br>  answer = \"b\";<br>} else {<br>  answer = \"c\";<br>}</blockquote>",
+        "<blockquote>if (value === 1) {<br>  answer = \"a\";<br>} else if (value === 2) {<br>  answer = \"b\";<br>} else {<br>  answer = \"c\";<br>}</blockquote>",
         "can be replaced with:",
-        "<blockquote>switch(val) {<br>  case 1:<br>    answer = \"a\";<br>    break;<br>  case 2:<br>    answer = \"b\";<br>    break;<br>  default:<br>    answer = \"c\";<br>}</blockquote>",
+        "<blockquote>switch(value) {<br>  case 1:<br>    answer = \"a\";<br>    break;<br>  case 2:<br>    answer = \"b\";<br>    break;<br>  default:<br>    answer = \"c\";<br>}</blockquote>",
         "<hr>",
         "Change the chained <code>if</code>/<code>else if</code> statements into a <code>switch</code> statement."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function chainToSwitch(val) {",
+        "function chainToSwitch(value) {",
         "  var answer = \"\";",
         "  // Only change code below this line",
         "  ",
-        "  if (val === \"bob\") {",
+        "  if (value === \"bob\") {",
         "    answer = \"Marley\";",
-        "  } else if (val === 42) {",
+        "  } else if (value === 42) {",
         "    answer = \"The Answer\";",
-        "  } else if (val === 1) {",
+        "  } else if (value === 1) {",
         "    answer = \"There is no #1\";",
-        "  } else if (val === 99) {",
+        "  } else if (value === 99) {",
         "    answer = \"Missed me by this much!\";",
-        "  } else if (val === 7) {",
+        "  } else if (value === 7) {",
         "    answer = \"Ate Nine\";",
         "  }",
         "  ",
@@ -3965,7 +3965,7 @@
         ""
       ],
       "solutions": [
-        "function chainToSwitch(val) {\n  var answer = \"\";\n\n  switch(val) {\n    case \"bob\":\n      answer = \"Marley\";\n      break;\n    case 42:\n      answer = \"The Answer\";\n      break;\n    case 1:\n      answer = \"There is no #1\";\n      break;\n    case 99:\n      answer = \"Missed me by this much!\";\n      break;\n    case 7:\n      answer = \"Ate Nine\";\n  }\n  return answer;  \n}"
+        "function chainToSwitch(value) {\n  var answer = \"\";\n\n  switch(value) {\n    case \"bob\":\n      answer = \"Marley\";\n      break;\n    case 42:\n      answer = \"The Answer\";\n      break;\n    case 1:\n      answer = \"There is no #1\";\n      break;\n    case 99:\n      answer = \"Missed me by this much!\";\n      break;\n    case 7:\n      answer = \"Ate Nine\";\n  }\n  return answer;  \n}"
       ],
       "tests": [
         "assert(!/else/g.test(code), 'message: You should not use any <code>else</code> statements anywhere in the editor');",
@@ -3986,9 +3986,9 @@
           "title": "Reemplazar cadenas if else con switch",
           "description": [
             "Si tienes varias opciones para elegir, una sentencia <code>switch</code> puede ser más fácil de escribir que varias sentencias <code>if</code>/<code>if else</code> anidadas. Lo siguiente:",
-            "<blockquote>if (val === 1) {<br>  respuesta = \"a\";<br>} else if (val === 2) {<br>  respuesta = \"b\";<br>} else {<br>  respuesta = \"c\";<br>}</blockquote>",
+            "<blockquote>if (value === 1) {<br>  respuesta = \"a\";<br>} else if (value === 2) {<br>  respuesta = \"b\";<br>} else {<br>  respuesta = \"c\";<br>}</blockquote>",
             "puede ser reemplazado con:",
-            "<blockquote>switch(val) {<br>  case 1:<br>    respuesta = \"a\";<br>    break;<br>  case 2:<br>    respuesta = \"b\";<br>    break;<br>  default:<br>    respuesta = \"c\";<br>}</blockquote>",
+            "<blockquote>switch(value) {<br>  case 1:<br>    respuesta = \"a\";<br>    break;<br>  case 2:<br>    respuesta = \"b\";<br>    break;<br>  default:<br>    respuesta = \"c\";<br>}</blockquote>",
             "<h4>Instrucciones</h4>",
             "Cambia las sentencias <code>if</code>/<code>if else</code> anidadas dentro de una sentencia <code>switch</code>."
           ]
@@ -4055,7 +4055,7 @@
       "description": [
         "When a <code>return</code> statement is reached, the execution of the current function stops and control returns to the calling location.",
         "<strong>Example</strong>",
-        "<blockquote>function myFun() {<br>  console.log(\"Hello\");<br>  return \"World\";<br>  console.log(\"byebye\")<br>}<br>myFun();</blockquote>",
+        "<blockquote>function myFunction() {<br>  console.log(\"Hello\");<br>  return \"World\";<br>  console.log(\"byebye\")<br>}<br>myFunction();</blockquote>",
         "The above outputs \"Hello\" to the console, returns \"World\", but <code>\"byebye\"</code> is never output, because the function exits at the <code>return</code> statement.",
         "<hr>",
         "Modify the function <code>abTest</code> so that if <code>a</code> or <code>b</code> are less than <code>0</code> the function will immediately exit with a value of <code>undefined</code>.",
@@ -4123,7 +4123,7 @@
       "challengeSeed": [
         "var count = 0;",
         "",
-        "function cc(card) {",
+        "function cardCounter(card) {",
         "  // Only change code below this line",
         "  ",
         "  ",
@@ -4133,19 +4133,19 @@
         "",
         "// Add/remove calls to test your function.",
         "// Note: Only the last will display",
-        "cc(2); cc(3); cc(7); cc('K'); cc('A');"
+        "cardCounter(2); cardCounter(3); cardCounter(7); cardCounter('K'); cardCounter('A');"
       ],
       "solutions": [
-        "var count = 0;\nfunction cc(card) {\n  switch(card) {\n    case 2:\n    case 3:\n    case 4:\n    case 5:\n    case 6:\n      count++;\n      break;\n    case 10:\n    case 'J':\n    case 'Q':\n    case 'K':\n    case 'A':\n      count--;\n  }\n  if(count > 0) {\n    return count + \" Bet\";\n  } else {\n    return count + \" Hold\";\n  }\n}"
+        "var count = 0;\nfunction cardCounter(card) {\n  switch(card) {\n    case 2:\n    case 3:\n    case 4:\n    case 5:\n    case 6:\n      count++;\n      break;\n    case 10:\n    case 'J':\n    case 'Q':\n    case 'K':\n    case 'A':\n      count--;\n  }\n  if(count > 0) {\n    return count + \" Bet\";\n  } else {\n    return count + \" Hold\";\n  }\n}"
       ],
       "tests": [
-        "assert((function(){ count = 0; cc(2);cc(3);cc(4);cc(5);var out = cc(6); if(out === \"5 Bet\") {return true;} return false; })(), 'message: Cards Sequence 2, 3, 4, 5, 6 should return <code>5 Bet</code>');",
-        "assert((function(){ count = 0; cc(7);cc(8);var out = cc(9); if(out === \"0 Hold\") {return true;} return false; })(), 'message: Cards Sequence 7, 8, 9 should return <code>0 Hold</code>');",
-        "assert((function(){ count = 0; cc(10);cc('J');cc('Q');cc('K');var out = cc('A'); if(out === \"-5 Hold\") {return true;} return false; })(), 'message: Cards Sequence 10, J, Q, K, A should return <code>-5 Hold</code>');",
-        "assert((function(){ count = 0; cc(3);cc(7);cc('Q');cc(8);var out = cc('A'); if(out === \"-1 Hold\") {return true;} return false; })(), 'message: Cards Sequence 3, 7, Q, 8, A should return <code>-1 Hold</code>');",
-        "assert((function(){ count = 0; cc(2);cc('J');cc(9);cc(2);var out = cc(7); if(out === \"1 Bet\") {return true;} return false; })(), 'message: Cards Sequence 2, J, 9, 2, 7 should return <code>1 Bet</code>');",
-        "assert((function(){ count = 0; cc(2);cc(2);var out = cc(10); if(out === \"1 Bet\") {return true;} return false; })(), 'message: Cards Sequence 2, 2, 10 should return <code>1 Bet</code>');",
-        "assert((function(){ count = 0; cc(3);cc(2);cc('A');cc(10);var out = cc('K'); if(out === \"-1 Hold\") {return true;} return false; })(), 'message: Cards Sequence 3, 2, A, 10, K should return <code>-1 Hold</code>');"
+        "assert((function(){ count = 0; cardCounter(2);cardCounter(3);cardCounter(4);cardCounter(5);var out = cardCounter(6); if(out === \"5 Bet\") {return true;} return false; })(), 'message: Cards Sequence 2, 3, 4, 5, 6 should return <code>5 Bet</code>');",
+        "assert((function(){ count = 0; cardCounter(7);cardCounter(8);var out = cardCounter(9); if(out === \"0 Hold\") {return true;} return false; })(), 'message: Cards Sequence 7, 8, 9 should return <code>0 Hold</code>');",
+        "assert((function(){ count = 0; cardCounter(10);cardCounter('J');cardCounter('Q');cardCounter('K');var out = cardCounter('A'); if(out === \"-5 Hold\") {return true;} return false; })(), 'message: Cards Sequence 10, J, Q, K, A should return <code>-5 Hold</code>');",
+        "assert((function(){ count = 0; cardCounter(3);cardCounter(7);cardCounter('Q');cardCounter(8);var out = cardCounter('A'); if(out === \"-1 Hold\") {return true;} return false; })(), 'message: Cards Sequence 3, 7, Q, 8, A should return <code>-1 Hold</code>');",
+        "assert((function(){ count = 0; cardCounter(2);cardCounter('J');cardCounter(9);cardCounter(2);var out = cardCounter(7); if(out === \"1 Bet\") {return true;} return false; })(), 'message: Cards Sequence 2, J, 9, 2, 7 should return <code>1 Bet</code>');",
+        "assert((function(){ count = 0; cardCounter(2);cardCounter(2);var out = cardCounter(10); if(out === \"1 Bet\") {return true;} return false; })(), 'message: Cards Sequence 2, 2, 10 should return <code>1 Bet</code>');",
+        "assert((function(){ count = 0; cardCounter(3);cardCounter(2);cardCounter('A');cardCounter(10);var out = cardCounter('K'); if(out === \"-1 Hold\") {return true;} return false; })(), 'message: Cards Sequence 3, 2, A, 10, K should return <code>-1 Hold</code>');"
       ],
       "type": "checkpoint",
       "challengeType": 1
@@ -4226,14 +4226,14 @@
         "There are two ways to access the properties of an object: dot notation (<code>.</code>) and bracket notation (<code>[]</code>), similar to an array.",
         "Dot notation is what you use when you know the name of the property you're trying to access ahead of time.",
         "Here is a sample of using dot notation (<code>.</code>) to read an object's property:",
-        "<blockquote>var myObj = {<br>  prop1: \"val1\",<br>  prop2: \"val2\"<br>};<br>var prop1val = myObj.prop1; // val1<br>var prop2val = myObj.prop2; // val2</blockquote>",
+        "<blockquote>var myObj = {<br>  property1: \"val1\",<br>  prooperty2: \"val2\"<br>};<br>var prop1val = myObj.property1; // val1<br>var prop2val = myObj.prooperty2; // val2</blockquote>",
         "<hr>",
-        "Read in the property values of <code>testObj</code> using dot notation. Set the variable <code>hatValue</code> equal to the object's property <code>hat</code> and set the variable <code>shirtValue</code> equal to the object's property <code>shirt</code>."
+        "Read in the property values of <code>testObject</code> using dot notation. Set the variable <code>hatValue</code> equal to the object's property <code>hat</code> and set the variable <code>shirtValue</code> equal to the object's property <code>shirt</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "var testObj = {",
+        "var testObject = {",
         "  \"hat\": \"ballcap\",",
         "  \"shirt\": \"jersey\",",
         "  \"shoes\": \"cleats\"",
@@ -4241,21 +4241,21 @@
         "",
         "// Only change code below this line",
         "",
-        "var hatValue = testObj;      // Change this line",
-        "var shirtValue = testObj;    // Change this line"
+        "var hatValue = testObject;      // Change this line",
+        "var shirtValue = testObject;    // Change this line"
       ],
       "tail": [
         "(function(a,b) { return \"hatValue = '\" + a + \"', shirtValue = '\" + b + \"'\"; })(hatValue,shirtValue);"
       ],
       "solutions": [
-        "var testObj = {\n  \"hat\": \"ballcap\",\n  \"shirt\": \"jersey\",\n  \"shoes\": \"cleats\"\n};\n\nvar hatValue = testObj.hat;  \nvar shirtValue = testObj.shirt;"
+        "var testObject = {\n  \"hat\": \"ballcap\",\n  \"shirt\": \"jersey\",\n  \"shoes\": \"cleats\"\n};\n\nvar hatValue = testObject.hat;  \nvar shirtValue = testObject.shirt;"
       ],
       "tests": [
         "assert(typeof hatValue === 'string' , 'message: <code>hatValue</code> should be a string');",
         "assert(hatValue === 'ballcap' , 'message: The value of <code>hatValue</code> should be <code>\"ballcap\"</code>');",
         "assert(typeof shirtValue === 'string' , 'message: <code>shirtValue</code> should be a string');",
         "assert(shirtValue === 'jersey' , 'message: The value of <code>shirtValue</code> should be <code>\"jersey\"</code>');",
-        "assert(code.match(/testObj\\.\\w+/g).length > 1, 'message: You should use dot notation twice');"
+        "assert(code.match(/testObject\\.\\w+/g).length > 1, 'message: You should use dot notation twice');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -4266,9 +4266,9 @@
             "Hay dos maneras de acceder a las propiedades de un objeto: con el operador punto (<code>.</code>) y con la notación corchete (<code>[]</code>), similar al caso de un vector.",
             "El operador punto es el que usas cuando de antemano sabes el nombre de la propiedad que estás intentando acceder.",
             "Aquí está un ejemplo del uso del operador punto (<code>.</code>) para leer una propiedad de un objeto:",
-            "<blockquote>var miObj = {<br>  prop1: \"val1\",<br>  prop2: \"val2\"<br>};<br>var prop1val = miObj.prop1; // val1<br>var prop2val = miObj.prop2; // val2</blockquote>",
+            "<blockquote>var miObj = {<br>  property1: \"val1\",<br>  prooperty2: \"val2\"<br>};<br>var prop1val = miObj.property1; // val1<br>var prop2val = miObj.prooperty2; // val2</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Lee los valores de propiedades de <code>testObj</code> usando notación punto. Asigna la variable <code>hatValue</code> igual a la propiedad objeto <code>hat</code> y asigna la variable <code>shirtValue</code> igual a la propiedad objeto <code>shirt</code>."
+            "Lee los valores de propiedades de <code>testObject</code> usando notación punto. Asigna la variable <code>hatValue</code> igual a la propiedad objeto <code>hat</code> y asigna la variable <code>shirtValue</code> igual a la propiedad objeto <code>shirt</code>."
           ]
         }
       }
@@ -4283,7 +4283,7 @@
         "<blockquote>var myObj = {<br>  \"Space Name\": \"Kirk\",<br>  \"More Space\": \"Spock\",<br>  \"NoSpace\": \"USS Enterprise\"<br>};<br>myObj[\"Space Name\"]; // Kirk<br>myObj['More Space']; // Spock<br>myObj[\"NoSpace\"];    // USS Enterprise</blockquote>",
         "Note that property names with spaces in them must be in quotes (single or double).",
         "<hr>",
-        "Read the values of the properties <code>\"an entree\"</code> and <code>\"the drink\"</code> of <code>testObj</code> using bracket notation and assign them to <code>entreeValue</code> and <code>drinkValue</code> respectively."
+        "Read the values of the properties <code>\"an entree\"</code> and <code>\"the drink\"</code> of <code>testObject</code> using bracket notation and assign them to <code>entreeValue</code> and <code>drinkValue</code> respectively."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
@@ -4584,16 +4584,16 @@
         "Here is an example of a simple reverse alphabet lookup:",
         "<blockquote>var alpha = {<br>  1:\"Z\",<br>  2:\"Y\",<br>  3:\"X\",<br>  4:\"W\",<br>  ...<br>  24:\"C\",<br>  25:\"B\",<br>  26:\"A\"<br>};<br>alpha[2]; // \"Y\"<br>alpha[24]; // \"C\"<br><br>var value = 2;<br>alpha[value]; // \"Y\"</blockquote>",
         "<hr>",
-        "Convert the switch statement into an object called <code>lookup</code>. Use it to look up <code>val</code> and assign the associated string to the <code>result</code> variable."
+        "Convert the switch statement into an object called <code>lookup</code>. Use it to look up <code>value</code> and assign the associated string to the <code>result</code> variable."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Setup",
-        "function phoneticLookup(val) {",
+        "function phoneticLookup(value) {",
         "  var result = \"\";",
         "",
         "  // Only change code below this line",
-        "  switch(val) {",
+        "  switch(value) {",
         "    case \"alpha\": ",
         "      result = \"Adams\";",
         "      break;",
@@ -4621,7 +4621,7 @@
         "phoneticLookup(\"charlie\");"
       ],
       "solutions": [
-        "function phoneticLookup(val) {\n  var result = \"\";\n\n  var lookup = {\n    alpha: \"Adams\",\n    bravo: \"Boston\",\n    charlie: \"Chicago\",\n    delta: \"Denver\",\n    echo: \"Easy\",\n    foxtrot: \"Frank\"\n  };\n\n  result = lookup[val];\n\n  return result;\n}"
+        "function phoneticLookup(value) {\n  var result = \"\";\n\n  var lookup = {\n    alpha: \"Adams\",\n    bravo: \"Boston\",\n    charlie: \"Chicago\",\n    delta: \"Denver\",\n    echo: \"Easy\",\n    foxtrot: \"Frank\"\n  };\n\n  result = lookup[value];\n\n  return result;\n}"
       ],
       "tests": [
         "assert(phoneticLookup(\"alpha\") === 'Adams', 'message: <code>phoneticLookup(\"alpha\")</code> should equal <code>\"Adams\"</code>');",
@@ -4644,7 +4644,7 @@
             "Aquí está un ejemplo de una simple búsqueda inversa de alfabeto:",
             "<blockquote>var alfa = {<br>  1:\"Z\",<br>  2:\"Y\",<br>  3:\"X\",<br>  4:\"W\",<br>  ...<br>  24:\"C\",<br>  25:\"B\",<br>  26:\"A\"<br>};<br>alfa[2]; // \"Y\"<br>alfa[24]; // \"C\"<br><br>var valor = 2;<br>alfa[valor]; // \"Y\"</blockquote>",
             "<h4>Instrucciones</h4>",
-            "Convierte la sentencia switch en una tabla de búsqueda llamada <code>lookup</code>. Usala para buscar <code>val</code> y asigna la cadena asociada a la variable <code>result</code>."
+            "Convierte la sentencia switch en una tabla de búsqueda llamada <code>lookup</code>. Usala para buscar <code>value</code> y asigna la cadena asociada a la variable <code>result</code>."
           ]
         }
       }
@@ -5737,7 +5737,7 @@
         "Use multiple <code>conditional operators</code> in the <code>checkSign</code> function to check if a number is positive, negative or zero."
       ],
       "challengeSeed": [
-        "function checkSign(num) {",
+        "function checkSign(number) {",
         "  ",
         "}",
         "",
