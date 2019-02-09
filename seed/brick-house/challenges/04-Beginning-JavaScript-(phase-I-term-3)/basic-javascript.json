@@ -1882,7 +1882,7 @@
       "description": [
         "One way to think of a <dfn>multi-dimensional</dfn> array, is as an <em>array of arrays</em>. When you use brackets to access your array, the first set of brackets refers to the entries in the outer-most (the first level) array, and each additional pair of brackets refers to the next level of entries inside.",
         "<strong>Example</strong>",
-        "<blockquote>var array = [<br>    [1,2,3],<br>    [4,5,6],<br>    [7,8,9],<br>    [[10,11,12], 13, 14]<br>];<br>arr[3]; // equals [[10,11,12], 13, 14]<br>arr[3][0]; // equals [10,11,12]<br>arr[3][0][1]; // equals 11</blockquote>",
+        "<blockquote>var array = [<br>    [1,2,3],<br>    [4,5,6],<br>    [7,8,9],<br>    [[10,11,12], 13, 14]<br>];<br>array[3]; // equals [[10,11,12], 13, 14]<br>array[3][0]; // equals [10,11,12]<br>array[3][0][1]; // equals 11</blockquote>",
         "<strong>Note</strong><br>There shouldn't be any spaces between the array name and the square brackets, like <code>array [0][0]</code> and even this <code>array [0] [0]</code> is not allowed. Although JavaScript is able to process this correctly, this may confuse other programmers reading your code.",
         "<hr>",
         "Using bracket notation select an element from <code>myArray</code> such that <code>myData</code> is equal to <code>8</code>."
@@ -2777,7 +2777,7 @@
           "title": "Hacer cola",
           "description": [
             "En Ciencias de la Computación una <dfn>cola</dfn> es una <dfn>Estructura de Datos</dfn> abstracta donde los elementos son mantenidos en orden. Nuevos elementos pueden ser agregados en la parte trasera de la <code>cola</code> y los elementos viejos son quitados desde el frente de la <code>cola</code>.",
-            "Escribe una función <code>nextInLine</code> la cual toma un vector (<code>arr</code>) y un número (<code>item</code>) como argumentos. Agrega el número al final del vector, entonces retira el primer elemento del vector. La función nextInLine debe entonces devolver el elemento que se ha eliminado."
+            "Escribe una función <code>nextInLine</code> la cual toma un vector (<code>array</code>) y un número (<code>item</code>) como argumentos. Agrega el número al final del vector, entonces retira el primer elemento del vector. La función nextInLine debe entonces devolver el elemento que se ha eliminado."
           ]
         }
       }
@@ -4226,7 +4226,7 @@
         "There are two ways to access the properties of an object: dot notation (<code>.</code>) and bracket notation (<code>[]</code>), similar to an array.",
         "Dot notation is what you use when you know the name of the property you're trying to access ahead of time.",
         "Here is a sample of using dot notation (<code>.</code>) to read an object's property:",
-        "<blockquote>var myObject = {<br>  property1: \"val1\",<br>  prooperty2: \"val2\"<br>};<br>var prop1val = myObject.property1; // val1<br>var prop2val = myObject.prooperty2; // val2</blockquote>",
+        "<blockquote>var myObject = {<br>  property1: \"value1\",<br>  prooperty2: \"value2\"<br>};<br>var property1value = myObject.property1; // value1<br>var property2value = myObject.prooperty2; // value2</blockquote>",
         "<hr>",
         "Read in the property values of <code>testObject</code> using dot notation. Set the variable <code>hatValue</code> equal to the object's property <code>hat</code> and set the variable <code>shirtValue</code> equal to the object's property <code>shirt</code>."
       ],
@@ -4266,7 +4266,7 @@
             "Hay dos maneras de acceder a las propiedades de un objeto: con el operador punto (<code>.</code>) y con la notación corchete (<code>[]</code>), similar al caso de un vector.",
             "El operador punto es el que usas cuando de antemano sabes el nombre de la propiedad que estás intentando acceder.",
             "Aquí está un ejemplo del uso del operador punto (<code>.</code>) para leer una propiedad de un objeto:",
-            "<blockquote>var miObj = {<br>  property1: \"val1\",<br>  prooperty2: \"val2\"<br>};<br>var prop1val = miObj.property1; // val1<br>var prop2val = miObj.prooperty2; // val2</blockquote>",
+            "<blockquote>var miObj = {<br>  property1: \"value1\",<br>  prooperty2: \"value2\"<br>};<br>var property1value = miObj.property1; // value1<br>var property2value = miObj.prooperty2; // value2</blockquote>",
             "<h4>Instrucciones</h4>",
             "Lee los valores de propiedades de <code>testObject</code> usando notación punto. Asigna la variable <code>hatValue</code> igual a la propiedad objeto <code>hat</code> y asigna la variable <code>shirtValue</code> igual a la propiedad objeto <code>shirt</code>."
           ]
@@ -4992,7 +4992,7 @@
       "description": [
         "You can run the same code multiple times by using a loop.",
         "The first type of loop we will learn is called a \"<code>while</code>\" loop because it runs \"while\" a specified condition is true and stops once that condition is no longer true.",
-        "<blockquote>var ourArray = [];<br>var i = 0;<br>while(i &#60; 5) {<br>  ourArray.push(i);<br>  i++;<br>}</blockquote>",
+        "<blockquote>var ourArray = [];<br>var index = 0;<br>while(index &#60; 5) {<br>  ourArray.push(index);<br>  index++;<br>}</blockquote>",
         "Let's try getting a while loop to work by pushing values to an array.",
         "<hr>",
         "Push the numbers 0 through 4 to <code>myArray</code> using a <code>while</code> loop."
@@ -5009,7 +5009,7 @@
         "if(typeof myArray !== \"undefined\"){(function(){return myArray;})();}"
       ],
       "solutions": [
-        "var myArray = [];\nvar i = 0;\nwhile(i < 5) {\n  myArray.push(i);\n  i++;\n}"
+        "var myArray = [];\nvar index = 0;\nwhile(index < 5) {\n  myArray.push(index);\n  index++;\n}"
       ],
       "tests": [
         "assert(code.match(/while/g), 'message: You should be using a <code>while</code> loop for this.');",
@@ -5024,10 +5024,10 @@
             "Puede ejecutar el mismo código varias veces mediante el uso de un ciclo.",
             "Otro tipo de ciclo de JavaScript se llama un ciclo \"while\", ya que se ejecuta, \"mientras que\" algo sea cierto y se detiene una vez que ya no sea así.",
             "<code>var ourArray = [];</code>",
-            "<code>var i = 0;</code>",
-            "<code>while(i < 5) {</code>",
-            "<code>&nbsp;&nbsp;ourArray.push(i);</code>",
-            "<code>&nbsp;&nbsp;i++;</code>",
+            "<code>var index = 0;</code>",
+            "<code>while(index < 5) {</code>",
+            "<code>&nbsp;&nbsp;ourArray.push(index);</code>",
+            "<code>&nbsp;&nbsp;index++;</code>",
             "<code>}</code>",
             "Intentemos que un ciclo <code>while</code> empuje valores en un vector.",
             "<h4>Instrucciones</h4>",
@@ -5047,8 +5047,8 @@
         "The <code>initialization</code> statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable.",
         "The <code>condition</code> statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to <code>true</code>. When <code>condition</code> is <code>false</code> at the start of the iteration, the loop will stop executing. This means if <code>condition</code> starts as <code>false</code>, your loop will never execute.",
         "The <code>final-expression</code> is executed at the end of each loop iteration, prior to the next <code>condition</code> check and is usually used to increment or decrement your loop counter.",
-        "In the following example we initialize with <code>i = 0</code> and iterate while our condition <code>i &#60; 5</code> is true. We'll increment <code>i</code> by <code>1</code> in each loop iteration with <code>i++</code> as our <code>final-expression</code>.",
-        "<blockquote>var ourArray = [];<br>for (var i = 0; i &#60; 5; i++) {<br>  ourArray.push(i);<br>}</blockquote>",
+        "In the following example we initialize with <code>index = 0</code> and iterate while our condition <code>index &#60; 5</code> is true. We'll increment <code>index</code> by <code>1</code> in each loop iteration with <code>index++</code> as our <code>final-expression</code>.",
+        "<blockquote>var ourArray = [];<br>for (var index = 0; index &#60; 5; index++) {<br>  ourArray.push(index);<br>}</blockquote>",
         "<code>ourArray</code> will now contain <code>[0,1,2,3,4]</code>.",
         "<hr>",
         "Use a <code>for</code> loop to work to push the values 1 through 5 onto <code>myArray</code>."
@@ -5057,8 +5057,8 @@
         "// Example",
         "var ourArray = [];",
         "",
-        "for (var i = 0; i < 5; i++) {",
-        "  ourArray.push(i);",
+        "for (var  = 0; index < 5; index++) {",
+        "  ourArray.push(index);",
         "}",
         "",
         "// Setup",
@@ -5072,7 +5072,7 @@
         "if (typeof myArray !== \"undefined\"){(function(){return myArray;})();}"
       ],
       "solutions": [
-        "var ourArray = [];\nfor (var i = 0; i < 5; i++) {\n  ourArray.push(i);\n}\nvar myArray = [];\nfor (var i = 1; i < 6; i++) {\n  myArray.push(i);\n}"
+        "var ourArray = [];\nfor (var index = 0; index < 5; index++) {\n  ourArray.push(index);\n}\nvar myArray = [];\nfor (var index = 1; index < 6; index++) {\n  myArray.push(index);\n}"
       ],
       "tests": [
         "assert(code.match(/for\\s*\\(/g).length > 1, 'message: You should be using a <code>for</code> loop for this.');",
@@ -5091,10 +5091,10 @@
             "La <code>inicialización</code> se ejecuta sólo una vez antes de que empiece el ciclo. Normalmente se utiliza para definir e inicializar su variable de ciclo. ",
             "La expresión <code>condición</code> se evalúa al principio de cada iteración del ciclo y continuará en el ciclo siempre y cuando sea verdadera (<code>true</code>). Cuando la <code>condición</code> sea falsa (<code>false</code>) al comienzo de la iteración, se detendrá la ejecución del ciclo.  Esto significa que si la <code>condición</code> inicia en el valor falso <code>false</code>, el ciclo no se ejecutará. ",
             "La <code>expresión final</code> se ejecuta al final de cada repetición del ciclo, antes del siguiente chequeo de la <code>condición</code> y se utiliza generalmente para aumentar o disminuir el contador del ciclo.",
-            "En el siguiente ejemplo inicializamos con <code>i = 0</code> e iteramos mientras nuestra condición <code>i <5</code> sea verdadera.  Vamos a incrementar <code>i</code> en <code>1</code> en cada iteración del ciclo con <code>i++</code> como nuestra <code>expresión final</code>. ",
+            "En el siguiente ejemplo inicializamos con <code>index = 0</code> e iteramos mientras nuestra condición <code>index <5</code> sea verdadera.  Vamos a incrementar <code>index</code> en <code>1</code> en cada iteración del ciclo con <code>index++</code> como nuestra <code>expresión final</code>. ",
             "<code>var ourArray = [];</code>",
-            "<code>for (var i = 0; i < 5; i++) {</code>",
-            "<code>&nbsp;&nbsp;ourArray.push(i);</code>",
+            "<code>for (var index = 0; index < 5; index++) {</code>",
+            "<code>&nbsp;&nbsp;ourArray.push(index);</code>",
             "<code>}</code>",
             "<code>ourArray</code> ahora contendrá <code>[0,1,2,3,4]</code>.",
             "<h4>Instrucciones</h4>",
@@ -5108,8 +5108,8 @@
       "title": "Iterate Odd Numbers With a For Loop",
       "description": [
         "For loops don't have to iterate one at a time. By changing our <code>final-expression</code>, we can count by even numbers.",
-        "We'll start at <code>i = 0</code> and loop while <code>i &#60; 10</code>. We'll increment <code>i</code> by 2 each loop with <code>i += 2</code>.",
-        "<blockquote>var ourArray = [];<br>for (var i = 0; i &#60; 10; i += 2) {<br>  ourArray.push(i);<br>}</blockquote>",
+        "We'll start at <code>index = 0</code> and loop while <code>index &#60; 10</code>. We'll increment <code>index</code> by 2 each loop with <code>index += 2</code>.",
+        "<blockquote>var ourArray = [];<br>for (var index = 0; index &#60; 10; index += 2) {<br>  ourArray.push(index);<br>}</blockquote>",
         "<code>ourArray</code> will now contain <code>[0,2,4,6,8]</code>.",
         "Let's change our <code>initialization</code> so we can count by odd numbers.",
         "<hr>",
@@ -5119,8 +5119,8 @@
         "// Example",
         "var ourArray = [];",
         "",
-        "for (var i = 0; i < 10; i += 2) {",
-        "  ourArray.push(i);",
+        "for (var index = 0; index < 10; index += 2) {",
+        "  ourArray.push(index);",
         "}",
         "",
         "// Setup",
@@ -5134,7 +5134,7 @@
         "if(typeof myArray !== \"undefined\"){(function(){return myArray;})();}"
       ],
       "solutions": [
-        "var ourArray = [];\nfor (var i = 0; i < 10; i += 2) {\n  ourArray.push(i);\n}\nvar myArray = [];\nfor (var i = 1; i < 10; i += 2) {\n  myArray.push(i);\n}"
+        "var ourArray = [];\nfor (var index = 0; index < 10; index += 2) {\n  ourArray.push(index);\n}\nvar myArray = [];\nfor (var index = 1; index < 10; index += 2) {\n  myArray.push(index);\n}"
       ],
       "tests": [
         "assert(code.match(/for\\s*\\(/g).length > 1, 'message: You should be using a <code>for</code> loop for this.');",
@@ -5147,10 +5147,10 @@
           "title": "Itera por los números pares con un ciclo for",
           "description": [
             "Los ciclos <code>for</code> no siempre iteran incrementado de a uno. Cambiando nuestra <code>expresión final</code>, podemos contar los números pares.",
-            "Vamos a empezar con <code>i = 0</code> e iterar mientras <code>i <10</code>.  Vamos a incrementar <code>i</code> de a 2 en cada iteración <code>i + = 2</code>. ",
+            "Vamos a empezar con <code>index = 0</code> e iterar mientras <code>index <10</code>.  Vamos a incrementar <code>index</code> de a 2 en cada iteración <code>index + = 2</code>. ",
             "<code>var ourArray = [];</code>",
-            "<code>for (var i = 0; i < 10; i += 2) {</code>",
-            "<code>&nbsp;&nbsp;ourArray.push(i);</code>",
+            "<code>for (var index = 0; index < 10; index += 2) {</code>",
+            "<code>&nbsp;&nbsp;ourArray.push(index);</code>",
             "<code>}</code>",
             "<code>ourArray</code> ahora contendrá <code>[0,2,4,6,8]</code>.",
             "Vamos a cambiar nuestra <code>inicialización</code> y <code>expresión final</code> para que podamos contar los números impares.",
@@ -5166,8 +5166,8 @@
       "description": [
         "A for loop can also count backwards, so long as we can define the right conditions.",
         "In order to count backwards by twos, we'll need to change our <code>initialization</code>, <code>condition</code>, and <code>final-expression</code>.",
-        "We'll start at <code>i = 10</code> and loop while <code>i &#62; 0</code>. We'll decrement <code>i</code> by 2 each loop with <code>i -= 2</code>.",
-        "<blockquote>var ourArray = [];<br>for (var i=10; i &#62; 0; i-=2) {<br>  ourArray.push(i);<br>}</blockquote>",
+        "We'll start at <code>index = 10</code> and loop while <code>index &#62; 0</code>. We'll decrement <code>index</code> by 2 each loop with <code>index -= 2</code>.",
+        "<blockquote>var ourArray = [];<br>for (var index=10; index &#62; 0; index-=2) {<br>  ourArray.push(index);<br>}</blockquote>",
         "<code>ourArray</code> will now contain <code>[10,8,6,4,2]</code>.",
         "Let's change our <code>initialization</code> and <code>final-expression</code> so we can count backward by twos by odd numbers.",
         "<hr>",
@@ -5177,8 +5177,8 @@
         "// Example",
         "var ourArray = [];",
         "",
-        "for (var i = 10; i > 0; i -= 2) {",
-        "  ourArray.push(i);",
+        "for (var index = 10; index > 0; index -= 2) {",
+        "  ourArray.push(index);",
         "}",
         "",
         "// Setup",
@@ -5192,7 +5192,7 @@
         "if(typeof myArray !== \"undefined\"){(function(){return myArray;})();}"
       ],
       "solutions": [
-        "var ourArray = [];\nfor (var i = 10; i > 0; i -= 2) {\n  ourArray.push(i);\n}\nvar myArray = [];\nfor (var i = 9; i > 0; i -= 2) {\n  myArray.push(i);\n}"
+        "var ourArray = [];\nfor (var index = 10; index > 0; index -= 2) {\n  ourArray.push(index);\n}\nvar myArray = [];\nfor (var index = 9; index > 0; index -= 2) {\n  myArray.push(index);\n}"
       ],
       "tests": [
         "assert(code.match(/for\\s*\\(/g).length > 1, 'message: You should be using a <code>for</code> loop for this.');",
@@ -5207,10 +5207,10 @@
           "description": [
             "Un ciclo también puede contar hacia atrás, siempre y cuando definamos las condiciones adecuadas.",
             "Para contar hacia atrás de dos en dos, tendremos que cambiar nuestra <code>inicialización</code>, la <code>condición</code> y la <code>última-expresión</code>.",
-            "Vamos a empezar con <code>i = 10</code> e iteraremos mientras <code>i > 0</code>.  Vamos a decrementar <code>i</code> de a 2 por cada iteración con <code>i -= 2</code>. ",
+            "Vamos a empezar con <code>index = 10</code> e iteraremos mientras <code>index > 0</code>.  Vamos a decrementar <code>index</code> de a 2 por cada iteración con <code>index -= 2</code>. ",
             "<code>var ourArray = [];</code>",
-            "<code>for (var i = 10; i > 0; i -= 2) {</code>",
-            "<code>&nbsp;&nbsp;ourArray.push(i);</code>",
+            "<code>for (var index = 10; index > 0; index -= 2) {</code>",
+            "<code>&nbsp;&nbsp;ourArray.push(index);</code>",
             "<code>}</code>",
             "<code>ourArray</code> ahora contendrá <code>[10,8,6,4,2]</code>.",
             "Vamos a cambiar nuestra <code>inicialización</code> y la <code>expresión final</code> para que podamos contar hacia atrás de dos en dos pero números impares.",
@@ -5224,9 +5224,9 @@
       "id": "5675e877dbd60be8ad28edc6",
       "title": "Iterate Through an Array with a For Loop",
       "description": [
-        "A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a <code>for</code> loop. This code will output each element of the array <code>arr</code> to the console:",
-        "<blockquote>var arr = [10,9,8,7,6];<br>for (var i = 0; i < arr.length; i++) {<br>   console.log(arr[i]);<br>}</blockquote>",
-        "Remember that Arrays have zero-based numbering, which means the last index of the array is length - 1. Our <dfn>condition</dfn> for this loop is <code>i < arr.length</code>, which stops when <code>i</code> is at length - 1.",
+        "A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a <code>for</code> loop. This code will output each element of the array <code>array</code> to the console:",
+        "<blockquote>var array = [10,9,8,7,6];<br>for (var i = 0; i < array.length; i++) {<br>   console.log(array[i]);<br>}</blockquote>",
+        "Remember that Arrays have zero-based numbering, which means the last index of the array is length - 1. Our <dfn>condition</dfn> for this loop is <code>i < array.length</code>, which stops when <code>i</code> is at length - 1.",
         "<hr>",
         "Declare and initialize a variable <code>total</code> to <code>0</code>. Use a <code>for</code> loop to add the value of each element of the <code>myArr</code> array to <code>total</code>."
       ],
@@ -5265,9 +5265,9 @@
         "es": {
           "title": "Iterar a través de un vector con un ciclo for",
           "description": [
-            "Una tarea común en JavaScript es iterar a traves del contenido de un vector. Una manera de hacerlo es con un ciclo <code>for</code>. Este código imprimirá cada elemento del vector <code>arr</code> en la consola:",
-            "<blockquote>var arr = [10,9,8,7,6];<br>for (var i=0; i < arr.length; i++) {<br>   console.log(arr[i]);<br>}</blockquote>",
-            "Recuerda que los vectores tienen numeración que comienza en cero, la cual significa que el último índice del vector es su longitud - 1. Nuestra <dfn>condición</dfn> para este ciclo es <code>i < arr.length</code>, que lo detendrá cuando <code>i</code> sea la longitud - 1.",
+            "Una tarea común en JavaScript es iterar a traves del contenido de un vector. Una manera de hacerlo es con un ciclo <code>for</code>. Este código imprimirá cada elemento del vector <code>array</code> en la consola:",
+            "<blockquote>var array = [10,9,8,7,6];<br>for (var i=0; i < array.length; i++) {<br>   console.log(array[i]);<br>}</blockquote>",
+            "Recuerda que los vectores tienen numeración que comienza en cero, la cual significa que el último índice del vector es su longitud - 1. Nuestra <dfn>condición</dfn> para este ciclo es <code>i < array.length</code>, que lo detendrá cuando <code>i</code> sea la longitud - 1.",
             "<h4>Instrucciones</h4>",
             "Declara e inicializa una variable <code>total</code> en <code>0</code>. Usa un ciclo <code>for</code> para añadir el valor de cada elemento del vector <code>myArr</code> a <code>total</code>."
           ]
@@ -5279,14 +5279,14 @@
       "title": "Nesting For Loops",
       "description": [
         "If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and any sub-arrays. Here is an example:",
-        "<blockquote>var arr = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var i=0; i &lt; arr.length; i++) {<br>  for (var j=0; j &lt; arr[i].length; j++) {<br>    console.log(arr[i][j]);<br>  }<br>}</blockquote>",
-        "This outputs each sub-element in <code>arr</code> one at a time. Note that for the inner loop, we are checking the <code>.length</code> of <code>arr[i]</code>, since <code>arr[i]</code> is itself an array.",
+        "<blockquote>var array = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var i=0; i &lt; array.length; i++) {<br>  for (var j=0; j &lt; array[i].length; j++) {<br>    console.log(array[i][j]);<br>  }<br>}</blockquote>",
+        "This outputs each sub-element in <code>array</code> one at a time. Note that for the inner loop, we are checking the <code>.length</code> of <code>array[i]</code>, since <code>array[i]</code> is itself an array.",
         "<hr>",
-        "Modify function <code>multiplyAll</code> so that it multiplies the <code>product</code> variable by each number in the sub-arrays of <code>arr</code>"
+        "Modify function <code>multiplyAll</code> so that it multiplies the <code>product</code> variable by each number in the sub-arrays of <code>array</code>"
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
-        "function multiplyAll(arr) {",
+        "function multiplyAll(array) {",
         "  var product = 1;",
         "  // Only change code below this line",
         "  ",
@@ -5302,7 +5302,7 @@
         ""
       ],
       "solutions": [
-        "function multiplyAll(arr) {\n  var product = 1;\n  for (var i = 0; i < arr.length; i++) {\n    for (var j = 0; j < arr[i].length; j++) {\n      product *= arr[i][j];\n    }\n  }\n  return product;\n}\n\nmultiplyAll([[1,2],[3,4],[5,6,7]]);"
+        "function multiplyAll(array) {\n  var product = 1;\n  for (var i = 0; i < array.length; i++) {\n    for (var j = 0; j < array[i].length; j++) {\n      product *= array[i][j];\n    }\n  }\n  return product;\n}\n\nmultiplyAll([[1,2],[3,4],[5,6,7]]);"
       ],
       "tests": [
         "assert(multiplyAll([[1],[2],[3]]) === 6, 'message: <code>multiplyAll([[1],[2],[3]])</code> should return <code>6</code>');",
@@ -5316,10 +5316,10 @@
           "title": "Anidar ciclos for",
           "description": [
             "Si tienes una matriz multi-dimensional, puedes usar la misma lógica del punto anterior para iterar a través de un vector y cualquier sub-vector. Aquí está un ejemplo:",
-            "<blockquote>var arr = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var i=0; i &lt; arr.length; i++) {<br>  for (var j=0; j &lt; arr[i].length; j++) {<br>    console.log(arr[i][j]);<br>  }<br>}</blockquote>",
-            "Esto imprime cada sub-elemento en <code>arr</code> uno a la vez. Nota que en el ciclo interior, estamos comprobando la longitud <code>.length</code> de <code>arr[i]</code>, ya que <code>arr[i]</code> es por si mismo un vector.",
+            "<blockquote>var array = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var i=0; i &lt; array.length; i++) {<br>  for (var j=0; j &lt; array[i].length; j++) {<br>    console.log(array[i][j]);<br>  }<br>}</blockquote>",
+            "Esto imprime cada sub-elemento en <code>array</code> uno a la vez. Nota que en el ciclo interior, estamos comprobando la longitud <code>.length</code> de <code>array[i]</code>, ya que <code>array[i]</code> es por si mismo un vector.",
             "<h4>Instrucciones</h4>",
-            "Modifica la función <code>multiplyAll</code> de manera que esta multiplique la variable <code>product</code> por cada número en los sub-vectores de <code>arr</code>"
+            "Modifica la función <code>multiplyAll</code> de manera que esta multiplique la variable <code>product</code> por cada número en los sub-vectores de <code>array</code>"
           ]
         }
       }
