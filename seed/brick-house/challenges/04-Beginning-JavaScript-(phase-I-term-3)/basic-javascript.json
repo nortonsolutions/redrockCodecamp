@@ -5057,7 +5057,7 @@
         "// Example",
         "var ourArray = [];",
         "",
-        "for (var  = 0; index < 5; index++) {",
+        "for (var index = 0; index < 5; index++) {",
         "  ourArray.push(index);",
         "}",
         "",
@@ -5225,23 +5225,23 @@
       "title": "Iterate Through an Array with a For Loop",
       "description": [
         "A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a <code>for</code> loop. This code will output each element of the array <code>array</code> to the console:",
-        "<blockquote>var array = [10,9,8,7,6];<br>for (var i = 0; i < array.length; i++) {<br>   console.log(array[i]);<br>}</blockquote>",
-        "Remember that Arrays have zero-based numbering, which means the last index of the array is length - 1. Our <dfn>condition</dfn> for this loop is <code>i < array.length</code>, which stops when <code>i</code> is at length - 1.",
+        "<blockquote>var array = [10,9,8,7,6];<br>for (var index = 0; index < array.length; index++) {<br>   console.log(array[index]);<br>}</blockquote>",
+        "Remember that Arrays have zero-based numbering, which means the last index of the array is length - 1. Our <dfn>condition</dfn> for this loop is <code>index < array.length</code>, which stops when <code>index</code> is at length - 1.",
         "<hr>",
-        "Declare and initialize a variable <code>total</code> to <code>0</code>. Use a <code>for</code> loop to add the value of each element of the <code>myArr</code> array to <code>total</code>."
+        "Declare and initialize a variable <code>total</code> to <code>0</code>. Use a <code>for</code> loop to add the value of each element of the <code>myArray</code> array to <code>total</code>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
         "// Example",
-        "var ourArr = [ 9, 10, 11, 12];",
+        "var ourArray = [ 9, 10, 11, 12];",
         "var ourTotal = 0;",
         "",
-        "for (var i = 0; i < ourArr.length; i++) {",
-        "  ourTotal += ourArr[i];",
+        "for (var index = 0; index < ourArray.length; index++) {",
+        "  ourTotal += ourArray[index];",
         "}",
         "",
         "// Setup",
-        "var myArr = [ 2, 3, 4, 5, 6];",
+        "var myArray = [ 2, 3, 4, 5, 6];",
         "",
         "// Only change code below this line",
         "",
@@ -5251,12 +5251,12 @@
         "(function(){if(typeof total !== 'undefined') { return \"total = \" + total; } else { return \"total is undefined\";}})()"
       ],
       "solutions": [
-        "var ourArr = [ 9, 10, 11, 12];\nvar ourTotal = 0;\n\nfor (var i = 0; i < ourArr.length; i++) {\n  ourTotal += ourArr[i];\n}\n\nvar myArr = [ 2, 3, 4, 5, 6];\nvar total = 0;\n\nfor (var i = 0; i < myArr.length; i++) {\n  total += myArr[i];\n}"
+        "var ourArray = [ 9, 10, 11, 12];\nvar ourTotal = 0;\n\nfor (var index = 0; index < ourArray.length; index++) {\n  ourTotal += ourArray[index];\n}\n\nvar myArray = [ 2, 3, 4, 5, 6];\nvar total = 0;\n\nfor (var index = 0; index < myArray.length; index++) {\n  total += myArray[index];\n}"
       ],
       "tests": [
         "assert(code.match(/var.*?total\\s*=\\s*0.*?;/), 'message: <code>total</code> should be declared and initialized to 0');",
         "assert(total === 20, 'message: <code>total</code> should equal 20');",
-        "assert(code.match(/for\\s*\\(/g).length > 1 && code.match(/myArr\\s*\\[/), 'message: You should use a <code>for</code> loop to iterate through <code>myArr</code>');",
+        "assert(code.match(/for\\s*\\(/g).length > 1 && code.match(/myArray\\s*\\[/), 'message: You should use a <code>for</code> loop to iterate through <code>myArray</code>');",
         "assert(!code.match(/total[\\s\\+\\-]*=\\s*(\\d(?!\\s*[;,])|[1-9])/g), 'message: Do not set <code>total</code> to 20 directly');"
       ],
       "type": "waypoint",
@@ -5266,10 +5266,10 @@
           "title": "Iterar a través de un vector con un ciclo for",
           "description": [
             "Una tarea común en JavaScript es iterar a traves del contenido de un vector. Una manera de hacerlo es con un ciclo <code>for</code>. Este código imprimirá cada elemento del vector <code>array</code> en la consola:",
-            "<blockquote>var array = [10,9,8,7,6];<br>for (var i=0; i < array.length; i++) {<br>   console.log(array[i]);<br>}</blockquote>",
-            "Recuerda que los vectores tienen numeración que comienza en cero, la cual significa que el último índice del vector es su longitud - 1. Nuestra <dfn>condición</dfn> para este ciclo es <code>i < array.length</code>, que lo detendrá cuando <code>i</code> sea la longitud - 1.",
+            "<blockquote>var array = [10,9,8,7,6];<br>for (var index=0; index < array.length; index++) {<br>   console.log(array[index]);<br>}</blockquote>",
+            "Recuerda que los vectores tienen numeración que comienza en cero, la cual significa que el último índice del vector es su longitud - 1. Nuestra <dfn>condición</dfn> para este ciclo es <code>index < array.length</code>, que lo detendrá cuando <code>index</code> sea la longitud - 1.",
             "<h4>Instrucciones</h4>",
-            "Declara e inicializa una variable <code>total</code> en <code>0</code>. Usa un ciclo <code>for</code> para añadir el valor de cada elemento del vector <code>myArr</code> a <code>total</code>."
+            "Declara e inicializa una variable <code>total</code> en <code>0</code>. Usa un ciclo <code>for</code> para añadir el valor de cada elemento del vector <code>myArray</code> a <code>total</code>."
           ]
         }
       }
@@ -5279,8 +5279,8 @@
       "title": "Nesting For Loops",
       "description": [
         "If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and any sub-arrays. Here is an example:",
-        "<blockquote>var array = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var i=0; i &lt; array.length; i++) {<br>  for (var j=0; j &lt; array[i].length; j++) {<br>    console.log(array[i][j]);<br>  }<br>}</blockquote>",
-        "This outputs each sub-element in <code>array</code> one at a time. Note that for the inner loop, we are checking the <code>.length</code> of <code>array[i]</code>, since <code>array[i]</code> is itself an array.",
+        "<blockquote>var array = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var index=0; index &lt; array.length; index++) {<br>  for (var subIndex=0; subIndex &lt; array[index].length; subIndex++) {<br>    console.log(array[index][subIndex]);<br>  }<br>}</blockquote>",
+        "This outputs each sub-element in <code>array</code> one at a time. Note that for the inner loop, we are checking the <code>.length</code> of <code>array[index]</code>, since <code>array[index]</code> is itself an array.",
         "<hr>",
         "Modify function <code>multiplyAll</code> so that it multiplies the <code>product</code> variable by each number in the sub-arrays of <code>array</code>"
       ],
@@ -5302,7 +5302,7 @@
         ""
       ],
       "solutions": [
-        "function multiplyAll(array) {\n  var product = 1;\n  for (var i = 0; i < array.length; i++) {\n    for (var j = 0; j < array[i].length; j++) {\n      product *= array[i][j];\n    }\n  }\n  return product;\n}\n\nmultiplyAll([[1,2],[3,4],[5,6,7]]);"
+        "function multiplyAll(array) {\n  var product = 1;\n  for (var index = 0; index < array.length; index++) {\n    for (var subIndex = 0; subIndex < array[index].length; subIndex++) {\n      product *= array[index][subIndex];\n    }\n  }\n  return product;\n}\n\nmultiplyAll([[1,2],[3,4],[5,6,7]]);"
       ],
       "tests": [
         "assert(multiplyAll([[1],[2],[3]]) === 6, 'message: <code>multiplyAll([[1],[2],[3]])</code> should return <code>6</code>');",
@@ -5316,8 +5316,8 @@
           "title": "Anidar ciclos for",
           "description": [
             "Si tienes una matriz multi-dimensional, puedes usar la misma lógica del punto anterior para iterar a través de un vector y cualquier sub-vector. Aquí está un ejemplo:",
-            "<blockquote>var array = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var i=0; i &lt; array.length; i++) {<br>  for (var j=0; j &lt; array[i].length; j++) {<br>    console.log(array[i][j]);<br>  }<br>}</blockquote>",
-            "Esto imprime cada sub-elemento en <code>array</code> uno a la vez. Nota que en el ciclo interior, estamos comprobando la longitud <code>.length</code> de <code>array[i]</code>, ya que <code>array[i]</code> es por si mismo un vector.",
+            "<blockquote>var array = [<br>  [1,2], [3,4], [5,6]<br>];<br>for (var index=0; index &lt; array.length; index++) {<br>  for (var subIndex=0; subIndex &lt; array[index].length; subIndex++) {<br>    console.log(array[index][subIndex]);<br>  }<br>}</blockquote>",
+            "Esto imprime cada sub-elemento en <code>array</code> uno a la vez. Nota que en el ciclo interior, estamos comprobando la longitud <code>.length</code> de <code>array[index]</code>, ya que <code>array[index]</code> es por si mismo un vector.",
             "<h4>Instrucciones</h4>",
             "Modifica la función <code>multiplyAll</code> de manera que esta multiplique la variable <code>product</code> por cada número en los sub-vectores de <code>array</code>"
           ]
@@ -5330,29 +5330,29 @@
       "description": [
         "You can run the same code multiple times by using a loop.",
         "The next type of loop you will learn is called a \"<code>do...while</code>\" loop because it first will \"<code>do</code>\" one pass of the code inside the loop no matter what, and then it runs \"<code>while</code>\" a specified condition is true and stops once that condition is no longer true. Let's look at an example.",
-        "<blockquote>var ourArray = [];<br>var i = 0;<br>do {<br>  ourArray.push(i);<br>  i++;<br>} while (i < 5);</blockquote>",
+        "<blockquote>var ourArray = [];<br>var index = 0;<br>do {<br>  ourArray.push(index);<br>  index++;<br>} while (index < 5);</blockquote>",
         "This behaves just as you would expect with any other type of loop, and the resulting array will look like <code>[0, 1, 2, 3, 4]</code>. However, what makes the <code>do...while</code> different from other loops is how it behaves when the condition fails on the first check. Let's see this in action.",
-        "Here is a regular while loop that will run the code in the loop as long as <code>i < 5</code>.",
-        "<blockquote>var ourArray = []; <br>var i = 5;<br>while (i < 5) {<br>  ourArray.push(i);<br>  i++;<br>}</blockquote>",
-        "Notice that we initialize the value of <code>i</code> to be 5. When we execute the next line, we notice that <code>i</code> is not less than 5. So we do not execute the code inside the loop. The result is that <code>ourArray</code> will end up with nothing added to it, so it will still look like this <code>[]</code> when all the code in the example above finishes running.",
+        "Here is a regular while loop that will run the code in the loop as long as <code>index < 5</code>.",
+        "<blockquote>var ourArray = []; <br>var index = 5;<br>while (index < 5) {<br>  ourArray.push(index);<br>  index++;<br>}</blockquote>",
+        "Notice that we initialize the value of <code>index</code> to be 5. When we execute the next line, we notice that <code>index</code> is not less than 5. So we do not execute the code inside the loop. The result is that <code>ourArray</code> will end up with nothing added to it, so it will still look like this <code>[]</code> when all the code in the example above finishes running.",
         "Now, take a look at a <code>do...while</code> loop.",
-        "<blockquote>var ourArray = []; <br>var i = 5;<br>do {<br>  ourArray.push(i);<br>  i++;<br>} while (i < 5);</blockquote>",
-        "In this case, we initialize the value of <code>i</code> as 5, just like we did with the while loop. When we get to the next line, there is no check for the value of <code>i</code>, so we go to the code inside the curly braces and execute it. We will add one element to the array and increment <code>i</code> before we get to the condition check. Then, when we get to checking if <code>i < 5</code> see that <code>i</code> is now 6, which fails the conditional check. So we exit the loop and are done. At the end of the above example, the value of <code>ourArray</code> is <code>[5]</code>.",
+        "<blockquote>var ourArray = []; <br>var index = 5;<br>do {<br>  ourArray.push(index);<br>  index++;<br>} while (index < 5);</blockquote>",
+        "In this case, we initialize the value of <code>index</code> as 5, just like we did with the while loop. When we get to the next line, there is no check for the value of <code>index</code>, so we go to the code inside the curly braces and execute it. We will add one element to the array and increment <code>index</code> before we get to the condition check. Then, when we get to checking if <code>index < 5</code> see that <code>index</code> is now 6, which fails the conditional check. So we exit the loop and are done. At the end of the above example, the value of <code>ourArray</code> is <code>[5]</code>.",
         "Essentially, a <code>do...while</code> loop ensures that the code inside the loop will run at least once.",
         "Let's try getting a <code>do...while</code> loop to work by pushing values to an array.",
         "<hr>",
-        "Change the <code>while</code> loop in the code to a <code>do...while</code> loop so that the loop will push the number 10 to <code>myArray</code>, and <code>i</code> will be equal to <code>11</code> when your code finishes running."
+        "Change the <code>while</code> loop in the code to a <code>do...while</code> loop so that the loop will push the number 10 to <code>myArray</code>, and <code>index</code> will be equal to <code>11</code> when your code finishes running."
       ],
       "challengeSeed": [
         "// Setup",
         "var myArray = [];",
-        "var i = 10;",
+        "var index = 10;",
         "",
         "// Only change code below this line.",
         "",
-        "while (i < 5) {",
-        "  myArray.push(i);",
-        "  i++;",
+        "while (index < 5) {",
+        "  myArray.push(index);",
+        "  index++;",
         "}",
         ""
       ],
@@ -5360,12 +5360,12 @@
         "if(typeof myArray !== \"undefined\"){(function(){return myArray;})();}"
       ],
       "solutions": [
-        "var myArray = [];\nvar i = 10;\ndo {\n  myArray.push(i);\n  i++;\n} while (i < 5)"
+        "var myArray = [];\nvar index = 10;\ndo {\n  myArray.push(index);\n  index++;\n} while (index < 5)"
       ],
       "tests": [
         "assert(code.match(/do/g), 'message: You should be using a <code>do...while</code> loop for this.');",
         "assert.deepEqual(myArray, [10], 'message: <code>myArray</code> should equal <code>[10]</code>.');",
-        "assert.deepEqual(i, 11, 'message: <code>i</code> should equal <code>11</code>');"
+        "assert.deepEqual(index, 11, 'message: <code>index</code> should equal <code>11</code>');"
       ],
       "type": "waypoint",
       "challengeType": 1,
@@ -5512,7 +5512,7 @@
       "challengeSeed": [
         "var randomNumberBetween0and19 = Math.floor(Math.random() * 20);",
         "",
-        "function randomWholeNum() {",
+        "function randomWholeNumber() {",
         "",
         "  // Only change code below this line.",
         "",
@@ -5520,13 +5520,13 @@
         "}"
       ],
       "tail": [
-        "(function(){return randomWholeNum();})();"
+        "(function(){return randomWholeNumber();})();"
       ],
       "solutions": [
-        "var randomNumberBetween0and19 = Math.floor(Math.random() * 20);\nfunction randomWholeNum() {\n  return Math.floor(Math.random() * 10);\n}"
+        "var randomNumberBetween0and19 = Math.floor(Math.random() * 20);\nfunction randomWholeNumber() {\n  return Math.floor(Math.random() * 10);\n}"
       ],
       "tests": [
-        "assert(typeof randomWholeNum() === \"number\" && (function(){var r = randomWholeNum();return Math.floor(r) === r;})(), 'message: The result of <code>randomWholeNum</code> should be a whole number.');",
+        "assert(typeof randomWholeNumber() === \"number\" && (function(){var r = randomWholeNumber();return Math.floor(r) === r;})(), 'message: The result of <code>randomWholeNumber</code> should be a whole number.');",
         "assert(code.match(/Math.random/g).length > 1, 'message: You should be using <code>Math.random</code> to generate a random number.');",
         "assert(code.match(/\\s*?Math.random\\s*?\\(\\s*?\\)\\s*?\\*\\s*?10[\\D]\\s*?/g) || code.match(/\\s*?10\\s*?\\*\\s*?Math.random\\s*?\\(\\s*?\\)\\s*?/g), 'message: You should have multiplied the result of <code>Math.random</code> by 10 to make it a number that is between zero and nine.');",
         "assert(code.match(/Math.floor/g).length > 1, 'message: You should use <code>Math.floor</code> to remove the decimal part of the number.');"
