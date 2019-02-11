@@ -110,11 +110,11 @@
         "We have defined a function, <code>mixedNumbers</code>, which we are passing an array as an argument. Modify the function by using <code>push()</code> and <code>unshift()</code> to add <code>'I', 2, 'three'</code> to the beginning of the array and <code>7, 'VIII', 9</code> to the end so that the returned array contains representations of the numbers 1-9 in order."
       ],
       "challengeSeed": [
-        "function mixedNumbers(arr) {",
+        "function mixedNumbers(array) {",
         "  // change code below this line",
         "",
         "  // change code above this line",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "// do not change code below this line",
@@ -144,7 +144,7 @@
         "We have defined a function, <code>popShift</code>, which takes an array as an argument and returns a new array. Modify the function, using <code>pop()</code> and <code>shift()</code>, to remove the first and last elements of the argument array, and assign the removed elements to their corresponding variables, so that the returned array contains their values."
       ],
       "challengeSeed": [
-        "function popShift(arr) {",
+        "function popShift(array) {",
         "  var popped; // change this line",
         "  var shifted; // change this line",
         "  return [shifted, popped];",
@@ -177,11 +177,11 @@
         "We've defined a function, <code>sumOfTen</code>, which takes an array as an argument and returns the sum of that array's elements. Modify the function, using <code>splice()</code>, so that it returns a value of <code>10</code>."
       ],
       "challengeSeed": [
-        "function sumOfTen(arr) {",
+        "function sumOfTen(array) {",
         "  // change code below this line",
         "  ",
         "  // change code above this line",
-        "  return arr.reduce((a, b) => a + b);",
+        "  return array.reduce((a, b) => a + b);",
         "}",
         "",
         "// do not change code below this line",
@@ -202,17 +202,17 @@
       "title": "Add Items Using splice()",
       "description": [
         "Remember in the last challenge we mentioned that <code>splice()</code> can take up to three parameters? Well, we can go one step further with <code>splice()</code> &mdash; in addition to removing elements, we can use that third parameter, which represents one or more elements, to <em>add</em> them as well. This can be incredibly useful for quickly switching out an element, or a set of elements, for another. For instance, let's say you're storing a color scheme for a set of DOM elements in an array, and want to dynamically change a color based on some action:",
-        "<blockquote>function colorChange(arr, index, newColor) {<br>&nbsp;&nbsp;arr.splice(index, 1, newColor);<br>&nbsp;&nbsp;return arr;<br>}<br><br>var colorScheme = ['#878787', '#a08794', '#bb7e8c', '#c9b6be', '#d1becf'];<br><br>colorScheme = colorChange(colorScheme, 2, '#332327');<br>// we have removed '#bb7e8c' and added '#332327' in its place<br>// colorScheme now equals ['#878787', '#a08794', '#332327', '#c9b6be', '#d1becf']</blockquote>",
+        "<blockquote>function colorChange(array, index, newColor) {<br>&nbsp;&nbsp;array.splice(index, 1, newColor);<br>&nbsp;&nbsp;return array;<br>}<br><br>var colorScheme = ['#878787', '#a08794', '#bb7e8c', '#c9b6be', '#d1becf'];<br><br>colorScheme = colorChange(colorScheme, 2, '#332327');<br>// we have removed '#bb7e8c' and added '#332327' in its place<br>// colorScheme now equals ['#878787', '#a08794', '#332327', '#c9b6be', '#d1becf']</blockquote>",
         "This function takes an array of hex values, an index at which to remove an element, and the new color to replace the removed element with. The return value is an array containing a newly modified color scheme! While this example is a bit oversimplified, we can see the value that utilizing <code>splice()</code> to its maximum potential can have.",
         "<hr>",
         "We have defined a function, <code>htmlColorNames</code>, which takes an array of HTML colors as an argument. Modify the function using <code>splice()</code> to remove the first two elements of the array and add <code>'DarkSalmon'</code> and <code>'BlanchedAlmond'</code> in their respective places."
       ],
       "challengeSeed": [
-        "function htmlColorNames(arr) {",
+        "function htmlColorNames(array) {",
         "  // change code below this line",
         "  ",
         "  // change code above this line",
-        "  return arr;",
+        "  return array;",
         "} ",
         " ",
         "// do not change code below this line",
@@ -241,10 +241,10 @@
         "We have defined a function, <code>forecast</code>, that takes an array as an argument. Modify the function using <code>slice()</code> to extract information from the argument array and return a new array that contains the elements <code>'warm'</code> and <code>'sunny'</code>."
       ],
       "challengeSeed": [
-        "function forecast(arr) {",
+        "function forecast(array) {",
         "  // change code below this line",
         "  ",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "// do not change code below this line",
@@ -272,7 +272,7 @@
         "<code>indexOf()</code> can be incredibly useful for quickly checking for the presence of an element on an array. We have defined a function, <code>quickCheck</code>, that takes an array and an element as arguments. Modify the function using <code>indexOf()</code> so that it returns <code>true</code> if the passed element exists on the array, and <code>false</code> if it does not."
       ],
       "challengeSeed": [
-        "function quickCheck(arr, elem) {",
+        "function quickCheck(array, element) {",
         "  // change code below this line",
         "",
         "  // change code above this line",
@@ -300,13 +300,13 @@
       "description": [
         "Sometimes when working with arrays, it is very handy to be able to iterate through each item to find one or more elements that we might need, or to manipulate an array based on which data items meet a certain set of criteria. JavaScript offers several built in methods that each iterate over arrays in slightly different ways to achieve different results (such as <code>every()</code>, <code>forEach()</code>, <code>map()</code>, etc.), however the technique which is most flexible and offers us the greatest amount of control is a simple <code>for</code> loop.",
         "Consider the following:",
-        "<blockquote>function greaterThanTen(arr) {<br>&nbsp;&nbsp;var newArray = [];<br>&nbsp;&nbsp;for (var i = 0; i < arr.length; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (arr[i] > 10) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newArray.push(arr[i]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return newArray;<br>}<br><br>greaterThanTen([2, 12, 8, 14, 80, 0, 1]);<br>// returns [12, 14, 80]</blockquote>",
+        "<blockquote>function greaterThanTen(array) {<br>&nbsp;&nbsp;var newArray = [];<br>&nbsp;&nbsp;for (var index = 0; index < array.length; index++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;if (array[index] > 10) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newArray.push(array[index]);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;return newArray;<br>}<br><br>greaterThanTen([2, 12, 8, 14, 80, 0, 1]);<br>// returns [12, 14, 80]</blockquote>",
         "Using a <code>for</code> loop, this function iterates through and accesses each element of the array, and subjects it to a simple test that we have created. In this way, we have easily and programmatically determined which data items are greater than <code>10</code>, and returned a new array containing those items.",
         "<hr>",
-        "We have defined a function, <code>filteredArray</code>, which takes <code>arr</code>, a nested array, and <code>elem</code> as arguments, and returns a new array. <code>elem</code> represents an element that may or may not be present on one or more of the arrays nested within <code>arr</code>. Modify the function, using a <code>for</code> loop, to return a filtered version of the passed array such that any array nested within <code>arr</code> containing <code>elem</code> has been removed."
+        "We have defined a function, <code>filteredArray</code>, which takes <code>array</code>, a nested array, and <code>element</code> as arguments, and returns a new array. <code>element</code> represents an element that may or may not be present on one or more of the arrays nested within <code>array</code>. Modify the function, using a <code>for</code> loop, to return a filtered version of the passed array such that any array nested within <code>array</code> containing <code>element</code> has been removed."
       ],
       "challengeSeed": [
-        "function filteredArray(arr, elem) {",
+        "function filteredArray(array, element) {",
         "  var newArray = [];",
         "  // change code below this line",
         "",
@@ -357,8 +357,8 @@
         "];"
       ],
       "tests": [
-        "assert.strictEqual((function(arr) { let flattened = (function flatten(arr) { const flat = [].concat(...arr); return flat.some (Array.isArray) ? flatten(flat) : flat; })(arr); for (let i = 0; i < flattened.length; i++) { if ( typeof flattened[i] !== 'number' && typeof flattened[i] !== 'string' && typeof flattened[i] !== 'boolean') { return false } } return true })(myNestedArray), true, 'message: <code>myNestedArray</code> should contain only numbers, booleans, and strings as data elements');",
-        "assert.strictEqual((function(arr) {let depth = 0;function arrayDepth(array, i, d) { if (Array.isArray(array[i])) {  arrayDepth(array[i], 0, d + 1);} else {  depth = (d > depth) ? d : depth;}if (i < array.length) {  arrayDepth(array, i + 1, d);}  }arrayDepth(arr, 0, 0);return depth;})(myNestedArray), 4, 'message: <code>myNestedArray</code> should have exactly 5 levels of depth');",
+        "assert.strictEqual((function(array) { let flattened = (function flatten(array) { const flat = [].concat(...array); return flat.some (Array.isArray) ? flatten(flat) : flat; })(array); for (let index = 0; index < flattened.length; index++) { if ( typeof flattened[index] !== 'number' && typeof flattened[index] !== 'string' && typeof flattened[index] !== 'boolean') { return false } } return true })(myNestedArray), true, 'message: <code>myNestedArray</code> should contain only numbers, booleans, and strings as data elements');",
+        "assert.strictEqual((function(array) {let depth = 0;function arrayDepth(array, index, d) { if (Array.isArray(array[index])) {  arrayDepth(array[index], 0, d + 1);} else {  depth = (d > depth) ? d : depth;}if (index < array.length) {  arrayDepth(array, index + 1, d);}  }arrayDepth(array, 0, 0);return depth;})(myNestedArray), 4, 'message: <code>myNestedArray</code> should have exactly 5 levels of depth');",
         "assert((function howDeep(array, target, depth = 0) {return array.reduce((combined, current) => {if (Array.isArray(current)) {  return combined.concat(howDeep(current, target, depth + 1));} else if (current === target) {  return combined.concat(depth);} else {  return combined;}}, []);})(myNestedArray, 'deep').length === 1 && (function howDeep(array, target, depth = 0) {return array.reduce((combined, current) => {if (Array.isArray(current)) {  return combined.concat(howDeep(current, target, depth + 1));} else if (current === target) {  return combined.concat(depth);} else {  return combined;}}, []);})(myNestedArray, 'deep')[0] === 2, 'message: <code>myNestedArray</code> should contain exactly one occurrence of the string <code>\"deep\"</code> on an array nested 3 levels deep');",
         "assert((function howDeep(array, target, depth = 0) {return array.reduce((combined, current) => {if (Array.isArray(current)) {  return combined.concat(howDeep(current, target, depth + 1));} else if (current === target) {  return combined.concat(depth);} else {  return combined;}}, []);})(myNestedArray, 'deeper').length === 1 && (function howDeep(array, target, depth = 0) {return array.reduce((combined, current) => {if (Array.isArray(current)) {  return combined.concat(howDeep(current, target, depth + 1));} else if (current === target) {  return combined.concat(depth);} else {  return combined;}}, []);})(myNestedArray, 'deeper')[0] === 3, 'message: <code>myNestedArray</code> should contain exactly one occurrence of the string <code>\"deeper\"</code> on an array nested 4 levels deep');",
         "assert((function howDeep(array, target, depth = 0) {return array.reduce((combined, current) => {if (Array.isArray(current)) {  return combined.concat(howDeep(current, target, depth + 1));} else if (current === target) {  return combined.concat(depth);} else {  return combined;}}, []);})(myNestedArray, 'deepest').length === 1 && (function howDeep(array, target, depth = 0) {return array.reduce((combined, current) => {if (Array.isArray(current)) {  return combined.concat(howDeep(current, target, depth + 1));} else if (current === target) {  return combined.concat(depth);} else {  return combined;}}, []);})(myNestedArray, 'deepest')[0] === 4, 'message: <code>myNestedArray</code> should contain exactly one occurrence of the string <code>\"deepest\"</code> on an array nested 5 levels deep');"
@@ -394,7 +394,7 @@
         [
           "",
           "",
-          "<br><br>In JavaScript, objects are written as comma-separated lists of key-value pairs, wrapped in curly brackets, with each key and its assigned value separated by a colon:<br> <code>{ key1: 'val-1', key2: 'val-2' }</code><br><br>In the next few challenges, we will examine JavaScript objects more closely, and take a look at <dfn>methods</dfn> and techniques that allow us to access, store, and manipulate an object's data.<br><br>Note that throughout the scope of this discussion, and in general when considering JavaScript objects, the terms <dfn>key</dfn> and <dfn>property</dfn> will be used interchangeably.",
+          "<br><br>In JavaScript, objects are written as comma-separated lists of key-value pairs, wrapped in curly brackets, with each key and its assigned value separated by a colon:<br> <code>{ key1: 'value-1', key2: 'value-2' }</code><br><br>In the next few challenges, we will examine JavaScript objects more closely, and take a look at <dfn>methods</dfn> and techniques that allow us to access, store, and manipulate an object's data.<br><br>Note that throughout the scope of this discussion, and in general when considering JavaScript objects, the terms <dfn>key</dfn> and <dfn>property</dfn> will be used interchangeably.",
           ""
         ]
       ],
@@ -592,7 +592,7 @@
         "  }",
         "};",
         "",
-        "function isEveryoneHere(obj) {",
+        "function isEveryoneHere(object) {",
         "  // change code below this line",
         "",
         "  // change code above this line",
@@ -619,7 +619,7 @@
         "<blockquote>for (var user in users) {<br>  console.log(user);<br>};<br><br>// logs:<br>Alan<br>Jeff<br>Sarah<br>Ryan</blockquote>",
         "In this statement, we defined a variable <code>user</code>, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console.",
         "<strong>NOTE:</strong><br>Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.",
-        "<br>Also note that user in this example doesn't capture the object itselt, it only captures the <code>key</code> to the object. Therefore to access the object, you must call it as <code>obj[user]</code>.",
+        "<br>Also note that user in this example doesn't capture the object itselt, it only captures the <code>key</code> to the object. Therefore to access the object, you must call it as <code>object[user]</code>.",
         "<hr>",
         "We've defined a function, <code>countOnline</code>; use a <dfn>for...in</dfn> statement within this function to loop through the users in the <code>users</code> object and return the number of users whose <code>online</code> property is set to <code>true</code>."
       ],
@@ -643,7 +643,7 @@
         "  }",
         "};",
         "",
-        "function countOnline(obj) {",
+        "function countOnline(object) {",
         "  // change code below this line",
         "",
         "  // change code above this line",
@@ -689,7 +689,7 @@
         "  }",
         "};",
         "",
-        "function getArrayOfUsers(obj) {",
+        "function getArrayOfUsers(object) {",
         "  // change code below this line",
         "",
         "  // change code above this line",
@@ -736,7 +736,7 @@
         "  }",
         "};",
         "",
-        "function addFriend(userObj, friend) {",
+        "function addFriend(userObject, friend) {",
         "  // change code below this line  ",
         "",
         "  // change code above this line",

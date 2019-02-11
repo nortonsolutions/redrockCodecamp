@@ -17,7 +17,7 @@
         [
           "",
           "",
-          "After spending time creating a brilliant block of code, it is tough realizing it may have errors. These issues generally come in three forms: 1) syntax errors that prevent a program from running, 2) runtime errors when code fails to execute or has unexpected behavior, and 3) semantic (or logical) errors when code doesn't do what it's meant to.<br><br>Modern code editors (and experience) can help identify syntax errors. Semantic and runtime errors are harder to find. They may cause your program to crash, make it run forever, or give incorrect output. Think of debugging as trying to understand why your code is behaving the way it is.<br><br>Example of a syntax error - often detected by the code editor:<br><br><blockquote>funtion willNotWork( {<br>&nbsp;&nbsp;console.log(\"Yuck\");<br>}<br>// \"function\" keyword is misspelled and there's a missing parenthesis</blockquote><br><br>Here's an example of a runtime error - often detected while the program executes:<br><br><blockquote>function loopy() {<br>&nbsp;&nbsp;while(true) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(\"Hello, world!\");<br>&nbsp;&nbsp;}<br>}<br>// Calling loopy starts an infinite loop, which may crash your browser</blockquote><br><br>Example of a semantic error - often detected after testing code output:<br><br><blockquote>function calcAreaOfRect(w, h) {<br>&nbsp;&nbsp;return w + h; // This should be w * h<br>}<br>var myRectArea = calcAreaOfRect(2, 3);<br>// Correct syntax and the program executes, but this gives the wrong answer</blockquote>",
+          "After spending time creating a brilliant block of code, it is tough realizing it may have errors. These issues generally come in three forms: 1) syntax errors that prevent a program from running, 2) runtime errors when code fails to execute or has unexpected behavior, and 3) semantic (or logical) errors when code doesn't do what it's meant to.<br><br>Modern code editors (and experience) can help identify syntax errors. Semantic and runtime errors are harder to find. They may cause your program to crash, make it run forever, or give incorrect output. Think of debugging as trying to understand why your code is behaving the way it is.<br><br>Example of a syntax error - often detected by the code editor:<br><br><blockquote>funtion willNotWork( {<br>&nbsp;&nbsp;console.log(\"Yuck\");<br>}<br>// \"function\" keyword is misspelled and there's a missing parenthesis</blockquote><br><br>Here's an example of a runtime error - often detected while the program executes:<br><br><blockquote>function loopy() {<br>&nbsp;&nbsp;while(true) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(\"Hello, world!\");<br>&nbsp;&nbsp;}<br>}<br>// Calling loopy starts an infinite loop, which may crash your browser</blockquote><br><br>Example of a semantic error - often detected after testing code output:<br><br><blockquote>function calculateAreaOfRectangle(w, h) {<br>&nbsp;&nbsp;return w + h; // This should be w * h<br>}<br>var myRectangleArea = calculateAreaOfRectangle(2, 3);<br>// Correct syntax and the program executes, but this gives the wrong answer</blockquote>",
           ""
         ],
         [
@@ -150,7 +150,7 @@
         "var receivables = 10;",
         "var payables = 8;",
         "var netWorkingCapital = recievables - payable;",
-        "console.log(`Net working capital is: ${netWorkingCapital}`);"
+        "console.log('Net working capital is: ' + netWorkingCapital);"
       ],
       "tests": [
         "assert(netWorkingCapital === 2, 'message: Check the spelling of the two variables used in the netWorkingCapital calculation, the console output should show that \"Net working capital is: 2\".');",
@@ -261,7 +261,7 @@
       "description": [
         "When a function or method doesn't take any arguments, you may forget to include the (empty) opening and closing parentheses when calling it. Often times the result of a function call is saved in a variable for other use in your code. This error can be detected by logging variable values (or their types) to the console and seeing that one is set to a function reference, instead of the expected value the function returns.",
         "The variables in the following example are different:",
-        "<blockquote>function myFunction() {<br>&nbsp;&nbsp;return \"You rock!\";<br>}<br>var varOne = myFunction; // set to equal a function<br>var varTwo = myFunction(); // set to equal the string \"You rock!\"</blockquote>",
+        "<blockquote>function myFunction() {<br>&nbsp;&nbsp;return \"You rock!\";<br>}<br>var variableOne = myFunction; // set to equal a function<br>var variableTwo = myFunction(); // set to equal the string \"You rock!\"</blockquote>",
         "<hr>",
         "Fix the code so the variable <code>result</code> is set to the value returned from calling the function <code>getNine</code>."
       ],
@@ -300,13 +300,13 @@
         "}",
         "",
         "var base = 2;",
-        "var exp = 3;",
-        "var power = raiseToPower(exp, base);",
+        "var exponent = 3;",
+        "var power = raiseToPower(exponent, base);",
         "console.log(power);"
       ],
       "tests": [
         "assert(power == 8, 'message: Your code should fix the variable <code>power</code> so it equals 2 raised to the 3rd power, not 3 raised to the 2nd power.');",
-        "assert(code.match(/raiseToPower\\(\\s*?base\\s*?,\\s*?exp\\s*?\\);/g), 'message: Your code should use the correct order of the arguments for the <code>raiseToPower</code> function call.');"
+        "assert(code.match(/raiseToPower\\(\\s*?base\\s*?,\\s*?exponent\\s*?\\);/g), 'message: Your code should use the correct order of the arguments for the <code>raiseToPower</code> function call.');"
       ],
       "solutions": [],
       "hints": [],
@@ -321,28 +321,28 @@
       "description": [
         "<code>Off by one errors</code> (sometimes called OBOE) crop up when you're trying to target a specific index of a string or array (to slice or access a segment), or when looping over the indices of them. JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item. If you try to access an index equal to the length, the program may throw an \"index out of range\" reference error or print <code>undefined</code>.",
         "When you use string or array methods that take index ranges as arguments, it helps to read the documentation and understand if they are inclusive (the item at the given index is part of what's returned) or not. Here are some examples of off by one errors:",
-        "<blockquote>var alphabet = \"abcdefghijklmnopqrstuvwxyz\";<br>var len = alphabet.length;<br>for (var i = 0; i <= len; i++) {<br>&nbsp;&nbsp;// loops one too many times at the end<br>&nbsp;&nbsp;console.log(alphabet[i]);<br>}<br>for (var j = 1; j < len; j++) {<br>&nbsp;&nbsp;// loops one too few times and misses the first character at index 0<br>&nbsp;&nbsp;console.log(alphabet[j]);<br>}<br>for (var k = 0; k < len; k++) {<br>&nbsp;&nbsp;// Goldilocks approves - this is just right<br>&nbsp;&nbsp;console.log(alphabet[k]);<br>}</blockquote>",
+        "<blockquote>var alphabet = \"abcdefghijklmnopqrstuvwxyz\";<br>var length = alphabet.length;<br>for (var index = 0; index <= length; index++) {<br>&nbsp;&nbsp;// loops one too many times at the end<br>&nbsp;&nbsp;console.log(alphabet[index]);<br>}<br>for (var j = 1; j < length; j++) {<br>&nbsp;&nbsp;// loops one too few times and misses the first character at index 0<br>&nbsp;&nbsp;console.log(alphabet[j]);<br>}<br>for (var k = 0; k < length; k++) {<br>&nbsp;&nbsp;// Goldilocks approves - this is just right<br>&nbsp;&nbsp;console.log(alphabet[k]);<br>}</blockquote>",
         "<hr>",
         "Fix the two indexing errors in the following function so all the numbers 1 through 5 are printed to the console."
       ],
       "challengeSeed": [
         "function countToFive() {",
         "  var firstFive = \"12345\";",
-        "  var len = firstFive.length;",
+        "  var length = firstFive.length;",
         "  // Fix the line below",
-        "  for (var i = 1; i <= len; i++) {",
+        "  for (var index = 1; index <= length; index++) {",
         "  // Do not alter code below this line",
-        "    console.log(firstFive[i]);",
+        "    console.log(firstFive[index]);",
         "  }",
         "}",
         "",
         "countToFive();"
       ],
       "tests": [
-        "assert(code.match(/i\\s*?=\\s*?0\\s*?;/g).length == 1, 'message: Your code should set the initial condition of the loop so it starts at the first index.');",
-        "assert(!code.match(/i\\s?=\\s*?1\\s*?;/g), 'message: Your code should fix the initial condition of the loop so that the index starts at 0.');",
-        "assert(code.match(/i\\s*?<\\s*?len\\s*?;/g).length == 1, 'message: Your code should set the terminal condition of the loop so it stops at the last index.');",
-        "assert(!code.match(/i\\s*?<=\\s*?len;/g), 'message: Your code should fix the terminal condition of the loop so that it stops at 1 before the length.');"
+        "assert(code.match(/index\\s*?=\\s*?0\\s*?;/g).length == 1, 'message: Your code should set the initial condition of the loop so it starts at the first index.');",
+        "assert(!code.match(/index\\s?=\\s*?1\\s*?;/g), 'message: Your code should fix the initial condition of the loop so that the index starts at 0.');",
+        "assert(code.match(/index\\s*?<\\s*?length\\s*?;/g).length == 1, 'message: Your code should set the terminal condition of the loop so it stops at the last index.');",
+        "assert(!code.match(/index\\s*?<=\\s*?length;/g), 'message: Your code should fix the terminal condition of the loop so that it stops at 1 before the length.');"
       ],
       "solutions": [],
       "hints": [],
@@ -365,7 +365,7 @@
         "  // Creates a 2-D array with m rows and n columns of zeroes",
         "  var newArray = [];",
         "  var row = [];",
-        "  for (var i = 0; i < m; i++) {",
+        "  for (var index = 0; index < m; index++) {",
         "    // Adds the m-th row into newArray",
         "    ",
         "    for (var j = 0; j < n; j++) {",
@@ -402,18 +402,18 @@
         "<blockquote>function loopy() {<br>&nbsp;&nbsp;while(true) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(\"Hello, world!\");<br>&nbsp;&nbsp;}<br>}</blockquote>",
         "It's the programmer's job to ensure that the terminal condition, which tells the program when to break out of the loop code, is eventually reached. One error is incrementing or decrementing a counter variable in the wrong direction from the terminal condition. Another one is accidentally resetting a counter or index variable within the loop code, instead of incrementing or decrementing it.",
         "<hr>",
-        "The <code>myFunc()</code> function contains an infinite loop because the terminal condition <code>i != 4</code> will never evaluate to <code>false</code> (and break the looping) - <code>i</code> will increment by 2 each pass, and jump right over 4 since <code>i</code> is odd to start. Fix the comparison operator in the terminal condition so the loop only runs for <code>i</code> less than or equal to 4."
+        "The <code>myFunction()</code> function contains an infinite loop because the terminal condition <code>index != 4</code> will never evaluate to <code>false</code> (and break the looping) - <code>index</code> will increment by 2 each pass, and jump right over 4 since <code>index</code> is odd to start. Fix the comparison operator in the terminal condition so the loop only runs for <code>index</code> less than or equal to 4."
       ],
       "challengeSeed": [
-        "function myFunc() {",
-        "  for (var i = 1; i != 4; i += 2) {",
+        "function myFunction() {",
+        "  for (var index = 1; index != 4; index += 2) {",
         "    console.log(\"Still going!\");",
         "  }",
         "}"
       ],
       "tests": [
-        "assert(code.match(/i\\s*?<=\\s*?4;/g).length == 1, 'message: Your code should change the comparison operator in the terminal condition (the middle part) of the <code>for</code> loop.');",
-        "assert(!code.match(/i\\s*?!=\\s*?4;/g), 'message: Your code should fix the comparison operator in the terminal condition of the loop.');"
+        "assert(code.match(/index\\s*?<=\\s*?4;/g).length == 1, 'message: Your code should change the comparison operator in the terminal condition (the middle part) of the <code>for</code> loop.');",
+        "assert(!code.match(/index\\s*?!=\\s*?4;/g), 'message: Your code should fix the comparison operator in the terminal condition of the loop.');"
       ],
       "solutions": [],
       "hints": [],
