@@ -260,13 +260,13 @@
       "title": "Return Largest Numbers in Arrays",
       "description": [
         "Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.",
-        "Remember, you can iterate through an array with a simple for loop, and access each member with array syntax <code>arr[i]</code>.",
+        "Remember, you can iterate through an array with a simple for loop, and access each member with array syntax <code>array[i]</code>.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function largestOfFour(arr) {",
+        "function largestOfFour(array) {",
         "  // You can do this!",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);"
@@ -280,7 +280,7 @@
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function largestOfFour(arr) {\n  return arr.map(function(subArr) {\n    return Math.max.apply(null, subArr);\n  });\n}\n\nlargestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);\n"
+        "function largestOfFour(array) {\n  return array.map(function(subArr) {\n    return Math.max.apply(null, subArr);\n  });\n}\n\nlargestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);\n"
       ],
       "MDNlinks": [
         "Comparison Operators"
@@ -291,7 +291,7 @@
           "title": "Devuelve el mayor entero de cada arreglo",
           "description": [
             "Crea una función que devuelva un arreglo que contenga el mayor de los números de cada sub-arreglo que recibe. Para simplificar las cosas, el arreglo que recibirá tendrá exactamente 4 sub-arreglos",
-            "Recuerda que puedes iterar a través de un arreglo con un búcle simple, y acceder a cada miembro utilizando la sintaxis arr[i].",
+            "Recuerda que puedes iterar a través de un arreglo con un búcle simple, y acceder a cada miembro utilizando la sintaxis array[i].",
             "Si escribes tu propio test con Chai.js, asegúrate de utilizar un operador de igualdad estricto en lugar de un operador de igualdad cuando compares arreglos. ",
             "Recuerda utilizar <a href='http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514' target='_blank'>Leer-Buscar-Preguntar</a> si te sientes atascado. Intenta programar en pareja. Escribe tu propio código."
           ]
@@ -300,7 +300,7 @@
           "title": "Retorne os maiores números de arrays",
           "description": [
             "Retorne um array contendo o maior número de cada sub-array fornecido. Para simplificar, o array fornecido conterá exatamente 4 sub-arrays.",
-            "Lembre-se, você pode iterar por um array com um simples <code>for</code> e acessar cada membro do array com a sintaxe <code>arr[i]</code>.",
+            "Lembre-se, você pode iterar por um array com um simples <code>for</code> e acessar cada membro do array com a sintaxe <code>array[i]</code>.",
             "Lembre-se de <a href=\"http://forum.freecodecamp.org/t/how-to-get-help-when-you-are-stuck/19514\" target=\"_blank\">Ler-Pesquisar-Perguntar</a> se ficar travado. Escreva seu próprio código."
           ]
         }
@@ -372,26 +372,26 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function repeatStringNumTimes(string, number) {",
+        "function repeatStringNumberTimes(string, number) {",
         "  // repeat after me",
         "  return string;",
         "}",
         "",
-        "repeatStringNumTimes(\"abc\", 3);"
+        "repeatStringNumberTimes(\"abc\", 3);"
       ],
       "tests": [
-        "assert(repeatStringNumTimes(\"*\", 3) === \"***\", 'message: <code>repeatStringNumTimes(\"*\", 3)</code> should return <code>\"***\"</code>.');",
-        "assert(repeatStringNumTimes(\"abc\", 3) === \"abcabcabc\", 'message: <code>repeatStringNumTimes(\"abc\", 3)</code> should return <code>\"abcabcabc\"</code>.');",
-        "assert(repeatStringNumTimes(\"abc\", 4) === \"abcabcabcabc\", 'message: <code>repeatStringNumTimes(\"abc\", 4)</code> should return <code>\"abcabcabcabc\"</code>.');",
-        "assert(repeatStringNumTimes(\"abc\", 1) === \"abc\", 'message: <code>repeatStringNumTimes(\"abc\", 1)</code> should return <code>\"abc\"</code>.');",
-        "assert(repeatStringNumTimes(\"*\", 8) === \"********\", 'message: <code>repeatStringNumTimes(\"*\", 8)</code> should return <code>\"********\"</code>.');",
-        "assert(repeatStringNumTimes(\"abc\", -2) === \"\", 'message: <code>repeatStringNumTimes(\"abc\", -2)</code> should return <code>\"\"</code>.');",
+        "assert(repeatStringNumberTimes(\"*\", 3) === \"***\", 'message: <code>repeatStringNumberTimes(\"*\", 3)</code> should return <code>\"***\"</code>.');",
+        "assert(repeatStringNumberTimes(\"abc\", 3) === \"abcabcabc\", 'message: <code>repeatStringNumberTimes(\"abc\", 3)</code> should return <code>\"abcabcabc\"</code>.');",
+        "assert(repeatStringNumberTimes(\"abc\", 4) === \"abcabcabcabc\", 'message: <code>repeatStringNumberTimes(\"abc\", 4)</code> should return <code>\"abcabcabcabc\"</code>.');",
+        "assert(repeatStringNumberTimes(\"abc\", 1) === \"abc\", 'message: <code>repeatStringNumberTimes(\"abc\", 1)</code> should return <code>\"abc\"</code>.');",
+        "assert(repeatStringNumberTimes(\"*\", 8) === \"********\", 'message: <code>repeatStringNumberTimes(\"*\", 8)</code> should return <code>\"********\"</code>.');",
+        "assert(repeatStringNumberTimes(\"abc\", -2) === \"\", 'message: <code>repeatStringNumberTimes(\"abc\", -2)</code> should return <code>\"\"</code>.');",
         "assert(!/\\.repeat/g.test(code), 'message: The built-in <code>repeat()</code>-method should not be used');"
       ],
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function repeatStringNumTimes(string, number) {\n  if (number < 0) return '';\n  return number === 1 ? string : string + repeatStringNumTimes(string, number-1);\n}\n\nrepeatStringNumTimes('abc', 3);\n"
+        "function repeatStringNumberTimes(string, number) {\n  if (number < 0) return '';\n  return number === 1 ? string : string + repeatStringNumberTimes(string, number-1);\n}\n\nrepeatStringNumTimes('abc', 3);\n"
       ],
       "MDNlinks": [
         "Global String Object"
@@ -471,7 +471,7 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function findElement(arr, func) {",
+        "function findElement(array, function) {",
         "  var number = 0;",
         "  return number;",
         "}",
@@ -479,7 +479,7 @@
         "findElement([1, 2, 3, 4], function(number){ return number % 2 === 0; });"
       ],
       "solutions": [
-        "function findElement(arr, func) {\n  var number;\n  arr.some(function(e) {\n    if (func(e)) {\n      number = e;\n      return true;\n    }\n  });\n  return number;\n}"
+        "function findElement(array, function) {\n  var number;\n  array.some(function(e) {\n    if (function(e)) {\n      number = e;\n      return true;\n    }\n  });\n  return number;\n}"
       ],
       "tests": [
         "assert.strictEqual(findElement([1, 3, 5, 8, 9, 10], function(number) { return number % 2 === 0; }), 8, 'message: <code>findElement([1, 3, 5, 8, 9, 10], function(number) { return number % 2 === 0; })</code> should return 8.');",
@@ -524,15 +524,15 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function booWho(bool) {",
+        "function booWho(boolean) {",
         "  // What is the new fad diet for ghost developers? The Boolean.",
-        "  return bool;",
+        "  return boolean;",
         "}",
         "",
         "booWho(null);"
       ],
       "solutions": [
-        "function booWho(bool) {\n  // What is the new fad diet for ghost developers? The Boolean.\n  return typeof bool === \"boolean\";\n}\n\nbooWho(null);"
+        "function booWho(boolean) {\n  // What is the new fad diet for ghost developers? The Boolean.\n  return typeof boolean === \"boolean\";\n}\n\nbooWho(null);"
       ],
       "tests": [
         "assert.strictEqual(booWho(true), true, 'message: <code>booWho(true)</code> should return true.');",
@@ -691,9 +691,9 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function bouncer(arr) {",
+        "function bouncer(array) {",
         "  // Don't show a false ID to this bouncer.",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "bouncer([7, \"ate\", \"\", false, 9]);"
@@ -707,7 +707,7 @@
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function bouncer(arr) {\n  // Don't show a false ID to this bouncer.\n  return arr.filter(function(e) {return e;});\n}\n\nbouncer([7, 'ate', '', false, 9]);\n"
+        "function bouncer(array) {\n  // Don't show a false ID to this bouncer.\n  return array.filter(function(e) {return e;});\n}\n\nbouncer([7, 'ate', '', false, 9]);\n"
       ],
       "MDNlinks": [
         "Boolean Objects",
@@ -744,7 +744,7 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function getIndexToIns(arr, number) {",
+        "function getIndexToIns(array, number) {",
         "  // Find my place in this sorted array.",
         "  return number;",
         "}",
@@ -772,7 +772,7 @@
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function getIndexToIns(arr, number) {\n  arr = arr.sort(function(a, b){return a-b;});\n  for (var i = 0; i < arr.length; i++) {\n    if (arr[i] >= number)\n      {\n        return i;\n      }\n  }\n  return arr.length;\n}"
+        "function getIndexToIns(array, number) {\n  array = array.sort(function(a, b){return a-b;});\n  for (var i = 0; i < array.length; i++) {\n    if (array[i] >= number)\n      {\n        return i;\n      }\n  }\n  return array.length;\n}"
       ],
       "MDNlinks": [
         "Array.prototype.sort()"
@@ -810,8 +810,8 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function mutation(arr) {",
-        "  return arr;",
+        "function mutation(array) {",
+        "  return array;",
         "}",
         "",
         "mutation([\"hello\", \"hey\"]);"
@@ -830,7 +830,7 @@
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function mutation(arr) {\n  var hash = Object.create(null);\n  arr[0].toLowerCase().split('').forEach(function(c) {\n    hash[c] = true;\n  });\n  return !arr[1].toLowerCase().split('').filter(function(c) {\n    return !hash[c];\n  }).length;\n}\n\nmutation(['hello', 'hey']);\n"
+        "function mutation(array) {\n  var hash = Object.create(null);\n  array[0].toLowerCase().split('').forEach(function(c) {\n    hash[c] = true;\n  });\n  return !array[1].toLowerCase().split('').filter(function(c) {\n    return !hash[c];\n  }).length;\n}\n\nmutation(['hello', 'hey']);\n"
       ],
       "MDNlinks": [
         "String.prototype.indexOf()"
@@ -867,9 +867,9 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function chunkArrayInGroups(arr, size) {",
+        "function chunkArrayInGroups(array, size) {",
         "  // Break it up.",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "chunkArrayInGroups([\"a\", \"b\", \"c\", \"d\"], 2);"
@@ -886,7 +886,7 @@
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function chunkArrayInGroups(arr, size) {\n  var out = [];\n  for (var i = 0; i < arr.length; i+=size) {\n    out.push(arr.slice(i,i+size));\n  }\n  return out;\n}\n\nchunkArrayInGroups(['a', 'b', 'c', 'd'], 2);\n"
+        "function chunkArrayInGroups(array, size) {\n  var out = [];\n  for (var i = 0; i < array.length; i+=size) {\n    out.push(array.slice(i,i+size));\n  }\n  return out;\n}\n\nchunkArrayInGroups(['a', 'b', 'c', 'd'], 2);\n"
       ],
       "MDNlinks": [
         "Array.prototype.push()",
