@@ -13,7 +13,7 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function sumAll(arr) {",
+        "function sumAll(array) {",
         "  return 1;",
         "}",
         "",
@@ -25,7 +25,7 @@
         "Remember to that you must add all the numbers in between so this would require a way to get those numbers."
       ],
       "solutions": [
-        "function sumAll(arr) {\n  var sum = 0;\n  arr.sort(function(a,b) {return a-b;});\n  for (var i = arr[0]; i <= arr[1]; i++) {\n    sum += i; \n  }\n  return sum;\n}"
+        "function sumAll(array) {\n  var sum = 0;\n  array.sort(function(a,b) {return a-b;});\n  for (var i = array[0]; i <= array[1]; i++) {\n    sum += i; \n  }\n  return sum;\n}"
       ],
       "tests": [
         "assert(typeof sumAll([1, 4]) === 'number', 'message: <code>sumAll([1, 4])</code> should return a number.');",
@@ -70,16 +70,16 @@
         "<strong>Note</strong><br>You can return the array with its elements in any order."
       ],
       "challengeSeed": [
-        "function diffArray(arr1, arr2) {",
-        "  var newArr = [];",
+        "function diffArray(array1, array2) {",
+        "  var newArray = [];",
         "  // Same, same; but different.",
-        "  return newArr;",
+        "  return newArray;",
         "}",
         "",
         "diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);"
       ],
       "solutions": [
-        "function diffArray(arr1, arr2) {\n  var newArr = [];\n  var h1 = Object.create(null);\n  arr1.forEach(function(e) {\n    h1[e] = e;\n  });\n  \n  var h2 = Object.create(null);\n  arr2.forEach(function(e) {\n    h2[e] = e;\n  });\n  \n  Object.keys(h1).forEach(function(e) {\n     if (!(e in h2)) newArr.push(h1[e]);\n  });\n  Object.keys(h2).forEach(function(e) {\n     if (!(e in h1)) newArr.push(h2[e]);\n  });\n  // Same, same; but different.\n  return newArr;\n}"
+        "function diffArray(array1, array2) {\n  var newArray = [];\n  var h1 = Object.create(null);\n  array1.forEach(function(e) {\n    h1[e] = e;\n  });\n  \n  var h2 = Object.create(null);\n  array2.forEach(function(e) {\n    h2[e] = e;\n  });\n  \n  Object.keys(h1).forEach(function(e) {\n     if (!(e in h2)) newArray.push(h1[e]);\n  });\n  Object.keys(h2).forEach(function(e) {\n     if (!(e in h1)) newArray.push(h2[e]);\n  });\n  // Same, same; but different.\n  return newArray;\n}"
       ],
       "tests": [
         "assert(typeof diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) === \"object\", 'message: <code>diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])</code> should return an array.');",
@@ -134,9 +134,9 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Write your own code."
       ],
       "challengeSeed": [
-        "function destroyer(arr) {",
+        "function destroyer(array) {",
         "  // Remove all the values",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "destroyer([1, 2, 3, 1, 2, 3], 2, 3);"
@@ -152,7 +152,7 @@
       "type": "bonfire",
       "isRequired": true,
       "solutions": [
-        "function destroyer(arr) {\n  var hash = Object.create(null);\n  [].slice.call(arguments, 1).forEach(function(e) {\n    hash[e] = true;\n  });\n  // Remove all the values\n  return arr.filter(function(e) { return !(e in hash);});\n}\n\ndestroyer([1, 2, 3, 1, 2, 3], 2, 3);\n"
+        "function destroyer(array) {\n  var hash = Object.create(null);\n  [].slice.call(arguments, 1).forEach(function(e) {\n    hash[e] = true;\n  });\n  // Remove all the values\n  return array.filter(function(e) { return !(e in hash);});\n}\n\ndestroyer([1, 2, 3, 1, 2, 3], 2, 3);\n"
       ],
       "MDNlinks": [
         "Arguments object",
@@ -188,18 +188,18 @@
       "challengeSeed": [
         "function whatIsInAName(collection, source) {",
         "  // What's in a name?",
-        "  var arr = [];",
+        "  var array = [];",
         "  // Only change code below this line",
         "  ",
         "  ",
         "  // Only change code above this line",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "whatIsInAName([{ first: \"Romeo\", last: \"Montague\" }, { first: \"Mercutio\", last: null }, { first: \"Tybalt\", last: \"Capulet\" }], { last: \"Capulet\" });"
       ],
       "solutions": [
-        "function whatIsInAName(collection, source) {\n  var arr = [];\n  var keys = Object.keys(source);\n  collection.forEach(function(e) {\n    if(keys.every(function(key) {return e[key] === source[key];})) {\n      arr.push(e);  \n    }\n  });\n  return arr;\n}"
+        "function whatIsInAName(collection, source) {\n  var array = [];\n  var keys = Object.keys(source);\n  collection.forEach(function(e) {\n    if(keys.every(function(key) {return e[key] === source[key];})) {\n      array.push(e);  \n    }\n  });\n  return array;\n}"
       ],
       "tests": [
         "assert.deepEqual(whatIsInAName([{ first: \"Romeo\", last: \"Montague\" }, { first: \"Mercutio\", last: null }, { first: \"Tybalt\", last: \"Capulet\" }], { last: \"Capulet\" }), [{ first: \"Tybalt\", last: \"Capulet\" }], 'message: <code>whatIsInAName([{ first: \"Romeo\", last: \"Montague\" }, { first: \"Mercutio\", last: null }, { first: \"Tybalt\", last: \"Capulet\" }], { last: \"Capulet\" })</code> should return <code>[{ first: \"Tybalt\", last: \"Capulet\" }]</code>.');",
@@ -244,16 +244,16 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function spinalCase(str) {",
+        "function spinalCase(string) {",
         "  // \"It's such a fine line between stupid, and clever.\"",
         "  // --David St. Hubbins",
-        "  return str;",
+        "  return string;",
         "}",
         "",
         "spinalCase('This Is Spinal Tap');"
       ],
       "solutions": [
-        "function spinalCase(str) {\n  // \"It's such a fine line between stupid, and clever.\"\n  // --David St. Hubbins\n  str = str.replace(/([a-z](?=[A-Z]))/g, '$1 ');\n  return str.toLowerCase().replace(/\\ |\\_/g, '-');\n}"
+        "function spinalCase(string) {\n  // \"It's such a fine line between stupid, and clever.\"\n  // --David St. Hubbins\n  string = string.replace(/([a-z](?=[A-Z]))/g, '$1 ');\n  return string.toLowerCase().replace(/\\ |\\_/g, '-');\n}"
       ],
       "tests": [
         "assert.deepEqual(spinalCase(\"This Is Spinal Tap\"), \"this-is-spinal-tap\", 'message: <code>spinalCase(\"This Is Spinal Tap\")</code> should return <code>\"this-is-spinal-tap\"</code>.');",
@@ -298,14 +298,14 @@
         "On words that have no vowel (\"Y\" isn't considered a vowel for the purposes of this challenge) you should return the word with the suffix \"ay\"."
       ],
       "challengeSeed": [
-        "function translatePigLatin(str) {",
-        "  return str;",
+        "function translatePigLatin(string) {",
+        "  return string;",
         "}",
         "",
         "translatePigLatin(\"consonant\");"
       ],
       "solutions": [
-        "function translatePigLatin(str) {\n  if (isVowel(str.charAt(0))) return str + \"way\";\n  var front = [];\n  str = str.split('');\n  while (str.length && !isVowel(str[0])) {\n    front.push(str.shift());\n  }\n  return [].concat(str, front).join('') + 'ay';\n}\n\nfunction isVowel(c) {\n  return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1;\n}"
+        "function translatePigLatin(string) {\n  if (isVowel(string.charAt(0))) return string + \"way\";\n  var front = [];\n  string = string.split('');\n  while (string.length && !isVowel(string[0])) {\n    front.push(string.shift());\n  }\n  return [].concat(string, front).join('') + 'ay';\n}\n\nfunction isVowel(c) {\n  return ['a', 'e', 'i', 'o', 'u'].indexOf(c.toLowerCase()) !== -1;\n}"
       ],
       "tests": [
         "assert.deepEqual(translatePigLatin(\"california\"), \"aliforniacay\", 'message: <code>translatePigLatin(\"california\")</code> should return \"aliforniacay\".');",
@@ -339,14 +339,14 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function myReplace(str, before, after) {",
-        "  return str;",
+        "function myReplace(string, before, after) {",
+        "  return string;",
         "}",
         "",
         "myReplace(\"A quick brown fox jumped over the lazy dog\", \"jumped\", \"leaped\");"
       ],
       "solutions": [
-        "function myReplace(str, before, after) {\n  if (before.charAt(0) === before.charAt(0).toUpperCase()) {\n    after = after.charAt(0).toUpperCase() + after.substring(1);\n  } else {\n    after = after.charAt(0).toLowerCase() + after.substring(1);\n  }\n  return str.replace(before, after);\n}"
+        "function myReplace(string, before, after) {\n  if (before.charAt(0) === before.charAt(0).toUpperCase()) {\n    after = after.charAt(0).toUpperCase() + after.substring(1);\n  } else {\n    after = after.charAt(0).toLowerCase() + after.substring(1);\n  }\n  return string.replace(before, after);\n}"
       ],
       "tests": [
         "assert.deepEqual(myReplace(\"Let us go to the store\", \"store\", \"mall\"), \"Let us go to the mall\", 'message: <code>myReplace(\"Let us go to the store\", \"store\", \"mall\")</code> should return \"Let us go to the mall\".');",
@@ -400,14 +400,14 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function pairElement(str) {",
-        "  return str;",
+        "function pairElement(string) {",
+        "  return string;",
         "}",
         "",
         "pairElement(\"GCG\");"
       ],
       "solutions": [
-        "var lookup = Object.create(null);\nlookup.A = 'T';\nlookup.T = 'A';\nlookup.C = 'G';\nlookup.G = 'C';\n\nfunction pairElement(str) {\n return str.split('').map(function(p) {return [p, lookup[p]];});\n}"
+        "var lookup = Object.create(null);\nlookup.A = 'T';\nlookup.T = 'A';\nlookup.C = 'G';\nlookup.G = 'C';\n\nfunction pairElement(string) {\n return string.split('').map(function(p) {return [p, lookup[p]];});\n}"
       ],
       "tests": [
         "assert.deepEqual(pairElement(\"ATCGA\"),[[\"A\",\"T\"],[\"T\",\"A\"],[\"C\",\"G\"],[\"G\",\"C\"],[\"A\",\"T\"]], 'message: <code>pairElement(\"ATCGA\")</code> should return <code>[[\"A\",\"T\"],[\"T\",\"A\"],[\"C\",\"G\"],[\"G\",\"C\"],[\"A\",\"T\"]]</code>.');",
@@ -431,14 +431,14 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function fearNotLetter(str) {",
-        "  return str;",
+        "function fearNotLetter(string) {",
+        "  return string;",
         "}",
         "",
         "fearNotLetter(\"abce\");"
       ],
       "solutions": [
-        "function fearNotLetter (str) {\n  for (var i = str.charCodeAt(0); i <= str.charCodeAt(str.length - 1); i++) {\n    var letter = String.fromCharCode(i);\n    if (str.indexOf(letter) === -1) {\n      return letter;\n    }\n  }\n  \n  return undefined;\n}"
+        "function fearNotLetter (string) {\n  for (var i = string.charCodeAt(0); i <= string.charCodeAt(string.length - 1); i++) {\n    var letter = String.fromCharCode(i);\n    if (string.indexOf(letter) === -1) {\n      return letter;\n    }\n  }\n  \n  return undefined;\n}"
       ],
       "tests": [
         "assert.deepEqual(fearNotLetter('abce'), 'd', 'message: <code>fearNotLetter(\"abce\")</code> should return \"d\".');",
@@ -484,14 +484,14 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function uniteUnique(arr) {",
-        "  return arr;",
+        "function uniteUnique(array) {",
+        "  return array;",
         "}",
         "",
         "uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);"
       ],
       "solutions": [
-        "function uniteUnique(arr) {\n  return [].slice.call(arguments).reduce(function(a, b) {\n    return [].concat(a, b.filter(function(e) {return a.indexOf(e) === -1;}));\n  }, []);\n}"
+        "function uniteUnique(array) {\n  return [].slice.call(arguments).reduce(function(a, b) {\n    return [].concat(a, b.filter(function(e) {return a.indexOf(e) === -1;}));\n  }, []);\n}"
       ],
       "tests": [
         "assert.deepEqual(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]), [1, 3, 2, 5, 4], 'message: <code>uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])</code> should return <code>[1, 3, 2, 5, 4]</code>.');",
@@ -537,15 +537,15 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function convertHTML(str) {",
+        "function convertHTML(string) {",
         "  // &colon;&rpar;",
-        "  return str;",
+        "  return string;",
         "}",
         "",
         "convertHTML(\"Dolce & Gabbana\");"
       ],
       "solutions": [
-        "var MAP = { '&': '&amp;',\n            '<': '&lt;',\n            '>': '&gt;',\n            '\"': '&quot;',\n            \"'\": '&apos;'};\n\nfunction convertHTML(str) {\n  return str.replace(/[&<>\"']/g, function(c) {\n    return MAP[c];\n  });\n}"
+        "var MAP = { '&': '&amp;',\n            '<': '&lt;',\n            '>': '&gt;',\n            '\"': '&quot;',\n            \"'\": '&apos;'};\n\nfunction convertHTML(string) {\n  return string.replace(/[&<>\"']/g, function(c) {\n    return MAP[c];\n  });\n}"
       ],
       "tests": [
         "assert.match(convertHTML(\"Dolce & Gabbana\"), /Dolce &amp; Gabbana/, 'message: <code>convertHTML(\"Dolce & Gabbana\")</code> should return <code>Dolce &&#8203;amp; Gabbana</code>.');",
@@ -585,20 +585,20 @@
       "id": "a5229172f011153519423690",
       "title": "Sum All Odd Fibonacci Numbers",
       "description": [
-        "Given a positive integer <code>num</code>, return the sum of all odd Fibonacci numbers that are less than or equal to <code>num</code>.",
+        "Given a positive integer <code>number</code>, return the sum of all odd Fibonacci numbers that are less than or equal to <code>number</code>.",
         "The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.",
         "For example, <code>sumFibs(10)</code> should return <code>10</code> because all odd Fibonacci numbers less than or equal to <code>10</code> are 1, 1, 3, and 5.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function sumFibs(num) {",
-        "  return num;",
+        "function sumFibs(number) {",
+        "  return number;",
         "}",
         "",
         "sumFibs(4);"
       ],
       "solutions": [
-        "function sumFibs(num) {\n  var a = 1; \n  var b = 1;\n  var s = 0;\n  while (a <= num) {\n    if (a % 2 !== 0) {   \n      s += a; \n    }\n    a = [b, b=b+a][0];\n  }\n  return s;\n}"
+        "function sumFibs(number) {\n  var a = 1; \n  var b = 1;\n  var s = 0;\n  while (a <= number) {\n    if (a % 2 !== 0) {   \n      s += a; \n    }\n    a = [b, b=b+a][0];\n  }\n  return s;\n}"
       ],
       "tests": [
         "assert(typeof sumFibs(1) === \"number\", 'message: <code>sumFibs(1)</code> should return a number.');",
@@ -645,14 +645,14 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function sumPrimes(num) {",
-        "  return num;",
+        "function sumPrimes(number) {",
+        "  return number;",
         "}",
         "",
         "sumPrimes(10);"
       ],
       "solutions": [
-        "function eratosthenesArray(n) {\n    var primes = [];\n    if (n > 2) {\n        var half = n>>1;\n        var sieve = Array(half);\n        for (var i = 1, limit = Math.sqrt(n)>>1; i <= limit; i++) {\n            if (!sieve[i]) {\n                for (var step = 2*i+1, j = (step*step)>>1; j < half; j+=step) {\n                    sieve[j] = true;\n                }\n            }\n        }\n        primes.push(2);\n        for (var p = 1; p < half; p++) {\n            if (!sieve[p]) primes.push(2*p+1);\n        }\n    }\n    return primes;\n}\n\nfunction sumPrimes(num) {\n  return eratosthenesArray(num+1).reduce(function(a,b) {return a+b;}, 0);\n}\n\nsumPrimes(10);"
+        "function eratosthenesArray(n) {\n    var primes = [];\n    if (n > 2) {\n        var half = n>>1;\n        var sieve = Array(half);\n        for (var i = 1, limit = Math.sqrt(n)>>1; i <= limit; i++) {\n            if (!sieve[i]) {\n                for (var step = 2*i+1, j = (step*step)>>1; j < half; j+=step) {\n                    sieve[j] = true;\n                }\n            }\n        }\n        primes.push(2);\n        for (var p = 1; p < half; p++) {\n            if (!sieve[p]) primes.push(2*p+1);\n        }\n    }\n    return primes;\n}\n\nfunction sumPrimes(number) {\n  return eratosthenesArray(number+1).reduce(function(a,b) {return a+b;}, 0);\n}\n\nsumPrimes(10);"
       ],
       "tests": [
         "assert.deepEqual(typeof sumPrimes(10), 'number', 'message: <code>sumPrimes(10)</code> should return a number.');",
@@ -697,15 +697,15 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function smallestCommons(arr) {",
-        "  return arr;",
+        "function smallestCommons(array) {",
+        "  return array;",
         "}",
         "",
         "",
         "smallestCommons([1,5]);"
       ],
       "solutions": [
-        "function gcd(a, b) {\n    while (b !== 0) {\n        a = [b, b = a % b][0];\n    }\n    return a;\n}\n\nfunction lcm(a, b) {\n    return (a * b) / gcd(a, b);\n}\n\nfunction smallestCommons(arr) {\n  arr.sort(function(a,b) {return a-b;});\n  var rng = [];\n  for (var i = arr[0]; i <= arr[1]; i++) {\n    rng.push(i);\n  }\n  return rng.reduce(lcm);\n}"
+        "function gcd(a, b) {\n    while (b !== 0) {\n        a = [b, b = a % b][0];\n    }\n    return a;\n}\n\nfunction lcm(a, b) {\n    return (a * b) / gcd(a, b);\n}\n\nfunction smallestCommons(array) {\n  array.sort(function(a,b) {return a-b;});\n  var rng = [];\n  for (var i = array[0]; i <= array[1]; i++) {\n    rng.push(i);\n  }\n  return rng.reduce(lcm);\n}"
       ],
       "tests": [
         "assert.deepEqual(typeof smallestCommons([1, 5]), 'number', 'message: <code>smallestCommons([1, 5])</code> should return a number.');",
@@ -746,20 +746,20 @@
       "id": "a5deed1811a43193f9f1c841",
       "title": "Drop it",
       "description": [
-        "Given the array <code>arr</code>, iterate through and remove each element starting from the first element (the 0 index) until the function <code>func</code> returns <code>true</code> when the iterated element is passed through it.",
-        "Then return the rest of the array once the condition is satisfied, otherwise, <code>arr</code> should be returned as an empty array.",
+        "Given the array <code>array</code>, iterate through and remove each element starting from the first element (the 0 index) until the function <code>function</code> returns <code>true</code> when the iterated element is passed through it.",
+        "Then return the rest of the array once the condition is satisfied, otherwise, <code>array</code> should be returned as an empty array.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function dropElements(arr, func) {",
+        "function dropElements(array, function) {",
         "  // Drop them elements.",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "dropElements([1, 2, 3], function(n) {return n < 3; });"
       ],
       "solutions": [
-        "function dropElements(arr, func) {\n  // Drop them elements.\n  while (arr.length && !func(arr[0])) {\n    arr.shift();\n  }\n  return arr;\n}"
+        "function dropElements(array, function) {\n  // Drop them elements.\n  while (array.length && !function(array[0])) {\n    array.shift();\n  }\n  return array;\n}"
       ],
       "tests": [
         "assert.deepEqual(dropElements([1, 2, 3, 4], function(n) {return n >= 3;}), [3, 4], 'message: <code>dropElements([1, 2, 3, 4], function(n) {return n >= 3;})</code> should return <code>[3, 4]</code>.');",
@@ -804,15 +804,15 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function steamrollArray(arr) {",
+        "function steamrollArray(array) {",
         "  // I'm a steamroller, baby",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "steamrollArray([1, [2], [3, [[4]]]]);"
       ],
       "solutions": [
-        "function steamrollArray(arr) {\n  if (!Array.isArray(arr)) {\n    return [arr];\n  }\n  var out = [];\n  arr.forEach(function(e) {\n    steamrollArray(e).forEach(function(v) {\n      out.push(v);\n    });\n  });\n  return out;\n}"
+        "function steamrollArray(array) {\n  if (!Array.isArray(array)) {\n    return [array];\n  }\n  var out = [];\n  array.forEach(function(e) {\n    steamrollArray(e).forEach(function(v) {\n      out.push(v);\n    });\n  });\n  return out;\n}"
       ],
       "tests": [
         "assert.deepEqual(steamrollArray([[[\"a\"]], [[\"b\"]]]), [\"a\", \"b\"], 'message: <code>steamrollArray([[[\"a\"]], [[\"b\"]]])</code> should return <code>[\"a\", \"b\"]</code>.');",
@@ -852,14 +852,14 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function binaryAgent(str) {",
-        "  return str;",
+        "function binaryAgent(string) {",
+        "  return string;",
         "}",
         "",
         "binaryAgent(\"01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111\");"
       ],
       "solutions": [
-        "function binaryAgent(str) {\n  return str.split(' ').map(function(s) { return parseInt(s, 2); }).map(function(b) { return String.fromCharCode(b);}).join('');\n}"
+        "function binaryAgent(string) {\n  return string.split(' ').map(function(s) { return parseInt(s, 2); }).map(function(b) { return String.fromCharCode(b);}).join('');\n}"
       ],
       "tests": [
         "assert.deepEqual(binaryAgent('01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111'), \"Aren't bonfires fun!?\", 'message: <code>binaryAgent(\"01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111\")</code> should return \"Aren&#39;t bonfires fun!?\"');",
@@ -1036,7 +1036,7 @@
         "bob.getFullName();"
       ],
       "solutions": [
-        "var Person = function(firstAndLast) {\n\n  var firstName, lastName;\n\n  function updateName(str) {    \n    firstName = str.split(\" \")[0];\n    lastName = str.split(\" \")[1];    \n  }\n\n  updateName(firstAndLast);\n\n  this.getFirstName = function(){\n    return firstName;\n  };\n  \n  this.getLastName = function(){\n    return lastName;\n  };\n  \n  this.getFullName = function(){\n    return firstName + \" \" + lastName;\n  };\n  \n  this.setFirstName = function(str){\n    firstName = str;\n  };\n  \n\n  this.setLastName = function(str){\n    lastName = str;\n  };\n  \n  this.setFullName = function(str){\n    updateName(str);\n  };\n};\n\nvar bob = new Person('Bob Ross');\nbob.getFullName();"
+        "var Person = function(firstAndLast) {\n\n  var firstName, lastName;\n\n  function updateName(string) {    \n    firstName = string.split(\" \")[0];\n    lastName = string.split(\" \")[1];    \n  }\n\n  updateName(firstAndLast);\n\n  this.getFirstName = function(){\n    return firstName;\n  };\n  \n  this.getLastName = function(){\n    return lastName;\n  };\n  \n  this.getFullName = function(){\n    return firstName + \" \" + lastName;\n  };\n  \n  this.setFirstName = function(string){\n    firstName = string;\n  };\n  \n\n  this.setLastName = function(string){\n    lastName = string;\n  };\n  \n  this.setFullName = function(string){\n    updateName(string);\n  };\n};\n\nvar bob = new Person('Bob Ross');\nbob.getFullName();"
       ],
       "tests": [
         "assert.deepEqual(Object.keys(bob).length, 6, 'message: <code>Object.keys(bob).length</code> should return 6.');",
@@ -1071,16 +1071,16 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function orbitalPeriod(arr) {",
+        "function orbitalPeriod(array) {",
         "  var GM = 398600.4418;",
         "  var earthRadius = 6367.4447;",
-        "  return arr;",
+        "  return array;",
         "}",
         "",
         "orbitalPeriod([{name : \"sputnik\", avgAlt : 35873.5553}]);"
       ],
       "solutions": [
-        "function orbitalPeriod(arr) {\n  var GM = 398600.4418;\n  var earthRadius = 6367.4447;\n  var TAU = 2 * Math.PI; \n  return arr.map(function(obj) {\n    return {\n      name: obj.name,\n      orbitalPeriod: Math.round(TAU * Math.sqrt(Math.pow(obj.avgAlt+earthRadius, 3)/GM))\n    };\n  });\n}\n\norbitalPeriod([{name : \"sputkin\", avgAlt : 35873.5553}]);\n"
+        "function orbitalPeriod(array) {\n  var GM = 398600.4418;\n  var earthRadius = 6367.4447;\n  var TAU = 2 * Math.PI; \n  return array.map(function(obj) {\n    return {\n      name: obj.name,\n      orbitalPeriod: Math.round(TAU * Math.sqrt(Math.pow(obj.avgAlt+earthRadius, 3)/GM))\n    };\n  });\n}\n\norbitalPeriod([{name : \"sputkin\", avgAlt : 35873.5553}]);\n"
       ],
       "tests": [
         "assert.deepEqual(orbitalPeriod([{name : \"sputnik\", avgAlt : 35873.5553}]), [{name: \"sputnik\", orbitalPeriod: 86400}], 'message: <code>orbitalPeriod([{name : \"sputnik\", avgAlt : 35873.5553}])</code> should return <code>[{name: \"sputnik\", orbitalPeriod: 86400}]</code>.');",
