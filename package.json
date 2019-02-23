@@ -1,7 +1,7 @@
 {
-  "name": "freecodecamp",
+  "name": "workbench",
   "version": "0.1.0",
-  "repository": "freecodecamp/freecodecamp",
+  "repository": "bridgescodecamp/workbench",
   "scripts": {
     "build": "NODE_ENV=production gulp build -p",
     "commit": "git-cz",
