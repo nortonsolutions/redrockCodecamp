@@ -58,6 +58,9 @@
     "./middlewares/add-lang": {},
     "./middlewares/flash-cheaters": {}
   },
+  "routes:after": {
+    "./middlewares/webAppViewRenderer": {}
+  },
   "files": {},
   "final:after": {
     "./middlewares/error-reporter": {},
