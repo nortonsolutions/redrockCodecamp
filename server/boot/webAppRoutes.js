@@ -1,11 +1,11 @@
 
 var path = require("path");
-var directoryWalkerSync = require("../../common/fs/directoryWalkerSync");
-var webAppDirectoryPathRoot = path.resolve("server/webApp");
+var webAppRootPath = path.resolve("server/webApp");
+var directoryWalkerSync = require("../../common/core/fs/directoryWalkerSync");
 
 function boot(app) {
 
-	directoryWalkerSync.walkDirectory(webAppDirectoryPathRoot, null, null, function(filePathName, stats) {
+	directoryWalkerSync.walkDirectory(webAppRootPath, null, null, function(filePathName, stats) {
 
 		if (filePathName.endsWith(".routes.js")) {
 

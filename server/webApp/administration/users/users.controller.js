@@ -1,12 +1,11 @@
 
+var webAppViewRenderer = require("../../webAppViewRenderer");
+
 var usersController = {};
 
-usersController.getUsers = function(callback) {
+usersController.getUsers = function(req, res) {
 
-	var view = {};
-
-	view.template = "users.master";
-	view.model = {
+	var model = {
 		title: "User John Doe",
 		users: [
 			{
@@ -45,7 +44,24 @@ usersController.getUsers = function(callback) {
 		]
 	};
 
-	callback(view);
+	webAppViewRenderer.render(res, "administration/users/users.master", model);
+}
+
+usersController.getUser = function(req, res) {
+
+	var model = {
+		"userId": 3,
+		"name": "John Doe",
+		"email": "johndoe@gmail.com",
+		"gender": "male",
+		"age": 23,
+		"role": "contributor",
+		"verified": true,
+		"createdDate": "2018-07-10T13:50:30.633Z",
+		"updatedDate": "2018-12-10T13:50:30.633Z"
+	};
+
+	webAppViewRenderer.render(res, "administration/users/users.details", model);
 }
 
 
