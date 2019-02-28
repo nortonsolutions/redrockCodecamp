@@ -15,7 +15,7 @@ function boot(app) {
 				
   				var router = app.loopback.Router();
 
-				routes.initialize(app);
+				routes.initialize(router);
 				app.use(router);
 			}
 		}
