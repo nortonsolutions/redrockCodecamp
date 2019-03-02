@@ -1,9 +1,13 @@
 
 var webAppViewRenderer = require("../../webAppViewRenderer");
 
-var usersController = {};
+function initialize(router) {
 
-usersController.getUsers = function(req, res) {
+	router.get("/account/users", getUsers);
+	router.get("/account/user", getUser);
+}
+
+function getUsers(req, res) {
 
 	var model = {
 		title: "User John Doe",
@@ -47,7 +51,7 @@ usersController.getUsers = function(req, res) {
 	webAppViewRenderer.render(res, "administration/users/users.master", model);
 }
 
-usersController.getUser = function(req, res) {
+function getUser(req, res) {
 
 	var model = {
 		"userId": 3,
@@ -65,4 +69,4 @@ usersController.getUser = function(req, res) {
 }
 
 
-module.exports = usersController;
+module.exports.initialize = initialize;

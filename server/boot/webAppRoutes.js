@@ -7,7 +7,7 @@ function boot(app) {
 
 	directoryWalkerSync.walkDirectory(webAppRootPath, null, null, function(filePathName, stats) {
 
-		if (filePathName.endsWith(".routes.js")) {
+		if (filePathName.endsWith(".controller.js")) {
 
 			var routes = require(filePathName);
 
