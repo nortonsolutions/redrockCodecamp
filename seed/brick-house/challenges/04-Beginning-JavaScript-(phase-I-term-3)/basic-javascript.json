@@ -4377,9 +4377,9 @@
           "description": [
             "Otro uso de la notación corchete sobre objetos es usar una variable para acceder a una propiedad. Esto puede ser muy útil en iteraciones sobre la lista de propiedades de un objetos o para hacer operaciones de búsqueda.",
             "Aquí está un ejemplo del uso de una variable para acceder a una propiedad:",
-            "<blockquote>var algunaProp = \"propNombre\";<br>var miObj = {<br>  propNombre: \"Algún valor\"<br >}<br>miObj[algunaProp]; // \"Algún valor\"</blockquote>",
+            "<blockquote>var algunaProp = \"propNombre\";<br>var miObj = {<br>  propNombre: \"Algún valor\"<br>}<br>miObj[algunaProp]; // \"Algún valor\"</blockquote>",
             "Aquí hay uno más:",
-            "<blockquote>var miPerro = \"Cazador\";<br>var perros = {<br>  Fido: \"Mutt\",\n  Cazador: \"Doberman\",\n  Snoopie: \"Beagle\"<br >}<br>var raza = perros[miPerro]; // \"Cazador\"<br>console.log(raza)// \"Doberman\"</blockquote>",
+            "<blockquote>var miPerro = \"Cazador\";<br>var perros = {<br>  Fido: \"Mutt\",\n  Cazador: \"Doberman\",\n  Snoopie: \"Beagle\"<br>}<br>var raza = perros[miPerro]; // \"Cazador\"<br>console.log(raza)// \"Doberman\"</blockquote>",
             "Nota que <em>no</em> usamos comillas alrededor del nombre de la variable (<code>miPerro</code>) cuando la usamos para acceder a la propiedad (<code>perros[miPerro]</code> porque estamos usando el <em>valor</em> de la variable y no su <em>nombre</em>",
             "<h4>Instrucciones</h4>",
             "Usa la variable <code>playerNumber</code> para buscar y asignar a <code>player</code> el jugador <code>16</code> de <code>testObject</code>, usa la notación corchete."
