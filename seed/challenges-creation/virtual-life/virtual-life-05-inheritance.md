@@ -30,7 +30,7 @@
 * How to inherit from an object
 	* Invoke the parent object's constructor in the inherited object's constructor
 			function InheritedObject(data) {
-				ParentObject.call(data);
+				ParentObject.call(this, data);
 			}
 
 	* Set the inherited object's prototype to a copy of the parent's prototype
