@@ -3751,24 +3751,6 @@
           ]
         }
       }
-    },
-    {
-      "id": "bad87fee1348bd9aedf0886d",
-      "title": "Commit to having read HTML & CSS chapters 15",
-      "description": [
-        [
-          "",
-          "",
-          "At this point you should have finished reading chapter 15 of Jon Ducketts HTML & CSS, by clicking \"finish challenge\" you are signing that you have finished this chapter",
-          ""
-        ]
-      ],
-      "releasedOn": "",
-      "challengeSeed": [],
-      "tests": [],
-      "type": "Waypoint",
-      "challengeType": 7,
-      "isRequired": false
     }
   ]
 }
