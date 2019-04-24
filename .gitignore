@@ -55,7 +55,7 @@ public/js/frame-runner*
 public/css/main*
 
 webpack-bundle-stats.html
-server/rev-manifest.json
+// server/rev-manifest.json
 google-credentials.json
 
 bash.exe.stackdump
