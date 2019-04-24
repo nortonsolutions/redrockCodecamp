@@ -3,5 +3,5 @@
     font-style: normal;
     font-weight: 300;
     src: local('☺'),
-        url(/assets/fonts/Lobster-Regular.ttf) format('truetype');
+        url(/fonts/Lobster-Regular.ttf) format('truetype');
 }
