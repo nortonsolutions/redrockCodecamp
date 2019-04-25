@@ -1,0 +1,61 @@
+/* CS 142 Assignment #1 - @author Dave Norton */
+.box {
+    display: inline-block;
+    min-width: 100px;
+    height: 150px;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 40px;
+    margin-top: 10px;
+    
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #eeeff2;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-left: 10px dotted #D0D0FF;
+    border-radius : 12px;
+    box-shadow: -2px -2px 3px #000000;
+}
+
+.box:hover {
+    color:goldenrod;
+    background-color: yellow;
+    cursor: pointer;
+    animation: mymove 1s 2; /* infinite; */
+    animation-direction: alternate;
+    /* transform : perspective(500px) rotateY(75deg); */
+    transform: scale(1.05);
+
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {
+        background-color: yellow;
+    }
+    
+    to {
+        background-color: blue;
+        transform: translate( 10px, 10px ) rotate(10deg);
+    }
+}
+
+body {
+    background: radial-gradient(circle, red, green);
+}
+
+#boxContainer {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    margin-top: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#box6 {
+    position: fixed;
+    bottom : 0px;
+    right : 10px;
+}
+

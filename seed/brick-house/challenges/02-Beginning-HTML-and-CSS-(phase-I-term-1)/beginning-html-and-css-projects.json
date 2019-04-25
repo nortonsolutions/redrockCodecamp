@@ -314,6 +314,52 @@
           ]
         }
       }
-    }
+    },
+    {
+			"id": "bc79461067801f01f86a2cf7",
+      "title": "HTML and CSS Workout #1",
+      "author": "Norton (based on CS 142 Assignment #1)",
+			"description": [
+        "Create a single HTML document that you will use for both HTML and CSS Workout #1 and #2 (next challenge).  The only difference will be in the style.",
+				"<strong>Technology Stack:</strong> 1. Use only HTML and CSS.  You may not use any JavaScript or external libraries/stylesheets.  You must write your own code.  You will need to use the CSS Flexbox layout for at least one portion of the assignment.",
+        "<a href='/projects/phase-i/html-css-workout/assets/CSS.pdf' target='_blank'>Click here</a> for helpful CSS presentation by Mendel Rosenblum.",
+        "The page must match this design as close as possible:<br><img src='/projects/phase-i/html-css-workout/images/project1versionA.png' style='width:500px;'></a>",
+        "<a href='/projects/phase-i/html-css-workout/images/project1versionA.png' target='_blank'>Click here</a> to view the full size image.",
+				"<h4>Style Specifications</h4><br><ul><li>There should be six box elements, lined up vertically.</li><li>All boxes are centered horizontally and equally spaced vertically. When the browser window is resized, the spacing between the boxes should change (they should be equally spaced vertically across the page). However, the boxes themselves should never overlap or change size.</li><li>Each box is 100x100 pixels, with a 1px line (color: #687291) on top. Text is centered horizontally.</li><li>Boxes alternate colors (colors: #dfe1e7, #eeeff2).</li><li>The final element (color: #687291) has a 4px, black border and the text is centered vertically.</li><li>The font in all elements is Tahoma, 40 pixels.</li></ul>",
+        "If a property is not outlined in these specifications you should choose something reasonable.  Remember to use the Research-Ask method if you get stuck.",
+        "<strong>Hints:</strong> You may find some of the following CSS style attributes useful for the box container div (research for exact usage details):<br><br><pre>height: 100%; white-space: nowrap;</pre>",
+        "<strong>Hints:</strong> You may find the following CSS style attributes useful for the sixth box (research for exact usage details):<br><br><pre>display: flex; justify-content: center; align-items: center;</pre>The other boxes should do just fine with: <br><br><pre>text-align: center;</pre>"
+			],
+			"releasedOn": "April 24th, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+    },
+    {
+			"id": "e0cdf4a067969ddee1a3f21f",
+      "title": "HTML and CSS Workout #2",
+      "author": "Norton (based on CS 142 Assignment #1)",
+			"description": [
+
+        "Use the same HTML document that you used for HTML and CSS Workout #1 (previous challenge).  The only difference will be in the style.",
+				"<strong>Technology Stack:</strong> 1. Use only HTML and CSS.  You may not use any JavaScript or external libraries/stylesheets.  You must write your own code.  You will need to use the CSS Flexbox layout for at least one portion of the assignment.",
+        "<a href='/projects/phase-i/html-css-workout/assets/CSS.pdf' target='_blank'>Click here</a> for helpful CSS presentation by Mendel Rosenblum.",
+        "The page must match this design as close as possible:<br><img src='/projects/phase-i/html-css-workout/images/project1versionB.png' style='width:500px;'></a>",
+        "<a href='/projects/phase-i/html-css-workout/images/project1versionB.png' target='_blank'>Click here</a> to view the full size image.",
+        "<h4>Style Specifications</h4><ul><li>Five box elements, lined up horizontally in the top left corner.</li><li>Boxes do not wrap with window resizing (i.e. Boxes A through E should stay on the same line even if your browser window is too small to display them all).</li><li>The last box is positioned in the bottom right corner of the window and stays there even when the window resizes.</li><li>Each box is 100x150 pixels (color: #eeeff2), with a 10px dotted line (color: #D0D0FF) on the left. Boxes are separated by 10 pixels of space.</li><li>When hovering over an box, the cursor changes to a hand and the box and font colors change (colors: yellow, goldenrod, respectively).</li><li>The font in all elements is Tahoma, 40 pixels.</li><li>There are 10 pixels of space between the letters and the edge of the box.</li></ul>",
+        "If a property is not outlined in these specifications you should choose something reasonable.  Remember to use the Research-Ask method if you get stuck.",
+        "<strong>Hints:</strong> You may find some of the following CSS style attributes useful for the box class (research for exact usage details):<br><br><pre>display: inline-block;</pre><br>Don't forget to define a :hover definition for the box class, including custom colors and cursor as well!",
+        "<strong>Hints:</strong> You may also find the following CSS style attributes useful for the sixth box (research for exact usage details):<br><br><pre>position: absolute;</pre>",
+        "<h4>For fun...</h4> Create another style that utilizes 2 of the following:<br><br>gradient<br>transform (scale, perspective, rotate, translate!)<br>animation (with @keyframes function!)<br>web fonts<br>shadows"
+			],
+			"releasedOn": "April 24th, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		}
   ]
 }
