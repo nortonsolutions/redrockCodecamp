@@ -5,7 +5,7 @@
 	"helpRoom": "Help",
 	"required": [
 		{
-			"link": "/cdn/vendor/bootstrap/3.3.7/css/bootstrap.css"
+			"link": "http://brickhousecodecamp.org/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
 		}
 	],
 	"challenges": [
