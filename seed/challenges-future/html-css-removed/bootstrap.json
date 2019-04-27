@@ -5,7 +5,7 @@
   "helpRoom": "Help",
   "required": [
     {
-      "link": "/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css"
+      "link": "/cdn/vendor/bootstrap/4.1.1/css/bootstrap.css"
     }
   ],
   "challenges": [
@@ -79,12 +79,12 @@
         "Bootstrap will figure out how wide your screen is and respond by resizing your HTML elements - hence the name <code>Responsive Design</code>.",
         "With responsive design, there is no need to design a mobile version of your website. It will look good on devices with screens of any width.",
         "You can add Bootstrap to any app by adding the following code to the top of your HTML:",
-        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css\"/&#62;</code>",
+        "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.1.1/css/bootstrap.css\"/&#62;</code>",
         "In this case, we've already added it for you to this page behind the scenes. Note that using either <code>></code> or <code>/></code> to close the <code>link</code> tag is acceptable.",
         "To get started, we should nest all of our HTML (except the <code>link</code> tag and the <code>style</code> element) in a <code>div</code> element with the class <code>container-fluid</code>."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -154,7 +154,7 @@
             "Bootstrap determina qué tan ancha es la pantalla y adapta correspondientemente el tamaño de tus elementos HTML - por eso es que se llama <code>Diseño adaptativo</code> (responsive design).",
             "Con diseño adaptativo, no hay necesidad de diseñar una versión móvil para tu sitio web. Se verá bien en dispositivos con pantallas de cualquier tamaño.",
             "Puedes agregar Bootstrap a cualquier aplicación simplemente incluyendo el siguiente código al inicio de tu HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.1.1/css/bootstrap.css\"/&#62;</code>",
             "En este caso, lo hemos agregado a esta página por ti.",
             "Para iniciar, debemos anidar todo nuestro HTML en un elemento <code>div</code> con la clase <code>container-fluid</code>."
           ]
@@ -166,7 +166,7 @@
             "Bootstrap saura reconnaître la largeur de notre écran et s'y adapter en redimensionnant les éléments HTML - d'où le nom <code>Responsive Design</code> (design adaptatif).",
             "Avec le design responsive, il n'y a pas besoin de créer de version mobile de votre site. Il restera bien sur tous les appareils quelle que soit la taille de leurs écrans.",
             "Vous pouvez ajouter Bootstrap à n'importe quelle application simplement en incluant le code suivant en haut de votre HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.0.0.-beta.3/css/bootstrap.css\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"/cdn/vendor/bootstrap/4.1.1/css/bootstrap.css\"/&#62;</code>",
             "Ici, nous l'avons déjà ajouté à la page pour vous dans l'arrière-boutique.",
             "Pour commencer, nous devons envelopper nos éléments HTML dans un élément <code>div</code> possédant la classe <code>container-fluid</code>"
           ]
@@ -182,7 +182,7 @@
         "Fortunately, with Bootstrap, all we need to do is add the <code>img-fluid</code> class to your image. Do this, and the image should perfectly fit the width of your page."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -278,7 +278,7 @@
         "<code>&#60h2 class=\"red-text text-center\"&#62your text&#60/h2&#62</code>"
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -369,7 +369,7 @@
         "Create a new <code>button</code> element below your large kitten photo. Give it the class <code>btn</code> and the text of \"Like\"."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -470,7 +470,7 @@
         "Add Bootstrap's <code>btn-block</code> class to your Bootstrap button."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -580,7 +580,7 @@
         "Note that this button will still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -676,7 +676,7 @@
         "Note that these buttons still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -774,7 +774,7 @@
         "Note that these buttons still need the <code>btn</code> and <code>btn-block</code> classes."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -879,7 +879,7 @@
         "Note: notice that for xs bootstap doesn't require that the size of the screen be specified, in fact doing so will produce different results than you'd expect"
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -988,7 +988,7 @@
         "Finally, remove the \"smaller-image\" class from your first <code>img</code> element and replace it with the <code>img-fluid</code> class."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  .red-text {",
         "    color: red;",
@@ -1102,7 +1102,7 @@
         "<code>&#60;p&#62;Top 3 things cats &#60;span class=\"text-danger\"&#62;hate:&#60;/span&#62;&#60;/p&#62;</code>"
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "",
         "  h2 {",
@@ -1209,7 +1209,7 @@
         "Notice how the image is now just the right size to fit along the text?"
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "",
         "<style>",
         "  h2 {",
@@ -1316,7 +1316,7 @@
         "<strong>Note:</strong> As a reminder, radio buttons are <code>input</code> elements of type <code>radio</code>."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1414,7 +1414,7 @@
         "Nest all three of your checkboxes in a <code>&#60;div class=\"row\"&#62;</code> element. Then nest each of them in a <code>&#60;div class=\"col-4\"&#62;</code> element."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1521,7 +1521,7 @@
         "All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code> elements with the class <code>.form-control</code> have a width of 100%."
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
@@ -1634,7 +1634,7 @@
         "This is the last challenge we'll do for our Cat Photo App for now. We hope you've enjoyed learning Font Awesome, Bootstrap, and responsive design!"
       ],
       "challengeSeed": [
-        "<link href=\"/fonts/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
+        "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
         "<style>",
         "  h2 {",
         "    font-family: Lobster, Monospace;",
