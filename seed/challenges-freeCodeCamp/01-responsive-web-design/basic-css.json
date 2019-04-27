@@ -771,7 +771,7 @@
         "<a href='https://fonts.google.com/' target='_blank'>Google Fonts</a> is a free library of web fonts that you can use in your CSS by referencing the font's URL.",
         "So, let's go ahead and import and apply a Google font (note that if Google is blocked in your country, you will need to skip this challenge).",
         "To import a Google Font, you can copy the font(s) URL from the Google Fonts library and then paste it in your HTML. For this challenge, we'll import the <code>Lobster</code> font. To do this, copy the following code snippet and paste it into the top of your code editor(before the opening <code>style</code> element):",
-        "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+        "<code>&#60;link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
         "Now you can use the <code>Lobster</code> font in your CSS by using <code>Lobster</code> as the FAMILY_NAME as in the following example:<br><code>font-family: FAMILY_NAME, GENERIC_NAME;</code>.",
         "The GENERIC_NAME is optional, and is a fallback font in case the other specified font is not available. This is covered in the next challenge.",
         "Family names are case-sensitive and need to be wrapped in quotes if there is a space in the name. For example, you need quotes to use the <code>\"Open Sans\"</code> font, but not to use the <code>Lobster</code> font.",
@@ -803,7 +803,7 @@
             "Lass uns jetzt eine Google Font importieren und verwenden. (Beachte dass du diese Challenge überspringen musst, falls Google in deinem Land blockiert wird)",
             "Zuerst musst du einen <code>call</code> (Anfrage) an Google machen um um auf <code>Lobster</code> zugreifen und in dein HMTL einbinden zu können.",
             "Kopiere den folgenden Code und füge diesen in deinen Editor oben ein:",
-            "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+            "<code>&#60;link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
             "Jetzt kannst du \"Lobster\" als font-family Attribut zu deinem <code>h2</code> Element hinzufügen.",
             "<hr>",
             "Füge dem <code>h2</code> Element die Schriftart oder <code>font-family</code> <code>Lobster</code> hinzu."
@@ -826,7 +826,7 @@
             "Agora, vamos importar e aplicar um estilo de fonte por meio do Google Fonts.",
             "Primeiro, faça um <code>chamado</code> ao Google Fonts para poder utilizar a fonte chamada <code>Lobster</code> e carregá-la em seu HTML.",
             "Para fazer isso, copie o código abaixo e insira-o na parte superior de seu editor de texto:",
-            "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+            "<code>&#60;link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
             "<hr>",
             "Agora, estableça <code>Lobster</code> como o valor para font-family em seu elemento <code>h2</code>."
           ]
@@ -837,7 +837,7 @@
             "Теперь давайте импортируем и применим шрифт Google (обратите внимание, что если Google заблокирован в ваней стране, вам нужно будет пропустить это испытание).",
             "Сначала вам понадобится сделать <code>запрос</code> к Google для получения шрифта <code>Lobster</code> и загрузить его в ваш HTML.",
             "Скопируйте следующй кусок кода и вставьте его в самый верх вашего редактора кода:",
-            "<code>&#60;link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
+            "<code>&#60;link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\"&#62;</code>",
             "Теперь вы можете установить шрифт <code>Lobster</code> в качестве значения семейства шрифтов для вашего <code>h2</code>.",
             "<hr>",
             "Примените свойство <code>font-family</code> со значением <code>Lobster</code> к вашему элементу <code>h2</code>."
@@ -986,7 +986,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1116,7 +1116,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1267,7 +1267,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1390,7 +1390,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1513,7 +1513,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1653,7 +1653,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1793,7 +1793,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -1947,7 +1947,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
@@ -2878,7 +2878,7 @@
           "ext": "html",
           "name": "index",
           "contents": [
-            "<link href=\"https://fonts.googleapis.com/css?family=Lobster\" rel=\"stylesheet\" type=\"text/css\">",
+            "<link href=\"http://brickhousecodecamp.org/educationMaterials/frameworks/fonts/lobster/css/lobster.css\" rel=\"stylesheet\" type=\"text/css\">",
             "<style>",
             "  .red-text {",
             "    color: red;",
