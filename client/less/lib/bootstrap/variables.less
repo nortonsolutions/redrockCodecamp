@@ -23,18 +23,18 @@
 #ffcb9a
 #d1e8e2
 
-@brand-primary:        	#116466;
+@brand-primary:        	#402606;
 @brand-success:         #70c1b3;
 @brand-info:            #d9b08c;
 @brand-warning:         #ffcb9a;
 @brand-danger:          #ff1654;
 */
 
-@brand-primary:        	#a64026;
-@brand-success:         #3c9dca;
+@brand-primary:        	#402606;
+@brand-success:         #064026;
 @brand-info:            #d9b08c;
 @brand-warning:         #ffcb9a;
-@brand-danger:          #ff1654;
+@brand-danger:          #7f0000;
 
 @icon-gray:             #575757;
 @icon-light-gray:       #888888;
@@ -43,7 +43,7 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #ffffff;
+@body-bg:              #ffffff;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 
@@ -165,12 +165,12 @@
 
 @btn-font-weight:                normal;
 
-@btn-default-color:              #000000;
+@btn-default-color:              #064026;
 @btn-default-bg:                 @body-bg;
 @btn-default-border:             #000000;
 
-@btn-primary-color:              @brand-primary;
-@btn-primary-bg:                 @brand-primary;
+@btn-primary-color:              @btn-default-color;
+@btn-primary-bg:                 @btn-default-color;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              @brand-success;
@@ -260,7 +260,7 @@
 @dropdown-link-hover-bg:         #f5f5f5;
 
 //** Active dropdown menu item text color.
-@dropdown-link-active-color:     @component-active-color;
+@dropdown-link-active-color:     @brand-primary;
 //** Active dropdown menu item background color.
 @dropdown-link-active-bg:        @component-active-bg;
 
@@ -389,19 +389,19 @@
 // Navbar links
 @navbar-default-link-color:                @brand-warning;
 @navbar-default-link-hover-color:          @brand-primary;
-@navbar-default-link-hover-bg:             @gray-lighter;
-@navbar-default-link-active-color:         @brand-primary;
+@navbar-default-link-hover-bg:             lighten(@brand-primary, 5%);
+@navbar-default-link-active-color:         @brand-warning;
 @navbar-default-link-active-bg:            @gray-lighter;
 @navbar-default-link-disabled-color:       #ccc;
-@navbar-default-link-disabled-bg:          transparent;
+@navbar-default-link-disabled-bg:          lighten(@brand-primary, 25%);
 
 // Navbar brand label
 @navbar-default-brand-color:               @navbar-default-link-color;
 @navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
-@navbar-default-brand-hover-bg:            transparent;
+@navbar-default-brand-hover-bg:            lighten(@brand-primary, 25%);
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
+@navbar-default-toggle-hover-bg:           lighten(@brand-primary, 25%);
 @navbar-default-toggle-icon-bar-bg:        #888;
 @navbar-default-toggle-border-color:       #ddd;
 
