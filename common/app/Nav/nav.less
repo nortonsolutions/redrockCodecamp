@@ -1,6 +1,10 @@
 .navbar {
-  background-color: @brand-primary;
+  background: linear-gradient(35deg, darken(#4a2b0f, 10%), #46290e);
   font-size: 14px;
+}
+
+#navbar {
+  background: linear-gradient(35deg, darken(#4a2b0f, 10%),darken( #ed8100, 20%), darken(#4a2b0f, 10%));
 }
 
 .navbar-nav > li > a {
@@ -30,8 +34,8 @@
 @navbar-logo-height: 25px;
 @navbar-logo-padding: (@navbar-height - @navbar-logo-height) / 2;
 .navbar-brand {
-  padding-top: @navbar-logo-padding;
-  padding-bottom: @navbar-logo-padding;
+    padding-top: @navbar-logo-padding;
+    padding-bottom: @navbar-logo-padding;
 }
 
 .nav-logo {
@@ -39,7 +43,7 @@
 }
 
 .navbar-right {
-  background-color: @brand-primary;
+  background: transparent; 
   text-align: center;
 
   @media (min-width: @screen-md-min) {
@@ -77,7 +81,7 @@ li.nav-avatar {
 
     > a {
       margin: 0;
-      padding: 7.5px @navbar-padding-horizontal 7.5px @navbar-padding-horizontal;
+     // padding: 7.5px @navbar-padding-horizontal 7.5px @navbar-padding-horizontal;
     }
   }
 }
@@ -280,4 +284,5 @@ li.nav-avatar {
     display: block
   }
 
+  
 }

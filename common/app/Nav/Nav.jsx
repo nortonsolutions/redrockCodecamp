@@ -211,7 +211,7 @@ export class FCCNav extends React.Component {
               >
               <Image
                 alt='logo'
-                style={{width:'26px',display:'inline',verticalAlign:'text-bottom',marginRight:'5px'}}
+                style={{width:'28px',display:'inline',verticalAlign:'text-bottom',marginRight:'5px',}}
                 src='/images/logos/logo-landscape.png'
               />
               { process.env.businessAppName }
