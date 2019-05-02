@@ -539,7 +539,7 @@ module.exports = function (User) {
       .toPromise();
   };
 
-  User.changeAccount = function changeAccount(email, newEmail, username, name, location, password) {
+  User.changeAccount = function changeAccount(email, newEmail, username, name, location, password, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApiMicroservicesCert, isInfoSecQaCert, isBackEndCert, isFullStackCert) {
     if (!isEmail(email)) {
       return Promise.reject(
         new Error('The account email not valid.')
@@ -585,6 +585,43 @@ module.exports = function (User) {
         updateUser.password = hashedPassword;    
         updateUser.passwordSalt = salt;    
       }
+
+      if (isRespWebDesignCert) {
+        updateUser.isRespWebDesignCert = isRespWebDesignCert;    
+      }
+
+      if (isJsAlgoDataStructCert) {
+        updateUser.isJsAlgoDataStructCert = isJsAlgoDataStructCert;    
+      }
+
+      if (isFrontEndCert) {
+        updateUser.isFrontEndCert = isFrontEndCert;    
+      }
+
+      if (isFrontEndLibsCert) {
+        updateUser.isFrontEndLibsCert = isFrontEndLibsCert;    
+      }
+
+      if (isDataVisCert) {
+        updateUser.isDataVisCert = isDataVisCert;    
+      }
+
+      if (isApiMicroservicesCert) {
+        updateUser.isApiMicroservicesCert = isApiMicroservicesCert;    
+      }
+
+      if (isInfoSecQaCert) {
+        updateUser.isInfoSecQaCert = isInfoSecQaCert;    
+      }
+
+      if (isBackEndCert) {
+        updateUser.isBackEndCert = isBackEndCert;    
+      }
+
+      if (isFullStackCert) {
+        updateUser.isFullStackCert = isFullStackCert;    
+      }
+
 
       return user.update$(updateUser);
     })
