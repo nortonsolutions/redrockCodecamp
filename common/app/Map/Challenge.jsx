@@ -21,8 +21,19 @@ const propTypes = {
   isDev: PropTypes.bool,
   isLocked: PropTypes.bool,
   isRequired: PropTypes.bool,
-  title: PropTypes.string
+  title: PropTypes.string,
+  superBlock: PropTypes.string,
+  isRespWebDesignCertified: PropTypes.bool,
+  isJsAlgoDataStructCertified: PropTypes.bool,
+  isFrontEndCertified: PropTypes.bool,
+  isFrontEndLibsCertified: PropTypes.bool,
+  isApiMicroservicesCertified: PropTypes.bool,
+  isInfoSecQaCertified: PropTypes.bool,
+  isBackEndCertified: PropTypes.bool,
+  isFullStackCertified: PropTypes.bool,
+  isNewDataVisCertified: PropTypes.bool
 };
+
 const mapDispatchToProps = { clickOnChallenge };
 
 function makeMapStateToProps(_, { dashedName }) {
@@ -30,7 +41,7 @@ function makeMapStateToProps(_, { dashedName }) {
     userSelector,
     challengeMapSelector,
     (
-      { challengeMap: userChallengeMap },
+      { challengeMap: userChallengeMap, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isApiMicroservicesCert, isInfoSecQaCert, isBackEndCert, isFullStackCert, isDataVisCert },
       challengeMap
     ) => {
       const {
@@ -39,9 +50,19 @@ function makeMapStateToProps(_, { dashedName }) {
         block,
         isLocked,
         isRequired,
-        isComingSoon
+        isComingSoon,
+        superBlock
       } = challengeMap[dashedName] || {};
       const isCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
+      const isRespWebDesignCertified = isRespWebDesignCert;
+      const isJsAlgoDataStructCertified = isJsAlgoDataStructCert;
+      const isFrontEndCertified = isFrontEndCert;
+      const isFrontEndLibsCertified = isFrontEndLibsCert;
+      const isApiMicroservicesCertified = isApiMicroservicesCert;
+      const isInfoSecQaCertified = isInfoSecQaCert;
+      const isBackEndCertified = isBackEndCert;
+      const isFullStackCertified = isFullStackCert;
+      const isDataVisCertified = isDataVisCert;
       return {
         dashedName,
         isCompleted,
@@ -50,7 +71,17 @@ function makeMapStateToProps(_, { dashedName }) {
         isLocked,
         isRequired,
         isComingSoon,
-        isDev: debug.enabled('fcc:*')
+        superBlock,
+        isDev: debug.enabled('fcc:*'),
+        isRespWebDesignCertified,
+        isJsAlgoDataStructCertified,
+        isFrontEndCertified,
+        isFrontEndLibsCertified,
+        isApiMicroservicesCertified,
+        isInfoSecQaCertified,
+        isBackEndCertified,
+        isFullStackCertified,
+        isDataVisCertified
       };
     }
   );
@@ -109,12 +140,57 @@ export class Challenge extends PureComponent {
       isDev,
       isLocked,
       isRequired,
-      title
+      title,
+      superBlock,
+      isRespWebDesignCertified,
+      isJsAlgoDataStructCertified,
+      isFrontEndCertified,
+      isFrontEndLibsCertified,
+      isApiMicroservicesCertified,
+      isInfoSecQaCertified,
+      isBackEndCertified,
+      isFullStackCertified,
+      isDataVisCertified
     } = this.props;
     if (!title) {
       return null;
     }
+
+    let hide = false;
+    
+    switch (superBlock) {
+        
+        case "Beginning Javascript (phase I Term 3)":
+          if (!isRespWebDesignCertified) hide = true;
+          break;
+
+        case "Advanced Javascript (phase Ii Term 4)":
+          if (!isRespWebDesignCertified) hide = true;
+          break;
+
+        case "Beginning Web Development (phase Ii Term 5)":
+          if (!isJsAlgoDataStructCertified) hide = true;
+          break;
+
+        case "Advanced Web Development (phase Ii Term 6)":
+          if (!isJsAlgoDataStructCertified) hide = true;
+          break;
+
+        case "Front End Libraries (phase Iii Term 7)":
+          if (!isFrontEndCertified) hide = true;
+          break;
+
+        case "Server Side Development (phase Iii Term 8)":
+          if (!isFrontEndLibsCertified) hide = true;
+          break;
+
+        case "Advanced Server Side Development (phase Iii Term 9)":
+          if (!isApiMicroservicesCertified) hide = true;
+          break;
+    }
+    
     const challengeClassName = classnames({
+      'hidden': hide,
       'text-primary': true,
       'padded-ionic-icon': true,
       'map-challenge-title': true,
