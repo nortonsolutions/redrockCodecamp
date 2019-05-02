@@ -1,0 +1,83 @@
+{
+  "name": "Claim Your JavaScript FrontEnd Web-Development Certificate",
+  "order": 1,
+  "isPrivate": true,
+  "challenges": [
+    {
+      "id": "561add10cb82ac38a17513be",
+      "title": "Claim Your JavaScript Front-End Web-Development Certificate",
+      "description": [
+        [
+          "/images/EzMrezJ.jpg",
+          "An image of our JavaScript Front-End Web-Development Certificate",
+          "This challenge will give you your verified JavaScript Front-End Web-Development Certificate. Before we issue your certificate, we must verify that you have completed all of our basic and intermediate algorithm scripting challenges, and all our basic, intermediate, and advanced front end development projects. You must also accept our Academic Honesty Pledge. Click the button below to start this process.",
+          ""
+        ],
+        [
+          "/images/uLPsUko.jpg",
+          "The definition of plagiarism: Plagiarism (noun) - copying someone else’s work and presenting it as your own without crediting them",
+          "By clicking below, you pledge that all of your submitted code A) is code you or your pair personally wrote, or B) comes from open source libraries like jQuery, or C) has been clearly attributed to its original authors. You also give us permission to audit your challenge solutions and revoke your certificate if we discover evidence of plagiarism.",
+          "#"
+        ],
+        [
+          "/images/rx2gKfB.jpg",
+          "An image of the text \"JavaScript Front-End Web-Development\"",
+          "Let's confirm that you have completed all of our JavaScript Front-End Web-Development projects. Click the button below to verify this.",
+          "#"
+        ],
+        [
+          "/images/Q5Za9U6.jpg",
+          "An image of the word \"Congratulations\"",
+          "Congratulations! We've added your JavaScript Front-End Web-Development Certificate to your portfolio page. Unless you choose to hide your solutions, this certificate will remain publicly visible and verifiable.",
+          ""
+        ]
+
+
+      ],
+      "challengeSeed": [
+        {
+          "properties": [
+            "isHonest",
+            "isFrontEndCert"
+          ],
+          "apis": [
+            "/certificate/honest",
+            "/certificate/verify/front-end"
+          ],
+          "stepIndex": [
+            1,
+            2
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "id": "74c80400ecd32f9f26dfed57",
+          "title": "User Management Page"
+        },
+        {
+          "id": "ea31b1a0ecd3fdfa707d31a3",
+          "title": "User Management Page with MVC"
+        },
+        {
+          "id": "0e749670f18bfbc0ce1ab47f",
+          "title": "User Management Page with Templates"
+        },
+        {
+          "id": "efd58d40fc85274deed8d559",
+          "title": "User Management Page with Router"
+        },
+        {
+          "id": "a5649440fcc17faeab614b31",
+          "title": "User Management Page with Bookmarkable"
+        },
+        {
+          "id": "36a8b4d0fda447acb4971b9d",
+          "title": "Bluesky Website"
+        }
+      ],
+      "type": "Waypoint",
+      "challengeType": 7
+    }
+  ]
+}

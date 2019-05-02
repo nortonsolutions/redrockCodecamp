@@ -1,7 +1,7 @@
 {
 	"name": "Introduction to the Web APIs and the DOM",
 	"time": "5 minutes",
-	"order": 4,
+	"order": 0,
 	"helpRoom": "HelpJavaScript",
 	"challenges": [
 		{

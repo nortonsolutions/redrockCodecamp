@@ -923,15 +923,15 @@ module.exports = function (app) {
             });
             return res.redirect('/');
           }
-          if (!user.isGithubCool) {
-            req.flash('errors', {
-              msg: dedent`
-                This user needs to link GitHub with their account
-                in order for others to be able to view their certificate.
-              `
-            });
-            return res.redirect('back');
-          }
+          // if (!user.isGithubCool) {
+          //   req.flash('errors', {
+          //     msg: dedent`
+          //       This user needs to link GitHub with their account
+          //       in order for others to be able to view their certificate.
+          //     `
+          //   });
+          //   return res.redirect('/back');
+          // }
 
           if (user.isCheater) {
             return res.redirect(`/${user.username}`);
@@ -945,7 +945,7 @@ module.exports = function (app) {
                   in order for others to be able to view their certificate.
               `
             });
-            return res.redirect('back');
+            return res.redirect('/back');
           }
           if (!user.isHonest) {
             req.flash('errors', {
@@ -953,7 +953,7 @@ module.exports = function (app) {
                 ${username} has not yet agreed to our Academic Honesty Pledge.
               `
             });
-            return res.redirect('back');
+            return res.redirect('/back');
           }
 
           if (user[certType]) {
@@ -973,7 +973,7 @@ module.exports = function (app) {
           req.flash('errors', {
             msg: `Looks like user ${username} is not ${certText[certType]}`
           });
-          return res.redirect('back');
+          return res.redirect('/back');
         },
         next
       );
