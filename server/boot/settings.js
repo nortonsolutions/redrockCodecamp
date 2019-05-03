@@ -153,6 +153,11 @@ export default function settingsController(app) {
     toggleUserFlag('sendQuincyEmail')
   );
   api.post(
+    '/toggle-honest',
+    ifNoUser401,
+    toggleUserFlag('isHonest')
+  );
+  api.post(
     '/update-my-email',
     ifNoUser401,
     updateMyEmail

@@ -13,6 +13,7 @@ import EmailSettings from './Email-Setting.jsx';
 import LanguageSettings from './Language-Settings.jsx';
 import SettingsSkeleton from './Settings-Skeleton.jsx';
 import UpdateEmail from './routes/update-email';
+import Honesty from './Honesty';
 
 import { toggleUserFlag, showUpdateEmailViewSelector } from './redux';
 import {
@@ -42,7 +43,8 @@ const mapStateToProps = createSelector(
       isLinkedIn,
       sendMonthlyEmail,
       sendNotificationEmail,
-      sendQuincyEmail
+      sendQuincyEmail,
+      isHonest
     },
     theme,
     showLoading,
@@ -60,7 +62,8 @@ const mapStateToProps = createSelector(
     sendQuincyEmail,
     showLoading,
     showUpdateEmailView,
-    username
+    username,
+    isHonest
   })
 );
 
@@ -72,6 +75,7 @@ const mapDispatchToProps = {
   toggleNightMode,
   toggleNotificationEmail: () => toggleUserFlag('sendNotificationEmail'),
   toggleQuincyEmail: () => toggleUserFlag('sendQuincyEmail'),
+  updateIsHonest: () => toggleUserFlag('isHonest'),
   updateTitle
 };
 
@@ -100,7 +104,9 @@ const propTypes = {
   toggleQuincyEmail: PropTypes.func.isRequired,
   updateMyLang: PropTypes.func,
   updateTitle: PropTypes.func.isRequired,
-  username: PropTypes.string
+  username: PropTypes.string,
+  isHonest: PropTypes.bool,
+  updateIsHonest: PropTypes.func.isRequired
 };
 
 export class Settings extends React.Component {
@@ -133,6 +139,7 @@ export class Settings extends React.Component {
       isLinkedIn,
       isLocked,
       isTwitter,
+      isHonest,
       sendMonthlyEmail,
       sendNotificationEmail,
       sendQuincyEmail,
@@ -144,7 +151,8 @@ export class Settings extends React.Component {
       toggleNightMode,
       toggleNotificationEmail,
       toggleQuincyEmail,
-      username
+      username,
+      updateIsHonest
     } = this.props;
     if (!username && showLoading) {
       return <SettingsSkeleton />;
@@ -153,10 +161,14 @@ export class Settings extends React.Component {
       return <UpdateEmail />;
     }
     return (
+      
       <ChildContainer>
         <div className='container'>
           <Row>
             <Col xs={ 12 }>
+              
+              <Honesty isHonest={isHonest} updateIsHonest={updateIsHonest} />
+
               <Button
                 block={ true }
                 bsSize='lg'

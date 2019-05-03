@@ -14,7 +14,7 @@ const publicUserProps = [
 
   'isCheater',
   'isGithubCool',
-
+  'isHonest',
   'isLocked',
   'isAvailableForHire',
   'isFrontEndCert',

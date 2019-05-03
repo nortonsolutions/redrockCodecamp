@@ -22,7 +22,8 @@ const urlMap = {
   isAvailableForHire: 'available-for-hire',
   sendQuincyEmail: 'quincy-email',
   sendNotificationEmail: 'notification-email',
-  sendMonthlyEmail: 'announcement-email'
+  sendMonthlyEmail: 'announcement-email',
+  isHonest: 'honest'
 };
 
 export function updateUserEmailEpic(actions, { getState }) {
