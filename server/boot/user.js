@@ -930,7 +930,7 @@ module.exports = function (app) {
           //       in order for others to be able to view their certificate.
           //     `
           //   });
-          //   return res.redirect('/back');
+          //   return res.redirect(`/${user.username}`);
           // }
 
           if (user.isCheater) {
@@ -940,20 +940,26 @@ module.exports = function (app) {
           if (user.isLocked) {
             req.flash('errors', {
               msg: dedent`
-                ${username} has chosen to make their profile
+                ${user.name} has chosen to make their profile
                   private. They will need to make their profile public
                   in order for others to be able to view their certificate.
               `
             });
-            return res.redirect('/back');
+            return res.redirect("/" + `${username}`);
           }
           if (!user.isHonest) {
             req.flash('errors', {
               msg: dedent`
-                ${username} has not yet agreed to our Academic Honesty Pledge.
+                ${user.name} has not yet agreed to our Academic Honesty Pledge.
               `
             });
-            return res.redirect('/back');
+
+            // Show flash pop-up on the user's page (non-React)
+            // return res.redirect("/" + `${username}`);
+
+            // Redirect to /settings page with toast (React):
+            return res.redirect("/settings");
+
           }
 
           if (user[certType]) {
@@ -973,7 +979,7 @@ module.exports = function (app) {
           req.flash('errors', {
             msg: `Looks like user ${username} is not ${certText[certType]}`
           });
-          return res.redirect('/back');
+          return res.redirect(`/${user.username}`);
         },
         next
       );
