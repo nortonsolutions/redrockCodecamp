@@ -13,9 +13,17 @@ class Honesty extends Component {
   handleAgreeClick = () => this.props.updateIsHonest();
 
   renderAgreeButton = () => (
-    <button onClick={this.handleAgreeClick}>
-      Agree
-    </button>
+    <div>
+      <h1>KCJAE Academic Honesty Policy</h1>
+            <br/>
+              <HonestyPolicy />
+            <br />
+      <button onClick={this.handleAgreeClick}>
+        Agree
+      </button>
+      <br/><br/><br/>
+    </div>
+
   );
 
   renderIsHonestAgreed = () => (
@@ -27,14 +35,8 @@ class Honesty extends Component {
 
     return (
       <section className='text-center'>
-        <h1>KCJAE Academic Honesty Policy</h1>
-          <br/>
-            <HonestyPolicy />
-          <br />
+
           {isHonest ? this.renderIsHonestAgreed() : this.renderAgreeButton()}
-          <br/>
-          <br/>
-          <br/>
 
       </section>
     );
