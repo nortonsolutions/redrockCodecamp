@@ -187,6 +187,10 @@ export class Challenge extends PureComponent {
         case "Advanced Server Side Development (phase Iii Term 9)":
           if (!isApiMicroservicesCertified) hide = true;
           break;
+
+        case "More Javascript For Masochists (phase X)":
+          if (!isInfoSecQaCertified) hide = true;
+          break;
     }
     
     const challengeClassName = classnames({
