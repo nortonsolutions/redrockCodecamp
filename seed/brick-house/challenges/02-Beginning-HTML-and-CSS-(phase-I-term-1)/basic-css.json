@@ -227,6 +227,30 @@
       }
     },
     {
+			"id": "b9da287071085b705fed27ca",
+			"title": "CSS Diner!",
+			"description": [
+				[
+					"",
+					"",
+					"Knowing CSS Selection is very important for webpage development, so you'll want to memorize the concepts and put them into practice.  The following CSS Diner exercises will put your skills to the test, and you'll have some fun in the process.",
+					"http://brickhousecodecamp.org/educationMaterials/supplementary/webDesignChallenges/css-diner-develop/"
+				],
+				[
+					"",
+					"",
+					"Confirm you have completed CSS Diner.",
+					"#"
+				]
+			],
+			"releasedOn": "May 1, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		},
+    {
       "id": "bad87fee1348bd9aecf08806",
       "title": "Use a CSS Class to Style an Element",
       "description": [

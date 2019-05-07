@@ -1311,6 +1311,31 @@
 				"  <div class=\"item4\">footer</div>",
 				"</div>"
 			]
-		}
+		},
+		{
+				"id": "c383b8107107bbc29ccf2e4d",
+				"title": "Grid Garden!",
+				"description": [
+					[
+						"",
+						"",
+						"Knowing the Grid is very important for webpage development, so you'll want to memorize the concepts and put them into practice.  The following Grid Garden exercises will put your skills to the test, and you'll have some fun in the process.",
+						"http://brickhousecodecamp.org/educationMaterials/supplementary/webDesignChallenges/gridgarden-master/"
+					],
+					[
+						"",
+						"",
+						"Confirm you have completed Grid Garden.",
+						"#"
+					]
+				],
+				"releasedOn": "May 1, 2019",
+				"challengeSeed": [],
+				"tests": [],
+				"type": "Waypoint",
+				"isRequired": true,
+				"challengeType": 7
+			}
+		
 	]
 }

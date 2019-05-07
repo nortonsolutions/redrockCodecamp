@@ -1156,6 +1156,30 @@
       "releasedOn": "Feb 17, 2017",
       "challengeType": 0,
       "translations": {}
-    }
+    },
+    {
+			"id": "4406f58071063dacb1b21617",
+			"title": "Flexbox Froggy!",
+			"description": [
+				[
+					"",
+					"",
+					"Knowing Flexbox is very important for webpage development, so you'll want to memorize the concepts and put them into practice.  The following Flexbox Froggy exercises will put your skills to the test, and you'll have some fun in the process.",
+					"http://brickhousecodecamp.org/educationMaterials/supplementary/webDesignChallenges/flexboxfroggy-gh-pages/"
+				],
+				[
+					"",
+					"",
+					"Confirm you have completed Flexbox Froggy.",
+					"#"
+				]
+			],
+			"releasedOn": "May 1, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7
+		}
   ]
 }
