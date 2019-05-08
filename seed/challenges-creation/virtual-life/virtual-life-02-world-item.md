@@ -4,7 +4,7 @@
 * Languages: Javascript ES5
 * Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
-* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
+* Patterns and Practices: [Separation of concerns](http://redrockcodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://redrockcodecamp.org/wikipedia/factory_method_pattern.html)
 
 *Copy your previous project for the starting point*
 
@@ -42,7 +42,7 @@
 			* Takes a symbol and information used for location
 * Create links to your world-item.js, world-item-factory.js, and world.js files
 		<body>
-			<script src="http://brickhousecodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
+			<script src="http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
 			<script src="world-item.js"></script>
 			<script src="world-item-factory.js"></script>
 			<script src="world.js"></script>
@@ -78,4 +78,4 @@
 
 ### References
 
-* [Object prototypes](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes.html)
+* [Object prototypes](http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes.html)

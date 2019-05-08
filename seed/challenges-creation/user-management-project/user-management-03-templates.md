@@ -4,9 +4,9 @@
 * Languages: HTML, CSS, Javascript ES5, JSON
 * Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome, Handlebars
-* API Features: [DOM Elements](http://brickhousecodecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://brickhousecodecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html)
+* API Features: [DOM Elements](http://redrockcodecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://redrockcodecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html)
 * Tools: VS Code, Live Server extension, Git (if available)
-* Patterns and Practices: Master details, [MVC](http://brickhousecodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html)
+* Patterns and Practices: Master details, [MVC](http://redrockcodecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://redrockcodecamp.org/wikipedia/separation_of_concerns.html)
 
 * Copy your User Management MVC project to a new git repository for the starting point
 

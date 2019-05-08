@@ -636,7 +636,7 @@
       "description": [
         "<code>a</code> elements, also known as <code>anchor</code> elements, are used to link to content outside of the current page.",
         "Here's a diagram of an <code>a</code> element. In this case, the <code>a</code> element is used in the middle of a paragraph element, which means the link will appear in the middle of a sentence.",
-        "<a href=\"http://brickhousecodecamp.org/docs/html/developer.mozilla.org/en-US/docs/Web/HTML/Element/a.html\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" title=\"Click to enlarge\" alt=\"a diagram of how anchor tags are composed with the same text as on the following line\" src=\"/images/anchors.png\"></a>",
+        "<a href=\"http://redrockcodecamp.org/docs/html/developer.mozilla.org/en-US/docs/Web/HTML/Element/a.html\" target=\"_blank\" data-lightbox=\"img-enlarge\"><img class=\"img-responsive\" title=\"Click to enlarge\" alt=\"a diagram of how anchor tags are composed with the same text as on the following line\" src=\"/images/anchors.png\"></a>",
         "Here's an example:",
         "<code>&#60;p&#62;Here's a &#60;a href=\"http://cua.cucfcua.edu\"&#62; Link to cua.cucfcua.edu&#60;/a&#62; for you to follow.&#60;/p&#62;</code>",
         "<hr>",

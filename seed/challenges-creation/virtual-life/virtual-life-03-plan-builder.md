@@ -4,7 +4,7 @@
 * Languages: Javascript ES5
 * Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
-* Patterns and Practices: [Separation of concerns](http://brickhousecodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://brickhousecodecamp.org/wikipedia/factory_method_pattern.html)
+* Patterns and Practices: [Separation of concerns](http://redrockcodecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://redrockcodecamp.org/wikipedia/factory_method_pattern.html)
 
 *Copy your Virtual Life app project to a new git repository for the starting point*
 

@@ -5,7 +5,7 @@ block content
         h2 Update account information:
             .button-spacer
         .col-sm-6.col-sm-offset-3
-            form(method='POST', action='/bhcca/update-account')
+            form(method='POST', action='/rrcca2019/update-account')
                 input(type='hidden', name='_csrf', value=_csrf)
                 .form-group
                     input.input-lg.form-control.success-clear-value(type='email', name='email', id='email', placeholder='Account Email', autofocus=true, required)
@@ -41,5 +41,5 @@ block content
                 .button-spacer
                 .button-spacer
                 .button-spacer
-                a.btn.btn-primary.btn-lg.btn-block(href='/bhcca')
+                a.btn.btn-primary.btn-lg.btn-block(href='/rrcca2019')
                     span Admin Home

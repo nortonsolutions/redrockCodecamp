@@ -64,7 +64,7 @@
 				[
 					"",
 					"",
-					"You will need to link to the these scripts in each project by creating the following HTML script links.<br><br>&lt;script src=&quot;http://brickhousecodecamp.org/educationMaterials/frameworks/js/mocha/1.9.0/mocha.js&quot;&gt;&lt;/script&gt;<br><br>&lt;script src=&quot;http://brickhousecodecamp.org/educationMaterials/frameworks/js/brickhousecodecamp/bundle.js&quot;&gt;&lt;/script&gt;",
+					"You will need to link to the these scripts in each project by creating the following HTML script links.<br><br>&lt;script src=&quot;http://redrockcodecamp.org/educationMaterials/frameworks/js/mocha/1.9.0/mocha.js&quot;&gt;&lt;/script&gt;<br><br>&lt;script src=&quot;http://redrockcodecamp.org/educationMaterials/frameworks/js/brickhousecodecamp/bundle.js&quot;&gt;&lt;/script&gt;",
 					""
 				],
 				[
