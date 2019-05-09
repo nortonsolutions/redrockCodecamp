@@ -246,7 +246,7 @@
         "<blockquote>var bigString = \"big\";<br>var bagString = \"bag\";<br>var bugString = \"bug\";<br>var bogString = \"bog\";<br>var bgRegex = /b[aiu]g/;<br>bigString.match(bgRegex); // Returns [\"big\"]<br>bagString.match(bgRegex); // Returns [\"bag\"]<br>bugString.match(bgRegex); // Returns [\"bug\"]<br>bogString.match(bgRegex); // Returns null</blockquote>",
         "<hr>",
         "Use a character class with vowels (<code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>) in your regex <code>vowelRegex</code> to find all the vowels in the string <code>quoteSample</code>.",
-        "<strong>Note</strong><br>Be sure to match both upper- and lowercase vowels."
+        "<strong>Note</strong><br>Be sure to match both upper- and lowercase letters."
       ],
       "challengeSeed": [
         "var quoteSample = \"Beware of bugs in the above code; I have only proved it correct, not tried it.\";",
@@ -904,7 +904,7 @@
         "You can search and replace text in a string using <code>.replace()</code> on a string. The inputs for <code>.replace()</code> is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.",
         "<blockquote>var wrongText = \"The sky is silver.\";<br>var silverRegex = /silver/;<br>wrongText.replace(silverRegex, \"blue\");<br>// Returns \"The sky is blue.\"</blockquote>",
         "You can also access capture groups in the replacement string with dollar signs (<code>$</code>).",
-        "<blockquote>\"CodeCamp\".replace(/(\\w+)\\s(\\w+)/, '$2 $1');<br>// Returns \"Camp Code\"</blockquote>",
+        "<blockquote>\"Code Camp\".replace(/(\\w+)\\s(\\w+)/, '$2 $1');<br>// Returns \"Camp Code\"</blockquote>",
         "<hr>",
         "Write a regex so that it will search for the string <code>\"good\"</code>. Then update the <code>replaceText</code> variable to replace <code>\"good\"</code> with <code>\"okey-dokey\"</code>."
       ],
@@ -916,7 +916,7 @@
       ],
       "tests": [
         "assert(code.match(/\\.replace\\(.*\\)/), 'message: You should use <code>.replace()</code> to search and replace.');",
-        "assert(result == \"This sandwich is okey-dokey.\" && replaceText === \"okey-dokey\", 'message: Your regex should change <code>\"This sandwich is good.\"</code> to <code>\"This sandwich is okey-dokey.\"</code>');",
+        "assert(result == \"This sandwich is okey-dokey.\" && (replaceText === \"okey-dokey\" || replaceText === '$1okey-dokey$2'), 'message: Your regex should change <code>\"This sandwich is good.\"</code> to <code>\"This sandwich is okey-dokey.\"</code>');",
         "assert(code.match(/result\\s*=\\s*huhText\\.replace\\(.*?\\)/), 'message: You should not change the last line.');"
       ],
       "solutions": [],
