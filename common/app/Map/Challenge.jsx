@@ -31,7 +31,8 @@ const propTypes = {
   isInfoSecQaCertified: PropTypes.bool,
   isBackEndCertified: PropTypes.bool,
   isFullStackCertified: PropTypes.bool,
-  isNewDataVisCertified: PropTypes.bool
+  isNewDataVisCertified: PropTypes.bool,
+  prerequisiteMet: PropTypes.string
 };
 
 const mapDispatchToProps = { clickOnChallenge };
@@ -51,7 +52,8 @@ function makeMapStateToProps(_, { dashedName }) {
         isLocked,
         isRequired,
         isComingSoon,
-        superBlock
+        superBlock,
+        prerequisite
       } = challengeMap[dashedName] || {};
       const isCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
       const isRespWebDesignCertified = isRespWebDesignCert;
@@ -63,6 +65,8 @@ function makeMapStateToProps(_, { dashedName }) {
       const isBackEndCertified = isBackEndCert;
       const isFullStackCertified = isFullStackCert;
       const isDataVisCertified = isDataVisCert;
+      const prerequisiteMet = !prerequisite ? true : userChallengeMap ? userChallengeMap[prerequisite] : false;
+
       return {
         dashedName,
         isCompleted,
@@ -81,7 +85,8 @@ function makeMapStateToProps(_, { dashedName }) {
         isInfoSecQaCertified,
         isBackEndCertified,
         isFullStackCertified,
-        isDataVisCertified
+        isDataVisCertified,
+        prerequisiteMet
       };
     }
   );
@@ -150,7 +155,8 @@ export class Challenge extends PureComponent {
       isInfoSecQaCertified,
       isBackEndCertified,
       isFullStackCertified,
-      isDataVisCertified
+      isDataVisCertified,
+      prerequisiteMet
     } = this.props;
     if (!title) {
       return null;
@@ -193,6 +199,8 @@ export class Challenge extends PureComponent {
           break;
     }
     
+    if (! prerequisiteMet) hide = true;
+
     const challengeClassName = classnames({
       'hidden': hide,
       'text-primary': true,
