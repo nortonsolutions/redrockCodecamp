@@ -1,7 +1,7 @@
 {
 	"name": "Beginning JavaScript Projects",
 	"order": 7,
-	"time": "70 hours",
+	"time": "80 hours",
 	"helpRoom": "Help",
 	"challenges": [
     {
@@ -104,7 +104,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "38650340137b457ae8b37558"
 		},
 		{
 			"id": "e09554f013821372df96ddee",
@@ -152,7 +153,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "e09554f013821372df96ddee"
 		},
 		{
 			"id": "22b3be0013a42b2b8a0d8c83",
@@ -200,7 +202,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "22b3be0013a42b2b8a0d8c83"
 		},
 		{
 			"id": "49aaa9901419a1dace811077",
@@ -248,7 +251,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "49aaa9901419a1dace811077"
 		},
 		{
 			"id": "9dbbaaf0144d3f38b286fad2",
@@ -296,7 +300,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "9dbbaaf0144d3f38b286fad2"
 		},
 		{
 			"id": "7967a460145235cb14329ba6",
@@ -344,7 +349,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "7967a460145235cb14329ba6"
 		}
 	]
   }

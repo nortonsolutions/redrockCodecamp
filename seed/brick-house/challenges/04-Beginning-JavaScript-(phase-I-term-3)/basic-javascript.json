@@ -595,6 +595,12 @@
       "description": [
         "We can store decimal numbers in variables too. Decimal numbers are sometimes referred to as <dfn>floating point</dfn> numbers or <dfn>floats</dfn>.",
         "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href='http://redrockcodecamp.org/wikipedia/Floating_point.html#Accuracy_problems' target=\"_blank\">Details Here</a>.",
+        "For example, try the following in your JavaScript console: <code>let num = 96.74 - 60</code>.  Then look at the value of <code>num</code>.  <em>WHAT?!?  36.739999999999995?</em> ",
+        "JavaScript architects have intentionally left this sort of situation for us to solve on an individual basis, probably because the instantaneous floating-point representation of the number is calculated more efficiently by the hardware.",
+        "You can use JavaScript's <a href=\"http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Number/toFixed.html\" target=\"_blank\">Number.prototype.toFixed()</a> function (or <a target=\"_blank\" href=\"http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Number/toPrecision.html\">Number.prototype.toPrecision()</a>) to deal with this; i.e.",
+        "<code>num = num.toFixed(2)</code>",
+        "Or you can work around the problem after the fact by multiplying by some multiplier to eliminate the decimal, rounding, then dividing again by the same factor; i.e.",
+        "<code>num = Math.round(num * 100) / 100;</code>",
         "<hr>",
         "Create a variable <code>myDecimal</code> and give it a decimal value with a fractional part (e.g. <code>5.7</code>)."
       ],

@@ -87,7 +87,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "ea31b1a0ecd3fdfa707d31a3"
 		}
 	]
 }

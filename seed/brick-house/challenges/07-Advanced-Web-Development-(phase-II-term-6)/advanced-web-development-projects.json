@@ -105,7 +105,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "0e749670f18bfbc0ce1ab47f"
 		},
 		{
 			"id": "efd58d40fc85274deed8d559",
@@ -155,7 +156,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "efd58d40fc85274deed8d559"
 		},
 		{
 			"id": "a5649440fcc17faeab614b31",
@@ -204,7 +206,8 @@
 			"tests": [],
 			"type": "Waypoint",
 			"isRequired": true,
-			"challengeType": 7
+			"challengeType": 7,
+			"prerequisite": "a5649440fcc17faeab614b31"
 		},
 		{
 			"id": "36a8b4d0fda447acb4971b9d",
