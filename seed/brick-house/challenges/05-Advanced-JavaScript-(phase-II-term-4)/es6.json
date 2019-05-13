@@ -1025,10 +1025,10 @@
       ],
       "head": [
         "window.require = function(str) {",
-        "if (str === 'math_functions') {",
-          "return function(a, b) {",
-          "return a - b;",
-        "}}};"
+          "if (str === 'math_functions') {",
+            "return function(a, b) {",
+            "return a - b;",
+          "}}};"
       ],
       "challengeSeed": [
         "\"use strict\";",
@@ -1039,6 +1039,38 @@
       ],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
+      "challengeType": 1,
+      "translations": {}
+    },
+    {
+      "id": "e81a8a10758e950a4fafb2af",
+      "title": "Create a JavaScript Promise",
+      "description": [
+        "A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.",
+        "A Promise is in one of these states:",
+        "pending: initial state, neither fulfilled nor rejected.<br>fulfilled: meaning that the operation completed successfully.<br>rejected: meaning that the operation failed.",
+        "A pending promise can either be fulfilled with a value, or rejected with a reason (error). When either of these options happens, the associated handlers queued up by a promise's then method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.)",
+        "Read more about it, and see examples in this excellent <a target=\"_blank\" href=\"http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise.html\">MDN article</a>.",
+        "<hr>",
+        "Implement the function <em>myPromise</em> so that it returns a Promise, which resolves to the value of x."
+      ],
+      "head": [
+      ],
+      "challengeSeed": [
+        "function myPromise(x) {",
+        "   // Enter your code here",
+        "};"
+      ],
+
+      "tests": [
+        "async () => { const waitForIt = fn => myPromise(5); const returnVal = await waitForIt(); assert(returnVal == 5, 'message: The resolved value from <code>newPromise(5)</code> should be 5'); };",
+        "async () => { const waitForIt = fn => myPromise(4); const returnVal = await waitForIt(); assert(returnVal == 4, 'message: The resolved value from <code>newPromise(4)</code> should be 4'); };"
+      ],
+      "solutions": [
+        "function myPromise(x) {\nreturn new Promise(resolve => { resolve(x) });\n};"
+      ],
+      "type": "waypoint",
+      "releasedOn": "May 13, 2019",
       "challengeType": 1,
       "translations": {}
     }

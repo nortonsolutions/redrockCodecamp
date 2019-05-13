@@ -60,7 +60,7 @@
     },
 		{
 			"id": "4ceff2f015ade7754d1e5c40",
-			"title": "Virtual Life App with Animate Text",
+			"title": "Virtual Life App with Animation",
 			"description": [
 				"Build the app as defined in the project definition.",
 				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-07-animate-text/virtual-life-07-animate-text.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
@@ -78,12 +78,12 @@
 		},
 		{
 			"id": "4d5fcbc015ad45d58190084f",
-			"title": "Virtual Life App with Animate Text Source Code Review",
+			"title": "Virtual Life App with Animation Source Code Review",
 			"description": [
 				[
 					"",
 					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App with Animate Text.",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Animation.",
 					"#"
 				],
 				[
@@ -109,11 +109,12 @@
 		},
 		{
 			"id": "b76579a015dc81c4130c6dba",
-			"title": "Virtual Life App with Animate Icons",
+			"title": "Virtual Life App with Animation and Styling",
 			"description": [
 				"Build the app as defined in the project definition.",
 				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
 				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons.png' style='width:500px'></a>",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons-alt.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-08-animate-icons/virtual-life-08-animate-icons-alt.png' style='width:500px'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "January 11, 2019",
@@ -127,12 +128,12 @@
 		},
 		{
 			"id": "b8359ae015dc9d5d3f60a85a",
-			"title": "Virtual Life App with Animate Icons Source Code Review",
+			"title": "Virtual Life App with Animation and Styling Source Code Review",
 			"description": [
 				[
 					"",
 					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App with Animate Icons.",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Animation and Styling.",
 					"#"
 				],
 				[
