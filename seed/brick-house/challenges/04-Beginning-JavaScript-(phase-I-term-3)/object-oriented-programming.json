@@ -23,6 +23,30 @@
       "isRequired": false,
       "translations": {}
     },
+		{
+			"id": "6cfc2c1075efd5d14a3a4e57",
+			"title": "** Reference material: The Principles of Object-Oriented JavaScript",
+			"description": [
+				[
+					"",
+					"",
+					"It is recommended that you read:<br><br> <em><a href=\"http://redrockcodecamp.org/educationMaterials/booksMaterials/languages/javascript-es5/zakas-principles_of_javascript.pdf\">The Principles of Object-Oriented JavaScript</a></em><br><br> by Nicholas C. Zakas",
+					""
+				],
+				[
+					"",
+					"",
+					"You may find this book useful for reference when dealing with object-oriented JavaScript (types, functions, objects, constructors, prototypes, inheritance, and object patterns).",
+					"#"
+				]
+			],
+			"releasedOn": "",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7,
+			"isRequired": true
+		},
     {
       "id": "587d7dac367417b2b2512b73",
       "title": "Create a Basic JavaScript Object",

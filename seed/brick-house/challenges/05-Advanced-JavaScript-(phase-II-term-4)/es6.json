@@ -1134,6 +1134,7 @@
         "async () => { var returnVal; const waitForIt = fn => Promise_all(promiseArrBad); returnVal = await waitForIt().catch(err => { let el = document.getElementById('promiseResponse'); el.innerHTML=err; }); assert(document.getElementById('promiseResponse').innerHTML == 'X', 'message: <code>Promise_all(promiseArrBad)</code> should reject, due to the rejected promise in promiseArrBad.'); };"
       ],
       "solutions": [
+        "for (let i = 0; i < arrayOfPromises.length; i++) {\narrayOfPromises[i].then(value => {\nresponseArray[i] = value;\nremaining--;\nif (remaining == 0) resolve(responseArray);\n}).catch(reject); }"
       ],
       "type": "waypoint",
       "releasedOn": "May 13, 2019",
