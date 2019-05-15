@@ -487,6 +487,84 @@
             "type": "waypoint",
             "challengeType": 0,
             "translations": {}
+        },
+        {
+            "id": "c6a35a40767b2d339c9cf6e9",
+            "title": "Build a Table Element",
+            "description": [
+                "Given the data set of mountains (an array of objects with name, height, and place properties), generate the DOM structure for a table that enumerates the objects. It should have one column per key and one row per object, plus a header row with <th> elements at the top, listing the column names.",
+                "Write this so that the columns are automatically derived from the objects, by taking the property names of the first object in the data.",
+                "Append the resulting table to the element with an id attribute of 'mountains' so that it becomes visible in the document.",
+                "Once you have this working, right-align only the second column by setting its style.textAlign property to 'right'."
+            ],
+            "challengeSeed": [
+                "  <div id='mountains'></div>",
+                "  <script>",
+                "",
+                "  let mountains = [ {name: \"Kilimanjaro\", height: 5895, place: \"Tanzania\"}, {name: \"Everest\", height: 29000, place: \"Wherever\"}, {name: \"King's Peak\", height: 14000, place: \"Utah\"} ];",
+                "",
+                "  // change code below this line",
+                "",
+                "  // change code above this line",
+                "  </script>"
+            ],
+            "tests": [
+                "assert(document.getElementById('mountains').firstChild.childElementCount === 4, 'message: The table element should exist within the div with id = mountains, and should contain four rows (header row and three standard rows)');",
+                "assert(document.getElementById('mountains').firstChild.children[1].children[1].style.textAlign === 'right', 'message: The elements in the second column should be right-aligned; text-align should be set to right');",
+                "assert(document.getElementById('mountains').firstChild.children[1].children[0].style.textAlign != 'right' && document.getElementById('mountains').firstChild.children[1].children[2].style.textAlign != 'right', 'message: The elements in the first and third columns should be left-aligned or centered; text-align should not be set to right');"
+            ],
+            "type": "waypoint",
+            "challengeType": 0,
+            "translations": {}
+        },
+        {
+            "id": "f596bcf0768783bfdba49093",
+            "title": "Elements by Tag Name",
+            "description": [
+                "The <code>document.getElementsByTagName</code> method returns all child elements with a given tag name. Read more about it in <a target='_blank' href='http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/document/getElementsByTagName.html'>this MDN article</a>.",
+                "<hr>",
+                "Implement your own version of this as a function called getElements that takes a node and a string (the tag name) as arguments and returns an array containing all descendant element nodes with the given tag name.",
+                "To find the tag name of an element, use its <code>nodeName</code> property. But note that this will return the tag name in all uppercase. Use the <code>toLowerCase</code> or <code>toUpperCase</code> string methods to compensate for this."
+            ],
+            "head": [
+                
+            ],
+            "challengeSeed": [
+                "function findElements(node, tagName) {",
+                "",
+                " let elements = [];",
+                "",
+                " // Enter your code below this line",
+                "",
+                " // Enter your code above this line",
+                "",
+                " return elements;",
+                "",
+                "}",
+                "",
+                "// Optionally, create a findElementsHelper function here,",
+                "// to assist for recursive functionality.",
+                "",
+                "// The following element will be used to test your function:",
+                "", 
+                "let myEl = document.createElement('div');",
+                "myEl.appendChild(document.createElement('div'));",
+                "myEl.appendChild(document.createElement('div'));",
+                "myEl.appendChild(document.createElement('a'));",
+                "myEl.appendChild(document.createElement('a'));",
+                "myEl.appendChild(document.createElement('div'));",
+                "myEl.firstChild.appendChild(document.createElement('div'));",
+                "myEl.firstChild.firstChild.appendChild(document.createElement('div'));",
+                "myEl.firstChild.appendChild(document.createElement('div'));",
+                "myEl.lastChild.appendChild(document.createElement('div'));"
+            ],
+            "tests": [
+                "assert(findElements(myEl, 'div').length === 7, 'message: findElements(myEl, \"div\") should return an array of seven elements.');",
+                "assert(() => { findElements(myEl, 'div').forEach(e => { if (e.nodeName.toLowerCase() != 'div') return false; return true; }) }, 'message: The nodeName of each element in the response array should be \"div\"');"
+            ],
+            "type": "waypoint",
+            "challengeType": 1,
+            "translations": {}
         }
     ]
 }

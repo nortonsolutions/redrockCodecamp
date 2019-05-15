@@ -24,6 +24,12 @@
           "A screenshot of the general syntax. A dollar sign followed by the selector with a dot and an action.",
           "jQuery's most recognizable characteristic is the dollar sign syntax. With it, you can easily manipulate elements, create animations and handle input events.",
           ""
+        ],
+        [
+          "",
+          "You can add jQuery to your document by referencing it in a script tag.  We have a copy of jQuery stored locally in RedRock, so you could use the following:",
+          "<code><script src='http://redrockcodecamp.org/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js'></script></code>",
+          ""
         ]
       ],
       "releasedOn": "",
