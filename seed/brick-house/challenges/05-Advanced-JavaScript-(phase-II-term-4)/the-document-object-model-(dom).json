@@ -523,7 +523,7 @@
             "description": [
                 "The <code>document.getElementsByTagName</code> method returns all child elements with a given tag name. Read more about it in <a target='_blank' href='http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/document/getElementsByTagName.html'>this MDN article</a>.",
                 "<hr>",
-                "Implement your own version of this as a function called getElements that takes a node and a string (the tag name) as arguments and returns an array containing all descendant element nodes with the given tag name.",
+                "Implement your own version of this as a function called findElements that takes a node and a string (the tag name) as arguments and returns an array containing all descendant element nodes with the given tag name.",
                 "To find the tag name of an element, use its <code>nodeName</code> property. But note that this will return the tag name in all uppercase. Use the <code>toLowerCase</code> or <code>toUpperCase</code> string methods to compensate for this."
             ],
             "head": [

@@ -13,9 +13,10 @@
 
 2. In the project root, make a copy of the .env.default and name it .env
 3. In the .env, change any setting such as DEBUG=false to DEBUG=true, you can add a PORT=80 and NODE_ENV='production'
-4. In the root directory run 'gulp build'
+	* Optionally, set NODE_ENV='development' to enable specific dev-only features and additional debugging
+4. In the root directory run 'gulp build' to generate the runtime webpack bundle, js, css, and manifest files
 5. In the root directory run 'gulp serve' to start the server in development mode
-	* Optionally, in the root directory run 'gulp' for development with hot reloading
+	* Optionally, in the root directory, run 'gulp' for development with hot reloading (BrowserSync port 3000 by default), so you can make changes to files for example without needing to restart (saves time during various development cycles)
 
 ## Deployment Production
 
