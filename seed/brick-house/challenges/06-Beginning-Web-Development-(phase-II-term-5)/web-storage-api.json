@@ -23,7 +23,7 @@
 				[
 					"",
 					"",
-					"The Web Storage API extends the <code>Window</code> object with two properties — <code>Window.sessionStorage</code> and <code>Window.localStorage</code>.<br><br> These two objects implement the <code>Storage</code> interface.<br><br> There is also <code>Window.onstorage</code> event handler that fires when a storage area changes.",
+					"This Web Storage API extends the <code>Window</code> object with two properties — <code>Window.sessionStorage</code> and <code>Window.localStorage</code>.<br><br> These two objects implement the <code>Storage</code> interface.<br><br> There is also <code>Window.onstorage</code> event handler that fires when a storage area changes.",
 					""
 				],
 				[

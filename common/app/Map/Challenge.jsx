@@ -32,7 +32,7 @@ const propTypes = {
   isBackEndCertified: PropTypes.bool,
   isFullStackCertified: PropTypes.bool,
   isNewDataVisCertified: PropTypes.bool,
-  prerequisiteMet: PropTypes.string
+  prerequisiteMet: PropTypes.bool
 };
 
 const mapDispatchToProps = { clickOnChallenge };
@@ -65,7 +65,7 @@ function makeMapStateToProps(_, { dashedName }) {
       const isBackEndCertified = isBackEndCert;
       const isFullStackCertified = isFullStackCert;
       const isDataVisCertified = isDataVisCert;
-      const prerequisiteMet = !prerequisite ? true : userChallengeMap ? userChallengeMap[prerequisite] : false;
+      const prerequisiteMet = !prerequisite ? true : userChallengeMap ? (userChallengeMap[prerequisite]? true: false) : false;
 
       return {
         dashedName,
