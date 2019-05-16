@@ -16,6 +16,7 @@
 				"You can also request data from an external source. This is where APIs come into play.",
 				"Remember that APIs - or Application Programming Interfaces - are tools that computers use to communicate with one another. You'll learn how to update HTML with the data we get from APIs using a technology called AJAX.",
 				"Most web APIs transfer data in a format called JSON. JSON stands for JavaScript Object Notation.",
+				"You may want to watch <a target='_blank' href='http://redrockcodecamp.org/educationMaterials/videos/phase-II/json/learn_json_full_crash_course.mp4'>this introductory video</a> about JSON before proceeding with the challenges.",
 				"JSON syntax looks very similar to JavaScript object literal notation. JSON has object properties and their current values, sandwiched between a <code>{</code> and a <code>}</code>.",
 				"These properties and their values are often referred to as \"key-value pairs\".",
 				"However, JSON transmitted by APIs are sent as <code>bytes</code>, and your application receives it as a <code>string</code>. These can be converted into JavaScript objects, but they are not JavaScript objects by default. The <code>JSON.parse</code> method parses the string and constructs the JavaScript object described by it.",

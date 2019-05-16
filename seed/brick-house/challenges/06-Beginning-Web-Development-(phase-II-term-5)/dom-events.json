@@ -272,6 +272,67 @@
             "type": "waypoint",
             "challengeType": 0,
             "translations": {}
+        },
+        {
+            "id": "e40d3e0077e545e9c4678c56",
+            "title": "Clickable Tabs",
+            "description": [
+							"Tabbed panels are widely used in user interfaces. They allow you to select an interface panel by choosing from a number of tabs “sticking out” above an element.",
+							"In this exercise you must implement a simple tabbed interface. Write a function, <code>asTabs</code>, that takes a DOM node and creates a tabbed interface showing the <a target='_blank' href='http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/ParentNode/children.html'>child elements</a> of that node.",
+							"Your tabbed interface can be a list or just a div that contains  <code>button</code> elements.  Once this is created, you can <code>prepend</code> it to the top of the outer div (the parentNode of tab-panel).",
+							"Each button's innerText should be set to match the corresponding <code>data-tabname</code> attribute of the div.  For example:",
+							"<img src='http://redrockcodecamp.org/educationMaterials/images/astabs_1.PNG'>",
+							"Then if you click the second button:",
+							"<img src='http://redrockcodecamp.org/educationMaterials/images/astabs_2.PNG'>",
+							"To get the value of data-tabname for an element, you can use the syntax <code><em>myElement</em>.getAttribute('data-tabname')</code>.",
+							"All but one of the original children should be hidden (given a display style of none). The currently visible node can be selected by clicking the buttons.",
+							"You should implement a <code>click</code> event listener function, and add it to each of your buttons.  When the button is clicked, your event listener can refer to the value of that button by looking at <code>event.target.innerText</code>.  Then use that value to refer to the element in question by id, to set visibility.",
+							"Extra credit: when that works, extend it to style the button for the currently selected tab differently so that it is obvious which tab is selected.",
+							"For help with this challenge, refer to chapter 15 in Haverbeke's <a target='_blank' href='http://redrockcodecamp.org/educationMaterials/booksMaterials/languages/javascript-es5/eloquent-javascript-haverbeke.pdf'>Eloquent JavaScript</a>"
+            ],
+            "challengeSeed": [
+							"<div>",
+							"<tab-panel>",
+							"",
+							"  <div data-tabname='one'><img style='width: 100%' src='http://redrockcodecamp.org/educationMaterials/images/hi-res/14.jpg'></div>",
+							"",
+							"  <div data-tabname='two'><img style='width: 100%' src='http://redrockcodecamp.org/educationMaterials/images/hi-res/21.jpg'></div>",
+							"",
+							"  <div data-tabname='three'><img style='width: 100%' src='http://redrockcodecamp.org/educationMaterials/images/hi-res/28.jpg'></div>",
+							"</tab-panel>",
+							"",
+							"</div>",
+							"",
+							"<script>",
+							"",
+							"  function asTabs(node) {",
+							"",
+							"    // Enter your code below this line",
+							"",
+							"    // Enter your code above this line",
+							"  }",
+							"",
+							"  function handleButtonClick(event) {",
+							"",
+							"    // Enter your code below this line",
+							"",
+							"    // Enter your code above this line",
+							"  }",
+							"",
+							"  asTabs(document.querySelector('tab-panel'));",
+							"",
+							"</script>"
+
+            ],
+            "tests": [
+							"assert(function f() { let button1 = document.getElementsByTagName('button')[0]; let tabs = document.getElementsByTagName('tab-panel')[0].children; let click1 = new MouseEvent('click'); button1.dispatchEvent(click1); return ( tabs[1].style.display == 'none' && tabs[2].style.display == 'none' ); }(), 'message: When the first button is clicked, the second and third elements in the tab-panel should have their display set to none');",
+							"assert(function f() { let button2 = document.getElementsByTagName('button')[1]; let tabs = document.getElementsByTagName('tab-panel')[0].children; let click2 = new MouseEvent('click'); button2.dispatchEvent(click2); return ( tabs[0].style.display == 'none' && tabs[2].style.display == 'none' ); }(), 'message: When the second button is clicked, the first and third elements in the tab-panel should have their display set to none');",
+							"assert(function f() { let button3 = document.getElementsByTagName('button')[2]; let tabs = document.getElementsByTagName('tab-panel')[0].children; let click3 = new MouseEvent('click'); button3.dispatchEvent(click3); return ( tabs[0].style.display == 'none' && tabs[1].style.display == 'none' ); }(), 'message: When the third button is clicked, the first and second elements in the tab-panel should have their display set to none');"
+
+            ],
+            "type": "waypoint",
+            "challengeType": 0,
+            "translations": {}
         }
     ]
 }

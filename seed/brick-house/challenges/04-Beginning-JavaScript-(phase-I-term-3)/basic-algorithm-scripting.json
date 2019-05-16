@@ -1,6 +1,6 @@
 {
   "name": "Basic Algorithm Scripting",
-  "order": 5,
+  "order": 4,
   "time": "15 hours",
   "helpRoom": "HelpJavaScript",
   "challenges": [
@@ -471,12 +471,18 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function findElement(array, funct) {",
+        "function findElement(array, func) {",
         "  var number = 0;",
+        "",
+        "  // Add your code after this line",
+        "",
+        "  // Add your code before this line",
+        "",
         "  return number;",
         "}",
         "",
-        "findElement([1, 2, 3, 4], funct(number){ return number % 2 === 0; });"
+        "isEven = function(number) { return number % 2 === 0; };",
+        "findElement([1, 2, 3, 4], isEven);"
       ],
       "solutions": [
         "function findElement(arr, func) {\n  let num;\n\n  arr.some(e => {\n    if (func(e)) {\n      num = e;\n      return true;\n    }\n  });\n\n  return num;\n}\n\nfindElement([1, 2, 3, 4], num => num % 2 === 0);\n"

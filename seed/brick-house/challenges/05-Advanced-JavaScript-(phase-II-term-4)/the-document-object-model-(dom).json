@@ -52,8 +52,7 @@
                 "<a href=\"/images/elementById.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/elementById.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how to capture an element by its id\"></a>",
                 "<hr>",
                 "Capture the second item in the list in this way.",
-                "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"#185\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                ""
             ],
             "challengeSeed": [
                 "<html>",
@@ -109,7 +108,9 @@
                 "To do this we will assign the className on the element we captured.",
                 "<a href=\"/images/assigningClassName.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/assigningClassName.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how to change the class name attribute of an element\"></a>",
                 "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "<hr>",
+                "Alter the second element <code>bread</code> in this example so that it has a class name of <code>on-sale</code>"
+
             ],
             "challengeSeed": [
                 "<html>",
@@ -164,8 +165,8 @@
                 "In order to preserve the classes that the element already has, we could capture the classes that it already has, append our class to it, and then set the className element.",
                 "This seems like a lot of work, but JavaScript has a method for us in the elements <code>classList</code> attribute called <code>add</code> that takes care of that for us. This way of handling the problem will also only add the class if the element doesn't already possess it.",
                 "",
-                "Add the class <code>on-sale</code> to the second item in the list without removing the classes it already has.",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                "Add the class <code>on-sale</code> to the second item in the list without removing the classes it already has."
+
             ],
             "challengeSeed": [
                 "<html>",
@@ -218,13 +219,12 @@
             "id": "90a362302700db21189de994",
             "title": "Adding Classes To Multiple Items",
             "description": [
-                "Now that we know how to add classes to elements with or without removing those it already has, lets pretend we waited to long and now our 'near-expiration' items are now expired, so we need to find all items with the class 'near-expired' and change their class to 'expired' (this time we don't need to preserve the old classes).",
+                "Now that we know how to add classes to elements with or without removing those it already has, let's pretend we waited too long and now our 'near-expiration' items are now expired, so we need to find all items with the class 'near-expiration' and change their class to 'expired' (this time we don't need to preserve the old classes).",
                 "There are many ways to capture multiple elements from a page, the most common of which are shown here:",
                 "<a href=\"/images/elementSelectors.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/elementSelectors.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating the different ways of selecting items through the DOM\"></a>",
                 "",
                 "LIVE & STATIC NODELISTS \n There are times when you will want to work with the same selection of elements several times, so the NodeList can be stored in a variable and re-used (rather than collecting the same elements again). In a live Nodelist, when your script updates the page, the Node list is updated at the same time. The methods beginning getElementsBy... return live Nodelists. They are also typically faster to generate than static Nodelists. ",
-                "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                ""
             ],
             "challengeSeed": [
                 "<html>",
@@ -288,8 +288,7 @@
             "description": [
                 "For this Challenge, we're going to change the inner text of an element on our list. We will change honey to peanut butter",
                 "To do this we need to select the element, we could capture it's inner text as a string, but since we are just replacing what's there we will simply reassign the elements inner text.",
-                "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                ""
             ],
             "challengeSeed": [
                 "<html>",
@@ -340,8 +339,7 @@
                 "Changing the text in elements is a great way to update simple concepts, but take a second to go back and instead of changing honey to peanut butter, try changing it to <em>fresh</em> fruit.(using <code>em</code> tags to create the italics)",
                 "You should find that it doesn't actually read the tags, instead it assumes that everything that you enter is meant to be displayed as text. This is helpful for some situations, but doesn't work for others. If we want to use HTML tags in what we're adding to our elements then we instead have to modify it's innerHTML property.",
                 "So lets do that, lets change figs on our list to <em>fresh</em> figs. (again the italics are <code>em</code> tags).",
-                "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                ""
             ],
             "challengeSeed": [
                 "<html>",
@@ -392,8 +390,7 @@
                 "Next lets look at removing an item from our list to get comfortable with capturing existing elements",
                 "In this case we will be removing apples from our list.",
                 "We can capture this element in several ways as we now know, but the most efficient way is to capture the <code>Element</code> we want to remove, then Capture the <code>Parent</code> by asking the element for it's parentNode and remove the child from the parent.",
-                "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                ""
             ],
             "challengeSeed": [
                 "<html>",
@@ -452,8 +449,7 @@
                 "bananas",
                 "apples",
                 "<a href=\"/images/creatingElements.png\" target=\"_blank\"><img class=\"img-responsive\" src=\"/images/creatingElements.png\" title=\"An image taken From Ducket's JavaScript & JQuery\" alt=\"an image illustrating how to create a new element in the DOM\"></a>",
-                "",
-                "If you get stuck on any of these challenges, consult chapter 5 of <a href=\"/assets/documentation/JAVASCRIPT_AND_JQUERY.pdf\" target=\"_blank\">JavaScript & JQuery by Jon Duckett.</a> or your Dash Documentation"
+                ""
             ],
             "challengeSeed": [
                 "<html>",
