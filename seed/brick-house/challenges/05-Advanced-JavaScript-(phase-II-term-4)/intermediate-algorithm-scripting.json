@@ -538,7 +538,6 @@
       ],
       "challengeSeed": [
         "function convertHTML(string) {",
-        "  // &colon;&rpar;",
         "  return string;",
         "}",
         "",
@@ -751,7 +750,7 @@
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."
       ],
       "challengeSeed": [
-        "function dropElements(array, function) {",
+        "function dropElements(array, func) {",
         "  // Drop them elements.",
         "  return array;",
         "}",
@@ -759,7 +758,7 @@
         "dropElements([1, 2, 3], function(n) {return n < 3; });"
       ],
       "solutions": [
-        "function dropElements(array, function) {\n  // Drop them elements.\n  while (array.length && !function(array[0])) {\n    array.shift();\n  }\n  return array;\n}"
+        "function dropElements(array, func) {\n  // Drop them elements.\n  while (array.length && !func(array[0])) {\n    array.shift();\n  }\n  return array;\n}"
       ],
       "tests": [
         "assert.deepEqual(dropElements([1, 2, 3, 4], function(n) {return n >= 3;}), [3, 4], 'message: <code>dropElements([1, 2, 3, 4], function(n) {return n >= 3;})</code> should return <code>[3, 4]</code>.');",
