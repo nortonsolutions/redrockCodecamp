@@ -59,6 +59,153 @@
       "isRequired": true
     },
 		{
+			"id": "49aaa9901419a1dace811077",
+			"title": "Virtual Life App with ES6 Modules",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-04-es6-modules/virtual-life-04-es6-modules.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-04-es6-modules/virtual-life-04-es6-modules.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-04-es6-modules/virtual-life-04-es6-modules.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"qHu6mXf"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "48e3d7201419772eb9859df1",
+			"title": "Virtual Life App with ES6 Modules Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with ES6 Modules.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-04-es6-modules-48e3d7201419772eb9859df1/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"prerequisite": "49aaa9901419a1dace811077"
+		},
+		{
+			"id": "9dbbaaf0144d3f38b286fad2",
+			"title": "Virtual Life App with Inheritance",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-05-inheritance/virtual-life-05-inheritance.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-05-inheritance/virtual-life-05-inheritance.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-05-inheritance/virtual-life-05-inheritance.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"68yNN2h"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "9e5f3df0144dcf91eb372a55",
+			"title": "Virtual Life App with Inheritance Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Inheritance.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-05-inheritance-9e5f3df0144dcf91eb372a55/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"prerequisite": "9dbbaaf0144d3f38b286fad2"
+		},
+		{
+			"id": "7967a460145235cb14329ba6",
+			"title": "Virtual Life App with Carnivore",
+			"description": [
+				"Build the app as defined in the project definition.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-06-carnivore/virtual-life-06-carnivore.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-06-carnivore/virtual-life-06-carnivore.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-06-carnivore/virtual-life-06-carnivore.png'></a>",
+				"Remember to use the Research-Ask method if you get stuck."
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [
+				"3uYZjoh"
+			],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "7a00d7201452f17f153f9f7f",
+			"title": "Virtual Life App with Carnivore Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Virtual Life App with Carnivore.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-06-carnivore-7a00d7201452f17f153f9f7f/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm you have reviewed the professional source code.",
+					"#"
+				]
+			],
+			"releasedOn": "January 8, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"prerequisite": "7967a460145235cb14329ba6"
+		},
+		{
 			"id": "4ceff2f015ade7754d1e5c40",
 			"title": "Virtual Life App with Animation",
 			"description": [
@@ -156,106 +303,6 @@
 			"isRequired": true,
 			"challengeType": 7,
 			"prerequisite": "b76579a015dc81c4130c6dba"
-		},
-		{
-			"id": "c9a5d2e015e615ab4534e331",
-			"title": "Virtual Life App with Health",
-			"description": [
-				"Build the app as defined in the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' style='width:500px'></a>",
-				"Remember to use the Research-Ask method if you get stuck."
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [
-				"efzQzbO"
-			],
-			"tests": [],
-			"type": "zipline",
-			"isRequired": true,
-			"challengeType": 3
-		},
-		{
-			"id": "ca2bf2d015e601ebc0385d61",
-			"title": "Virtual Life App with Health Source Code Review",
-			"description": [
-				[
-					"",
-					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App with Health.",
-					"#"
-				],
-				[
-					"",
-					"",
-					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-09-health-ca2bf2d015e601ebc0385d61/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
-					""
-				],
-				[
-					"",
-					"",
-					"Confirm you have reviewed the professional source code.",
-					"#"
-				]
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [],
-			"tests": [],
-			"type": "Waypoint",
-			"isRequired": true,
-			"challengeType": 7,
-			"prerequisite": "c9a5d2e015e615ab4534e331"
-		},
-		{
-			"id": "7827c550180b1983f7d686bb",
-			"title": "Virtual Life App with Statistics",
-			"description": [
-				"Build the app as defined in the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' style='width:500px'></a>",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' style='width:500px'></a>",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' style='width:500px'></a>",
-				"Remember to use the Research-Ask method if you get stuck."
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [
-				"ibgLhpG"
-			],
-			"tests": [],
-			"type": "zipline",
-			"isRequired": true,
-			"challengeType": 3
-		},
-		{
-			"id": "78be6000180b2b11ae74deba",
-			"title": "Virtual Life App with Statistics Source Code Review",
-			"description": [
-				[
-					"",
-					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App with Statistics.",
-					"#"
-				],
-				[
-					"",
-					"",
-					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
-					""
-				],
-				[
-					"",
-					"",
-					"Confirm you have reviewed the professional source code.",
-					"#"
-				]
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [],
-			"tests": [],
-			"type": "Waypoint",
-			"isRequired": true,
-			"challengeType": 7,
-			"prerequisite": "7827c550180b1983f7d686bb"
 		}
 	]
   }
