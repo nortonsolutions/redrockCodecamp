@@ -124,7 +124,7 @@
         "",
         "  var sentence = str + \" is cool!\";",
         "  for(var i = 0; i < str.length; i+=2) {",
-        "    console.log(str2);",
+        "    console.log(str);",
         "  }",
         "",
         "  // change code above this line",
@@ -509,7 +509,7 @@
         "<blockquote>const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.54</blockquote>",
         "You may read it as \"get the field <code>x</code> and copy the value into <code>a</code>,\" and so on.",
         "<hr>",
-        "Use destructuring to obtain the length of the input string <code>str</code>, and assign the length to <code>len</code> in line."
+        "A string is an object, which contains a property called 'length'.  Use destructuring to obtain the length of the input string <code>str</code>, and assign that length to <code>len</code> in line."
       ],
       "challengeSeed": [
         "function getLength(str) {",
@@ -564,7 +564,7 @@
       ],
       "tests": [
         "assert(getMaxOfTmrw(LOCAL_FORECAST) === 84.6, 'message: <code>maxOfTomorrow</code> equals <code>84.6</code>');",
-        "getUserInput => assert(getUserInput('index').match(/\\{\\s*tomorrow\\s*:\\s*\\{\\s*max\\s*:\\s*maxOfTomorrow\\s*\\}\\s*\\}\\s*=\\s*forecast/g),'message: nested destructuring was used');"
+        "getUserInput => assert(getUserInput('index').match(/\\{\\s*tomorrow\\s*:\\s*\\{.*max\\s*:\\s*maxOfTomorrow.*\\}\\s*\\}\\s*=\\s*forecast/g),'message: nested destructuring was used');"
       ],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
@@ -898,13 +898,13 @@
         "There are a few ways to write an <code>import</code> statement, but the above is a very common use-case.",
         "<strong>Note</strong><br>The whitespace surrounding the function inside the curly braces is a best practice - it makes it easier to read the <code>import</code> statement.",
         "<strong>Note</strong><br>The lessons in this section handle non-browser features. <code>import</code>, and the statements we introduce in the rest of these lessons, won't work on a browser directly. However, we can use various tools to create code out of this to make it work in browser.",
-        "<strong>Note</strong><br>In most cases, the file path requires a <code>./</code> before it; otherwise, node will look in the <code>node_modules</code> directory first trying to load it as a dependencie.",
+        "<strong>Note</strong><br>In most cases, the file path requires a <code>./</code> before it; otherwise, node will look in the <code>node_modules</code> directory first trying to load it as a dependency.",
         "<hr>",
         "Add the appropriate <code>import</code> statement that will allow the current file to use the <code>capitalizeString</code> function. The file where this function lives is called <code>\"string_functions\"</code>, and it is in the same directory as the current file."
       ],
       "head": [
         "window.require = function (str) {",
-        "if (str === 'string_functions') {",
+        "if (str === 'string_functions' || str === './string_functions' ) {",
         "return {",
         "capitalizeString: str => str.toUpperCase()",
         "}}};"
@@ -914,7 +914,7 @@
         "capitalizeString(\"hello!\");"
       ],
       "tests": [
-        "getUserInput => assert(getUserInput('index').match(/import\\s+\\{\\s?capitalizeString\\s?\\}\\s+from\\s+\"string_functions\"/g), 'message: valid <code>import</code> statement');"
+        "getUserInput => assert(getUserInput('index').match(/import\\s+\\{\\s?capitalizeString\\s?\\}\\s+from\\s+[\"'](\\.\\/)?string_functions[\"']/g), 'message: valid <code>import</code> statement');"
       ],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
@@ -966,7 +966,7 @@
       ],
       "head": [
         "window.require = function(str) {",
-        "if (str === 'capitalize_strings') {",
+        "if (str === 'capitalize_strings' || str === './capitalize_strings') {",
         "return {",
         "capitalize: str => str.toUpperCase(),",
         "lowercase: str => str.toLowerCase()",
@@ -978,7 +978,7 @@
         "myStringModule.lowercase(\"Foo\");"
       ],
       "tests": [
-        "getUserInput => assert(getUserInput('index').match(/import\\s+\\*\\s+as\\s+myStringModule\\s+from\\s+\"capitalize_strings\"/g), 'message: Properly uses <code>import * as</code> syntax.');"
+        "getUserInput => assert(getUserInput('index').match(/import\\s+\\*\\s+as\\s+myStringModule\\s+from\\s+[\"'](\\.\\/)?capitalize_strings[\"']/g), 'message: Properly uses <code>import * as</code> syntax.');"
       ],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
@@ -1025,7 +1025,7 @@
       ],
       "head": [
         "window.require = function(str) {",
-          "if (str === 'math_functions') {",
+          "if (str === 'math_functions' || str === './math_functions') {",
             "return function(a, b) {",
             "return a - b;",
           "}}};"
@@ -1035,7 +1035,7 @@
         "subtract(7,4);"
       ],
       "tests": [
-        "getUserInput => assert(getUserInput('index').match(/import\\s+subtract\\s+from\\s+\"math_functions\"/g), 'message: Properly imports <code>export default</code> method.');"
+        "getUserInput => assert(getUserInput('index').match(/import\\s+subtract\\s+from\\s+[\"'](\\.\\/)?math_functions[\"']/g), 'message: Properly imports <code>export default</code> method.');"
       ],
       "type": "waypoint",
       "releasedOn": "Feb 17, 2017",
