@@ -67,8 +67,8 @@
       ],
 			"tests": [
 				{
-					"text": "When clicking save your code should save a storage item to local storage with a key name of background-color.",
-					"testString": "assert(code.match(/localStorage\\[[\"|']background-color[\"|']\\]\\s*?=|localStorage\\.setItem\\([\"|']background-color[\"|'],/gi), 'message: Set a local storage item to localStorage with the key background-color.');"
+					"text": "When the button is clicked, the stored value of background-color should match the value of the background-color-text input field.",
+					"testString": "assert(function f() { if (! document.getElementById('background-color-text').value) return false; localStorage.removeItem('background-color'); let button = document.getElementById('save-button'); let click = new MouseEvent('click'); button.dispatchEvent(click); return ( document.getElementById('background-color-text').value === localStorage.getItem('background-color') ); }(), 'message: When the button is clicked, the stored value of background-color should match the value of the background-color-text input field.');"
 				}
 			],
 			"solutions": [],
@@ -102,8 +102,8 @@
       ],
 			"tests": [
 				{
-					"text": "There should be a local storage item with a key name of background-color from the last lesson.",
-					"testString": "assert(code.match(/=\\s*?localStorage\\[[\"|']background-color[\"|']\\]|=\\s*?localStorage\\.getItem\\([\"|']background-color[\"|'],/gi), 'message: Get a value from a local storage item with the key background-color.');"
+					"text": "When the button is clicked, the value of the background-color-text input field should change to the stored value of background-color, which should still exist from the last lesson.  If you have cleared your localStorage since then, go back and re-do the previous lesson.",
+					"testString": "assert(function f() { if (!localStorage.getItem('background-color')) return false; let button = document.getElementById('load-button'); document.getElementById('background-color-text').value = ''; let click = new MouseEvent('click'); button.dispatchEvent(click); return ( document.getElementById('background-color-text').value === localStorage.getItem('background-color') ); }(), 'message: When the button is clicked, the value of the background-color-text input field should change to the stored value of background-color, which should still exist from the last lesson.  If you have cleared your localStorage since then, go back and re-do the previous lesson.');"
 				}
 			],
 			"solutions": [],
@@ -130,8 +130,8 @@
       ],
 			"tests": [
 				{
-					"text": "When clicking remove the local storage item with a key name of background-color should be removed from local storage.",
-					"testString": "assert(code.match(/localStorage\\.removeItem\\([\"|']background-color[\"|']/gi), 'message: Remove the local storage item with the key background-color.');"
+					"text": "When the button is clicked, the background-color item in localStorage should be removed.",
+					"testString": "assert(function f() { localStorage.setItem('background-color', 'FF0000'); let button = document.getElementById('remove-button'); let click = new MouseEvent('click'); button.dispatchEvent(click); return ( ! localStorage.getItem('background-color') ); }(), 'message: When the button is clicked, the background-color item in localStorage should be removed.');"
 				}
 			],
 			"solutions": [],

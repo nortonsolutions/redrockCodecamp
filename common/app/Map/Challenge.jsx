@@ -32,7 +32,8 @@ const propTypes = {
   isBackEndCertified: PropTypes.bool,
   isFullStackCertified: PropTypes.bool,
   isNewDataVisCertified: PropTypes.bool,
-  prerequisiteMet: PropTypes.bool
+  prerequisiteMet: PropTypes.bool,
+  userHasChallengeMap: PropTypes.bool
 };
 
 const mapDispatchToProps = { clickOnChallenge };
@@ -66,6 +67,7 @@ function makeMapStateToProps(_, { dashedName }) {
       const isFullStackCertified = isFullStackCert;
       const isDataVisCertified = isDataVisCert;
       const prerequisiteMet = !prerequisite ? true : userChallengeMap ? (userChallengeMap[prerequisite]? true: false) : false;
+      const userHasChallengeMap = userChallengeMap? true : false;
 
       return {
         dashedName,
@@ -86,7 +88,8 @@ function makeMapStateToProps(_, { dashedName }) {
         isBackEndCertified,
         isFullStackCertified,
         isDataVisCertified,
-        prerequisiteMet
+        prerequisiteMet,
+        userHasChallengeMap
       };
     }
   );
@@ -156,7 +159,8 @@ export class Challenge extends PureComponent {
       isBackEndCertified,
       isFullStackCertified,
       isDataVisCertified,
-      prerequisiteMet
+      prerequisiteMet,
+      userHasChallengeMap
     } = this.props;
     if (!title) {
       return null;
@@ -165,7 +169,15 @@ export class Challenge extends PureComponent {
     let hide = false;
     
     switch (superBlock) {
-        
+      
+        case "Beginning Html And Css (phase I Term 1)":
+          if (!userHasChallengeMap) hide = true;
+          break;
+
+        case "Advanced Html And Css (phase I Term 2)":
+          if (!userHasChallengeMap) hide = true;
+          break;  
+
         case "Beginning Javascript (phase I Term 3)":
           if (!isRespWebDesignCertified) hide = true;
           break;
