@@ -505,9 +505,9 @@
                 "  </script>"
             ],
             "tests": [
-                "assert(document.getElementById('mountains').firstChild.childElementCount === 4, 'message: The table element should exist within the div with id = mountains, and should contain four rows (header row and three standard rows)');",
-                "assert(document.getElementById('mountains').firstChild.children[1].children[1].style.textAlign === 'right', 'message: The elements in the second column should be right-aligned; text-align should be set to right');",
-                "assert(document.getElementById('mountains').firstChild.children[1].children[0].style.textAlign != 'right' && document.getElementById('mountains').firstChild.children[1].children[2].style.textAlign != 'right', 'message: The elements in the first and third columns should be left-aligned or centered; text-align should not be set to right');"
+                "assert(document.getElementById('mountains').getElementsByTagName('tr').length === 4, 'message: The table element should exist within the div with id = mountains, and should contain four rows (header row and three standard rows)');",
+                "assert(document.getElementsByTagName('tr')[1].getElementsByTagName('td')[1].style.textAlign === 'right', 'message: The elements in the second column should be right-aligned; text-align should be set to right');",
+                "assert(document.getElementsByTagName('tr')[1].getElementsByTagName('td')[0].style.textAlign != 'right' && document.getElementsByTagName('tr')[1].getElementsByTagName('td')[2].style.textAlign != 'right', 'message: The elements in the first and third columns should be left-aligned or centered; text-align should not be set to right');"
             ],
             "type": "waypoint",
             "challengeType": 0,
