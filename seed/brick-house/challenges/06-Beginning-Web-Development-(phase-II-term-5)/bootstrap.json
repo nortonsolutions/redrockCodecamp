@@ -2251,12 +2251,12 @@
         "</div>"
       ],
       "tests": [
-        "assert(new RegExp(\"#target1\",\"gi\").test($(\"#target1\").text()), 'message: Give your <code>button</code> element with the id <code>target1</code> the text <code>#target1</code>.');",
-        "assert(new RegExp(\"#target2\",\"gi\").test($(\"#target2\").text()), 'message: Give your <code>button</code> element with the id <code>target2</code> the text <code>#target2</code>.');",
-        "assert(new RegExp(\"#target3\",\"gi\").test($(\"#target3\").text()), 'message: Give your <code>button</code> element with the id <code>target3</code> the text <code>#target3</code>.');",
-        "assert(new RegExp(\"#target4\",\"gi\").test($(\"#target4\").text()), 'message: Give your <code>button</code> element with the id <code>target4</code> the text <code>#target4</code>.');",
-        "assert(new RegExp(\"#target5\",\"gi\").test($(\"#target5\").text()), 'message: Give your <code>button</code> element with the id <code>target5</code> the text <code>#target5</code>.');",
-        "assert(new RegExp(\"#target6\",\"gi\").test($(\"#target6\").text()), 'message: Give your <code>button</code> element with the id <code>target6</code> the text <code>#target6</code>.');"
+        "assert(new RegExp(\"target1\",\"gi\").test($(\"#target1\").text()), 'message: Give your <code>button</code> element with the id <code>target1</code> the text <code>target1</code>.');",
+        "assert(new RegExp(\"target2\",\"gi\").test($(\"#target2\").text()), 'message: Give your <code>button</code> element with the id <code>target2</code> the text <code>target2</code>.');",
+        "assert(new RegExp(\"target3\",\"gi\").test($(\"#target3\").text()), 'message: Give your <code>button</code> element with the id <code>target3</code> the text <code>target3</code>.');",
+        "assert(new RegExp(\"target4\",\"gi\").test($(\"#target4\").text()), 'message: Give your <code>button</code> element with the id <code>target4</code> the text <code>target4</code>.');",
+        "assert(new RegExp(\"target5\",\"gi\").test($(\"#target5\").text()), 'message: Give your <code>button</code> element with the id <code>target5</code> the text <code>target5</code>.');",
+        "assert(new RegExp(\"target6\",\"gi\").test($(\"#target6\").text()), 'message: Give your <code>button</code> element with the id <code>target6</code> the text <code>target6</code>.');"
       ],
       "type": "waypoint",
       "challengeType": 0,
@@ -2278,65 +2278,28 @@
       }
     },
     {
-      "id": "bad87fee1348bd9aec908857",
-      "title": "Use Comments to Clarify Code",
-      "description": [
-        "When we start using jQuery, we will modify HTML elements without needing to actually change them in HTML.",
-        "Let's make sure that everyone knows they shouldn't actually modify any of this code directly.",
-        "Remember that you can start a comment with <code>&#60;!--</code> and end a comment with <code>--&#62;</code>",
-        "Add a comment at the top of your HTML that says <code>Only change code above this line.</code>"
-      ],
-      "challengeSeed": [
-        "<div class=\"container-fluid\">",
-        "  <h3 class=\"text-primary text-center\">Bootstrap Playground</h3>",
-        "  <div class=\"row\">",
-        "    <div class=\"col-6\">",
-        "      <h4>#left-well</h4>",
-        "      <div class=\"well\" id=\"left-well\">",
-        "        <button class=\"btn btn-default target\" id=\"target1\">#target1</button>",
-        "        <button class=\"btn btn-default target\" id=\"target2\">#target2</button>",
-        "        <button class=\"btn btn-default target\" id=\"target3\">#target3</button>",
-        "      </div>",
-        "    </div>",
-        "    <div class=\"col-6\">",
-        "      <h4>#right-well</h4>",
-        "      <div class=\"well\" id=\"right-well\">",
-        "        <button class=\"btn btn-default target\" id=\"target4\">#target4</button>",
-        "        <button class=\"btn btn-default target\" id=\"target5\">#target5</button>",
-        "        <button class=\"btn btn-default target\" id=\"target6\">#target6</button>",
-        "      </div>",
-        "    </div>",
-        "  </div>",
-        "</div>"
-      ],
-      "tests": [
-        "assert(code.match(/^\\s*<!--/), 'message: Start a comment with <code>&#60;!--</code> at the top of your HTML.');",
-        "assert(code.match(/<!--(?!(>|->|.*-->.*this line))\\s*.*this line.*\\s*-->/gi), 'message: Your comment should have the text <code>Only change code above this line</code>.');",
-        "assert(code.match(/-->.*\\n+.+/g), 'message: Be sure to close your comment with <code>--&#62;</code>.');",
-        "assert(code.match(/<!--/g).length === code.match(/-->/g).length, 'message: You should have the same number of comment openers and closers.');"
-      ],
-      "type": "waypoint",
-      "challengeType": 0,
-      "translations": {
-        "es": {
-          "title": "Usa elementos para explicar tu código",
-          "description": [
-            "Cuando comencemos a usar jQuery, modificarmemos los elementos HTML sin necesidad de hacer cambios reales en el código HTML.",
-            "Vamos a asegurar que cualquier persona sepa que no debe modificar nada en este código directamente.",
-            "Recuerda que puedes iniciar un comentario usando <code>&#60;!--</code> y terminarlo usando <code>--&#62;</code>",
-            "Agrega un comentario al inicio de tu código HTML que diga <code>Only change code above this line.</code>"
-          ]
-        },
-        "fr": {
-          "title": "Utiliser des commentaires pour clarifier son code",
-          "description": [
-            "Quand nous commencerons à utiliser jQuery, nous modifierons les éléments HTML sans avoir besoin de les changer directement dans le fichier HTML.",
-            "Assurons nous que tout le monde sache qu'ils ne devraient pas modifier quoi que ce soit dans le code HTML.",
-            "Rappelez vous que vous pouvez commencer un commentaire avec <code>&#60;!--</code> et le finir avec <code>--&#62;</code>",
-            "Ajoutez un commentaire en haut de l'HTML qui annonce <code>Only change code above this line.</code> (Changez seulement le code au dessus de cette ligne.)"
-          ]
-        }
-      }
-    }
+			"id": "e8cc57707a7c4f3988bb77fe",
+			"title": "Learn more about Bootstrap!",
+			"description": [
+				[
+					"",
+					"",
+					"This introduction to Bootstrap has only scratched the surface.  The purpose of this Code Camp is not to introduce all facets of Bootstrap, but it's good to know that the library exists since it is used quite commonly in the field.",
+					""
+				],
+				[
+					"",
+					"",
+					"W3schools contains an excellent Bootstrap tutorial with plenty of samples, for those who want to delve deeper.   You've seen that it provides some nice color schemes and layout functionality, but wait until you see dropdowns, carousels, modals, and so on.  Bootstrap provides a useful collection of  tools to simplify and speed up your web-page development.<br><br>Start the tutorial: <br><br> <a href='http://redrockcodecamp.org/w3/bootstrap4/default.asp.html' target='_blank'>Bootstrap 4 Tutorial</a>",
+					"#"
+				]
+			],
+			"releasedOn": "",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"challengeType": 7,
+			"isRequired": false
+		}
   ]
 }

@@ -27,7 +27,14 @@
                 [
                     "ACCESSING AND CHANGING THE HTML PAGE",
                     "",
-                    "The DOM also defines methods and properties to access and update each object in this model, which in turn updates what the user sees in the browser. You will hear people call the DOMan Application Programming Interface (API). User interfaces let humans interact with programs; APis let programs (and scripts) talk to each other. The DOM states what your script can ask the browser about the current page, and how to tell the browser to update what is being shown to the user."
+                    "The DOM also defines methods and properties to access and update each object in this model, which in turn updates what the user sees in the browser. You will hear people call the DOM an Application Programming Interface (API). User interfaces let humans interact with programs; APis let programs (and scripts) talk to each other. The DOM states what your script can ask the browser about the current page, and how to tell the browser to update what is being shown to the user."
+                ],
+                [
+                    "SOME VIDEOS FOR YOUR EDIFICATION",
+                    "",
+                    "We recommend you watch the following videos before proceeding with the DOM challenges: <br><br><a target='_blank' href='http://redrockcodecamp.org/educationMaterials/videos/phase-II/dom/'>Click here</a>",
+                    "#"
+
                 ]
             ],
             "releasedOn": "",

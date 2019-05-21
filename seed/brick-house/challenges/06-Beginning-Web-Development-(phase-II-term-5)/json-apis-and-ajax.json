@@ -55,6 +55,7 @@
 				}
 			],
 			"solutions": [],
+			"type": "modern",
 			"hints": [],
 			"releasedOn": "Feb 17, 2017",
 			"challengeType": 0,
@@ -140,6 +141,7 @@
 				}
 			],
 			"solutions": [],
+			"type": "modern",
 			"hints": [],
 			"releasedOn": "Feb 17, 2017",
 			"challengeType": 0,
@@ -235,9 +237,16 @@
 				{
 					"text": "Your code should wrap the key names in <code>strong</code> tags.",
 					"testString": "assert(code.match(/<strong>.+<\\/strong>/g), 'Your code should wrap the key names in <code>strong</code> tags.');"
+				},
+				{
+					"text": "When the getMessage button is clicked, the message area should populate with the data retrieved by the JSON api.",
+					"testString": "async () => { const waitForIt = fn => { let button = document.getElementById('getMessage'); let click = new MouseEvent('click'); button.dispatchEvent(click); return new Promise(resolve => { setTimeout(() => { resolve( document.getElementsByClassName('message')[0].innerHTML ); }, 1000); }); }; let html = await waitForIt(); assert( /.*white.*cat.*Juggernaut.*Tyrion.*ginger.*/.test(html), 'message: When the getMessage button is clicked, the message area should populate with data from the JSON api.'); };"
 				}
+
+
 			],
 			"solutions": [],
+			"type": "modern",
 			"hints": [],
 			"releasedOn": "Feb 17, 2017",
 			"challengeType": 0,
@@ -326,6 +335,7 @@
 				}
 			],
 			"solutions": [],
+			"type": "modern",
 			"hints": [],
 			"releasedOn": "Feb 17, 2017",
 			"challengeType": 0,
@@ -417,6 +427,7 @@
 				}
 			],
 			"solutions": [],
+			"type": "modern",
 			"hints": [],
 			"releasedOn": "Feb 17, 2017",
 			"challengeType": 0,

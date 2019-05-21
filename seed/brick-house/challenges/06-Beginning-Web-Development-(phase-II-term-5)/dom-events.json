@@ -4,7 +4,28 @@
     "time": "5 hours",
     "helpRoom": "Help",
     "challenges": [
-		{
+			{
+				"id": "62c317507b7afb7148a05665",
+				"title": "Introduction to the DOM Events Challenges",
+				"description": [
+						[
+								"SOME VIDEOS FOR YOUR EDIFICATION",
+								"",
+								"We recommend you watch the following videos before proceeding with the DOM Events challenges: <br><br><a target='_blank' href='http://redrockcodecamp.org/educationMaterials/videos/phase-II/domEvents/'>Click here</a>",
+								"#"
+
+						]
+				],
+				"releasedOn": "",
+				"challengeSeed": [],
+				"tests": [],
+				"type": "Waypoint",
+				"challengeType": 7,
+				"isRequired": false,
+				"translations": {}
+		},
+		
+			{
 			"id": "587d7fad367417b2b2512be1",
 			"title": "Handle Click Events with the onclick property",
 			"description": [
