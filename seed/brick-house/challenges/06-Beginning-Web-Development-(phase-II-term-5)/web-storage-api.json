@@ -138,6 +138,85 @@
 			"hints": [],
 			"releasedOn": "Oct 1, 2018",
 			"challengeType": 0
+		},
+		{
+			"id": "19f8aec07b7cd7698bf0a74b",
+			"title": "Note Mini-App Using localStorage",
+			"description": [
+				"Put your knowledge about localStorage to the test by completing this Mini-App for taking notes.  See if you can follow and understand all the code.",
+				"setState accepts a newState object that looks like this:",
+				"   <blockquote>{ notes: {'shopping list': 'Bread\\nMilk'}, selected: 'shopping list' }</blockquote>",
+				"Then for each note category (e.g. 'shopping list'), it adds an option to the select dropdown, marking it selected if necessary.",
+				"<hr>",
+				"Add code where indicated:",
+				"  1. Update the <code>note.value</code> accordingly.  The new value will be equal to the currently-selected note contents, i.e. <code>newState.notes[newState.selected]</code>.",
+				"  2. Set the <code>Notes</code> item in localStorage to newState.  Since localStorage items are stored in string format, you will need to set it to <code>JSON.stringify(newState)</code>.",
+				"  3. Set the state to equal the newState.",
+				"Then add three event listeners below, as follows:",
+				"  1. A <code>change</code> event listener to the list, which calls setState with the updated state.  In this case the <code>notes</code> in the state will remain the same; only the <code>selected</code> value will change to match <code>list.value</code>", 
+				"  2. An <code>input</code> event listener to the note, which calls setState with the updated state.",
+				"  3. A <code>click</code> event listener to the notesButton, which uses the 'prompt' method to prompt for a Note Name, then updates the state with an empty note by that name.  Once again, as in step 2, you will need to merge the old state with the new.  Then mark that new note as selected.",
+				"",
+				"* You could use <a target='_blank' href='http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/assign.html'>Object.assign()</a> to merge the old state with your new state (required in steps 2 and 3 above, but in this challenge use <a target='_blank' href='http://brickhousecodecamp.org/educationMaterials/booksMaterials/languages/javascript-es6/differences-between-es6-and-es5/es5-vs-es6-with-example-code-codeburst.html'>ES6+ methodology instead</a>, which looks a little cleaner.  For example:",
+				"<blockquote>let newNote = { [state.selected]: note.value };\nsetState({\n\tnotes: { ...state.notes, ...newNote },\n\tselected: state.selected\n});</blockquote>"
+			],
+      "challengeSeed": [
+				"<h1>My Note Lists</h1>",
+				"",
+				"Notes: <select id='notesSelect'></select> <button id='notesButton'>Add</button><br>",
+				"<textarea style='width: 100%; height: 100px' id='notesTextArea'></textarea>",
+				"",
+				"<script>",
+				"   let list = document.querySelector('#notesSelect');",
+				"   let note = document.querySelector('#notesTextArea');",
+				"   let state;",
+				"",
+				"   function setState(newState) {",
+				"",
+				"       list.textContent = '';",
+				"       let noteNames = Object.keys(newState.notes);",
+				"",
+				"       for (let name of noteNames) {",
+				"          let o = document.createElement('option');",
+				"          o.textContent = name;",
+				"          if (newState.selected === name) {",
+				"             o.selected = true;",
+				"          }",
+				"          list.appendChild(o);",
+				"       }",
+				"",
+				"       // Add your code here",
+				"       ",
+				"   }",
+				"",
+				"   let currentNotes = localStorage.getItem('Notes');",
+				"",
+				"   let defaultNotes = { notes: {'shopping list': 'Bread\\nMilk'}, selected: 'shopping list' };",
+				"",
+				"   setState(JSON.parse(currentNotes) || defaultNotes);",
+				"",
+				"   // Add your event listeners here",
+				"",
+				"</script>"
+      ],
+			"tests": [
+				{
+					"text": "Calling setState with a given state (containing a notes object and selected string) should update the value of Notes in the localStorage.",
+					"testString": "assert(function f() { localStorage.removeItem('Notes'); setState(defaultNotes); let currentState = localStorage.getItem('Notes'); return (JSON.parse(currentState).selected === 'shopping list' && JSON.parse(currentState).notes['shopping list'] === 'Bread\\nMilk'); }(), 'message: Calling setState with a given state (containing a notes object and selected string) should update the value of Notes in the localStorage.');"
+				},
+				{
+					"text": "Appending text to the note value should update the corresponding note value in the state in localStorage.",
+					"testString": "assert(function f() { localStorage.removeItem('Notes'); setState(defaultNotes); note.value = note.value + 'A'; let input = new Event('input'); note.dispatchEvent(input); let currentState = localStorage.getItem('Notes'); return (JSON.parse(currentState).notes['shopping list'] === 'Bread\\nMilkA'); }(), 'message: Appending text to the note value should update the corresponding note value in the state in localStorage.');"
+				},
+				{
+					"text": "Do not use Object.assign to combine two state objects in this challenge.  Use the ES6+ methodology instead, which uses the spread (...) operator.",
+					"testString": "assert(! code.match(/Object.assign/), 'message: Do not use Object.assign to combine two state objects in this challenge.  Use the ES6+ methodology instead, which uses the spread (...) operator.');"
+				}
+			],
+			"solutions": [],
+			"hints": [],
+			"releasedOn": "May 21, 2019",
+			"challengeType": 0
 		}
 	]
 }

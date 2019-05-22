@@ -503,6 +503,57 @@
 					"tail": []
 				}
 			}
+		},
+		{
+			"id": "72a23ae07c3ba989f75fa309",
+			"title": "Using the Fetch API to retrieve data",
+			"description": [
+				"The interface through which browser JavaScript can make HTTP requests is called fetch.  For various <a target='_blank' href='http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.html'>reasons</a>, Fetch is considered to be a better alternative than XMLHTTPRequest.  Making a request looks like this:",
+				"<strong>fetch('/data.html').then(res => res.text()).then(text => {\n&nbsp;&nbsp;&nbsp;console.log(`The page starts with ${text.slice(0, 15)}`);\n});</strong>",
+				"One of the things HTTP can do is negotiate content. The <code>Accept</code> request header is used to tell the server what type of document the client would like to get.  When a server knows of various ways to encode a resource, it can look at this header and send the one that the client prefers.",
+				"<hr>",
+				"The URL http://redrockcodecamp.org/genericResponder is configured to respond with either plaintext, HTML, or JSON, depending on what the client asks for. These formats are identified by the standardized media types <code>text/plain</code>, <code>text/html</code>, and <code>application/json</code>.",
+				"Finish implementing the asynchronous <strong>fetchContent(e)</strong> method, by using the fetch function.  The fetch function accepts two arguments, first the <code>url</code> and then an optional options object.  Use the <code>headers</code> property in the options object passed to fetch to set the header named <code>accept</code> to the desired media type.  In this case the desired media type is provided for you in the textContent of each button.",
+				"Update the <code>textarea.value</code> with the type, followed by the response text.  Like this:",
+				"<em>text/plain: Hello!</em>",  
+				"Keep in mind: since fetch returns a promise, you should <code>await</code> the response for each fetch to get the actual response object.  The response's text() method also returns a promise, so you will again need to <code>await</code> its resolution.",
+				"Using <code>await</code> is similar to using <code>then()</code> and can be used inside an asynchronous function.",
+				"For more information about using the Fetch API, <a target='_blank' href='http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.html'>click here</a>."
+			],
+			"challengeSeed": [
+				"<body>",
+				"   <textarea style='width: 100%' id='textarea1'></textarea>",
+				"   <button id='getData1'>text/plain</button>",
+				"   <button id='getData2'>text/html</button>",
+				"   <button id='getData3'>application/json</button>",
+				"   <button id='getData4'>application/invalid</button>",
+				"</body>",
+				"",
+				"<script>",
+				"   let textarea = document.getElementById('textarea');",
+				"   const url = 'http://redrockcodecamp.org/genericResponder';",
+				"",
+				"   async function fetchContent(e) {",
+				"      let type = e.target.textContent;",
+				"      // Finish implementing this method",
+				"",
+				"   }",
+				"",
+				"   let buttons = document.getElementsByTagName('button');",
+				"   for (let i = 0; i < buttons.length; i++) {",
+				"      buttons[i].addEventListener('click', fetchContent);",
+				"   }",
+				"</script>"
+			],
+			"tests": [
+				"async () => { const waitForIt = fn => { let button = document.getElementById('getData1'); let click = new MouseEvent('click'); button.dispatchEvent(click); return new Promise(resolve => { setTimeout(() => { resolve(document.getElementById('textarea').value); }, 500); }); }; let text = await waitForIt(); assert( /.*text\\/plain.*Hello.*/.test(text), 'message: When the getData1 button is clicked, the textarea should populate with the type and data from the Fetch API -- text/plain: Hello!' ); };",
+				"async () => { const waitForIt = fn => { let button = document.getElementById('getData2'); let click = new MouseEvent('click'); button.dispatchEvent(click); return new Promise(resolve => { setTimeout(() => { resolve(document.getElementById('textarea').value); }, 500); }); }; const delay = fn => { return new Promise(resolve => { setTimeout(() => { resolve('') }, 500); }); }; let d = await delay(); let text = await waitForIt(); assert( /.*text\\/html.*color.*blue.*/.test(text), 'message: When the getData2 button is clicked, the textarea should populate with the type and data from the Fetch API -- text/html: &lt;span style=...' ); };",
+				"async () => { const waitForIt = fn => { let button = document.getElementById('getData3'); let click = new MouseEvent('click'); button.dispatchEvent(click); return new Promise(resolve => { setTimeout(() => { resolve(document.getElementById('textarea').value); }, 500); }); }; const delay = fn => { return new Promise(resolve => { setTimeout(() => { resolve('') }, 1000); }); }; let d = await delay(); let text = await waitForIt(); assert( /.*application\\/json.*test.*whatever.*/.test(text), 'message: When the getData3 button is clicked, the textarea should populate with the type and data from the Fetch API -- application/json: { ... }' ); };"
+			],
+			"type": "waypoint",
+			"challengeType": 0,
+			"translations": {
+			}
 		}
 	]
 }

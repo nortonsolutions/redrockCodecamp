@@ -1,6 +1,7 @@
 import request from 'request';
 import constantStrings from '../utils/constantStrings.json';
 import testimonials from '../resources/testimonials.json';
+import accepts from 'accepts';
 
 const githubClient = process.env.GITHUB_ID;
 const githubSecret = process.env.GITHUB_SECRET;
@@ -35,6 +36,7 @@ module.exports = function(app) {
       softwareResourcesForNonprofits
   );
   router.get('/academic-honesty', academicHonesty);
+  router.get('/genericResponder', getGenericResponder);
 
   app.use(noLangRouter);
   app.use('/:lang', router);
@@ -199,4 +201,37 @@ module.exports = function(app) {
       }
     );
   }
+
+  function getGenericResponder (req, res) {
+    
+    // parse res type
+    const accept = accepts(req);
+    const type = accept.type('html', 'json', 'text');
+
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    switch (type) {
+
+      case 'json': 
+        res.setHeader('Content-Type', 'application/json'); 
+        res.write(JSON.stringify({test: "test", whatever: "whatever"})); break;
+
+      case 'html': 
+        res.setHeader('Content-Type', 'text/html'); 
+        res.write('<span style="color: blue;">Hello!</span>'); break;
+
+      case 'text':
+        res.setHeader('Content-Type', 'text/plain');
+        res.write('Hello!'); break;
+
+      default:
+        res.setHeader('Content-Type', 'text/html');
+        res.write('No specific "Accept" header specified; assuming text/html.<br><br>');
+        res.write('<span style="color: blue;">Hello!</span>');
+    }
+
+    res.end();
+  };
+
 };
