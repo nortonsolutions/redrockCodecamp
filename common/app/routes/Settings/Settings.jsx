@@ -185,6 +185,7 @@ export class Settings extends React.Component {
                 bsStyle='primary'
                 className='btn-link-social'
                 href={ '/signout' }
+                onClick={ () => localStorage.clear() }
                 >
                 Sign me out of { process.env.businessAppName }
               </Button>
