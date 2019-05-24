@@ -1,181 +1,210 @@
 {
-	"name": "Beginning Web Development Projects",
-	"order": 4,
-	"time": "60 hours",
-	"helpRoom": "Help",
-	"challenges": [
-		{
-		  "id": "62ebb830ecd3f7ee01025145",
-		  "title": "** Commit to not solve other students problems - Beginning Web",
-		  "description": [
-			[
-			  "",
-			  "",
-			  "Computer programming requires excellent problem solving skills.<br><br>Working through problems with the help of documentation is a daily activity for all programmers.",
-			  ""
-			],
-			[
-			  "",
-			  "",
-			  "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
-			  ""
-			],
-			[
-			  "",
-			  "",
-			  "Students should never give away a solution to a problem or share code that completes a problem.",
-			  ""
-			],
-			[
-			  "",
-			  "",
-			  "If a student is still unable to solve a problem, please, refer them to the tutor.",
-			  ""
-			],
-			[
-			  "",
-			  "",
-			  "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
-			  ""
-			],
-			[
-			  "",
-			  "",
-			  "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
-			  ""
-			],
-			[
-			  "",
-			  "",
-			  "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
-			  "#"
-			]
-		  ],
-		  "releasedOn": "May 10, 2018",
-		  "challengeSeed": [],
-		  "tests": [],
-		  "type": "Waypoint",
-		  "challengeType": 7,
-		  "isRequired": true
-		},
-		{
-			"id": "c9a5d2e015e615ab4534e331",
-			"title": "Virtual Life App with Health",
-			"description": [
-				"Build the app as defined in the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' style='width:500px'></a>",
-				"Remember to use the Research-Ask method if you get stuck."
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [
-				"efzQzbO"
-			],
-			"tests": [],
-			"type": "zipline",
-			"isRequired": true,
-			"challengeType": 3
-		},
-		{
-			"id": "ca2bf2d015e601ebc0385d61",
-			"title": "Virtual Life App with Health Source Code Review",
-			"description": [
-				[
-					"",
-					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App with Health.",
-					"#"
-				],
-				[
-					"",
-					"",
-					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-09-health-ca2bf2d015e601ebc0385d61/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
-					""
-				],
-				[
-					"",
-					"",
-					"Confirm you have reviewed the professional source code.",
-					"#"
-				]
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [],
-			"tests": [],
-			"type": "Waypoint",
-			"isRequired": true,
-			"challengeType": 7,
-			"prerequisite": "c9a5d2e015e615ab4534e331"
-		},
-		{
-			"id": "7827c550180b1983f7d686bb",
-			"title": "Virtual Life App with Statistics",
-			"description": [
-				"Build the app as defined in the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' style='width:500px'></a>",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' style='width:500px'></a>",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' style='width:500px'></a>",
-				"Remember to use the Research-Ask method if you get stuck."
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [
-				"ibgLhpG"
-			],
-			"tests": [],
-			"type": "zipline",
-			"isRequired": true,
-			"challengeType": 3
-		},
-		{
-			"id": "78be6000180b2b11ae74deba",
-			"title": "Virtual Life App with Statistics Source Code Review",
-			"description": [
-				[
-					"",
-					"",
-					"Confirm that you have that you have completed and submitted the Virtual Life App with Statistics.",
-					"#"
-				],
-				[
-					"",
-					"",
-					"Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
-					""
-				],
-				[
-					"",
-					"",
-					"Confirm you have reviewed the professional source code.",
-					"#"
-				]
-			],
-			"releasedOn": "January 11, 2019",
-			"challengeSeed": [],
-			"tests": [],
-			"type": "Waypoint",
-			"isRequired": true,
-			"challengeType": 7,
-			"prerequisite": "7827c550180b1983f7d686bb"
-		},
-		{
-			"id": "74c80400ecd32f9f26dfed57",
-			"title": "User Management Page",
-			"description": [
-				"Build the page as defined in the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'>Click here</a> to view the full size image.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' style='width:500px;'></a>",
-				"Remember to use the Research-Ask method if you get stuck."
-			],
-			"releasedOn": "November 1, 2018",
-			"challengeSeed": [
-				"cRCeQmr"
-			],
-			"tests": [],
-			"type": "zipline",
-			"isRequired": true,
-			"challengeType": 3
-		}
-	]
+  "name": "Beginning Web Development Projects",
+  "order": 4,
+  "time": "60 hours",
+  "helpRoom": "Help",
+  "challenges": [
+    {
+      "id": "62ebb830ecd3f7ee01025145",
+      "title": "** Commit to not solve other students problems",
+      "description": [
+        [
+          "",
+          "",
+          "Computer programming requires excellent problem solving skills.<br><br>Working through problems with the help of documentation is a daily activity for all programmers.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "When students give help it should only be to point out where in the documentation, books or other materials where they can learn about a concept.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Students should never give away a solution to a problem or share code that completes a problem.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If a student is still unable to solve a problem, please, refer them to the tutor.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "If you and the other student(s) have finished and passed off the project or challenge feel free to discuss, share techniques and source code.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "However, <strong>please</strong> do not discuss within earshot of other students that have not passed off to that point.",
+          ""
+        ],
+        [
+          "",
+          "",
+          "By clicking below you commit to <strong>not</strong> solve other students problems, share code or give away answers.",
+          "#"
+        ]
+      ],
+      "releasedOn": "May 10, 2018",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "challengeType": 7,
+      "isRequired": true
+    },
+    {
+      "id": "8fff32a07e2febe496bbe9df",
+      "title": "Personality Quiz",
+      "description": [
+        "Build the following designed webpage in Visual Studio Code.",
+        "The page must match the design as closely as possible, as defined <a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/personality-quiz/requirements/personality-quiz-requirements.html' target='_blank'>here</a>.",
+        "The resulting page should look like this:",
+        "<img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/personality-quiz/requirements/images/personality_quiz.png' style='width:500px;'>",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/personality-quiz/personality-quiz.zip' target='_blank'>Click here</a> for the assets needed to build this project.",
+        "The font used for this project is Pangolin.  You can link directly to the Pangolin google font css @ <code>http://redrockcodecamp.org/educationMaterials/frameworks/fonts/pangolin/css/pangolin.css</code>",
+        "Remember to use the Research-Ask method if you get stuck!"
+      ],
+      "releasedOn": "May 24, 2019",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "zipline",
+      "isRequired": true,
+      "challengeType": 3
+    },
+    {
+      "id": "97030f207e59d9afadc39e25",
+      "title": "Personality Quiz Source Code Review",
+      "description": [
+        [
+          "",
+          "",
+          "Confirm that you have that you have completed and submitted the Personality Quiz.",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/personality-quiz-8fff32a07e2febe496bbe9df/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+          ""
+        ],
+        ["", "", "Confirm you have reviewed the professional source code.", "#"]
+      ],
+      "releasedOn": "January 11, 2019",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "isRequired": true,
+      "challengeType": 7,
+      "prerequisite": "8fff32a07e2febe496bbe9df"
+    },
+    {
+      "id": "c9a5d2e015e615ab4534e331",
+      "title": "Virtual Life App with Health",
+      "description": [
+        "Build the app as defined in the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' style='width:500px'></a>",
+        "Remember to use the Research-Ask method if you get stuck."
+      ],
+      "releasedOn": "January 11, 2019",
+      "challengeSeed": ["efzQzbO"],
+      "tests": [],
+      "type": "zipline",
+      "isRequired": true,
+      "challengeType": 3
+    },
+    {
+      "id": "ca2bf2d015e601ebc0385d61",
+      "title": "Virtual Life App with Health Source Code Review",
+      "description": [
+        [
+          "",
+          "",
+          "Confirm that you have that you have completed and submitted the Virtual Life App with Health.",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-09-health-ca2bf2d015e601ebc0385d61/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+          ""
+        ],
+        ["", "", "Confirm you have reviewed the professional source code.", "#"]
+      ],
+      "releasedOn": "January 11, 2019",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "isRequired": true,
+      "challengeType": 7,
+      "prerequisite": "c9a5d2e015e615ab4534e331"
+    },
+    {
+      "id": "7827c550180b1983f7d686bb",
+      "title": "Virtual Life App with Statistics",
+      "description": [
+        "Build the app as defined in the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' style='width:500px'></a>",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' style='width:500px'></a>",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' style='width:500px'></a>",
+        "Remember to use the Research-Ask method if you get stuck."
+      ],
+      "releasedOn": "January 11, 2019",
+      "challengeSeed": ["ibgLhpG"],
+      "tests": [],
+      "type": "zipline",
+      "isRequired": true,
+      "challengeType": 3
+    },
+    {
+      "id": "78be6000180b2b11ae74deba",
+      "title": "Virtual Life App with Statistics Source Code Review",
+      "description": [
+        [
+          "",
+          "",
+          "Confirm that you have that you have completed and submitted the Virtual Life App with Statistics.",
+          "#"
+        ],
+        [
+          "",
+          "",
+          "Please review the professional source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/' target='_blank' class='btn btn-primary'>Click here</a> to view the professional source code.",
+          ""
+        ],
+        ["", "", "Confirm you have reviewed the professional source code.", "#"]
+      ],
+      "releasedOn": "January 11, 2019",
+      "challengeSeed": [],
+      "tests": [],
+      "type": "Waypoint",
+      "isRequired": true,
+      "challengeType": 7,
+      "prerequisite": "7827c550180b1983f7d686bb"
+    },
+    {
+      "id": "74c80400ecd32f9f26dfed57",
+      "title": "User Management Page",
+      "description": [
+        "Build the page as defined in the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'>Click here</a> to view the full size image.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' style='width:500px;'></a>",
+        "Remember to use the Research-Ask method if you get stuck."
+      ],
+      "releasedOn": "November 1, 2018",
+      "challengeSeed": ["cRCeQmr"],
+      "tests": [],
+      "type": "zipline",
+      "isRequired": true,
+      "challengeType": 3
+    }
+  ]
 }
