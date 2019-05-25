@@ -1,7 +1,7 @@
 {
   "name": "Beginning Web Development Projects",
   "order": 4,
-  "time": "60 hours",
+  "time": "100 hours",
   "helpRoom": "Help",
   "challenges": [
     {
@@ -109,6 +109,7 @@
       "description": [
         "Build the app as defined in the project definition.",
         "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual_life_with_health.PNG' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual_life_with_health.PNG' style='width:500px'></a>",
         "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-09-health/virtual-life-09-health.png' style='width:500px'></a>",
         "Remember to use the Research-Ask method if you get stuck."
       ],
@@ -188,6 +189,60 @@
       "isRequired": true,
       "challengeType": 7,
       "prerequisite": "7827c550180b1983f7d686bb"
+    },
+		{
+			"id": "944f50007f39cd2cbb556666",
+			"title": "Platform Game Extensions",
+			"description": [
+				"The mini-project will be based on a game called <strong>Dark Blue</strong> by Thomas Palef, discussed in chapter 16 of Marijn Haverbeke's book <ins>Eloquent JavaScript</ins>.  He chose that game because 'it is both entertaining and minimalist and because it can be built without too much code'.  You will start with a working prototype and add a few additional features.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/darkblue-platform-game/requirements/platform-game-requirements.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project explanation and definition.",
+				"The game looks like this for starters:",
+				"<img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/darkblue-platform-game/requirements/img/darkblue.png' style='width:500px;'></a>",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/darkblue-platform-game/platform-game.html' target='_blank'>Click here</a> to view/download the starter HTML.<br><hr>",
+				"Your task in this project is to complete the exercises:",
+				"1. <strong>Game over</strong> - ... have the player start with a limited number of lives and subtract one life each time they die.  When the player is out of lives, the game restarts from the beginning.",
+				"2. <strong>Pausing the game</strong> - Make it possible to pause (suspend) and unpause the game by pressing the Esc key.",
+				"3. <strong>A monster</strong> - Add an enemy actor type, upon which you jump to defeat.",
+				"Remember to use the Research-Ask method if you get stuck.  There are hints at the end of the project page, for each exercise!",
+				"Have a little educational fun with this one.  Maybe add an additional feature or two to prove your JavaScript know-how!"
+			],
+			"releasedOn": "May 25, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "zipline",
+			"isRequired": true,
+			"challengeType": 3
+		},
+		{
+			"id": "0b978c307f3b317472e8ed10",
+			"title": "Platform Game Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the Platform Game.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the tutor source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/platform-game-944f50007f39cd2cbb556666/' target='_blank' class='btn btn-primary'>Click here</a> to view the tutor source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm you have reviewed the tutor source code.",
+					"#"
+				]
+			],
+			"releasedOn": "November 26, 2018",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"prerequisite": "944f50007f39cd2cbb556666"
     },
     {
       "id": "74c80400ecd32f9f26dfed57",
