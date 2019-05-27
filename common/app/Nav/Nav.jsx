@@ -144,43 +144,43 @@ export class FCCNav extends React.Component {
       // about controlled component
       return (
         <NavDropdown
-          id={ `nav-${content}-dropdown` }
-          key={ content }
-          noCaret={ true }
-          onClick={ openDropdown }
-          onMouseEnter={ openDropdown }
-          onMouseLeave={ closeDropdown }
-          onToggle={ isDropdownOpen ? closeDropdown : openDropdown }
-          open={ isDropdownOpen }
-          title={ content }
-          >
-          { links.map(this.renderLink.bind(this, false)) }
+          id={`nav-${content}-dropdown`}
+          key={content}
+          noCaret={true}
+          onClick={openDropdown}
+          onMouseEnter={openDropdown}
+          onMouseLeave={closeDropdown}
+          onToggle={isDropdownOpen ? closeDropdown : openDropdown}
+          open={isDropdownOpen}
+          title={content}
+        >
+          {links.map(this.renderLink.bind(this, false))}
         </NavDropdown>
       );
     }
     if (isReact) {
       return (
         <Link
-          key={ content }
-          onClick={ this.props[`handle${content}Click`] }
-          to={ link }
-          >
+          key={content}
+          onClick={this.props[`handle${content}Click`]}
+          to={link}
+        >
           <Component
-            target={ target || null }
-            >
-            { content }
+            target={target || null}
+          >
+            {content}
           </Component>
         </Link>
       );
     }
     return (
       <Component
-        href={ link }
-        key={ content }
-        onClick={ this.props[`handle${content}Click`] }
-        target={ target || null }
-        >
-        { content }
+        href={link}
+        key={content}
+        onClick={this.props[`handle${content}Click`]}
+        target={target || null}
+      >
+        {content}
       </Component>
     );
   }
@@ -197,57 +197,68 @@ export class FCCNav extends React.Component {
     const shouldShowMapButton = panes.length === 0;
     return (
       <Navbar
-      className='nav-height'
-      id='navbar'
-      staticTop={ true }
+        className='nav-height'
+        id='navbar'
+        staticTop={true}
       >
-      <div className='nav-component-wrapper'>
-        <Navbar.Header>
-          <Navbar.Toggle children={ 'Menu' } />
-          <NavbarBrand>
-            <a
-              href='/challenges/current-challenge'
-              onClick={ clickOnLogo }
+        <div className='nav-component-wrapper'>
+          <Navbar.Header>
+            <Navbar.Toggle children={'Menu'} />
+            <NavbarBrand>
+              <a
+                href='http://redrockcodecamp.org/'
+                target='_blank'
               >
-              <Image
-                alt='logo'
-                style={{width:'28px',display:'inline',verticalAlign:'text-bottom',marginRight:'5px',}}
-                src='/images/logos/logo-landscape.png'
-              />
-              { process.env.businessAppName }
-            </a>
-          </NavbarBrand>
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav
-            navbar={ true }
-            pullRight={ true }
+                <Image
+                  className='nav-logo'
+                  alt='logo'
+                  title='RedRock Portal'
+                  src='/images/logos/logo-landscape.png'
+                />                
+              </a>
+            </NavbarBrand>
+            <NavbarBrand>
+              <a
+                href='/challenges/current-challenge'
+                title='Current Challenge'
+                onClick={clickOnLogo}
+              >
+                <p>
+                  {process.env.businessAppName}
+                </p>
+              </a>
+            </NavbarBrand>
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav
+              navbar={true}
+              pullRight={true}
             >
-            {
-              panes.map(({ content, displayName, actionCreator }) => (
-                <BinButton
-                  content={ displayName }
-                  handleClick={ actionCreator }
-                  key={ content }
-                />
-              ))
-            }
-            { shouldShowMapButton ?
+              {
+                panes.map(({ content, displayName, actionCreator }) => (
+                  <BinButton
+                    content={displayName}
+                    handleClick={actionCreator}
+                    key={content}
+                  />
+                ))
+              }
+              {shouldShowMapButton ?
                 <BinButton
                   content='All Lessons'
-                  handleClick={ clickOnMap }
+                  handleClick={clickOnMap}
                   key='Map'
                 /> :
                 null
-            }
-            <SignUp
-              showLoading={ showLoading }
-              showSignUp={ !isSignedIn }
-            />
-          </Nav>
-        </Navbar.Collapse>
-      </div>
-    </Navbar>
+              }
+              <SignUp
+                showLoading={showLoading}
+                showSignUp={!isSignedIn}
+              />
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
     );
   }
 }

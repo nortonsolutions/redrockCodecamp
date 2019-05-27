@@ -30,6 +30,10 @@
 .navbar-header {
   &:extend(.clearfix all);
 
+  // > :nth-child(2){
+  //   margin-left: -@navbar-padding-horizontal;
+  // }
+
   @media (min-width: @grid-float-breakpoint) {
     float: left;
   }
@@ -162,14 +166,20 @@
 
 .navbar-brand {
   float: left;
-  padding: 8px;
-  font-size: 22px;
-  line-height: @line-height-computed;
+  display: inherit;
+  // font-size: 22px;
+  
   height: @navbar-height;
 
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+  > p{
+    //line-height: @line-height-computed;
+    font-size: floor(@font-size-base * 1.5 ); //~24px
+    padding: 0;
+    margin-top: floor(@navbar-padding-vertical / 4);
   }
 
   > img {
@@ -179,7 +189,7 @@
   @media (min-width: @grid-float-breakpoint) {
     .navbar > .container &,
     .navbar > .container-fluid & {
-      margin-left: -@navbar-padding-horizontal;
+      // margin-left: -@navbar-padding-horizontal;
     }
   }
 }
@@ -232,7 +242,7 @@
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
-  margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+  margin: floor((@navbar-padding-vertical / 2)) -@navbar-padding-horizontal;
 
   > li > a {
     padding-top:    10px;
@@ -426,6 +436,7 @@
         color: @navbar-default-link-active-color;
       }
     }
+
     > .disabled > a {
       &,
       &:hover,

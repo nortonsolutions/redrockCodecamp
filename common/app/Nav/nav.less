@@ -31,15 +31,17 @@
   width: 100%;
 }
 
-@navbar-logo-height: 25px;
-@navbar-logo-padding: (@navbar-height - @navbar-logo-height) / 2;
+@navbar-logo-height: 32px;
+@navbar-logo-padding: floor((@navbar-height - @navbar-logo-height) / 2);
 .navbar-brand {
     padding-top: @navbar-logo-padding;
     padding-bottom: @navbar-logo-padding;
+    margin-left: @navbar-logo-padding;
 }
 
 .nav-logo {
   height: @navbar-logo-height;
+  // margin-right: 5px;
 }
 
 .navbar-right {
@@ -206,6 +208,14 @@ li.nav-avatar {
       border-color: #666;
     }
   }
+  .navbar-brand {
+    color: @night-text-color;
+    &:hover,
+    &:focus {
+      color: @link-hover-color;
+      background-color: #666;
+    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: 860px) {
@@ -276,13 +286,10 @@ li.nav-avatar {
   .logo {
     display: block !important;
   }
-
 }
 
 @media screen and (max-width: 768px) {
   .nav-component-wrapper {
     display: block
-  }
-
-  
+  }  
 }
