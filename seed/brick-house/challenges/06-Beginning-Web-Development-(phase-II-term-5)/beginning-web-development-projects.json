@@ -152,9 +152,8 @@
       "description": [
         "Build the app as defined in the project definition.",
         "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual_life_with_stats.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual_life_with_stats2.png' style='width:500px'></a>",
         "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics.png' style='width:500px'></a>",
-        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-500-500.png' style='width:500px'></a>",
-        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-10-statistics/virtual-life-10-statistics-100-100.png' style='width:500px'></a>",
         "Remember to use the Research-Ask method if you get stuck."
       ],
       "releasedOn": "January 11, 2019",
@@ -243,23 +242,6 @@
 			"isRequired": true,
 			"challengeType": 7,
 			"prerequisite": "944f50007f39cd2cbb556666"
-    },
-    {
-      "id": "74c80400ecd32f9f26dfed57",
-      "title": "User Management Page",
-      "description": [
-        "Build the page as defined in the project definition.",
-        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'>Click here</a> to view the full size image.",
-        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' style='width:500px;'></a>",
-        "Remember to use the Research-Ask method if you get stuck."
-      ],
-      "releasedOn": "November 1, 2018",
-      "challengeSeed": ["cRCeQmr"],
-      "tests": [],
-      "type": "zipline",
-      "isRequired": true,
-      "challengeType": 3
     }
   ]
 }

@@ -41,13 +41,62 @@
 			"challengeType": 7
 		},
 		{
+		  "id": "74c80400ecd32f9f26dfed57",
+		  "title": "User Management Page",
+		  "description": [
+			"Build the page as defined in the project definition.",
+			"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
+			"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'>Click here</a> to view the full size image.",
+			"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-01-page/user-management-01-page.png' style='width:500px;'></a>",
+			"Remember to use the Research-Ask method if you get stuck."
+		  ],
+		  "releasedOn": "November 1, 2018",
+		  "challengeSeed": ["cRCeQmr"],
+		  "tests": [],
+		  "type": "zipline",
+		  "isRequired": true,
+		  "challengeType": 3
+		},
+		{
+			"id": "dd87a55081971110975a59e2",
+			"title": "User Management Page Source Code Review",
+			"description": [
+				[
+					"",
+					"",
+					"Confirm that you have that you have completed and submitted the User Management Page project.",
+					"#"
+				],
+				[
+					"",
+					"",
+					"Please review the tutor source code and compare it to your own.<br><br><a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/review/user-management-01-74c80400ecd32f9f26dfed57/' target='_blank' class='btn btn-primary'>Click here</a> to view the tutor source code.",
+					""
+				],
+				[
+					"",
+					"",
+					"Confirm you have reviewed the tutor source code.",
+					"#"
+				]
+			],
+			"releasedOn": "May 28, 2019",
+			"challengeSeed": [],
+			"tests": [],
+			"type": "Waypoint",
+			"isRequired": true,
+			"challengeType": 7,
+			"prerequisite": "74c80400ecd32f9f26dfed57"
+		},
+		{
 			"id": "ea31b1a0ecd3fdfa707d31a3",
 			"title": "User Management Page with MVC",
 			"description": [
 				"Build the page as defined in the project definition.",
 				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-02-mvc.html' target='_blank' class='btn btn-primary'>Click here</a> to see the project definition.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-02-mvc.png' target='_blank'>Click here</a> to view the full size image.",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-02-mvc.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-02-mvc.png' style='width:500px;'></a>",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-mvc-2.PNG' target='_blank'>Click here</a> to view the full size image.",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-mvc-1.PNG' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-mvc-1.PNG' style='width:500px;'></a>",
+				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-mvc-2.PNG' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/user-management-02-mvc/user-management-mvc-2.PNG' style='width:500px;'></a>",
 				"Remember to use the Research-Ask method if you get stuck."
 			],
 			"releasedOn": "November 1, 2018",
