@@ -27,8 +27,14 @@
         ],
         [
           "",
-          "You can add jQuery to your document by referencing it in a script tag.  We have a copy of jQuery stored locally in RedRock, so you could use the following:",
-          "<code><script src='http://redrockcodecamp.org/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js'></script></code>",
+          "",
+          "You can add jQuery to your document by referencing it in a script tag.  We have a copy of jQuery stored in RedRock, so you could use the following:<br><br><span style='font-size:14px'>http://redrockcodecamp.org/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js</span>",
+          ""
+        ],
+        [
+          "",
+          "",
+          "jQuery provides some interesting and fun extensions of JavaScript.  But please be aware that it is not the holy grail for JavaScript DOM queries and can actually degrade performance, but we introduce it here because the library is quite popular, so it's good to have some familiarity.  <br><br><a style='font-size:14px' href='http://redrockcodecamp.org/educationMaterials/booksMaterials/frameworks/vanilla-js.html' target='_blank'>Read about Plain Ol' JavaScript (just for fun)</a>",
           ""
         ]
       ],
@@ -44,7 +50,7 @@
       "id": "bad87fee1348bd9acdd08826",
       "title": "Learn How Script Tags and Document Ready Work",
       "description": [
-        "Now we're ready to learn jQuery, the most popular JavaScript tool of all time.",
+        "Now we're ready to learn jQuery.",
         "Before we can start using jQuery, we need to add some things to our HTML.",
         "First, add a <code>script</code> element at the top of your page. Be sure to close it on the following line.",
         "Your browser will run any JavaScript inside a <code>script</code> element, including jQuery.",
@@ -174,7 +180,7 @@
       ],
       "tests": [
         "assert($(\"button\").hasClass(\"animated\") && $(\"button\").hasClass(\"bounce\"), 'message: Use the jQuery <code>addClass&#40&#41</code> function to give the classes <code>animated</code> and <code>bounce</code> to your <code>button</code> elements.');",
-        "assert(!code.match(/class.*animated/g), 'message: Only use jQuery to add these colors to the element.');"
+        "assert(!code.match(/class.*animated/g), 'message: Only use jQuery to add these classes to the element.');"
       ],
       "type": "waypoint",
       "challengeType": 0,

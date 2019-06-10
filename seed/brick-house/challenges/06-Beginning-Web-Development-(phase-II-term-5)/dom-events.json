@@ -4,14 +4,34 @@
     "time": "5 hours",
     "helpRoom": "Help",
     "challenges": [
+				{
+					"id": "62c317507b7afb7148a05665",
+					"title": "Introduction to the DOM Events Challenges",
+					"description": [
+							[
+									"SOME VIDEOS FOR YOUR EDIFICATION",
+									"",
+									"We recommend you watch the following videos before proceeding with the DOM Events challenges: <br><br><a target='_blank' href='http://redrockcodecamp.org/educationMaterials/videos/phase-II/domEvents/'>Click here</a><br><br>You can also take a look in the Web Technology module of Rachel (JavaScript | JavaScript for DOM) for more tutorial videos.",
+									"#"
+
+							]
+					],
+					"releasedOn": "",
+					"challengeSeed": [],
+					"tests": [],
+					"type": "Waypoint",
+					"challengeType": 7,
+					"isRequired": false,
+					"translations": {}
+			},
 			{
-				"id": "62c317507b7afb7148a05665",
-				"title": "Introduction to the DOM Events Challenges",
+				"id": "b6161230871a59173a0995bc",
+				"title": "Additional reading about DOM events",
 				"description": [
 						[
-								"SOME VIDEOS FOR YOUR EDIFICATION",
+								"SOME LECTURES AND EXAMPLES FOR YOUR EDIFICATION",
 								"",
-								"We recommend you watch the following videos before proceeding with the DOM Events challenges: <br><br><a target='_blank' href='http://redrockcodecamp.org/educationMaterials/videos/phase-II/domEvents/'>Click here</a>",
+								"We recommend you refer to the following Stanford CS 193X lectures before proceeding with the DOM Events challenges: <br><br><a target='_blank' href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-ii/personality-quiz/lectures/'>Click here</a>",
 								"#"
 
 						]
@@ -23,8 +43,8 @@
 				"challengeType": 7,
 				"isRequired": false,
 				"translations": {}
-		},
-		
+			},
+
 			{
 			"id": "587d7fad367417b2b2512be1",
 			"title": "Handle Click Events with the onclick property",
