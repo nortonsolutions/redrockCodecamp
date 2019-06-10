@@ -33,6 +33,7 @@ import { getChallengeInfo, cachedMap } from '../utils/map';
 const isSignUpDisabled = process.env.DISABLE_SIGNUP === 'true';
 const isBridgesCodeCamp = (process.env.BUSINESS_NAME === "Bridges");
 const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
+const directorName = process.env.DIRECTOR_NAME;
 
 const debug = debugFactory('fcc:boot:user');
 const sendNonUserToMap = ifNoUserRedirectTo('/map');
@@ -972,7 +973,8 @@ module.exports = function (app) {
               {
                 username: user.username,
                 date: moment(new Date(completedDate)).format('MMMM D, YYYY'),
-                name: user.name
+                name: user.name,
+                dirName: directorName
               }
             );
           }

@@ -5,8 +5,8 @@ include styles
 .certificate-wrapper.container
 	.row
 		header
-			.logos
-				img(class='img-responsive', src='/images/logos/logo-landscape.png', alt="freeCodeCamp's Logo")
+			.logo
+				img(class='img-responsive', src='/images/logos/logo-landscape.svg', alt="RedRockCodeCamp's Logo")
 		
 			.logo-banner
 				strong RedRock CodeCamp
@@ -22,14 +22,14 @@ include styles
 				h3 has successfully completed RedRock CodeCamp's
 				h1
 					strong JavaScript Algorithms and Data Structures Certificate
-				h4 1 of 9 RedRock CodeCamp certificates, representing approximately 300 hours of coursework
+				h4 Representing approximately 300 hours of coursework in JavaScript including: Data Structures, Debugging, Algorithm Scripting, DOM, and Object-Oriented Programming
 			
 		footer
 			.signatures
 				p.sigLine
-				//- img(class='img-responsive', src='/images/directorSignature.png', alt="Program Director's Signature")
+				
 				p
-					strong Program Director Name
+					strong= dirName
 				p Program Director, RedRock CodeCamp
 			//- .row
 			//- 	p.verify Verify this certificate at: https://freecodecamp.org/#{username}/javascript-algorithms-and-data-structures-certification
