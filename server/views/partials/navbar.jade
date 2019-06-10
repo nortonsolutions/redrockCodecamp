@@ -1,24 +1,32 @@
 nav.navbar.navbar-default.navbar-static-top.nav-height
 
     if typeof user !== 'undefined'
-        .navbar-header
-            button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                .col-xs-12
-                    span.hamburger-text Menu
-            a.navbar-brand(href='/')
-                img(src='/images/logos/logo-landscape.png', style='width:26px;display:inline;vertical-align:text-bottom;margin-right:5px')
-                span #{settings.businessAppName}
-        .collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-right.hamburger-dropdown
-                li
-                    a(href='/') All Lessons
-                li
-                    a(href='/settings')
-                        span.fa.fa-user-o
-                        span #{user.name}'s Profile
+        .nav-component-wrapper
+            .navbar-header
+                button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                    .col-xs-12
+                        span.hamburger-text Menu
+                a.navbar-brand(href='/')
+                    //- img(src='/images/logos/logo-landscape.png', style='width:26px;display:inline;vertical-align:text-bottom;margin-right:5px')
+                    img(src='/images/logos/logo-landscape.png', class="nav-logo")
+                a.navbar-brand(href='/')
+                    //- span #{settings.businessAppName}
+                    p #{setting.businessAppName}
+            .collapse.navbar-collapse
+                ul.nav.navbar-nav.navbar-right.hamburger-dropdown
+                    li
+                        a(href='/') All Lessons
+                    li
+                        a(href='/settings')
+                            span.fa.fa-user-o
+                            span #{user.name}'s Profile
 
     else
-        .navbar-header        
-            a.navbar-brand(href='/')
-                img(src='/images/logos/logo-landscape.png', style='width:26px;display:inline;vertical-align:text-bottom;margin-right:5px')
-                span #{settings.businessAppName}
+        .nav-component-wrapper
+            .navbar-header        
+                a.navbar-brand(href='/')
+                    //- img(src='/images/logos/logo-landscape.png', style='width:26px;display:inline;vertical-align:text-bottom;margin-right:5px')
+                    img(src='/images/logos/logo-landscape.png', class="nav-logo")
+                a.navbar-brand(href='/')
+                    //- span #{settings.businessAppName}
+                    p #{settings.businessAppName}
