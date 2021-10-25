@@ -27,8 +27,8 @@ const propTypes = {
   isJsAlgoDataStructCertified: PropTypes.bool,
   isFrontEndCertified: PropTypes.bool,
   isFrontEndLibsCertified: PropTypes.bool,
-  isApiMicroservicesCertified: PropTypes.bool,
-  isInfoSecQaCertified: PropTypes.bool,
+  isApisMicroservicesCertified: PropTypes.bool,
+  isInfosecQaCertified: PropTypes.bool,
   isBackEndCertified: PropTypes.bool,
   isFullStackCertified: PropTypes.bool,
   isNewDataVisCertified: PropTypes.bool,
@@ -43,7 +43,7 @@ function makeMapStateToProps(_, { dashedName }) {
     userSelector,
     challengeMapSelector,
     (
-      { challengeMap: userChallengeMap, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isApiMicroservicesCert, isInfoSecQaCert, isBackEndCert, isFullStackCert, isDataVisCert },
+      { challengeMap: userChallengeMap, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert, isDataVisCert },
       challengeMap
     ) => {
       const {
@@ -61,8 +61,8 @@ function makeMapStateToProps(_, { dashedName }) {
       const isJsAlgoDataStructCertified = isJsAlgoDataStructCert;
       const isFrontEndCertified = isFrontEndCert;
       const isFrontEndLibsCertified = isFrontEndLibsCert;
-      const isApiMicroservicesCertified = isApiMicroservicesCert;
-      const isInfoSecQaCertified = isInfoSecQaCert;
+      const isApisMicroservicesCertified = isApisMicroservicesCert;
+      const isInfosecQaCertified = isInfosecQaCert;
       const isBackEndCertified = isBackEndCert;
       const isFullStackCertified = isFullStackCert;
       const isDataVisCertified = isDataVisCert;
@@ -83,8 +83,8 @@ function makeMapStateToProps(_, { dashedName }) {
         isJsAlgoDataStructCertified,
         isFrontEndCertified,
         isFrontEndLibsCertified,
-        isApiMicroservicesCertified,
-        isInfoSecQaCertified,
+        isApisMicroservicesCertified,
+        isInfosecQaCertified,
         isBackEndCertified,
         isFullStackCertified,
         isDataVisCertified,
@@ -154,8 +154,8 @@ export class Challenge extends PureComponent {
       isJsAlgoDataStructCertified,
       isFrontEndCertified,
       isFrontEndLibsCertified,
-      isApiMicroservicesCertified,
-      isInfoSecQaCertified,
+      isApisMicroservicesCertified,
+      isInfosecQaCertified,
       isBackEndCertified,
       isFullStackCertified,
       isDataVisCertified,
@@ -203,11 +203,11 @@ export class Challenge extends PureComponent {
           break;
 
         case "Advanced Server Side Development (phase Iii Term 9)":
-          if (!isApiMicroservicesCertified) hide = true;
+          if (!isApisMicroservicesCertified) hide = true;
           break;
 
         case "More Javascript For Masochists (phase X)":
-          if (!isInfoSecQaCertified) hide = true;
+          if (!isInfosecQaCertified) hide = true;
           break;
     }
     

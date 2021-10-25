@@ -316,15 +316,15 @@
         },
         {
           "text": "Choose the right assertion - isBelow vs. isAtLeast",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=8').then(data => {  assert.equal(data.assertions[0].method, 'isAtLeast', '2 * Math.random() is at least 0'); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=8').then(data => {  assert.equal(data.assertions[1].method, 'isAtLeast', '2 * Math.random() is at least 0'); }, xhr => { throw new Error(xhr.responseText); })"
         },
         {
           "text": "Choose the right assertion - isBelow vs. isAtLeast",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=8').then(data => {  assert.equal(data.assertions[0].method, 'isBelow', '1 is smaller than 2'); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=8').then(data => {  assert.equal(data.assertions[2].method, 'isBelow', '1 is smaller than 2'); }, xhr => { throw new Error(xhr.responseText); })"
         },
         {
           "text": "Choose the right assertion - isBelow vs. isAtLeast",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=8').then(data => {  assert.equal(data.assertions[0].method, 'isBelow', '2/3 (0.6666) is smaller than 1'); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=8').then(data => {  assert.equal(data.assertions[3].method, 'isBelow', '2/3 (0.6666) is smaller than 1'); }, xhr => { throw new Error(xhr.responseText); })"
         }
       ],
       "solutions": [],
@@ -349,15 +349,15 @@
       "tests": [
         {
           "text": "All tests should pass",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=10').then(data => {assert.equal(data.state,'passed'); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=9').then(data => {assert.equal(data.state,'passed'); }, xhr => { throw new Error(xhr.responseText); })"
         },
         {
           "text": "Use approximately(actual, expected, range) - Chose the correct range",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=10').then(data => {  assert.equal(data.assertions[0].method, 'isApproximately', 'weirdNumbers(0.5) is in the range (0.5, 1.5]. It\\'s within 1 +/- 0.5');  assert.equal(data.assertions[0].args[2], 0.5); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=9').then(data => {  assert.equal(data.assertions[0].method, 'isApproximately', 'weirdNumbers(0.5) is in the range (0.5, 1.5]. It\\'s within 1 +/- 0.5');  assert.equal(data.assertions[0].args[2], 0.5); }, xhr => { throw new Error(xhr.responseText); })"
         },
         {
           "text": "Use approximately(actual, expected, range) - Chose the correct range",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=10').then(data => {  assert.equal(data.assertions[1].method, 'isApproximately');  assert.equal(data.assertions[1].args[2], 0.8, 'weirdNumbers(0.2) is in the range (0.2, 1.2] It\\'s within 1 +/- 0.8'); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=9').then(data => {  assert.equal(data.assertions[1].method, 'isApproximately');  assert.equal(data.assertions[1].args[2], 0.8, 'weirdNumbers(0.2) is in the range (0.2, 1.2] It\\'s within 1 +/- 0.8'); }, xhr => { throw new Error(xhr.responseText); })"
         }
       ],
       "solutions": [],
@@ -574,7 +574,7 @@
         },
         {
           "text": "Choose the right assertion - typeOf vs. notTypeOf",
-          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=16').then(data => { assert.equal(data.assertions[1].method, 'notTypeOf', 'Plane.wings is a Number (not a String)'); }, xhr => { throw new Error(xhr.responseText); })"
+          "testString": "getUserInput => $.get(getUserInput('url') + '/_api/get-tests?type=unit&n=16').then(data => { assert.equal(data.assertions[2].method, 'notTypeOf', 'Plane.wings is a Number (not a String)'); }, xhr => { throw new Error(xhr.responseText); })"
         },
         {
           "text": "Choose the right assertion - typeOf vs. notTypeOf",

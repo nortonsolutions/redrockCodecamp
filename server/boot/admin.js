@@ -86,7 +86,7 @@ module.exports = function (app) {
 		ifNoAdminUser401,
 		(req, res) => {
 
-			const { body: {email, newEmail, username, name, location, password, confirmPassword, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApiMicroservicesCert, isInfoSecQaCert, isBackEndCert, isFullStackCert } } = req;
+			const { body: {email, newEmail, username, name, location, password, confirmPassword, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert } } = req;
 		
 			if (password && password !== confirmPassword) {
 			  return res.status(403).json({
@@ -94,7 +94,7 @@ module.exports = function (app) {
 			  });
 			}
 
-			return User.changeAccount(email, newEmail, username, name, location, password, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApiMicroservicesCert, isInfoSecQaCert, isBackEndCert, isFullStackCert)
+			return User.changeAccount(email, newEmail, username, name, location, password, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert)
 				.then(() => {
 					return res.json({						
 						message: `Account updated for: '${email}'`

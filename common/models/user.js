@@ -539,7 +539,7 @@ module.exports = function (User) {
       .toPromise();
   };
 
-  User.changeAccount = function changeAccount(email, newEmail, username, name, location, password, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApiMicroservicesCert, isInfoSecQaCert, isBackEndCert, isFullStackCert) {
+  User.changeAccount = function changeAccount(email, newEmail, username, name, location, password, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert) {
     if (!isEmail(email)) {
       return Promise.reject(
         new Error('The account email not valid.')
@@ -606,12 +606,12 @@ module.exports = function (User) {
         updateUser.isDataVisCert = isDataVisCert;    
       }
 
-      if (isApiMicroservicesCert) {
-        updateUser.isApiMicroservicesCert = isApiMicroservicesCert;    
+      if (isApisMicroservicesCert) {
+        updateUser.isApisMicroservicesCert = isApisMicroservicesCert;    
       }
 
-      if (isInfoSecQaCert) {
-        updateUser.isInfoSecQaCert = isInfoSecQaCert;    
+      if (isInfosecQaCert) {
+        updateUser.isInfosecQaCert = isInfosecQaCert;    
       }
 
       if (isBackEndCert) {
