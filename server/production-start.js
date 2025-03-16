@@ -2,6 +2,8 @@
 require('babel-register');
 const _ = require('lodash');
 const createDebugger = require('debug');
+const https = require('https');
+const fs = require('fs');
 
 const log = createDebugger('fcc:server:production-start');
 const startTime = Date.now();
@@ -11,6 +13,12 @@ log.enabled = true;
 // this is where server starts booting up
 const app = require('./server');
 
+// Load SSL certificate and private key
+const sslOptions = {
+  key: fs.readFileSync('/home/dave/.ssh/ca_private.pem'),
+  cert: fs.readFileSync('/home/dave/.ssh/ca_x509_wildcard.crt'),
+//   ca: fs.readFileSync('/path/to/your/ca_bundle.crt') // Optional, if your certificate requires a CA bundle
+};
 
 let timeoutHandler;
 let killTime = 15;
@@ -20,7 +28,12 @@ const onConnect = _.once(() => {
   if (timeoutHandler) {
     clearTimeout(timeoutHandler);
   }
-  app.start();
+  //   app.start();
+
+  // Start the HTTPS server
+  https.createServer(sslOptions, app).listen(443, () => {
+    log('Server is running on https://localhost');
+  });
 });
 
 timeoutHandler = setTimeout(() => {
