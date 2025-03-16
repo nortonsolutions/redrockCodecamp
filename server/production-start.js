@@ -31,8 +31,10 @@ const onConnect = _.once(() => {
   //   app.start();
 
   // Start the HTTPS server
-  https.createServer(sslOptions, app).listen(443, () => {
+  https.createServer(sslOptions, app).listen({port: 443, hostname: localhost}, () => {
     log('Server is running on https://localhost');
+  }).on('error', (err) => {
+    console.error(err);
   });
 });
 
