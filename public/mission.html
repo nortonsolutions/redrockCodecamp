@@ -1,0 +1,46 @@
+<!-- Simple HTML page which displays ./silverMedalProposal.pdf in an iframe, or just redirects to that pdf directly -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Medal Proposal</title>
+
+    <!-- load rpublic shadcn library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shadcn/ui@latest/dist/shadcn-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shadcn/ui@latest/dist/shadcn-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shadcn/ui@latest/dist/shadcn-ui.css.map">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shadcn/ui@latest/dist/shadcn-ui.min.css.map">
+
+    <body>
+        <iframe src="./silverMedalProposal.pdf" title="Silver Medal Proposal"></iframe>
+        <script>
+            // Check if the PDF is loaded
+            const iframe = document.querySelector('iframe');
+            iframe.addEventListener('load', () => {
+                console.log('PDF loaded successfully');
+            });
+        </script>
+        <script>
+            // Redirect to the PDF if the iframe fails to load
+            iframe.onerror = () => {
+                window.location.href = './silverMedalProposal.pdf';
+            };
+        </script>
+    </body>
+
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</html>
