@@ -1,4 +1,4 @@
-### This code tree originated from the following:
+### This code tree originated from the following amazing open-source project (consider the generosity of the original authors when using this code):
 
 ![freeCodeCamp Social Banner](https://s3.amazonaws.com/freecodecamp/wide-social-banner.png)
 

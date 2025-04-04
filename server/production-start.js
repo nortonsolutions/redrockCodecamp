@@ -5,6 +5,11 @@ const createDebugger = require('debug');
 const https = require('https');
 const fs = require('fs');
 
+// read .env via dotenv
+const dotenv = require('dotenv');
+
+var hostname = process.env.HOSTNAME || 'localhost';
+
 const log = createDebugger('fcc:server:production-start');
 const startTime = Date.now();
 // force logger to always output
@@ -31,7 +36,7 @@ const onConnect = _.once(() => {
   //   app.start();
 
   // Start the HTTPS server
-  https.createServer(sslOptions, app).listen({port: 443, hostname: localhost}, () => {
+  https.createServer(sslOptions, app).listen({port: 443, hostname: hostname, }, () => {
     log('Server is running on https://localhost');
   }).on('error', (err) => {
     console.error(err);
