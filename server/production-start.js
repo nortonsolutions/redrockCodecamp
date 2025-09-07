@@ -2,13 +2,14 @@
 require('babel-register');
 const _ = require('lodash');
 const createDebugger = require('debug');
-const https = require('https');
 const fs = require('fs');
+const http = require('http');
 
 // read .env via dotenv
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
-var hostname = process.env.HOSTNAME || 'localhost';
+var hostname = process.env.HOST || 'localhost';
+var port = process.env.PORT || '3030';
 
 const log = createDebugger('fcc:server:production-start');
 const startTime = Date.now();
@@ -18,12 +19,20 @@ log.enabled = true;
 // this is where server starts booting up
 const app = require('./server');
 
-// Load SSL certificate and private key
-const sslOptions = {
-  key: fs.readFileSync('/home/dave/.ssh/ca_private.pem'),
-  cert: fs.readFileSync('/home/dave/.ssh/ca_x509_wildcard.crt'),
-//   ca: fs.readFileSync('/path/to/your/ca_bundle.crt') // Optional, if your certificate requires a CA bundle
-};
+app.set('trust proxy', true);
+
+// // Load SSL certificate and private key
+// const sslOptions = {
+//     key: fs.readFileSync('/etc/letsencrypt/live/silvermedal_multi_domain/privkey.pem'),
+//     cert: fs.readFileSync('/etc/letsencrypt/live/silvermedal_multi_domain/fullchain.pem'),
+    //   ca: fs.readFileSync('/path/to/your/ca_bundle.crt') // Optional, if your certificate requires a CA bundle
+//      // Important: Set this to support ALL domains
+//     SNICallback: (servername, cb) => {
+//       console.log(`SNI request for: ${servername}`);
+//      // Use the same cert for all domains
+//       cb(null, tls.createSecureContext(sslOptions));
+//   }
+// };
 
 let timeoutHandler;
 let killTime = 15;
@@ -33,14 +42,22 @@ const onConnect = _.once(() => {
   if (timeoutHandler) {
     clearTimeout(timeoutHandler);
   }
-  //   app.start();
+  app.start();
 
-  // Start the HTTPS server
-  https.createServer(sslOptions, app).listen({port: 443, hostname: hostname, }, () => {
-    log('Server is running on https://localhost');
-  }).on('error', (err) => {
-    console.error(err);
-  });
+//  // Start the HTTPS server
+//  const server = http.createServer(app);
+//  server.keepAliveTimeout = 60000;
+//  server.headersTimeout = 65000;
+//  
+//  server.listen(port, hostname, () => {
+//    log('Server is running on https://' + hostname + ":" + port);
+//  }).on('error', (err) => {
+//    console.error(err);
+//  });
+
+//  server.on('tlsClientError', (err, socket) => {
+//	  console.error('TLS error:', err);
+//  });
 });
 
 timeoutHandler = setTimeout(() => {

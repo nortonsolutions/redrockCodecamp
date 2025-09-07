@@ -5,7 +5,7 @@ var moment = require('moment-timezone');
 var _ = require('lodash');
 
 // load environment variables
-var PRODUCTION_START_SCRIPT = process.env.PRODUCTION_START_SCRIPT || 'server/production-start.js'
+var PRODUCTION_START_SCRIPT = process.env.PRODUCTION_START_SCRIPT || '/home/dave/projects/redrockCodecamp/server/production-start.js'
 
 var instances = process.env.INSTANCES || 1;
 var pm2AppName = process.env.PM2_APP_NAME || 'app';
@@ -18,7 +18,8 @@ pm2.connect(function() {
     'exec_mode': 'cluster',
     instances: instances,
     'max_memory_restart': maxMemory,
-    'NODE_ENV': 'production'
+    'NODE_ENV': 'development',
+    'PORT': 3030
   }, function() {
     console.log(
       'pm2 started %s with %s instances at %s max memory',
