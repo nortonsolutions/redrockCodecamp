@@ -630,7 +630,9 @@ module.exports = function (app) {
   function getSignUp(req, res) {
     
     if (isSignUpDisabled) {
-
+      req.flash('info', {
+        msg: 'New sign ups are disabled'
+      });
       if(isBridgesCodeCamp){
         return res.render('account/signup-disabled', {
           title: 'New sign ups are disabled'
