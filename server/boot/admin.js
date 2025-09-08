@@ -3,7 +3,7 @@ import { adminRoot } from '../utils/constantStrings.json';
 import debug from 'debug';
 import { ifNoAdminUser401 } from '../utils/middleware';
 // Example in your Express route
-import constantStrings from '../utils/constantStrings.json';
+
 
 const log = debug('fcc:boot:admin');
 const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
@@ -25,7 +25,7 @@ module.exports = function (app) {
 
 				res.render('admin/admin-home', {
 					title: `Admin Home`,
-					adminRoot: constantStrings.adminRoot
+					adminRoot: adminRoot
 				})
 			}
 	);

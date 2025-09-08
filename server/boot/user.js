@@ -29,6 +29,7 @@ import {
 } from '../utils/user-stats';
 import supportedLanguages from '../../common/utils/supported-languages';
 import { getChallengeInfo, cachedMap } from '../utils/map';
+import settings from '../utils/constantStrings.json';
 
 const isSignUpDisabled = process.env.DISABLE_SIGNUP === 'true';
 const isBridgesCodeCamp = (process.env.BUSINESS_NAME === "Bridges");
@@ -728,7 +729,8 @@ module.exports = function (app) {
       title: 'Sign in using your Email Address',
       flashMessage: req.flashMessage,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      settings: settings  
     });
   }
 
