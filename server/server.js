@@ -15,6 +15,7 @@ const Rx = require('rx');
 const loopback = require('loopback');
 const boot = require('loopback-boot');
 const expressState = require('express-state');
+const serveIndex = require('serve-index');
 const path = require('path');
 const setupPassport = require('./component-passport');
 const createDebugger = require('debug');
@@ -35,6 +36,11 @@ app.set('port', process.env.PORT || 3030);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(loopback.token());
+
+app.use('/educationMaterials',
+  loopback.static(path.join(__dirname, '../public/educationMaterials')),
+  serveIndex(path.join(__dirname, '../public/educationMaterials'), {'icons': true})
+)
 app.disable('x-powered-by');
 
 boot(app, {
