@@ -38,7 +38,7 @@ app.set('view engine', 'jade');
 app.use(loopback.token());
 
 app.use('/educationMaterials',
-  loopback.static(path.join(__dirname, '../public/educationMaterials')),
+  loopback.static(path.join(__dirname, '../public/educationMaterials'), { index: false }),
   serveIndex(path.join(__dirname, '../public/educationMaterials'), {'icons': true})
 )
 app.disable('x-powered-by');
