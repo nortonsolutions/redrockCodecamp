@@ -37,14 +37,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(loopback.token());
 
-app.use('/educationMaterials/workbenchProjects/review',
-  loopback.static(path.join(__dirname, '../public/educationMaterials/workbenchProjects/review'), { index: false }),
-  serveIndex(path.join(__dirname, '../public/educationMaterials/workbenchProjects/review'), {'icons': true})
-)
-
 app.use('/educationMaterials',
-  loopback.static(path.join(__dirname, '../public/educationMaterials'), { index: false }),
-  serveIndex(path.join(__dirname, '../public/educationMaterials'), {'icons': true})
+  serveIndex(path.join(__dirname, '../public/educationMaterials'), {'icons': true}),
+  loopback.static(path.join(__dirname, '../public/educationMaterials'), { index: false })
 )
 app.disable('x-powered-by');
 
