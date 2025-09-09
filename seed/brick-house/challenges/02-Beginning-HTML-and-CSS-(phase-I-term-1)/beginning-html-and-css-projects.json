@@ -365,12 +365,12 @@
 			"title": "Listicle Webpage",
 			"description": [
 				"Build the following designed webpage in JSBin.",
-				"The page must match the design as closely as possible, as defined <a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage/requirements/listicle-requirements.html' target='_blank'>here</a>.",
+				"The page must match the design as closely as possible, as defined <a href='http://codebasecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage/requirements/listicle-requirements.html' target='_blank'>here</a>.",
         "The resulting page should look like this:",
-        "<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage/requirements/images/hw1-fullpage.png' target='_blank'><img src='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage/requirements/images/hw1-fullpage.png' style='width:500px;'></a>",
-				"<a href='http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage' target='_blank'>Click here</a> for the assets needed to build this project.  The text for this page is found within <code>listicle-content.txt</code> and the images are in the <code>images</code> folder.  You can link directly to those images from your JSBin page.",
-        "The first font used for this project is Roboto Slab.  You can link directly to the Roboto Slab google font css @ <code>http://redrockcodecamp.org/educationMaterials/frameworks/fonts/robotoslab/css/robotoslab.css</code>",
-        "The second font used for this project is Source.  You can link directly to the Source google font css @ <code>http://redrockcodecamp.org/educationMaterials/frameworks/fonts/source/css/source.css</code>",
+        "<a href='http://codebasecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage/requirements/images/hw1-fullpage.png' target='_blank'><img src='http://codebasecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage/requirements/images/hw1-fullpage.png' style='width:500px;'></a>",
+				"<a href='http://codebasecamp.org/educationMaterials/workbenchProjects/phase-i/listicle-webpage' target='_blank'>Click here</a> for the assets needed to build this project.  The text for this page is found within <code>listicle-content.txt</code> and the images are in the <code>images</code> folder.  You can link directly to those images from your JSBin page.",
+        "The first font used for this project is Roboto Slab.  You can link directly to the Roboto Slab google font css @ <code>http://codebasecamp.org/educationMaterials/frameworks/fonts/robotoslab/css/robotoslab.css</code>",
+        "The second font used for this project is Source.  You can link directly to the Source google font css @ <code>http://codebasecamp.org/educationMaterials/frameworks/fonts/source/css/source.css</code>",
 				"Remember to use the Research-Ask method if you get stuck!"
 			],
 			"releasedOn": "May 20, 2019",

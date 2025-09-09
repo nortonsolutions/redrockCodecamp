@@ -30,7 +30,7 @@
           "",
           "",
           "For our front end project challenges, we'll use the browser-based code editor called JS Bin.<br><br> Click the \"Open link in new tab\" button below to open JS Bin.<br><br> If you don't have an account please register.",
-          "http://jsbin.redrockcodecamp.org/login"
+          "http://jsbin.codebasecamp.org/login"
         ],
         [
           "",
@@ -381,8 +381,8 @@
         "Build this pre designed page.",
         "The page must match <strong>pixel for pixel</strong> as close as possible.",
         "<strong>Technology Stack:</strong> 1. Use only HTML and CSS to complete this project, do NOT use any libraries.",
-        "<a href=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/clean-web-page-footer/clean-web-page-footer.png\" target=\"_blank\"><div><strong>Click</strong> to view full size image.</div><img src=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/clean-web-page-footer/clean-web-page-footer.png\" style=\"width:500px;\"></a>",
-        "For all the assets need to build this site <a href=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/clean-web-page-footer\" target=\"_blank\">click here</a>.",
+        "<a href=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/clean-web-page-footer/clean-web-page-footer.png\" target=\"_blank\"><div><strong>Click</strong> to view full size image.</div><img src=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/clean-web-page-footer/clean-web-page-footer.png\" style=\"width:500px;\"></a>",
+        "For all the assets need to build this site <a href=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/clean-web-page-footer\" target=\"_blank\">click here</a>.",
         "The font used is sans-serif.",
         "Buttons should be done with css NOT images.",
         "Remember to use the Research-Ask method if you get stuck."
@@ -405,9 +405,9 @@
         "The page must match <strong>pixel for pixel</strong> as close as possible.",
         "<strong>Technology Stack:</strong> 1. Use only HTML and CSS to complete this project, do NOT use any libraries.",
         "This page must be responsive and have 2 distinct layouts at sizes 1200px and 960px wide.",
-        "<strong>1200px wide</strong> <a href=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-1200.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-1200.png\" style=\"width:500px;\"></a>",
-        "<strong>960px wide</strong> <a href=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-960.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-960.png\" style=\"width:500px;\"></a>",
-        "For all the assets need to build this site <a href=\"http://redrockcodecamp.org/educationMaterials/projects/workbenchProjects/blog\" target=\"_blank\">click here</a>.",
+        "<strong>1200px wide</strong> <a href=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-1200.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-1200.png\" style=\"width:500px;\"></a>",
+        "<strong>960px wide</strong> <a href=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-960.png\" target=\"_blank\"><div><strong>click</strong> to view full size image.</div><img src=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/blog/blog-960.png\" style=\"width:500px;\"></a>",
+        "For all the assets need to build this site <a href=\"http://codebasecamp.org/educationMaterials/projects/workbenchProjects/blog\" target=\"_blank\">click here</a>.",
         "The font used is sans-serif.",
         "The categories side bar must be a unordered list of &lt;a&gt; tags and highlight when hovering.",
         "The highlighted text must be &lt;a&gr; tags and underline when hovering.",

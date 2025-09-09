@@ -206,7 +206,7 @@ export class FCCNav extends React.Component {
             <Navbar.Toggle children={'Menu'} />
             <NavbarBrand>
               <a
-                href='http://redrockcodecamp.org/'
+                href='http://codebasecamp.org/'
                 target='_blank'
               >
                 <Image

@@ -23,8 +23,8 @@ export default function csp() {
         'https://*.optimizely.com',
         'http://codecamp.edu',
         'http://*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ]),
@@ -35,8 +35,8 @@ export default function csp() {
         'https://*.cloudflare.com',
         'http://codecamp.edu',
         'http://*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ]),
@@ -59,8 +59,8 @@ export default function csp() {
         'https://*.optimizely.com',
         'http://codecamp.edu',
         'http://*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ].concat(trusted),
@@ -75,8 +75,8 @@ export default function csp() {
         'https://*.optimizely.com',
         'http://codecamp.edu',
         'http://*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ].concat(trusted),
@@ -90,8 +90,8 @@ export default function csp() {
         'https://*.optimizely.com',
         'http://codecamp.edu',
         'http://*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ].concat(trusted),
@@ -107,8 +107,8 @@ export default function csp() {
         '*.twitter.com',
         'codecamp.edu',
         '*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ].concat(trusted),
@@ -122,8 +122,8 @@ export default function csp() {
         'freecodecamp.github.io',
         'codecamp.edu',
         '*.codecamp.edu',
-        'redrockcodecamp.org',
-        '*.redrockcodecamp.org',
+        'codebasecamp.org',
+        '*.codebasecamp.org',
         'bridgescodecamp.org',
         '*.bridgescodecamp.org'
       ].concat(trusted)

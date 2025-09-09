@@ -893,14 +893,14 @@
       "title": "Add Font Awesome Icons to our Buttons",
       "required": [
         {
-          "link": "http://redrockcodecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css",
+          "link": "http://codebasecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css",
           "raw": true
         }
       ],
       "description": [
         "Font Awesome is a convenient library of icons. These icons are vector graphics, stored in the <code>.svg</code> file format. These icons are treated just like fonts. You can specify their size using pixels, and they will assume the font size of their parent HTML elements.",
         "You can include Font Awesome in any app by adding the following code to the top of your HTML:",
-        "<code>&#60;link rel=\"stylesheet\" href=\"http://redrockcodecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\"&#62;</code>",
+        "<code>&#60;link rel=\"stylesheet\" href=\"http://codebasecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\"&#62;</code>",
         "In this case, we've already added it for you to this page behind the scenes.",
         "The <code>i</code> element was originally used to make other elements italic, but is now commonly used for icons. You can add the Font Awesome classes to the <code>i</code> element to turn it into an icon, for example:",
         "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
@@ -980,7 +980,7 @@
           "description": [
             "Font Awesome es una librería de iconos muy conveniente. Estos iconos son imágenes vectoriales, almacenadas en formato <code>.svg</code>, y son tratados como si fueran fuentes. Puedes especificar su tamaño usando pixeles, y tomarán el tamaño de fuente de su elemento HTML padre.",
             "Puedes añadir Font Awesome a cualquier aplicación sólo incluyendo y agregando el siguiente código al comienzo de tu HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"http://redrockcodecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\"/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"http://codebasecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\"/&#62;</code>",
             "En este caso, ya lo hemos agregado por tí a esta página tras bambalinas.",
             "El elemento <code>i</code> originalmente era usado para hacer textos en itálicas, pero ahora comunmente se usa para iconos.  Le agregas clases de Font Awesome al elemento <code>i</code> para convertirlo en un ícono, por ejemplo:",
             "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
@@ -992,7 +992,7 @@
           "description": [
             "Font Awesome est une librairie d'icônes très pratique. Ces icones sont des images vectorielles, stockées en format <code>.svg</code>. Ces icônes sont traités exactemeent comme des polices. Vous pouvez choisir leur taille en pixel, et ils prendront la taille de police de leur élémment parent HTML.",
             "Vous poyvez ajouter Font Awesome à n'importe quell application en ajoutant le code suivant en haut de votre HTML:",
-            "<code>&#60;link rel=\"stylesheet\" href=\"http://redrockcodecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\">/&#62;</code>",
+            "<code>&#60;link rel=\"stylesheet\" href=\"http://codebasecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css\" crossorigin=\"anonymous\">/&#62;</code>",
             "Ici, nous l'avons déjà ajouté pour vous dans le back-office.",
             "La balise <code>i</code> eétait utilisé à la base pour mettre les autres éléments en italique, mais maintenant elle est utilisée pour les icones. Vous ajoutez des classes Font Awesome à un élément <code>i</code> pour les les transformer en icones, par exemple:",
             "<code>&lt;i class=\"fa fa-info-circle\"&gt;&lt;/i&gt;</code>",
@@ -1006,7 +1006,7 @@
       "title": "Add Font Awesome Icons to all of our Buttons",
       "required": [
         {
-          "link": "http://redrockcodecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css",
+          "link": "http://codebasecamp.org/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css",
           "raw": true
         }
       ],
@@ -3386,8 +3386,8 @@
       "title": "Use Hex Code for Specific Colors",
       "description": [
         "Did you know there are other ways to represent colors in CSS? One of these ways is called hexadecimal code, or <code>hex code</code> for short.",
-        "We usually use <code>decimals</code>, or base 10 numbers, which use the symbols 0 to 9 for each digit. <code>Hexadecimals</code> (or <code>hex</code>) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represent the values zero to nine. Then A,B,C,D,E,F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in <code>hexadecimal</code>, giving us 16 total possible values. You can find more information about <a target='_blank' href='http://redrockcodecamp.org/wikipedia/Hexadecimal.html'>hexadecimal numbers here</a>.",
-        "In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) components. For example, <code>#000000</code> is black and is also the lowest possible value. You can find more information about the <a target='_blank' href='http://redrockcodecamp.org/wikipedia/RGB_color_model.html'>RGB color system here</a>.",
+        "We usually use <code>decimals</code>, or base 10 numbers, which use the symbols 0 to 9 for each digit. <code>Hexadecimals</code> (or <code>hex</code>) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represent the values zero to nine. Then A,B,C,D,E,F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in <code>hexadecimal</code>, giving us 16 total possible values. You can find more information about <a target='_blank' href='http://codebasecamp.org/wikipedia/Hexadecimal.html'>hexadecimal numbers here</a>.",
+        "In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) components. For example, <code>#000000</code> is black and is also the lowest possible value. You can find more information about the <a target='_blank' href='http://codebasecamp.org/wikipedia/RGB_color_model.html'>RGB color system here</a>.",
         "<blockquote>body {<br>  color: #000000;<br>}</blockquote>",
         "<hr>",
         "Replace the word <code>black</code> in our <code>body</code> element's background-color with its <code>hex code</code> representation, <code>#000000</code>."
@@ -3900,7 +3900,7 @@
 					"",
 					"",
 					"Knowing CSS Selection is very important for webpage development, so you'll want to memorize the concepts and put them into practice.  The following CSS Diner exercises will put your skills to the test, and you'll have some fun in the process.",
-					"http://redrockcodecamp.org/educationMaterials/supplementary/webDesignChallenges/css-diner-develop/"
+					"http://codebasecamp.org/educationMaterials/supplementary/webDesignChallenges/css-diner-develop/"
 				],
 				[
 					"",

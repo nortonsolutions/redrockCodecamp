@@ -22,7 +22,7 @@ Handlebars
 	* DOM Events
 	* ES6 Modules
 	* JSON
-	* Web Storage API (http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
+	* Web Storage API (http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Storage.html)
 
 	* 1 Page with half for User Details and half for Users Master (all users)
 	* User has the following attributes

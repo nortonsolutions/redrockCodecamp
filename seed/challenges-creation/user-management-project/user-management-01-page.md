@@ -4,7 +4,7 @@
 * Languages: HTML, CSS, Javascript ES5, JSON
 * Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome
-* API Features: [DOM Elements](http://redrockcodecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://redrockcodecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)
+* API Features: [DOM Elements](http://codebasecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://codebasecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html)
 * Tools: VS Code, Live Server extension, Git (if available)
 * Patterns and Practices: Master details
 

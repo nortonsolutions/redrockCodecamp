@@ -501,7 +501,7 @@
         "<strong>Note</strong><br>The entire line becomes <code>i++;</code>, eliminating the need for the equal sign.",
         "<hr>",
         "Change the code to use the <code>++</code> operator on <code>myVariable</code>.",
-        "<strong>Hint</strong><br>Learn more about <a href=\"http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators.html#Arithmetic\" target=\"_blank\">Arithmetic operators - Increment (++)</a>."
+        "<strong>Hint</strong><br>Learn more about <a href=\"http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators.html#Arithmetic\" target=\"_blank\">Arithmetic operators - Increment (++)</a>."
       ],
       "releasedOn": "January 1, 2016",
       "challengeSeed": [
@@ -594,7 +594,7 @@
       "title": "Create Decimal Numbers with JavaScript",
       "description": [
         "We can store decimal numbers in variables too. Decimal numbers are sometimes referred to as <dfn>floating point</dfn> numbers or <dfn>floats</dfn>.",
-        "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href='http://redrockcodecamp.org/wikipedia/Floating_point.html#Accuracy_problems' target=\"_blank\">Details Here</a>.",
+        "<strong>Note</strong><br>Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href='http://codebasecamp.org/wikipedia/Floating_point.html#Accuracy_problems' target=\"_blank\">Details Here</a>.",
         "For example, try the following in your JavaScript console: <code>let num = 96.74 - 60</code>.  Then look at the value of <code>num</code>.  <em>WHAT?!?  36.739999999999995?</em> ",
         "JavaScript architects have intentionally left this sort of situation for us to solve on an individual basis, probably because the instantaneous floating-point representation of the number is calculated more efficiently by the hardware.",
         "You can use JavaScript's <a href=\"http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Number/toFixed.html\" target=\"_blank\">Number.prototype.toFixed()</a> function (or <a target=\"_blank\" href=\"http://brickhousecodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Number/toPrecision.html\">Number.prototype.toPrecision()</a>) to deal with this; i.e.",
@@ -1263,7 +1263,7 @@
       "id": "56533eb9ac21ba0edf2244b9",
       "title": "Constructing Strings with Variables",
       "description": [
-        "Sometimes you will need to build a string, <a href='http://redrockcodecamp.org/wikipedia/Mad_Libs.html' target=\"_blank\">Mad Libs</a> style. By using the concatenation operator (<code>+</code>), you can insert one or more variables into a string you're building.",
+        "Sometimes you will need to build a string, <a href='http://codebasecamp.org/wikipedia/Mad_Libs.html' target=\"_blank\">Mad Libs</a> style. By using the concatenation operator (<code>+</code>), you can insert one or more variables into a string you're building.",
         "<hr>",
         "Set <code>myName</code> to a string equal to your name and build <code>myString</code> with <code>myName</code> between the strings <code>\"My name is \"</code> and <code>\" and I am well!\"</code>"
       ],
@@ -1662,7 +1662,7 @@
       "id": "56533eb9ac21ba0edf2244bb",
       "title": "Word Blanks",
       "description": [
-        "We will now use our knowledge of strings to build a \"<a href='http://redrockcodecamp.org/wikipedia/Mad_Libs.html' target='_blank'>Mad Libs</a>\" style word game we're calling \"Word Blanks\". You will create an (optionally humorous) \"Fill in the Blanks\" style sentence. Here's an example of an incomplete sentence.",
+        "We will now use our knowledge of strings to build a \"<a href='http://codebasecamp.org/wikipedia/Mad_Libs.html' target='_blank'>Mad Libs</a>\" style word game we're calling \"Word Blanks\". You will create an (optionally humorous) \"Fill in the Blanks\" style sentence. Here's an example of an incomplete sentence.",
         "In a \"Mad Libs\" game, you are provided sentences with some missing words, like nouns, verbs, adjectives and adverbs. You then fill in the missing pieces with words of your choice in a way that the completed sentence makes sense.",
         "Consider this sentence - \"It was really <strong>____</strong>, and we <strong>____</strong> ourselves <strong>____</strong>\". This sentence has three missing pieces- an adjective, a verb and an adverb, and we can add words of our choice to complete it. We can then assign the completed sentence to a variable as follows:",
         "<blockquote>var sentence = \"It was really\" + \"hot\" + \", and we\" + \"laughed\" + \"ourselves\" + \"silly.\";</blockquote>",
@@ -3725,7 +3725,7 @@
       "id": "5664820f61c48e80c9fa476c",
       "title": "Golf Code",
       "description": [
-        "In the game of <a href='http://redrockcodecamp.org/wikipedia/Golf.html' target=\"_blank\">golf</a> each hole has a <code>par</code> meaning the average number of <code>strokes</code> a golfer is expected to make in order to sink the ball in a hole to complete the play. Depending on how far above or below <code>par</code> your <code>strokes</code> are, there is a different nickname.",
+        "In the game of <a href='http://codebasecamp.org/wikipedia/Golf.html' target=\"_blank\">golf</a> each hole has a <code>par</code> meaning the average number of <code>strokes</code> a golfer is expected to make in order to sink the ball in a hole to complete the play. Depending on how far above or below <code>par</code> your <code>strokes</code> are, there is a different nickname.",
         "Your function will be passed <code>par</code> and <code>strokes</code> arguments. Return the correct string according to this table which lists the strokes in order of priority; top (highest) to bottom (lowest):",
         "<table class=\"table table-striped\"><thead><tr><th>Strokes</th><th>Return</th></tr></thead><tbody><tr><td>1</td><td>\"Hole-in-one!\"</td></tr><tr><td>&lt;= par - 2</td><td>\"Eagle\"</td></tr><tr><td>par - 1</td><td>\"Birdie\"</td></tr><tr><td>par</td><td>\"Par\"</td></tr><tr><td>par + 1</td><td>\"Bogey\"</td></tr><tr><td>par + 2</td><td>\"Double Bogey\"</td></tr><tr><td>&gt;= par + 3</td><td>\"Go Home!\"</td></tr></tbody></table>",
         "<code>par</code> and <code>strokes</code> will always be numeric and positive. We have added an array of all the names for your convenience."
@@ -4118,7 +4118,7 @@
       "id": "565bbe00e9cc8ac0725390f4",
       "title": "Counting Cards",
       "description": [
-        "In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called <a href='http://redrockcodecamp.org/wikipedia/Card_counting.html' target='_blank'>Card Counting</a>.",
+        "In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called <a href='http://codebasecamp.org/wikipedia/Card_counting.html' target='_blank'>Card Counting</a>.",
         "Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.",
         "<table class=\"table table-striped\"><thead><tr><th>Count Change</th><th>Cards</th></tr></thead><tbody><tr><td>+1</td><td>2, 3, 4, 5, 6</td></tr><tr><td>0</td><td>7, 8, 9</td></tr><tr><td>-1</td><td>10, 'J', 'Q', 'K', 'A'</td></tr></tbody></table>",
         "You will write a card counting function. It will receive a <code>card</code> parameter, which can be a number or a string, and increment or decrement the global <code>count</code> variable according to the card's value (see table). The function will then return a string with the current count and the string <code>Bet</code> if the count is positive, or <code>Hold</code> if the count is zero or negative. The current count and the player's decision (<code>Bet</code> or <code>Hold</code>) should be separated by a single space.",
@@ -4718,7 +4718,7 @@
         "<blockquote>var ourMusic = [<br>  {<br>    \"artist\": \"Daft Punk\",<br>    \"title\": \"Homework\",<br>    \"release_year\": 1997,<br>    \"formats\": [ <br>      \"CD\", <br>      \"Cassette\", <br>      \"LP\"<br>    ],<br>    \"gold\": true<br>  }<br>];</blockquote>",
         "This is an array which contains one object inside. The object has various pieces of <dfn>metadata</dfn> about an album. It also has a nested <code>\"formats\"</code> array. If you want to add more album records, you can do this by adding records to the top level array.",
         "Objects hold data in a property, which has a key-value format. In the example above, <code>\"artist\": \"Daft Punk\"</code> is a property that has a key of <code>\"artist\"</code> and a value of <code>\"Daft Punk\"</code>.",
-        "<a href='http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON.html' target=_blank>JavaScript Object Notation</a> or <code>JSON</code> is a related data interchange format used to store data.",
+        "<a href='http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON.html' target=_blank>JavaScript Object Notation</a> or <code>JSON</code> is a related data interchange format used to store data.",
         "<blockquote>{<br>  \"artist\": \"Daft Punk\",<br>  \"title\": \"Homework\",<br>  \"release_year\": 1997,<br>  \"formats\": [ <br>    \"CD\",<br>    \"Cassette\",<br>    \"LP\"<br>  ],<br>  \"gold\": true<br>}</blockquote>",
         "<strong>Note</strong><br>You will need to place a comma after every object in the array, unless it is the last object in the array.",
         "<hr>",
@@ -4913,8 +4913,8 @@
         "If <code>property</code> is <code>\"tracks\"</code> but the album doesn't have a <code>\"tracks\"</code> property, create an empty array before adding the new value to the album's corresponding property.",
         "If <code>property</code> is <code>\"tracks\"</code> and <code>value</code> isn't empty (<code>\"\"</code>), push the <code>value</code> onto the end of the album's existing <code>tracks</code> array.",
         "If <code>value</code> is empty (<code>\"\"</code>), delete the given <code>property</code> property from the album.",
-        "<strong>Hints</strong><br>Use <code>bracket notation</code> when <a href=\"http://workbench.redrockcodecamp.org/en/challenges/basic-javascript/accessing-object-properties-with-variables\" target=\"_blank\">accessing object properties with variables</a>.",
-        "Push is an array method you can read about on <a href=\"http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Array/push.html\" target=\"_blank\">BrickHouse CodeCamp Docs</a>.",
+        "<strong>Hints</strong><br>Use <code>bracket notation</code> when <a href=\"http://workbench.codebasecamp.org/en/challenges/basic-javascript/accessing-object-properties-with-variables\" target=\"_blank\">accessing object properties with variables</a>.",
+        "Push is an array method you can read about on <a href=\"http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Array/push.html\" target=\"_blank\">BrickHouse CodeCamp Docs</a>.",
         "You may refer back to <a href=\"manipulating-complex-objects\" target=\"_blank\">Manipulating Complex Objects</a> Introducing JavaScript Object Notation (JSON) for a refresher."
       ],
       "releasedOn": "January 1, 2016",

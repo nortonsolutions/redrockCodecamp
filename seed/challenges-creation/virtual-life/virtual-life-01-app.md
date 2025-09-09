@@ -54,7 +54,7 @@
 		* Create a script link to your world.js script file
 		* Create a script element and call animateWorld() passing your world object
 				<body>
-					<script src="http://redrockcodecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
+					<script src="http://codebasecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
 					<script src="world.js"></script>
 					<script>
 						animateWorld(world)
@@ -73,4 +73,4 @@
 
 ### References
 
-* [Object basics](http://redrockcodecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics.html)
+* [Object basics](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics.html)
