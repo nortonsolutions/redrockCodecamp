@@ -5,7 +5,7 @@
 	"helpRoom": "Help",
 	"required": [
 		{
-			"link": "http://codebasecamp.org/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
+			"link": "https://redrockcode.com/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
 		}
 	],
 	"challenges": [
@@ -16,7 +16,7 @@
 				"You can also request data from an external source. This is where APIs come into play.",
 				"Remember that APIs - or Application Programming Interfaces - are tools that computers use to communicate with one another. You'll learn how to update HTML with the data we get from APIs using a technology called AJAX.",
 				"Most web APIs transfer data in a format called JSON. JSON stands for JavaScript Object Notation.",
-				"You may want to watch <a target='_blank' href='http://codebasecamp.org/educationMaterials/videos/phase-II/json/learn_json_full_crash_course.mp4'>this introductory video</a> about JSON before proceeding with the challenges.",
+				"You may want to watch <a target='_blank' href='https://redrockcode.com/educationMaterials/videos/phase-II/json/learn_json_full_crash_course.mp4'>this introductory video</a> about JSON before proceeding with the challenges.",
 				"JSON syntax looks very similar to JavaScript object literal notation. JSON has object properties and their current values, sandwiched between a <code>{</code> and a <code>}</code>.",
 				"These properties and their values are often referred to as \"key-value pairs\".",
 				"However, JSON transmitted by APIs are sent as <code>bytes</code>, and your application receives it as a <code>string</code>. These can be converted into JavaScript objects, but they are not JavaScript objects by default. The <code>JSON.parse</code> method parses the string and constructs the JavaScript object described by it.",
@@ -508,17 +508,17 @@
 			"id": "72a23ae07c3ba989f75fa309",
 			"title": "Using the Fetch API to retrieve data",
 			"description": [
-				"The interface through which browser JavaScript can make HTTP requests is called fetch.  For various <a target='_blank' href='http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.html'>reasons</a>, Fetch is considered to be a better alternative than XMLHTTPRequest.  Making a request looks like this:",
+				"The interface through which browser JavaScript can make HTTP requests is called fetch.  For various <a target='_blank' href='https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.html'>reasons</a>, Fetch is considered to be a better alternative than XMLHTTPRequest.  Making a request looks like this:",
 				"<strong>fetch('/data.html').then(res => res.text()).then(text => {\n&nbsp;&nbsp;&nbsp;console.log(`The page starts with ${text.slice(0, 15)}`);\n});</strong>",
 				"One of the things HTTP can do is negotiate content. The <code>Accept</code> request header is used to tell the server what type of document the client would like to get.  When a server knows of various ways to encode a resource, it can look at this header and send the one that the client prefers.",
 				"<hr>",
-				"The URL http://codebasecamp.org/genericResponder is configured to respond with either plaintext, HTML, or JSON, depending on what the client asks for. These formats are identified by the standardized media types <code>text/plain</code>, <code>text/html</code>, and <code>application/json</code>.",
+				"The URL https://redrockcode.com/genericResponder is configured to respond with either plaintext, HTML, or JSON, depending on what the client asks for. These formats are identified by the standardized media types <code>text/plain</code>, <code>text/html</code>, and <code>application/json</code>.",
 				"Finish implementing the asynchronous <strong>fetchContent(e)</strong> method, by using the fetch function.  The fetch function accepts two arguments, first the <code>url</code> and then an optional options object.  Use the <code>headers</code> property in the options object passed to fetch to set the header named <code>accept</code> to the desired media type.  In this case the desired media type is provided for you in the textContent of each button.",
 				"Update the <code>textarea.value</code> with the type, followed by the response text.  Like this:",
 				"<em>text/plain: Hello!</em>",  
 				"Keep in mind: since fetch returns a promise, you should <code>await</code> the response for each fetch to get the actual response object.  The response's text() method also returns a promise, so you will again need to <code>await</code> its resolution.",
 				"Using <code>await</code> is similar to using <code>then()</code> and can be used inside an asynchronous function.",
-				"For more information about using the Fetch API, <a target='_blank' href='http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.html'>click here</a>."
+				"For more information about using the Fetch API, <a target='_blank' href='https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.html'>click here</a>."
 			],
 			"challengeSeed": [
 				"<body>",
@@ -531,7 +531,7 @@
 				"",
 				"<script>",
 				"   let textarea = document.getElementById('textarea');",
-				"   const url = 'http://codebasecamp.org/genericResponder';",
+				"   const url = 'https://redrockcode.com/genericResponder';",
 				"",
 				"   async function fetchContent(e) {",
 				"      let type = e.target.textContent;",

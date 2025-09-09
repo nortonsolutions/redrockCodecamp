@@ -4,9 +4,9 @@
 * Languages: HTML, CSS, Javascript ES5, JSON
 * Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome, Handlebars
-* API Features: [DOM Elements](http://codebasecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://codebasecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html), [History API](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html), [Location](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
+* API Features: [DOM Elements](https://redrockcode.com/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](https://redrockcode.com/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html), [History API](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/History_API.html), [Location](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Location.html)
 * Tools: VS Code, Live Server extension, Git (if available)
-* Patterns and Practices: Master details, [MVC](http://codebasecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://codebasecamp.org/wikipedia/separation_of_concerns.html), [Command pattern](http://codebasecamp.org/wikipedia/command_pattern.html)
+* Patterns and Practices: Master details, [MVC](https://redrockcode.com/wikipedia/model_view_controller.html), [Separation of concerns](https://redrockcode.com/wikipedia/separation_of_concerns.html), [Command pattern](https://redrockcode.com/wikipedia/command_pattern.html)
 
 * Copy your User Management Router project to a new git repository for the starting point
 
@@ -44,7 +44,7 @@
 
 * How to append a string of HTML to an element
 	* Do not use the experimental element.insertAdjacentHTML()
-	* Use an [HTMLTemplateElement](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
+	* Use an [HTMLTemplateElement](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement.html)
 			var template = document.createElement("template");
 			template.innerHTML = html;
 			element.appendChild(template.content);

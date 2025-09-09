@@ -5,7 +5,7 @@
 	"helpRoom": "Help",
 	"required": [
 		{
-			"link": "http://codebasecamp.org/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
+			"link": "https://redrockcode.com/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
 		}
 	],
 	"challenges": [

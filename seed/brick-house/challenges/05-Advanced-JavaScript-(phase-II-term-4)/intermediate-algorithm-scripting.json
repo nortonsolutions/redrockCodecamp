@@ -291,7 +291,7 @@
       "title": "Pig Latin",
       "description": [
         "Translate the provided string to pig latin.",
-        "<a href='http://codebasecamp.org/wikipedia/Pig_Latin.html' target=\"_blank\">Pig Latin</a> takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an \"ay\".",
+        "<a href='https://redrockcode.com/wikipedia/Pig_Latin.html' target=\"_blank\">Pig Latin</a> takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an \"ay\".",
         "If a word begins with a vowel you just add \"way\" to the end.",
         "Input strings are guaranteed to be English words in all lowercase.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code.",
@@ -393,7 +393,7 @@
       "title": "DNA Pairing",
       "description": [
         "The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.",
-        "<a href='http://codebasecamp.org/wikipedia/Base_pair.html' target=\"_blank\">Base pairs</a> are a pair of AT and CG. Match the missing element to the provided character.",
+        "<a href='https://redrockcode.com/wikipedia/Base_pair.html' target=\"_blank\">Base pairs</a> are a pair of AT and CG. Match the missing element to the provided character.",
         "Return the provided character as the first element in each array.",
         "For example, for the input GCG, return [[\"G\", \"C\"], [\"C\",\"G\"],[\"G\", \"C\"]]",
         "The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.",
@@ -1064,7 +1064,7 @@
       "description": [
         "Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).",
         "The array will contain objects in the format <code>{name: 'name', avgAlt: avgAlt}</code>.",
-        "You can read about orbital periods <a href='http://codebasecamp.org/wikipedia/Orbital_period.html' target='_blank'>on Wikipedia</a>.",
+        "You can read about orbital periods <a href='https://redrockcode.com/wikipedia/Orbital_period.html' target='_blank'>on Wikipedia</a>.",
         "The values should be rounded to the nearest whole number. The body being orbited is Earth.",
         "The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km<sup>3</sup>s<sup>-2</sup>.",
         "Remember to use the Read-Search-Ask methodology if you get stuck. Try to pair program. Write your own code."

@@ -4,9 +4,9 @@
 * Languages: HTML, CSS, Javascript ES5, JSON
 * Languages Additional: Javascript ES6 Modules
 * Libraries: Bootstrap, Font Awesome, Handlebars
-* API Features: [DOM Elements](http://codebasecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](http://codebasecamp.org/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html)
+* API Features: [DOM Elements](https://redrockcode.com/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html), [Events](https://redrockcode.com/docs/JavaScript/developer.mozilla.org/en-US/docs/Web/Events.html), [Web Storage API](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API.html), [XMLHttpRequest](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest.html)
 * Tools: VS Code, Live Server extension, Git (if available)
-* Patterns and Practices: Master details, [MVC](http://codebasecamp.org/wikipedia/model_view_controller.html), [Separation of concerns](http://codebasecamp.org/wikipedia/separation_of_concerns.html)
+* Patterns and Practices: Master details, [MVC](https://redrockcode.com/wikipedia/model_view_controller.html), [Separation of concerns](https://redrockcode.com/wikipedia/separation_of_concerns.html)
 
 * Copy your User Management MVC project to a new git repository for the starting point
 

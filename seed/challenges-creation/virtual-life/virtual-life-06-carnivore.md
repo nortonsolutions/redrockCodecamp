@@ -5,7 +5,7 @@
 * Languages Additional: Javascript ES6 Modules
 * Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
-* Patterns and Practices: [Separation of concerns](http://codebasecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://codebasecamp.org/wikipedia/factory_method_pattern.html), [Inheritance](http://codebasecamp.org/wikipedia/inheritance_oop.html)
+* Patterns and Practices: [Separation of concerns](https://redrockcode.com/wikipedia/separation_of_concerns.html), [Factory method pattern](https://redrockcode.com/wikipedia/factory_method_pattern.html), [Inheritance](https://redrockcode.com/wikipedia/inheritance_oop.html)
 
 ### Feature Specification
 

@@ -5,7 +5,7 @@
 * Languages Additional: Javascript ES6 Modules
 * Tools: VS Code, Live Server extension, Git (if available)
 * Libraries: animate-world.js
-* Patterns and Practices: [Separation of concerns](http://codebasecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://codebasecamp.org/wikipedia/factory_method_pattern.html)
+* Patterns and Practices: [Separation of concerns](https://redrockcode.com/wikipedia/separation_of_concerns.html), [Factory method pattern](https://redrockcode.com/wikipedia/factory_method_pattern.html)
 
 ### Feature Specification
 
@@ -26,7 +26,7 @@
 * In the index.html file only link to the animate world file
 * In the index.html use a script of type module to import the app object and call load()
 		<body>
-			<script src="http://codebasecamp.org/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
+			<script src="https://redrockcode.com/educationMaterials/workbenchProjects/phase-i/virtual-life-01-app/animate-world.js"></script>
 			<script type="module">
 
 				import { app } from "./app.js";
@@ -53,7 +53,7 @@
 
 ### References
 
-* [ECMAScript modules in browsers](http://codebasecamp.org/educationMaterials/booksMaterials/languages/JavaScript-ES6/ES6-modules/ECMAScript%20modules%20in%20browsers%20-%20JakeArchibald.com.html)
-* [export](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/statements/export.html)
-* [import](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/statements/import.html)
-* [Script element](http://codebasecamp.org/docs/html/developer.mozilla.org/en-US/docs/Web/HTML/Element/script.html#attr-type)
+* [ECMAScript modules in browsers](https://redrockcode.com/educationMaterials/booksMaterials/languages/JavaScript-ES6/ES6-modules/ECMAScript%20modules%20in%20browsers%20-%20JakeArchibald.com.html)
+* [export](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/statements/export.html)
+* [import](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/statements/import.html)
+* [Script element](https://redrockcode.com/docs/html/developer.mozilla.org/en-US/docs/Web/HTML/Element/script.html#attr-type)

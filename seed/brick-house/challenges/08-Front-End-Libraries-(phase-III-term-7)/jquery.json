@@ -5,7 +5,7 @@
   "helpRoom": "Help",
   "required": [
     {
-      "link": "http://codebasecamp.org/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
+      "link": "https://redrockcode.com/educationMaterials/frameworks/js/bootstrap/3.3.7/css/bootstrap.min.css"
     }
   ],
   "challenges": [
@@ -28,13 +28,13 @@
         [
           "",
           "",
-          "You can add jQuery to your document by referencing it in a script tag.  We have a copy of jQuery stored in RedRock, so you could use the following:<br><br><span style='font-size:14px'>http://codebasecamp.org/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js</span>",
+          "You can add jQuery to your document by referencing it in a script tag.  We have a copy of jQuery stored in RedRock, so you could use the following:<br><br><span style='font-size:14px'>https://redrockcode.com/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js</span>",
           ""
         ],
         [
           "",
           "",
-          "jQuery provides some interesting and fun extensions of JavaScript.  But please be aware that it is not the holy grail for JavaScript DOM queries and can actually degrade performance, but we introduce it here because the library is quite popular, so it's good to have some familiarity.  <br><br><a style='font-size:14px' href='http://codebasecamp.org/educationMaterials/booksMaterials/frameworks/vanilla-js.html' target='_blank'>Read about Plain Ol' JavaScript (just for fun)</a>",
+          "jQuery provides some interesting and fun extensions of JavaScript.  But please be aware that it is not the holy grail for JavaScript DOM queries and can actually degrade performance, but we introduce it here because the library is quite popular, so it's good to have some familiarity.  <br><br><a style='font-size:14px' href='https://redrockcode.com/educationMaterials/booksMaterials/frameworks/vanilla-js.html' target='_blank'>Read about Plain Ol' JavaScript (just for fun)</a>",
           ""
         ]
       ],

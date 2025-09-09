@@ -4,9 +4,9 @@
 * Languages: Javascript ES5
 * Languages Additional: Javascript ES6 Modules
 * Tools: VS Code, Live Server extension, Git (if available)
-* API Features: [DOM Elements](http://codebasecamp.org/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html)
+* API Features: [DOM Elements](https://redrockcode.com/docs/Javascript/developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model.html)
 * Libraries: none
-* Patterns and Practices: [Separation of concerns](http://codebasecamp.org/wikipedia/separation_of_concerns.html), [Factory method pattern](http://codebasecamp.org/wikipedia/factory_method_pattern.html), [Inheritance](http://codebasecamp.org/wikipedia/inheritance_oop.html)
+* Patterns and Practices: [Separation of concerns](https://redrockcode.com/wikipedia/separation_of_concerns.html), [Factory method pattern](https://redrockcode.com/wikipedia/factory_method_pattern.html), [Inheritance](https://redrockcode.com/wikipedia/inheritance_oop.html)
 
 ### Feature Specification
 
@@ -36,5 +36,5 @@
 
 ### References
 
-* [Introduction to the DOM](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Introduction.html)
-* [setInterval()](http://codebasecamp.org/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval-2.html)
+* [Introduction to the DOM](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Introduction.html)
+* [setInterval()](https://redrockcode.com/docs/javascript/developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval-2.html)
