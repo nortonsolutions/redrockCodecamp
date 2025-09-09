@@ -57,7 +57,7 @@ public/docs/*
 public/assets/*
 public/educationMaterials/*
 public/resources/*
-public/images/*
+
 
 webpack-bundle-stats.html
 server/rev-manifest.json
