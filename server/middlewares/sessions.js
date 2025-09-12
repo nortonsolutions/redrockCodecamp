@@ -3,7 +3,7 @@ import connectMongo from 'connect-mongo';
 
 const MongoStore = connectMongo.default || connectMongo;
 const sessionSecret = process.env.SESSION_SECRET;
-const url = process.env.MONGODB || process.env.MONGOHQ_URL;
+const mongoUrl = process.env.MONGODB || process.env.MONGOHQ_URL;
 
 export default function sessionsMiddleware() {
   return session({
@@ -13,7 +13,7 @@ export default function sessionsMiddleware() {
     saveUninitialized: true,
     secret: sessionSecret,
     store: new MongoStore({ 
-      url,
+      mongoUrl,
       mongoOptions: {
         useNewUrlParser: true,
         useUnifiedTopology: true
