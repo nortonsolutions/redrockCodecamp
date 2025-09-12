@@ -1,7 +1,7 @@
 import session from 'express-session';
-import MongoStoreFactory from 'connect-mongo';
+import connectMongo from 'connect-mongo';
 
-const MongoStore = MongoStoreFactory(session);
+const MongoStore = connectMongo.default || connectMongo;
 const sessionSecret = process.env.SESSION_SECRET;
 const url = process.env.MONGODB || process.env.MONGOHQ_URL;
 
@@ -12,6 +12,12 @@ export default function sessionsMiddleware() {
     resave: true,
     saveUninitialized: true,
     secret: sessionSecret,
-    store: new MongoStore({ url })
+    store: new MongoStore({ 
+      url,
+      mongoOptions: {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
+    })
   });
 }
