@@ -10,7 +10,7 @@ import {
 import { observeMethod, observeQuery } from '../../server/utils/rx';
 import { wrapHandledError } from '../../server/utils/create-handled-error.js';
 
-// const log = debug('fcc:models:userIdent');
+// const log = debug('rrcc:models:userIdent');
 
 export default function(UserIdent) {
   UserIdent.on('dataSourceAttached', () => {

@@ -1,7 +1,7 @@
 import { isAlphanumeric, isMongoId } from 'validator';
 import debug from 'debug';
 
-const log = debug('fcc:models:promo');
+const log = debug('rrcc:models:promo');
 
 export default function promo(Promo) {
   Promo.getButton = function getButton(id, code, type = 'isNot') {

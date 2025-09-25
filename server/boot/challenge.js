@@ -6,7 +6,7 @@ import dedent from 'dedent';
 import { ifNoUserSend } from '../utils/middleware';
 import { getChallengeById, cachedMap } from '../utils/map';
 
-const log = debug('fcc:boot:challenges');
+const log = debug('rrcc:boot:challenges');
 
 function buildUserUpdate(
   user,

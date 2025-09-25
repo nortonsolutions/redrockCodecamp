@@ -5,7 +5,7 @@ import { ifNoAdminUser401 } from '../utils/middleware';
 // Example in your Express route
 
 
-const log = debug('fcc:boot:admin');
+const log = debug('rrcc:boot:admin');
 const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
 const isAdminUnrestricted = process.env.IS_ADMIN_UNRESTRICTED === 'true';
 

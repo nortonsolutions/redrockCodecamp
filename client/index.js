@@ -19,8 +19,8 @@ import {
   saveToColdStorage
 } from './cold-reload';
 
-const isDev = Rx.config.longStackSupport = debug.enabled('fcc:*');
-const log = debug('fcc:client');
+const isDev = Rx.config.longStackSupport = debug.enabled('rrcc:*');
+const log = debug('rrcc:client');
 const hotReloadTimeout = 2000;
 const { csrf: { token: csrfToken } = {} } = window.__redrockcode__ || {};
 const DOMContainer = document.getElementById('fcc');
@@ -32,8 +32,14 @@ const primaryLang = getLangFromPath(window.location.pathname);
 defaultState.app.csrfToken = csrfToken;
 defaultState.toasts = flashToToast(window.__redrockcode__.flash);
 
+// Save branding info before clearing
+const savedBranding = window.__redrockcode__.branding;
+
 // make empty object so hot reload works
-window.__redrockcode__ = {};
+window.__redrockcode__ = {
+  // Preserve branding information
+  branding: savedBranding
+};
 
 const serviceOptions = { xhrPath: '/services', context: { _csrf: csrfToken } };
 

@@ -78,7 +78,7 @@ function makeMapStateToProps(_, { dashedName }) {
         isRequired,
         isComingSoon,
         superBlock,
-        isDev: debug.enabled('fcc:*'),
+        isDev: debug.enabled('rrcc:*'),
         isRespWebDesignCertified,
         isJsAlgoDataStructCertified,
         isFrontEndCertified,

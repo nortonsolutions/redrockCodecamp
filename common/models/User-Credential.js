@@ -7,7 +7,7 @@ import {
   getSocialProvider
 } from '../../server/utils/auth';
 
-const log = debug('fcc:models:UserCredential');
+const log = debug('rrcc:models:UserCredential');
 module.exports = function(UserCredential) {
   UserCredential.link = function(
     userId,

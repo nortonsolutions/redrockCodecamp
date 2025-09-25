@@ -6,7 +6,7 @@ import { ifNoUser401, createValidatorErrorHandler } from '../utils/middleware';
 import supportedLanguages from '../../common/utils/supported-languages.js';
 import debug from 'debug';
 
-const log = debug('fcc:boot:settings');
+const log = debug('rrcc:boot:settings');
 
 export default function settingsController(app) {
   const api = app.loopback.Router();

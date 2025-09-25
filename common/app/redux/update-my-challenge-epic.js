@@ -14,7 +14,7 @@ import { updateUserCurrentChallenge } from '../entities';
 import { postJSON$ } from '../../utils/ajax-stream';
 import { types as challenges } from '../routes/Challenges/redux';
 
-const log = debug('fcc:app:redux:up-my-challenge-epic');
+const log = debug('rrcc:app:redux:up-my-challenge-epic');
 export default function updateMyCurrentChallengeEpic(actions, { getState }) {
   const updateChallenge = actions::ofType(types.appMounted)
     .flatMapLatest(() => actions::ofType(challenges.onRouteChallenges))

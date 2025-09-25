@@ -2,13 +2,13 @@
 /* eslint-disable prefer-object-spread/prefer-object-spread */
 require('dotenv').config();
 
-process.env.DEBUG = process.env.DEBUG || 'fcc:*';
+process.env.DEBUG = process.env.DEBUG || 'rrcc:*';
 
 require('babel-core/register');
 const Rx = require('rx'),
   gulp = require('gulp'),
   path = require('path'),
-  debug = require('debug')('fcc:gulp'),
+  debug = require('debug')('rrcc:gulp'),
   yargs = require('yargs'),
   sortKeys = require('sort-keys'),
   del = require('del'),
@@ -207,7 +207,7 @@ gulp.task('serve', function(cb) {
     exec: path.normalize('node_modules/.bin/babel-node ' + inspect),
     env: {
       NODE_ENV: process.env.NODE_ENV || 'development',
-      DEBUG: process.env.DEBUG || 'fcc:*',
+      DEBUG: process.env.DEBUG || 'rrcc:*',
       PORT: port
     }
   })

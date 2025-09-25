@@ -30,7 +30,7 @@ import {
 
 import certTypes from '../utils/certTypes.json';
 
-const log = debug('fcc:certification');
+const log = debug('rrcc:certification');
 const renderCertifedEmail = loopback.template(path.join(
   __dirname,
   '..',

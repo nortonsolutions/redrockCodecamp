@@ -6,7 +6,7 @@ import {
   unwrapHandledError
 } from '../utils/create-handled-error.js';
 
-const log = debug('fcc:middlewares:error-reporter');
+const log = debug('rrcc:middlewares:error-reporter');
 
 export default function errorHandler() {
   if (process.env.NODE_ENV !== 'production') {

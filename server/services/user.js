@@ -35,7 +35,7 @@ const publicUserProps = [
   'currentChallengeId',
   'challengeMap'
 ];
-const log = debug('fcc:services:user');
+const log = debug('rrcc:services:user');
 
 export default function userServices() {
   return {

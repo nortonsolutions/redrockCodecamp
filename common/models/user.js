@@ -20,7 +20,7 @@ import {
   getPort
 } from '../../server/utils/url-utils.js';
 
-const debug = debugFactory('fcc:user:remote');
+const debug = debugFactory('rrcc:user:remote');
 const BROWNIEPOINTS_TIMEOUT = [1, 'hour'];
 
 const createEmailError = () => new Error(

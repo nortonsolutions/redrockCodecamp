@@ -1,4 +1,4 @@
-const debug = require('debug')('fcc:server:datasources');
+const debug = require('debug')('rrcc:server:datasources');
 const dsLocal = require('./datasources.production.js');
 
 const ds = {

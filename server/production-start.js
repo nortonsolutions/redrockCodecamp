@@ -11,7 +11,7 @@ const dotenv = require('dotenv').config();
 var hostname = process.env.HOST || 'localhost';
 var port = process.env.PORT || '3030';
 
-const log = createDebugger('fcc:server:production-start');
+const log = createDebugger('rrcc:server:production-start');
 const startTime = Date.now();
 // force logger to always output
 // this may be brittle

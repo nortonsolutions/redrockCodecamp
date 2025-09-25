@@ -3,7 +3,7 @@ import passThroughs from '../utils/lang-passthrough-urls';
 import accepts from 'accepts';
 // import debug from 'debug';
 
-// const log = debug('fcc:controller:lang-redirect');
+// const log = debug('rrcc:controller:lang-redirect');
 const toLowerCase = String.prototype.toLowerCase;
 
 export default function redirectLang(app) {

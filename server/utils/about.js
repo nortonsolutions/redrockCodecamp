@@ -12,7 +12,7 @@ const upperBound = 1000 * 1000;
 const scope = 'https://www.googleapis.com/auth/analytics.readonly';
 const pathToCred = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
-const log = debug('fcc:server:utils:about');
+const log = debug('rrcc:server:utils:about');
 const analytics = goog.analytics('v3');
 const makeRequest = observeMethod(analytics.data.realtime, 'get');
 export const toBoundInt = _.flow(

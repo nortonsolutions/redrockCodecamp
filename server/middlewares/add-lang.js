@@ -5,7 +5,7 @@ from '../../common/utils/supported-languages';
 import passthroughs from '../utils/lang-passthrough-urls';
 import debug from 'debug';
 
-const log = debug('fcc:middlewares:lang');
+const log = debug('rrcc:middlewares:lang');
 const toLowerCase = String.prototype.toLowerCase;
 
 // redirect(statusOrUrl: String|Number, url?: String) => Void

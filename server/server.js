@@ -20,7 +20,7 @@ const path = require('path');
 const setupPassport = require('./component-passport');
 const createDebugger = require('debug');
 
-const log = createDebugger('fcc:server');
+const log = createDebugger('rrcc:server');
 // force logger to always output
 // this may be brittle
 log.enabled = true;

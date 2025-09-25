@@ -2,7 +2,7 @@ import Rx, { AsyncSubject, Observable } from 'rx';
 import moment from 'moment';
 import debugFactory from 'debug';
 
-const debug = debugFactory('fcc:rxUtils');
+const debug = debugFactory('rrcc:rxUtils');
 
 export function saveInstance(instance) {
   return new Rx.Observable.create(function(observer) {

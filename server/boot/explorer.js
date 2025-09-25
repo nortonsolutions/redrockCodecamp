@@ -1,6 +1,6 @@
 const createDebugger = require('debug');
 
-const log = createDebugger('fcc:boot:explorer');
+const log = createDebugger('rrcc:boot:explorer');
 
 module.exports = function mountLoopBackExplorer(app) {
   if (process.env.NODE_ENV === 'production') {

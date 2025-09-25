@@ -6,7 +6,7 @@ import {
   getMapForLang
 } from '../utils/map';
 
-const log = debug('fcc:services:map');
+const log = debug('rrcc:services:map');
 
 export default function mapService(app) {
   const challengeMap = cachedMap(app.models);

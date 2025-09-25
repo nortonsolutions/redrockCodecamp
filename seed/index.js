@@ -10,7 +10,7 @@ const getChallenges = require('./getChallenges');
 const app = require('../server/server');
 
 const createDebugger = require('debug');
-const log = createDebugger('fcc:seed');
+const log = createDebugger('rrcc:seed');
 // force logger to always output
 // this may be brittle
 log.enabled = true;

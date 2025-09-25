@@ -17,7 +17,7 @@ import { shapeChallenges } from './utils';
 import { types as challenge } from '../routes/Challenges/redux';
 import { langSelector } from '../Router/redux';
 
-const isDev = debug.enabled('fcc:*');
+const isDev = debug.enabled('rrcc:*');
 
 export function fetchChallengeEpic(actions, { getState }, { services }) {
   return actions::ofType(challenge.onRouteChallenges)

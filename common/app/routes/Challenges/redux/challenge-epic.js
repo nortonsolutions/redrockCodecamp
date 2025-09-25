@@ -25,7 +25,7 @@ import {
 import { langSelector } from '../../../Router/redux';
 import { makeToast } from '../../../Toasts/redux';
 
-const isDev = debug.enabled('fcc:*');
+const isDev = debug.enabled('rrcc:*');
 
 // When we change challenge, update the current challenge
 // UI data.

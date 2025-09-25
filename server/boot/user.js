@@ -35,7 +35,7 @@ import globalConfig from '../../common/config.global';
 const isSignUpDisabled = globalConfig.settings.isSignUpDisabled;
 const directorName = globalConfig.settings.directorName;
 
-const debug = debugFactory('fcc:boot:user');
+const debug = debugFactory('rrcc:boot:user');
 const sendNonUserToMap = ifNoUserRedirectTo('/map');
 const certIds = {
   [certTypes.frontEnd]: frontEndChallengeId,
