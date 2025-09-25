@@ -1,6 +1,6 @@
 // enable debug for gulp
 /* eslint-disable prefer-object-spread/prefer-object-spread */
-require('dotenv').load();
+require('dotenv').config();
 
 process.env.DEBUG = process.env.DEBUG || 'fcc:*';
 

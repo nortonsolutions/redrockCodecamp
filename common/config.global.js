@@ -10,7 +10,7 @@ exports.brandingConfigs = {
     'redrockcode.com': {
         logoPath: '/images/logos/logo-landscape.png',
         businessName: 'Red Rock Code Camp',
-        businessAppName: 'Learning Platform',
+        businessAppName: 'RedRockCode Academy',
         brandColor: '#3498db',
         homeUrl: 'https://redrockcode.com'
     },
