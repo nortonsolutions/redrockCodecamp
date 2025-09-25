@@ -5,6 +5,7 @@ const serverConfig = require('../config.global');
  * This provides consistent access with fallbacks for client components.
  */
 
+// Default export for easier import in React components
 export default function getBranding() {
     // Get branding data from window state set by express-state
     let branding;
@@ -22,5 +23,7 @@ export default function getBranding() {
         homeUrl: 'http://localhost:3000'
     };
     return branding;
-    
 }
+
+// For backward compatibility
+exports.getBranding = getBranding;

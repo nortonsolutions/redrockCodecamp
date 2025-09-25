@@ -31,7 +31,7 @@ import {
 } from './redux';
 import { isSignedInSelector, signInLoadingSelector } from '../redux';
 import { panesSelector } from '../Panes/redux';
-import getBranding from '../../utils/branding';
+import getBranding from '../../utils/branding.js';
 
 
 const fCClogo = 'https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg';

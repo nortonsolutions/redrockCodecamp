@@ -5,7 +5,7 @@ import { createSelector } from 'reselect';
 
 import { Button, Row, Col } from 'react-bootstrap';
 import FA from 'react-fontawesome';
-import getBranding from '../../../utils/branding';
+import getBranding from '../../../utils/branding.js';
 
 import LockedSettings from './Locked-Settings.jsx';
 import JobSettings from './Job-Settings.jsx';
