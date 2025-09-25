@@ -202,7 +202,7 @@ gulp.task('serve', function(cb) {
 
   const monitor = nodemon({
     script: paths.server,
-    ext: '.jsx .js .json',
+    ext: '.jsx .js .json .jade',
     ignore: paths.serverIgnore,
     exec: path.normalize('node_modules/.bin/babel-node ' + inspect),
     env: {
