@@ -31,6 +31,7 @@ import {
 } from './redux';
 import { isSignedInSelector, signInLoadingSelector } from '../redux';
 import { panesSelector } from '../Panes/redux';
+import getBranding from '../../utils/branding';
 
 
 const fCClogo = 'https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg';
@@ -194,6 +195,13 @@ export class FCCNav extends React.Component {
       showLoading
     } = this.props;
 
+    const brand = getBranding() || {
+      businessAppName: 'RedRock Portal [changeme]',
+      businessName: 'RedRock Portal [changeme]',
+      logoPath: '/images/logos/logo-landscape.png',
+      homeUrl: '/'
+    };
+
     const shouldShowMapButton = panes.length === 0;
     return (
       <Navbar
@@ -206,14 +214,15 @@ export class FCCNav extends React.Component {
             <Navbar.Toggle children={'Menu'} />
             <NavbarBrand>
               <a
-                href='https://redrockcode.com/'
+                href={brand.homeUrl || '/'}
+                title={brand.businessAppName}
                 target='_blank'
               >
                 <Image
                   className='nav-logo'
                   alt='logo'
-                  title='RedRock Portal'
-                  src='/images/logos/logo-landscape.png'
+                  title={brand.businessName || 'RedRock Portal'} 
+                  src={brand.logoPath || '/images/logos/logo-landscape.png'}
                 />                
               </a>
             </NavbarBrand>
@@ -224,7 +233,7 @@ export class FCCNav extends React.Component {
                 onClick={clickOnLogo}
               >
                 <p>
-                  {process.env.businessAppName}
+                  {brand.businessAppName}
                 </p>
               </a>
             </NavbarBrand>

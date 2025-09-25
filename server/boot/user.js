@@ -30,11 +30,10 @@ import {
 import supportedLanguages from '../../common/utils/supported-languages';
 import { getChallengeInfo, cachedMap } from '../utils/map';
 import settings from '../utils/constantStrings.json';
+import globalConfig from '../../common/config.global';
 
-const isSignUpDisabled = process.env.DISABLE_SIGNUP === 'true';
-const isBridgesCodeCamp = (process.env.BUSINESS_NAME === "Bridges");
-const businessAppName = process.env.BUSINESS_NAME + " " + process.env.APP_NAME;
-const directorName = process.env.DIRECTOR_NAME;
+const isSignUpDisabled = globalConfig.settings.isSignUpDisabled;
+const directorName = globalConfig.settings.directorName;
 
 const debug = debugFactory('fcc:boot:user');
 const sendNonUserToMap = ifNoUserRedirectTo('/map');
@@ -634,17 +633,11 @@ module.exports = function (app) {
       req.flash('info', {
         msg: 'New sign ups are disabled'
       });
-      if(isBridgesCodeCamp){
-        return res.render('account/signup-disabled', {
-          title: 'New sign ups are disabled'
-        });
-      }
-
       return res.redirect('/');
     }
 
     res.render('account/signup', {
-      title: `Create a new ${ businessAppName } account`,
+      title: `Create a new ${ globalConfig.branding.businessAppName } account`,
       flashMessage: req.flashMessage,
       email: req.body.email,
       name: req.body.name,

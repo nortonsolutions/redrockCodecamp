@@ -30,7 +30,7 @@ const app = loopback();
 const isBeta = !!process.env.BETA;
 
 expressState.extend(app);
-app.set('state namespace', '__fcc__');
+app.set('state namespace', '__redrockcode__');
 console.log('port is ' + process.env.PORT)
 app.set('port', process.env.PORT || 3030);
 app.set('views', path.join(__dirname, 'views'));

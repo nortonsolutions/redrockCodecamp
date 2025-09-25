@@ -22,18 +22,18 @@ import {
 const isDev = Rx.config.longStackSupport = debug.enabled('fcc:*');
 const log = debug('fcc:client');
 const hotReloadTimeout = 2000;
-const { csrf: { token: csrfToken } = {} } = window.__fcc__;
+const { csrf: { token: csrfToken } = {} } = window.__redrockcode__ || {};
 const DOMContainer = document.getElementById('fcc');
 const defaultState = isColdStored() ?
   getColdStorage() :
-  window.__fcc__.data;
+  window.__redrockcode__.data;
 const primaryLang = getLangFromPath(window.location.pathname);
 
 defaultState.app.csrfToken = csrfToken;
-defaultState.toasts = flashToToast(window.__fcc__.flash);
+defaultState.toasts = flashToToast(window.__redrockcode__.flash);
 
 // make empty object so hot reload works
-window.__fcc__ = {};
+window.__redrockcode__ = {};
 
 const serviceOptions = { xhrPath: '/services', context: { _csrf: csrfToken } };
 

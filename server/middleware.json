@@ -43,7 +43,8 @@
     "./middlewares/cookie-parser": {}
   },
   "parse:after": {
-    "./middlewares/validator": {}
+    "./middlewares/validator": {},
+    "./middlewares/domain-branding": {}
   },
   "routes:before": {
     "express-flash": {},

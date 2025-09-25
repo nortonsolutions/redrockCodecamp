@@ -52,9 +52,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(__DEV__ ? 'development' : 'production'),
-        businessName: JSON.stringify(process.env.BUSINESS_NAME),
-        appName: JSON.stringify(process.env.APP_NAME),
-        businessAppName: JSON.stringify(process.env.BUSINESS_NAME + " " + process.env.APP_NAME),
+        // Removed static branding - now using dynamic domain-based branding via middleware
         isTrialMode: JSON.stringify(process.env.IS_TRIAL_MODE === 'true'),
         hasLocation: JSON.stringify(process.env.HAS_LOCATION === 'true')
       },
