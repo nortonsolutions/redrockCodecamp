@@ -1,0 +1,10 @@
+[Unit]
+Description=Redrock Codecamp
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+WorkingDirectory=/home/dave/projects/redrockCodecamp
+ExecStart=/home/dave/projects/redrockCodecamp/systemdStart
+[Install]
+WantedBy=multi-user.target
