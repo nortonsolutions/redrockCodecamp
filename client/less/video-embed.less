@@ -1,0 +1,33 @@
+/* Additional styles for video embedding */
+.video-container {
+  width: 640px; /* Fixed width */
+  max-width: 100%; /* Ensures responsiveness on smaller screens */
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Ensures the video container is centered */
+.row.text-center .video-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style for the video element and poster image */
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 360px; /* Maintains 16:9 aspect ratio with 640px width */
+  background-color: #000; /* Black background for letterboxing */
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}

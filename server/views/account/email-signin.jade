@@ -1,33 +1,62 @@
 extends ../layout
 block content
-    .container
-        .row
-          if flashMessage
-            .col-sm-6.col-sm-offset-3.flashMessage.negative-30
-                  #flash-board.alert.alert-success.fade.in()
-                      button.close(type='button', data-dismiss='alert')
-                          span.ion-close-circled#flash-close
-                      #flash-content #{flashMessage}
-                      
+        .container.auth-wrapper
+                // Inline page-specific styles (kept minimal)
+                style.
+                    .auth-wrapper {font-size:13px;}
+                    .signin-layout {margin-top:18px; display:flex; flex-wrap:wrap; gap:28px;}
+                    .signin-layout .media-col, .signin-layout .form-col {display:flex; flex-direction:column;}
+                    @media (max-width: 991px){ .signin-layout {flex-direction:column;} }
+                    .video-section {font-size:12px;}
+                    .video-section h3.media-heading {font-size:14px; font-weight:600; margin:0 0 6px;}
+                    .video-container {max-width:420px; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.12); margin-bottom:8px;}
+                    .video-container video {display:block; width:100%; height:auto; background:#000;}
+                    .inline-link {font-size:12px; text-decoration:none; color:#2563eb;}
+                    .inline-link:hover {text-decoration:underline;}
+                    .form-panel {max-width:400px;}
+                    .signin-title {font-size:20px; font-weight:600; margin:0 0 4px;}
+                    .signin-tagline {font-size:12px; color:#6b7280; margin:0 0 14px;}
+                    .auth-form label.small-label {font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:#374151; margin-bottom:3px; display:block;}
+                    .auth-form .form-control {height:38px; font-size:13px; padding:6px 10px; max-width:300px;}
+                    .auth-form .form-group {margin-bottom:14px;}
+                    #magic-btn {font-size:13px; font-weight:600; letter-spacing:.3px; padding:9px 14px; max-width:300px;}
+                    .alt-signup {margin:28px 0 20px; font-size:11px; text-align:center;}
+                    .alt-signup a {font-size:12px; font-weight:200; color:#2563eb; text-decoration:none;}
+                    .alt-signup a:hover {text-decoration:underline;}
+                    .auth-flash {font-size:12px;}
+                if flashMessage
+                    .row
+                        .col-sm-8.col-sm-offset-2.auth-flash
+                            #flash-board.alert.alert-success.fade.in()
+                                button.close(type='button', data-dismiss='alert')
+                                    span.ion-close-circled#flash-close
+                                #flash-content #{flashMessage}
 
-        .row
-          .text-center
-            h2 Sign in:
-              .button-spacer
-          .col-sm-6.col-sm-offset-3
-              form(method='POST', action='/signin')
-                  input(type='hidden', name='_csrf', value=_csrf)
-                  .form-group
-                      input.input-lg.form-control(type='email', name='email', id='email', value='#{email ? email : ""}', placeholder='Email', autofocus=true, required)
-                  .form-group
-                      input.input-lg.form-control(type='password', name='password', id='password', value='#{password ? password : ""}', placeholder='Password', required) 
-                  .button-spacer
-                  button#magic-btn.btn.btn-primary.btn-lg.btn-block(type='submit')
-                    span Sign in
 
-        if !settings.isSignUpDisabled
-            .row
-                .text-center
-                    h3 Or
-                    h2
-                        a(href='/create-account', style='font-weight:normal;font-size:inherit') Sign Up here 
+                .row
+
+                    .col-md-6.col-sm-12.media-col
+                        .video-section
+                            .video-container
+                                video(width='100%' height='360' autoplay loop muted playsinline)
+                                    source(src='/assets/videos/midjourney_redrockcode_spinning_mountain_range.mp4', type='video/mp4')
+                                    | Your browser does not support the video tag.
+                            a.inline-link(href='/assets/videos/redrockcode_intro_1.mp4' target='_blank') Full introduction video
+
+                    .col-md-6.col-sm-12.form-col.signin-layout
+                        .form-panel
+                            form.auth-form(method='POST', action='/signin')
+                                input(type='hidden', name='_csrf', value=_csrf)
+                                .form-group(style='padding-top:16px;')
+                                    label.small-label(for='email') Email
+                                    input.form-control(type='email', name='email', id='email', value='#{email ? email : ""}', placeholder='you@example.com', autofocus=true, required)
+                                .form-group
+                                    label.small-label(for='password') Password
+                                    input.form-control(type='password', name='password', id='password', placeholder='••••••••', required)
+                                button#magic-btn.btn.btn-primary.btn-block(type='submit') Sign In
+                        
+                                .alt-signup
+                                    if !settings.isSignUpDisabled
+
+                                        span New here?
+                                        a(href='/create-account')   Sign up!
