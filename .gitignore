@@ -55,7 +55,8 @@ public/js/faux*
 public/js/frame-runner*
 public/css/main*
 public/docs/*
-public/assets/*
+config/*
+
 public/educationMaterials/*
 public/resources/*
 
