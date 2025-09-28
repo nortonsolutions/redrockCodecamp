@@ -637,7 +637,7 @@ module.exports = function (app) {
     }
 
     res.render('account/signup', {
-      title: `Create a new ${ globalConfig.branding.businessAppName } account`,
+      title: `Create a new ${ res.locals.branding.businessAppName } account`,
       flashMessage: req.flashMessage,
       email: req.body.email,
       name: req.body.name,
