@@ -9,8 +9,8 @@ exports.restApiUrl = exports.restApiRoot;
 exports.brandingConfigs = {
     'redrockcode.com': {
         logoPath: '/images/logos/logo-landscape.png',
-        businessName: 'Red Rock Code Camp',
-        businessAppName: 'RedRockCode Academy',
+        businessName: 'redrockcode.com (subsididary of Silver Medal NFPO)',
+        businessAppName: 'redrockcode Academy',
         brandColor: '#3498db',
         homeUrl: 'https://redrockcode.com'
     },
@@ -23,8 +23,8 @@ exports.brandingConfigs = {
     },
     'localhost': { 
         logoPath: '/images/logos/logo-landscape.png',
-        businessName: 'RedRockCode Local',
-        businessAppName: 'Dev Platform',
+        businessName: 'redrockcode.com, subsidiary of Silver Medal NFPO',
+        businessAppName: 'redrockcode eev Platform',
         brandColor: '#2ecc71',
         homeUrl: 'http://localhost:3000'
     }
