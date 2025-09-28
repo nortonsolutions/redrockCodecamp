@@ -719,7 +719,7 @@ module.exports = function (app) {
     }
 
     return res.render('account/email-signin', {
-      title: 'Sign in using your Email Address',
+      title: res.locals.branding.businessAppName + ' Sign In',
       flashMessage: req.flashMessage,
       email: req.body.email,
       password: req.body.password,
