@@ -17,7 +17,7 @@ exports.brandingConfigs = {
     'codebasecamp.org': {
         logoPath: '/images/logos/logo-landscape.png',
         businessName: 'Code Base Camp',
-        businessAppName: 'Code Academy Platform',
+        businessAppName: 'CodeBaseCamp Academy',
         brandColor: '#e74c3c',
         homeUrl: 'https://codebasecamp.org'
     },
