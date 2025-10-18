@@ -35,21 +35,20 @@ Visit us at [RedrockCode.com](https://redrockcode.com) to learn more about our p
 
 ## By working through our curriculum, you can earn RedRock CodeCamp certifications:
 
-
 #### 1. Responsive Web Design Certification (Terms 1-2):
+
 ##### Beginning and Advanced HTML/CSS
 
 Master the fundamentals of web development with HTML5, CSS3, and responsive design principles. Learn to create beautiful, accessible websites that work across all devices.  Starts with a fun series of webpages about cats --
 
-![Cat Finder!](https://redrockcode.com/assets/images/redrockcode_full_cat_photo_finder_interface.jpg)
+![Cat Finder!](https://redrockcode.com/assets/images/redrockcode_full_cat_photo_finder_interface.png)
 
 **Skills you'll master:** `HTML5`, `CSS3`, `Flexbox`, `CSS Grid`, `Layout`, `Responsive Design`, `Accessibility`, `Applied Visual Design`, `Development Principles`
 
 **Projects:** Build 8 pages and 5 responsive web projects that demonstrate your mastery of modern web standards.
 
-
-
 #### 2. JavaScript Algorithms and Data Structures (Terms 3-4)
+
 ##### Beginning and Advanced JavaScript
 
 Advance your skills with interactive web applications using modern JavaScript and popular frameworks.  Classic patterns and frameworks that will not go out of style!  Keep AI in check with your general know-how.
@@ -62,9 +61,8 @@ Advance your skills with interactive web applications using modern JavaScript an
 
 [Click here](https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-08-animate-icons-b8359ae015dc9d5d3f60a85a/alternate2/index.html) for a sample student project; keep in mind that this project teaches principles of object-oriented programming, starting with animating objects represented by text characters to keep it easy, then advancing to graphics.
 
-
-
 #### 3. Front End Development Certification (Terms 5-6)
+
 ##### Beginning and Advanced Web Development
 
 After this track, you can call yourself a real WEB DEVELOPER, because you will have mastered concepts related to the core JavaScript and TypeScript APIs available in the browser.
@@ -77,8 +75,6 @@ After this track, you can call yourself a real WEB DEVELOPER, because you will h
 
 ![Bluesky](https://redrockcode.com/assets/images/redrockcode_bluesky_project_responsive_web_capstone.png)
 
-
-
 #### 4. Front End Libraries Certification (Term 7)
 
 Deep dive into jQuery and React development with state and store management with industry-standard tools and practices.  The certification represents approximately 200 hours of coursework in frameworks including jQuery and React and foundational state and store management via Redux and Thunk.
@@ -88,17 +84,13 @@ Deep dive into jQuery and React development with state and store management with
 Simple implementation of the [Drum Machine!](https://jsbin.redrockcode.com/tim) using early React; nearly finished student sample passing 8/8 Mocha tests:
 [JavaScript Calculator](https://jsbin.redrockcode.com/hey), another student sample, very well done with 16/16 Mocha tests passing:
 
-
-
 #### 5. Data Visualization Certification (Term 7, part 2)
 
 Learn to transform data into compelling visual stories using cutting-edge visualization libraries.
 
 **Skills you'll master:** `D3.js`, `JSON APIs`, `Data Processing`, `SVG`, `Chart Libraries`
 
-**Projects:** Build 5 data visualization projects that bring datasets to life.  For example, check out the student sample of a ["Chloropleth Map"](https://codepen.io/freeCodeCamp/full/EZKqza) in D3, from the original FCC collection:
-
-
+**Projects:** Build 5 data visualization projects that bring datasets to life.  For example, check out the student sample of a [&#34;Chloropleth Map&#34;](https://codepen.io/freeCodeCamp/full/EZKqza) in D3, from the original FCC collection:
 
 #### 6. APIs and Microservices Certification (Term 8)
 
@@ -106,19 +98,17 @@ Build robust server-side applications and APIs using Node.js and modern database
 
 **Skills you'll master:** `Node.js`, `Express.js`, `MongoDB`, `RESTful APIs`, `Authentication`
 
-**Projects:** Create 5 backend applications with database integration and user authentication, including a Timestamp Microservice, an Exercise Tracker, and a File Metadata Microservice. 
-
-
+**Projects:** Create 5 backend applications with database integration and user authentication, including a Timestamp Microservice, an Exercise Tracker, and a File Metadata Microservice.
 
 #### 7. Advanced Server-side Development (Term 9)
+
 ##### InfoSec, QA/Test, Advanced Node and Express
+
 Apply all your skills in real-world scenarios through client projects and advanced portfolio development.
 
 **Experience you'll gain:** Client communication, project management, deployment, and maintenance of production applications.
 
 **Projects:** Complete five more projects with your client (RRC), and maintain/upgrade existing applications.
-
-
 
 ---
 
@@ -132,7 +122,7 @@ This platform is actively maintained and operated by RedRock CodeCamp. We provid
 - **Job Placement Services**: Career support and local employer connections
 - **Open Source Contributions**: Opportunities to contribute to real projects
 
-### [Join our community at RedrockCode.com](https://redrockcode.com)
+### [Join our community at RedrockCode.com](https://redrockcode.com/create-account)
 
 ## Technology Stack & Development
 
@@ -165,7 +155,7 @@ License
 -------
 
 Copyright (c) 2018 freeCodeCamp (original platform)
-Copyright (c) 2024 RedRock CodeCamp (platform extensions and customizations)
+Copyright (c) -2025 RedRock CodeCamp (platform extensions and customizations)
 
 The content of this repository is bound by the following LICENSE(S):
 
