@@ -12,19 +12,29 @@ block content
             margin: 0;
             padding: 0;
         }
+        video {width: auto; height: 100%; display: flex; justify-content: center; align-items: center; background-color: #000;}
+        
         .media-col, .form-col {display: flex; flex-direction: column; align-items: center; justify-content: center;}
         .video-container {border-radius: 8px; overflow: hidden; display: flex; justify-content: center; align-items: center; width: 100%; min-height: 360px; max-width: 540px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);}
-        video {width: auto; height: 100%; display: block;}
         .video-section {display: flex; flex-direction: column; align-items: center;}
-        .inline-link {color: #2563eb; display: block; text-align: center; margin-top: 10px; font-size: 12px;}
+        
         .form-panel {display: flex; flex-direction: column; align-items: center;}
         .form-control {text-align: center; width: 270px; background-color: #10161b; border-color: #444; color: #fff; border-radius: 4px; height: 36px;}
-        .form-control:hover { cursor: pointer; }
+        .form-control:hover { cursor: pointer; color: #fff; border-color: #2563eb; }
+        
         .auth-form label {color: #ccc; font-size: 10px; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 5px;}
+        
         #magic-btn {background-color: #2563eb; border: none; border-radius: 4px; padding: 0px 8px; width: 260px;}
+        
         .alt-signup {text-align: center; margin-top: 20px; font-size: 12px;}
         .alt-signup a {color: #2563eb;}
-
+        
+        .inline-link {color: #2563eb; display: block; text-align: center; margin-top: 10px; font-size: 12px;}
+        .inline-link.active {
+            background-color: #1a365d;
+            border-color: #2563eb;
+            color: white;
+        }
     .container(style='padding-top:28px; min-height:calc(100vh - 160px); background-color: #10161b; color: #fff; width: 100%; height: 100%;')
 
         if flashMessage
@@ -44,8 +54,8 @@ block content
                         video#redrockMainVideo(width='100%' height='360' autoplay loop muted playsinline controls)
                             source(src='/assets/videos/midjourney_redrockcode_spinning_mountain_range.mp4', type='video/mp4')
                             | Your browser does not support the video tag.
-                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' target='javascript:void(0)')  2 minutes: Introduction to Redrock Code
-                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' target='javascript:void(0)') 14 minutes: What will I learn?
+                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction to Redrock Code
+                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 14 minutes: What will I learn?
                     span.small(style='color:#666; margin-top:8px;') * Click links for a preview with project samples! *
             .col-md-6.col-sm-12.form-col
                 .form-panel
@@ -73,12 +83,16 @@ block content
             videoLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    
+                    videoLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
                     const videoSrc = this.getAttribute('data-video');
                     videoPlayer.querySelector('source').src = videoSrc;
                     videoPlayer.load();
                     videoPlayer.play();
-                    // Remove mute when playing instructional videos
                     videoPlayer.muted = false;
                 });
             });
         });
+
