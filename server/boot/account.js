@@ -17,17 +17,17 @@ module.exports = function (app) {
 
 	router.get('/account/membership-level',
 		(req, res) => {
+			res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
+			res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
 			res.render('account/membership-level', {
-				title: 'Membership Level',
-				membershipTier: req.user.membershipTier || 'Free'
+				title: 'Membership Level'
 			})
 		}
 	);
 
 	api.get('/settings/membership', ensureAuthed, function(req, res) {
-		res.render('account/membership-level', {
-		title: 'Membership Settings'
-		});
+		// don't render the template directly but redirect to /account/membership-level
+		res.redirect('/account/membership-level');
 	});
 
 	function ensureAuthed(req, res, next) {

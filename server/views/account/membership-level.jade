@@ -53,14 +53,12 @@ block content
   .container
     .row
       .col-xs-12
-        h1.text-center Membership Settings
+        h1.text-center Membership Settings - #{membershipTier}
         
-        if user && user.membership
-          - var tierNames = { 'copper-top': '🥉 Copper-Top (Free)', 'silver-hat': '🥈 Silver-Hat ($9.99/mo)', 'gold-star': '⭐ Gold-Star ($19.99/mo)' };
-          - var currentTier = user.membership.tier || 'copper-top';
-          - var tierClass = currentTier.split('-')[0];
+        if membershipTier
+          - var tierClass = membershipTier.split('-')[0];
           p.text-center(style='margin: 20px 0') Current plan: 
-            span(class='pill ' + tierClass)= tierNames[currentTier]
+            span(class='pill ' + tierClass)= tierNames[membershipTier]
 
     .row(style='margin-top: 30px')
       .col-sm-8.col-sm-offset-2
@@ -100,10 +98,10 @@ block content
           .form-group
             label(for='tierSelector') Select a new tier
             select#tierSelector.form-control
-              option(value='', disabled, selected=(currentTier==='')) -- Choose tier --
-              option(value='copper-top', selected=(currentTier==='copper-top')) 🥉 Copper-Top (Free)
-              option(value='silver-hat', selected=(currentTier==='silver-hat')) 🥈 Silver-Hat ($9.99/month)
-              option(value='gold-star', selected=(currentTier==='gold-star')) ⭐ Gold-Star ($19.99/month)
+              option(value='', disabled, selected=(membershipTier==='')) -- Choose tier --
+              option(value='copper-top', selected=(membershipTier==='copper-top')) 🥉 #{tierNames['copper-top']}
+              option(value='silver-hat', selected=(membershipTier==='silver-hat')) 🥈 #{tierNames['silver-hat']}
+              option(value='gold-star', selected=(membershipTier==='gold-star')) ⭐ #{tierNames['gold-star']}
             p#tierMsg.text-muted
 
           #paymentSection(style='display:none; margin-top: 20px')
@@ -119,7 +117,7 @@ block content
               button#cancelBtn.btn.btn-danger(type='button') Cancel Subscription
 
   script.
-    var currentTier = '#{user && user.membership ? user.membership.tier : "copper-top"}';
+    var membershipTier = '#{membershipTier || "copper-top"}';
     var rank = { 'copper-top': 0, 'silver-hat': 1, 'gold-star': 2 };
 
     function updateUI() {
@@ -133,7 +131,7 @@ block content
         return;
       }
 
-      var diff = rank[tier] - rank[currentTier];
+      var diff = rank[tier] - rank[membershipTier];
       
       if (diff > 0) {
         msg.textContent = 'This is an upgrade. Complete payment below.';
