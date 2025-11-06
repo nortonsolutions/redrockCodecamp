@@ -81,7 +81,7 @@ block content
             .col-md-6.col-sm-12.form-col
                 .video-section
                     .video-container
-                        video#redrockMainVideo(autoplay loop muted playsinline controls)
+                        video#redrockMainVideo(autoplay loop muted playsinline)
                             source(src='/assets/videos/midjourney_redrockcode_spinning_mountain_range.mp4', type='video/mp4')
                             | Your browser does not support the video tag.
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction to Redrock Code
@@ -127,10 +127,10 @@ block content
 
                     videoPlayer.oncanplay = () => {
                         videoPlayer.muted = false;
+                        videoPlayer.controls = true;
                         videoPlayer.play();
                         videoPlayer.oncanplay = null;
                     };
                 });
             });
         });
-

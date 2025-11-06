@@ -56,7 +56,7 @@ export default function reactSubRouter(app) {
       serviceOptions,
       middlewares,
       enhancers: [
-        devtoolsEnhancer({ name: 'server' })
+        // devtoolsEnhancer({ suppressConnectErrors: true })
       ],
       history: createMemoryHistory({ initialEntries: [ req.originalUrl ] }),
       defaultStaet: { app: { lang } }

@@ -185,6 +185,16 @@ export class Settings extends React.Component {
                 bsSize='lg'
                 bsStyle='primary'
                 className='btn-link-social'
+                href={ '/account/membership-level' }
+                >
+                <FA name='star' />
+                Manage My Membership Level
+              </Button>
+              <Button
+                block={ true }
+                bsSize='lg'
+                bsStyle='primary'
+                className='btn-link-social'
                 href={ '/signout' }
                 onClick={ () => localStorage.clear() }
                 >
