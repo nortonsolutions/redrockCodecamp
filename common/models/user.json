@@ -269,6 +269,21 @@
         }
       },
       "default": {}
+    },
+    "membership": {
+      "type": "object",
+      "default": {
+        "tier": "copper-top",
+        "status": "active",
+        "recurrence": "none",
+        "startDate": null,
+        "endDate": null,
+        "lastChargedAt": null,
+        "nextChargeAt": null,
+        "provider": null,
+        "subscriptionId": null,
+        "meta": {}
+      }
     }
   },
   "validations": [],
@@ -344,6 +359,13 @@
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "requestAuthEmail"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "setMembershipLevel"
     }
   ],
   "methods": {}

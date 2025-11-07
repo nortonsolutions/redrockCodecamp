@@ -1,0 +1,253 @@
+extends ../layout
+
+block content
+  style.
+    .tier-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .tier-card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .payment-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      margin: 10px 0;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: #17a2b8;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .pill.copper { background: #cd7f32; }
+    .pill.silver { background: #c0c0c0; color: #333; }
+    .pill.gold { background: #ffd700; color: #333; }
+    #tierMsg {
+      margin-top: 10px;
+      font-size: 14px;
+      min-height: 20px;
+    }
+    .feature-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 15px 0;
+    }
+    .feature-list li:before {
+      content: "✓ ";
+      color: #28a745;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+  .container
+    .row
+      .col-xs-12
+        h1.text-center Membership Settings - #{membershipTier}
+        
+        if membershipTier
+          - var tierClass = membershipTier.split('-')[0];
+          p.text-center(style='margin: 20px 0') Current plan: 
+            span(class='pill ' + tierClass)= tierNames[membershipTier]
+
+    .row(style='margin-top: 30px')
+      .col-sm-8.col-sm-offset-2
+        .tier-card
+          h3 Membership Tiers
+          
+          .row(style='margin-bottom: 20px')
+            .col-sm-4
+              h4.text-center 🥉 Copper-Top
+              p.text-center.text-muted Free Forever
+              ul.feature-list
+                li All challenges
+                li Community forum
+                li Certificates
+            
+            .col-sm-4
+              h4.text-center 🥈 Silver-Hat
+              p.text-center.text-primary $9.99/month
+              ul.feature-list
+                li Everything in Copper
+                li Advanced modules
+                li Email support
+                li Live webinars
+            
+            .col-sm-4
+              h4.text-center ⭐ Gold-Star
+              p.text-center.text-warning $19.99/month
+              ul.feature-list
+                li Everything in Silver
+                li Phone support
+                li 1-on-1 consulting
+                li Priority features
+
+          hr
+
+          h3 Change Membership
+          .form-group
+            label(for='tierSelector') Select a new tier
+            select#tierSelector.form-control
+              option(value='', disabled, selected=(membershipTier==='')) -- Choose tier --
+              option(value='copper-top', selected=(membershipTier==='copper-top')) 🥉 #{tierNames['copper-top']}
+              option(value='silver-hat', selected=(membershipTier==='silver-hat')) 🥈 #{tierNames['silver-hat']}
+              option(value='gold-star', selected=(membershipTier==='gold-star')) ⭐ #{tierNames['gold-star']}
+            p#tierMsg.text-muted
+
+          #paymentSection(style='display:none; margin-top: 20px')
+            h4 Choose Payment Method
+            .payment-card
+              h5 💳 Credit Card (Stripe)
+              p.text-muted Secure payment processing
+              button#stripePayBtn.btn.btn-primary.btn-lg.btn-block(type='button') Continue to Checkout
+
+          if user.membership && user.membership.subscriptionId && user.membership.status === 'active'
+            hr
+            .text-center(style='margin-top: 20px')
+              button#cancelBtn.btn.btn-danger(type='button') Cancel Subscription
+
+  script.
+    var membershipTier = '#{membershipTier || "copper-top"}';
+    var rank = { 'copper-top': 0, 'silver-hat': 1, 'gold-star': 2 };
+
+    function updateUI() {
+      var tier = document.getElementById('tierSelector').value;
+      var msg = document.getElementById('tierMsg');
+      var pay = document.getElementById('paymentSection');
+
+      if (!tier) {
+        msg.textContent = '';
+        pay.style.display = 'none';
+        return;
+      }
+
+      var diff = rank[tier] - rank[membershipTier];
+      
+      if (diff > 0) {
+        msg.textContent = 'This is an upgrade. Complete payment below.';
+        msg.className = 'text-info';
+        pay.style.display = 'block';
+      } else if (diff === 0) {
+        msg.textContent = 'This is your current plan.';
+        msg.className = 'text-muted';
+        pay.style.display = 'none';
+      } else {
+        msg.innerHTML = 'Difficulties?  Please call 801-259-2855 or <a href="mailto:dave@silvermedal.cc">Email Dave</a>.<br><small>Sorry for the inconvenience; let us know and we will fix it quickly.</small>';
+        msg.className = 'text-warning';
+        pay.style.display = 'none';
+      }
+    }
+
+    document.getElementById('tierSelector').addEventListener('change', updateUI);
+    updateUI();
+
+    // Stripe checkout
+    document.getElementById('stripePayBtn').addEventListener('click', function() {
+      var tier = document.getElementById('tierSelector').value;
+      if (!tier || tier === 'copper-top') {
+        return alert('Please select a paid tier.');
+      }
+
+      var btn = this;
+      btn.disabled = true;
+      btn.textContent = 'Loading...';
+
+      fetch('/api/stripe/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ tier: tier })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.url) {
+          console.log(`Redirecting to ${data.url}`);
+          window.location.href = data.url;
+        } else {
+          alert('Error: ' + (data.error || 'Unknown error'));
+          //- debugger;
+          btn.disabled = false;
+          btn.textContent = 'Continue to Checkout';
+        }
+      })
+      .catch(function(err) {
+        alert('Payment failed: ' + err.message);
+        btn.disabled = false;
+        btn.textContent = 'Continue to Checkout';
+      });
+    });
+
+    // Cancel subscription
+    var cancelBtn = document.getElementById('cancelBtn');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', function() {
+        if (!confirm('Are you sure you want to cancel your subscription? You will retain access until the end of your billing period.')) {
+          return;
+        }
+
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = 'Canceling...';
+
+        fetch('/api/stripe/cancel-subscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin'
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            alert('✓ Subscription canceled. You will retain access until the end of your billing period.');
+            location.reload();
+          } else {
+            alert('Error: ' + (data.error || 'Unknown error'));
+            btn.disabled = false;
+            btn.textContent = 'Cancel Subscription';
+          }
+        })
+        .catch(function(err) {
+          alert('Cancellation failed: ' + err.message);
+          btn.disabled = false;
+          btn.textContent = 'Cancel Subscription';
+        });
+      });
+    }
+
+    // Show success/error messages from URL params
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      
+      if (params.get('success') === 'true') {
+        var tier = params.get('tier') || 'your new membership';
+        alert('✓ Thank you! Your ' + tier + ' membership is now active.');
+        window.history.replaceState({}, document.title, '/settings/membership');
+      }
+      
+      if (params.get('canceled') === 'true') {
+        alert('Payment was canceled. Your membership has not changed.');
+        window.history.replaceState({}, document.title, '/settings/membership');
+      }
+
+      var error = params.get('error');
+      if (error) {
+        var errorMsgs = {
+          'no_session': 'Invalid session. Please try again.',
+          'not_paid': 'Payment was not completed. Please try again.',
+          'wrong_user': 'Session mismatch. Please log in and try again.',
+          'save_failed': 'Failed to update your account. Please contact support.',
+          'stripe_error': 'Payment verification failed. Please contact support.'
+        };
+        alert('Error: ' + (errorMsgs[error] || 'An unknown error occurred.'));
+        window.history.replaceState({}, document.title, '/settings/membership');
+      }
+    })();

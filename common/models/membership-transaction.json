@@ -1,0 +1,121 @@
+{
+  "name": "MembershipTransaction",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true,
+      "index": true,
+      "description": "Reference to User.id"
+    },
+    "parentUserId": {
+      "type": "string",
+      "index": true,
+      "description": "For sub-accounts or organization licenses"
+    },
+    "siteId": {
+      "type": "string",
+      "index": true,
+      "description": "Identifier for multi-site deployments (e.g., 'redrock', 'silvermedal')"
+    },
+    "tier": {
+      "type": "string",
+      "required": true,
+      "description": "copper-top, silver-hat, gold-star"
+    },
+    "level": {
+      "type": "number",
+      "required": true,
+      "description": "Numeric tier level (0, 1, 2, ...)"
+    },
+    "action": {
+      "type": "string",
+      "required": true,
+      "enum": ["upgrade", "downgrade", "renew", "cancel", "refund", "chargeback"],
+      "description": "Type of transaction"
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["stripe", "paypal", "venmo", "manual", null],
+      "description": "Payment processor"
+    },
+    "subscriptionId": {
+      "type": "string",
+      "description": "External subscription ID (Stripe sub_xxx, PayPal I-xxx)"
+    },
+    "transactionId": {
+      "type": "string",
+      "index": true,
+      "description": "External transaction ID (Stripe ch_xxx, PayPal txn_xxx)"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Amount charged in USD"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "enum": ["pending", "completed", "failed", "refunded"],
+      "default": "pending"
+    },
+    "recurrence": {
+      "type": "string",
+      "enum": ["monthly", "one-time", "none"],
+      "default": "monthly"
+    },
+    "startDate": {
+      "type": "date",
+      "description": "When this membership period starts"
+    },
+    "endDate": {
+      "type": "date",
+      "description": "When this membership period ends (null = ongoing)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Flexible key-value store for provider-specific data"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Admin notes or error messages"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
