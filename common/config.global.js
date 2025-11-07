@@ -10,7 +10,7 @@ exports.brandingConfigs = {
     'redrockcode.com': {
         logoPath: '/images/logos/logo-landscape.png',
         businessName: 'redrockcode.com (subsididary of Silver Medal NFPO)',
-        businessAppName: 'redrockcode Academy',
+        businessAppName: 'Redrock Academy',
         brandColor: '#3498db',
         homeUrl: 'https://redrockcode.com'
     },
@@ -24,7 +24,7 @@ exports.brandingConfigs = {
     'localhost': { 
         logoPath: '/images/logos/logo-landscape.png',
         businessName: 'redrockcode.com, subsidiary of Silver Medal NFPO',
-        businessAppName: 'redrockcode eev Platform',
+        businessAppName: 'Redrock Academy (DEV)',
         brandColor: '#2ecc71',
         homeUrl: 'http://localhost:3000'
     }
