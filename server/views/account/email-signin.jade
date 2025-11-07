@@ -1,94 +1,77 @@
 extends ../layout
 
-
 block content
     style.
         body {
-            background-color: #10161b;
-            color: #fff;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
+            background-color:#000;
+            color:#fff;
+            font-family:'Segoe UI', Arial, sans-serif;
+            width:100%; height:100%; margin:0; padding:0;
         }
-        
+        .container {
+            background-color:#000;
+        }
+        .video-section,
         .video-container {
-            border-radius: 8px;
-            overflow: hidden;
-            width: 100%;
-            height: 360px;
-            max-width: 540px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            position: relative;
-            background-color: #000;
-            margin: 0 auto 15px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
+            background-color:#000;
         }
-
+        .video-container {
+            border-radius:8px;
+            overflow:hidden;
+            width:100%;
+            height:360px;
+            max-width:540px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.6);
+            position:relative;
+            margin:0 auto 15px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
         video#redrockMainVideo {
-            width: auto;
-            height: 100%;
-            object-fit: contain;
-            max-height: 100%;
-            max-width: 100%;
-            display: block;
-
+            width:auto;
+            height:100%;
+            max-height:100%;
+            max-width:100%;
+            object-fit:contain;
+            display:block;
         }
-
-        .video-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
+        /* Darken blacks on the initial autoplay sequence */
+        video#redrockMainVideo.enhance-black {
+            filter:brightness(.75) contrast(1.35) saturate(.9);
         }
-        .media-col, .form-col {display: flex; flex-direction: column; align-items: center; justify-content: center;}
-        .video-section {display: flex; flex-direction: column; align-items: center;}
-        
-        .form-panel {display: flex; flex-direction: column; align-items: center;}
-        .form-control {text-align: center; width: 270px; background-color: #10161b; border-color: #444; color: #fff; border-radius: 4px; height: 36px;}
-        .form-control:hover { cursor: pointer; color: #fff; border-color: #2563eb; }
-        
-        .auth-form label {color: #ccc; font-size: 10px; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 5px;}
-        
-        #magic-btn {background-color: #2563eb; border: none; border-radius: 4px; padding: 0px 8px; width: 260px;}
-        
+        .form-control {
+            text-align:center;
+            width:270px;
+            background-color:#000;
+            border-color:#444;
+            color:#fff;
+            border-radius:4px;
+            height:36px;
+        }
+        .form-control:hover {cursor:pointer; color:#fff; border-color:#2563eb;}
+        .inline-link {color:#2563eb; display:block; text-align:center; margin-top:10px; font-size:12px; margin-left:auto; margin-right: auto;}
+        .inline-link.active {background-color:#1a365d; border-color:#2563eb; color:#fff;}
+        .external-link {color:#2563eb; display:block; text-align:center; margin-top:10px; font-size:12px; margin-left:auto; margin-right: auto;}
+        #magic-btn {background-color:#2563eb; border:none; border-radius:4px; padding:0 8px; width:270px;}
+
         .alt-signup {text-align: center; margin-top: 20px; font-size: 12px;}
         .alt-signup a {color: #2563eb;}
-        
-        .inline-link {color: #2563eb; display: block; text-align: center; margin-top: 10px; font-size: 12px;}
-        .inline-link.active {
-            background-color: #1a365d;
-            border-color: #2563eb;
-            color: white;
-        }
-    .container(style='padding-top:28px; min-height:calc(100vh - 160px); background-color: #10161b; color: #fff; width: 100%; height: 100%;')
 
-        if flashMessage
-            .row
-                .col-sm-8.col-sm-offset-2.auth-flash
-                    #flash-board.alert.alert-success.fade.in()
-                        button.close(type='button', data-dismiss='alert')
-                            span.ion-close-circled#flash-close
-                        #flash-content #{flashMessage}
-
+    .container(style='padding-top:28px; min-height:calc(100vh - 160px); color:#fff; width:100%; height:100%;')
 
         .row
-
             .col-md-6.col-sm-12.form-col
                 .video-section
                     .video-container
-                        video#redrockMainVideo(autoplay loop muted playsinline)
+                        // NOTE: no controls attribute; muted for autoplay
+                        video#redrockMainVideo.enhance-black(autoplay loop muted playsinline preload='auto' data-state='auto')
                             source(src='/assets/videos/midjourney_redrockcode_spinning_mountain_range.mp4', type='video/mp4')
                             | Your browser does not support the video tag.
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction to Redrock Code
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 14 minutes: What will I learn?
-                span.small(style='color:#666; margin-top:8px;') * Click links for a preview with project samples! *
-                a.span.small(style='color:#666; margin-top:8px;' target='_blank' href='https://silvermedal.online') * Click here to view a 3D game demo made with CodeCamp technology *
-            .col-md-6.col-sm-12.form-col
+                a.form-control.external-link(target='_blank' href='https://silvermedal.online' style='margin: auto; margin-top: 10px;') * Check out our game demo *
+            .col-md-6.col.sm-12.form-col
                 .form-panel
                     form.auth-form(method='POST', action='/signin')
                         input(type='hidden', name='_csrf', value=_csrf)
@@ -99,37 +82,64 @@ block content
                             label(for='password') Password
                             input.form-control(type='password', name='password', id='password', placeholder='••••••••', required)
                         button#magic-btn.btn.btn-primary.btn-block(type='submit') Sign In
-                
-                        .alt-signup
+                        div.alt-signup(style='width: 270px;')
                             if !settings.isSignUpDisabled
-
                                 span New here?
                                 a(href='/create-account')   Sign up!
 
     script.
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoLinks = document.querySelectorAll('.inline-link');
-            const videoPlayer = document.getElementById('redrockMainVideo');
-            
-            videoLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.inline-link');
+            const player = document.getElementById('redrockMainVideo');
+            const sourceEl = player.querySelector('source');
+
+            const QUEUE_AT_SECONDS = 4;
+            const queuedSrc = '/assets/videos/redrockcode_intro_0_1080.mp4';
+            let queuedLoaded = false;
+            let userSelected = false;
+
+            // Preload queued video (lazy-ish: create a fetch without blocking initial paint)
+            const preload = document.createElement('link');
+            preload.rel = 'preload';
+            preload.as = 'video';
+            preload.href = queuedSrc;
+            document.head.appendChild(preload);
+
+            player.addEventListener('timeupdate', () => {
+                if (!queuedLoaded && !userSelected && player.currentTime >= QUEUE_AT_SECONDS) {
+                    queuedLoaded = true;
+                    player.pause();
+                    sourceEl.src = queuedSrc;
+                    player.classList.remove('enhance-black'); // remove filter for queued video
+                    player.load();
+                    player.oncanplay = () => {
+                        player.play();
+                        player.oncanplay = null;
+                    };
+                }
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', e => {
                     e.preventDefault();
-                    
-                    videoLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    videoPlayer.pause();
-                    videoPlayer.currentTime = 0;
+                    userSelected = true;
+                    links.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
 
-                    const videoSrc = this.getAttribute('data-video');
-                    videoPlayer.querySelector('source').src = videoSrc;
-                    videoPlayer.load();
+                    // Remove darkening filter when user controls
+                    player.classList.remove('enhance-black');
 
-                    videoPlayer.oncanplay = () => {
-                        videoPlayer.muted = false;
-                        videoPlayer.controls = true;
-                        videoPlayer.play();
-                        videoPlayer.oncanplay = null;
+                    player.pause();
+                    player.currentTime = 0;
+                    sourceEl.src = link.getAttribute('data-video');
+                    player.classList.remove('enhance-black');
+                    player.removeAttribute('loop'); // typical for user-selected intros
+                    player.load();
+                    player.oncanplay = () => {
+                        player.muted = false; // allow audio now
+                        player.controls = true; // show controls ONLY on manual selection
+                        player.play();
+                        player.oncanplay = null;
                     };
                 });
             });
