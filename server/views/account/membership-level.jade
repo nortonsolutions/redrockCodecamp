@@ -168,7 +168,10 @@ block content
 
       fetch('/api/stripe/create-checkout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
         credentials: 'same-origin',
         body: JSON.stringify({ tier: tier })
       })

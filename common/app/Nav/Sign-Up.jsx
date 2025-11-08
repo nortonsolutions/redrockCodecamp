@@ -18,7 +18,7 @@ export default function SignUpButton({ showLoading, showSignUp }) {
   }
 
   if (showLoading) {
-    // return null;
+    return <NavItem><FA name='spinner' spin /></NavItem>;
   }
   if (showSignUp) {
     return (
