@@ -19,6 +19,7 @@ tmp
 .ds_store
 .vscode
 .env
+.env copy
 ._*
 
 npm-debug.log
@@ -57,6 +58,9 @@ public/js/frame-runner*
 public/css/main*
 public/docs/*
 config/*
+backups/
+public/assets/videos/
+
 
 public/educationMaterials/*
 public/resources/*
