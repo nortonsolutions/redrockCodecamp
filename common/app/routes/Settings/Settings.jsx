@@ -5,7 +5,6 @@ import { createSelector } from 'reselect';
 
 import { Button, Row, Col } from 'react-bootstrap';
 import FA from 'react-fontawesome';
-import getBranding from '../../../utils/branding.js';
 
 import LockedSettings from './Locked-Settings.jsx';
 import JobSettings from './Job-Settings.jsx';
@@ -198,7 +197,7 @@ export class Settings extends React.Component {
                 href={ '/signout' }
                 onClick={ () => localStorage.clear() }
                 >
-                Sign me out of { getBranding().businessAppName }
+                Sign me out of RedRock Academy
               </Button>
             </Col>
           </Row>

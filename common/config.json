@@ -1,0 +1,51 @@
+{
+  "restApiRoot": "/api",
+  "host": "127.0.0.1",
+  "port": 3000,
+  "legacyExplorer": false,
+  "remoting": {
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "brandingConfigs": {
+    "redrockcode.com": {
+      "logoPath": "/images/logos/logo-landscape.png",
+      "businessName": "RedRockCode / Silver Medal NFPO)",
+      "businessAppName": " Redrock Academy",
+      "brandColor": "#3498db",
+      "homeUrl": "https://redrockcode.com",
+      "hostkey": "redrockcode.com"
+    },
+    "codebasecamp.org": {
+      "logoPath": "/images/logos/logo-landscape.png",
+      "businessName": "Code Base Camp",
+      "businessAppName": "CodeBaseCamp Academy",
+      "brandColor": "#e74c3c",
+      "homeUrl": "https://codebasecamp.org",
+      "hostkey": "codebasecamp.org"
+    },
+    "localhost": {
+      "logoPath": "/images/logos/logo-landscape.png",
+      "businessName": "RedRockCode (subsididary of Silver Medal NFPO)",
+      "businessAppName": " Redrock Academy (DEV)",
+      "brandColor": "#2ecc71",
+      "homeUrl": "http://localhost:3030",
+      "hostkey": "localhost"
+    },
+  
+    "isSignUpDisabled": false,
+    "directorName": "Spirit in the Sky"
+  }
+}
