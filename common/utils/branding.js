@@ -35,6 +35,6 @@ exports.getBranding = function() {
   }
   
   branding = state && state.branding || branding;
-  debugger;
+  // debugger;
   return branding;
 }
