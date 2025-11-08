@@ -7,7 +7,7 @@ module.exports = function (app) {
 	const stripe = require('stripe')(process.env.STRIPE_SECRET)
 	var getTierByKey = require('../../common/models/membership-tiers').get
 
-	router.get('/account/update-password',
+	router.get('/account/update-password', ensureAuthed,
 		(req, res) => {
 			res.render('account/update-password', {
 				title: 'Change account password'
@@ -15,7 +15,7 @@ module.exports = function (app) {
 		}
 	);
 
-	router.get('/account/membership-level',
+	router.get('/account/membership-level', ensureAuthed,
 		(req, res) => {
 			res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
 			res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';

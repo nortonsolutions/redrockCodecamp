@@ -71,15 +71,15 @@ block content
               p.text-center.text-muted Free Forever
               ul.feature-list.text-center
                 li All challenges
-                li Community forum
+                li Group forums
                 li Certificates
             
             .col-sm-4
               h4.text-center 🥈 Silver-Hat
               p.text-center.text-primary $9.99/month
               ul.feature-list.text-center
-                li Everything in Copper
-                li Advanced modules
+                li Copper-Top++
+                li Advanced mods
                 li Email support
                 li Live webinars
             
@@ -87,10 +87,10 @@ block content
               h4.text-center ⭐ Gold-Star
               p.text-center.text-warning $19.99/month
               ul.feature-list.text-center
-                li Everything in Silver
+                li Silver-Hat++
                 li Phone support
-                li 1-on-1 consulting
-                li Priority features
+                li Webex support
+                li 1-on-1's
 
           hr
 
@@ -110,6 +110,10 @@ block content
               h5 💳 Credit Card (Stripe)
               p.text-muted Secure payment processing
               button#stripePayBtn.btn.btn-primary.btn-lg.btn-block(type='button') Continue to Checkout
+
+          if !user
+            script.
+              window.location.href = '/signin?returnTo=' + encodeURIComponent('/account/membership-level');
 
           if user.membership && user.membership.subscriptionId && user.membership.status === 'active'
             hr
