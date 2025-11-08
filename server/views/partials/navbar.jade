@@ -6,7 +6,7 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
                 button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
                     .col-xs-12
                         span.hamburger-text Menu
-                a.navbar-brand(href=(branding && branding.homeUrl) || '/')
+                a.navbar-brand(href='/')
                     img(src=(branding && branding.logoPath) || '/images/logos/logo-landscape.png', class="nav-logo", alt=(branding && branding.businessAppName) ? branding.businessAppName + " Logo" : "Logo")
                     p.brand-text #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
             .collapse.navbar-collapse
@@ -21,6 +21,6 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
     else
         .nav-component-wrapper
             .navbar-header        
-                a.navbar-brand(href=(branding && branding.homeUrl) || '/')
+                a.navbar-brand(href='/')
                     img(src=(branding && branding.logoPath) || '/images/logos/logo-landscape.png', class="nav-logo", alt=(branding && branding.businessAppName) ? branding.businessAppName + " Logo" : "Logo")
                     p.brand-text #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
