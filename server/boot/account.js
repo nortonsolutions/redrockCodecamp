@@ -3,40 +3,11 @@ require('dotenv').config()
 module.exports = function (app) {
 
 	const router = app.loopback.Router();
-	const api = app.loopback.Router();
 	const stripe = require('stripe')(process.env.STRIPE_SECRET)
 	const { getTierByKey } = require('../../common/models/membership-tiers');
 
-	router.get('/account/update-password', ensureAuthed, function(req, res) {
-		res.render('account/update-password', {
-			title: 'Change account password'
-		})
-	});
-
-	router.get('/account/membership-level', ensureAuthed, function(req, res) {
-		res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
-		res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
-		res.render('account/membership-level', {
-			title: 'Membership Level'
-		})
-	});
-
-	router.get('/settings/membership', ensureAuthed, function(req, res) {
-		res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
-		res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
-		res.render('account/membership-level', {
-			title: 'Membership Level'
-		})
-	});
-	
-	function ensureAuthed(req, res, next) {
-		if (req.user) return next();
-		if (typeof req.isAuthenticated === 'function' && req.isAuthenticated()) return next();
-		return res.redirect('/signin');
-	}
-
-	// Create Stripe Checkout Session
-	router.post('/api/stripe/create-checkout', ensureAuthed, function(req, res) {
+	const api = app.loopback.Router();
+	api.post('/stripe/create-checkout', ensureAuthed, function(req, res) {
 		var tier = req.body.tier;
 		
 		if (!tier || (tier !== 'silver-hat' && tier !== 'gold-star')) {
@@ -75,6 +46,61 @@ module.exports = function (app) {
 			res.status(500).json({ error: err.message });
 		});
 	});
+
+	api.post('/stripe/cancel-subscription', ensureAuthed, function(req, res) {
+		var subscriptionId = req.user.membership && req.user.membership.subscriptionId;
+
+		if (!subscriptionId) {
+			return res.status(400).json({ error: 'No active subscription found' });
+		}
+
+		stripe.subscriptions.del(subscriptionId)
+		.then(function(canceledSubscription) {
+			req.user.membership.status = 'canceled';
+			req.user.membership.endDate = new Date(canceledSubscription.current_period_end * 1000);
+			
+			req.user.save(function(err) {
+				if (err) {
+					return res.status(500).json({ error: 'Failed to update user' });
+				}
+				res.json({ ok: true, message: 'Subscription canceled successfully' });
+			});
+		}).catch(function(err) {
+			console.error('Stripe cancel error:', err);
+			res.status(500).json({ error: err.message });
+		});
+	});
+
+	app.use('/api', api);
+
+	
+	router.get('/account/update-password', ensureAuthed, function(req, res) {
+		res.render('account/update-password', {
+			title: 'Change account password'
+		})
+	});
+
+	router.get('/account/membership-level', ensureAuthed, function(req, res) {
+		res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
+		res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
+		res.render('account/membership-level', {
+			title: 'Membership Level'
+		})
+	});
+
+	router.get('/settings/membership', ensureAuthed, function(req, res) {
+		res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
+		res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
+		res.render('account/membership-level', {
+			title: 'Membership Level'
+		})
+	});
+	
+	function ensureAuthed(req, res, next) {
+		if (req.user) return next();
+		if (typeof req.isAuthenticated === 'function' && req.isAuthenticated()) return next();
+		return res.redirect('/signin');
+	}
 
 	// Verify and complete subscription after Stripe redirect
 	router.get('/settings/membership/complete', ensureAuthed, function(req, res) {
@@ -137,31 +163,5 @@ module.exports = function (app) {
 		});
 	});
 
-	// Cancel subscription
-	router.post('/api/stripe/cancel-subscription', ensureAuthed, function(req, res) {
-		var subscriptionId = req.user.membership && req.user.membership.subscriptionId;
-
-		if (!subscriptionId) {
-			return res.status(400).json({ error: 'No active subscription found' });
-		}
-
-		stripe.subscriptions.del(subscriptionId)
-		.then(function(canceledSubscription) {
-			req.user.membership.status = 'canceled';
-			req.user.membership.endDate = new Date(canceledSubscription.current_period_end * 1000);
-			
-			req.user.save(function(err) {
-				if (err) {
-					return res.status(500).json({ error: 'Failed to update user' });
-				}
-				res.json({ ok: true, message: 'Subscription canceled successfully' });
-			});
-		}).catch(function(err) {
-			console.error('Stripe cancel error:', err);
-			res.status(500).json({ error: err.message });
-		});
-	});
-
 	app.use('/:lang', router);
-	app.use(api);
 };

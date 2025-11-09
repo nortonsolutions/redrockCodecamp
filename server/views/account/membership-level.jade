@@ -170,24 +170,25 @@ block content
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
-          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+          "accepts": "application/json"
         },
         credentials: 'same-origin',
         body: JSON.stringify({ tier: tier })
-      })
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
+      }).then(function(res) { 
+        if (!res.ok) {
+          throw new Error(`Server error: ${res.error || res.statusText}`);
+        }
+        return res.json(); 
+      }).then(function(data) {
         if (data.url) {
           console.log(`Redirecting to ${data.url}`);
           window.location.href = data.url;
         } else {
           alert('Error: ' + (data.error || 'Unknown error'));
-          //- debugger;
           btn.disabled = false;
           btn.textContent = 'Continue to Checkout';
         }
-      })
-      .catch(function(err) {
+      }).catch(function(err) {
         alert('Payment failed: ' + err.message);
         btn.disabled = false;
         btn.textContent = 'Continue to Checkout';

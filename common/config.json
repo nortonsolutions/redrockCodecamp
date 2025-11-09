@@ -1,24 +1,4 @@
 {
-  "restApiRoot": "/api",
-  "host": "127.0.0.1",
-  "port": 3000,
-  "legacyExplorer": false,
-  "remoting": {
-    "rest": {
-      "handleErrors": false,
-      "normalizeHttpPath": false,
-      "xml": false
-    },
-    "json": {
-      "strict": false,
-      "limit": "100kb"
-    },
-    "urlencoded": {
-      "extended": true,
-      "limit": "100kb"
-    },
-    "cors": false
-  },
   "brandingConfigs": {
     "redrockcode.com": {
       "logoPath": "/images/logos/logo-landscape.png",
@@ -44,8 +24,7 @@
       "homeUrl": "http://localhost:3030",
       "hostkey": "localhost"
     },
-  
-    "isSignUpDisabled": false,
-    "directorName": "Spirit in the Sky"
+    "exposedHostname": "redrockcode.com",
+    "NS": "__redrockcode__"
   }
 }

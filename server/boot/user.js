@@ -30,7 +30,7 @@ import {
 import supportedLanguages from '../../common/utils/supported-languages';
 import { getChallengeInfo, cachedMap } from '../utils/map';
 import settings from '../utils/constantStrings.json';
-import { isSignUpDisabled, directorName } from '../../common/config.json';
+import { isSignUpDisabled, directorName } from '../config.json';
 
 const debug = debugFactory('rrcc:boot:user');
 const sendNonUserToMap = ifNoUserRedirectTo('/map');
