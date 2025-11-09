@@ -1,4 +1,6 @@
 import helmet from 'helmet';
+import dotenv from 'dotenv';
+dotenv.config();
 
 let trusted = [
   "'self'"

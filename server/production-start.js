@@ -6,7 +6,7 @@ const fs = require('fs');
 const http = require('http');
 
 // read .env via dotenv
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 var hostname = process.env.HOST || 'localhost';
 var port = process.env.PORT || '3030';

@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const isDev = process.env.NODE_ENV !== 'production';
 const isBeta = !!process.env.BETA;
 
