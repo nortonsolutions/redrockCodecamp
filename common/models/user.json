@@ -271,19 +271,8 @@
       "default": {}
     },
     "membership": {
-      "type": "object",
-      "default": {
-        "tier": "copper-top",
-        "status": "active",
-        "recurrence": "none",
-        "startDate": null,
-        "endDate": null,
-        "lastChargedAt": null,
-        "nextChargeAt": null,
-        "provider": null,
-        "subscriptionId": null,
-        "meta": {}
-      }
+      "type": "Membership",
+      "default": {}
     }
   },
   "validations": [],

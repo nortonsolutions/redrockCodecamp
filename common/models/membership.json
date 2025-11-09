@@ -1,0 +1,64 @@
+
+
+{
+  "name": "membership",
+  "base": "Model",
+  "properties": {
+    "tier": {
+      "type": "string",
+      "default": "copper-top",
+      "description": "Membership tier: copper-top, silver-hat, gold-star"
+    },
+    "status": {
+      "type": "string",
+      "default": "active",
+      "description": "Membership status: active, pending, cancelled, expired"
+    },
+    "recurrence": {
+      "type": "string",
+      "default": "none",
+      "description": "Recurrence interval: none, monthly, yearly"
+    },
+    "startDate": {
+      "type": "date",
+      "default": null
+    },
+    "endDate": {
+      "type": "date",
+      "default": null
+    },
+    "lastChargedAt": {
+      "type": "date",
+      "default": null
+    },
+    "nextChargeAt": {
+      "type": "date",
+      "default": null
+    },
+    "provider": {
+      "type": "string",
+      "default": null,
+      "description": "Payment provider: stripe, paypal, etc."
+    },
+    "subscriptionId": {
+      "type": "string",
+      "default": null,
+      "description": "ID of the subscription in the payment provider system"
+    },
+    "upgradePending": {
+      "type": "string",
+      "default": null,
+      "description": "If an upgrade is pending, the session ID of the upgrade session, if applicable"
+    },
+    "previousMembership": {
+      "type": "Membership",
+      "default": null,
+      "description": "Snapshot of the previous membership before an upgrade"
+    },
+    "meta": {
+      "type": "object",
+      "default": {},
+      "description": "Additional metadata related to the membership"
+    }
+  }
+}
