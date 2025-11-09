@@ -1,4 +1,4 @@
-import { makeToast } from '../../common/app/Toasts/redux';
+import { makeToast } from '@common/app/Toasts/redux';
 
 export default function errorSaga(actions) {
   return actions.filter(({ error }) => !!error)

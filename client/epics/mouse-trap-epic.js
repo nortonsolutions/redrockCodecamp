@@ -4,13 +4,13 @@ import { push } from 'redux-first-router';
 import {
   toggleNightMode,
   hardGoTo
-} from '../../common/app/redux';
+} from '@common/app/redux';
 import {
   aboutUrl,
   donateUrl,
   forumUrl,
   githubUrl
-} from '../../common/utils/constantStrings.json';
+} from '@common/utils/constantStrings.json';
 
 function bindKey(key, actionCreator) {
   return Observable.fromEventPattern(

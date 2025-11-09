@@ -3,8 +3,8 @@ import { Observable } from 'rx';
 import { ofType } from 'redux-epic';
 import store from 'store';
 
-import { themes } from '../../common/utils/themes.js';
-import { postJSON$ } from '../../common/utils/ajax-stream.js';
+import { themes } from '@common/utils/themes.js';
+import { postJSON$ } from '@common/utils/ajax-stream.js';
 import {
   types,
 
@@ -14,7 +14,7 @@ import {
   themeSelector,
   usernameSelector,
   csrfSelector
-} from '../../common/app/redux';
+} from '@common/app/redux';
 
 function persistTheme(theme) {
   store.set('fcc-theme', theme);

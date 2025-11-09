@@ -67,7 +67,13 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(true),
     // this will output a .html file in output.path
     new Visualizer({ filename: 'webpack-bundle-stats.html' })
-  ]
+  ],
+
+  resolve: {
+    alias: {
+      '@common': path.resolve(__dirname, 'common')
+    }
+  }
 };
 
 if (!__DEV__) {
