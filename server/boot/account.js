@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-const { User } = require('loopback');
 const { MembershipFactory } = require('../../common/models/membership.js');
 
 module.exports = function (app) {
