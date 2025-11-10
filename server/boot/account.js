@@ -58,7 +58,7 @@ module.exports = function (app) {
 
 		var ms = JSON.parse(JSON.stringify(req.user.membership))
 		ms.status = 'canceled';
-		ms.meta = { canceledAt: new Date(), canceledSubscription: canceledSubscription };
+		ms.meta = { canceledAt: new Date() };
 		req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, ...ms }).get();	
 		
 		stripe.subscriptions.del(subscriptionId)
@@ -74,9 +74,10 @@ module.exports = function (app) {
 					if (saveErr) return res.json({ error: 'Failure during user.save() after missing subscription; ' + saveErr.message });
 					return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
 				});
+			} else {
+				console.error('Stripe cancel error:', err);
+				res.json({ error: err.message });
 			}
-			console.error('Stripe cancel error:', err);
-			res.json({ error: err.message })
 		});
 	});
 
@@ -184,7 +185,7 @@ module.exports = function (app) {
 
 					var pms = JSON.parse(JSON.stringify(req.user.membership.previousMembership))
 					pms.status = 'canceled';
-					pms.meta = { canceledAt: new Date(), canceledSubscription: canceledSubscription };
+					pms.meta = { canceledAt: new Date() };
 					req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, previousMembership: pms }).get();	
 					
 					stripe.subscriptions.del(previousMembership.subscriptionId)
@@ -200,9 +201,10 @@ module.exports = function (app) {
 								if (saveErr) return res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_save_failed');
 								return res.redirect('/settings/membership?success=true&tier=' + tier);
 							});
+						} else {
+							console.error('Despite registering successfully, failure in subsequent Stripe cancel for previous active membership:', err);
+							res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_failed');
 						}
-						console.error('Despite registering successfully, failure in subsequent Stripe cancel for previous active membership:', err);
-						res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_failed');
 					});
 				} else {
 					res.redirect('/settings/membership?success=true&tier=' + tier);
