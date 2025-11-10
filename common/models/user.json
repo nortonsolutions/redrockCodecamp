@@ -348,13 +348,6 @@
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "requestAuthEmail"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "setMembershipLevel"
     }
   ],
   "methods": {}

@@ -190,18 +190,7 @@ module.exports = function (User) {
       }
 
       if (!user.membership) {
-        user.membership = {
-          "tier": "copper-top",
-          "status": "active",
-          "recurrence": "none",
-          "startDate": null,
-          "endDate": null,
-          "lastChargedAt": null,
-          "nextChargeAt": null,
-          "provider": null,
-          "subscriptionId": null,
-          "meta": {}
-        };
+        user.membership = new MembershipFactory('copper-top').get();
       }
     }
     return next();
@@ -428,58 +417,6 @@ module.exports = function (User) {
     return User.count(where)
       .then(count => count > 0);
   };
-
-  // Remote method to update membership
-  User.setMembershipLevel = function(ctx, tier, provider, subscriptionId, recurrence, cb) {
-    const accessToken = ctx && ctx.req && ctx.req.accessToken;
-    const userId = accessToken && accessToken.userId;
-    if (!userId) return cb(new Error('Not authenticated'));
-    if (!['copper-top','silver-hat','gold-star'].includes(tier)) {
-      return cb(new Error('Invalid tier'));
-    }
-
-    User.findById(userId, function(err, user) {
-      if (err) return cb(err);
-      if (!user) return cb(new Error('User not found'));
-
-      const now = new Date();
-      const nextCharge = new Date(now);
-      nextCharge.setMonth(now.getMonth() + 1);
-
-      const isFree = tier === 'copper-top';
-
-      user.membership = {
-        ...user.membership,
-        tier: tier,
-        status: 'active',
-        recurrence: isFree ? 'none' : (recurrence || 'monthly'),
-        startDate: user.membership.startDate || now,
-        endDate: null,
-        lastChargedAt: isFree ? null : now,
-        nextChargeAt: isFree ? null : nextCharge,
-        provider: provider || null,
-        subscriptionId: subscriptionId || null
-      };
-
-      user.save(function(saveErr) {
-        if (saveErr) return cb(saveErr);
-        cb(null, user);
-      });
-    });
-  };
-
-  User.remoteMethod('setMembershipLevel', {
-    accepts: [
-      { arg: 'ctx', type: 'object', http: { source: 'context' } },
-      { arg: 'tier', type: 'string', required: true },
-      { arg: 'provider', type: 'string' },
-      { arg: 'subscriptionId', type: 'string' },
-      { arg: 'recurrence', type: 'string', default: 'monthly' }
-    ],
-    returns: { arg: 'user', type: 'object' },
-    http: { path: '/set-membership-level', verb: 'post' } // implies /api/Users/set-membership-level
-  });
-
 
   User.remoteMethod(
     'doesExist',

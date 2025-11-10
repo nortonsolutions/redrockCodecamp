@@ -1,10 +1,11 @@
 require('dotenv').config()
 
+const { MembershipFactory } = require('../../common/models/membership');
+
 module.exports = function (app) {
 
 	const router = app.loopback.Router();
 	const stripe = require('stripe')(process.env.STRIPE_SECRET)
-	const { getTierByKey } = require('../../common/models/membership-tiers');
 
 	const api = app.loopback.Router();
 	api.post('/stripe/create-checkout', ensureAuthed, function(req, res) {
@@ -71,6 +72,22 @@ module.exports = function (app) {
 		});
 	});
 
+	api.post('/stripe/cancel-previous-subscription', ensureAuthed, function(req, res) {
+		var previousSubscriptionId = req.user.membership && req.user.membership.previousSubscriptionId;
+
+		if (!previousSubscriptionId) {
+			return res.status(400).json({ error: 'No previous subscription found' });
+		}
+
+		stripe.subscriptions.del(previousSubscriptionId)
+		.then(function(canceledSubscription) {
+			res.json({ ok: true, message: `Previous subscription canceled successfully for ${previousSubscriptionId}, which was ${canceledSubscription.status}` });
+		}).catch(function(err) {
+			console.error('Stripe cancel previous error:', err);
+			res.status(500).json({ error: err.message });
+		});
+	});
+
 	app.use('/api', api);
 
 	
@@ -81,18 +98,20 @@ module.exports = function (app) {
 	});
 
 	router.get('/account/membership-level', ensureAuthed, function(req, res) {
-		res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
-		res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
 		res.render('account/membership-level', {
-			title: 'Membership Level'
+			title: 'Membership Level',
+			MEMBERSHIP_TIERS: MembershipFactory.GetAllMembershipTiers(),
+			tierNames: MembershipFactory.GetTierNames(),
+			membershipTier: req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier : 'copper-top'
 		})
 	});
 
 	router.get('/settings/membership', ensureAuthed, function(req, res) {
-		res.locals.tierNames = { 'copper-top': 'Copper-Top (Free)', 'silver-hat': 'Silver-Hat ($9.99/mo)', 'gold-star': 'Gold-Star ($19.99/mo)' };
-		res.locals.membershipTier = req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier :'copper-top';
 		res.render('account/membership-level', {
-			title: 'Membership Level'
+			title: 'Membership Level',
+			MEMBERSHIP_TIERS: MembershipFactory.GetAllMembershipTiers(),
+			tierNames: MembershipFactory.GetTierNames(),
+			membershipTier: req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier : 'copper-top'
 		})
 	});
 	
@@ -132,6 +151,11 @@ module.exports = function (app) {
 			var nextCharge = new Date(now);
 			nextCharge.setMonth(now.getMonth() + 1);
 
+			var previousMembership = {};
+			if (req.user.membership) {
+				previousMembership = JSON.parse(JSON.stringify(req.user.membership));
+			}
+
 			// Update user membership
 			req.user.membership = {
 				tier: tierConfig.key,
@@ -142,19 +166,35 @@ module.exports = function (app) {
 				lastChargedAt: now,
 				nextChargeAt: nextCharge,
 				provider: 'stripe',
-				subscriptionId: subscriptionId
+				subscriptionId: subscriptionId,
+				previousMembership: previousMembership
 			};
 
 			req.user.save(function(err) {
 				if (err) {
-					console.error('Failed to save user membership:', err);
+					console.error(`Failed to save user membership for ${req.user.username}:`, err, req.user.membership);
 					return res.redirect('/settings/membership?error=save_failed');
 				}
 
-				console.log('✓ ' + req.user.username + ' upgraded to ' + tier);
-				
-				// Success! Redirect with success message
-				res.redirect('/settings/membership?success=true&tier=' + tier);
+				console.log('✓ ' + req.user.username + ' changed to ' + tier + ' membership via Stripe; subscription ID ' + subscriptionId);
+
+				if (previousMembership.subscriptionId && previousMembership.subscriptionId !== subscriptionId) {
+					if (req.user.membership.status === 'active' && previousMembership.status === 'active') {
+						// cancel the previous subscription using stripe api before returning;
+						// if it fails then fail softly with an error message
+						stripe.subscriptions.del(previousMembership.subscriptionId)
+						.then(function(canceledSubscription) {
+							console.log(`✓ Previous subscription ${previousMembership.subscriptionId} canceled successfully for user ${req.user.username}: `, canceledSubscription);
+							res.redirect('/settings/membership?success=true&tier=' + tier);
+						})
+						.catch(function(err) {
+							console.error(`✗ Failed to cancel previous subscription ${previousMembership.subscriptionId} for user ${req.user.username}:`, err);
+							res.redirect('/settings/membership?success=true&tier=' + tier);
+						});							
+					} 
+				} else {
+					res.redirect('/settings/membership?success=true&tier=' + tier);
+				}
 			});
 		})
 		.catch(function(err) {

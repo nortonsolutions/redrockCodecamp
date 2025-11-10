@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 // Configuration - UPDATE THESE VALUES
 const USERNAME = 'norton@whatever.com';  // your username or email
 const SUBSCRIPTION_ID = 'sub_1SQIWSBG2eTjBlvlK4Uk5CBy';
-const TIER = 'silver-hat';  // 'silver-hat' or 'gold-star'
+const TIER = 'copper-top';  // 'silver-hat' or 'gold-star'
 
 // Get MongoDB URL from environment
 const MONGO_URL = process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost:27017/redrockCodecamp';
@@ -27,7 +27,7 @@ MongoClient.connect(MONGO_URL, function(err, client) {
   const membershipUpdate = {
     tier: TIER,
     level: TIER === 'gold-star' ? 2 : 1,
-    status: 'active',
+    status: 'cancelled',
     recurrence: 'monthly',
     startDate: now,
     lastChargedAt: now,
