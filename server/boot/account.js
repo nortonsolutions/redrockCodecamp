@@ -67,6 +67,16 @@ module.exports = function (app) {
 				res.json({ ok: true, message: 'Subscription canceled successfully ', membership: savedUser.membership });
 			});
 		}).catch(function(err) {
+			if (err.type === 'StripeInvalidRequestError' && err.message.includes('No such subscription')) {
+				req.user.membership.status = 'canceled';
+				req.user.save(function(saveErr, savedUser) {
+					if (saveErr) {
+						return res.status(500).json({ error: 'Failed to update user' });
+					}
+					return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
+				});
+				return;
+			}
 			console.error('Stripe cancel error:', err);
 			res.status(500).json({ error: err.message });
 		});
@@ -83,6 +93,16 @@ module.exports = function (app) {
 		.then(function(canceledSubscription) {
 			res.json({ ok: true, message: `Previous subscription canceled successfully for ${previousSubscriptionId}, which was ${canceledSubscription.status}` });
 		}).catch(function(err) {
+			if (err.type === 'StripeInvalidRequestError' && err.message.includes('No such subscription')) {
+				req.user.membership.status = 'canceled';
+				req.user.save(function(saveErr, savedUser) {
+					if (saveErr) {
+						return res.status(500).json({ error: 'Failed to update user' });
+					}
+					return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
+				});
+				return;
+			}
 			console.error('Stripe cancel previous error:', err);
 			res.status(500).json({ error: err.message });
 		});
