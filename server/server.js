@@ -19,6 +19,7 @@ const serveIndex = require('serve-index');
 const path = require('path');
 const setupPassport = require('./component-passport');
 const createDebugger = require('debug');
+const { NS } = require('../common/config');
 
 const log = createDebugger('rrcc:server');
 // force logger to always output
@@ -30,8 +31,7 @@ const app = loopback();
 const isBeta = !!process.env.BETA;
 
 expressState.extend(app);
-app.set('state namespace', '__redrockcode__');
-console.log('port is ' + process.env.PORT)
+app.set('state namespace', NS);
 app.set('port', process.env.PORT || 3030);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

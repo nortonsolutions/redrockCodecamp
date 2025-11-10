@@ -7,8 +7,8 @@ import useLangRoutes from './utils/use-lang-routes';
 import sendPageAnalytics from './utils/send-page-analytics';
 import flashToToast from './utils/flash-to-toast';
 
-import { App, createApp, provideStore } from '@common/app';
-import { getLangFromPath } from '@common/app/utils/lang';
+import { App, createApp, provideStore } from '../common/app';
+import { getLangFromPath } from '../common/app/utils/lang';
 
 // client specific epics
 import epics from './epics';

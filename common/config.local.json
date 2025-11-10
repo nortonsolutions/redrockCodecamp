@@ -1,6 +1,4 @@
 {
-  "exposedHostname": "redrockcode.com",
-  "NS": "__redrockcode__",
   "brandingConfigs": {
     "redrockcode.com": {
       "logoPath": "/images/logos/logo-landscape.png",
@@ -25,8 +23,9 @@
       "brandColor": "#2ecc71",
       "homeUrl": "http://localhost:3030",
       "hostkey": "localhost"
-    }
-
+    },
+    "exposedHostname": "localhost",
+    "NS": "__redrockcode__"
   },
   "MEMBERSHIP_TIERS": {
     "copper-top": {
