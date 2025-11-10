@@ -180,7 +180,7 @@ block content
         }
         return res.json(); 
       }).then(function(data) {
-        if (data.url) {
+        if (data.url) { // might be /settings/membership?canceled=true or /settings/membership/complete
           console.log(`Redirecting to ${data.url}`);
           window.location.href = data.url;
         } else {
@@ -235,6 +235,10 @@ block content
     (function() {
       var params = new URLSearchParams(window.location.search);
       
+      if (params.get('canceled') === 'true') {
+        alert.alert-info('Payment was canceled during Stripe checkout. Your membership has not changed.');
+        window.history.replaceState({}, document.title, '/settings/membership');
+      }
       if (params.get('success') === 'true') {
         var tier = params.get('tier') || 'your new membership';
         var warning = params.get('warning');

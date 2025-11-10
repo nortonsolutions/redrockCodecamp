@@ -56,36 +56,31 @@ module.exports = function (app) {
 			return res.status(400).json({ error: 'No active subscription found' });
 		}
 
+		var ms = JSON.parse(JSON.stringify(req.user.membership))
+		ms.status = 'canceled';
+		ms.meta = { canceledAt: new Date(), canceledSubscription: canceledSubscription };
+		req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, ...ms }).get();	
+		
 		stripe.subscriptions.del(subscriptionId)
 		.then(function(canceledSubscription) {
-			req.user.membership.status = 'canceled';
-			req.user.membership.endDate = new Date(canceledSubscription.current_period_end * 1000);
-			
+			console.log(`✓ Previous subscription ${subscriptionId} canceled successfully for user ${req.user.username}: `, canceledSubscription);
 			req.user.save(function(err, savedUser) {
-				if (err) {
-					return res.status(500).json({ error: 'Failed to update user' });					
-				}
-				res.json({ ok: true, message: 'Subscription canceled successfully ', membership: savedUser.membership });
+				if (err) return res.json({ error: 'Failure during user.save();Failed to update user - ' + err.message });					
+				return res.json({ ok: true, message: 'Subscription canceled successfully ', membership: savedUser.membership });
 			});
 		}).catch(function(err) {
 			if (err.type === 'StripeInvalidRequestError' && err.message.includes('No such subscription')) {
-				req.user.membership.status = 'canceled';
 				req.user.save(function(saveErr, savedUser) {
-					if (saveErr) {
-						return res.status(500).json({ error: 'Failed to update user' });
-					}
+					if (saveErr) return res.json({ error: 'Failure during user.save() after missing subscription; ' + saveErr.message });
 					return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
 				});
-				return;
 			}
 			console.error('Stripe cancel error:', err);
-			res.status(500).json({ error: err.message });
+			res.json({ error: err.message })
 		});
 	});
 
-
 	app.use('/api', api);
-
 	
 	router.get('/account/update-password', ensureAuthed, function(req, res) {
 		res.render('account/update-password', {
@@ -107,6 +102,7 @@ module.exports = function (app) {
 		var error = req.query.error;
 		var success = req.query.success;
 		var warning = req.query.warning;
+		var canceled = req.query.canceled;
 		res.render('account/membership-level', {
 			title: 'Membership Level',
 			MEMBERSHIP_TIERS: MembershipFactory.GetAllMembershipTiers(),
@@ -114,7 +110,8 @@ module.exports = function (app) {
 			membershipTier: req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier : 'copper-top',
 			error: error,
 			success: success,
-			warning: warning
+			warning: warning,
+			canceled: canceled
 		})
 	});
 	
@@ -184,23 +181,26 @@ module.exports = function (app) {
 
 				if ((previousMembership.subscriptionId && previousMembership.subscriptionId !== subscriptionId) &&
 					(req.user.membership.status === 'active' && previousMembership.status === 'active')) {
+
+					var pms = JSON.parse(JSON.stringify(req.user.membership.previousMembership))
+					pms.status = 'canceled';
+					pms.meta = { canceledAt: new Date(), canceledSubscription: canceledSubscription };
+					req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, previousMembership: pms }).get();	
+					
 					stripe.subscriptions.del(previousMembership.subscriptionId)
 					.then(function(canceledSubscription) {
 						console.log(`✓ Previous subscription ${previousMembership.subscriptionId} canceled successfully for user ${req.user.username}: `, canceledSubscription);
-						var pms = JSON.parse(JSON.stringify(req.user.membership.previousMembership))
-						pms.status = 'canceled';
-						pms.meta = { canceledAt: new Date(), canceledSubscription: canceledSubscription };
-						
-						req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, previousMembership: pms }).get();
 						req.user.save(function(err, savedUser) {
-							if (err) {
-								console.error(`✗ Error in SECOND user.save() -- after successful membership change (including first user.save()) AND successful previousMembership cancellation for user ${req.user.username}:`, err);
-								res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_save_failed');
-							}
-							console.log(`✓ Updated previousMembership status to 'canceled' with subscription ${previousMembership.subscriptionId} for user ${req.user.username}`);
+							if (err) res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_save_failed');
 							res.redirect('/settings/membership?success=true&tier=' + tier);
 						});
 					}).catch(function(err) {
+						if (err.type === 'StripeInvalidRequestError' && err.message.includes('No such subscription')) {
+							req.user.save(function(saveErr, savedUser) {
+								if (saveErr) return res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_save_failed');
+								return res.redirect('/settings/membership?success=true&tier=' + tier);
+							});
+						}
 						console.error('Despite registering successfully, failure in subsequent Stripe cancel for previous active membership:', err);
 						res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_failed');
 					});
