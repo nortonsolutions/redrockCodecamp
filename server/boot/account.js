@@ -41,6 +41,7 @@ module.exports = function (app) {
 				siteId: process.env.SITE_ID || 'redrock'
 			}
 		}).then(function(session) {
+			console.log(`✓ Created Stripe checkout session for user ${req.user.username} (${req.user.id}) for tier ${tier} with session: ${session.url}`);
 			res.json({ url: session.url });
 		}).catch(function(err) {
 			console.error('Stripe checkout error:', err);
@@ -82,31 +83,6 @@ module.exports = function (app) {
 		});
 	});
 
-	api.post('/stripe/cancel-previous-subscription', ensureAuthed, function(req, res) {
-		var previousSubscriptionId = req.user.membership && req.user.membership.previousSubscriptionId;
-
-		if (!previousSubscriptionId) {
-			return res.status(400).json({ error: 'No previous subscription found' });
-		}
-
-		stripe.subscriptions.del(previousSubscriptionId)
-		.then(function(canceledSubscription) {
-			res.json({ ok: true, message: `Previous subscription canceled successfully for ${previousSubscriptionId}, which was ${canceledSubscription.status}` });
-		}).catch(function(err) {
-			if (err.type === 'StripeInvalidRequestError' && err.message.includes('No such subscription')) {
-				req.user.membership.status = 'canceled';
-				req.user.save(function(saveErr, savedUser) {
-					if (saveErr) {
-						return res.status(500).json({ error: 'Failed to update user' });
-					}
-					return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
-				});
-				return;
-			}
-			console.error('Stripe cancel previous error:', err);
-			res.status(500).json({ error: err.message });
-		});
-	});
 
 	app.use('/api', api);
 
@@ -127,11 +103,18 @@ module.exports = function (app) {
 	});
 
 	router.get('/settings/membership', ensureAuthed, function(req, res) {
+		// gather query params -- error or warning; pass to template
+		var error = req.query.error;
+		var success = req.query.success;
+		var warning = req.query.warning;
 		res.render('account/membership-level', {
 			title: 'Membership Level',
 			MEMBERSHIP_TIERS: MembershipFactory.GetAllMembershipTiers(),
 			tierNames: MembershipFactory.GetTierMap(),
-			membershipTier: req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier : 'copper-top'
+			membershipTier: req.user && req.user.membership && req.user.membership.status !== 'canceled' ? req.user.membership.tier : 'copper-top',
+			error: error,
+			success: success,
+			warning: warning
 		})
 	});
 	
@@ -194,6 +177,7 @@ module.exports = function (app) {
 
 				if (err) {
 					console.error('Error saving user membership after Stripe checkout:', err);
+					return res.redirect('/settings/membership?error=user_save_failed');
 				}
 				
 				console.log('✓ ' + req.user.username + ' changed to ' + tier + ' membership via Stripe; subscription ID ' + subscriptionId);
@@ -210,15 +194,15 @@ module.exports = function (app) {
 						req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, previousMembership: pms }).get();
 						req.user.save(function(err, savedUser) {
 							if (err) {
-								onsole.error(`✗ Error in SECOND user.save() -- after successful membership change (including first user.save()) AND successful previousMembership cancellation for user ${req.user.username}:`, err);
+								console.error(`✗ Error in SECOND user.save() -- after successful membership change (including first user.save()) AND successful previousMembership cancellation for user ${req.user.username}:`, err);
+								res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_save_failed');
 							}
 							console.log(`✓ Updated previousMembership status to 'canceled' with subscription ${previousMembership.subscriptionId} for user ${req.user.username}`);
+							res.redirect('/settings/membership?success=true&tier=' + tier);
 						});
 					}).catch(function(err) {
 						console.error('Despite registering successfully, failure in subsequent Stripe cancel for previous active membership:', err);
-						
-					}).finally(() => {
-						res.redirect('/settings/membership?success=true&tier=' + tier);
+						res.redirect('/settings/membership?success=true&tier=' + tier + '&warning=previous_cancel_failed');
 					});
 				} else {
 					res.redirect('/settings/membership?success=true&tier=' + tier);

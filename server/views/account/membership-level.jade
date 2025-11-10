@@ -237,12 +237,17 @@ block content
       
       if (params.get('success') === 'true') {
         var tier = params.get('tier') || 'your new membership';
-        alert('✓ Thank you! Your ' + tier + ' membership is now active.');
+        var warning = params.get('warning');
+        if (warning) {
+          alert.alert-info('✓ Thank you! Your ' + tier + ' membership is now active. However, there was an issue updating your previous membership cancellation: ' + warning.replace(/_/g, ' ') + '. Please contact support if you have questions.');
+        } else {
+          alert.alert-success('✓ Thank you! Your ' + tier + ' membership is now active.');
+        }
         window.history.replaceState({}, document.title, '/settings/membership');
       }
       
       if (params.get('canceled') === 'true') {
-        alert('Payment was canceled. Your membership has not changed.');
+        alert.alert-info('Payment was canceled. Your membership has not changed.');
         window.history.replaceState({}, document.title, '/settings/membership');
       }
 
