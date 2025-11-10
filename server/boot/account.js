@@ -204,8 +204,12 @@ module.exports = function (app) {
 					res.redirect('/settings/membership?success=true&tier=' + tier);
 				}
 			});
-		})
+		}).catch(function(err) {
+			console.error('Error retrieving Stripe checkout session:', err);
+			return res.redirect('/settings/membership?error=session_retrieve_failed');
+		});
 	});
 
 	app.use('/:lang', router);
+	app.use('/', router);
 };
