@@ -8,7 +8,7 @@ module.exports = function (app) {
 	const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
 	const api = app.loopback.Router();
-	api.post('/stripe/create-checkout', ensureAuthed, function(req, res) {
+	api.post('/stripe/create-checkout', ensureAndHydrateUser, function(req, res) {
 		var tier = req.body.tier;
 		
 		if (!tier || (tier !== 'silver-hat' && tier !== 'gold-star')) {
@@ -49,7 +49,7 @@ module.exports = function (app) {
 		});
 	});
 
-	api.post('/stripe/cancel-subscription', ensureAuthed, function(req, res) {
+	api.post('/stripe/cancel-subscription', ensureAndHydrateUser, function(req, res) {
 		var subscriptionId = req.user.membership && req.user.membership.subscriptionId;
 
 		if (!subscriptionId) {
@@ -58,21 +58,27 @@ module.exports = function (app) {
 
 		var ms = JSON.parse(JSON.stringify(req.user.membership))
 		ms.status = 'canceled';
-		ms.meta = { canceledAt: new Date() };
-		req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, ...ms }).get();	
+		ms.meta = { ...(ms.meta || {}), canceledAt: new Date() };
+		req.user.membership = ms;	
 		
 		stripe.subscriptions.del(subscriptionId)
 		.then(function(canceledSubscription) {
 			console.log(`✓ Previous subscription ${subscriptionId} canceled successfully for user ${req.user.username}: `, canceledSubscription);
 			req.user.save(function(err, savedUser) {
-				if (err) return res.json({ error: 'Failure during user.save();Failed to update user - ' + err.message });					
-				return res.json({ ok: true, message: 'Subscription canceled successfully ', membership: savedUser.membership });
+				if (err) {
+					return res.json({ error: `Failure during user.save();Failed to update user - ${err.message} for ${req.user.username} with membership ${JSON.stringify(req.user.membership)}` });					
+				} else {
+					return res.json({ ok: true, message: 'Subscription canceled successfully ', membership: savedUser.membership });
+				}
 			});
 		}).catch(function(err) {
 			if (err.type === 'StripeInvalidRequestError' && err.message.includes('No such subscription')) {
 				req.user.save(function(saveErr, savedUser) {
-					if (saveErr) return res.json({ error: 'Failure during user.save() after missing subscription; ' + saveErr.message });
-					return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
+					if (saveErr) {
+						return res.json({ error: 'Failure during user.save() after missing subscription; ' + saveErr.message });
+					} else {
+						return res.json({ ok: true, message: 'Subscription not found in Stripe; marked as canceled in user profile', membership: savedUser.membership });
+					}
 				});
 			} else {
 				console.error('Stripe cancel error:', err);
@@ -83,13 +89,13 @@ module.exports = function (app) {
 
 	app.use('/api', api);
 	
-	router.get('/account/update-password', ensureAuthed, function(req, res) {
+	router.get('/account/update-password', ensureAndHydrateUser, function(req, res) {
 		res.render('account/update-password', {
 			title: 'Change account password'
 		})
 	});
 
-	router.get('/account/membership-level', ensureAuthed, function(req, res) {
+	router.get('/account/membership-level', ensureAndHydrateUser, function(req, res) {
 		res.render('account/membership-level', {
 			title: 'Membership Level',
 			MEMBERSHIP_TIERS: MembershipFactory.GetAllMembershipTiers(),
@@ -98,7 +104,7 @@ module.exports = function (app) {
 		})
 	});
 
-	router.get('/settings/membership', ensureAuthed, function(req, res) {
+	router.get('/settings/membership', ensureAndHydrateUser, function(req, res) {
 		// gather query params -- error or warning; pass to template
 		var error = req.query.error;
 		var success = req.query.success;
@@ -116,14 +122,23 @@ module.exports = function (app) {
 		})
 	});
 	
-	function ensureAuthed(req, res, next) {
-		if (req.user) return next();
-		if (typeof req.isAuthenticated === 'function' && req.isAuthenticated()) return next();
-		return res.redirect('/signin');
+	function ensureAndHydrateUser(req, res, next) {
+		if (typeof req.isAuthenticated === 'function' && req.isAuthenticated() && req.user) {
+			var User = app.models.User
+
+			User.findById(req.user.id)
+			.then(function(user) {
+				if (user) req.user = user;
+				next();
+			}).catch(function(err) {
+				console.error('Error fetching user in ensureAuthed:', err);
+				res.redirect('/login' + '?returnTo=' + encodeURIComponent(req.originalUrl));
+			})
+		}
 	}
 
 	// Verify and complete subscription after Stripe redirect
-	router.get('/settings/membership/complete', ensureAuthed, function(req, res) {
+	router.get('/settings/membership/complete', ensureAndHydrateUser, function(req, res) {
 		var sessionId = req.query.session_id;
 
 		if (!sessionId) {
@@ -185,8 +200,8 @@ module.exports = function (app) {
 
 					var pms = JSON.parse(JSON.stringify(req.user.membership.previousMembership))
 					pms.status = 'canceled';
-					pms.meta = { canceledAt: new Date() };
-					req.user.membership = new MembershipFactory(req.user.membership.tier, {...req.user.membership, previousMembership: pms }).get();	
+					pms.meta = { ...(pms.meta || {}), canceledAt: new Date() };
+					req.user.membership = pms;	
 					
 					stripe.subscriptions.del(previousMembership.subscriptionId)
 					.then(function(canceledSubscription) {
