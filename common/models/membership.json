@@ -51,7 +51,7 @@
       "description": "If an upgrade is pending, the session ID of the upgrade session, if applicable"
     },
     "previousMembership": {
-      "type": "Membership",
+      "type": "membership",
       "default": null,
       "description": "Snapshot of the previous membership before an upgrade"
     },

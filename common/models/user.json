@@ -271,7 +271,7 @@
       "default": {}
     },
     "membership": {
-      "type": "Membership",
+      "type": "membership",
       "default": {}
     }
   },

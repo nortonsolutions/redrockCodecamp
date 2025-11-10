@@ -35,6 +35,10 @@
     "dataSource": "db",
     "public": true
   },
+  "membership": {
+    "dataSource": null,
+    "public": false
+  },
   "job": {
     "dataSource": "db",
     "public": true
