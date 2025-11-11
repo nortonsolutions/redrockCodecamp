@@ -61,28 +61,29 @@ block content
             span(class='pill ' + tierClass)= tierNames[membershipTier]
 
     .row(style='margin-top: 30px')
-      .col-sm-8.col-sm-offset-2
+      .col
         .tier-card
           h3.text-center Membership Tiers
           
           .row(style='margin-bottom: 20px')
-            .col-sm-4
+            .col-sm-4(style='margin-bottom: 30px')
               h4.text-center 🥉 Copper-Top
               p.text-center.text-muted Free Forever
               ul.feature-list.text-center
                 li All challenges
                 li Group forums
                 li Certificates
-            
-            .col-sm-4
+              hr
+              
+            .col-sm-4(style='margin-bottom: 30px')
               h4.text-center 🥈 Silver-Hat
               p.text-center.text-primary $9.99/month
               ul.feature-list.text-center
                 li Copper-Top++
-                li Advanced mods
+                li Project reviews
                 li Email support
                 li Live webinars
-            
+              hr
             .col-sm-4
               h4.text-center ⭐ Gold-Star
               p.text-center.text-warning $19.99/month
@@ -94,10 +95,11 @@ block content
 
           hr
 
-          h3 Change Membership
-          .form-group
-            label(for='tierSelector') Select a new tier
-            select#tierSelector.form-control
+          h3.text-center Change Membership
+          .form-group.text-center
+            label(for='tierSelector') Select a new tier:
+            br
+            select#tierSelector.form-control.auto-width(style='display: inline-block; width: auto; margin-left: 10px;')
               option(value='', disabled, selected=(membershipTier==='')) -- Choose tier --
               option(value='copper-top', selected=(membershipTier==='copper-top')) 🥉 #{tierNames['copper-top']}
               option(value='silver-hat', selected=(membershipTier==='silver-hat')) 🥈 #{tierNames['silver-hat']}

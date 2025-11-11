@@ -31,12 +31,43 @@
   width: 100%;
 }
 
-@navbar-logo-height: 32px;
+@navbar-logo-height: 64px;
 @navbar-logo-padding: floor((@navbar-height - @navbar-logo-height) / 2);
 .navbar-brand {
     padding-top: @navbar-logo-padding;
     padding-bottom: @navbar-logo-padding;
     margin-left: @navbar-logo-padding;
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-brand .brand-text {
+  margin-left: 10px;
+  padding-left: 12px;          /* subtle left padding */
+  border-left: 1px solid rgba(255,255,255,.25);  /* subtle divider */
+  font-size: 18px;             /* desktop size */
+  line-height: 1.1;
+  letter-spacing: .2px;
+  font-weight: 600;
+  font-family: 'Bungee Spice', cursive;
+  color: inherit;              /* keep current theme color */
+  margin-bottom: 0;            /* avoid extra vertical shift */
+}
+
+.night .navbar .navbar-brand .brand-text {
+  border-left-color: rgba(255,255,255,.2);
+}
+
+/* Tweak on small screens */
+@media (max-width: 767px) {
+  .navbar .navbar-brand .brand-text {
+    font-size: 16px;
+    padding-left: 10px;
+    margin-left: 8px;
+  }
 }
 
 .nav-logo {
@@ -148,6 +179,7 @@ li.nav-avatar {
   /* since 3.1.0 */
   .navbar-collapse.collapse.in {
     display: block !important;
+    background: rgba(0,0,0,0.85);
   }
 
   .collapsing {
