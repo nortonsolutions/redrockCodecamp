@@ -1,3 +1,5 @@
 @font-face {
-    font-family: 'Bungee Spice'; font-style: normal; font-weight: 200; src: url("../fonts/Bungee-Spice-Regular.ttf");
+    font-family: 'Bungee Spice'; font-style: normal; font-weight: 200; font-display: swap;
+    src: url(../fonts/BungeeSpice-Regular.woff2) format('woff2'),
+         url(../fonts/BungeeSpice-Regular.ttf) format('truetype');
 }

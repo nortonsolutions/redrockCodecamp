@@ -99,10 +99,10 @@ block content
                         input(type='hidden', name='_csrf', value=_csrf)
                         .form-group(style='padding-top:16px;')
                             label(for='email') Email
-                            input.form-control(type='email', name='email', id='email', value='#{email ? email : ""}', placeholder='you@example.com', autofocus=true, required)
+                            input.form-control(type='email', name='email', id='email', autocomplete='email', value='#{email ? email : ""}', placeholder='you@example.com', autofocus=true, required)
                         .form-group
                             label(for='password') Password
-                            input.form-control(type='password', name='password', id='password', placeholder='••••••••', required)
+                            input.form-control(type='password', name='password', id='password', autocomplete='current-password', placeholder='••••••••', required)
                         button#magic-btn.btn.btn-primary.btn-block(type='submit') Sign In
                         div.alt-signup(style='width: 270px;')
                             if !settings.isSignUpDisabled
@@ -120,29 +120,26 @@ block content
 
             const QUEUE_AT_SECONDS = 4;
             const queuedSrc = '/assets/videos/redrockcode_intro_0_1080.mp4';
-            let queuedLoaded = false;
             let userSelected = false;
 
-            // Preload queued video (lazy-ish: create a fetch without blocking initial paint)
-            const preload = document.createElement('link');
-            preload.rel = 'preload';
-            preload.as = 'video';
-            preload.href = queuedSrc;
-            document.head.appendChild(preload);
+            fetch(queuedSrc, { cache: 'force-cache' })
+            .then(r => r.ok ? r.blob() : Promise.reject(r.status))
+            .then(blob => { 
 
-            player.addEventListener('timeupdate', () => {
-                if (!queuedLoaded && !userSelected && player.currentTime >= QUEUE_AT_SECONDS) {
-                    queuedLoaded = true;
-                    player.pause();
-                    sourceEl.src = queuedSrc;
-                    player.classList.remove('enhance-black'); // remove filter for queued video
-                    player.load();
-                    player.oncanplay = () => {
-                        player.play();
-                        player.oncanplay = null;
-                    };
-                }
-            });
+                setTimeout(() => {
+                    queuedBlobUrl = URL.createObjectURL(blob); 
+                    if (!userSelected) {
+                        player.pause();
+                        sourceEl.src = queuedBlobUrl;
+                        player.classList.remove('enhance-black'); // remove filter for queued video
+                        player.load();
+                        player.oncanplay = () => {
+                            player.play();
+                            player.oncanplay = null;
+                        };
+                    }
+                }, QUEUE_AT_SECONDS * 1000);
+            }).catch(() => { queuedBlobUrl = null; });
 
             links.forEach(link => {
                 link.addEventListener('click', e => {
