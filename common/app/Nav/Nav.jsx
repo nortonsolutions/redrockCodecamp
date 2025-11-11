@@ -221,7 +221,7 @@ export class FCCNav extends React.Component {
                 href='/challenges/current-challenge'
                 onClick={clickOnLogo}
               >
-                <p>
+                <p className="brand-text">
                   {brand.businessAppName}
                 </p>
               </a>
