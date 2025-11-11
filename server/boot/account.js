@@ -201,7 +201,7 @@ module.exports = function (app) {
 					var pms = JSON.parse(JSON.stringify(req.user.membership.previousMembership))
 					pms.status = 'canceled';
 					pms.meta = { ...(pms.meta || {}), canceledAt: new Date() };
-					req.user.membership = pms;	
+					req.user.membership = { ...req.user.membership, previousMembership: pms };	
 					
 					stripe.subscriptions.del(previousMembership.subscriptionId)
 					.then(function(canceledSubscription) {
