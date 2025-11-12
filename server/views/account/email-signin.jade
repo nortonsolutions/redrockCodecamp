@@ -113,14 +113,12 @@ block content
                     a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 14 minutes: What will I learn?
                     a.form-control.external-link(target='_blank' href='https://silvermedal.online' style='margin: auto; margin-top: 10px;') * Check out our game demo *
     script.
-        document.addEventListener('DOMContentLoaded', () => {
-            const links = document.querySelectorAll('.inline-link');
-            const player = document.getElementById('redrockMainVideo');
-            const sourceEl = player.querySelector('source');
+        const player = document.getElementById('redrockMainVideo');
+        const sourceEl = player.querySelector('source');
+        const QUEUE_AT_SECONDS = 4;
+        let queuedBlobUrl = null;
 
-            const QUEUE_AT_SECONDS = 4;
-            const queuedSrc = '/assets/videos/redrockcode_intro_0_1080.mp4';
-            let userSelected = false;
+        queueVideo = (queuedSrc, userSelected, delay = QUEUE_AT_SECONDS) => {
 
             fetch(queuedSrc, { cache: 'force-cache' })
             .then(r => r.ok ? r.blob() : Promise.reject(r.status))
@@ -128,41 +126,37 @@ block content
 
                 setTimeout(() => {
                     queuedBlobUrl = URL.createObjectURL(blob); 
-                    if (!userSelected) {
-                        player.pause();
-                        sourceEl.src = queuedBlobUrl;
-                        player.classList.remove('enhance-black'); // remove filter for queued video
-                        player.load();
-                        player.oncanplay = () => {
-                            player.play();
-                            player.oncanplay = null;
-                        };
+                    if (userSelected) {
+                        player.muted = false; // allow audio now
+                        player.controls = true; // show controls ONLY on manual selection
                     }
-                }, QUEUE_AT_SECONDS * 1000);
+
+                    player.pause();
+                    player.currentTime = 0;
+                    sourceEl.src = queuedBlobUrl;
+                    player.classList.remove('enhance-black'); // remove filter for queued video
+                    player.load();
+                    player.play();
+        
+                }, delay * 1000);
             }).catch(() => { queuedBlobUrl = null; });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.inline-link');
+            const QUEUE_AT_SECONDS = 4;
+            const queuedSrc = '/assets/videos/redrockcode_intro_0_1080.mp4';
+            let userSelected = false;
+
+            queueVideo(queuedSrc, false);
 
             links.forEach(link => {
                 link.addEventListener('click', e => {
                     e.preventDefault();
-                    userSelected = true;
                     links.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
 
-                    // Remove darkening filter when user controls
-                    player.classList.remove('enhance-black');
-
-                    player.pause();
-                    player.currentTime = 0;
-                    sourceEl.src = link.getAttribute('data-video');
-                    player.classList.remove('enhance-black');
-                    player.removeAttribute('loop'); // typical for user-selected intros
-                    player.load();
-                    player.oncanplay = () => {
-                        player.muted = false; // allow audio now
-                        player.controls = true; // show controls ONLY on manual selection
-                        player.play();
-                        player.oncanplay = null;
-                    };
+                    queueVideo(link.getAttribute('data-video'), true, 0);
                 });
             });
         });
