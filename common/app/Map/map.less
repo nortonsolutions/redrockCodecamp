@@ -67,6 +67,20 @@
   line-height: 26px;
   padding: 2px 12px 2px 10px;
   width:100%;
+  display: flex;
+  align-items: center;
+  > div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    > span:first-child {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
 }
 
 .@{ns}-challenge-title {
@@ -74,8 +88,17 @@
     padding-right: 6px;
   }
   padding-left: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
   a {
     cursor: pointer;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   @media (min-width: 721px) {
     clear: both;
@@ -99,6 +122,9 @@
 
 .@{ns}-block-time {
   color: #555555;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
   @media (min-width: 721px) {
     float: right;
   }

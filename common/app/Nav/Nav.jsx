@@ -156,6 +156,14 @@ export class FCCNav extends React.Component {
           title={content}
         >
           {links.map(this.renderLink.bind(this, false))}
+          <MenuItem divider={true} />
+          <MenuItem
+            key="close-menu"
+            onClick={closeDropdown}
+            style={{ textAlign: 'center', fontWeight: 'bold', color: '#999' }}
+          >
+            × Close Menu
+          </MenuItem>
         </NavDropdown>
       );
     }
@@ -178,7 +186,14 @@ export class FCCNav extends React.Component {
       <Component
         href={link}
         key={content}
-        onClick={this.props[`handle${content}Click`]}
+        onClick={(e) => {
+          if (this.props[`handle${content}Click`]) {
+            this.props[`handle${content}Click`](e);
+          }
+          if (!isNavItem) {
+            closeDropdown();
+          }
+        }}
         target={target || null}
       >
         {content}

@@ -19,6 +19,13 @@ const propTypes = {
 };
 
 export function Divider({ left, dividerClicked }) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  
+  // Hide divider on mobile
+  if (isMobile) {
+    return null;
+  }
+  
   const style = {
     borderLeft: '1px solid rgb(204, 204, 204)',
     bottom: 0,

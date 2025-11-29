@@ -1,0 +1,51 @@
+// Wobble animation for scroll indicators
+@keyframes wobble {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  75% { transform: translateY(5px); }
+}
+
+// Panes mobile responsive styles
+@media (max-width: 768px) {
+  .panes-container {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    max-width: 100vw;
+    overflow-x: hidden;
+    
+    > div {
+      position: relative !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      max-width: 100%;
+      flex: 0 0 auto;
+      min-height: 200px;
+      box-sizing: border-box;
+      border-left: none !important;
+      border-right: none !important;
+      
+      &[style*="position: absolute"] {
+        position: relative !important;
+      }
+      
+      // Remove borders from all nested elements
+      * {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      
+      // Bootstrap col/row border removal
+      .row, [class*="col-"] {
+        border-left: none !important;
+        border-right: none !important;
+        max-width: 100%;
+      }
+    }
+  }
+  
+  .pane-divider {
+    display: none !important;
+  }
+}

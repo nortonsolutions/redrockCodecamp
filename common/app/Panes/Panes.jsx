@@ -49,9 +49,23 @@ const propTypes = {
 };
 
 export class Panes extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expandedPane: null
+    };
+  }
+
   componentDidMount() {
     this.props.panesMounted();
   }
+
+  handlePaneExpand = (paneName) => {
+    this.setState(prevState => ({
+      expandedPane: prevState.expandedPane === paneName ? null : paneName
+    }));
+  }
+
   renderPanes() {
     const {
       render,
@@ -72,7 +86,10 @@ export class Panes extends PureComponent {
         <Pane
           key={ name }
           left={ left }
+          name={ name }
           right={ right }
+          isExpanded={this.state.expandedPane === name}
+          onExpandToggle={() => this.handlePaneExpand(name)}
           >
           { render(name) }
         </Pane>,
@@ -84,12 +101,21 @@ export class Panes extends PureComponent {
 
   render() {
     const { height } = this.props;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    
     const outerStyle = {
       height,
       position: 'relative',
       width: '100%'
     };
-    const innerStyle = {
+    
+    const innerStyle = isMobile ? {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      height: '100%',
+      overflowY: 'auto'
+    } : {
       position: 'absolute',
       top: 0,
       bottom: 0,
@@ -98,7 +124,7 @@ export class Panes extends PureComponent {
     };
     return (
       <div style={outerStyle}>
-        <div style={innerStyle}>
+        <div className={isMobile ? 'panes-container-mobile' : ''} style={innerStyle}>
           { this.renderPanes() }
         </div>
       </div>
