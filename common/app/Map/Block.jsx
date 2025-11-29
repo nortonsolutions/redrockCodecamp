@@ -14,19 +14,34 @@ import {
 } from './redux';
 
 import { makeBlockSelector } from '../entities';
+import { userSelector } from '../redux';
+import { CERT_REQUIREMENTS } from './cert-requirements';
 
 const dispatchActions = { toggleThisPanel };
-function makeMapStateToProps(_, { dashedName }) {
+function makeMapStateToProps(_, { dashedName, superBlock }) {
   return createSelector(
     makeBlockSelector(dashedName),
     makePanelOpenSelector(dashedName),
-    (block, isOpen) => {
+    userSelector,
+    (block, isOpen, user) => {
+      const requirement = CERT_REQUIREMENTS[superBlock];
+      let isLocked = false;
+      
+      if (requirement && requirement.cert !== null) {
+        // Check if user has the required certification
+        // Handle undefined user properties (user might not be fully loaded)
+        const certProperty = requirement.cert;
+        const hasCert = user && user[certProperty];
+        isLocked = !hasCert;
+      }
+      
       return {
         isOpen,
         dashedName,
         title: block.title,
         time: block.time,
-        challenges: block.challenges || []
+        challenges: block.challenges || [],
+        isLocked
       };
     }
   );
@@ -35,6 +50,7 @@ const propTypes = {
   challenges: PropTypes.array,
   dashedName: PropTypes.string,
   isOpen: PropTypes.bool,
+  isLocked: PropTypes.bool,
   time: PropTypes.string,
   title: PropTypes.string,
   toggleThisPanel: PropTypes.func
@@ -50,13 +66,14 @@ export class Block extends PureComponent {
     this.props.toggleThisPanel(eventKey);
   }
 
-  renderHeader(isOpen, title, time, isCompleted) {
+  renderHeader(isOpen, title, time, isCompleted, isLocked) {
     return (
       <div className={ isCompleted ? 'faded' : '' }>
         <FA
           className='map-caret'
-          name={ isOpen ? 'caret-down' : 'caret-right' }
+          name={ isLocked ? 'lock' : (isOpen ? 'caret-down' : 'caret-right') }
           size='lg'
+          style={ isLocked ? { color: '#d9534f' } : {} }
         />
         <span>
         { title }
@@ -72,7 +89,8 @@ export class Block extends PureComponent {
       time,
       dashedName,
       isOpen,
-      challenges
+      challenges,
+      isLocked
     } = this.props;
     return (
       <Panel
@@ -80,7 +98,7 @@ export class Block extends PureComponent {
         collapsible={ true }
         eventKey={ dashedName || title }
         expanded={ isOpen }
-        header={ this.renderHeader(isOpen, title, time) }
+        header={ this.renderHeader(isOpen, title, time, false, isLocked) }
         id={ title }
         key={ title }
         onSelect={ this.handleSelect }

@@ -13,6 +13,8 @@ import {
   makePanelOpenSelector
 } from './redux';
 import { makeSuperBlockSelector } from '../entities';
+import { userSelector } from '../redux';
+import { CERT_REQUIREMENTS } from './cert-requirements';
 
 const mapDispatchToProps = { toggleThisPanel };
 // make selectors unique to each component
@@ -23,13 +25,29 @@ function mapStateToProps(_, { dashedName }) {
   return createSelector(
     makeSuperBlockSelector(dashedName),
     makePanelOpenSelector(dashedName),
-    (superBlock, isOpen) => ({
-      isOpen,
-      dashedName,
-      title: superBlock.title || dashedName,
-      blocks: superBlock.blocks || [],
-      message: superBlock.message
-    })
+    userSelector,
+    (superBlock, isOpen, user) => {
+      const title = superBlock.title || dashedName;
+      const requirement = CERT_REQUIREMENTS[title];
+      let isLocked = false;
+      
+      if (requirement && requirement.cert !== null) {
+        // Check if user has the required certification
+        // Handle undefined user properties (user might not be fully loaded)
+        const certProperty = requirement.cert;
+        const hasCert = user && user[certProperty];
+        isLocked = !hasCert;
+      }
+      
+      return {
+        isOpen,
+        dashedName,
+        title,
+        blocks: superBlock.blocks || [],
+        message: superBlock.message,
+        isLocked
+      };
+    }
   );
 }
 
@@ -37,6 +55,7 @@ const propTypes = {
   blocks: PropTypes.array,
   dashedName: PropTypes.string,
   isOpen: PropTypes.bool,
+  isLocked: PropTypes.bool,
   message: PropTypes.string,
   title: PropTypes.string,
   toggleThisPanel: PropTypes.func
@@ -63,15 +82,21 @@ export class SuperBlock extends PureComponent {
     );
   }
 
-  renderHeader(isOpen, title, isCompleted) {
+  renderHeader(isOpen, title, isCompleted, isLocked) {
     return (
       <div className={ isCompleted ? 'faded' : '' }>
         <FA
           className={ `${ns}-caret` }
-          name={ isOpen ? 'caret-down' : 'caret-right' }
+          name={ isLocked ? 'lock' : (isOpen ? 'caret-down' : 'caret-right') }
           size='lg'
+          style={ isLocked ? { color: '#d9534f' } : {} }
         />
         { title }
+        {/* { isLocked && (
+          <span style={{ marginLeft: '8px', fontSize: '12px', color: '#d9534f', fontWeight: 'normal' }}>
+            (Certification Required)
+          </span>
+        )} */}
       </div>
     );
   }
@@ -82,7 +107,8 @@ export class SuperBlock extends PureComponent {
       dashedName,
       blocks,
       message,
-      isOpen
+      isOpen,
+      isLocked
     } = this.props;
     return (
       <Panel
@@ -90,13 +116,13 @@ export class SuperBlock extends PureComponent {
         collapsible={ true }
         eventKey={ dashedName || title }
         expanded={ isOpen }
-        header={ this.renderHeader(isOpen, title) }
+        header={ this.renderHeader(isOpen, title, false, isLocked) }
         id={ title }
         key={ dashedName || title }
         onSelect={ this.handleSelect }
         >
         { this.renderMessage(message) }
-        <Blocks blocks={ blocks } />
+        <Blocks blocks={ blocks } superBlock={ title } />
       </Panel>
     );
   }

@@ -10,21 +10,7 @@ import { userSelector } from '../redux';
 import { challengeMapSelector } from '../entities';
 import { Link } from '../Router';
 import { onRouteChallenges } from '../routes/Challenges/redux';
-
-// Certification requirements lookup - maps superBlock folder names to required certs
-const CERT_REQUIREMENTS = {
-  '(1000) The Two Year Plan': { cert: null, name: 'user account' },
-  '(1010) World Wide Web Elements': { cert: null, name: 'user account' },
-  '(1020) Responsive Web Design': { cert: null, name: 'user account' },
-  '(2030) Javascript Apprenticeship': { cert: 'isRespWebDesignCertified', name: 'Responsive Web Design' },
-  '(2040) Javascript Standards': { cert: 'isJsAlgoDataStructCertified', name: 'JS Algorithms and Data Structures' },
-  '(2050) Javascript Browser Apis': { cert: 'isJsAlgoDataStructCertified', name: 'JS Algorithms and Data Structures' },
-  '(2060) Javascript Web Citizenship': { cert: 'isJsAlgoDataStructCertified', name: 'JS Algorithms and Data Structures' },
-  '(3070) Front End Frameworks': { cert: 'isFrontEndCertified', name: 'JavaScript Front-End Web Development' },
-  '(3080) Back End Web Tech': { cert: 'isFrontEndLibsCertified', name: 'JavaScript Front-End Libraries' },
-  '(3090) Advanced Server Patterns': { cert: 'isApisMicroservicesCertified', name: 'JavaScript APIs and Microservices' },
-  '(4100) JavaScript for Engineers': { cert: 'isInfosecQaCertified', name: 'Information Security and QA' }
-};
+import { CERT_REQUIREMENTS } from './cert-requirements';
 
 const propTypes = {
   block: PropTypes.string,
@@ -38,15 +24,15 @@ const propTypes = {
   isRequired: PropTypes.bool,
   title: PropTypes.string,
   superBlock: PropTypes.string,
-  isRespWebDesignCertified: PropTypes.bool,
-  isJsAlgoDataStructCertified: PropTypes.bool,
-  isFrontEndCertified: PropTypes.bool,
-  isFrontEndLibsCertified: PropTypes.bool,
-  isApisMicroservicesCertified: PropTypes.bool,
-  isInfosecQaCertified: PropTypes.bool,
-  isBackEndCertified: PropTypes.bool,
-  isFullStackCertified: PropTypes.bool,
-  isNewDataVisCertified: PropTypes.bool,
+  isRespWebDesignCert: PropTypes.bool,
+  isJsAlgoDataStructCert: PropTypes.bool,
+  isFrontEndCert: PropTypes.bool,
+  isFrontEndLibsCert: PropTypes.bool,
+  isApisMicroservicesCert: PropTypes.bool,
+  isInfosecQaCert: PropTypes.bool,
+  isBackEndCert: PropTypes.bool,
+  isFullStackCert: PropTypes.bool,
+  isDataVisCert: PropTypes.bool,
   prerequisiteMet: PropTypes.bool,
   userHasChallengeMap: PropTypes.bool
 };
@@ -72,15 +58,6 @@ function makeMapStateToProps(_, { dashedName }) {
         prerequisite
       } = challengeMap[dashedName] || {};
       const isCompleted = userChallengeMap ? !!userChallengeMap[id] : false;
-      const isRespWebDesignCertified = isRespWebDesignCert;
-      const isJsAlgoDataStructCertified = isJsAlgoDataStructCert;
-      const isFrontEndCertified = isFrontEndCert;
-      const isFrontEndLibsCertified = isFrontEndLibsCert;
-      const isApisMicroservicesCertified = isApisMicroservicesCert;
-      const isInfosecQaCertified = isInfosecQaCert;
-      const isBackEndCertified = isBackEndCert;
-      const isFullStackCertified = isFullStackCert;
-      const isDataVisCertified = isDataVisCert;
       const prerequisiteMet = !prerequisite ? true : userChallengeMap ? (userChallengeMap[prerequisite]? true: false) : false;
       const userHasChallengeMap = userChallengeMap? true : false;
 
@@ -94,15 +71,15 @@ function makeMapStateToProps(_, { dashedName }) {
         isComingSoon,
         superBlock,
         isDev: debug.enabled('rrcc:*'),
-        isRespWebDesignCertified,
-        isJsAlgoDataStructCertified,
-        isFrontEndCertified,
-        isFrontEndLibsCertified,
-        isApisMicroservicesCertified,
-        isInfosecQaCertified,
-        isBackEndCertified,
-        isFullStackCertified,
-        isDataVisCertified,
+        isRespWebDesignCert,
+        isJsAlgoDataStructCert,
+        isFrontEndCert,
+        isFrontEndLibsCert,
+        isApisMicroservicesCert,
+        isInfosecQaCert,
+        isBackEndCert,
+        isFullStackCert,
+        isDataVisCert,
         prerequisiteMet,
         userHasChallengeMap
       };
@@ -173,21 +150,49 @@ export class Challenge extends PureComponent {
       return null;
     }
     return (
-      <div className='modal fade in' style={{ display: 'block' }} role='dialog'>
-        <div className='modal-dialog'>
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <button type='button' className='close' onClick={this.closeModal}>
-                <span>&times;</span>
-              </button>
-              <h4 className='modal-title'>Certification Required</h4>
-            </div>
-            <div className='modal-body'>
-              <p>You need to obtain the <strong>{requiredCert}</strong> certification before accessing this challenge.</p>
-              <p>Advanced students can email <a href='mailto:dave@silvermedal.net'>dave@silvermedal.net</a> to request an override.</p>
-            </div>
-            <div className='modal-footer'>
-              <button type='button' className='btn btn-primary' onClick={this.closeModal}>Close</button>
+      <div>
+        <div 
+          className='modal-backdrop fade in' 
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            zIndex: 1040,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
+          }}
+          onClick={this.closeModal}
+        />
+        <div 
+          className='modal fade in' 
+          style={{ 
+            display: 'block',
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1050,
+            width: '90%',
+            maxWidth: '500px'
+          }} 
+          role='dialog'
+        >
+          <div className='modal-dialog' style={{ margin: 0, width: '100%' }}>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <button type='button' className='close' onClick={this.closeModal}>
+                  <span>&times;</span>
+                </button>
+                <h4 className='modal-title'>Certification Required</h4>
+              </div>
+              <div className='modal-body'>
+                <p>You need to obtain the <strong>{requiredCert}</strong> certification before accessing this challenge.</p>
+                <p>Advanced students can email <a href='mailto:dave@silvermedal.net'>dave@silvermedal.net</a> to request an override.</p>
+              </div>
+              <div className='modal-footer'>
+                <button type='button' className='btn btn-primary' onClick={this.closeModal}>Close</button>
+              </div>
             </div>
           </div>
         </div>
@@ -208,15 +213,15 @@ export class Challenge extends PureComponent {
       isRequired,
       title,
       superBlock,
-      isRespWebDesignCertified,
-      isJsAlgoDataStructCertified,
-      isFrontEndCertified,
-      isFrontEndLibsCertified,
-      isApisMicroservicesCertified,
-      isInfosecQaCertified,
-      isBackEndCertified,
-      isFullStackCertified,
-      isDataVisCertified,
+      isRespWebDesignCert,
+      isJsAlgoDataStructCert,
+      isFrontEndCert,
+      isFrontEndLibsCert,
+      isApisMicroservicesCert,
+      isInfosecQaCert,
+      isBackEndCert,
+      isFullStackCert,
+      isDataVisCert,
       prerequisiteMet,
       userHasChallengeMap
     } = this.props;
@@ -228,20 +233,16 @@ export class Challenge extends PureComponent {
     let requiredCertName = null;
     
     // Check certification requirements using lookup object
-    const requirement = CERT_REQUIREMENTS[superBlock];
+    const requirement = CERT_REQUIREMENTS[superBlock] || null;
     if (requirement) {
       if (requirement.cert === null) {
-        // Requires user account only
-        if (!userHasChallengeMap) {
-          certLocked = true;
-          requiredCertName = requirement.name;
-        }
+          // Open to all
+          certLocked = false;
       } else {
-        // Check if user has the required certification
-        if (!this.props[requirement.cert]) {
-          certLocked = true;
+          // Check if user has the required certification
+          const hasCert = this.props[requirement.cert];
+          certLocked = !hasCert;
           requiredCertName = requirement.name;
-        }
       }
     }
     
@@ -314,7 +315,7 @@ export class Challenge extends PureComponent {
 }
 
 Challenge.propTypes = propTypes;
-Challenge.dispalyName = 'Challenge';
+Challenge.displayName = 'Challenge';
 
 export default connect(
   makeMapStateToProps,
