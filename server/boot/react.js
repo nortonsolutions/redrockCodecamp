@@ -10,6 +10,7 @@ import {
 import { createApp, provideStore, App } from '../../common/app';
 import waitForEpics from '../../common/utils/wait-for-epics.js';
 import { titleSelector } from '../../common/app/redux';
+import { adminRoot } from '../utils/constantStrings.json';
 
 const log = debug('rrcc:react-server');
 const isDev = process.env.NODE_ENV !== 'production';
@@ -59,7 +60,7 @@ export default function reactSubRouter(app) {
         // devtoolsEnhancer({ suppressConnectErrors: true })
       ],
       history: createMemoryHistory({ initialEntries: [ req.originalUrl ] }),
-      defaultStaet: { app: { lang } }
+      defaultState: { app: { lang, adminRoot } }
     })
       .filter(({
         location: {

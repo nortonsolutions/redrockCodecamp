@@ -161,12 +161,14 @@ const defaultState = {
   csrfToken: '',
   // eventually this should be only in the user object
   currentChallenge: '',
-  superBlocks: []
+  superBlocks: [],
+  adminRoot: 'rrcca2019'
 };
 
 export const getNS = state => state[ns];
 export const csrfSelector = state => getNS(state).csrfToken;
 export const titleSelector = state => getNS(state).title;
+export const adminRootSelector = state => getNS(state).adminRoot || 'rrcca2019';
 
 export const currentChallengeSelector = state => getNS(state).currentChallenge;
 export const superBlocksSelector = state => getNS(state).superBlocks;

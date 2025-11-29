@@ -590,42 +590,16 @@ module.exports = function (User) {
         updateUser.passwordSalt = salt;    
       }
 
-      if (isRespWebDesignCert) {
-        updateUser.isRespWebDesignCert = isRespWebDesignCert;    
-      }
-
-      if (isJsAlgoDataStructCert) {
-        updateUser.isJsAlgoDataStructCert = isJsAlgoDataStructCert;    
-      }
-
-      if (isFrontEndCert) {
-        updateUser.isFrontEndCert = isFrontEndCert;    
-      }
-
-      if (isFrontEndLibsCert) {
-        updateUser.isFrontEndLibsCert = isFrontEndLibsCert;    
-      }
-
-      if (isDataVisCert) {
-        updateUser.isDataVisCert = isDataVisCert;    
-      }
-
-      if (isApisMicroservicesCert) {
-        updateUser.isApisMicroservicesCert = isApisMicroservicesCert;    
-      }
-
-      if (isInfosecQaCert) {
-        updateUser.isInfosecQaCert = isInfosecQaCert;    
-      }
-
-      if (isBackEndCert) {
-        updateUser.isBackEndCert = isBackEndCert;    
-      }
-
-      if (isFullStackCert) {
-        updateUser.isFullStackCert = isFullStackCert;    
-      }
-
+      // Handle certifications - explicitly set true or false
+      updateUser.isRespWebDesignCert = !!isRespWebDesignCert;
+      updateUser.isJsAlgoDataStructCert = !!isJsAlgoDataStructCert;
+      updateUser.isFrontEndCert = !!isFrontEndCert;
+      updateUser.isFrontEndLibsCert = !!isFrontEndLibsCert;
+      updateUser.isDataVisCert = !!isDataVisCert;
+      updateUser.isApisMicroservicesCert = !!isApisMicroservicesCert;
+      updateUser.isInfosecQaCert = !!isInfosecQaCert;
+      updateUser.isBackEndCert = !!isBackEndCert;
+      updateUser.isFullStackCert = !!isFullStackCert;
 
       return user.update$(updateUser);
     })

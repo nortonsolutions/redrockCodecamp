@@ -1,45 +1,219 @@
 extends ../layout
 block content
     include ../partials/ajaxFlashMessage
+    style.
+        .cert-list { text-align: left; padding: 15px; }
+        .cert-item { 
+            display: block; 
+            padding: 8px; 
+            margin: 5px 0; 
+            border: 1px solid #ddd; 
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        .cert-item label { 
+            margin: 0; 
+            cursor: pointer; 
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+        }
+        .cert-item input[type="checkbox"] { 
+            margin-right: 10px; 
+            transform: scale(1.3);
+        }
+        .user-info-display {
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+        .user-info-display.show { display: block; }
+        .user-info-display h4 { margin-top: 0; }
+        .btn-load { margin-bottom: 15px; }
+        #certifications-section { display: none; }
+        #certifications-section.show { display: block; }
     .row.text-center
-        h2 Update account information:
-            .button-spacer
-        .col-sm-6.col-sm-offset-3
-            form(method='POST', action='/rrcca2019/update-account')
-                input(type='hidden', name='_csrf', value=_csrf)
+        h2 Update account information
+        .button-spacer
+        .col-sm-8.col-sm-offset-2
+            .form-group
+                input.input-lg.form-control(type='email', id='lookup-email', placeholder='Enter Account Email to Load', autofocus=true)
+            button.btn.btn-info.btn-lg.btn-block.btn-load(type='button', onclick='loadUser()')
+                span Load User Account
+            
+            #user-info.user-info-display
+                h4 Current User Information
+                p <strong>Email:</strong> <span id="display-email"></span>
+                p <strong>Username:</strong> <span id="display-username"></span>
+                p <strong>Name:</strong> <span id="display-name"></span>
+                p <strong>Location:</strong> <span id="display-location"></span>
+            
+            form#update-form(onsubmit='return submitUpdate(event)')
+                input(type='hidden', name='_csrf', value=_csrf, id='csrf-token')
+                input(type='hidden', name='email', id='hidden-email')
+                
                 .form-group
-                    input.input-lg.form-control.success-clear-value(type='email', name='email', id='email', placeholder='Account Email', autofocus=true, required)
+                    input.input-lg.form-control.success-clear-value(type='email', name='newEmail', id='new-email', placeholder='New Email (optional)')
                 .form-group
-                    input.input-lg.form-control.success-clear-value(type='email', name='newEmail', id='new-email', placeholder='New Email')
+                    input.input-lg.form-control.success-clear-value(type='text', name='username', id='username', placeholder='New Username (optional)')
                 .form-group
-                    input.input-lg.form-control.success-clear-value(type='text', name='username', id='username', placeholder='New Username')
+                    input.input-lg.form-control.success-clear-value(type='text', name='name', id='name', placeholder='New Name (optional)')
                 .form-group
-                    input.input-lg.form-control.success-clear-value(type='text', name='name', id='name', placeholder='New Name')
+                    input.input-lg.form-control.success-clear-value(type='text', name='location', id='location', placeholder='New Location (optional)')
                 .form-group
-                    input.input-lg.form-control.success-clear-value(type='text', name='location', id='location', placeholder='New Location')
-                .form-group
-                    input.input-lg.form-control.success-clear-value(type='password', name='password', id='password', placeholder='New Password')
+                    input.input-lg.form-control.success-clear-value(type='password', name='password', id='password', placeholder='New Password (optional)')
                 .form-group
                     input.input-lg.form-control.success-clear-value(type='password', name='confirmPassword', id='confirmpassword', placeholder='Confirm New Password')
-                .form-group
-                    <h3>New Certifications to Record?</h3>
-                    <label for="isRespWebDesignCert"><input type="checkbox" name="isRespWebDesignCert" value="isRespWebDesignCert">Responsive Web Design</label>
-                    <label for="isJsAlgoDataStructCert"><input type="checkbox" name="isJsAlgoDataStructCert" value="isJsAlgoDataStructCert">JS Algorithms and Data Structures</label>
-                    <label for="isFrontEndCert"><input type="checkbox" name="isFrontEndCert" value="isFrontEndCert">JavaScript Front-End Web Development</label>
-                    <label for="isFrontEndLibsCert"><input type="checkbox" name="isFrontEndLibsCert" value="isFrontEndLibsCert">JavaScript Front-End Libraries</label>
-                    <label for="isDataVisCert"><input type="checkbox" name="isDataVisCert" value="isDataVisCert">JavaScript Front-End Data Visualization</label>
-                    <label for="isApisMicroservicesCert"><input type="checkbox" name="isApisMicroservicesCert" value="isApisMicroservicesCert">JavaScript APIs and Microservices</label>
-                    <label for="isInfosecQaCert"><input type="checkbox" name="isInfosecQaCert" value="isInfosecQaCert">Information Security and QA</label>
-                    <label for="isBackEndCert"><input type="checkbox" name="isBackEndCert" value="isBackEndCert">JavaScript Back-End Web Development</label>
-                    <label for="isFullStackCert"><input type="checkbox" name="isFullStackCert" value="isFullStackCert">JavaScript Full-Stack Web Development</label>
+                
+                #certifications-section
+                    h3 User Certifications
+                    p.text-muted Toggle certifications on/off as needed
+                    .cert-list
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isRespWebDesignCert', id='cert-isRespWebDesignCert')
+                                span Responsive Web Design
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isJsAlgoDataStructCert', id='cert-isJsAlgoDataStructCert')
+                                span JS Algorithms and Data Structures
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isFrontEndCert', id='cert-isFrontEndCert')
+                                span JavaScript Front-End Web Development
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isFrontEndLibsCert', id='cert-isFrontEndLibsCert')
+                                span JavaScript Front-End Libraries
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isDataVisCert', id='cert-isDataVisCert')
+                                span JavaScript Front-End Data Visualization
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isApisMicroservicesCert', id='cert-isApisMicroservicesCert')
+                                span JavaScript APIs and Microservices
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isInfosecQaCert', id='cert-isInfosecQaCert')
+                                span Information Security and QA
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isBackEndCert', id='cert-isBackEndCert')
+                                span JavaScript Back-End Web Development
+                        .cert-item
+                            label
+                                input(type='checkbox', name='cert-isFullStackCert', id='cert-isFullStackCert')
+                                span JavaScript Full-Stack Web Development
+                
                 .button-spacer
-                button#magic-btn.btn.btn-primary.btn-lg.btn-block(type='submit')
+                button#magic-btn.btn.btn-success.btn-lg.btn-block(type='submit')
                     span Update Account
                 .button-spacer
                 .button-spacer
-                .button-spacer
-                .button-spacer
-                .button-spacer
-                .button-spacer
-                a.btn.btn-primary.btn-lg.btn-block(href='/rrcca2019')
+                a.btn.btn-primary.btn-lg.btn-block(href='/' + adminRoot)
                     span Admin Home
+    
+    script.
+        function loadUser() {
+            const email = document.getElementById('lookup-email').value;
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            fetch('/#{adminRoot}/get-user?email=' + encodeURIComponent(email), {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                    return;
+                }
+                
+                // Populate display fields
+                document.getElementById('display-email').textContent = data.email || '';
+                document.getElementById('display-username').textContent = data.username || '';
+                document.getElementById('display-name').textContent = data.name || '';
+                document.getElementById('display-location').textContent = data.location || '';
+                
+                // Show user info
+                document.getElementById('user-info').classList.add('show');
+                document.getElementById('certifications-section').classList.add('show');
+                
+                // Set hidden email for form submission
+                document.getElementById('hidden-email').value = data.email;
+                
+                // Set certification checkboxes
+                document.getElementById('cert-isRespWebDesignCert').checked = data.isRespWebDesignCert;
+                document.getElementById('cert-isJsAlgoDataStructCert').checked = data.isJsAlgoDataStructCert;
+                document.getElementById('cert-isFrontEndCert').checked = data.isFrontEndCert;
+                document.getElementById('cert-isFrontEndLibsCert').checked = data.isFrontEndLibsCert;
+                document.getElementById('cert-isDataVisCert').checked = data.isDataVisCert;
+                document.getElementById('cert-isApisMicroservicesCert').checked = data.isApisMicroservicesCert;
+                document.getElementById('cert-isInfosecQaCert').checked = data.isInfosecQaCert;
+                document.getElementById('cert-isBackEndCert').checked = data.isBackEndCert;
+                document.getElementById('cert-isFullStackCert').checked = data.isFullStackCert;
+            })
+            .catch(error => {
+                alert('Error loading user: ' + error.message);
+            });
+        }
+        
+        function submitUpdate(event) {
+            event.preventDefault();
+            
+            const formData = {
+                email: document.getElementById('hidden-email').value,
+                newEmail: document.getElementById('new-email').value,
+                username: document.getElementById('username').value,
+                name: document.getElementById('name').value,
+                location: document.getElementById('location').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmpassword').value,
+                certifications: {
+                    isRespWebDesignCert: document.getElementById('cert-isRespWebDesignCert').checked,
+                    isJsAlgoDataStructCert: document.getElementById('cert-isJsAlgoDataStructCert').checked,
+                    isFrontEndCert: document.getElementById('cert-isFrontEndCert').checked,
+                    isFrontEndLibsCert: document.getElementById('cert-isFrontEndLibsCert').checked,
+                    isDataVisCert: document.getElementById('cert-isDataVisCert').checked,
+                    isApisMicroservicesCert: document.getElementById('cert-isApisMicroservicesCert').checked,
+                    isInfosecQaCert: document.getElementById('cert-isInfosecQaCert').checked,
+                    isBackEndCert: document.getElementById('cert-isBackEndCert').checked,
+                    isFullStackCert: document.getElementById('cert-isFullStackCert').checked
+                }
+            };
+            
+            fetch('/#{adminRoot}/update-account', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': document.getElementById('csrf-token').value
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (!data.message.includes('Error')) {
+                    // Clear optional fields on success
+                    document.getElementById('new-email').value = '';
+                    document.getElementById('username').value = '';
+                    document.getElementById('name').value = '';
+                    document.getElementById('location').value = '';
+                    document.getElementById('password').value = '';
+                    document.getElementById('confirmpassword').value = '';
+                }
+            })
+            .catch(error => {
+                alert('Error updating account: ' + error.message);
+            });
+            
+            return false;
+        }

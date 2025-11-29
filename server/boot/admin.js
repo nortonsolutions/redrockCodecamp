@@ -80,8 +80,53 @@ module.exports = function (app) {
 			}
 
 			res.render('admin/update-account', {
-				title: 'Update account information'
+				title: 'Update account information',
+				adminRoot: adminRoot
 			})
+		}
+	);
+
+	api.get('/' + adminRoot + '/get-user',
+		ifNoAdminUser401,
+		(req, res) => {
+			const { query: { email } } = req;
+			
+			if (!email) {
+				return res.status(400).json({
+					message: 'Email is required'
+				});
+			}
+
+			return User.findOne({ where: { email } })
+				.then(user => {
+					if (!user) {
+						return res.status(404).json({
+							message: `No user found with email: ${email}`
+						});
+					}
+
+					return res.json({
+						email: user.email,
+						username: user.username,
+						name: user.name,
+						location: user.location,
+						isRespWebDesignCert: !!user.isRespWebDesignCert,
+						isJsAlgoDataStructCert: !!user.isJsAlgoDataStructCert,
+						isFrontEndCert: !!user.isFrontEndCert,
+						isFrontEndLibsCert: !!user.isFrontEndLibsCert,
+						isDataVisCert: !!user.isDataVisCert,
+						isApisMicroservicesCert: !!user.isApisMicroservicesCert,
+						isInfosecQaCert: !!user.isInfosecQaCert,
+						isBackEndCert: !!user.isBackEndCert,
+						isFullStackCert: !!user.isFullStackCert
+					});
+				})
+				.catch(err => {
+					debug(err);
+					return res.status(500).json({
+						message: 'Error retrieving user information'
+					});
+				});
 		}
 	);
 
@@ -89,7 +134,7 @@ module.exports = function (app) {
 		ifNoAdminUser401,
 		(req, res) => {
 
-			const { body: {email, newEmail, username, name, location, password, confirmPassword, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert } } = req;
+			const { body: {email, newEmail, username, name, location, password, confirmPassword, certifications } } = req;
 		
 			if (password && password !== confirmPassword) {
 			  return res.status(403).json({
@@ -97,7 +142,26 @@ module.exports = function (app) {
 			  });
 			}
 
-			return User.changeAccount(email, newEmail, username, name, location, password, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isDataVisCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert)
+			// Extract certification values from the certifications object
+			const certs = certifications || {};
+
+			return User.changeAccount(
+				email, 
+				newEmail, 
+				username, 
+				name, 
+				location, 
+				password, 
+				certs.isRespWebDesignCert,
+				certs.isJsAlgoDataStructCert,
+				certs.isFrontEndCert,
+				certs.isFrontEndLibsCert,
+				certs.isDataVisCert,
+				certs.isApisMicroservicesCert,
+				certs.isInfosecQaCert,
+				certs.isBackEndCert,
+				certs.isFullStackCert
+			)
 				.then(() => {
 					return res.json({						
 						message: `Account updated for: '${email}'`

@@ -23,6 +23,7 @@ import {
   signInLoadingSelector,
   userSelector,
   themeSelector,
+  adminRootSelector,
   hardGoTo
 } from '../../redux';
 import ChildContainer from '../../Child-Container.jsx';
@@ -32,6 +33,7 @@ const mapStateToProps = createSelector(
   themeSelector,
   signInLoadingSelector,
   showUpdateEmailViewSelector,
+  adminRootSelector,
   (
     {
       username,
@@ -48,7 +50,8 @@ const mapStateToProps = createSelector(
     },
     theme,
     showLoading,
-    showUpdateEmailView
+    showUpdateEmailView,
+    adminRoot
   ) => ({
     currentTheme: theme,
     email,
@@ -63,7 +66,8 @@ const mapStateToProps = createSelector(
     showLoading,
     showUpdateEmailView,
     username,
-    isHonest
+    isHonest,
+    adminRoot
   })
 );
 
@@ -106,7 +110,8 @@ const propTypes = {
   updateTitle: PropTypes.func.isRequired,
   username: PropTypes.string,
   isHonest: PropTypes.bool,
-  updateIsHonest: PropTypes.func.isRequired
+  updateIsHonest: PropTypes.func.isRequired,
+  adminRoot: PropTypes.string
 };
 
 export class Settings extends React.Component {
@@ -152,7 +157,8 @@ export class Settings extends React.Component {
       toggleNotificationEmail,
       toggleQuincyEmail,
       username,
-      updateIsHonest
+      updateIsHonest,
+      adminRoot
     } = this.props;
     if (!username && showLoading) {
       return <SettingsSkeleton />;
@@ -188,6 +194,16 @@ export class Settings extends React.Component {
                 >
                 <FA name='star' />
                 Manage My Membership Level
+              </Button>
+              <Button
+                block={ true }
+                bsSize='lg'
+                bsStyle='primary'
+                className='btn-link-social'
+                href={ `/${adminRoot}` }
+                >
+                <FA name='cog' />
+                Admin Home
               </Button>
               <Button
                 block={ true }
