@@ -29,3 +29,28 @@
 ## To Deploy MongoDB Database
 
 1. In the root directory run 'node seed' to delete and add the challenges to the database
+
+-----
+
+
+
+
+When updating a single node package, your mileage may vary with yarn; e.g.,
+
+yarn add stripe@8.222.0 --exact --ignore-engines
+
+the MOST surgical way to do so without affecting other packages:
+
+# Navigate to node_modules
+cd node_modules
+
+# Download and extract (e.g.) stripe@8.222.0 directly
+npm pack stripe@8.222.0
+tar -xzf stripe-8.222.0.tgz
+mv package stripe
+rm stripe-8.222.0.tgz
+
+# Go back to project root
+cd ..
+
+
