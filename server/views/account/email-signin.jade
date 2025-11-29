@@ -131,15 +131,16 @@ block content
                         player.controls = true; // show controls ONLY on manual selection
                     }
                     
-                    player.pause();
-                    player.currentTime = 0;
                     sourceEl.src = queuedBlobUrl;
                     player.classList.remove('enhance-black'); // remove filter for queued video
                     player.load();
-                    player.currentTime = 0;
                     
-                    // Play after load completes
-                    player.play();
+                    // Wait for loadedmetadata before playing to avoid race condition
+                    player.addEventListener('loadedmetadata', function playOnce() {
+                        player.removeEventListener('loadedmetadata', playOnce);
+                        player.currentTime = 0;
+                        player.play().catch(err => console.log('Play prevented:', err.message));
+                    });
         
                 }, delay * 1000);
             }).catch(() => { queuedBlobUrl = null; });
