@@ -115,7 +115,7 @@ block content
     script.
         const player = document.getElementById('redrockMainVideo');
         const sourceEl = player.querySelector('source');
-        const QUEUE_AT_SECONDS = 4;
+        const QUEUE_AT_SECONDS = 2;
         let queuedBlobUrl = null;
 
         queueVideo = (queuedSrc, userSelected, delay = QUEUE_AT_SECONDS) => {
@@ -131,11 +131,12 @@ block content
                         player.controls = true; // show controls ONLY on manual selection
                     }
 
-                    player.pause();
-                    player.currentTime = 0;
                     sourceEl.src = queuedBlobUrl;
                     player.classList.remove('enhance-black'); // remove filter for queued video
                     player.load();
+                    player.currentTime = 0;
+                    
+                    // Play after load completes
                     player.play();
         
                 }, delay * 1000);
