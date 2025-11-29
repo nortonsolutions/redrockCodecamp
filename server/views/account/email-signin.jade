@@ -90,8 +90,8 @@ block content
                 .video-section
                     .video-container
                         // NOTE: no controls attribute; muted for autoplay
-                        video#redrockMainVideo.enhance-black(autoplay loop muted playsinline preload='auto' data-state='auto')
-                            source(src='/assets/videos/midjourney_redrockcode_spinning_mountain_range.mp4', type='video/mp4')
+                        video#redrockMainVideo(autoplay loop muted playsinline preload='auto' data-state='auto')
+                            source(src='/assets/videos/redrockcode_intro_0_1080.mp4', type='video/mp4')
                             | Your browser does not support the video tag.
             .col-md-6.col.sm-12.form-col
                 .form-panel
@@ -110,7 +110,7 @@ block content
                                 a(href='/create-account')   Sign up!
 
                     a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction to Redrock Code
-                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 14 minutes: What will I learn?
+                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 13 minutes: What will I learn?
                     a.form-control.external-link(target='_blank' href='https://silvermedal.online' style='margin: auto; margin-top: 10px;') * Check out our game demo *
     script.
         const player = document.getElementById('redrockMainVideo');
@@ -118,49 +118,29 @@ block content
         const QUEUE_AT_SECONDS = 2;
         let queuedBlobUrl = null;
 
-        queueVideo = (queuedSrc, userSelected, delay = QUEUE_AT_SECONDS) => {
-
-            fetch(queuedSrc, { cache: 'force-cache' })
-            .then(r => r.ok ? r.blob() : Promise.reject(r.status))
-            .then(blob => { 
-
-                setTimeout(() => {
-                    queuedBlobUrl = URL.createObjectURL(blob); 
-                    if (userSelected) {
-                        player.muted = false; // allow audio now
-                        player.controls = true; // show controls ONLY on manual selection
-                    }
-                    
-                    sourceEl.src = queuedBlobUrl;
-                    player.classList.remove('enhance-black'); // remove filter for queued video
-                    player.load();
-                    
-                    // Wait for loadedmetadata before playing to avoid race condition
-                    player.addEventListener('loadedmetadata', function playOnce() {
-                        player.removeEventListener('loadedmetadata', playOnce);
-                        player.currentTime = 0;
-                        player.play().catch(err => console.log('Play prevented:', err.message));
-                    });
-        
-                }, delay * 1000);
-            }).catch(() => { queuedBlobUrl = null; });
+        function changeVideo(videoSrc) {
+            if (videoSrc) {
+                player.removeAttribute('autoplay');
+                player.removeAttribute('loop');
+                player.src = videoSrc;
+                player.muted = false;
+                player.controls = true;
+                player.classList.remove('enhance-black');
+                player.load();````
+                player.removeAttribute('autoplay');
+                player.removeAttribute('loop');
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const links = document.querySelectorAll('.inline-link');
-            const QUEUE_AT_SECONDS = 2;
-            const queuedSrc = '/assets/videos/redrockcode_intro_0_1080.mp4';
-            let userSelected = false;
-
-            queueVideo(queuedSrc, false, QUEUE_AT_SECONDS);
 
             links.forEach(link => {
                 link.addEventListener('click', e => {
                     e.preventDefault();
                     links.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
-
-                    queueVideo(link.getAttribute('data-video'), true, 0);
+                    changeVideo(link.getAttribute('data-video'));
                 });
             });
         });
