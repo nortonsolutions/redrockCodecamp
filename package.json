@@ -136,7 +136,7 @@
     "stripe": "8.222.0",
     "uuid": "^3.0.1",
     "validator": "^8.2.0",
-    "vinyl-fs": "^4.0.0"
+    "vinyl-fs": "0.3.14"
   },
   "devDependencies": {
     "adler32": "~0.1.7",
