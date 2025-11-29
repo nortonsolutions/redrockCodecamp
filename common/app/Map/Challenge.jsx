@@ -11,17 +11,19 @@ import { challengeMapSelector } from '../entities';
 import { Link } from '../Router';
 import { onRouteChallenges } from '../routes/Challenges/redux';
 
-const certificationNames = {
-  'Beginning Html And Css (phase I Term 1)': { name: 'user account', cert: null },
-  'Advanced Html And Css (phase I Term 2)': { name: 'user account', cert: null },
-  'Beginning Javascript (phase I Term 3)': { name: 'Responsive Web Design', cert: 'isRespWebDesignCertified' },
-  'Advanced Javascript (phase Ii Term 4)': { name: 'Responsive Web Design', cert: 'isRespWebDesignCertified' },
-  'Beginning Web Development (phase Ii Term 5)': { name: 'JS Algorithms and Data Structures', cert: 'isJsAlgoDataStructCertified' },
-  'Advanced Web Development (phase Ii Term 6)': { name: 'JS Algorithms and Data Structures', cert: 'isJsAlgoDataStructCertified' },
-  'Front End Libraries (phase Iii Term 7)': { name: 'JavaScript Front-End Web Development', cert: 'isFrontEndCertified' },
-  'Server Side Development (phase Iii Term 8)': { name: 'JavaScript Front-End Libraries', cert: 'isFrontEndLibsCertified' },
-  'Advanced Server Side Development (phase Iii Term 9)': { name: 'JavaScript APIs and Microservices', cert: 'isApisMicroservicesCertified' },
-  'More Javascript For Masochists (phase X)': { name: 'Information Security and QA', cert: 'isInfosecQaCertified' }
+// Certification requirements lookup - maps superBlock folder names to required certs
+const CERT_REQUIREMENTS = {
+  '(1000) The Two Year Plan': { cert: null, name: 'user account' },
+  '(1010) World Wide Web Elements': { cert: null, name: 'user account' },
+  '(1020) Responsive Web Design': { cert: null, name: 'user account' },
+  '(2030) Javascript Apprenticeship': { cert: 'isRespWebDesignCertified', name: 'Responsive Web Design' },
+  '(2040) Javascript Standards': { cert: 'isJsAlgoDataStructCertified', name: 'JS Algorithms and Data Structures' },
+  '(2050) Javascript Browser Apis': { cert: 'isJsAlgoDataStructCertified', name: 'JS Algorithms and Data Structures' },
+  '(2060) Javascript Web Citizenship': { cert: 'isJsAlgoDataStructCertified', name: 'JS Algorithms and Data Structures' },
+  '(3070) Front End Frameworks': { cert: 'isFrontEndCertified', name: 'JavaScript Front-End Web Development' },
+  '(3080) Back End Web Tech': { cert: 'isFrontEndLibsCertified', name: 'JavaScript Front-End Libraries' },
+  '(3090) Advanced Server Patterns': { cert: 'isApisMicroservicesCertified', name: 'JavaScript APIs and Microservices' },
+  '(4100) JavaScript for Engineers': { cert: 'isInfosecQaCertified', name: 'Information Security and QA' }
 };
 
 const propTypes = {
@@ -225,79 +227,25 @@ export class Challenge extends PureComponent {
     let certLocked = false;
     let requiredCertName = null;
     
-    switch (superBlock) {
-      
-        case "Beginning Html And Css (phase I Term 1)":
-          if (!userHasChallengeMap) {
-            certLocked = true;
-            requiredCertName = 'user account';
-          }
-          break;
-
-        case "Advanced Html And Css (phase I Term 2)":
-          if (!userHasChallengeMap) {
-            certLocked = true;
-            requiredCertName = 'user account';
-          }
-          break;  
-
-        case "Beginning Javascript (phase I Term 3)":
-          if (!isRespWebDesignCertified) {
-            certLocked = true;
-            requiredCertName = 'Responsive Web Design';
-          }
-          break;
-
-        case "Advanced Javascript (phase Ii Term 4)":
-          if (!isRespWebDesignCertified) {
-            certLocked = true;
-            requiredCertName = 'Responsive Web Design';
-          }
-          break;
-
-        case "Beginning Web Development (phase Ii Term 5)":
-          if (!isJsAlgoDataStructCertified) {
-            certLocked = true;
-            requiredCertName = 'JS Algorithms and Data Structures';
-          }
-          break;
-
-        case "Advanced Web Development (phase Ii Term 6)":
-          if (!isJsAlgoDataStructCertified) {
-            certLocked = true;
-            requiredCertName = 'JS Algorithms and Data Structures';
-          }
-          break;
-
-        case "Front End Libraries (phase Iii Term 7)":
-          if (!isFrontEndCertified) {
-            certLocked = true;
-            requiredCertName = 'JavaScript Front-End Web Development';
-          }
-          break;
-
-        case "Server Side Development (phase Iii Term 8)":
-          if (!isFrontEndLibsCertified) {
-            certLocked = true;
-            requiredCertName = 'JavaScript Front-End Libraries';
-          }
-          break;
-
-        case "Advanced Server Side Development (phase Iii Term 9)":
-          if (!isApisMicroservicesCertified) {
-            certLocked = true;
-            requiredCertName = 'JavaScript APIs and Microservices';
-          }
-          break;
-
-        case "More Javascript For Masochists (phase X)":
-          if (!isInfosecQaCertified) {
-            certLocked = true;
-            requiredCertName = 'Information Security and QA';
-          }
-          break;
+    // Check certification requirements using lookup object
+    const requirement = CERT_REQUIREMENTS[superBlock];
+    if (requirement) {
+      if (requirement.cert === null) {
+        // Requires user account only
+        if (!userHasChallengeMap) {
+          certLocked = true;
+          requiredCertName = requirement.name;
+        }
+      } else {
+        // Check if user has the required certification
+        if (!this.props[requirement.cert]) {
+          certLocked = true;
+          requiredCertName = requirement.name;
+        }
+      }
     }
     
+    // Check prerequisite challenge requirement
     if (!prerequisiteMet && !certLocked) {
       certLocked = true;
       requiredCertName = 'prerequisite challenge';
