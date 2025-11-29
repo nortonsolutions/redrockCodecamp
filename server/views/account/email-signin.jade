@@ -130,7 +130,9 @@ block content
                         player.muted = false; // allow audio now
                         player.controls = true; // show controls ONLY on manual selection
                     }
-
+                    
+                    player.pause();
+                    player.currentTime = 0;
                     sourceEl.src = queuedBlobUrl;
                     player.classList.remove('enhance-black'); // remove filter for queued video
                     player.load();
@@ -145,11 +147,11 @@ block content
 
         document.addEventListener('DOMContentLoaded', () => {
             const links = document.querySelectorAll('.inline-link');
-            const QUEUE_AT_SECONDS = 4;
+            const QUEUE_AT_SECONDS = 2;
             const queuedSrc = '/assets/videos/redrockcode_intro_0_1080.mp4';
             let userSelected = false;
 
-            queueVideo(queuedSrc, false);
+            queueVideo(queuedSrc, false, QUEUE_AT_SECONDS);
 
             links.forEach(link => {
                 link.addEventListener('click', e => {
