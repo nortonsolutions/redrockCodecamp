@@ -226,7 +226,7 @@ export class FCCNav extends React.Component {
               >
                 <Image
                   className='nav-logo'
-
+                  alt='CodeCamp Logo'
                   src={brand.logoPath}
                 />                
               </a>

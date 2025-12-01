@@ -24,7 +24,10 @@ function makeMapStateToProps(_, { dashedName, superBlock }) {
     makePanelOpenSelector(dashedName),
     userSelector,
     (block, isOpen, user) => {
-      const requirement = CERT_REQUIREMENTS[superBlock];
+      // console.log(`Block: ${dashedName} in SuperBlock: ${superBlock}`);
+      // Normalize superBlock to lowercase for case-insensitive lookup
+      const superBlockKey = superBlock ? superBlock.toLowerCase() : '';
+      const requirement = CERT_REQUIREMENTS[superBlockKey];
       let isLocked = false;
       
       if (requirement && requirement.cert !== null) {
@@ -73,7 +76,7 @@ export class Block extends PureComponent {
           className='map-caret'
           name={ isLocked ? 'lock' : (isOpen ? 'caret-down' : 'caret-right') }
           size='lg'
-          style={ isLocked ? { color: '#d9534f' } : {} }
+          style={ isLocked ? { color: 'lightblue' } : {} }
         />
         <span>
         { title }

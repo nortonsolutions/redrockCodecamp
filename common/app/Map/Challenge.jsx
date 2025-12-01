@@ -159,7 +159,7 @@ export class Challenge extends PureComponent {
             right: 0,
             bottom: 0,
             left: 0,
-            zIndex: 1040,
+            zIndex: 999999,
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
           }}
           onClick={this.closeModal}
@@ -172,7 +172,7 @@ export class Challenge extends PureComponent {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            zIndex: 1050,
+            zIndex: 1000000,
             width: '90%',
             maxWidth: '500px'
           }} 
@@ -233,21 +233,17 @@ export class Challenge extends PureComponent {
     let requiredCertName = null;
     
     // Check certification requirements using lookup object
-    const requirement = CERT_REQUIREMENTS[superBlock] || null;
+    const requirement = CERT_REQUIREMENTS[superBlock.toLowerCase()];
     if (requirement) {
       if (requirement.cert === null) {
-          // Open to all
-          certLocked = false;
+        certLocked = false;
       } else {
-          // Check if user has the required certification
-          const hasCert = this.props[requirement.cert];
-          certLocked = !hasCert;
-          requiredCertName = requirement.name;
+        const hasCert = this.props[requirement.cert];
+        certLocked = !hasCert;
+        requiredCertName = requirement.name;
       }
     }
-    
-    // Check prerequisite challenge requirement
-    if (!prerequisiteMet && !certLocked) {
+    if (!certLocked && !prerequisiteMet && userHasChallengeMap) {
       certLocked = true;
       requiredCertName = 'prerequisite challenge';
     }

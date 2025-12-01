@@ -27,8 +27,10 @@ function mapStateToProps(_, { dashedName }) {
     makePanelOpenSelector(dashedName),
     userSelector,
     (superBlock, isOpen, user) => {
-      const title = superBlock.title || dashedName;
-      const requirement = CERT_REQUIREMENTS[title];
+      const title = superBlock.title;
+      // console.log(`Checking lock for superBlock: ${title} with dashedName: ${dashedName}`);
+      var titleKey = title ? title.toLowerCase() : '';
+      const requirement = CERT_REQUIREMENTS[titleKey];
       let isLocked = false;
       
       if (requirement && requirement.cert !== null) {
@@ -89,7 +91,7 @@ export class SuperBlock extends PureComponent {
           className={ `${ns}-caret` }
           name={ isLocked ? 'lock' : (isOpen ? 'caret-down' : 'caret-right') }
           size='lg'
-          style={ isLocked ? { color: '#d9534f' } : {} }
+          style={ isLocked ? { color: 'lightblue' } : {} }
         />
         { title }
         {/* { isLocked && (

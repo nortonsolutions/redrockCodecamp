@@ -170,7 +170,6 @@ export class Pane extends PureComponent {
       paddingRight: '4px',
       display: 'flex',
       flexDirection: 'column',
-      zIndex: isExpanded ? 10 : 1,
       backgroundColor: isExpanded ? 'white' : 'transparent',
       transition: 'all 0.3s ease'
     };
