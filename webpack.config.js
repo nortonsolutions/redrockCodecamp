@@ -3,9 +3,10 @@ var path = require('path');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
+var yargs = require('yargs');
 
-var __DEV__ = process.env.NODE_ENV !== 'production';
-
+// -p flag sets process.env.NODE_ENV to 'production'
+var __DEV__ = process.env.NODE_ENV !== 'production' || !yargs.argv.p;
 module.exports = {
   entry: {
     bundle: './client'
