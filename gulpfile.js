@@ -151,6 +151,11 @@ const paths = {
     './common/**/*.less'
   ],
 
+  jsxFiles: [
+    'client/**/*.jsx',
+    'common/**/*.jsx'
+  ],
+
   manifest: 'server/manifests/',
 
   node: {
@@ -466,6 +471,11 @@ gulp.task('watch', watchDependents, function() {
   gulp.watch(paths.lessFiles, ['less']);
   gulp.watch(paths.js.concat(paths.vendorChallenges), ['js']);
   gulp.watch(paths.js, ['js']);
+  
+  // Watch JSX files and rebuild with appropriate flag based on environment
+  gulp.watch(paths.jsxFiles, function() {
+    gulp.start('build');
+  });
 });
 
 gulp.task('default', [

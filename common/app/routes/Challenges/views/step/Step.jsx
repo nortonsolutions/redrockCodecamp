@@ -220,10 +220,10 @@ export class StepChallenge extends PureComponent {
         </a>
         <Row>
           <Col
-            md={8}
-            mdOffset={2}
-            sm={10}
-            smOffset={1}
+            md={11}
+            mdOffset={0}
+            sm={11}
+            smOffset={0}
             xs={12}
           >
             <div

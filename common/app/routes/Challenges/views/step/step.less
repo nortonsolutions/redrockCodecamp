@@ -1,6 +1,18 @@
 // should match ./ns.json value and filename
 @ns: step;
 
+// Override Bootstrap grid constraints for challenge-step container
+.challenge-step {
+  @media (min-width: 1031px) {
+    &.col-md-11 {
+      width: 100% !important;      
+    }
+    &.col-md-offset-0 {
+      margin-left: 0 !important;
+    }
+  }
+}
+
 .@{ns}-description {
   font-size: 1.5em;
   word-wrap: break-word;
