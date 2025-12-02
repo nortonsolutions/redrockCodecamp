@@ -95,6 +95,21 @@ export class Challenge extends PureComponent {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.showModal && !prevState.showModal) {
+      // Modal opened - prevent body scroll
+      document.body.style.overflow = 'hidden';
+    } else if (!this.state.showModal && prevState.showModal) {
+      // Modal closed - restore body scroll
+      document.body.style.overflow = '';
+    }
+  }
+
+  componentWillUnmount() {
+    // Cleanup: restore body scroll if component unmounts with modal open
+    document.body.style.overflow = '';
+  }
+
   handleLockedClick = (e) => {
     e.preventDefault();
     this.setState({ showModal: true });
@@ -150,16 +165,25 @@ export class Challenge extends PureComponent {
       return null;
     }
     return (
-      <div>
+      <div style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 999999,
+        overflow: 'auto'
+      }}>
         <div 
           className='modal-backdrop fade in' 
           style={{ 
-            position: 'fixed',
+            position: 'absolute',
             top: 0,
             right: 0,
             bottom: 0,
             left: 0,
-            zIndex: 999999,
+            minHeight: '100vh',
+            minWidth: '100vw',
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
           }}
           onClick={this.closeModal}
@@ -173,8 +197,9 @@ export class Challenge extends PureComponent {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 1000000,
-            width: '90%',
-            maxWidth: '500px'
+            width: '85%',
+            maxWidth: '450px',
+            margin: '0 auto'
           }} 
           role='dialog'
         >
@@ -273,11 +298,12 @@ export class Challenge extends PureComponent {
           <div
             className={ challengeClassName }
             key={ title }
+            style={{ color: 'lightblue' }}
             >
             <a
               href='#'
               onClick={ this.handleLockedClick }
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', color: 'lightblue' }}
               >
               <span>
                 { title }
