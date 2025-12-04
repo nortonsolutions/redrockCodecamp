@@ -1,6 +1,8 @@
 require('dotenv').load();
 require('./utils/webpack-code-split-polyfill');
 
+const domainBranding = require('./middlewares/domain-branding');
+
 if (process.env.OPBEAT_ID) {
   console.log('loading opbeat');
   require('opbeat').start({
@@ -35,13 +37,14 @@ app.set('state namespace', NS);
 app.set('port', process.env.PORT || 3030);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(loopback.token());
 
 app.use('/educationMaterials',
   serveIndex(path.join(__dirname, '../public/educationMaterials'), {'icons': true}),
   loopback.static(path.join(__dirname, '../public/educationMaterials'), { index: false })
 )
+app.use(loopback.token());
 app.disable('x-powered-by');
+app.use(domainBranding());
 
 boot(app, {
   appRootDir: __dirname,
