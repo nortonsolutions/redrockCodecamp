@@ -20,6 +20,7 @@ import { Link } from '../Router';
 import navLinks from './links.json';
 import SignUp from './Sign-Up.jsx';
 import BinButton from './Bin-Button.jsx';
+import { getBranding } from '../../utils/branding.js';
 import {
   clickOnLogo,
   clickOnMap,
@@ -31,8 +32,6 @@ import {
 } from './redux';
 import { isSignedInSelector, signInLoadingSelector } from '../redux';
 import { panesSelector } from '../Panes/redux';
-import { getBranding } from '../../utils/branding.js';
-const brand = getBranding();
 
 const fCClogo = 'https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg';
 // TODO @freecodecamp-team: place this glyph in S3 like above, PR in /assets
@@ -48,7 +47,7 @@ const mapStateToProps = createSelector(
     isSignedIn,
     isDropdownOpen,
     showLoading,
-    panes,
+    panes
   ) => {
     return {
       panes: panes.map(({ name, type }) => {
@@ -211,6 +210,7 @@ export class FCCNav extends React.Component {
     } = this.props;
 
     const shouldShowMapButton = panes.length === 0;
+    const brand = getBranding();
     return (
       <Navbar
         className='nav-height'
