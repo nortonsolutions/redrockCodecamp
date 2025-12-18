@@ -1,0 +1,133 @@
+extends ../layout
+
+block content
+  .container-fluid
+    .row
+      .col-md-8
+        .api-test-header
+          h2 
+            i.fa.fa-flask
+            |  #{project.name} - API Testing Interface
+          p.text-muted Interactive testing for all endpoints with form submissions
+        
+        .endpoints-list
+          each endpoint in project.endpoints
+            .endpoint-card.mb-4
+              .card
+                .card-header
+                  .row
+                    .col-md-8
+                      span.badge.badge-method(class= endpoint.method === 'GET' ? 'badge-success' : 'badge-primary')= endpoint.method
+                      strong.ml-2= endpoint.path
+                    .col-md-4.text-right
+                      if endpoint.method === 'GET'
+                        a.btn.btn-sm.btn-outline-success(href=endpoint.path, target='_blank') 
+                          i.fa.fa-external-link
+                          |  Test GET
+                .card-body
+                  p= endpoint.description
+                  
+                  if endpoint.fields
+                    form.api-test-form(method='POST', action=endpoint.path, target='_blank')
+                      .form-row
+                        each field in endpoint.fields
+                          .form-group.col-md-6
+                            label(for=field.name)= field.name.charAt(0).toUpperCase() + field.name.slice(1)
+                            input.form-control(
+                              type=field.type, 
+                              name=field.name, 
+                              id=field.name,
+                              placeholder=field.placeholder,
+                              required
+                            )
+                      button.btn.btn-primary(type='submit') 
+                        i.fa.fa-paper-plane
+                        |  Submit #{endpoint.method} Request
+                  else if endpoint.method === 'GET'
+                    .alert.alert-info
+                      i.fa.fa-info-circle
+                      |  This is a GET endpoint. Click "Test GET" to try it in a new tab.
+      
+      .col-md-4
+        .sidebar
+          .card
+            .card-header
+              h5 
+                i.fa.fa-book
+                |  API Documentation
+            .card-body
+              .api-info
+                h6 Base URL
+                code= 'http://localhost:3030/portfolio/apis/' + projectId
+                
+                h6.mt-3 Response Format
+                pre.bg-light.p-2.
+                  {
+                    "status": "success",
+                    "data": { ... },
+                    "timestamp": "ISO date"
+                  }
+                
+                h6.mt-3 Error Handling
+                pre.bg-light.p-2.
+                  {
+                    "error": "Error message",
+                    "status": "error"
+                  }
+          
+          .card.mt-3
+            .card-header
+              h5 
+                i.fa.fa-code
+                |  Implementation
+            .card-body
+              p This microservice is built with:
+              ul
+                li Express.js server
+                li MongoDB database
+                li JSON API responses
+                li Input validation
+                li Error handling
+              
+              a.btn.btn-outline-info.btn-block(href='/portfolio/apis/' + projectId + '/views/index.html', target='_blank') 
+                i.fa.fa-eye
+                |  View Live Demo
+
+  style.
+    .api-test-header {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      padding: 2rem;
+      margin: -20px -15px 30px -15px;
+      border-radius: 0 0 15px 15px;
+    }
+    .endpoint-card {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .badge-method {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+    }
+    .api-test-form {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 5px;
+      border: 1px solid #dee2e6;
+    }
+    .sidebar .card {
+      position: sticky;
+      top: 20px;
+    }
+    pre {
+      font-size: 0.85rem;
+      border-radius: 3px;
+    }
+    .api-info h6 {
+      color: #495057;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+    }
+    .api-info h6:first-child {
+      margin-top: 0;
+    }
