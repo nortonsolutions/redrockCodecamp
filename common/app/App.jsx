@@ -47,7 +47,7 @@ const routes = {
 };
 
 // export plain class for testing
-export class FreeCodeCamp extends React.Component {
+export class RedRockCodeCamp extends React.Component {
   componentDidMount() {
     this.props.appMounted();
     if (!this.props.isSignedIn) {
@@ -74,10 +74,10 @@ export class FreeCodeCamp extends React.Component {
   }
 }
 
-FreeCodeCamp.displayName = 'freeCodeCamp';
-FreeCodeCamp.propTypes = propTypes;
+RedRockCodeCamp.displayName = 'RedRockCodeCamp';
+RedRockCodeCamp.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(FreeCodeCamp);
+)(RedRockCodeCamp);

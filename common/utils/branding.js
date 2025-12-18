@@ -1,30 +1,22 @@
 
 require('dotenv').config();
-const { brandingConfigs, exposedHostname, NS } = require('../config.json');
-var branding = {};
+const { brandingConfigs, NS, exposedHostname } = require('../config.json');
 
-if (NS && typeof window !== 'undefined') {
+exports.getBranding = function(hostname = exposedHostname) {
 
-  if (window[NS] && window[NS].branding && Object.keys(window[NS].branding).length) {
-    branding = window[NS].branding;
-  } else {
-    window[NS] = {};
-    if (brandingConfigs) {
-      var BASE_URL = exposedHostname || 'redrockcode.com'
-      branding = brandingConfigs[BASE_URL] || {}
-      if (Object.keys(branding).length) {
-        window[NS].branding = branding;
-      } else {
-        console.warn(`No branding config found for hostname: ${BASE_URL}; using defaults`);
-        branding = window[NS].branding = {};
-      }
-    } else {
-      console.warn('No brandingConfigs found in server config.json; using defaults');
-      branding = window[NS].branding = {};
-    }
+  if (typeof window === 'undefined') {
+    return brandingConfigs[hostname] || brandingConfigs['localhost'] || {};
   }
-}
+  
+  if (NS && window[NS] && window[NS].branding) {
+    return window[NS].branding;
+  }
 
-exports.getBranding = function() {
-  return branding;
-}
+  if (window.__redrockcode__ && window.__redrockcode__.branding) {
+    return window.__redrockcode__.branding;
+  }
+
+  var brand =  brandingConfigs[hostname] || brandingConfigs['localhost'] || {};
+  window[NS].branding = brand;
+  return brand;
+};

@@ -21,6 +21,7 @@ import navLinks from './links.json';
 import SignUp from './Sign-Up.jsx';
 import BinButton from './Bin-Button.jsx';
 import { getBranding } from '../../utils/branding.js';
+import { NS } from '../../config.json';
 import {
   clickOnLogo,
   clickOnMap,
@@ -47,7 +48,8 @@ const mapStateToProps = createSelector(
     isSignedIn,
     isDropdownOpen,
     showLoading,
-    panes
+    panes,
+    hostname
   ) => {
     return {
       panes: panes.map(({ name, type }) => {
@@ -74,7 +76,8 @@ const mapStateToProps = createSelector(
       }, {}),
       isDropdownOpen,
       isSignedIn,
-      showLoading
+      showLoading,
+      hostname
     };
   }
 );
@@ -127,10 +130,11 @@ const propTypes = {
   openDropdown: PropTypes.func.isRequired,
   panes: PropTypes.array,
   showLoading: PropTypes.bool,
-  signedIn: PropTypes.bool
+  signedIn: PropTypes.bool,
+  hostname: PropTypes.string
 };
 
-export class FCCNav extends React.Component {
+export class RRCCNav extends React.Component {
   renderLink(isNavItem, { isReact, isDropdown, content, link, links, target }) {
     const Component = isNavItem ? NavItem : MenuItem;
     const {
@@ -206,11 +210,21 @@ export class FCCNav extends React.Component {
       isSignedIn,
       clickOnLogo,
       clickOnMap,
-      showLoading
+      showLoading,
+      hostname
     } = this.props;
 
     const shouldShowMapButton = panes.length === 0;
-    const brand = getBranding();
+    var brand;
+    if (typeof window !== 'undefined' && window[NS] && window[NS].branding && Object.keys(window[NS].branding).length > 0) {
+      brand = window[NS].branding;
+    } else {
+      brand = getBranding(hostname);
+      if (typeof window !== 'undefined') {
+        window[NS] = { branding: brand };
+      }
+    }
+    
     return (
       <Navbar
         className='nav-height'
@@ -227,7 +241,7 @@ export class FCCNav extends React.Component {
                 <Image
                   className='nav-logo'
                   alt='CodeCamp Logo'
-                  src={brand.logoPath}
+                  src={brand && brand.logoPath ? brand.logoPath : "/images/logos/logo-landscape.png" }
                 />                
               </a>
             </NavbarBrand>
@@ -237,7 +251,7 @@ export class FCCNav extends React.Component {
                 onClick={clickOnLogo}
               >
                 <p className="brand-text">
-                  {brand.businessAppName}
+                  {brand && brand.businessAppName ? brand.businessAppName : ' Red Rock Code Camp'}
                 </p>
               </a>
             </NavbarBrand>
@@ -276,11 +290,11 @@ export class FCCNav extends React.Component {
   }
 }
 
-FCCNav.displayName = 'FCCNav';
-FCCNav.propTypes = propTypes;
+RRCCNav.displayName = 'RRCCNav';
+RRCCNav.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
   mergeProps
-)(FCCNav);
+)(RRCCNav);

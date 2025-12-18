@@ -1,4 +1,4 @@
-import { brandingConfigs } from '../../common/config.json';
+import { brandingConfigs, NS } from '../../common/config.json';
 
 function domainBranding() {
     return function domainBrandingMiddleware(req, res, next) {
@@ -10,11 +10,11 @@ function domainBranding() {
         // Add branding configuration to res.locals
         res.locals.branding = brandingConfig;
         
-        // Expose branding to client-side (makes it available in window.__redrockcode__.branding)
-        res.expose(brandingConfig, 'brand', { isJSON: true });
+        // Expose branding to client-side (makes it available in window.__redrockcode__.brand)
+        res.expose(brandingConfig, 'branding', { isJSON: true, namespace: NS });
         
         next();
     };
 }
 
-export default domainBranding;
+    export default domainBranding;

@@ -33,12 +33,12 @@ defaultState.app.csrfToken = csrfToken;
 defaultState.toasts = flashToToast(window.__redrockcode__.flash);
 
 // Save branding info before clearing
-const savedBranding = window.__redrockcode__.branding;
+const savedBranding = window.__redrockcode__.brand || {};
 
 // make empty object so hot reload works
 window.__redrockcode__ = {
   // Preserve branding information
-  branding: savedBranding
+  brand: savedBranding
 };
 
 const serviceOptions = { xhrPath: '/services', context: { _csrf: csrfToken } };
