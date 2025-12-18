@@ -1,7 +1,7 @@
 
 import { adminRoot } from '../utils/constantStrings.json';
 import debug from 'debug';
-import { ifNoAdminUser401 } from '../utils/middleware';
+import { checkUserByRole, ifNoAdminUser401 } from '../utils/middleware';
 // Example in your Express route
 
 
@@ -16,7 +16,7 @@ module.exports = function (app) {
 	const User = app.models.User;
 
 
-	router.get('/' + adminRoot,
+	router.get('/' + adminRoot, checkUserByRole('admin'),
 			(req, res) => {
 						
 				if (!isAdminUnrestricted && !req.user) {      
