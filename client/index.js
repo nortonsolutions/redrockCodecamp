@@ -9,6 +9,7 @@ import flashToToast from './utils/flash-to-toast';
 
 import { App, createApp, provideStore } from '../common/app';
 import { getLangFromPath } from '../common/app/utils/lang';
+import { NS } from '../common/config.json';
 
 // client specific epics
 import epics from './epics';
@@ -33,12 +34,12 @@ defaultState.app.csrfToken = csrfToken;
 defaultState.toasts = flashToToast(window.__redrockcode__.flash);
 
 // Save branding info before clearing
-const savedBranding = window.__redrockcode__.brand || {};
+const savedBranding = window[NS].branding || {};
 
 // make empty object so hot reload works
-window.__redrockcode__ = {
+window[NS] = {
   // Preserve branding information
-  brand: savedBranding
+  branding: savedBranding
 };
 
 const serviceOptions = { xhrPath: '/services', context: { _csrf: csrfToken } };
