@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>File Metadata Microservice | Norton Solutions</title>
+    <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #222;
+            background-color: #FaFaFa;
+            text-align: center;
+            line-height: 1.4em;
+        }
+        
+        .container {
+            padding: 0;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            margin-top: 30px;
+        }
+        
+        .footer {
+            margin-top: 40px;
+        }
+        
+        code {
+            font-family: monospace;
+            padding: 2px;
+            color: black;
+            background-color: #fff;
+        }
+        
+        ul {
+            list-style-type: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        li {
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 10px 0;
+        }
+        
+        a {
+            color: #2574A9;
+        }
+        
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            background-color: #2574A9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #1e5a8a;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border: 1px solid #b8d4f0;
+            border-radius: 5px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>API Project: File Metadata Microservice</h2>
+
+        <h3>User Stories:</h3>
+        <ul>
+            <li>1. I can submit a form that includes a file upload.</li>
+            <li>2. The form file input field has the "name" attribute set to "upfile".</li>
+            <li>3. When I submit something, I will receive the file name, type, and size in bytes within the JSON response.</li>
+        </ul>
+
+        <h3>Usage:</h3>
+        <form action="/portfolio/api/fileanalyse" method="post" enctype="multipart/form-data">
+            <label>Select a file to upload:</label>
+            <input type="file" name="upfile" required>
+            <input type="submit" value="Upload">
+        </form>
+
+        <h3>Example Output:</h3>
+        <code>{"name":"my_file.txt","type":"text/plain","size":1024}</code>
+
+        <div class="footer">
+            <p>
+                By <a href="https://nortontech.solutions" target="_blank">Norton Solutions</a> |
+                <a href="/portfolio" target="_blank">Back to Portfolio</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission and display results
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const resultDiv = document.querySelector('.result') || document.createElement('div');
+            resultDiv.className = 'result';
+            
+            fetch('/portfolio/api/fileanalyse', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultDiv.innerHTML = '<strong>Result:</strong><br>' + JSON.stringify(data, null, 2);
+                if (!document.querySelector('.result')) {
+                    document.querySelector('.container').appendChild(resultDiv);
+                }
+            })
+            .catch(error => {
+                resultDiv.innerHTML = '<strong>Error:</strong><br>' + error.message;
+                if (!document.querySelector('.result')) {
+                    document.querySelector('.container').appendChild(resultDiv);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
