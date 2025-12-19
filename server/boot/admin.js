@@ -1,7 +1,7 @@
 
-import { adminRoot } from '../utils/constantStrings.json';
-import debug from 'debug';
-import { checkUserByRole, ifNoAdminUser401 } from '../utils/middleware';
+const { adminRoot } = require('../utils/constantStrings.json');
+const debug = require('debug');
+const { ifNoAdminUser401 } = require('../utils/middleware');
 // Example in your Express route
 
 
@@ -16,7 +16,7 @@ module.exports = function (app) {
 	const User = app.models.User;
 
 
-	router.get('/' + adminRoot, checkUserByRole('admin'),
+	router.get('/' + adminRoot,
 			(req, res) => {
 						
 				if (!isAdminUnrestricted && !req.user) {      
