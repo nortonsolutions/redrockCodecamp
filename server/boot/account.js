@@ -17,7 +17,8 @@ module.exports = function (app) {
 
 		var priceIds = {
 			'silver-hat': process.env.STRIPE_PRICE_ID_SILVER,
-			'gold-star': process.env.STRIPE_PRICE_ID_GOLD
+			'gold-star': process.env.STRIPE_PRICE_ID_GOLD,
+			'platinum-sponsor': process.env.STRIPE_PRICE_ID_PLATINUM
 		};
 
 		if (!priceIds[tier]) {

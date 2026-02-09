@@ -92,7 +92,15 @@ block content
                 li Phone support
                 li Webex support
                 li 1-on-1's
-
+              hr
+            .col-sm-4
+              h4.text-center 💎 Platinum-Sponsor
+              p.text-center.text-danger $49.99/month
+              ul.feature-list.text-center
+                li Silver-Hat++
+                li Phone support
+                li Webex support
+                li 1-on-1's ++
           hr
 
           h3.text-center Change Membership
@@ -104,6 +112,7 @@ block content
               option(value='copper-top', selected=(membershipTier==='copper-top')) 🥉 #{tierNames['copper-top']}
               option(value='silver-hat', selected=(membershipTier==='silver-hat')) 🥈 #{tierNames['silver-hat']}
               option(value='gold-star', selected=(membershipTier==='gold-star')) ⭐ #{tierNames['gold-star']}
+              option(value='platinum-sponsor', selected=(membershipTier==='platinum-sponsor')) 💎 #{tierNames['platinum-sponsor']}
             p#tierMsg.text-muted
 
           #paymentSection(style='display:none; margin-top: 20px')
@@ -124,7 +133,7 @@ block content
 
   script.
     var membershipTier = '#{membershipTier || "copper-top"}';
-    var rank = { 'copper-top': 0, 'silver-hat': 1, 'gold-star': 2 };
+    var rank = { 'copper-top': 0, 'silver-hat': 1, 'gold-star': 2, 'platinum-sponsor': 3 };
 
     function updateUI() {
       var tier = document.getElementById('tierSelector').value;

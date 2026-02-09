@@ -17,7 +17,8 @@ const MONGO_URL = process.env.MONGODB_URI || process.env.MONGOLAB_URI || 'mongod
 // Map Stripe price IDs to tier names
 const PRICE_TO_TIER = {
   [process.env.STRIPE_PRICE_ID_SILVER]: 'silver-hat',
-  [process.env.STRIPE_PRICE_ID_GOLD]: 'gold-star'
+  [process.env.STRIPE_PRICE_ID_GOLD]: 'gold-star',
+  [process.env.STRIPE_PRICE_ID_PLATINUM]: 'platinum-sponsor'
 };
 
 async function syncMemberships() {
