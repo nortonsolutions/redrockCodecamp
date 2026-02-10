@@ -1,122 +1,232 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to HyperDev!</title>
-    <meta name="description" content="A cool thing made with HyperDev">
+    <title>Message Board - Norton Solutions Portfolio</title>
+    <meta name="description" content="Anonymous Message Board - FreeCodeCamp Project">
     <link id="favicon" rel="icon" href="https://hyperdev.com/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+      .thread {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        margin-bottom: 1.5rem;
+        background: white;
+      }
+      .thread .main {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-bottom: 1px solid #dee2e6;
+      }
+      .thread .replies {
+        padding: 1rem;
+      }
+      .reply {
+        border-left: 3px solid #0d6efd;
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+        background: #f8f9fa;
+      }
+      .newReply {
+        background: #e9ecef;
+        padding: 1rem;
+        border-radius: 0.375rem;
+        margin-top: 1rem;
+      }
+      .id {
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-bottom: 0.5rem;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1 id='boardTitle'></h1>
-    </header>
-    
-    <div id='submitNewThread'>
-      <h3>Submit a new thread:</h3>
-      <form id="newThread" method="post" action="/api/">
-        <textarea rows="8" cols="120" type='text' placeholder='Thread text...' name='text' required=''></textarea><br>
-        <input type='text' placeholder='password to delete' name='delete_password' required=''><br>
-        <input type="submit" value="Submit">
-      </form>
+    <div class="container-fluid">
+      <header class="bg-primary text-white p-4 mb-4">
+        <h1 class="display-5" id='boardTitle'>
+          <i class="bi bi-chat-square-text"></i> Loading board...
+        </h1>
+        <p class="lead">Anonymous Message Board - Browse and post messages</p>
+      </header>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+              <h3 class="card-title mb-0">
+                <i class="bi bi-plus-circle"></i> Submit a New Thread
+              </h3>
+            </div>
+            <div class="card-body">
+              <form id="newThread" method="post" action="/portfolio/api/messageboard/api/threads/">
+                <div class="mb-3">
+                  <label class="form-label">Thread Message:</label>
+                  <textarea rows="4" class="form-control" placeholder='Enter your thread message...' name='text' required></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Delete Password:</label>
+                  <input type='password' placeholder='Enter password to delete this thread later' name='delete_password' class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">
+                  <i class="bi bi-send"></i> Submit Thread
+                </button>
+              </form>
+            </div>
+          </div>
+          
+          <div id='boardDisplay'></div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-header bg-info text-white">
+              <h5 class="card-title mb-0">
+                <i class="bi bi-info-circle"></i> Board Information
+              </h5>
+            </div>
+            <div class="card-body">
+              <p class="mb-2"><strong>Board Rules:</strong></p>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check text-success"></i> Be respectful to other users</li>
+                <li><i class="bi bi-check text-success"></i> No spam or inappropriate content</li>
+                <li><i class="bi bi-check text-success"></i> Remember your delete password</li>
+                <li><i class="bi bi-check text-success"></i> Report inappropriate content</li>
+              </ul>
+              <div class="alert alert-warning mt-3">
+                <small><i class="bi bi-shield-exclamation"></i> This is an anonymous board. Posts cannot be edited, only deleted with the correct password.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <div id='boardDisplay'></div>
     
-    <hr style='margin: 50px; margin-top: 200px'>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js"
             crossorigin="anonymous"></script>
     <script>
       $(function() {
-        var currentBoard = window.location.pathname.slice(3,-1);
-        var url = "/api/threads/"+currentBoard;
-        $('#boardTitle').text('Welcome to '+window.location.pathname)
+        // Extract board name from URL pattern like /en/portfolio/advanced/messageboard/api/general
+        var pathParts = window.location.pathname.split('/');
+        var currentBoard = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+        var url = "/portfolio/api/messageboard/api/threads/"+currentBoard;
+        $('#boardTitle').html('<i class="bi bi-chat-square-text"></i> Welcome to "' + currentBoard + '" message board');
+        
+        // Load threads
         $.ajax({
           type: "GET",
           url: url,
-          success: function(data)
-          {
-            var boardThreads= [];
-            //
-            // THIS ARRAY SET UP IS FOR CODE READABILITIES AND TESTING!
-            // THIS IS NOT WHAT IT WOULD LOOK LIKE TO GO LIVE
-            //
-            data.forEach(function(ele) {
-              console.log(ele);//can I use typeScript please?!
-              var thread = ['<div class="thread">'];
-              thread.push('<div class="main">')
-              thread.push('<p class="id">id: '+ele._id+' ('+ele.created_on+')</p>');
-              thread.push('<form id="reportThread"><input type="hidden" name="report_id" value="'+ele._id+'"><input type="submit" value="Report"></form>');
-              thread.push('<form id="deleteThread"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="text" placeholder="password" name="delete_password" required=""><input type="submit" value="Delete"></form>');
-              thread.push('<h3>'+ele.text+'</h3>');
-              thread.push('</div><div class="replies">');
-              var hiddenCount = ele.replycount - 3;
-              if (hiddenCount < 1) { hiddenCount = 0 };
-              thread.push('<h5>'+ele.replycount+' replies total ('+hiddenCount+' hidden)- <a href="'+window.location.pathname+ele._id+'">See the full thread here</a>.</h5>');
-              ele.replies.forEach(function(rep) {
-                thread.push('<div class="reply">')
-                thread.push('<p class="id">id: '+rep._id+' ('+rep.created_on+')</p>');
-                thread.push('<form id="reportReply"><input type="hidden" name="thread_id" value="'+ele._id+'"><input type="hidden" name="reply_id" value="'+rep._id+'"><input type="submit" value="Report"></form>');
-                thread.push('<form id="deleteReply"><input type="hidden" value="'+ele._id+'" name="thread_id" required=""><input type="hidden" value="'+rep._id+'" name="reply_id" required=""><input type="text" placeholder="password" name="delete_password" required=""><input type="submit" value="Delete"></form>');
-                thread.push('<p>'+rep.text+'</p>');
-                thread.push('</div>')
+          success: function(data) {
+            var boardThreads = [];
+            
+            if (!data || data.length === 0) {
+              boardThreads.push('<div class="alert alert-info text-center"><i class="bi bi-info-circle"></i> No threads yet. Be the first to post!</div>');
+            } else {
+              data.forEach(function(ele) {
+                console.log(ele);
+                var thread = ['<div class="thread">'];
+                thread.push('<div class="main">');
+                thread.push('<p class="id"><i class="bi bi-hash"></i> ID: '+ele._id+' <i class="bi bi-calendar"></i> '+new Date(ele.created_on).toLocaleString()+'</p>');
+                thread.push('<div class="d-flex gap-2 mb-2">');
+                thread.push('<form class="report-thread-form"><input type="hidden" name="report_id" value="'+ele._id+'"><button type="submit" class="btn btn-warning btn-sm"><i class="bi bi-flag"></i> Report</button></form>');
+                thread.push('<form class="delete-thread-form"><input type="hidden" value="'+ele._id+'" name="thread_id"><input type="password" placeholder="password" name="delete_password" class="form-control form-control-sm d-inline-block" style="width: auto;"><button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</button></form>');
+                thread.push('</div>');
+                thread.push('<h4 class="text-primary">'+ele.text+'</h4>');
+                thread.push('</div><div class="replies">');
+                var hiddenCount = (ele.replycount || 0) - 3;
+                if (hiddenCount < 1) { hiddenCount = 0 };
+                thread.push('<h5><i class="bi bi-chat"></i> '+(ele.replycount || 0)+' replies total ('+ hiddenCount +' hidden) - <a href="'+window.location.pathname+ele._id+'" class="btn btn-outline-primary btn-sm">See full thread</a></h5>');
+                
+                if (ele.replies && ele.replies.length > 0) {
+                  ele.replies.forEach(function(rep) {
+                    thread.push('<div class="reply">');
+                    thread.push('<p class="id"><i class="bi bi-arrow-return-right"></i> Reply ID: '+rep._id+' <i class="bi bi-calendar"></i> '+new Date(rep.created_on).toLocaleString()+'</p>');
+                    thread.push('<div class="d-flex gap-2 mb-2">');
+                    thread.push('<form class="report-reply-form"><input type="hidden" name="thread_id" value="'+ele._id+'"><input type="hidden" name="reply_id" value="'+rep._id+'"><button type="submit" class="btn btn-warning btn-sm"><i class="bi bi-flag"></i> Report</button></form>');
+                    thread.push('<form class="delete-reply-form"><input type="hidden" value="'+ele._id+'" name="thread_id"><input type="hidden" value="'+rep._id+'" name="reply_id"><input type="password" placeholder="password" name="delete_password" class="form-control form-control-sm d-inline-block" style="width: auto;"><button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</button></form>');
+                    thread.push('</div>');
+                    thread.push('<p>'+rep.text+'</p>');
+                    thread.push('</div>');
+                  });
+                }
+                
+                thread.push('<div class="newReply">');
+                thread.push('<h6><i class="bi bi-reply"></i> Quick Reply:</h6>');
+                thread.push('<form action="/portfolio/api/messageboard/api/replies/'+currentBoard+'/" method="post" class="new-reply-form">');
+                thread.push('<input type="hidden" name="thread_id" value="'+ele._id+'">');
+                thread.push('<div class="mb-2"><textarea rows="3" class="form-control" placeholder="Enter your reply..." name="text" required></textarea></div>');
+                thread.push('<div class="d-flex gap-2"><input type="password" placeholder="delete password" name="delete_password" class="form-control" style="max-width: 200px;" required><button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Reply</button></div>');
+                thread.push('</form></div></div></div>');
+                boardThreads.push(thread.join(''));
               });
-              thread.push('<div class="newReply">')
-              thread.push('<form action="/api/replies/'+currentBoard+'/" method="post" id="newReply">');
-              thread.push('<input type="hidden" name="thread_id" value="'+ele._id+'">');
-              thread.push('<textarea rows="5" cols="80" type="text" placeholder="Quick reply..." name="text" required=""></textarea><br>');
-              thread.push('<input type="text" placeholder="password to delete" name="delete_password" required=""><input style="margin-left: 5px" type="submit" value="Submit">')
-              thread.push('</form></div></div></div>')
-              boardThreads.push(thread.join(''));
-            });
+            }
             $('#boardDisplay').html(boardThreads.join(''));
+          },
+          error: function(xhr, status, error) {
+            $('#boardDisplay').html('<div class="alert alert-danger"><i class="bi bi-exclamation-triangle"></i> Error loading threads: ' + error + '</div>');
           }
         });
         
         $('#newThread').submit(function(){
-          $(this).attr('action', "/api/threads/" + currentBoard);
+          $(this).attr('action', "/portfolio/api/messageboard/api/threads/" + currentBoard);
         });
         
-        $('#boardDisplay').on('submit','#reportThread', function(e) {
-          var url = "/api/threads/"+currentBoard;
+        // Use event delegation for dynamically created forms
+        $('#boardDisplay').on('submit','.report-thread-form', function(e) {
+          var url = "/portfolio/api/messageboard/api/threads/"+currentBoard;
           $.ajax({
             type: "PUT",
             url: url,
             data: $(this).serialize(),
-            success: function(data) { alert(data) }
+            success: function(data) { 
+              alert(data);
+              location.reload();
+            }
           });
           e.preventDefault();
         });
-        $('#boardDisplay').on('submit','#reportReply', function(e) {
-          var url = "/api/replies/"+currentBoard;
+        
+        $('#boardDisplay').on('submit','.report-reply-form', function(e) {
+          var url = "/portfolio/api/messageboard/api/replies/"+currentBoard;
           $.ajax({
             type: "PUT",
             url: url,
             data: $(this).serialize(),
-            success: function(data) { alert(data) }
+            success: function(data) { 
+              alert(data);
+              location.reload();
+            }
           });
           e.preventDefault();
         });
-        $('#boardDisplay').on('submit','#deleteThread', function(e) {
-          var url = "/api/threads/"+currentBoard;
+        
+        $('#boardDisplay').on('submit','.delete-thread-form', function(e) {
+          var url = "/portfolio/api/messageboard/api/threads/"+currentBoard;
           $.ajax({
             type: "DELETE",
             url: url,
             data: $(this).serialize(),
-            success: function(data) { alert(data) }
+            success: function(data) { 
+              alert(data);
+              if (data === 'success') location.reload();
+            }
           });
           e.preventDefault();
         });        
-        $('#boardDisplay').on('submit','#deleteReply', function(e) {
-          var url = "/api/replies/"+currentBoard;
+        
+        $('#boardDisplay').on('submit','.delete-reply-form', function(e) {
+          var url = "/portfolio/api/messageboard/api/replies/"+currentBoard;
           $.ajax({
             type: "DELETE",
             url: url,
             data: $(this).serialize(),
-            success: function(data) { alert(data) }
+            success: function(data) { 
+              alert(data);
+              if (data === 'success') location.reload();
+            }
           });
           e.preventDefault();
         });              

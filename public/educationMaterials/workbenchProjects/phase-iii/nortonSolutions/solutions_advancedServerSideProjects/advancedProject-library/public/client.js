@@ -2,7 +2,7 @@ $( document ).ready(function() {
   var items = [];
   var itemsRaw = [];
   
-  $.getJSON('/api/books', function(data) {
+  $.getJSON('/en/portfolio/api/library/api/books', function(data) {
     //var items = [];
     itemsRaw = data;
     $.each(data, function(i, val) {
@@ -21,7 +21,7 @@ $( document ).ready(function() {
   var comments = [];
   $('#display').on('click','li.bookItem',function() {
     $("#detailTitle").html('<b>'+itemsRaw[this.id].title+'</b> (id: '+itemsRaw[this.id]._id+')');
-    $.getJSON('/api/books/'+itemsRaw[this.id]._id, function(data) {
+    $.getJSON('/en/portfolio/api/library/api/books/'+itemsRaw[this.id]._id, function(data) {
       comments = [];
       $.each(data.comments, function(i, val) {
         comments.push('<li>' +val+ '</li>');
@@ -35,7 +35,7 @@ $( document ).ready(function() {
   
   $('#bookDetail').on('click','button.deleteBook',function() {
     $.ajax({
-      url: '/api/books/'+this.id,
+      url: '/en/portfolio/api/library/api/books/'+this.id,
       type: 'delete',
       success: function(data) {
         //update list
@@ -47,7 +47,7 @@ $( document ).ready(function() {
   $('#bookDetail').on('click','button.addComment',function() {
     var newComment = $('#commentToAdd').val();
     $.ajax({
-      url: '/api/books/'+this.id,
+      url: '/en/portfolio/api/library/api/books/'+this.id,
       type: 'post',
       dataType: 'json',
       data: $('#newCommentForm').serialize(),
@@ -58,9 +58,9 @@ $( document ).ready(function() {
     });
   });
   
-  $('#newBook').click(function() {
+  $('#newBookForm').click(function() {
     $.ajax({
-      url: '/api/books',
+      url: '/en/portfolio/api/library/api/books',
       type: 'post',
       dataType: 'json',
       data: $('#newBookForm').serialize(),
@@ -72,7 +72,7 @@ $( document ).ready(function() {
   
   $('#deleteAllBooks').click(function() {
     $.ajax({
-      url: '/api/books',
+      url: '/en/portfolio/api/library/api/books',
       type: 'delete',
       dataType: 'json',
       data: $('#newBookForm').serialize(),

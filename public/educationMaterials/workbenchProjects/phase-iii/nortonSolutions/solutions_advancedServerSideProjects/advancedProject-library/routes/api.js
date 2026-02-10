@@ -13,8 +13,9 @@ var ObjectId = require('mongodb').ObjectId;
 var mongoose = require('mongoose');
 
 const MONGODB_CONNECTION_STRING = process.env.DB;
-//Example connection: MongoClient.connect(MONGODB_CONNECTION_STRING, function(err, db) {});
-
+if (!MONGODB_CONNECTION_STRING) {
+    console.log(`Value of DB environment variable: ${MONGODB_CONNECTION_STRING} from ${process.env.DB}`);
+}
 module.exports = function (app) {
 
   mongoose.connect(MONGODB_CONNECTION_STRING, { useMongoClient: true }, (err => {

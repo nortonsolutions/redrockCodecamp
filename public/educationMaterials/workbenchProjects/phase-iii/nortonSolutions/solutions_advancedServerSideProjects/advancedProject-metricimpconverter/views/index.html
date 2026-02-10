@@ -61,7 +61,7 @@
         $('#convertForm').submit(function() {
           event.preventDefault();
           $.ajax({
-            url: '/api/convert',
+            url: '/en/portfolio/api/metricimpconverter/api/convert',
             type: 'get',
             data: $('#convertForm').serialize(),
             success: function(data) {

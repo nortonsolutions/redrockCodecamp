@@ -9,7 +9,11 @@ var expect = require('chai').expect;
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+
 const CONNECTION_STRING = process.env.DB;
+if (!CONNECTION_STRING) {
+    console.log(`Value of DB environment variable: ${CONNECTION_STRING} from ${process.env.DB}`);
+}
 
 module.exports = function (app) {
   
@@ -43,6 +47,8 @@ module.exports = function (app) {
     }
   }))
 
+
+
   app.route('/api/threads/:board')
     .post((req,res) => {
 
@@ -68,7 +74,8 @@ module.exports = function (app) {
             res.send(err.message);
           } else {
             // res.send(doc);
-            res.redirect(302, '/b/' + board + '/');
+            // just reload the current page
+            res.redirect(302, '/en/portfolio/api/messageboard/api/threads/' + board);
           }
         })
           
@@ -163,7 +170,7 @@ module.exports = function (app) {
               res.send(err.message);
             } else {
               // res.send(doc);
-              res.redirect(302, '/b/' + board + "/" + thread_id);
+              res.redirect(302, '/en/portfolio/advanced/messageboard/api/' + board);
             }
           })
         })
@@ -240,6 +247,19 @@ module.exports = function (app) {
 
   })
 
-
-
+  app.route('/api/:board/')
+    .get(function (req, res) {
+      res.sendFile('/portfolio/advanced/advancedProject-messageboard/views/board.html'
+      );
+  })
+  app.route('/api/:board/:threadid')
+    .get(function (req, res) {
+      res.sendFile('/portfolio/advanced/advancedProject-messageboard/views/thread.html');
+    });
+  
+  //Index page (static HTML)
+  app.route('/')
+    .get(function (req, res) {
+      res.sendFile('/portfolio/advanced/advancedProject-messageboard/views/index.html');
+    });
 };
