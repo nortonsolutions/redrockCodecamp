@@ -1,6 +1,11 @@
 module.exports = function(app) {
   var router = app.loopback.Router();
 
+  // Block suspicious bot requests
+  router.get('/en/docs/*', function(req, res) {
+    res.status(404).end('Not Found');
+  });
+
   router.get('/nonprofit-project-instructions', function(req, res) {
     res.redirect(
       301,
