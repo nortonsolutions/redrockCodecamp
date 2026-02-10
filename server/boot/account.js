@@ -11,7 +11,7 @@ module.exports = function (app) {
 	api.post('/stripe/create-checkout', ensureAndHydrateUser, function(req, res) {
 		var tier = req.body.tier;
 		
-		if (!tier || (tier !== 'silver-hat' && tier !== 'gold-star')) {
+		if (!tier || (tier !== 'silver-hat' && tier !== 'gold-star' && tier !== 'platinum-sponsor')) {
 			return res.status(400).json({ error: 'Invalid tier selection' });
 		}
 
