@@ -177,7 +177,7 @@ block content
       btn.disabled = true;
       btn.textContent = 'Loading...';
 
-      fetch('http://localhost:8000/api/stripe/create-checkout', {
+      fetch('/api/stripe/create-checkout', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ block content
         btn.disabled = true;
         btn.textContent = 'Canceling...';
 
-        fetch('http://localhost:8000/api/stripe/cancel-subscription', {
+        fetch('/api/stripe/cancel-subscription', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'same-origin'
