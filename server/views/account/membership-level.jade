@@ -177,7 +177,7 @@ block content
       btn.disabled = true;
       btn.textContent = 'Loading...';
 
-      fetch('/api/stripe/create-checkout', {
+      fetch('http://localhost:8000/api/stripe/create-checkout', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
