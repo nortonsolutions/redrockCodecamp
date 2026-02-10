@@ -66,7 +66,7 @@ block content
           h3.text-center Membership Tiers
           
           .row(style='margin-bottom: 20px')
-            .col-sm-4(style='margin-bottom: 30px')
+            .col-sm-3(style='margin-bottom: 30px')
               h4.text-center 🥉 Copper-Top
               p.text-center.text-muted Free Forever
               ul.feature-list.text-center
@@ -75,7 +75,7 @@ block content
                 li Certificates
               hr
               
-            .col-sm-4(style='margin-bottom: 30px')
+            .col-sm-3(style='margin-bottom: 30px')
               h4.text-center 🥈 Silver-Hat
               p.text-center.text-primary $9.99/month
               ul.feature-list.text-center
@@ -84,7 +84,7 @@ block content
                 li Email support
                 li Live webinars
               hr
-            .col-sm-4
+            .col-sm-3
               h4.text-center ⭐ Gold-Star
               p.text-center.text-warning $19.99/month
               ul.feature-list.text-center
@@ -93,7 +93,7 @@ block content
                 li Webex support
                 li 1-on-1's
               hr
-            .col-sm-4
+            .col-sm-3
               h4.text-center 💎 Platinum-Sponsor
               p.text-center.text-danger $49.99/month
               ul.feature-list.text-center
@@ -218,7 +218,7 @@ block content
         btn.disabled = true;
         btn.textContent = 'Canceling...';
 
-        fetch('/api/stripe/cancel-subscription', {
+        fetch('http://localhost:8000/api/stripe/cancel-subscription', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'same-origin'
