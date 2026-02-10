@@ -1,0 +1,16 @@
+# URL patterns to block (regex patterns, one per line)
+# Lines starting with # are comments
+
+^/en/docs/
+/wp-admin
+/wp-login
+\.php$
+/xmlrpc\.php
+\.env$
+/phpmyadmin
+developer\.mozilla\.org
+docs\.microsoft\.com
+/admin/config\.php
+/cgi-bin
+/api/graphql
+/wp-content

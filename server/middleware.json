@@ -15,8 +15,9 @@
   },
   "initial": {
     "compression": {},
+    "./middlewares/blocker": {},
     "morgan": {
-      "params": ":status :method :response-time ms - :url"
+      "params": ":remote-addr :status :method :response-time ms - :url :user-agent"
     },
     "cors": {
       "params": {
