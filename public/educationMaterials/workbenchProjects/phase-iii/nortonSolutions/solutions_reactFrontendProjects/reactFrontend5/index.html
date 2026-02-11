@@ -7,20 +7,33 @@
 
     
     <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/portfolio/shared/css/portfolio.css">
     <link rel="stylesheet" href="https://redrockcode.com/educationMaterials/frameworks/fonts/robotoslab/css/robotoslab.css">
     
     <link rel="stylesheet" href="https://redrockcode.com/educationMaterials/frameworks/js/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://redrockcode.com/educationMaterials/frameworks/fonts/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script>
+      // Suppress deprecated React API warnings from old test libraries
+      const consoleError = console.error;
+      console.error = function(...args) {
+        if (args[0] && typeof args[0] === 'string' && 
+            (args[0].includes('Accessing createClass') || args[0].includes('Accessing PropTypes'))) {
+          return;
+        }
+        consoleError.apply(console, args);
+      };
+    </script>
+
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/react-dom/16.1.1/umd/react.development.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/react-dom/16.1.1/umd/react-dom.development.js"></script>
-    <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/redux/3.7.2/redux.js"></script>
-    <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/react-redux/5.0.6/react-redux.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.9/react-redux.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/babel-standalone/babel.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/marked/marked.min.js"></script>
-    <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/redux-thunk/2.2.0/redux-thunk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.4.2/redux-thunk.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/mocha/1.9.0/mocha.js"></script>

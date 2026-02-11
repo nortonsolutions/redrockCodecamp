@@ -8,15 +8,19 @@
 'use strict';
 
 var expect = require('chai').expect;
-var MongoClient = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectId;
-var mongoose = require('mongoose');
+// var MongoClient = require('mongodb').MongoClient;
+// var ObjectId = require('mongodb').ObjectId;
+// var mongoose = require('mongoose');
 
-const MONGODB_CONNECTION_STRING = process.env.DB;
-if (!MONGODB_CONNECTION_STRING) {
-    console.log(`Value of DB environment variable: ${MONGODB_CONNECTION_STRING} from ${process.env.DB}`);
-}
 module.exports = function (app) {
+
+  // Using in-memory database instead of MongoDB
+  // Original DB code commented out for reference:
+  /*
+  const MONGODB_CONNECTION_STRING = process.env.DB;
+  if (!MONGODB_CONNECTION_STRING) {
+      console.log(`Value of DB environment variable: ${MONGODB_CONNECTION_STRING} from ${process.env.DB}`);
+  }
 
   mongoose.connect(MONGODB_CONNECTION_STRING, { useMongoClient: true }, (err => {
     if (err) {
@@ -30,6 +34,10 @@ module.exports = function (app) {
   });
   
   const BookModel = mongoose.model('Book', bookSchema);
+  */
+
+  // Use in-memory data store (Map-based)
+  const db = app.locals.db || new Map();
 
 
   app.route('/api/books')

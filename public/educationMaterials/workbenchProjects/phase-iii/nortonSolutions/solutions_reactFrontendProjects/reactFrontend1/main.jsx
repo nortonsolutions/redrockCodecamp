@@ -116,17 +116,22 @@ class RandomQuoteMachine extends React.Component {
 
     render() {
         return (
-            <div id="quote-box" className="text-center flex-column">
+            <div id="quote-box" className="text-center flex-column fade-in">
                 <div id="text">{this.props.quotes[this.props.currentIndex].text}</div>
                 <div id="author">-- {this.props.quotes[this.props.currentIndex].author}</div><br/><br/>
-                <button id="new-quote" onClick={this.selectRandomQuote}>Select Random Quote</button><br />
-                <a href="http://twitter.com/intent/tweet?" id="tweet-quote">Tweet Quote</a><br/><br/><br/>
+                <button id="new-quote" className="btn" onClick={this.selectRandomQuote}>New Quote</button>
+                <a href="http://twitter.com/intent/tweet?" id="tweet-quote" target="_blank"><i className="fa fa-twitter"></i> Tweet Quote</a><br/><br/>
                 
-                <form>
-                    <div width="400px" className="col container-fluid">
-                        <div><input value={this.state.inputQuote} onChange={this.handleQuoteInputChange} type="text" id="enter-quote" placeholder="Enter new quote..." required /></div>
-                        <div><input value={this.state.inputAuthor} onChange={this.handleAuthorInputChange} type="text" id="enter-author" placeholder="Enter author..." required /></div>
-                        <div><button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button></div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="card mt-4">
+                        <div className="card-header">Add Your Own Quote</div>
+                        <div className="form-group">
+                            <input value={this.state.inputQuote} onChange={this.handleQuoteInputChange} type="text" id="enter-quote" placeholder="Enter new quote..." required />
+                        </div>
+                        <div className="form-group">
+                            <input value={this.state.inputAuthor} onChange={this.handleAuthorInputChange} type="text" id="enter-author" placeholder="Enter author..." required />
+                        </div>
+                        <div><button type="submit" className="btn btn-primary">Add Quote</button></div>
                     </div>
                 </form>
 

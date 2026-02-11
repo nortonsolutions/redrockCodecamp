@@ -337,10 +337,6 @@ module.exports = function(app) {
     console.log(`[DEBUG] API request: ${req.method} ${req.originalUrl} - User: ${req.user ? 'authenticated' : 'anonymous'}`);
     next();
   });
-
-  // Mount public API routes (no authentication required)
-  app.use('/portfolio', authRouter);
-  app.use('/en/portfolio', authRouter);
   
   // Mount authenticated portfolio routes
   app.use('/portfolio', portfolioAuth, authRouter);
@@ -686,8 +682,6 @@ function setupAdvancedProjectAPIs(authRouter, solutionsPath) {
     conversions: []        // Metric converter history (array for this one)
   };
   
-  // Initialize with sample data
-  console.log('[Portfolio] Initializing sample data...');
   initializeSampleData(projectDataStores);
   console.log('[Portfolio] Sample data initialized successfully');
   
@@ -720,7 +714,7 @@ function setupAdvancedProjectAPIs(authRouter, solutionsPath) {
   ];
 
   for (const project of advancedProjects) {
-    console.log(`[Portfolio] ========== Loading ${project.name.toUpperCase()} ==========`);
+    // console.log(`[Portfolio] ========== Loading ${project.name.toUpperCase()} ==========`);
     
     try {
       const projectPath = path.join(advancedPath, project.folder);
@@ -728,27 +722,15 @@ function setupAdvancedProjectAPIs(authRouter, solutionsPath) {
       
       if (!fs.existsSync(fullApiPath)) {
         console.log(`[Portfolio] API file not found: ${fullApiPath}`);
-        
-        // // Create a basic error response for this project
-        // authRouter.get(`${project.apiPrefix}/*`, (req, res) => {
-        //   res.status(500).json({ 
-        //     error: `${project.name} API not found`,
-        //     path: fullApiPath,
-        //     timestamp: new Date().toISOString()
-        //   });
-        // });
-        console.log(`[Portfolio] Created error fallback for ${project.name}`);
         continue;
       }
-
-      console.log(`[Portfolio] Found API file for ${project.name}`);
 
       // Create a dedicated Express router for this project
       const projectRouter = express.Router();
       
       // Set up mock database for this project
       const mockDB = createMockDatabase(projectDataStores[project.dataStore], project.name);
-      console.log(`[Portfolio] Created mock database for ${project.name}`);
+      // console.log(`[Portfolio] Created mock database for ${project.name}`);
 
       // Add database access to router locals
       projectRouter.locals = { db: mockDB };
@@ -756,17 +738,12 @@ function setupAdvancedProjectAPIs(authRouter, solutionsPath) {
       // Clear require cache to ensure fresh load
       delete require.cache[require.resolve(fullApiPath)];
 
-      console.log(`[Portfolio] Loading ${project.name} API module...`);
+      // console.log(`[Portfolio] Loading ${project.name} API module...`);
       const apiModule = require(fullApiPath);
       
       // Call the API function with the project router directly
       if (typeof apiModule === 'function') {
-        console.log(`[Portfolio] Calling ${project.name} API function with router`);
-        
-        // Just pass the router directly - much simpler!
         apiModule(projectRouter);
-        
-        console.log(`[Portfolio] ${project.name} API loaded successfully`);
       } else {
         console.error(`[Portfolio] ${project.name} API is not a function`);
         continue;
@@ -776,29 +753,13 @@ function setupAdvancedProjectAPIs(authRouter, solutionsPath) {
       console.log(`[Portfolio] Mounting ${project.name} router at ${project.apiPrefix}`);
       authRouter.use(project.apiPrefix, projectRouter);
 
-      console.log(`[Portfolio] ✅ Successfully mounted ${project.name} API at ${project.apiPrefix}`);
-
     } catch (error) {
       console.error(`[Portfolio] 🚨 ERROR loading ${project.name}:`, error.message);
       if (error.stack) {
-        console.error('[Portfolio] Stack trace:', error.stack);
+        console.error(error.stack);
       }
-      
-      // // Create a basic error response for this project
-      // authRouter.get(`${project.apiPrefix}/*`, (req, res) => {
-      //   res.status(500).json({ 
-      //     error: `${project.name} failed to load`,
-      //     message: error.message,
-      //     timestamp: new Date().toISOString()
-      //   });
-      // });
-      console.log(`[Portfolio] Created error fallback for ${project.name}`);
     }
-    
-    console.log(`[Portfolio] ========== Finished ${project.name.toUpperCase()} ==========\n`);
   }
-
-  console.log('✓ Advanced project APIs integration completed - using in-memory stub data (MongoDB-safe)');
 }
 
 /**

@@ -6,18 +6,18 @@
 'use strict';
 
 var expect = require('chai').expect;
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
-
-const CONNECTION_STRING = process.env.DB;
-if (!CONNECTION_STRING) {
-    console.log(`Value of DB environment variable: ${CONNECTION_STRING} from ${process.env.DB}`);
-}
-
 module.exports = function (app) {
-  
 
+  // Using in-memory database instead of MongoDB
+  // Original DB code commented out for reference:
+  /*
+  const CONNECTION_STRING = process.env.DB;
+  if (!CONNECTION_STRING) {
+      console.log(`Value of DB environment variable: ${CONNECTION_STRING} from ${process.env.DB}`);
+  }
 
   const replySchema = mongoose.Schema({
     text: { type: String, required: true },
@@ -40,12 +40,15 @@ module.exports = function (app) {
 
   const ThreadModel = mongoose.model('Thread', threadSchema);
 
-
   mongoose.connect(CONNECTION_STRING, { useMongoClient: true }, (err => {
     if (err) {
       console.log(err);
     }
   }))
+  */
+
+  // Use in-memory data store (Map-based)
+  const db = app.locals.db || new Map();
 
 
 

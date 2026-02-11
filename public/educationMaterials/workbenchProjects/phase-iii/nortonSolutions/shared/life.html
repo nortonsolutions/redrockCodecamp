@@ -1,0 +1,425 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Norton's testing... Game of Life</title>
+	<style type="text/css">
+
+        .background { 
+            background: #ececec;
+            table-layout: fixed;
+            border-spacing: 0;
+        }
+
+        .true {
+            background: rgb(243, 255, 135);
+
+        }
+
+        .false {
+            background: #b15c67;
+
+        }
+
+        .background td { padding: 0; }
+
+		#one { 
+			font-size: 30px;
+		}
+
+		.h3 {
+			font-size: 20px;
+			color: red;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+<p style="text-align: center">
+<img id="earth" src="images/earth-small.png" style="position: relative">
+<img id="arrow" src="images/arrow.png" width=50 style="position: relative">
+
+</p>	
+<span id="one">🎈</span>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+    
+    // First we need a data representation
+    // A grid of booleans; array of arrays (rows)
+    class Level {
+
+        constructor() {
+            
+            this.height = 160;
+            this.width =  160;
+            this.rows = []; 
+            this.rowsOld = [];
+
+            // Populate the rows grid
+            for (let y=0; y < this.height; y++) {
+                let thisRow  = [];
+                for (let x=0; x < this.width; x++) {
+                    let randomBool = (Math.random() < 0.5 ? true : false);
+                    thisRow.push(randomBool);
+                }
+                this.rows.push(thisRow);
+                this.rows.push();
+            }
+
+            this.rowsOld = this.rows.slice();
+
+        }
+    }
+
+    // Keep track of the level and status
+    class State {
+        
+        constructor(level, status) {
+            this.level = level;
+            this.status = status;
+        }
+        
+        static start(level) {
+            return new State(level, "playing");
+        }
+        
+    }
+
+    // Given a time step and keys pressed, update the state
+    State.prototype.update = function(time, keys) {
+
+        // console.log(keys);
+        // Ugh... not sure why slice() didn't do the trick;
+        // manually deep-copying the array.
+        let copyOfRows = [];
+        for (let y=0; y < this.level.rows.length; y++) {
+            let thisRow = [];
+            for (let x=0; x < this.level.rows[0].length; x++) {
+                thisRow.push(this.level.rows[y][x]);
+            }
+            copyOfRows.push(thisRow);
+        }
+
+        this.level.rowsOld = copyOfRows.slice();
+
+        // Populate the rows grid
+        for (let y=0; y < this.level.height; y++) {
+            for (let x=0; x < this.level.width; x++) {
+                
+                /* console.log("y: " + y + "; x: " + x 
+                + "; rowsOld: " + this.level.rowsOld[y][x] 
+                + "; rows: " + this.level.rows[y][x]
+                + "; new expected value: " + getNewCellValue(copyOfRows, y, x)); */
+
+                this.level.rows[y][x] = getNewCellValue(copyOfRows, y, x);
+
+                /* console.log("After getNewCellValue assignment: "
+                + "; rowsOld: " + this.level.rowsOld[y][x] 
+                + "; rows: " + this.level.rows[y][x]); */
+                
+            }
+        }
+
+        // Create a new State based on these updates (TODO: update actors via map/update))
+        let newState = new State(this.level, this.status);
+
+        // If the status is not playing, return as is.
+        if (newState.status != "playing") return newState;
+
+        // TODO: insert code for actor collisions
+        return newState;
+    };
+
+    /* For a given cell in the rows array, checking neighbor count.
+
+    • Any live cell with fewer than two or more than three live neighbors dies.
+    • Any live cell with two or three live neighbors lives on to the next generation.
+    • Any dead cell with exactly three live neighbors becomes a live cell.
+
+    Return whether the given cell.
+
+    A neighbor is defined as any adjacent cell, including diagonally adjacent ones.
+    Note that these rules are applied to the whole grid at once, not one square at
+    a time. That means the counting of neighbors is based on the situation at the
+    start of the generation, and changes happening to neighbor cells during this
+    generation should not influence the new state of a given cell. 
+
+    Always do comparisons against oldRows, which represents the last generation. */ 
+    function getNewCellValue(oldRows, y, x) {
+            
+        // Check all the neighbors of this particular cell, apply the rules above,
+        // and send back the updated value for this cell.
+        
+        let currentValue = oldRows[y][x];
+        let liveNeighbors = 0;
+        let response = currentValue;
+
+        // Count the live neighbors
+        for (let yPrime = y - 1; yPrime <= y + 1; yPrime++) {
+            if (yPrime >= 0 && yPrime < oldRows.length) {
+                for (let xPrime = x - 1; xPrime <= x + 1; xPrime++) {
+                    if (xPrime >= 0 && xPrime < oldRows[0].length) {
+                        if (oldRows[yPrime][xPrime]) {
+                            
+                            if (!(y == yPrime && x == xPrime)) liveNeighbors++;
+
+                        } 
+                    }
+                }
+            }
+        }
+
+        // If the currentValue is true (alive)...
+        if (currentValue) {
+            if (liveNeighbors < 2 || liveNeighbors > 3) response = false;
+        } else {
+            if (liveNeighbors == 3) response = true;
+
+        }
+
+        return response;
+    }
+
+
+    // Create a DOM element with attrs and children elements
+    function elt(name, attrs, ...children) {
+        
+        let dom = document.createElement(name);
+        
+        for (let attr of Object.keys(attrs)) {
+            dom.setAttribute(attr, attrs[attr]);
+        }
+        
+        for (let child of children) {
+            dom.appendChild(child);
+        }
+        
+        return dom;
+    }
+
+    // Defines the main DOM display/viewport; refer to .game style above
+    // Tracks the main DOM of the game itself via the 'dom' property,
+    // and the actorLayer is appended as a child to this dom.
+    // Refer to syncState and scrollPlayerIntoView below.
+    class DOMDisplay{
+        
+        constructor(parent, level) {
+
+            this.initialized = false;
+            this.parent = parent;
+            this.dom = elt("div", {class: "game"}, drawGrid(level));
+            parent.appendChild(this.dom);
+
+        }
+        
+        clear() { this.dom.remove(); }
+
+    }
+
+    // Update the DOMDisplay based on the current state
+    // based on the current game state.
+    DOMDisplay.prototype.syncState = function(state) {
+        
+        if (this.initialized) {
+
+            // Only update a piece of the grid if there is a change
+            // Iterate through the state's level rows.
+
+            for (let y = 0; y < state.level.rows.length; y++) {
+                for (let x = 0; x < state.level.rows[0].length; x++) {
+                    if (state.level.rows[y][x] != state.level.rowsOld[y][x]) {
+                        this.updateGrid(y,x, state.level.rows[y][x]);
+                    }
+                }
+            }
+
+        } else {
+            this.clear();
+            this.dom = elt("div", {class: "game"}, drawGrid(state.level));
+            this.dom.className = `game ${state.status}`;
+            this.parent.appendChild(this.dom);
+            this.initialized = true;
+        }
+    };
+
+    DOMDisplay.prototype.updateGrid = function(y, x, newValue) {
+
+        let thisElement = document.getElementById(`${zeroPad(y,3)}y${zeroPad(x,3)}x`);
+        thisElement.className = newValue;
+    }
+
+    function zeroPad(number, width) {
+        let string = String(number);
+        while (string.length < width) {
+            string = "0" + string;
+        }
+        return string;
+    }
+
+    function drawGrid(level) {
+        return elt("table", { 
+                class: "background", 
+                style: `width: ${level.width * scale}px`
+            }, ...level.rows.map((row,y) => elt("tr", {
+                    style: `height: ${scale}px`,
+                }, ...row.map((type,x) => elt("td", {
+                        class: `${type}`,
+                        id: `${zeroPad(y,3)}y${zeroPad(x,3)}x`
+                    })))));
+    }	
+
+    function trackKeys(keys, register) {
+
+        if (register) {
+            let down = Object.create(null);
+            function track(event) {
+                if (keys.includes(event.key)) {
+                    
+                    if (event.key == "Escape") {
+                        if (down["Escape"] && event.type == "keydown") {
+                            down["Escape"] = false;
+                        } else if (! down["Escape"] && event.type == "keydown") {
+                            down["Escape"] = true;
+                        }	
+                        
+                    } else {
+                        down[event.key] = event.type == "keydown";
+                        event.preventDefault();
+                    }
+                }
+            }
+
+            window.addEventListener("keydown", track);
+            window.addEventListener("keyup", track);
+            return down;
+        } else {
+            window.removeEventListener("keydown", track);
+            window.removeEventListener("keyup", track);
+        }
+
+    }
+
+    arrowKeys = {}; 
+
+    // This is a wrapper for requestAnimation frame to handle
+    // the lastTime/time comparison in seconds, and recursive
+    // call to continue drawing new frames.  The frameFunc
+    // is a function that expects the time diff as an argument,
+    // and will draw a single frame. 
+    function runAnimation(frameFunc) {
+        
+        // lastTime will be null on the first call, then
+        // each time frame is called it will be updated.
+        let lastTime = null;
+
+        function frame(time) {
+
+            // Skip this on the first pass...
+            if (lastTime != null) {
+
+                // Don't allow a timeStep of more than 1/10th of a second:
+                let timeStep = Math.min(time - lastTime, 100) / 1000;
+                
+                // Call the frameFunc with timeStep argument.
+                // If it returns FALSE, we're done....
+                if (frameFunc(timeStep) === false) return;
+            }
+
+            lastTime = time;
+            requestAnimationFrame(frame);
+                
+        }
+
+        // Start the recursive call to the frame method.
+        requestAnimationFrame(frame);
+
+    }
+
+
+    function runLevel(level, Display) {
+
+        let thisDisplay = new Display(document.body,level);
+        let thisState = State.start(level);
+        let ending = 1;
+
+        let paused = false;
+
+        arrowKeys = trackKeys(["Escape"], true);
+
+        return new Promise(resolve => {
+            
+            // runAnimation expects a function that accepts a timeDiff argument
+            runAnimation(time => {
+
+                if (! arrowKeys["Escape"]) {
+                    thisState = thisState.update(time, arrowKeys);
+                    thisDisplay.syncState(thisState);
+                    
+                    if (thisState.status == "playing") {	
+                        return true;
+                    } else if (ending > 0) {
+                        // we're not playing anymore but need to wait one more second
+                        // to let the user know what's happening:
+                        ending -= time;
+                        return true;
+                    } else {
+                        // time's up and animation is finished for this level
+                        // to clear the display, resolve the promise to the
+                        // game's end status, and return false;
+                        thisDisplay.clear();
+                        resolve(thisState.status);
+                        arrowKeys = trackKeys([], false);
+                        return false;
+                    }
+                    
+                }
+            });	
+        });
+
+        arrowKeys = trackKeys([], false);
+    }
+
+    async function runGame(Display) {
+        
+        let numLives = 3;
+        let numLevels = 3;
+
+        for (let level = 0; level < numLevels;) {
+            
+            let lifeString = (numLives == 1) ? " life " : " lives ";
+            console.log("You have " + numLives + lifeString + "remaining.");
+            
+            let status = await runLevel(new Level(), Display);
+            if (status == "won") level++;
+            if (status == "lost") numLives--;
+            if (numLives == 0) {
+                console.log("Game over!  You're out of lives.  Starting over.")
+                numLives = 3;
+                level = 0;
+            }
+        }
+            
+        console.log("You've won!");
+        
+    }
+
+
+// We assume 10 pixels per unit
+const scale = 3;
+
+/* Testing code just for the main DOMDisplay based on simple plan
+let simpleLevel = new Level();
+let display = new DOMDisplay(document.body, simpleLevel);
+let myState = State.start(simpleLevel);
+display.syncState(myState); */
+
+runGame(DOMDisplay);
+
+</script>

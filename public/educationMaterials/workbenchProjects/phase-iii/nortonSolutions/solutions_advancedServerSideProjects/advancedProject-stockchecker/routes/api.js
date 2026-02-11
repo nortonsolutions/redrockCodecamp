@@ -7,13 +7,15 @@
 
 var assert = require('chai').assert;
 var expect = require('chai').expect;
-var MongoClient = require('mongodb');
-var mongoose = require('mongoose');
-
-const CONNECTION_STRING = process.env.DB; 
-//MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+// var MongoClient = require('mongodb');
+// var mongoose = require('mongoose');
 
 module.exports = function (app) {
+
+  // Using in-memory database instead of MongoDB
+  // Original DB code commented out for reference:
+  /*
+  const CONNECTION_STRING = process.env.DB; 
 
   const stockDataSchema = mongoose.Schema({
     stock: { type: String, required: true },
@@ -28,6 +30,10 @@ module.exports = function (app) {
       console.log(err);
     }
   }))
+  */
+
+  // Use in-memory data store (Map-based)
+  const db = app.locals.db || new Map();
 
   app.route('/api/stock-prices')
     

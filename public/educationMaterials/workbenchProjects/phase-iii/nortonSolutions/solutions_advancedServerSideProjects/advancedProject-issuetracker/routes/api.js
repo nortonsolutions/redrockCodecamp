@@ -6,14 +6,16 @@
 'use strict';
 
 var expect = require('chai').expect;
-var MongoClient = require('mongodb');
-var ObjectId = require('mongodb').ObjectID;
-const mongoose = require('mongoose');
+// var MongoClient = require('mongodb');
+// var ObjectId = require('mongodb').ObjectID;
+// const mongoose = require('mongoose');
 
 module.exports = function (app) {
 
+  // Using in-memory database instead of MongoDB
+  // Original DB code commented out for reference:
+  /*
   const CONNECTION_STRING = process.env.DB;
-  // MongoClient.connect(CONNECTION_STRING, function(err, db) {
   mongoose.connect(CONNECTION_STRING, {useMongoClient: true}, (err) => {
       if (err) {
         console.log('Database error: ' + err);
@@ -33,6 +35,10 @@ module.exports = function (app) {
   })  
 
   var ProjectModel = mongoose.model('Project',schemaProject);
+  */
+
+  // Use in-memory data store (Map-based)
+  const db = app.locals.db || new Map();
 
 
   app.route('/api/issues/:project')

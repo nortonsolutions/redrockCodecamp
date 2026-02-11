@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Norton's testing...</title>
+<style type="text/css">
+
+	#one { 
+		font-size: 30px;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<p style="text-align: center">
+<img id="earth" src="images/earth-small.png" style="position: relative">
+<img id="arrow" src="images/arrow.png" width=50 style="position: relative">
+
+</p>	
+<span id="one">🎈</span>
+
+<p></p>
+<svg xmlns="http://www.w3.org/2000/svg">
+<circle r="50" cx="50" cy="50" fill="red"/>
+<rect x="120" y="5" width="90" height="90" stroke="blue" fill="none"/>
+</svg>
+
+<p>Before canvas1.</p>
+<canvas id="canvas1" width="800" height="400"></canvas>
+<p>After canvas1.</p>
+<canvas id="canvas2" width="800" height="100"></canvas>
+</body>
+
+<script type="text/javascript">
+
+let myContext = document.querySelector("canvas").getContext("2d");
+
+// drawTrapezoid - @author Norton
+function drawTrapezoid(startX, startY, height, width) {
+
+	let midX = startX + width/2;
+	let midMidX = midX/2;
+	let midY = startY + height/2;
+	let bottomY = startY + height;
+	let rightX = startX + width;
+	
+	// Trapezoid
+	myContext.beginPath();
+	myContext.moveTo(midMidX,startY);
+	myContext.lineTo(startX,bottomY);
+	myContext.lineTo(rightX,bottomY);
+	myContext.lineTo(midX + midMidX,startY)
+	myContext.closePath();
+	myContext.stroke();
+}
+
+// drawDiamond - @author Norton
+function drawDiamond(startX, startY, height, width) {
+
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+	let bottomY = startY + height;
+	let rightX = startX + width;
+	
+	// Filled (red) diamond
+	myContext.beginPath();
+	myContext.moveTo(midX, startY);
+	myContext.lineTo(startX, midY);
+	myContext.lineTo(midX, bottomY);
+	myContext.lineTo(rightX, midY);
+
+	myContext.fillStyle = "red";
+	myContext.fill();
+}
+
+// drawZigZag - @author Norton
+function drawZigZag(startX, startY, height, width) {
+
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+	let bottomY = startY + height;
+	let rightX = startX + width;
+	
+	let rowHeight = height/12;
+	
+	// Zig zag
+	myContext.beginPath();
+	myContext.moveTo(startX, startY);
+
+	let currentY = startY;
+	
+	for (let y = 1; y <= 12; y ++) {
+	
+		currentY += rowHeight;
+		let currentX = 0;
+		
+		// For odd lines, move to the right... even to the left
+		if (y % 2 == 1) {
+			currentX = rightX;
+		} else {
+			currentX = startX;
+		}
+		
+		myContext.lineTo(currentX, currentY);
+	}
+
+	myContext.stroke();
+}
+
+// drawSpiral using arcs - @author Norton
+function drawSpiral(startX, startY, height, width) {
+
+	// Spiral = roughly 3.5 full turns, or 7 * PI
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+	
+	myContext.beginPath();
+	myContext.moveTo(midX, midY);	
+	
+	let numberOfSteps = 100;
+	
+	let startingRadius = 0;
+	let endingRadius = width/2;
+	let radius = startingRadius;
+	let radiusStep = (endingRadius - startingRadius) / numberOfSteps;
+	
+	let angleStep = Math.PI * 7 / numberOfSteps;
+	
+	let lastAngle = 0
+	let nextAngle = angleStep;
+	
+	// 100 steps... gradually increase the angle and the radius.
+	for (let i = 0; i < numberOfSteps; i++) {
+		
+		myContext.arc(midX, midY, radius, lastAngle, nextAngle);
+		lastAngle = nextAngle;
+		nextAngle += angleStep;
+		radius += radiusStep;
+		
+	}
+	
+	myContext.stroke();
+	
+}
+
+// drawSpiral using straight line segments - @author Norton
+function drawSpiralLines(startX, startY, height, width) {
+
+	// Spiral = roughly 3.5 full turns, or 7 * PI
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+	
+	myContext.beginPath();
+	myContext.moveTo(midX, midY);	
+	
+	let numberOfSteps = 100;
+	
+	let startingRadius = 0;
+	let endingRadius = width/2;
+	let radius = startingRadius;
+	let radiusStep = (endingRadius - startingRadius) / numberOfSteps;
+	
+	let angleStep = Math.PI * 7 / numberOfSteps;
+	
+	let currentAngle = 0
+	let nextAngle = angleStep;
+	
+	myContext.moveTo(midX, midY);
+	
+	// 100 steps... gradually increase the angle and the radius.
+	// Use cos and sin to get the coordinates of the next point.
+	for (let i = 0; i < numberOfSteps; i++) {
+		
+		let nextX = Math.cos(currentAngle) * radius + midX;
+		let nextY = Math.sin(currentAngle) * radius + midY;
+		
+		myContext.lineTo(nextX, nextY);
+		currentAngle = nextAngle;
+		nextAngle += angleStep;
+		radius += radiusStep;
+	}
+	myContext.stroke();
+	
+}
+
+// Draw a yellow star using quadratic curves and fill.... - @author Norton
+function drawYellowStar(startX, startY, height, width) {
+
+	let numPoints = 16;
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+
+	let radius = width/2;
+
+	let angleStep = Math.PI * 2 / numPoints;
+	let currentAngle = 0
+	
+	myContext.beginPath();
+	
+	// Start on the far right, where theta = 0
+	myContext.moveTo(midX + radius, midY);
+	
+	for (let i = 0; i < numPoints; i++) {
+	
+		currentAngle += angleStep;
+
+		let nextX = Math.cos(currentAngle) * radius + midX;
+		let nextY = Math.sin(currentAngle) * radius + midY;
+		// Use quadratic curves with 0,0 control point
+		myContext.quadraticCurveTo(midX, midY, nextX, nextY);
+		
+	
+	}
+		
+	myContext.fillStyle = "orange";
+	myContext.fill();
+	
+}
+
+class Vec {
+	
+	constructor(x, y) {
+		this.x = x; this.y = y;
+	}
+	
+	plus(other) {
+		return new Vec(this.x + other.x, this.y + other.y);
+	}
+}
+
+// Helper function for Pie-chart with labels - @author Norton
+function adjustLabelLocationIfNeeded(labelCoordinates, labelVec) {
+
+	// Fudge factor:
+	// If the x coord is within 50 pixels and y is within 20, y-shift by 15;
+	for (lVec of labelCoordinates) {
+		if (Math.abs(lVec.x - labelVec.x) < 70 && Math.abs(lVec.y - labelVec.y) < 20) {
+			labelVec.y -= 15;
+		}
+	}
+	responseVec = new Vec(labelVec.x, labelVec.y);
+	return responseVec;
+	
+}
+
+// Pie-chart with labels - @author Norton
+function drawPieChartWithLabels(startX, startY, height, width) {
+
+	let labelCoordinates = [];
+
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+	let radius = width/2;
+	
+	const results = [
+		{name: "Very Satisfied", count: 641, color: "lightyellow"},
+		{name: "Satisfied", count: 1043, color: "lightblue"},
+		{name: "Neutral", count: 563, color: "lightgreen"},
+
+		{name: "Unsatisfied", count: 510, color: "pink"},
+		{name: "Very Unsatified", count: 200, color: "red"},
+		{name: "No comment", count: 175, color: "silver"}
+	];
+
+	let total = results.reduce((sum, {count}) => sum + count, 0);
+
+	// Start at the top
+	let currentAngle = -0.5 * Math.PI;
+	
+	myContext.fillText("I can draw text, too!", 0, 50);
+	
+	for (let result of results) {
+		let sliceAngle = (result.count / total) * 2 * Math.PI;
+				
+		// Determine where to put the label, in the middle of the sliceAngle
+		// slightly outside the perimeter
+		let middleAngle =  currentAngle + (sliceAngle / 2);
+		
+		let lineRadius = radius + 10;
+		let innerLineRadius = radius/2;
+		let labelRadius = radius + 20;
+
+		let lineX = Math.cos(middleAngle) * lineRadius + midX;
+		let lineY = Math.sin(middleAngle) * lineRadius + midY;
+
+		let innerLineX = Math.cos(middleAngle) * innerLineRadius + midX;
+		let innerLineY = Math.sin(middleAngle) * innerLineRadius + midY;
+		
+		let labelX = Math.cos(middleAngle) * labelRadius + midX;
+		let labelY = Math.sin(middleAngle) * labelRadius + midY;
+		
+		// Safe to use these label coordinates?  Or shift slightly to avoid overlap?
+		let labelVec = adjustLabelLocationIfNeeded(labelCoordinates, new Vec(labelX, labelY));
+		labelX = labelVec.x;
+		labelY = labelVec.y;
+		
+		labelCoordinates.push(new Vec(labelX, labelY));
+		
+		console.log(middleAngle + " " + result.name);
+		
+		// Text justification
+		if (middleAngle > -0.25 * Math.PI && middleAngle < .25 * Math.PI) {
+			myContext.textAlign = "left";
+		} else if (middleAngle > .75 * Math.PI && middleAngle < 1.25 * Math.PI) {
+			myContext.textAlign = "end";
+		} else {
+			myContext.textAlign = "center";
+		}
+
+		// text Baseline
+		if (middleAngle > 0.25 * Math.PI && middleAngle < .75 * Math.PI) {
+			myContext.textBaseline = "top";
+		} else if (middleAngle > 1.25 * Math.PI || middleAngle < -0.25 * Math.PI) {
+			myContext.textBaseline = "bottom";
+		} else {
+			myContext.textBaseline = "middle";
+		}
+
+		// Add label
+		myContext.font = "12px Times";
+		myContext.fillStyle = "black";
+		myContext.fillText(result.name + " " + ((result.count / total) * 100).toFixed(2), labelX, labelY);		
+		
+		
+		// Main pie chart
+		myContext.beginPath();
+		
+		myContext.arc(midX, midY, radius, currentAngle, currentAngle + sliceAngle);
+		currentAngle += sliceAngle;
+		myContext.lineTo(midX, midY);
+		myContext.fillStyle = result.color;
+		myContext.fill();
+		
+		// Add lines (pointers)
+		myContext.beginPath();
+		myContext.moveTo(lineX, lineY);
+		myContext.lineTo(innerLineX, innerLineY);
+		myContext.stroke();
+		
+		
+	}
+}
+
+// runAnimation assists with animations by storing the last time
+// so that I can keep track of lastTime, and continually call
+// the frameFunc with a time interval argument, running until
+// the frameFunc returns false.  Credit: Haverbeke.
+function runAnimation(frameFunc) {
+
+	let lastTime = null;
+	function frame (time) {
+		
+		// Assuming lastTime has already been set...
+		if (lastTime != null) {
+			
+			// How much time has passed?  Max 1/10th of a second.
+			let timeStep = Math.min(time - lastTime, 100) / 1000;
+			
+			// Run the desired frameFunc with time interval argument;
+			// Return when the response is false;
+			if (frameFunc(timeStep) === false) return;
+			
+		}
+		
+		// Update the lastTime and recursively request another animation frame:
+		lastTime = time;
+		requestAnimationFrame(frame);
+		
+	}
+	
+	// requestAnimationFrame wants a function that accepts
+	// the current time as its argument.
+	requestAnimationFrame(frame);
+
+}
+
+// zShift - @author Norton
+// xyVec is the original location, vanishVec is the vanishing point,
+// and vRatio is the percentage of the hypotenuse to traverse....
+function zShift(xyVec, vanishVec, vRatio) {
+
+	// How far is x,y from the vanishing point?
+	let run = Math.abs(xyVec.x - vanishVec.x);
+	let rise = Math.abs(xyVec.y - vanishVec.y);
+	
+	// Length of hypotenuse -- max length that the point will move.
+	let hypotenuse = Math.sqrt(Math.pow(rise,2) + Math.pow(run,2)); // use pythagorean theorem
+	
+	// Use the same ratio to adjust x and y, based on their slope.
+	let yMove = vRatio * rise;
+	let xMove = vRatio * run;
+	
+	let shiftedX = 0;
+	let shiftedY = 0;
+	
+	if (xyVec.x < vanishVec.x) {
+		shiftedX = xyVec.x + xMove;
+	} else {
+		shiftedX = xyVec.x - xMove;
+	}
+
+	if (xyVec.y < vanishVec.y) {
+		shiftedY = xyVec.y + yMove;
+	} else {
+		shiftedY = xyVec.y - yMove;
+	}
+	
+	return new Vec(shiftedX,shiftedY)
+	
+}
+
+// Draw an set of lines based on the array of vertices - @author Norton
+function drawLines(context, floorVertices) {
+
+	// First draw the containing box.
+	myContext.beginPath();
+	let origin = floorVertices.shift();
+	myContext.moveTo(origin.x, origin.y);
+
+	for (let vertex of floorVertices) {
+		myContext.lineTo(vertex.x, vertex.y);
+	}
+
+	myContext.lineTo(origin.x, origin.y);
+	myContext.stroke();
+	floorVertices.unshift(origin);
+
+}
+
+
+
+// drawBouncingBall - @author Norton
+function drawBouncingBall(startX, startY, height, width, depth) {
+	
+	let midX = startX + width/2;
+	let midY = startY + height/2;
+	let midZ = depth/3;
+	
+	// Vanishing point.
+	let vanX = midX + width/4;
+	let vanY = midY - width/4;
+	
+	function keyDownEvent(event) {
+		if (event.key == "ArrowUp") {
+			vanY--;		
+		} else if (event.key == "ArrowDown") {
+			vanY++;
+		} else if (event.key == "ArrowLeft") {
+			vanX--;
+		} else if (event.key == "ArrowRight") {
+			vanX++;
+		} 
+	}
+
+	window.addEventListener("keydown", keyDownEvent);
+	
+	// Boundaries
+	let left = startX;
+	let right = startX + width;
+	let top = startY;
+	let bottom = startY + height;
+	let front = 0;
+	let floor = depth;
+
+	// Create array of the four corners
+	frontVertices = [];
+	frontVertices.push(new Vec(left,top));
+	frontVertices.push(new Vec(left,bottom));
+	frontVertices.push(new Vec(right,bottom));
+	frontVertices.push(new Vec(right,top));
+	
+	// First draw the containing box.
+	drawLines(myContext, frontVertices);
+		
+	// Define and place the ball
+	let ballX = midX;
+	let ballY = midY;
+	let ballZ = midZ;
+	
+	let radius = 12;
+	
+	// floorRatio constant represents the depth of the floor
+	// compared to the full distance to the vanishing point.
+	let floorRatio = 2/3;
+	
+	// Set velocities (movement per time step)
+	let ballXvel = Math.random() * 2;
+	let ballYvel = Math.random() * 2;
+	let ballZvel = Math.random() * 2;
+	
+	// Define a frameFunc method which we will pass to runAnimation.
+	function frameFunc(timeStep) {
+	
+		// Clear the context within the box each pass...
+		myContext.clearRect(left + 1,top + 1,width - 2,height - 2);
+		
+		let vanVec = new Vec(vanX, vanY);
+	
+		// Draw the floor surrounding the vanishing point
+		let floorVertices = [];
+		for (let vertex of frontVertices) {
+			floorVec = zShift(vertex,vanVec,floorRatio);
+			floorVertices.push(new Vec(floorVec.x,floorVec.y));
+		}
+	
+		// Draw a set of lines based on the array of vertices
+		drawLines(myContext, floorVertices);
+	
+		// Draw the lines to vanishing point
+		myContext.beginPath();
+		myContext.moveTo(right,top);
+		myContext.lineTo(vanVec.x, vanVec.y);
+		myContext.moveTo(left,top);
+		myContext.lineTo(vanVec.x, vanVec.y);
+		myContext.moveTo(right,bottom);
+		myContext.lineTo(vanVec.x, vanVec.y);
+		myContext.moveTo(left,bottom);
+		myContext.lineTo(vanVec.x, vanVec.y);
+		myContext.stroke();
+
+		// Clear the context within the floor
+		myContext.clearRect(floorVertices[0].x, floorVertices[0].y,
+							floorVertices[2].x - floorVertices[0].x,
+							floorVertices[2].y - floorVertices[0].y);
+		
+		// Draw the vanishing point for reference
+		// myContext.beginPath();
+		// myContext.arc(vanX, vanY, 1, 0, 2 * Math.PI);
+		// myContext.fillStyle = "black";
+		// myContext.fill();
+		
+		// Determine the updated location of the ball:
+		let proposedBallX = ballX + ballXvel;
+		let proposedBallY = ballY + ballYvel;
+		let proposedBallZ = ballZ + ballZvel;	
+
+		// Z-axis modifications
+
+		// Rise, run, hypotenuse from PROPOSED BALL based on vanishing point
+		let run = Math.abs(proposedBallX - vanX); let rise = Math.abs(proposedBallY - vanY);
+		let hypotenuse = Math.sqrt(Math.pow(rise,2) + Math.pow(run,2)); // use pythagorean theorem
+		
+		// How far along this hypotenuse should we move?  
+		// The higher ballZ is, the closer to the vanishing point.  Experiment here?
+		let v = Math.min(Math.sqrt(proposedBallZ), hypotenuse);
+		
+		// Ratio of v to hypotenuse length.
+		let vRatio = v/hypotenuse;
+		
+		// Based on the current Z, determine apparent x/y boundaries
+		let currentVertices = [];
+		for (let vertex of frontVertices) {
+			currentVec = zShift(vertex,vanVec,ballZ/depth);
+			currentVertices.push(new Vec(currentVec.x,currentVec.y));
+		}
+		
+		// Draw lines representing current Z for context
+		drawLines(myContext, currentVertices);
+		
+		// Current Boundaries
+		let apparentLeft = currentVertices[0].x;
+		let apparentRight = currentVertices[2].x;
+		let apparentTop = currentVertices[0].y;
+		let apparentBottom = currentVertices[2].y;
+		
+		// Collisions with boundaries?
+		// Right and left walls: change X velocity.
+		// Top/bottom: change Y velocity.
+		// Front/back: change Z velocity.
+		// Keep the ball in bounds.
+		if (proposedBallX + radius >= apparentRight) {
+			ballX = apparentRight - radius;
+			ballXvel = -ballXvel;		
+		} else if (proposedBallX - radius <= apparentLeft) {
+			ballX = apparentLeft + radius;
+			ballXvel = -ballXvel;
+		}
+		
+		if (proposedBallY + radius >= apparentBottom) {
+			ballY = apparentBottom - radius;
+			ballYvel = -ballYvel;		
+		} else if (proposedBallY - radius <= apparentTop) {
+			ballY = apparentTop + radius;
+			ballYvel = -ballYvel;
+		}
+		
+		if (proposedBallZ + radius >= .72 * floor || proposedBallZ - radius <= front ) {
+			ballZvel = -ballZvel;
+			console.log("Z switch");
+		}
+		// Apparent radius (based on depth)
+		let apparentRadius = radius * (depth - ballZ) / depth;
+		
+		ballX += ballXvel;
+		ballY += ballYvel;
+		ballZ += ballZvel;	
+						
+		let ballVec = new Vec(ballX, ballY);
+
+		// Rise, run, hypotenuse from ACTUAL BALL based on vanishing point
+		let actualRun = Math.abs(ballX - vanX); let actualRise = Math.abs(ballY - vanY);
+		let actualHypotenuse = Math.sqrt(Math.pow(actualRise,2) + Math.pow(actualRun,2)); // use pythagorean theorem
+		
+		// How far along this hypotenuse should we move?  
+		// The higher ballZ is, the closer to the vanishing point.  Experiment here?
+		let actualV = Math.min(Math.sqrt(ballZ), actualHypotenuse);
+		
+		// Ratio of actualV to actualHypotenuse length.
+		let actualVratio = actualV/actualHypotenuse;
+		
+		let apparentVec = zShift(ballVec, vanVec, actualVratio);
+		
+		// Draw the ball with zshift
+		myContext.beginPath();
+		myContext.arc(apparentVec.x, apparentVec.y, apparentRadius, 0, 2 * Math.PI);
+		myContext.fillStyle = "red";
+		myContext.fill();
+
+		// Draw the ball (unshifted, for reference)
+		myContext.beginPath();
+		myContext.arc(ballX, ballY, 1, 0, 2 * Math.PI);
+		myContext.fillStyle = "black";
+		myContext.fill();
+				
+		console.log(ballZ + " vRatio: " + actualVratio + " actualV: " + actualV + " hypo: " + actualHypotenuse);
+		console.log(apparentLeft + " " + apparentTop);
+	
+	}
+	
+	// Pass to runAnimation
+	runAnimation(frameFunc);
+
+}
+
+
+drawTrapezoid(0,20,50,100);
+drawDiamond(140,0,80,80);
+drawZigZag(280,0,80,80);
+drawSpiral(420,0,80,80);
+drawSpiralLines(560,0,80,80);
+drawYellowStar(700,0,80,80);
+drawPieChartWithLabels(120,160,80,80);
+drawBouncingBall(350,160,200,200,100);
+
+
+</script>
+
+</html>
+
