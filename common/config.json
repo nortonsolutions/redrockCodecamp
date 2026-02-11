@@ -4,9 +4,10 @@
   "brandingConfigs": {
     "redrockcode.com": {
       "logoPath": "/images/logos/logo-landscape.png",
-      "businessName": "RedRockCode / Silver Medal NFPO)",
+      "businessName": "RedRockCode / Silver Medal",
       "businessAppName": " Redrock Academy",
       "brandColor": "#3498db",
+      "brandFont": "'Bungee Spice', cursive",
       "homeUrl": "https://redrockcode.com",
       "hostkey": "redrockcode.com"
     },
@@ -15,6 +16,7 @@
       "businessName": "Code Base Camp",
       "businessAppName": "CodeBaseCamp Academy",
       "brandColor": "#e74c3c",
+      "brandFont": "'Bungee Spice', cursive",
       "homeUrl": "https://codebasecamp.org",
       "hostkey": "codebasecamp.org"
     },
@@ -23,6 +25,7 @@
       "businessName": "RedRockCode (subsididary of Silver Medal NFPO)",
       "businessAppName": " Redrock Academy (DEV)",
       "brandColor": "#2ecc71",
+      "brandFont": "'Bungee Spice', cursive",
       "homeUrl": "http://localhost:3030",
       "hostkey": "localhost"
     },

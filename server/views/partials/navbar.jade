@@ -6,21 +6,23 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
                 button.hamburger.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
                     .col-xs-12
                         span.hamburger-text Menu
-                div.navbar-brand(href='/')
+                a.navbar-brand(href='/')
                     img(src=(branding && branding.logoPath) || '/images/logos/logo-landscape.png', class="nav-logo", alt=(branding && branding.businessAppName) ? branding.businessAppName + " Logo" : "Logo")
-                    p.brand-text #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
+                a.navbar-brand(href='/challenges/current-challenge')
+                    p.brand-text(style=`font-family: ${(branding && branding.brandFont) || "'Bungee Spice', cursive"}`) #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
             .collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right.hamburger-dropdown
                     li
-                        a(href='/en') All Lessons
+                        a(href='/en', data-toggle='collapse', data-target='.navbar-collapse') All Lessons
                     li
-                        a(href='/en/settings')
+                        a(href='/en/settings', data-toggle='collapse', data-target='.navbar-collapse')
                             span.fa.fa-user-o
                             span #{user.name}'s Profile
 
     else
         .nav-component-wrapper
             .navbar-header        
-                div.navbar-brand(href='/')
+                a.navbar-brand(href='/')
                     img(src=(branding && branding.logoPath) || '/images/logos/logo-landscape.png', class="nav-logo", alt=(branding && branding.businessAppName) ? branding.businessAppName + " Logo" : "Logo")
-                    p.brand-text #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
+                a.navbar-brand(href='/challenges/current-challenge')
+                    p.brand-text(style=`font-family: ${(branding && branding.brandFont) || "'Bungee Spice', cursive"}`) #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}

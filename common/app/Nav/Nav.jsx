@@ -250,7 +250,7 @@ export class RRCCNav extends React.Component {
                 href='/challenges/current-challenge'
                 onClick={clickOnLogo}
               >
-                <p className="brand-text">
+                <p className="brand-text" style={{ fontFamily: brand && brand.brandFont ? brand.brandFont : "'Bungee Spice', cursive" }}>
                   {brand && brand.businessAppName ? brand.businessAppName : ' Red Rock Code Camp'}
                 </p>
               </a>
