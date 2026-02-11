@@ -33,7 +33,8 @@ const publicUserProps = [
   'sendQuincyEmail',
 
   'currentChallengeId',
-  'challengeMap'
+  'challengeMap',
+  'membership'
 ];
 const log = debug('rrcc:services:user');
 
