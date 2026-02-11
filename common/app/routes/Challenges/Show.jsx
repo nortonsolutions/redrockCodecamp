@@ -22,7 +22,7 @@ import {
 import { makeToast } from '../../Toasts/redux';
 import { paramsSelector } from '../../Router/redux';
 import { challengeMapSelector } from '../../entities';
-import { CERT_REQUIREMENTS } from '../../Map/cert-requirements';
+import { CERT_REQUIREMENTS, isContentLocked } from '../../Map/cert-requirements';
 import { Link } from '../../Router';
 
 const views = {
@@ -130,16 +130,15 @@ export class Show extends PureComponent {
       return { allowed: true };
     }
     
-    // Check certification requirements
+    // Check certification requirements using isContentLocked helper
     const requirement = CERT_REQUIREMENTS[superBlock];
-    if (requirement && requirement.cert !== null) {
-      const hasCert = this.props[requirement.cert];
-      if (!hasCert) {
-        return { 
-          allowed: false, 
-          requiredCertName: requirement.name 
-        };
-      }
+    const locked = isContentLocked(requirement, user);
+    
+    if (locked) {
+      return { 
+        allowed: false, 
+        requiredCertName: requirement ? requirement.name : 'unknown certification'
+      };
     }
     
     return { allowed: true };

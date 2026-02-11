@@ -10,7 +10,7 @@ import { userSelector } from '../redux';
 import { challengeMapSelector } from '../entities';
 import { Link } from '../Router';
 import { onRouteChallenges } from '../routes/Challenges/redux';
-import { CERT_REQUIREMENTS } from './cert-requirements';
+import { CERT_REQUIREMENTS, isContentLocked } from './cert-requirements';
 
 const propTypes = {
   block: PropTypes.string,
@@ -44,9 +44,10 @@ function makeMapStateToProps(_, { dashedName }) {
     userSelector,
     challengeMapSelector,
     (
-      { challengeMap: userChallengeMap, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert, isDataVisCert },
+      user,
       challengeMap
     ) => {
+      const { challengeMap: userChallengeMap, isRespWebDesignCert, isJsAlgoDataStructCert, isFrontEndCert, isFrontEndLibsCert, isApisMicroservicesCert, isInfosecQaCert, isBackEndCert, isFullStackCert, isDataVisCert } = user || {};
       const {
         id,
         title,
@@ -81,7 +82,8 @@ function makeMapStateToProps(_, { dashedName }) {
         isFullStackCert,
         isDataVisCert,
         prerequisiteMet,
-        userHasChallengeMap
+        userHasChallengeMap,
+        user // Pass user object so we can check membership
       };
     }
   );
@@ -248,7 +250,8 @@ export class Challenge extends PureComponent {
       isFullStackCert,
       isDataVisCert,
       prerequisiteMet,
-      userHasChallengeMap
+      userHasChallengeMap,
+      user
     } = this.props;
     if (!title) {
       return null;
@@ -257,17 +260,14 @@ export class Challenge extends PureComponent {
     let certLocked = false;
     let requiredCertName = null;
     
-    // Check certification requirements using lookup object
+    // Check certification requirements using the isContentLocked helper
     const requirement = CERT_REQUIREMENTS[superBlock.toLowerCase()];
-    if (requirement) {
-      if (requirement.cert === null) {
-        certLocked = false;
-      } else {
-        const hasCert = this.props[requirement.cert];
-        certLocked = !hasCert;
-        requiredCertName = requirement.name;
-      }
+    certLocked = isContentLocked(requirement, user);
+    
+    if (certLocked && requirement) {
+      requiredCertName = requirement.name;
     }
+    
     if (!certLocked && !prerequisiteMet && userHasChallengeMap) {
       certLocked = true;
       requiredCertName = 'prerequisite challenge';

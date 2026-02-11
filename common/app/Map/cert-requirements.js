@@ -13,3 +13,46 @@ export const CERT_REQUIREMENTS = {
   '(3090) advanced server patterns': { cert: 'isFrontEndLibsCert', name: 'JavaScript Front-End Libraries' },
   '(4010) javascript for engineers': { cert: 'isInfosecQaCert', name: 'Information Security and QA' }
 };
+
+/**
+ * Check if a user's membership tier bypasses certification requirements
+ * @param {Object} user - The user object with membership property
+ * @returns {Boolean} - True if user has silver-hat or higher membership
+ */
+export function hasPremiumMembership(user) {
+  if (!user || !user.membership) {
+    return false;
+  }
+  
+  const { tier } = user.membership;
+  
+  // Premium tiers (silver-hat and above) bypass cert requirements
+  // Tiers: copper-top (0), silver-hat (1), gold-star (2), platinum-sponsor (3)
+  const premiumTiers = ['silver-hat', 'gold-star', 'platinum-sponsor'];
+  
+  return premiumTiers.includes(tier);
+}
+
+/**
+ * Check if content should be locked based on certification requirements and membership
+ * @param {Object} requirement - The cert requirement from CERT_REQUIREMENTS
+ * @param {Object} user - The user object
+ * @returns {Boolean} - True if content should be locked
+ */
+export function isContentLocked(requirement, user) {
+  // No requirement means content is always accessible
+  if (!requirement || requirement.cert === null) {
+    return false;
+  }
+  
+  // Premium members bypass all cert requirements
+  if (hasPremiumMembership(user)) {
+    return false;
+  }
+  
+  // Check if user has the required certification
+  const certProperty = requirement.cert;
+  const hasCert = user && user[certProperty];
+  
+  return !hasCert;
+}

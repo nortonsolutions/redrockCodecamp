@@ -2,9 +2,11 @@ import _ from 'lodash';
 import debug from 'debug';
 import accepts from 'accepts';
 import dedent from 'dedent';
+import { Observable } from 'rx';
 
 import { ifNoUserSend } from '../utils/middleware';
 import { getChallengeById, cachedMap } from '../utils/map';
+import { autoGrantCertifications$ } from '../utils/auto-certification';
 
 const log = debug('rrcc:boot:challenges');
 
@@ -164,6 +166,14 @@ export default function(app) {
 
         return user.update$(updateData)
           .doOnNext(({ count }) => log('%s documents updated', count))
+          // .flatMap(() => {
+          //   // Auto-grant certifications after challenge completion
+          //   return autoGrantCertifications$(user)
+          //     .catch(err => {
+          //       log('Error in auto-certification:', err);
+          //       return Observable.just(null);
+          //     });
+          // })
           .map(() => {
             if (type === 'json') {
               return res.json({
@@ -214,6 +224,14 @@ export default function(app) {
 
         return user.update$(updateData)
           .doOnNext(({ count }) => log('%s documents updated', count))
+          // .flatMap(() => {
+          //   // Auto-grant certifications after challenge completion
+          //   return autoGrantCertifications$(user)
+          //     .catch(err => {
+          //       log('Error in auto-certification:', err);
+          //       return Observable.just(null);
+          //     });
+          // })
           .map(() => {
             if (type === 'json') {
               return res.json({
@@ -279,6 +297,14 @@ export default function(app) {
 
         return user.update$(updateData)
           .doOnNext(({ count }) => log('%s documents updated', count))
+          .flatMap(() => {
+            // Auto-grant certifications after project completion
+            return autoGrantCertifications$(user)
+              .catch(err => {
+                log('Error in auto-certification:', err);
+                return Observable.just(null);
+              });
+          })
           .doOnNext(() => {
             if (type === 'json') {
               return res.send({
@@ -328,6 +354,14 @@ export default function(app) {
 
         return user.update$(updateData)
           .doOnNext(({ count }) => log('%s documents updated', count))
+          .flatMap(() => {
+            // Auto-grant certifications after backend challenge completion
+            return autoGrantCertifications$(user)
+              .catch(err => {
+                log('Error in auto-certification:', err);
+                return Observable.just(null);
+              });
+          })
           .doOnNext(() => {
             if (type === 'json') {
               return res.send({

@@ -14,7 +14,7 @@ import {
 } from './redux';
 import { makeSuperBlockSelector } from '../entities';
 import { userSelector } from '../redux';
-import { CERT_REQUIREMENTS } from './cert-requirements';
+import { CERT_REQUIREMENTS, isContentLocked } from './cert-requirements';
 
 const mapDispatchToProps = { toggleThisPanel };
 // make selectors unique to each component
@@ -31,15 +31,9 @@ function mapStateToProps(_, { dashedName }) {
       // console.log(`Checking lock for superBlock: ${title} with dashedName: ${dashedName}`);
       var titleKey = title ? title.toLowerCase() : '';
       const requirement = CERT_REQUIREMENTS[titleKey];
-      let isLocked = false;
       
-      if (requirement && requirement.cert !== null) {
-        // Check if user has the required certification
-        // Handle undefined user properties (user might not be fully loaded)
-        const certProperty = requirement.cert;
-        const hasCert = user && user[certProperty];
-        isLocked = !hasCert;
-      }
+      // Use the new isContentLocked helper function
+      const isLocked = isContentLocked(requirement, user);
       
       return {
         isOpen,
