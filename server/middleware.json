@@ -51,7 +51,6 @@
     "express-flash": {},
     "helmet#xssFilter": {},
     "helmet#noSniff": {},
-    "helmet#frameguard": {},
     "./middlewares/csurf": {},
     "./middlewares/constant-headers": {},
     "./middlewares/express-rx": {},
