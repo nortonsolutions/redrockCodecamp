@@ -12,13 +12,13 @@ const propTypes = {};
 export const mapStateToPanes = addNS(
   ns,
   () => ({
-    [types.toggleMap]: 'Map',
+    [types.toggleMap]: 'Curriculum',
     [types.toggleMain]: 'Main'
   })
 );
 
 const nameToComponent = {
-  Map: _Map,
+  Curriculum: _Map,
   Main: Main
 };
 

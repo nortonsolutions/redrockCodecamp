@@ -49,7 +49,7 @@ export const mapStateToPanes = addNS(
         map[createModernEditorToggleType(file.fileKey)] = file.name;
         return map;
       }, {
-        [types.toggleMap]: 'Map',
+        [types.toggleMap]: 'Curriculum',
         [types.toggleSidePanel]: 'Side Panel'
       });
 
@@ -62,7 +62,7 @@ export const mapStateToPanes = addNS(
 );
 
 const nameToComponent = {
-  Map: _Map,
+  Curriculum: _Map,
   'Side Panel': SidePanel,
   Preview: Preview
 };

@@ -5,6 +5,7 @@ import Editor from './Editor.jsx';
 import { types, showPreviewSelector } from '../../redux';
 import Preview from '../../Preview.jsx';
 import SidePanel from '../../Side-Panel.jsx';
+import MobileActionBar from '../../Mobile-Action-Bar.jsx';
 import Panes from '../../../../Panes';
 import _Map from '../../../../Map';
 import ChildContainer from '../../../../Child-Container.jsx';
@@ -15,7 +16,7 @@ export const mapStateToPanes = addNS(
   'classic',
   state => {
     const panesMap = {
-      [types.toggleMap]: 'Map',
+      [types.toggleMap]: 'Curriculum',
       [types.toggleSidePanel]: 'Lesson',
       [types.toggleClassicEditor]: 'Editor'
     };
@@ -28,7 +29,7 @@ export const mapStateToPanes = addNS(
 );
 
 const nameToComponent = {
-  Map: _Map,
+  Curriculum: _Map,
   Lesson: SidePanel,
   Editor: Editor,
   Preview: Preview
@@ -43,6 +44,7 @@ export default function ShowClassic() {
   return (
     <ChildContainer isFullWidth={ true }>
       <Panes render={ renderPane }/>
+      <MobileActionBar />
     </ChildContainer>
   );
 }

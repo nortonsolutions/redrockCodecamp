@@ -58,7 +58,8 @@ const mapStateToProps = createSelector(
 
         switch (name) {
           case 'Map':
-            displayName = 'All Lessons';
+          case 'Curriculum':
+            displayName = 'Curriculum';
             break;
           case 'Editor':
             displayName = 'Code Editor';
@@ -135,6 +136,36 @@ const propTypes = {
 };
 
 export class RRCCNav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDocumentMouseDown = this.handleDocumentMouseDown.bind(this);
+  }
+
+  componentDidMount() {
+    if (typeof document !== 'undefined') {
+      document.addEventListener('mousedown', this.handleDocumentMouseDown);
+      document.addEventListener('touchstart', this.handleDocumentMouseDown);
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('mousedown', this.handleDocumentMouseDown);
+      document.removeEventListener('touchstart', this.handleDocumentMouseDown);
+    }
+  }
+
+  handleDocumentMouseDown(e) {
+    const { isDropdownOpen, closeDropdown } = this.props;
+    // if (!isDropdownOpen) return;
+    // If the click landed inside any open dropdown or its trigger, ignore.
+    const target = e.target;
+    if (target && target.closest && target.closest('.dropdown.open')) {
+      return;
+    }
+    closeDropdown();
+  }
+
   renderLink(isNavItem, { isReact, isDropdown, content, link, links, target }) {
     const Component = isNavItem ? NavItem : MenuItem;
     const {
@@ -272,7 +303,7 @@ export class RRCCNav extends React.Component {
               }
               {shouldShowMapButton ?
                 <BinButton
-                  content='All Lessons'
+                  content='Curriculum'
                   handleClick={clickOnMap}
                   key='Map'
                 /> :
