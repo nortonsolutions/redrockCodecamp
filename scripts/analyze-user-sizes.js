@@ -18,7 +18,7 @@ print("Average document size:", (stats.avgObjSize / 1024).toFixed(2), "KB\n");
 // 2. Find the 10 largest user documents
 print("=== Top 10 Largest User Documents ===");
 var userSizes = [];
-db.user.find({}, { username: 1, email: 1 }).forEach(function(user) {
+db.user.find({}).forEach(function(user) {
   var size = Object.bsonsize(user);
   userSizes.push({
     username: user.username,
@@ -27,9 +27,9 @@ db.user.find({}, { username: 1, email: 1 }).forEach(function(user) {
   });
 });
 
-userSizes.sort(function(a, b) { return b.sizeKB - a.sizeKB; });
+userSizes.sort(function(a, b) { return parseFloat(b.sizeKB) - parseFloat(a.sizeKB); });
 userSizes.slice(0, 10).forEach(function(user) {
-  print("User:", user.username, "- Size:", user.sizeKB, "KB");
+  print("User:", user.username || user.email, "- Size:", user.sizeKB, "KB");
 });
 
 // 3. Analyze field sizes for a sample user
