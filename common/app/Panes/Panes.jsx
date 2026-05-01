@@ -104,17 +104,23 @@ export class Panes extends PureComponent {
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
     
     const outerStyle = {
-      height,
+      // On mobile, follow the dynamic viewport so iOS Safari URL bar
+      // collapse/expand doesn't leave the editor cut off. Reserve room
+      // for the floating action bar at the bottom.
+      height: isMobile
+        ? 'calc(100dvh - 50px - 64px - env(safe-area-inset-bottom))'
+        : height,
       position: 'relative',
       width: '100%'
     };
-    
+
     const innerStyle = isMobile ? {
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
       height: '100%',
-      overflowY: 'auto'
+      minHeight: 0,
+      overflow: 'hidden'
     } : {
       position: 'absolute',
       top: 0,
@@ -124,7 +130,7 @@ export class Panes extends PureComponent {
     };
     return (
       <div style={outerStyle}>
-        <div className={isMobile ? 'panes-container-mobile' : ''} style={innerStyle}>
+        <div className='panes-container' style={innerStyle}>
           { this.renderPanes() }
         </div>
       </div>

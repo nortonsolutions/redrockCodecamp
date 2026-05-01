@@ -29,12 +29,45 @@ export class Pane extends PureComponent {
     this.checkScrollIndicators();
     if (this.contentRef) {
       this.contentRef.addEventListener('scroll', this.checkScrollIndicators);
+      if (this.props.name === 'Editor') {
+        this.contentRef.addEventListener('focusin', this.handleEditorFocus);
+      }
+    }
+    if (typeof window !== 'undefined') {
+      window.addEventListener('rrcc:editor-focused', this.handleEditorFocusBroadcast);
     }
   }
 
   componentWillUnmount() {
     if (this.contentRef) {
       this.contentRef.removeEventListener('scroll', this.checkScrollIndicators);
+      if (this.props.name === 'Editor') {
+        this.contentRef.removeEventListener('focusin', this.handleEditorFocus);
+      }
+    }
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('rrcc:editor-focused', this.handleEditorFocusBroadcast);
+    }
+  }
+
+  // Editor fires this on every focus; non-editor panes listen below.
+  // Re-firing lets the user re-open Lesson/Curriculum, then click back into
+  // Editor to re-collapse them.
+  handleEditorFocus = () => {
+    try {
+      window.dispatchEvent(new CustomEvent('rrcc:editor-focused'));
+    } catch (e) {
+      // CustomEvent unsupported in very old IE; ignore.
+    }
+  }
+
+  // When editor is focused, collapse Curriculum and Lesson so Editor +
+  // Preview can share the viewport. The user can re-expand by tapping the
+  // header. We don't auto-restore on blur (would feel jumpy).
+  handleEditorFocusBroadcast = () => {
+    const { name } = this.props;
+    if ((name === 'Curriculum' || name === 'Lesson') && !this.state.isCollapsed) {
+      this.setState({ isCollapsed: true });
     }
   }
 
@@ -142,19 +175,32 @@ export class Pane extends PureComponent {
     const { children, left, right, name, isExpanded = false } = this.props;
     const { isCollapsed, showScrollTop, showScrollBottom } = this.state;
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-    
+
+    // Mobile flex weight: give the editor the most room, then lesson, then map.
+    // Editor and Preview share leftover space (both grow); Curriculum/Lesson
+    // are fixed-basis so they don't push the editor down.
+    const mobileFlex = isCollapsed
+      ? '0 0 40px'
+      : name === 'Editor'
+        ? '1 1 0'
+        : name === 'Preview'
+          ? '1 1 0'
+          : name === 'Curriculum'
+            ? '0 0 18vh'
+            : '0 0 28vh';
+
     const style = isMobile ? {
       position: 'relative',
       width: '100%',
-      minHeight: isCollapsed ? '40px' : '200px',
-      maxHeight: isCollapsed ? '40px' : 'none',
+      flex: mobileFlex,
+      minHeight: isCollapsed ? '40px' : 0,
       paddingLeft: '4px',
       paddingRight: '4px',
       display: 'flex',
       flexDirection: 'column',
       borderBottom: '1px solid #ddd',
       borderLeft: 'none',
-      overflowY: isCollapsed ? 'hidden' : 'auto',
+      overflow: 'hidden',
       boxSizing: 'border-box'
     } : {
       bottom: 0,
@@ -197,7 +243,9 @@ export class Pane extends PureComponent {
         <div style={contentStyle} ref={this.setContentRef}>
           { children }
         </div>
-        {(showScrollTop || showScrollBottom) && this.renderScrollArrows()}
+        {name !== 'Curriculum' && !isCollapsed &&
+          (showScrollTop || showScrollBottom) &&
+          this.renderScrollArrows()}
       </div>
     );
   }

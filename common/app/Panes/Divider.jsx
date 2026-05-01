@@ -44,6 +44,7 @@ export function Divider({ left, dividerClicked }) {
   // note(berks): do we need touch support?
   return (
     <div
+      className='pane-divider'
       onMouseDown={ dividerClicked }
       style={ style }
     />

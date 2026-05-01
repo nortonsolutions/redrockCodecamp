@@ -40,7 +40,7 @@ export class PaneHeader extends PureComponent {
     const headerStyle = {
       backgroundColor: '#f5f5f5',
       borderBottom: '1px solid #ddd',
-      padding: '8px 12px',
+      padding: 0,
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',

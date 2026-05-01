@@ -179,7 +179,7 @@ export default function createPanesAspects({ createPanesMap }) {
             name,
             type,
             visibleIndex: -1,
-            isHidden: name === 'Map' ? state.isMapPaneHidden : false
+            isHidden: name === 'Curriculum' ? state.isMapPaneHidden : false
           };
 
           if (!pane.isHidden) {
