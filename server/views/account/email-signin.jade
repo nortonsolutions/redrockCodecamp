@@ -27,7 +27,22 @@ block content
             display:flex;
             align-items:center;
             justify-content:center;
+            transition:box-shadow .3s ease;
         }
+        .video-container.is-loading::after {
+            content:'Loading…';
+            position:absolute;
+            top:0; left:0; right:0; bottom:0;
+            display:flex; align-items:center; justify-content:center;
+            background:rgba(0,0,0,.55);
+            color:#fff; font-size:14px; letter-spacing:.04em;
+            pointer-events:none;
+        }
+        @keyframes pulseRing {
+            0%   { box-shadow:0 0 0 0   rgba(37,99,235,.85); }
+            100% { box-shadow:0 0 0 18px rgba(37,99,235,0);   }
+        }
+        .video-container.flash { animation:pulseRing 900ms ease-out 1; }
         video#redrockMainVideo {
             width:auto;
             height:100%;
@@ -93,7 +108,7 @@ block content
                         video#redrockMainVideo(autoplay loop muted playsinline preload='auto' data-state='auto')
                             source(src='/assets/videos/redrockcode_intro_0_1080.mp4', type='video/mp4')
                             | Your browser does not support the video tag.
-            .col-md-6.col.sm-12.form-col
+            .col-md-6.col-sm-12.form-col
                 .form-panel
                     form.auth-form(method='POST', action='/signin')
                         input(type='hidden', name='_csrf', value=_csrf)
@@ -111,25 +126,49 @@ block content
 
                     a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction to Redrock Code
                     a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 13 minutes: What will I learn?
+                    a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_3.mp4' href='javascript:void(0)') How to upgrade my membership?
                     a.form-control.external-link(target='_blank' href='https://silvermedal.online' style='margin: auto; margin-top: 10px;') * Check out our game demo *
     script.
         const player = document.getElementById('redrockMainVideo');
-        const sourceEl = player.querySelector('source');
-        const QUEUE_AT_SECONDS = 2;
-        let queuedBlobUrl = null;
+        const container = document.querySelector('.video-container');
+
+        function flashContainer() {
+            if (!container) return;
+            container.classList.remove('flash');
+            // force reflow so the animation can restart
+            void container.offsetWidth;
+            container.classList.add('flash');
+            container.classList.add('is-loading');
+            container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
 
         function changeVideo(videoSrc) {
-            if (videoSrc) {
-                player.removeAttribute('autoplay');
-                player.removeAttribute('loop');
-                player.src = videoSrc;
-                player.muted = false;
-                player.controls = true;
-                player.classList.remove('enhance-black');
-                player.load();````
-                player.removeAttribute('autoplay');
-                player.removeAttribute('loop');
-            }
+            if (!videoSrc) return;
+            player.removeAttribute('autoplay');
+            player.removeAttribute('loop');
+            player.classList.remove('enhance-black');
+            player.src = videoSrc;
+            player.muted = false;
+            player.controls = true;
+            player.load();
+
+            const onCanPlay = () => {
+                player.removeEventListener('canplay', onCanPlay);
+                const p = player.play();
+                if (p && typeof p.catch === 'function') {
+                    p.catch(() => {
+                        // Browser blocked unmuted playback; fall back to muted.
+                        player.muted = true;
+                        player.play().catch(() => {});
+                    });
+                }
+            };
+            player.addEventListener('canplay', onCanPlay);
+            player.addEventListener('playing', () => {
+                if (container) container.classList.remove('is-loading');
+            }, { once: true });
+
+            flashContainer();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
