@@ -1,8 +1,6 @@
 import { ofType } from 'redux-epic';
 
 import { types } from './';
-import { types as mapTypes } from '../../Map/redux';
-import { types as challengeTypes } from '../../routes/Challenges/redux';
 
 import { hidePane } from '../../Panes/redux';
 
@@ -12,11 +10,10 @@ export default function binEpic(actions) {
   const fromNav = actions::ofType(types.clickOnMap)
     .map(() => hidePane('Curriculum'));
 
-  // Auto-hide the Curriculum pane once the user picks a lesson, so the
-  // editor/lesson get the screen. The user can re-open it from the
-  // "Curriculum" pill in the navbar.
-  const onSelect = actions::ofType(mapTypes.clickOnChallenge)
-    .map(() => ({ type: challengeTypes.toggleMap }));
+  // NOTE: Auto-hiding the Curriculum pane on lesson selection was removed
+  // because it was over-aggressive: on mobile it suppressed the lesson too,
+  // and on desktop it removed the curriculum entirely. The user can still
+  // toggle Curriculum from the navbar pill.
 
-  return fromNav.merge(onSelect);
+  return fromNav;
 }

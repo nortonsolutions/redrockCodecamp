@@ -71,6 +71,12 @@ export class Panes extends PureComponent {
       render,
       panes
     } = this.props;
+    // A 'reader' layout has no Editor / Preview pane (e.g. Step / Waypoint
+    // challenges, challengeType 7). On mobile we want the Lesson pane to
+    // fill the available space rather than being capped at 28vh.
+    const isReaderLayout = !panes.some(
+      ({ name }) => name === 'Editor' || name === 'Preview'
+    );
     return panes.map(({ name, left, right, dividerLeft }) => {
       const divider = dividerLeft ?
         (
@@ -89,6 +95,8 @@ export class Panes extends PureComponent {
           name={ name }
           right={ right }
           isExpanded={this.state.expandedPane === name}
+          expandedPaneName={this.state.expandedPane}
+          isReaderLayout={isReaderLayout}
           onExpandToggle={() => this.handlePaneExpand(name)}
           >
           { render(name) }

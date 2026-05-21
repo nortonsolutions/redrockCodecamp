@@ -8,6 +8,8 @@ const mapDispatchToProps = null;
 const propTypes = {
   children: PropTypes.element,
   isExpanded: PropTypes.bool,
+  isReaderLayout: PropTypes.bool,
+  expandedPaneName: PropTypes.string,
   left: PropTypes.number.isRequired,
   name: PropTypes.string,
   onExpandToggle: PropTypes.func,
@@ -172,28 +174,52 @@ export class Pane extends PureComponent {
   }
 
   render() {
-    const { children, left, right, name, isExpanded = false } = this.props;
+    const {
+      children,
+      left,
+      right,
+      name,
+      isExpanded = false,
+      expandedPaneName,
+      isReaderLayout = false
+    } = this.props;
     const { isCollapsed, showScrollTop, showScrollBottom } = this.state;
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+    // When some other pane is maximized on mobile, shrink this one to a
+    // header-only strip so the maximized pane gets the full viewport.
+    const someoneElseExpanded = !!expandedPaneName && expandedPaneName !== name;
 
     // Mobile flex weight: give the editor the most room, then lesson, then map.
     // Editor and Preview share leftover space (both grow); Curriculum/Lesson
     // are fixed-basis so they don't push the editor down.
+    // Reader layouts (Step/Waypoint challenges with no Editor/Preview) let
+    // the Lesson pane grow to fill the space instead of being capped.
     const mobileFlex = isCollapsed
       ? '0 0 40px'
-      : name === 'Editor'
-        ? '1 1 0'
-        : name === 'Preview'
-          ? '1 1 0'
-          : name === 'Curriculum'
-            ? '0 0 18vh'
-            : '0 0 28vh';
+      : isExpanded
+        ? '1 1 auto'
+        : someoneElseExpanded
+          ? '0 0 40px'
+          : name === 'Editor'
+            ? '1 1 0'
+            : name === 'Preview'
+              ? '1 1 0'
+              : name === 'Curriculum'
+                ? '0 0 18vh'
+                : isReaderLayout
+                  ? '1 1 0'
+                  : '0 0 28vh';
+
+    // On mobile, when another pane is maximized, hide our content too
+    // (only the header strip remains visible/clickable to restore).
+    const mobileContentHidden = isMobile && (isCollapsed || someoneElseExpanded);
 
     const style = isMobile ? {
       position: 'relative',
       width: '100%',
       flex: mobileFlex,
-      minHeight: isCollapsed ? '40px' : 0,
+      minHeight: (isCollapsed || someoneElseExpanded) ? '40px' : 0,
       paddingLeft: '4px',
       paddingRight: '4px',
       display: 'flex',
@@ -221,10 +247,10 @@ export class Pane extends PureComponent {
     };
     
     const contentStyle = {
-      flex: isCollapsed ? '0' : '1',
-      overflowY: isCollapsed ? 'hidden' : 'auto',
+      flex: mobileContentHidden ? '0' : (isCollapsed ? '0' : '1'),
+      overflowY: mobileContentHidden ? 'hidden' : (isCollapsed ? 'hidden' : 'auto'),
       transition: 'all 0.3s ease',
-      display: isCollapsed ? 'none' : 'block',
+      display: mobileContentHidden ? 'none' : (isCollapsed ? 'none' : 'block'),
       position: 'relative'
     };
     
@@ -232,12 +258,13 @@ export class Pane extends PureComponent {
       <div style={ style }>
         {name && (
           <PaneHeader
-            isCollapsed={isMobile ? isCollapsed : false}
+            isCollapsed={isMobile ? (isCollapsed || someoneElseExpanded) : false}
             isExpanded={isExpanded}
             isMobile={isMobile}
             name={name}
             onToggle={isMobile ? this.handleToggle : this.handleExpandToggle}
             onDoubleClick={isMobile ? this.handleDoubleClick : null}
+            onMaximize={isMobile ? this.handleExpandToggle : null}
           />
         )}
         <div style={contentStyle} ref={this.setContentRef}>

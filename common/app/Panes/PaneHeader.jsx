@@ -8,6 +8,7 @@ const propTypes = {
   isMobile: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onDoubleClick: PropTypes.func,
+  onMaximize: PropTypes.func,
   onToggle: PropTypes.func.isRequired
 };
 
@@ -34,8 +35,22 @@ export class PaneHeader extends PureComponent {
     this.lastClickTime = now;
   }
 
+  handleMaximizeClick = (e) => {
+    // Don't let the maximize click also trigger the row's collapse toggle.
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
+    if (this.props.onMaximize) {
+      this.props.onMaximize();
+    }
+  }
+
   render() {
-    const { name, isCollapsed, isExpanded, isMobile, onToggle } = this.props;
+    const { name, isCollapsed, isExpanded, isMobile, onMaximize } = this.props;
+
+    // Display-name overrides: the internal pane name stays 'Step' (used as
+    // a key throughout the redux pane state), but visually we show 'Lesson'.
+    const displayName = name === 'Step' ? 'Lesson' : name;
     
     const headerStyle = {
       backgroundColor: '#f5f5f5',
@@ -63,15 +78,28 @@ export class PaneHeader extends PureComponent {
       : (isExpanded ? '↓' : '↕');
     
     const headerTitle = isMobile
-      ? name
-      : (isExpanded ? `${name} (Click to restore)` : name);
+      ? displayName
+      : (isExpanded ? `${displayName} (Click to restore)` : displayName);
 
     return (
       <div style={headerStyle} onClick={this.handleClick}>
         <span style={{ fontWeight: 'bold', fontSize: '14px' }}>{headerTitle}</span>
-        <button style={buttonStyle} type="button">
-          {displayIcon}
-        </button>
+        <span style={{ display: 'flex', alignItems: 'center' }}>
+          {isMobile && onMaximize && (
+            <button
+              style={buttonStyle}
+              type="button"
+              onClick={this.handleMaximizeClick}
+              aria-label={isExpanded ? 'Restore pane' : 'Maximize pane'}
+              title={isExpanded ? 'Restore' : 'Maximize'}
+            >
+              {isExpanded ? '⤺' : '⤢'}
+            </button>
+          )}
+          <button style={buttonStyle} type="button">
+            {displayIcon}
+          </button>
+        </span>
       </div>
     );
   }
