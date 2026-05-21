@@ -1,7 +1,30 @@
+const path = require('path');
+
 const successRedirect = '/';
 const failureRedirect = '/signin';
 const linkSuccessRedirect = '/settings';
 const linkFailureRedirect = '/settings';
+
+// passport-apple is vendored under ./vendor/passport-apple/node_modules so it
+// stays isolated from the project's main dependency tree (its transitive deps
+// like jsonwebtoken / jwks-rsa are nested inside that vendor folder).
+//
+// Two things to be careful about when wiring it up:
+//   1. The package's main entry is `src/strategy.js` (per its package.json
+//      `"main"` field). Earlier we required ".../passport-apple/src" as a
+//      directory, but that folder has no index.js, so Node throws
+//      `Cannot find module .../src`. Drop the `/src` suffix and let Node
+//      resolve via package.json/main.
+//   2. loopback-component-passport reads the `module:` field below and does
+//      `require(options.module)` from inside its OWN file
+//      (node_modules/loopback-component-passport/lib/passport-configurator.js).
+//      A path relative to this file would resolve from the wrong place there,
+//      so we must hand it an ABSOLUTE path.
+const APPLE_MODULE_PATH = path.resolve(
+  __dirname,
+  '../vendor/passport-apple/node_modules/passport-apple'
+);
+const AppleStrategy = require(APPLE_MODULE_PATH).Strategy;
 
 export default {
   local: {
@@ -13,6 +36,24 @@ export default {
     successRedirect: successRedirect,
     failureRedirect: '/email-signin',
     session: true,
+    failureFlash: true
+  },
+  'apple-login': {
+    provider: 'apple',
+    authScheme: 'oauth2',
+    // Absolute path so loopback-component-passport's `require(options.module)`
+    // (which executes from inside its own lib/ folder) resolves correctly.
+    module: APPLE_MODULE_PATH,
+    clientID: process.env.APPLE_CLIENT_ID,
+    teamID: process.env.APPLE_TEAM_ID,
+    keyID: process.env.APPLE_KEY_ID,
+    privateKeyLocation: process.env.APPLE_PRIVATE_KEY_PATH,
+    authPath: '/auth/apple',
+    callbackURL: process.env.APPLE_CALLBACK_URL,
+    callbackPath: '/auth/apple/callback',
+    successRedirect: successRedirect,
+    failureRedirect: failureRedirect,
+    scope: ['email', 'name'],
     failureFlash: true
   },
   'facebook-login': {

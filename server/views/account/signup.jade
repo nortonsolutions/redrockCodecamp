@@ -1,5 +1,48 @@
 extends ../layout
 block content
+	style.
+		.social-first-panel {
+			margin: 18px auto 12px;
+			max-width: 520px;
+			background: #f8fafc;
+			border: 1px solid #dbeafe;
+			border-radius: 12px;
+			padding: 16px;
+			text-align: center;
+		}
+		.social-first-title {
+			margin: 0 0 8px;
+			font-size: 18px;
+		}
+		.social-first-copy {
+			margin: 0 0 12px;
+			font-size: 14px;
+			color: #334155;
+		}
+		.social-google-btn {
+			display: inline-block;
+			min-width: 240px;
+			padding: 10px 16px;
+			border-radius: 999px;
+			border: 1px solid #cbd5e1;
+			background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+			font-weight: 600;
+			text-decoration: none;
+			color: #0f172a;
+		}
+		.social-google-btn:hover {
+			text-decoration: none;
+			color: #0f172a;
+		}
+	.container
+		.row
+			.col-sm-8.col-sm-offset-2
+				.social-first-panel
+					h3.social-first-title Faster option available
+					p.social-first-copy One click with Google is recommended. Use the form below only if you prefer email/password.
+					a.social-google-btn(href='/auth/google') Continue with Google
+					p.small(style='margin-top:8px;color:#64748b;') Apple sign-in can be added next once provider keys are configured.
+
 	.container
 		if flashMessage
 			.row
