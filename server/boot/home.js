@@ -1,6 +1,7 @@
 import { defaultProfileImage } from '../../common/utils/constantStrings.json';
 import supportedLanguages from '../../common/utils/supported-languages';
 import dedent from 'dedent';
+import { DEFAULT_ANONYMOUS_LANDING } from '../middlewares/anonymous-referrer';
 
 const message =
   'Learn to Code and Help Nonprofits';
@@ -38,7 +39,21 @@ module.exports = function(app) {
       return next();
     }
 
-    if (!isTrialMode && !req.user) {
+    if (req.user) {
+      return res.redirect('/challenges/current-challenge');
+    }
+
+    // Anonymous visitors arriving from an approved referrer
+    // (see middlewares/anonymous-referrer.js) get to keep browsing without
+    // being forced to /signin. Resume their last lesson if we have one,
+    // otherwise drop them on the configured default landing lesson.
+    if (req.session && req.session.allowAnonymous) {
+      const target = req.session.lastVisitedChallenge ||
+        DEFAULT_ANONYMOUS_LANDING;
+      return res.redirect(target);
+    }
+
+    if (!isTrialMode) {
       return res.redirect('/signin');
     }
 

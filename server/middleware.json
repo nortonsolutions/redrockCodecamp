@@ -31,6 +31,7 @@
     "./middlewares/sessions.js": {}
   },
   "auth:before": {
+    "./middlewares/anonymous-referrer": {},
     "./middlewares/add-return-to": {}
   },
   "parse": {
