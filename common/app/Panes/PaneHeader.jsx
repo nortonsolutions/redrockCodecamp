@@ -3,55 +3,33 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   children: PropTypes.node,
+  // Visual state of the pane this header belongs to.
+  // Mutually exclusive: at most one of isCollapsed / isExpanded is true.
+  // Both false = 'normal' (default sized) layout.
   isCollapsed: PropTypes.bool,
   isExpanded: PropTypes.bool,
   isMobile: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  onDoubleClick: PropTypes.func,
-  onMaximize: PropTypes.func,
-  onToggle: PropTypes.func.isRequired
+  // Single action invoked on header click. The Pane owner is responsible
+  // for cycling the state (normal -> expanded -> collapsed -> normal).
+  onCycle: PropTypes.func.isRequired
 };
 
 export class PaneHeader extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.lastClickTime = 0;
-  }
-
   handleClick = (e) => {
-    const now = Date.now();
-    const timeSinceLastClick = now - this.lastClickTime;
-    
-    if (timeSinceLastClick < 300) {
-      // Double click detected
-      if (this.props.onDoubleClick) {
-        this.props.onDoubleClick();
-      }
-    } else {
-      // Single click
-      this.props.onToggle();
-    }
-    
-    this.lastClickTime = now;
-  }
-
-  handleMaximizeClick = (e) => {
-    // Don't let the maximize click also trigger the row's collapse toggle.
     if (e && typeof e.stopPropagation === 'function') {
       e.stopPropagation();
     }
-    if (this.props.onMaximize) {
-      this.props.onMaximize();
-    }
+    this.props.onCycle();
   }
 
   render() {
-    const { name, isCollapsed, isExpanded, isMobile, onMaximize } = this.props;
+    const { name, isCollapsed, isExpanded } = this.props;
 
     // Display-name overrides: the internal pane name stays 'Step' (used as
     // a key throughout the redux pane state), but visually we show 'Lesson'.
     const displayName = name === 'Step' ? 'Lesson' : name;
-    
+
     const headerStyle = {
       backgroundColor: '#f5f5f5',
       borderBottom: '1px solid #ddd',
@@ -60,9 +38,11 @@ export class PaneHeader extends PureComponent {
       justifyContent: 'space-between',
       alignItems: 'center',
       cursor: 'pointer',
-      userSelect: 'none'
+      userSelect: 'none',
+      minHeight: '32px',
+      flex: '0 0 auto'
     };
-    
+
     const buttonStyle = {
       border: 'none',
       background: 'none',
@@ -72,34 +52,36 @@ export class PaneHeader extends PureComponent {
       padding: '0 8px',
       color: '#337ab7'
     };
-    
-    const displayIcon = isMobile 
-      ? (isCollapsed ? '+' : '−')
-      : (isExpanded ? '↓' : '↕');
-    
-    const headerTitle = isMobile
-      ? displayName
-      : (isExpanded ? `${displayName} (Click to restore)` : displayName);
+
+    // Single icon reflects current state and hints at next click action:
+    //   normal     -> click maximizes      ('⤢' maximize-arrow)
+    //   expanded   -> click minimizes       ('−' minus)
+    //   collapsed  -> click restores normal ('+')
+    const stateIcon = isCollapsed ? '+' : (isExpanded ? '−' : '⤢');
+    const ariaLabel = isCollapsed
+      ? 'Restore pane'
+      : (isExpanded ? 'Minimize pane' : 'Maximize pane');
 
     return (
-      <div style={headerStyle} onClick={this.handleClick}>
-        <span style={{ fontWeight: 'bold', fontSize: '14px' }}>{headerTitle}</span>
-        <span style={{ display: 'flex', alignItems: 'center' }}>
-          {isMobile && onMaximize && (
-            <button
-              style={buttonStyle}
-              type="button"
-              onClick={this.handleMaximizeClick}
-              aria-label={isExpanded ? 'Restore pane' : 'Maximize pane'}
-              title={isExpanded ? 'Restore' : 'Maximize'}
-            >
-              {isExpanded ? '⤺' : '⤢'}
-            </button>
-          )}
-          <button style={buttonStyle} type="button">
-            {displayIcon}
-          </button>
+      <div
+        style={headerStyle}
+        onClick={this.handleClick}
+        role='button'
+        tabIndex={0}
+        aria-label={ariaLabel}
+        title={ariaLabel}
+        >
+        <span style={{ fontWeight: 'bold', fontSize: '14px', paddingLeft: '8px' }}>
+          {displayName}
         </span>
+        <button
+          style={buttonStyle}
+          type='button'
+          tabIndex={-1}
+          aria-hidden='true'
+          >
+          {stateIcon}
+        </button>
       </div>
     );
   }

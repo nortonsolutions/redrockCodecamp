@@ -31,47 +31,23 @@ export class Pane extends PureComponent {
     this.checkScrollIndicators();
     if (this.contentRef) {
       this.contentRef.addEventListener('scroll', this.checkScrollIndicators);
-      if (this.props.name === 'Editor') {
-        this.contentRef.addEventListener('focusin', this.handleEditorFocus);
-      }
-    }
-    if (typeof window !== 'undefined') {
-      window.addEventListener('rrcc:editor-focused', this.handleEditorFocusBroadcast);
     }
   }
 
   componentWillUnmount() {
     if (this.contentRef) {
       this.contentRef.removeEventListener('scroll', this.checkScrollIndicators);
-      if (this.props.name === 'Editor') {
-        this.contentRef.removeEventListener('focusin', this.handleEditorFocus);
-      }
-    }
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('rrcc:editor-focused', this.handleEditorFocusBroadcast);
     }
   }
 
   // Editor fires this on every focus; non-editor panes listen below.
   // Re-firing lets the user re-open Lesson/Curriculum, then click back into
   // Editor to re-collapse them.
-  handleEditorFocus = () => {
-    try {
-      window.dispatchEvent(new CustomEvent('rrcc:editor-focused'));
-    } catch (e) {
-      // CustomEvent unsupported in very old IE; ignore.
-    }
-  }
-
-  // When editor is focused, collapse Curriculum and Lesson so Editor +
-  // Preview can share the viewport. The user can re-expand by tapping the
-  // header. We don't auto-restore on blur (would feel jumpy).
-  handleEditorFocusBroadcast = () => {
-    const { name } = this.props;
-    if ((name === 'Curriculum' || name === 'Lesson') && !this.state.isCollapsed) {
-      this.setState({ isCollapsed: true });
-    }
-  }
+  // NOTE: auto-collapse on editor focus was removed because it left other
+  // panes in a state the user couldn't easily restore (clicking their
+  // headers cycled the parent's expandedPane but didn't clear the local
+  // isCollapsed, so they appeared permanently blank). Maximize/restore is
+  // now fully driven by header clicks via handleCycle below.
 
   setContentRef = (element) => {
     this.contentRef = element;
@@ -99,6 +75,31 @@ export class Pane extends PureComponent {
     if (this.props.onExpandToggle) {
       this.props.onExpandToggle();
     }
+  }
+
+  // Single header click rotates the pane through three sizes:
+  //   normal -> expanded -> collapsed -> normal
+  // 'expanded' is owned by the parent Panes component (so siblings know to
+  // shrink); 'collapsed' is local to this pane (header strip only).
+  handleCycle = () => {
+    const { isCollapsed } = this.state;
+    const { isExpanded, onExpandToggle } = this.props;
+
+    if (isCollapsed) {
+      // collapsed -> normal
+      this.setState({ isCollapsed: false });
+      return;
+    }
+    if (isExpanded) {
+      // expanded -> collapsed: clear parent's expanded slot AND mark local
+      // collapsed. Order matters: set local state first so the re-render
+      // triggered by onExpandToggle already reflects the collapsed state.
+      this.setState({ isCollapsed: true });
+      if (onExpandToggle) onExpandToggle();
+      return;
+    }
+    // normal -> expanded
+    if (onExpandToggle) onExpandToggle();
   }
 
   handleDoubleClick = () => {
@@ -229,15 +230,20 @@ export class Pane extends PureComponent {
       overflow: 'hidden',
       boxSizing: 'border-box'
     } : {
-      bottom: 0,
+      // Desktop: panes are absolutely positioned side-by-side via left/right
+      // percentages. Three vertical states:
+      //   collapsed: only the header strip is visible at the top
+      //   expanded:  62vh tall (other panes keep their normal full height)
+      //   normal:    fills available vertical space (top:0, bottom:0)
+      bottom: isCollapsed ? 'auto' : 0,
       left: left + '%',
       overflowX: 'hidden',
       overflowY: 'hidden',
       position: 'absolute',
       right: right + '%',
-      top: isExpanded ? 0 : 0,
-      height: isExpanded ? '62vh' : 'auto',
-      maxHeight: isExpanded ? '62vh' : 'none',
+      top: 0,
+      height: isCollapsed ? '32px' : (isExpanded ? '62vh' : 'auto'),
+      maxHeight: isCollapsed ? '32px' : (isExpanded ? '62vh' : 'none'),
       paddingLeft: '4px',
       paddingRight: '4px',
       display: 'flex',
@@ -258,13 +264,11 @@ export class Pane extends PureComponent {
       <div style={ style }>
         {name && (
           <PaneHeader
-            isCollapsed={isMobile ? (isCollapsed || someoneElseExpanded) : false}
+            isCollapsed={isCollapsed || (isMobile && someoneElseExpanded)}
             isExpanded={isExpanded}
             isMobile={isMobile}
             name={name}
-            onToggle={isMobile ? this.handleToggle : this.handleExpandToggle}
-            onDoubleClick={isMobile ? this.handleDoubleClick : null}
-            onMaximize={isMobile ? this.handleExpandToggle : null}
+            onCycle={this.handleCycle}
           />
         )}
         <div style={contentStyle} ref={this.setContentRef}>
