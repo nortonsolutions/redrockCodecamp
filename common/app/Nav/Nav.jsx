@@ -138,7 +138,9 @@ const propTypes = {
 export class RRCCNav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { navExpanded: false };
     this.handleDocumentMouseDown = this.handleDocumentMouseDown.bind(this);
+    this.handleNavToggle = this.handleNavToggle.bind(this);
   }
 
   componentDidMount() {
@@ -155,14 +157,26 @@ export class RRCCNav extends React.Component {
     }
   }
 
+  handleNavToggle(expanded) {
+    this.setState({ navExpanded: expanded });
+  }
+
   handleDocumentMouseDown(e) {
-    const { isDropdownOpen, closeDropdown } = this.props;
-    // if (!isDropdownOpen) return;
-    // If the click landed inside any open dropdown or its trigger, ignore.
+    const { closeDropdown } = this.props;
     const target = e.target;
+
+    // If the click landed inside any open dropdown or its trigger, ignore.
     if (target && target.closest && target.closest('.dropdown.open')) {
       return;
     }
+
+    // Auto-collapse the mobile navbar when the click is outside the navbar.
+    if (this.state.navExpanded &&
+        target && target.closest &&
+        !target.closest('.nav-component-wrapper')) {
+      this.setState({ navExpanded: false });
+    }
+
     closeDropdown();
   }
 
@@ -261,6 +275,8 @@ export class RRCCNav extends React.Component {
         className='nav-height'
         id='navbar'
         staticTop={true}
+        expanded={this.state.navExpanded}
+        onToggle={this.handleNavToggle}
       >
         <div className='nav-component-wrapper'>
           <Navbar.Header>
