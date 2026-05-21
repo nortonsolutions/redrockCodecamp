@@ -26,6 +26,17 @@
 4. In the root directory run 'NODE_ENV=production gulp build -p'
 5. In the root directory run 'node pm2start'
 
+### Debugger
+
+If you want to start with the inspector running for debug, you can use './babel-start.sh' or YMMV with 'node babelStart'.  
+
+Or, spelled out without a special configuration (this works fine for me):
+
+```bash
+pm2 start --interpreter `pwd`/node_modules/.bin/babel-node server/server.js -f --node-args="--inspect=9229"
+```
+
+
 ## To Deploy MongoDB Database
 
 1. In the root directory run 'node seed' to delete and add the challenges to the database
