@@ -353,6 +353,26 @@ block content
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 13 minutes: What will I learn?
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_3.mp4' href='javascript:void(0)') How to upgrade my membership?
                 a.form-control.external-link(target='_blank' href='https://silvermedal.online') * Check out our game demo *
+
+    //- Google AdSense — load the library once for this page
+    script(async, src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8737017915813362', crossorigin='anonymous')
+
+    //- Bottom-of-page ad placement (Auto-sized responsive display unit).
+    //- Replace data-ad-slot with the slot ID from AdSense once you create the unit.
+    //- Until you create the slot, AdSense will show "ad unit not found" warnings
+    //- in the console but will not break the page.
+    .adsense-wrapper(style='width:100%; max-width:1240px; margin:24px auto; padding:0 12px; box-sizing:border-box; text-align:center;')
+        small(style='display:block; color:#888; margin-bottom:4px; font-size:11px; letter-spacing:1px;') ADVERTISEMENT
+        ins.adsbygoogle(
+            style='display:block;'
+            data-ad-client='ca-pub-8737017915813362'
+            data-ad-slot='REPLACE_WITH_SLOT_ID'
+            data-ad-format='auto'
+            data-full-width-responsive='true'
+        )
+        script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
+
     script.
         const player = document.getElementById('redrockMainVideo');
         const container = document.querySelector('.video-container');
