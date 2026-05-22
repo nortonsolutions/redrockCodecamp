@@ -244,6 +244,10 @@ export default {
     failureRedirect: failureRedirect,
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    // Request the user's email so we can silently link/create accounts in
+    // common/models/User-Identity.js without bouncing through /signup.
+    // Without 'user:email', passport-github returns profile.emails === [].
+    scope: ['user:email'],
     failureFlash: true
   },
   'github-link': {
@@ -257,6 +261,7 @@ export default {
     failureRedirect: linkFailureRedirect,
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    scope: ['user:email'],
     link: true,
     failureFlash: true,
     successFlash: [ 'We\'ve updated your profile based ',

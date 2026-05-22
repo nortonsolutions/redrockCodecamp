@@ -23,14 +23,36 @@ import { wrapHandledError } from '../../server/utils/create-handled-error.js';
 function extractProfileEmail(profile) {
   if (!profile) return null;
   if (Array.isArray(profile.emails) && profile.emails.length) {
+    // Prefer a verified email when the provider supplies that flag
+    // (Google/GitHub do). Otherwise take the first usable value.
+    const verified = profile.emails.find(e => e && e.value && e.verified);
+    if (verified) return String(verified.value).toLowerCase();
     const first = profile.emails.find(e => e && e.value) || profile.emails[0];
     if (first && first.value) return String(first.value).toLowerCase();
   }
   if (profile.email) return String(profile.email).toLowerCase();
   if (profile._json) {
-    if (profile._json.email) return String(profile._json.email).toLowerCase();
+    if (profile._json.email) {
+      return String(profile._json.email).toLowerCase();
+    }
   }
   return null;
+}
+
+// Synthesize a stable placeholder email for SSO accounts whose provider
+// either didn't return one or whose user marked it private. This keeps the
+// auto-link / auto-create flow working in 100% of cases, so users never see
+// the /signup detour after an SSO callback. The synthetic address is unique
+// per (provider, externalId), uses a non-routable subdomain, and can be
+// changed by the user later from /settings.
+//
+// Format: <provider>-<externalId>@no-reply.redrockcode.local
+function synthesizeProfileEmail(provider, profile) {
+  const id = profile && (profile.id || profile.openid);
+  if (!id) return null;
+  const safeProvider = String(provider).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const safeId = String(id).toLowerCase().replace(/[^a-z0-9]/g, '');
+  return `${safeProvider}-${safeId}@no-reply.redrockcode.local`;
 }
 
 export default function(UserIdent) {
@@ -156,18 +178,22 @@ export default function(UserIdent) {
         if (!identity) {
           // No identity row for this (provider, externalId). Try to link
           // to an existing account by email; failing that, auto-create.
-          const email = extractProfileEmail(profile);
+          // If the provider gave no email at all (github private-email
+          // users, apple hide-my-email on second login, etc.) we fall
+          // back to a synthetic per-identity placeholder so the user
+          // still completes login in a single round-trip — no /signup,
+          // no prompts.
+          const email = extractProfileEmail(profile)
+            || synthesizeProfileEmail(provider, profile);
           if (!email) {
-            // No email from the provider (rare — Apple users who hide
-            // email won't supply one on subsequent logins, and github
-            // users who marked their email private may not either).
-            // Fall back to the original signup-redirect behavior so the
-            // user can finish account creation manually.
+            // We couldn't even synthesize an email (no profile id) —
+            // genuinely unrecoverable. This should never happen with a
+            // well-formed OAuth response.
             throw wrapHandledError(
               new Error('user identity account not found'),
               {
                 message: dedent`
-                  We could not get an email address from ${provider}.
+                  We could not get a usable identifier from ${provider}.
                   Please create an account below to continue.
                 `,
                 type: 'info',
@@ -195,7 +221,8 @@ export default function(UserIdent) {
           // Identity row exists but its user was deleted. Re-create a
           // user from the (still valid) SSO profile and rebind this
           // identity row to it, then log in.
-          const email = extractProfileEmail(profile);
+          const email = extractProfileEmail(profile)
+            || synthesizeProfileEmail(provider, profile);
           if (!email) {
             // No email available to rebuild the account — fall back to
             // the legacy orphan-redirect behavior.
