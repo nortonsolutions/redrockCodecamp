@@ -7,7 +7,9 @@
 
 var expect = require('chai').expect;
 // var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+// bcryptjs is a pure-JS, API-compatible drop-in for the native `bcrypt`
+// addon (which requires node-gyp + a C++ toolchain to build).
+var bcrypt = require('bcryptjs');
 
 module.exports = function (app) {
 

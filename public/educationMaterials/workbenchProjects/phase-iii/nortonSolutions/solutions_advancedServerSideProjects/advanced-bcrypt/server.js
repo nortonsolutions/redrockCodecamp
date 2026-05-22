@@ -2,7 +2,8 @@
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
-const bcrypt = require('bcrypt');
+// bcryptjs: pure-JS, API-compatible drop-in for the native `bcrypt` addon.
+const bcrypt = require('bcryptjs');
 
 const app         = express();
 
