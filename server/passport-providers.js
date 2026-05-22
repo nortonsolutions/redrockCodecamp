@@ -101,8 +101,11 @@ export default {
     provider: 'google',
     authScheme: 'oauth2',
     module: 'passport-google-oauth2',
-    clientID: process.env.GOOGLE_ID,
-    clientSecret: process.env.GOOGLE_SECRET,
+    // Reuse the same Google OAuth client as google-login. Previously this
+    // read GOOGLE_ID/GOOGLE_SECRET (legacy names that no longer exist in
+    // .env), which left the link flow silently broken.
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     authPath: '/link/google',
     callbackURL: '/link/google/callback',
     callbackPath: '/link/google/callback',
