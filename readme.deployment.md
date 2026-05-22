@@ -64,4 +64,40 @@ rm stripe-8.222.0.tgz
 # Go back to project root
 cd ..
 
+(Another way to do it is to create a separate tree for the special node package, e.g. vendor/my-package, which has its own node_modules)
+
+### Ethical Ads basic steps, per Claude:
+
+#### 1. Apply for an EthicalAds publisher account
+
+Go to https://www.ethicalads.io/publishers/
+They prioritize developer / programming / open-source / education content — Redrock CodeCamp qualifies
+Application asks for: site URL, traffic estimates, content type. Approval is manual and usually a few days
+Once approved you get a publisher ID (e.g. redrockcodecamp)
+
+#### 2. Add the ad script + a placement to your challenge layout
+
+Their snippet is just two pieces of HTML. The natural place is the lesson view (right rail or below the instructions panel). For example, in the Jade-rendered base layout or directly in the React challenge pane:
+
+For a React-based placement, create a small component like <EthicalAd type="image" /> that renders the div and (on mount, once) calls ethicalads.load() if the global is present.
+
+#### 3. Decide placement
+
+EthicalAds asks you keep placements minimal (1–2 per page). Recommended spots for Redrock:
+
+Below the lesson instructions panel on the challenge page
+On the curriculum map (/en)
+On the marketing/landing page
+
+#### 4. Set referral policy and test anonymously
+
+Confirm a browser arriving with Referer: https://*redrockCodecamp. to your /en URL gets through to a lesson and is not redirected to /signin. You can test with:
+You should see a 302 to a /en/challenges/... URL, not /signin.
+
+#### 5. Optional polish (after ads are live)
+
+A small "Ad" label above the placement (EthicalAds requires this; their script auto-adds it for the default styling)
+Hide ad placements for signed-in paying members (if you add a paid tier later)
+A noscript fallback so the layout doesn't jump
+
 
