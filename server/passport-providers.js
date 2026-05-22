@@ -5,6 +5,62 @@ const failureRedirect = '/signin';
 const linkSuccessRedirect = '/settings';
 const linkFailureRedirect = '/settings';
 
+// ----------------------------------------------------------------------------
+// passport-google-oauth2 patch
+// ----------------------------------------------------------------------------
+// The npm package `passport-google-oauth2` (v0.x) hardcodes its userProfile
+// fetch against the long-deprecated Google+ People endpoint:
+//   https://www.googleapis.com/plus/v1/people/me
+// That route is now served by the "Legacy People API", which Google leaves
+// disabled-by-default for new projects and intends to retire entirely. The
+// symptom is a 403 PERMISSION_DENIED on the *callback* exchange (Google
+// authentication itself succeeds, but profile lookup fails), surfaced as:
+//   InternalOAuthError: failed to fetch user profile (status: 403 ...
+//   Legacy People API has not been used in project ... or it is disabled.
+//
+// The modern, supported endpoint is the OIDC userinfo endpoint, which works
+// against the standard `email profile openid` scopes without requiring ANY
+// API to be enabled in the GCP project:
+//   https://www.googleapis.com/oauth2/v3/userinfo
+//
+// Rather than swap to passport-google-oauth20 (an additional dependency that
+// would also work), we monkey-patch the existing strategy's userProfile
+// method to call the OIDC endpoint and map the OIDC claims onto the same
+// passport profile shape the rest of loopback-component-passport expects.
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+GoogleStrategy.prototype.userProfile = function userProfile(accessToken, done) {
+  this._oauth2.get(
+    'https://www.googleapis.com/oauth2/v3/userinfo',
+    accessToken,
+    function(err, body) {
+      if (err) {
+        return done(new Error('failed to fetch user profile: ' + err.statusCode));
+      }
+      try {
+        const json = JSON.parse(body);
+        const profile = {
+          provider: 'google',
+          id: json.sub,
+          displayName: json.name,
+          name: {
+            givenName: json.given_name,
+            familyName: json.family_name
+          },
+          emails: json.email
+            ? [{ value: json.email, verified: !!json.email_verified }]
+            : [],
+          photos: json.picture ? [{ value: json.picture }] : [],
+          _raw: body,
+          _json: json
+        };
+        return done(null, profile);
+      } catch (e) {
+        return done(e);
+      }
+    }
+  );
+};
+
 // passport-apple is vendored under ./vendor/passport-apple/node_modules so it
 // stays isolated from the project's main dependency tree (its transitive deps
 // like jsonwebtoken / jwks-rsa are nested inside that vendor folder).
