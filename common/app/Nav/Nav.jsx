@@ -92,11 +92,15 @@ function mapDispatchToProps(dispatch) {
     },
     {
       clickOnMap: e => {
-        e.preventDefault();
+        // Don't preventDefault: on pages that have no challenge loaded
+        // (e.g. /settings) the epic may not be able to compute a target
+        // challenge, so we let the underlying href fall through as a
+        // reliable navigation fallback. The action still dispatches for
+        // analytics + SPA routing when applicable.
         return clickOnMap();
       },
       clickOnLogo: e => {
-        e.preventDefault();
+        // See note above; allow native navigation as a fallback.
         return clickOnLogo();
       },
       closeDropdown: () => closeDropdown(),
@@ -321,6 +325,7 @@ export class RRCCNav extends React.Component {
                 <BinButton
                   content='Curriculum'
                   handleClick={clickOnMap}
+                  href='/challenges/current-challenge'
                   key='Map'
                 /> :
                 null

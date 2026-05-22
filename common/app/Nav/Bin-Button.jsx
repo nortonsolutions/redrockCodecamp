@@ -4,12 +4,14 @@ import { NavItem } from 'react-bootstrap';
 
 const propTypes = {
   content: PropTypes.string,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  href: PropTypes.string
 };
 
-export default function BinButton({ content, handleClick }) {
+export default function BinButton({ content, handleClick, href }) {
   return (
     <NavItem
+      href={ href }
       onClick={ handleClick }
       >
       { content }
