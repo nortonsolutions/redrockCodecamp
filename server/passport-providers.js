@@ -34,7 +34,21 @@ GoogleStrategy.prototype.userProfile = function userProfile(accessToken, done) {
     accessToken,
     function(err, body) {
       if (err) {
-        return done(new Error('failed to fetch user profile: ' + err.statusCode));
+        // Surface enough detail to actually diagnose callback failures
+        // instead of opaque `failed to fetch user profile: undefined`.
+        // err may be a string, an Error, or { statusCode, data } from
+        // the oauth lib — log all useful fields.
+        console.error('[google sso] userinfo fetch failed:', {
+          statusCode: err && err.statusCode,
+          data: err && err.data,
+          message: err && err.message,
+          err: err
+        });
+        return done(new Error(
+          'failed to fetch user profile (status: ' +
+          (err && err.statusCode) + '): ' +
+          (err && (err.data || err.message || err))
+        ));
       }
       try {
         const json = JSON.parse(body);
@@ -55,6 +69,7 @@ GoogleStrategy.prototype.userProfile = function userProfile(accessToken, done) {
         };
         return done(null, profile);
       } catch (e) {
+        console.error('[google sso] userinfo parse failed:', e, 'body:', body);
         return done(e);
       }
     }
@@ -107,6 +122,14 @@ export default {
     authPath: '/auth/apple',
     callbackURL: process.env.APPLE_CALLBACK_URL,
     callbackPath: '/auth/apple/callback',
+    // Apple uses response_mode=form_post and POSTs the authorization
+    // result (state + code + id_token + optional `user` JSON) to our
+    // callbackPath. loopback-component-passport defaults to GET; without
+    // this override the callback route is never registered for POST and
+    // Apple's redirect lands on Express's default "Cannot POST
+    // /auth/apple/callback" 404 handler. This is the same reason the
+    // CSRF middleware (./middlewares/csurf.js) exempts this path.
+    callbackHTTPMethod: 'post',
     successRedirect: successRedirect,
     failureRedirect: failureRedirect,
     scope: ['email', 'name'],
