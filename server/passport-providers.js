@@ -8,51 +8,20 @@ const linkFailureRedirect = '/settings';
 // ----------------------------------------------------------------------------
 // passport-google-oauth2 patch
 // ----------------------------------------------------------------------------
-// The npm package `passport-google-oauth2` (v0.x) hardcodes its userProfile
-// fetch against the long-deprecated Google+ People endpoint:
-//   https://www.googleapis.com/plus/v1/people/me
-// That route is now served by the "Legacy People API", which Google leaves
-// disabled-by-default for new projects and intends to retire entirely. The
-// symptom is a 403 PERMISSION_DENIED on the *callback* exchange (Google
-// authentication itself succeeds, but profile lookup fails), surfaced as:
-//   InternalOAuthError: failed to fetch user profile (status: 403 ...
-//   Legacy People API has not been used in project ... or it is disabled.
-//
-// The modern, supported endpoint is the OIDC userinfo endpoint, which works
-// against the standard `email profile openid` scopes without requiring ANY
-// API to be enabled in the GCP project:
-//   https://www.googleapis.com/oauth2/v3/userinfo
-//
-// Rather than swap to passport-google-oauth20 (an additional dependency that
-// would also work), we monkey-patch the existing strategy's userProfile
-// method to call the OIDC endpoint and map the OIDC claims onto the same
-// passport profile shape the rest of loopback-component-passport expects.
+// passport-google-oauth2 0.x hardcodes the dead Google+ People endpoint
+// (`/plus/v1/people/me`) and fails with 403 PERMISSION_DENIED. Point it at
+// the OIDC userinfo endpoint, which works against `email profile` scopes
+// without any GCP API needing to be enabled.
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 GoogleStrategy.prototype.userProfile = function userProfile(accessToken, done) {
   this._oauth2.get(
     'https://www.googleapis.com/oauth2/v3/userinfo',
     accessToken,
     function(err, body) {
-      if (err) {
-        // Surface enough detail to actually diagnose callback failures
-        // instead of opaque `failed to fetch user profile: undefined`.
-        // err may be a string, an Error, or { statusCode, data } from
-        // the oauth lib — log all useful fields.
-        console.error('[google sso] userinfo fetch failed:', {
-          statusCode: err && err.statusCode,
-          data: err && err.data,
-          message: err && err.message,
-          err: err
-        });
-        return done(new Error(
-          'failed to fetch user profile (status: ' +
-          (err && err.statusCode) + '): ' +
-          (err && (err.data || err.message || err))
-        ));
-      }
+      if (err) { return done(err); }
       try {
         const json = JSON.parse(body);
-        const profile = {
+        return done(null, {
           provider: 'google',
           id: json.sub,
           displayName: json.name,
@@ -64,95 +33,71 @@ GoogleStrategy.prototype.userProfile = function userProfile(accessToken, done) {
             ? [{ value: json.email, verified: !!json.email_verified }]
             : [],
           photos: json.picture ? [{ value: json.picture }] : [],
-          _raw: body,
           _json: json
-        };
-        return done(null, profile);
-      } catch (e) {
-        console.error('[google sso] userinfo parse failed:', e, 'body:', body);
-        return done(e);
-      }
+        });
+      } catch (e) { return done(e); }
     }
   );
 };
 
-// passport-apple is vendored under ./vendor/passport-apple/node_modules so it
-// stays isolated from the project's main dependency tree (its transitive deps
-// like jsonwebtoken / jwks-rsa are nested inside that vendor folder).
-//
-// Two things to be careful about when wiring it up:
-//   1. The package's main entry is `src/strategy.js` (per its package.json
-//      `"main"` field). Earlier we required ".../passport-apple/src" as a
-//      directory, but that folder has no index.js, so Node throws
-//      `Cannot find module .../src`. Drop the `/src` suffix and let Node
-//      resolve via package.json/main.
-//   2. loopback-component-passport reads the `module:` field below and does
-//      `require(options.module)` from inside its OWN file
-//      (node_modules/loopback-component-passport/lib/passport-configurator.js).
-//      A path relative to this file would resolve from the wrong place there,
-//      so we must hand it an ABSOLUTE path.
+// ----------------------------------------------------------------------------
+// passport-apple patch — decode the id_token JWT into a usable profile
+// ----------------------------------------------------------------------------
+// Apple returns the user identity in the OIDC id_token (a JWT), NOT via a
+// /userinfo endpoint, so passport-oauth2's default `userProfile` is a no-op
+// (`profile = {}`). With loopback-component-passport's arity-5 verify
+// signature, the id_token never reaches our UserIdentity.login at all,
+// leaving us with an empty profile -> no `id`, no email -> the auto-create
+// path bails with `redirectTo: '/signup'`. Decoding the id_token here
+// populates profile.id (= apple sub) and profile.emails so SSO completes
+// in a single hop straight to '/'.
 const APPLE_MODULE_PATH = path.resolve(
   __dirname,
   '../vendor/passport-apple/node_modules/passport-apple'
 );
 const AppleStrategy = require(APPLE_MODULE_PATH).Strategy;
+const jwt = require(path.resolve(
+  __dirname,
+  '../vendor/passport-apple/node_modules/jsonwebtoken'
+));
 
-// ----------------------------------------------------------------------------
-// passport-apple patch — coerce string rejections into Error instances
-// ----------------------------------------------------------------------------
-// vendor/passport-apple/src/token.js rejects its `generate()` promise with
-// PLAIN STRINGS, e.g.
-//   reject("AppleAuth Error - Couldn't read your Private Key file: " + err)
-//   reject("AppleAuth Error – Error occurred while signing: " + err)
-// Apple's strategy.js then forwards that string straight into passport-oauth2:
-//   callback(error)  // <-- error is a string
-// passport-oauth2 v2+ does `err instanceof InternalOAuthError` etc. inside
-// _createOAuthError, but a constructor reference in there is undefined on
-// some installed versions, producing the misleading
-//   TypeError: Right-hand side of 'instanceof' is not an object
-// (which is what we saw in prod: opbeat uuid 06c09c3c-...). That swallows
-// the actual cause — almost always "private key file missing/unreadable" or
-// "ES256 signing failed" — and surfaces as a 502 with zero useful detail.
-//
-// Wrap AppleStrategy's getOAuthAccessToken so that:
-//   1. Any error reaching its callback is converted to a real Error.
-//   2. The original message is preserved AND logged with full context so
-//      the next failure tells us exactly what's wrong (missing key file,
-//      bad team/key id, wrong client_id, etc.).
-const _appleGetTokenInit = function() {
-  const proto = AppleStrategy.prototype;
-  if (proto.__rrccApplePatched) { return; }
-  proto.__rrccApplePatched = true;
-  // The original getOAuthAccessToken is assigned per-instance inside the
-  // Strategy constructor (on this._oauth2), not on the prototype, so we
-  // can't patch it at require-time. Instead, wrap `authenticate` to
-  // install a per-instance wrapper the first time it runs.
-  const origAuthenticate = proto.authenticate;
-  proto.authenticate = function(req, options) {
-    if (this._oauth2 && !this._oauth2.__rrccApplePatched) {
-      this._oauth2.__rrccApplePatched = true;
-      const origGetToken = this._oauth2.getOAuthAccessToken.bind(this._oauth2);
-      this._oauth2.getOAuthAccessToken = function(code, params, cb) {
-        return origGetToken(code, params, function(err, accessToken, refreshToken, idToken) {
-          if (err && !(err instanceof Error)) {
-            console.error('[apple sso] token exchange failed:', err);
-            return cb(new Error(String(err)));
-          }
-          if (err) {
-            console.error('[apple sso] token exchange failed:', {
-              message: err.message,
-              statusCode: err.statusCode,
-              data: err.data
-            });
-          }
-          return cb(err, accessToken, refreshToken, idToken);
-        });
-      };
-    }
-    return origAuthenticate.call(this, req, options);
-  };
+// Stash the id_token off the per-instance _oauth2.getOAuthAccessToken
+// callback (which is where passport-apple delivers it) so userProfile can
+// read it. The wrapper is installed lazily on first authenticate() call
+// because _oauth2 is set up in the Strategy constructor, not the prototype.
+const origAppleAuthenticate = AppleStrategy.prototype.authenticate;
+AppleStrategy.prototype.authenticate = function(req, options) {
+  if (this._oauth2 && !this._oauth2.__rrccPatched) {
+    this._oauth2.__rrccPatched = true;
+    const origGetToken = this._oauth2.getOAuthAccessToken.bind(this._oauth2);
+    const oauth2 = this._oauth2;
+    this._oauth2.getOAuthAccessToken = function(code, params, cb) {
+      return origGetToken(code, params, function(err, at, rt, idToken) {
+        if (!err) { oauth2.__lastIdToken = idToken; }
+        cb(err, at, rt, idToken);
+      });
+    };
+  }
+  return origAppleAuthenticate.call(this, req, options);
 };
-_appleGetTokenInit();
+
+AppleStrategy.prototype.userProfile = function userProfile(_at, done) {
+  const idToken = this._oauth2 && this._oauth2.__lastIdToken;
+  if (!idToken) { return done(null, { provider: 'apple' }); }
+  const claims = jwt.decode(idToken) || {};
+  return done(null, {
+    provider: 'apple',
+    id: claims.sub,
+    emails: claims.email
+      ? [{
+          value: claims.email,
+          verified: claims.email_verified === true ||
+                    claims.email_verified === 'true'
+        }]
+      : [],
+    _json: claims
+  });
+};
 
 export default {
   local: {

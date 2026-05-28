@@ -20,12 +20,12 @@ export function createUserUpdatesFromProfile(provider, profile) {
   if (githubRegex.test(provider)) {
     return createProfileAttributesFromGithub(profile);
   }
-  return {
-    [getSocialProvider(provider)]: getUsernameFromProvider(
-      getSocialProvider(provider),
-      profile
-    )
-  };
+  // For non-github providers (google, apple, facebook, twitter, linkedin)
+  // the `user` model (common/models/user.json, strict:true) has no schema
+  // field to record the provider-specific id, so don't synthesize updates
+  // here. The provider link is already persisted in userIdentity rows
+  // (provider + externalId), which is sufficient for re-login.
+  return {};
 }
 // using es6 argument destructing
 // createProfileAttributes(profile) => profileUpdate
