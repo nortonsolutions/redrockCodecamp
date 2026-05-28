@@ -97,6 +97,63 @@ const APPLE_MODULE_PATH = path.resolve(
 );
 const AppleStrategy = require(APPLE_MODULE_PATH).Strategy;
 
+// ----------------------------------------------------------------------------
+// passport-apple patch — coerce string rejections into Error instances
+// ----------------------------------------------------------------------------
+// vendor/passport-apple/src/token.js rejects its `generate()` promise with
+// PLAIN STRINGS, e.g.
+//   reject("AppleAuth Error - Couldn't read your Private Key file: " + err)
+//   reject("AppleAuth Error – Error occurred while signing: " + err)
+// Apple's strategy.js then forwards that string straight into passport-oauth2:
+//   callback(error)  // <-- error is a string
+// passport-oauth2 v2+ does `err instanceof InternalOAuthError` etc. inside
+// _createOAuthError, but a constructor reference in there is undefined on
+// some installed versions, producing the misleading
+//   TypeError: Right-hand side of 'instanceof' is not an object
+// (which is what we saw in prod: opbeat uuid 06c09c3c-...). That swallows
+// the actual cause — almost always "private key file missing/unreadable" or
+// "ES256 signing failed" — and surfaces as a 502 with zero useful detail.
+//
+// Wrap AppleStrategy's getOAuthAccessToken so that:
+//   1. Any error reaching its callback is converted to a real Error.
+//   2. The original message is preserved AND logged with full context so
+//      the next failure tells us exactly what's wrong (missing key file,
+//      bad team/key id, wrong client_id, etc.).
+const _appleGetTokenInit = function() {
+  const proto = AppleStrategy.prototype;
+  if (proto.__rrccApplePatched) { return; }
+  proto.__rrccApplePatched = true;
+  // The original getOAuthAccessToken is assigned per-instance inside the
+  // Strategy constructor (on this._oauth2), not on the prototype, so we
+  // can't patch it at require-time. Instead, wrap `authenticate` to
+  // install a per-instance wrapper the first time it runs.
+  const origAuthenticate = proto.authenticate;
+  proto.authenticate = function(req, options) {
+    if (this._oauth2 && !this._oauth2.__rrccApplePatched) {
+      this._oauth2.__rrccApplePatched = true;
+      const origGetToken = this._oauth2.getOAuthAccessToken.bind(this._oauth2);
+      this._oauth2.getOAuthAccessToken = function(code, params, cb) {
+        return origGetToken(code, params, function(err, accessToken, refreshToken, idToken) {
+          if (err && !(err instanceof Error)) {
+            console.error('[apple sso] token exchange failed:', err);
+            return cb(new Error(String(err)));
+          }
+          if (err) {
+            console.error('[apple sso] token exchange failed:', {
+              message: err.message,
+              statusCode: err.statusCode,
+              data: err.data
+            });
+          }
+          return cb(err, accessToken, refreshToken, idToken);
+        });
+      };
+    }
+    return origAuthenticate.call(this, req, options);
+  };
+};
+_appleGetTokenInit();
+
 export default {
   local: {
     provider: 'local',
