@@ -20,6 +20,35 @@
       "homeUrl": "https://codebasecamp.org",
       "hostkey": "codebasecamp.org"
     },
+    "codebasecamp.net": {
+      "logoPath": "/images/logos/logo-landscape.png",
+      "businessName": "Code Base Camp",
+      "businessAppName": "CodeBaseCamp Academy",
+      "brandColor": "#e74c3c",
+      "brandFont": "'Bungee Spice', cursive",
+      "homeUrl": "https://codebasecamp.net",
+      "hostkey": "codebasecamp.net"
+    },
+    "silvermedal.net": {
+      "logoPath": "/images/silvermedal/silvermedal2.png",
+      "businessName": "Silver Medal",
+      "businessAppName": "Silver Medal Academy",
+      "brandColor": "#1488cc",
+      "brandFont": "'Bungee Spice', cursive",
+      "homeUrl": "https://silvermedal.net",
+      "hostkey": "silvermedal.net",
+      "isLandingPortal": true
+    },
+    "www.silvermedal.net": {
+      "logoPath": "/images/silvermedal/silvermedal2.png",
+      "businessName": "Silver Medal",
+      "businessAppName": "Silver Medal Academy",
+      "brandColor": "#1488cc",
+      "brandFont": "'Bungee Spice', cursive",
+      "homeUrl": "https://silvermedal.net",
+      "hostkey": "silvermedal.net",
+      "isLandingPortal": true
+    },
     "localhost": {
       "logoPath": "/images/logos/logo-landscape.png",
       "businessName": "RedRockCode (subsididary of Silver Medal NFPO)",

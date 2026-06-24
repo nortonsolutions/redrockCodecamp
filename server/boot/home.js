@@ -35,6 +35,19 @@ module.exports = function(app) {
   // }
 
   function index(req, res, next) {
+    // Landing-portal hosts (e.g. silvermedal.net) always see a branded
+    // entryway first — even when signed in — and click through to the
+    // academy. Branding is resolved by middlewares/domain-branding.js.
+    const branding = res.locals.branding || {};
+    if (branding.isLandingPortal) {
+      return res.render('silvermedal-landing', {
+        title: branding.businessAppName,
+        branding: branding,
+        user: req.user,
+        continueUrl: req.user ? '/challenges/current-challenge' : '/signin'
+      });
+    }
+
     if (!supportedLanguages[req._urlLang]) {
       return next();
     }

@@ -1,0 +1,225 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='Content-Security-Policy' content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://cdn.jsdelivr.net; media-src 'self' https:; connect-src 'self' https://graph.facebook.com;")
+
+    link(rel='icon' type='image/png' href=branding.logoPath)
+
+    meta(name='description' content='Silver Medal - Your gateway to innovative web solutions, coding education, interactive learning platforms, and community engagement.')
+    meta(name='keywords' content='web development, coding education, online learning, JavaScript, Red Rock Code Academy, workshops, writers guild, life science balance')
+    meta(name='author' content='Silver Medal')
+    meta(name='robots' content='index, follow')
+    link(rel='canonical' href=branding.homeUrl + '/')
+
+    meta(property='og:title' content='Silver Medal - Innovative Web Solutions & Coding Education')
+    meta(property='og:description' content='Your gateway to web development training, interactive platforms, and community engagement.')
+    meta(property='og:type' content='website')
+    meta(property='og:url' content=branding.homeUrl + '/')
+    meta(property='og:image' content=branding.homeUrl + branding.logoPath)
+
+    title #{branding.businessAppName} - Innovative Web Solutions & Coding Education | Home
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
+
+    style.
+        .custom-navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #1f2937, #111827) !important;
+        }
+        .hero-section {
+            background: linear-gradient(120deg, #0b1220 0%, #111827 100%);
+            color: #f8fafc;
+            border: 1px solid rgba(148,163,184,0.15);
+            box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+        }
+        .hover-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .custom-footer {
+            background: #111827 !important;
+            border-top: 4px solid #1488cc;
+        }
+        .btn-academy {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            border: 1px solid #22c55e;
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(34,197,94,.35);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+        .btn-academy:hover {
+            background: linear-gradient(135deg, #15803d, #166534);
+            box-shadow: 0 10px 26px rgba(34,197,94,.55);
+            transform: translateY(-1px);
+            color: #fff;
+        }
+        .workshop-card {
+            border: 1px solid rgba(0,0,0,0.06);
+            border-left-width: 5px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .workshop-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .workshop-card.cat-writing { border-left-color: #8b5cf6; }
+        .workshop-card.cat-health  { border-left-color: #10b981; }
+        .workshop-card.cat-coding  { border-left-color: #1488cc; }
+        .badge-writing { background-color: #8b5cf6; }
+        .badge-health  { background-color: #10b981; }
+        .badge-coding  { background-color: #1488cc; }
+        .workshop-filter .btn.active { color: #fff; background-color: #1488cc; border-color: #1488cc; }
+        .hover-white:hover { color: #fff !important; }
+        .transition { transition: color 0.2s ease; }
+
+  body
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.custom-navbar.py-3
+      .container
+        a.navbar-brand.fw-bold.fs-4(href='/')
+          img.d-inline-block.align-text-top.me-2.rounded-circle.bg-white.p-1(src=branding.logoPath alt='Logo' width='40' height='40')
+          | #{branding.businessName}
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto.align-items-lg-center
+            li.nav-item
+              a.nav-link.active(href='/') Home
+            li.nav-item
+              a.nav-link(href='/about.html') About
+            li.nav-item
+              a.nav-link(href='/donate.html') Donate
+            li.nav-item.ms-lg-3
+              a.btn.btn-academy.btn-sm.rounded-pill.px-3(href=continueUrl)
+                if user
+                  | Resume Academy
+                else
+                  | Enter Academy
+
+    // Promoted Lesson Banner
+    .alert.alert-info.alert-dismissible.fade.show.m-0(role='alert')
+      .container
+        .d-flex.align-items-center
+          span.me-3 🎮
+          div
+            strong New Lesson!
+            |  Platform Game Extensions - Learn game development techniques using Haverbeke methodology.
+            a.alert-link.fw-bold(href='/en/challenges/beginning-web-development-projects/platform-game-extensions')  Start Learning
+          button.btn-close.ms-auto(type='button' data-bs-dismiss='alert')
+
+    // Announcement Banner
+    .alert.alert-success.alert-dismissible.fade.show.m-0(role='alert')
+      .container
+        .d-flex.align-items-center
+          span.me-3 📢
+          div
+            | Support Silver Medal - Help us maintain and improve our digital platforms.
+            a.alert-link.fw-bold(href='/donate.html')  Assist
+          button.btn-close.ms-auto(type='button' data-bs-dismiss='alert')
+
+    .container.mt-5
+      // Hero Section / Continue gateway
+      .row.mb-5
+        .col-12
+          .jumbotron.p-5.rounded-4.hero-section.d-flex.flex-column.flex-md-row.align-items-center.gap-4
+            img.img-fluid.rounded-circle.shadow(src=branding.logoPath alt='Silver Medal Emblem' style='max-width: 150px;')
+            div
+              h1.display-4.fw-bold.mb-3 Welcome to #{branding.businessName}
+              p.lead.text-light Your gateway to innovative web solutions, training, and community engagement.
+              hr.my-4.border-light.opacity-25
+              p.text-light.opacity-75(style='line-height: 1.8;')
+                | Our communities are committed to the Arts and Technology, encompassing 3D modeling, animation, game development, and modern web design. We also explore modern arts and sciences related to holistic health and wellness.
+                |  Ready to learn to code?
+              .d-flex.flex-column.flex-sm-row.gap-3.mt-4
+                a.btn.btn-academy.btn-lg.rounded-pill.px-5.fw-bold(href=continueUrl)
+                  if user
+                    | Continue to the Academy →
+                  else
+                    | Enter the Academy →
+                a.btn.btn-outline-light.btn-lg.rounded-pill.px-4(href='#workshops') See Workshops
+              if user
+                p.small.text-light.opacity-50.mt-3 Signed in as #{user.name || user.username}. Pick up where you left off.
+
+      // Featured Destinations (Red Rock Code Academy + JSBin removed)
+      .row.mb-5.g-4
+        .col-12
+          h2.mb-4.text-center.fw-bold.text-dark Featured Destinations
+          .mx-auto.mb-4(style='height: 4px; width: 60px; border-radius: 2px; background-color: #1488cc;')
+        .col-md-6.col-lg-4
+          .card.h-100.hover-card
+            .card-body.d-flex.flex-column.p-4
+              h5.card-title.fw-bold BlueSky Demo
+              p.card-text.text-muted.mb-4 Interactive real-estate mockup (ES6 SPA) with property management features.
+              a.btn.btn-outline-primary.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='https://silvermedal.net/home.html' target='_blank' rel='noopener') View Sandbox
+        .col-md-6.col-lg-4
+          .card.h-100.hover-card
+            .card-body.d-flex.flex-column.p-4
+              h5.card-title.fw-bold Writers Guild
+              p.card-text.text-muted.mb-4 Specialized guild platform and publishing house; fostering creativity and collaboration among writers.
+              a.btn.btn-outline-primary.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='https://writersguild.online' target='_blank' rel='noopener') Visit Guild
+        .col-md-6.col-lg-4
+          .card.h-100.hover-card
+            .card-body.d-flex.flex-column.p-4
+              h5.card-title.fw-bold Life Science Balance
+              p.card-text.text-muted.mb-4 Achieve wellness through good information, combining science and holistic approaches.
+              .mt-auto.d-flex.flex-column.gap-2
+                a.btn.btn-outline-primary.fw-semibold.rounded-pill.px-4(href='https://lifesciencebalance.co' target='_blank' rel='noopener') Visit Site
+                a.btn.btn-sm.btn-light.text-primary.border-primary.rounded-pill.px-3(href='https://lifesciencebalance.store/course/life-science-balance' target='_blank' rel='noopener') Take the Quiz
+        .col-md-6.col-lg-4
+          .card.h-100.hover-card
+            .card-body.d-flex.flex-column.p-4
+              h5.card-title.fw-bold Silver Medal Online
+              p.card-text.text-muted.mb-4 3D Virtual Life Adventure Playable Demo by Dave and the Redrockers.
+              .mt-auto.d-flex.flex-column.gap-2
+                a.btn.btn-outline-primary.fw-semibold.rounded-pill.px-4(href='https://silvermedal.online' target='_blank' rel='noopener') Play Demo
+                a.btn.btn-sm.btn-light.text-secondary.border.rounded-pill.px-3(href='https://github.com/nortonsolutions/3dvirtuallife' target='_blank' rel='noopener') View Repository
+
+      // Workshops Calendar (writing / health / coding) — Meta/Facebook events groundwork
+      #workshops.row.mb-5.g-4
+        .col-12.text-center
+          h2.mb-2.fw-bold.text-dark Upcoming Workshops
+          p.text-muted.mb-3 Live sessions for writing, health &amp; wellness, and coding.
+          .workshop-filter.btn-group.flex-wrap.justify-content-center.mb-2(role='group' aria-label='Filter workshops')
+            button.btn.btn-outline-primary.rounded-pill.px-3.me-2.mb-2.active(type='button' data-category='all') All
+            button.btn.btn-outline-primary.rounded-pill.px-3.me-2.mb-2(type='button' data-category='writing') Writing
+            button.btn.btn-outline-primary.rounded-pill.px-3.me-2.mb-2(type='button' data-category='health') Health
+            button.btn.btn-outline-primary.rounded-pill.px-3.me-2.mb-2(type='button' data-category='coding') Coding
+        .col-12
+          #workshops-status.text-center.text-muted.py-4 Loading workshops…
+          #workshops-grid.row.g-4
+        .col-12.text-center
+          p.small.text-muted.mb-0
+            | Workshop events are managed centrally and will sync from our
+            |  Facebook / Meta page calendar.
+            a.text-decoration-none(href='mailto:dave@silvermedal.net')  Suggest a workshop
+
+    // Footer
+    footer.custom-footer.text-light.py-5.mt-5
+      .container
+        .row.align-items-center.mb-4
+          .col-md-5.mb-4.mb-md-0.text-center.text-md-start
+            .d-flex.align-items-center.justify-content-center.justify-content-md-start.mb-3
+              img.me-3.rounded-circle.bg-white.p-1(src=branding.logoPath alt='Logo' width='40' height='40')
+              h4.fw-bold.mb-0 #{branding.businessName}
+            p.text-white-50.mb-0 Your gateway to innovative web solutions, learning platforms, and thriving digital communities.
+          .col-md-3.text-center.text-md-start.mb-4.mb-md-0
+            h6.text-uppercase.fw-bold.text-white.mb-3 Quick Links
+            ul.list-unstyled.d-flex.flex-column.gap-2.mb-0
+              li
+                a.text-white-50.text-decoration-none.hover-white.transition(href='/') Home
+              li
+                a.text-white-50.text-decoration-none.hover-white.transition(href='/about.html') About Us
+              li
+                a.text-white-50.text-decoration-none.hover-white.transition(href='/donate.html') Support Us
+              li
+                a.text-white-50.text-decoration-none.hover-white.transition(href=continueUrl) Enter Academy
+          .col-md-4.text-center.text-md-end
+            a.btn.btn-outline-light.rounded-pill.px-4.py-2(href='mailto:dave@silvermedal.net') Contact Dave
+        .border-top.border-secondary.pt-4.text-center
+          p.text-white-50.small.mb-0 &copy; 2026 #{branding.businessName}. All rights reserved.
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
+    script(src='/js/silvermedal-workshops.js' defer)
