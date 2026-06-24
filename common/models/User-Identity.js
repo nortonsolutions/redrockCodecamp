@@ -1,17 +1,12 @@
-import { Observable } from 'rx';
-// import debug from 'debug';
 import dedent from 'dedent';
 import uuid from 'uuid';
 
 import {
   getSocialProvider,
-  getUsernameFromProvider,
   createUserUpdatesFromProfile
 } from '../../server/utils/auth';
-import { observeMethod, observeQuery } from '../../server/utils/rx';
+import { observeMethod } from '../../server/utils/rx';
 import { wrapHandledError } from '../../server/utils/create-handled-error.js';
-
-// const log = debug('rrcc:models:userIdent');
 
 // Pull a usable email out of whatever shape the passport profile arrived in.
 // Different strategies populate different fields:
@@ -59,18 +54,32 @@ export default function(UserIdent) {
   UserIdent.on('dataSourceAttached', () => {
     UserIdent.findOne$ = observeMethod(UserIdent, 'findOne');
   });
-  // original source
-  // github.com/strongloop/loopback-component-passport
-  // find identity if it exist
-  // if not, look up an existing user by the SSO-provided email and
-  //   silently link this provider to that user (no /signup detour). When no
-  //   matching user exists, auto-create one from the profile and link in the
-  //   same request so SSO completes in a single round-trip with no user
-  //   prompts. See the createIdentityAndLogin helper below.
-  // if yes and github
-  //   update profile
-  //   update username
-  //   update picture
+
+  // ------------------------------------------------------------------
+  // Universal SSO login resolver — "magic bullet" upsert.
+  // ------------------------------------------------------------------
+  // For every SSO callback we run two lookups in parallel and then
+  // collapse them into a single (user, identity) pair:
+  //
+  //   identityByExt = first userIdentity row for (provider, externalId)
+  //   userByEmail   = first user whose email matches the SSO-supplied
+  //                   email (or a stable synthetic fallback)
+  //
+  // Target user is chosen by priority:
+  //   1. userByEmail (latest SSO email is authoritative — naturally lets
+  //      multiple SSO providers / multiple emails resolve to one user)
+  //   2. identityByExt.user()  (returning user, no email change)
+  //   3. create a fresh user from the profile
+  //
+  // The identity row is then UPSERTED to point at the target user with
+  // refreshed credentials, so:
+  //   - repeat logins refresh credentials in place
+  //   - users who change their SSO email to one matching another local
+  //     account get re-bound to that account silently
+  //   - first-time logins create a row
+  //
+  // No prompts, no /signup detour, no warnings. The whole flow always
+  // completes in a single round-trip ending at successRedirect ('/').
   UserIdent.login = function(
     _provider,
     authScheme,
@@ -79,237 +88,142 @@ export default function(UserIdent) {
     options,
     cb
   ) {
-    const User = UserIdent.app.models.User;
-    const AccessToken = UserIdent.app.models.AccessToken;
-    const provider = getSocialProvider(_provider);
-    options = options || {};
     if (typeof options === 'function' && !cb) {
       cb = options;
       options = {};
     }
+    const User = UserIdent.app.models.User;
+    const AccessToken = UserIdent.app.models.AccessToken;
+    const provider = getSocialProvider(_provider);
+    profile = profile || {};
     profile.id = profile.id || profile.openid;
 
-    // Issues an AccessToken for a user and invokes the passport callback.
-    // Used by both the "identity already exists" path and the new
-    // "link or create on the fly" path below.
-    const finishLogin = (user, identity) =>
-      observeQuery(
-        AccessToken,
-        'create',
+    if (!profile.id) {
+      // No stable external id at all — genuinely unrecoverable; the
+      // SSO provider returned nothing we can key off of.
+      return cb(wrapHandledError(
+        new Error('SSO profile missing id'),
         {
-          userId: user.id,
-          created: new Date(),
-          ttl: user.constructor.settings.ttl
+          type: 'info',
+          redirectTo: '/signup',
+          message: dedent`
+            We could not get a usable identifier from ${provider}.
+            Please create an account below to continue.
+          `
         }
-      ).map(token => ({ user, identity, token }));
+      ));
+    }
 
-    // Create a userIdentity row tying this SSO provider/externalId to an
-    // existing user, then complete the login. This is what runs when the
-    // SSO flow finds either (a) a matching user-by-email or (b) a freshly
-    // created user.
-    const createIdentityAndLogin = user =>
-      observeQuery(
-        UserIdent,
-        'create',
-        {
-          provider: provider,
-          externalId: profile.id,
-          authScheme: authScheme,
-          profile: null,
-          credentials: credentials,
-          userId: user.id,
-          created: new Date(),
-          modified: new Date()
-        }
-      ).flatMap(identity => {
-        // Fold any profile-derived fields (avatar, github bio, etc.) into
-        // the user record so the freshly linked account looks complete on
-        // first login.
-        const userUpdates = createUserUpdatesFromProfile(provider, profile);
-        const updateUser = userUpdates && Object.keys(userUpdates).length
-          ? User.update$({ id: user.id }, userUpdates).map(() => user)
-          : Observable.of(user);
-        return updateUser.flatMap(u => finishLogin(u, identity));
-      });
+    const profileEmail = extractProfileEmail(profile);
+    const lookupEmail = profileEmail
+      || synthesizeProfileEmail(provider, profile);
 
-    // Auto-create a user from the SSO profile when no account exists for
-    // the provided email. We mark emailVerified=true because the SSO
-    // provider has already attested to the email; this lets the user skip
-    // the verification step on first login.
-    //
-    // Username generation mirrors what user.js's beforeRemote('create')
-    // does for password sign-ups: 'fcc' + uuid.v4(). For github we'd
-    // ideally prefer the github username, but uniqueness is enforced at
-    // the schema level — collision-safe random is the simplest path that
-    // never blocks the login. The user can change their username later in
-    // /settings.
-    const createUserAndLogin = (email, profileForUser) => {
+    const createFreshUser = () => {
       const userPayload = {
-        email: email,
-        username: 'fcc' + uuid.v4(),
+        email: lookupEmail,
         emailVerified: true,
-        // bcrypt-hashable random password; the user will never use it
-        // (they sign in via SSO) but loopback's User model requires a
-        // non-empty password field on create.
         password: uuid.v4() + uuid.v4(),
-        // Fold any provider-specific profile fields in up front so we
-        // don't need a second update round-trip.
-        ...createUserUpdatesFromProfile(provider, profileForUser)
+        ...createUserUpdatesFromProfile(provider, profile),
+        // Force a uuid username AFTER spread so github's handle (which
+        // can collide) doesn't block creation. User can rename in
+        // /settings.
+        username: 'fcc' + uuid.v4()
       };
-      // Re-set username AFTER spread — github's createUserUpdatesFromProfile
-      // sets `username` to the github handle, which can collide with an
-      // existing account. Force our uuid-based username to keep create
-      // atomic; the user can rename in /settings.
-      userPayload.username = 'fcc' + uuid.v4();
-
-      return observeQuery(User, 'create', userPayload)
-        .flatMap(newUser => createIdentityAndLogin(newUser));
+      return User.create(userPayload);
     };
 
-    const query = {
-      where: {
-        provider: provider,
-        externalId: profile.id
-      },
-      include: 'user'
-    };
-    return UserIdent.findOne$(query)
-      .flatMap(identity => {
-        if (!identity) {
-          // No identity row for this (provider, externalId). Try to link
-          // to an existing account by email; failing that, auto-create.
-          // If the provider gave no email at all (github private-email
-          // users, apple hide-my-email on second login, etc.) we fall
-          // back to a synthetic per-identity placeholder so the user
-          // still completes login in a single round-trip — no /signup,
-          // no prompts.
-          const email = extractProfileEmail(profile)
-            || synthesizeProfileEmail(provider, profile);
-          if (!email) {
-            // We couldn't even synthesize an email (no profile id) —
-            // genuinely unrecoverable. This should never happen with a
-            // well-formed OAuth response.
-            throw wrapHandledError(
-              new Error('user identity account not found'),
-              {
-                message: dedent`
-                  We could not get a usable identifier from ${provider}.
-                  Please create an account below to continue.
-                `,
-                type: 'info',
-                redirectTo: '/signup'
-              }
-            );
-          }
-          return Observable.fromPromise(
-            User.findOne({ where: { email: email } })
-          ).flatMap(existingUser => {
-            if (existingUser) {
-              // Existing email-based (or other-provider) account: silently
-              // bind this SSO provider to it and log in. The user goes
-              // straight to '/' with no prompts and no delay.
-              return createIdentityAndLogin(existingUser);
-            }
-            // Brand new user: create the account from the SSO profile,
-            // link the identity, and log in — all in this one request.
-            return createUserAndLogin(email, profile);
-          });
-        }
-        const modified = new Date();
-        const user = identity.user();
-        if (!user) {
-          // Identity row exists but its user was deleted. Re-create a
-          // user from the (still valid) SSO profile and rebind this
-          // identity row to it, then log in.
-          const email = extractProfileEmail(profile)
-            || synthesizeProfileEmail(provider, profile);
-          if (!email) {
-            // No email available to rebuild the account — fall back to
-            // the legacy orphan-redirect behavior.
-            const username = getUsernameFromProvider(provider, profile);
-            return observeQuery(
-              identity,
-              'updateAttributes',
-              { isOrphaned: username || true }
-            ).do(() => {
-              throw wrapHandledError(
-                new Error('user identity is not associated with a user'),
-                {
-                  type: 'info',
-                  redirectTo: '/signup',
-                  message: dedent`
-  The user account associated with the ${provider} user ${username || 'Anon'}
-  no longer exists.
-                  `
-                }
+    Promise.all([
+      UserIdent.findOne({
+        where: { provider, externalId: profile.id },
+        include: 'user'
+      }),
+      lookupEmail
+        ? User.findOne({ where: { email: lookupEmail } })
+        : Promise.resolve(null)
+    ])
+      .then(([identityByExt, userByEmail]) => {
+        const linkedUser = identityByExt
+          && typeof identityByExt.user === 'function'
+          ? identityByExt.user()
+          : null;
+
+        // Pick target user: email-matched > identity-linked > new.
+        const pickUser = userByEmail
+          ? Promise.resolve(userByEmail)
+          : linkedUser
+            ? Promise.resolve(linkedUser)
+            : createFreshUser();
+
+        return pickUser.then(user => {
+          const now = new Date();
+
+          // Upsert identity row → always point at the chosen user with
+          // refreshed credentials.
+          const upsertIdentity = identityByExt
+            ? identityByExt.updateAttributes({
+                userId: user.id,
+                authScheme,
+                credentials,
+                profile: null,
+                modified: now
+              })
+            : UserIdent.create({
+                provider,
+                externalId: profile.id,
+                authScheme,
+                profile: null,
+                credentials,
+                userId: user.id,
+                created: now,
+                modified: now
+              });
+
+          return upsertIdentity.then(identity => {
+            // Fold provider-derived fields (github bio/avatar, etc.)
+            // onto the user. Non-fatal if it fails.
+            const userUpdates = createUserUpdatesFromProfile(provider, profile);
+            const applyUpdates = userUpdates && Object.keys(userUpdates).length
+              ? user.updateAttributes(userUpdates).catch(() => user)
+              : Promise.resolve(user);
+
+            return applyUpdates.then(updatedUser => {
+              // Synthetic → real email upgrade. Only if (a) the current
+              // user email is one of our synthetic placeholders, (b) we
+              // now have a real email, and (c) no OTHER user already
+              // owns that email.
+              const needsRealEmail = profileEmail
+                && updatedUser.email
+                && updatedUser.email.endsWith(
+                  '@no-reply.redrockcode.local'
+                )
+                && profileEmail !== updatedUser.email;
+              const ownerOk = !userByEmail
+                || String(userByEmail.id) === String(updatedUser.id);
+              const adoptEmail = (needsRealEmail && ownerOk)
+                ? updatedUser
+                    .updateAttributes({
+                      email: profileEmail,
+                      emailVerified: true
+                    })
+                    .catch(() => updatedUser)
+                : Promise.resolve(updatedUser);
+
+              return adoptEmail.then(finalUser =>
+                AccessToken.create({
+                  userId: finalUser.id,
+                  created: new Date(),
+                  ttl: finalUser.constructor.settings.ttl
+                }).then(token => ({
+                  user: finalUser,
+                  identity,
+                  token
+                }))
               );
             });
-          }
-          // Try to find another user by email (e.g. the user re-signed up
-          // via a different provider after their original account was
-          // deleted), otherwise create one. Then re-point this identity
-          // row at the resurrected user.
-          return Observable.fromPromise(
-            User.findOne({ where: { email: email } })
-          ).flatMap(found => {
-            const ensureUser = found
-              ? Observable.of(found)
-              : observeQuery(User, 'create', {
-                  email: email,
-                  username: 'fcc' + uuid.v4(),
-                  emailVerified: true,
-                  password: uuid.v4() + uuid.v4()
-                });
-            return ensureUser.flatMap(resurrectedUser =>
-              observeQuery(identity, 'updateAttributes', {
-                userId: resurrectedUser.id,
-                credentials: credentials,
-                profile: null,
-                modified
-              }).flatMap(updatedIdentity =>
-                finishLogin(resurrectedUser, updatedIdentity)
-              )
-            );
           });
-        }
-        const updateUser = User.update$(
-          { id: user.id },
-          createUserUpdatesFromProfile(provider, profile)
-        ).map(() => user);
-        // identity already exists
-        // find user and log them in
-        identity.credentials = credentials;
-        const attributes = {
-          // we no longer want to keep the profile
-          // this is information we do not need or use
-          profile: null,
-          credentials: credentials,
-          modified
-        };
-        const updateIdentity = observeQuery(
-          identity,
-          'updateAttributes',
-          attributes
-        );
-        const createToken = observeQuery(
-          AccessToken,
-          'create',
-          {
-            userId: user.id,
-            created: new Date(),
-            ttl: user.constructor.settings.ttl
-          }
-        );
-        return Observable.combineLatest(
-          updateUser,
-          updateIdentity,
-          createToken,
-          (user, identity, token) => ({ user, identity, token })
-        );
+        });
       })
-      .subscribe(
-        ({ user, identity, token }) => cb(null, user, identity, token),
-        cb
-      );
+      .then(({ user, identity, token }) => cb(null, user, identity, token))
+      .catch(cb);
   };
 }
