@@ -174,18 +174,19 @@ function normalizeGoogleEvent(raw) {
 }
 
 // Read upcoming events from every configured Google calendar.
-async function fetchGoogleEvents() {
+function fetchGoogleEvents() {
   const timeMin = new Date().toISOString();
-  const lists = await Promise.all(
+  return Promise.all(
     GOOGLE_CALENDAR_IDS.map(id =>
       googleCalendar.listEvents(id, { timeMin, maxResults: 50 })
         .catch(() => [])
     )
+  ).then(lists =>
+    lists
+      .reduce((all, items) => all.concat(items), [])
+      .map(normalizeGoogleEvent)
+      .filter(ev => ev.start)
   );
-  return lists
-    .reduce((all, items) => all.concat(items), [])
-    .map(normalizeGoogleEvent)
-    .filter(ev => ev.start);
 }
 
 // Fetch upcoming events from the Meta Graph API. Resolves to an array of
@@ -223,41 +224,34 @@ function fetchMetaEvents() {
   });
 }
 
-async function getEvents() {
+function getEvents() {
   const now = Date.now();
   if (cache.events && now - cache.at < CACHE_TTL_MS) {
-    return cache.events;
+    return Promise.resolve(cache.events);
   }
 
-  let events;
+  let source;
   if (googleCalendar.isConfigured()) {
-    try {
-      const live = await fetchGoogleEvents();
-      events = live.length ? live : seedEvents();
-    } catch (err) {
-      // Google sync failed — degrade gracefully to seed data.
-      events = seedEvents();
-    }
+    source = fetchGoogleEvents();
   } else if (FB_PAGE_ID && FB_PAGE_ACCESS_TOKEN) {
-    try {
-      const live = await fetchMetaEvents();
-      events = live.length ? live : seedEvents();
-    } catch (err) {
-      // Live sync failed — degrade gracefully to seed data.
-      events = seedEvents();
-    }
+    source = fetchMetaEvents();
   } else {
-    events = seedEvents();
+    source = Promise.resolve(null);
   }
 
-  // Only surface upcoming events, soonest first.
-  const nowIso = new Date().toISOString();
-  events = events
-    .filter(ev => ev.start && ev.start >= nowIso)
-    .sort((a, b) => new Date(a.start) - new Date(b.start));
-
-  cache = { at: now, events };
-  return events;
+  return source
+    // Degrade gracefully to seed data when a live source is empty or fails.
+    .then(live => (live && live.length) ? live : seedEvents())
+    .catch(() => seedEvents())
+    .then(events => {
+      // Only surface upcoming events, soonest first.
+      const nowIso = new Date().toISOString();
+      const upcoming = events
+        .filter(ev => ev.start && ev.start >= nowIso)
+        .sort((a, b) => new Date(a.start) - new Date(b.start));
+      cache = { at: now, events: upcoming };
+      return upcoming;
+    });
 }
 
 // Build a Google Calendar event resource from a validated request body.
@@ -284,23 +278,24 @@ function toGoogleEvent(input) {
 module.exports = function(app) {
   const router = app.loopback.Router();
 
-  router.get('/api/workshops', async (req, res) => {
-    try {
-      let events = await getEvents();
-      const category = (req.query.category || '').toLowerCase();
-      if (VALID_CATEGORIES.indexOf(category) > -1) {
-        events = events.filter(ev => ev.category === category);
-      }
-      res.set('Cache-Control', 'public, max-age=300');
-      return res.json({ events, count: events.length });
-    } catch (err) {
-      return res.status(500).json({ events: [], error: 'Unable to load workshops' });
-    }
+  router.get('/api/workshops', (req, res) => {
+    getEvents()
+      .then(events => {
+        const category = (req.query.category || '').toLowerCase();
+        if (VALID_CATEGORIES.indexOf(category) > -1) {
+          events = events.filter(ev => ev.category === category);
+        }
+        res.set('Cache-Control', 'public, max-age=300');
+        return res.json({ events, count: events.length });
+      })
+      .catch(() =>
+        res.status(500).json({ events: [], error: 'Unable to load workshops' })
+      );
   });
 
   // Two-way sync: create a workshop on the (first) configured Google calendar.
   // Admin-only — never expose calendar writes to anonymous visitors.
-  router.post('/api/workshops', ifNoAdminUser401, async (req, res) => {
+  router.post('/api/workshops', ifNoAdminUser401, (req, res) => {
     if (!googleCalendar.isConfigured()) {
       return res.status(503).json({ error: 'Google Calendar is not configured' });
     }
@@ -313,18 +308,23 @@ module.exports = function(app) {
         error: 'category must be one of: ' + VALID_CATEGORIES.join(', ')
       });
     }
+    let resource;
     try {
-      const created = await googleCalendar.insertEvent(
-        GOOGLE_CALENDAR_IDS[0],
-        toGoogleEvent(body)
-      );
-      cache = { at: 0, events: null }; // invalidate so the new event surfaces
-      return res.status(201).json({ event: normalizeGoogleEvent(created) });
+      resource = toGoogleEvent(body);
     } catch (err) {
-      const status = err && err.message && /Invalid (start|end) date/.test(err.message) ?
-        400 : 502;
-      return res.status(status).json({ error: err.message || 'Unable to create workshop' });
+      // Invalid start/end date — client error.
+      return res.status(400).json({ error: err.message });
     }
+    return googleCalendar.insertEvent(GOOGLE_CALENDAR_IDS[0], resource)
+      .then(created => {
+        cache = { at: 0, events: null }; // invalidate so the new event surfaces
+        return res.status(201).json({ event: normalizeGoogleEvent(created) });
+      })
+      .catch(err =>
+        res.status(502).json({
+          error: (err && err.message) || 'Unable to create workshop'
+        })
+      );
   });
 
   app.use(router);

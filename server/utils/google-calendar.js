@@ -83,35 +83,40 @@ function requestJson(options, body) {
 }
 
 // Mint (and cache) an access token via the service-account JWT bearer grant.
-async function getAccessToken() {
+function getAccessToken() {
   const now = Math.floor(Date.now() / 1000);
   if (tokenCache.token && now < tokenCache.exp - 60) {
-    return tokenCache.token;
+    return Promise.resolve(tokenCache.token);
   }
 
-  const key = loadServiceKey();
-  const header = { alg: 'RS256', typ: 'JWT' };
-  const claim = {
-    iss: key.client_email,
-    scope: SCOPE,
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600
-  };
+  let form;
+  try {
+    const key = loadServiceKey();
+    const header = { alg: 'RS256', typ: 'JWT' };
+    const claim = {
+      iss: key.client_email,
+      scope: SCOPE,
+      aud: 'https://oauth2.googleapis.com/token',
+      iat: now,
+      exp: now + 3600
+    };
 
-  const signingInput =
-    base64url(JSON.stringify(header)) + '.' + base64url(JSON.stringify(claim));
-  const signature = crypto
-    .createSign('RSA-SHA256')
-    .update(signingInput)
-    .sign(key.private_key);
-  const assertion = signingInput + '.' + base64url(signature);
+    const signingInput =
+      base64url(JSON.stringify(header)) + '.' + base64url(JSON.stringify(claim));
+    const signature = crypto
+      .createSign('RSA-SHA256')
+      .update(signingInput)
+      .sign(key.private_key);
+    const assertion = signingInput + '.' + base64url(signature);
 
-  const form =
-    'grant_type=' + encodeURIComponent('urn:ietf:params:oauth:grant-type:jwt-bearer') +
-    '&assertion=' + encodeURIComponent(assertion);
+    form =
+      'grant_type=' + encodeURIComponent('urn:ietf:params:oauth:grant-type:jwt-bearer') +
+      '&assertion=' + encodeURIComponent(assertion);
+  } catch (err) {
+    return Promise.reject(err);
+  }
 
-  const tokenRes = await requestJson({
+  return requestJson({
     hostname: TOKEN_HOST,
     path: TOKEN_PATH,
     method: 'POST',
@@ -119,18 +124,20 @@ async function getAccessToken() {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Content-Length': Buffer.byteLength(form)
     }
-  }, form);
-
-  tokenCache = {
-    token: tokenRes.access_token,
-    exp: now + (tokenRes.expires_in || 3600)
-  };
-  return tokenCache.token;
+  }, form).then(tokenRes => {
+    tokenCache = {
+      token: tokenRes.access_token,
+      exp: now + (tokenRes.expires_in || 3600)
+    };
+    return tokenCache.token;
+  });
 }
 
-async function authHeaders() {
-  const token = await getAccessToken();
-  return { Authorization: 'Bearer ' + token, Accept: 'application/json' };
+function authHeaders() {
+  return getAccessToken().then(token => ({
+    Authorization: 'Bearer ' + token,
+    Accept: 'application/json'
+  }));
 }
 
 /**
@@ -139,22 +146,22 @@ async function authHeaders() {
  * @param {object} [opts] { timeMin, maxResults }
  * @returns {Promise<Array>} raw Google event resources
  */
-export async function listEvents(calendarId, opts = {}) {
-  const headers = await authHeaders();
-  const params = [
-    'singleEvents=true',
-    'orderBy=startTime',
-    'timeMin=' + encodeURIComponent(opts.timeMin || new Date().toISOString()),
-    'maxResults=' + encodeURIComponent(opts.maxResults || 50)
-  ].join('&');
+export function listEvents(calendarId, opts = {}) {
+  return authHeaders().then(headers => {
+    const params = [
+      'singleEvents=true',
+      'orderBy=startTime',
+      'timeMin=' + encodeURIComponent(opts.timeMin || new Date().toISOString()),
+      'maxResults=' + encodeURIComponent(opts.maxResults || 50)
+    ].join('&');
 
-  const result = await requestJson({
-    hostname: API_HOST,
-    path: '/calendar/v3/calendars/' + encodeURIComponent(calendarId) + '/events?' + params,
-    method: 'GET',
-    headers
-  });
-  return (result && result.items) || [];
+    return requestJson({
+      hostname: API_HOST,
+      path: '/calendar/v3/calendars/' + encodeURIComponent(calendarId) + '/events?' + params,
+      method: 'GET',
+      headers
+    });
+  }).then(result => (result && result.items) || []);
 }
 
 /**
@@ -163,18 +170,19 @@ export async function listEvents(calendarId, opts = {}) {
  * @param {object} eventResource  Google Calendar event body
  * @returns {Promise<object>} created event resource
  */
-export async function insertEvent(calendarId, eventResource) {
-  const headers = await authHeaders();
+export function insertEvent(calendarId, eventResource) {
   const body = JSON.stringify(eventResource);
-  return requestJson({
-    hostname: API_HOST,
-    path: '/calendar/v3/calendars/' + encodeURIComponent(calendarId) + '/events',
-    method: 'POST',
-    headers: Object.assign({}, headers, {
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(body)
-    })
-  }, body);
+  return authHeaders().then(headers =>
+    requestJson({
+      hostname: API_HOST,
+      path: '/calendar/v3/calendars/' + encodeURIComponent(calendarId) + '/events',
+      method: 'POST',
+      headers: Object.assign({}, headers, {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(body)
+      })
+    }, body)
+  );
 }
 
 export function isConfigured() {
