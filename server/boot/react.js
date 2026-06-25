@@ -53,6 +53,12 @@ export default function reactSubRouter(app) {
   function serveReactApp(req, res, next) {
     const { lang } = req;
     const serviceOptions = { req };
+    // Seed the SSR state with the host that resolved this request's branding
+    // (set by middlewares/domain-branding.js). The Nav reads it via
+    // hostnameSelector so the server renders the same brand the client will,
+    // preventing a flash of the default brand name before hydration.
+    const branding = res.locals.branding || {};
+    const hostname = branding.hostkey || req.hostname;
     createApp({
       serviceOptions,
       middlewares,
@@ -60,7 +66,7 @@ export default function reactSubRouter(app) {
         // devtoolsEnhancer({ suppressConnectErrors: true })
       ],
       history: createMemoryHistory({ initialEntries: [ req.originalUrl ] }),
-      defaultState: { app: { lang, adminRoot } }
+      defaultState: { app: { lang, adminRoot, hostname } }
     })
       .filter(({
         location: {

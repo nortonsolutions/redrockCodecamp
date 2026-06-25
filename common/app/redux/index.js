@@ -162,13 +162,18 @@ const defaultState = {
   // eventually this should be only in the user object
   currentChallenge: '',
   superBlocks: [],
-  adminRoot: 'rrcca2019'
+  adminRoot: 'rrcca2019',
+  hostname: ''
 };
 
 export const getNS = state => state[ns];
 export const csrfSelector = state => getNS(state).csrfToken;
 export const titleSelector = state => getNS(state).title;
 export const adminRootSelector = state => getNS(state).adminRoot || 'rrcca2019';
+// Host that resolved the current branding (set by the server on SSR). Lets the
+// Nav render the same brand on the server as the client, avoiding a flash of
+// the wrong (default) brand name before hydration.
+export const hostnameSelector = state => getNS(state).hostname || '';
 
 export const currentChallengeSelector = state => getNS(state).currentChallenge;
 export const superBlocksSelector = state => getNS(state).superBlocks;
