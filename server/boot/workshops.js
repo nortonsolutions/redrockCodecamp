@@ -189,41 +189,6 @@ function fetchGoogleEvents() {
   );
 }
 
-// Fetch upcoming events from the Meta Graph API. Resolves to an array of
-// normalized events, or rejects on any transport/parse error so the caller
-// can fall back to seed data.
-function fetchMetaEvents() {
-  return new Promise((resolve, reject) => {
-    const fields = encodeURIComponent('name,description,start_time,end_time,place');
-    const path = `/${GRAPH_VERSION}/${encodeURIComponent(FB_PAGE_ID)}/events` +
-      `?fields=${fields}&time_filter=upcoming&access_token=${encodeURIComponent(FB_PAGE_ACCESS_TOKEN)}`;
-
-    const req = https.get(
-      { hostname: 'graph.facebook.com', path, headers: { Accept: 'application/json' } },
-      res => {
-        let body = '';
-        res.on('data', chunk => { body += chunk; });
-        res.on('end', () => {
-          try {
-            const parsed = JSON.parse(body);
-            if (parsed.error) {
-              return reject(new Error(parsed.error.message || 'Graph API error'));
-            }
-            const events = (parsed.data || [])
-              .map(normalizeMetaEvent)
-              .filter(ev => ev.start);
-            return resolve(events);
-          } catch (err) {
-            return reject(err);
-          }
-        });
-      }
-    );
-    req.on('error', reject);
-    req.setTimeout(5000, () => req.destroy(new Error('Graph API timeout')));
-  });
-}
-
 function getEvents() {
   const now = Date.now();
   if (cache.events && now - cache.at < CACHE_TTL_MS) {
@@ -233,8 +198,6 @@ function getEvents() {
   let source;
   if (googleCalendar.isConfigured()) {
     source = fetchGoogleEvents();
-  } else if (FB_PAGE_ID && FB_PAGE_ACCESS_TOKEN) {
-    source = fetchMetaEvents();
   } else {
     source = Promise.resolve(null);
   }
