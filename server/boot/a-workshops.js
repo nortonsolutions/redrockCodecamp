@@ -9,21 +9,22 @@
  * calendar. Source priority:
  *   1. Google Calendar (two-way) when GOOGLE_CALENDAR_SERVICE_KEY_PATH and
  *      GOOGLE_CALENDAR_IDS are set — read for display, write via POST.
- *   2. Facebook / Meta Graph API (read-only mirror) when FB_PAGE_ID and
- *      FB_PAGE_ACCESS_TOKEN are set. NOTE: Meta removed event *write* via the
- *      Graph API, so this source is display-only.
- *   3. A curated seed list, so the UI always has something to render.
+ *   2. A curated seed list, so the UI always has something to render.
  *
  * All credentials stay server-side; the browser only ever sees normalized
  * event JSON from /api/workshops.
+ *
+ * BOOT ORDER: this file is intentionally named `a-workshops.js` so it loads
+ * before `restApi.js`. LoopBack mounts its REST API at `/api`
+ * (app.use(restApiRoot, app.loopback.rest())) in restApi.js; because Express
+ * matches middleware in registration order, our `/api/workshops` route must
+ * be registered first or the REST handler swallows the request and throws
+ * "There is no method to handle GET /workshops". (Same trick `randomAPIs.js`
+ * uses for `/api/github`.)
  */
-import https from 'https';
 import * as googleCalendar from '../utils/google-calendar';
 import { ifNoAdminUser401 } from '../utils/middleware';
 
-const GRAPH_VERSION = process.env.FB_GRAPH_VERSION || 'v19.0';
-const FB_PAGE_ID = process.env.FB_PAGE_ID;
-const FB_PAGE_ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const DEFAULT_TIMEZONE = process.env.GOOGLE_CALENDAR_TIMEZONE || 'America/Denver';
 
@@ -35,7 +36,7 @@ const GOOGLE_CALENDAR_IDS = (process.env.GOOGLE_CALENDAR_IDS || '')
 
 const VALID_CATEGORIES = ['writing', 'health', 'coding'];
 
-// Keyword heuristics used to bucket free-form Meta events into our three
+// Keyword heuristics used to bucket free-form events into our three
 // workshop tracks. Extend these lists as the program grows.
 const CATEGORY_KEYWORDS = {
   writing: ['writ', 'author', 'poet', 'story', 'novel', 'editor', 'publish', 'guild'],
@@ -57,7 +58,7 @@ function plusHours(iso, hours) {
 }
 
 // Curated fallback / seed data. These mirror the normalized shape returned
-// for live Meta events so the front-end never needs to branch on source.
+// for live events so the front-end never needs to branch on source.
 function seedEvents() {
   const start1 = daysFromNow(5, 18, 0);
   const start2 = daysFromNow(9, 12, 0);
@@ -131,22 +132,6 @@ function inferCategory(text) {
     }
   }
   return 'coding';
-}
-
-// Normalize a raw Meta Graph API event into our shape.
-function normalizeMetaEvent(raw) {
-  const place = raw.place && raw.place.name ? raw.place.name : 'Online';
-  return {
-    id: 'meta-' + raw.id,
-    title: raw.name || 'Untitled workshop',
-    category: inferCategory(raw.name + ' ' + (raw.description || '')),
-    start: raw.start_time ? new Date(raw.start_time).toISOString() : null,
-    end: raw.end_time ? new Date(raw.end_time).toISOString() : null,
-    location: place,
-    description: raw.description || '',
-    url: 'https://www.facebook.com/events/' + raw.id,
-    source: 'meta'
-  };
 }
 
 // Normalize a raw Google Calendar v3 event into our shape. Category is taken
