@@ -35,25 +35,6 @@ module.exports = function(app) {
   // }
 
   function index(req, res, next) {
-    // Landing-portal hosts (e.g. silvermedal.net) always see a branded
-    // entryway first — even when signed in — and click through to the
-    // academy. Branding is resolved by middlewares/domain-branding.js.
-    const branding = res.locals.branding || {};
-    if (branding.isLandingPortal) {
-      // Resolve the active locale so the entryway links keep the language
-      // prefix the rest of the app expects (e.g. /en/signin, not /signin).
-      // req.lang is set by middlewares/add-lang.js from the URL, the signed-in
-      // user's languageTag, or a default of 'en'.
-      const lang = req.lang || res.locals.lang || 'en';
-      return res.render('silvermedal-landing', {
-        title: branding.businessAppName,
-        branding: branding,
-        user: req.user,
-        continueUrl: req.user ?
-          `/${lang}/challenges/current-challenge` : `/${lang}/signin`
-      });
-    }
-
     if (!supportedLanguages[req._urlLang]) {
       return next();
     }
