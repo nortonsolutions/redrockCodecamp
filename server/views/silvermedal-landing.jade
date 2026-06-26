@@ -34,8 +34,14 @@ html(lang='en')
 
         /* ---- Navbar ---- */
         .sm-navbar { background: linear-gradient(135deg, #0f1f33, #0b1626) !important; box-shadow: 0 2px 14px rgba(0,0,0,.18); }
-        .sm-navbar .nav-link { color: #cdd7e6 !important; font-weight: 500; }
-        .sm-navbar .nav-link:hover, .sm-navbar .nav-link.active { color: #fff !important; }
+        .sm-navbar .nav-link { color: #cdd7e6 !important; font-weight: 600; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; gap: .35rem; padding: .4rem .7rem; border-radius: 8px; transition: color .15s ease, background .15s ease; }
+        .sm-navbar .nav-link i { font-size: .95rem; opacity: .85; }
+        .sm-navbar .nav-link:hover, .sm-navbar .nav-link.active { color: #fff !important; background: rgba(255,255,255,.08); }
+        .sm-navbar .nav-link:hover i, .sm-navbar .nav-link.active i { opacity: 1; }
+        .sm-navbar .navbar-collapse.collapsing { transition: height .35s ease; }
+        .sm-navbar .navbar-toggler { border: none; transition: transform .3s ease; }
+        .sm-navbar .navbar-toggler:focus { box-shadow: none; }
+        .sm-navbar .navbar-toggler[aria-expanded="true"] { transform: rotate(90deg); }
         .sm-tagline { color: #8aa0bd; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
         .sm-brand-logo { border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; }
         .sm-btn-support { background: linear-gradient(135deg, var(--sm-blue), #1d4ed8); color: #fff; border: none; }
@@ -60,6 +66,7 @@ html(lang='en')
         /* ---- Hero CTA pills (two-line) ---- */
         .sm-pill {
           display: flex; flex-direction: column; justify-content: center;
+          align-items: center; text-align: center;
           text-decoration: none; color: #fff; border-radius: 14px;
           padding: .7rem 1rem; min-height: 64px; height: 100%;
           box-shadow: 0 8px 20px rgba(15,31,51,.16);
@@ -100,7 +107,16 @@ html(lang='en')
         .sm-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(15,31,51,.16); }
         .sm-card-media { height: 150px; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; }
         .sm-card-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,31,51,.05), rgba(15,31,51,.45)); }
+        .sm-media-clean::after { display: none; }
+        .sm-card-media video.sm-media-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
         .sm-media-icon { position: relative; z-index: 2; color: #fff; font-size: 2.6rem; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
+        /* Compact student-creation cards */
+        .sm-card-sm .sm-card-media { height: 118px; }
+        .sm-card-sm .card-body { padding: 1rem !important; }
+        .sm-card-sm h5 { font-size: 1.02rem; }
+        .sm-card-sm .sm-tag { font-size: .74rem; }
+        .sm-card-sm .btn { font-size: .8rem; }
+        .sm-card-sm .sm-media-icon { font-size: 2rem; }
         .sm-media-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
         .sm-media-red { background: linear-gradient(135deg, #f87171, #dc2626); }
         .sm-media-green { background: linear-gradient(135deg, #34d399, #16a34a); }
@@ -159,17 +175,29 @@ html(lang='en')
         #smNav.collapse.navbar-collapse
           ul.navbar-nav.mx-auto.align-items-lg-center
             li.nav-item
-              a.nav-link.active(href='/') Home
+              a.nav-link.active(href='/')
+                i.bi.bi-house-door-fill
+                span Home
             li.nav-item
-              a.nav-link(href='#destinations') Projects
+              a.nav-link(href='#destinations')
+                i.bi.bi-grid-1x2-fill
+                span Projects
             li.nav-item
-              a.nav-link(href='#creations') Creations
+              a.nav-link(href='#creations')
+                i.bi.bi-stars
+                span Creations
             li.nav-item
-              a.nav-link(href='#workshops') Classes &amp; Events
+              a.nav-link(href='#workshops')
+                i.bi.bi-calendar-event-fill
+                span Classes &amp; Events
             li.nav-item
-              a.nav-link(href='/about.html') About
+              a.nav-link(href='/about.html')
+                i.bi.bi-info-circle-fill
+                span About
             li.nav-item
-              a.nav-link(href='mailto:dave@silvermedal.net') Contact
+              a.nav-link(href='mailto:dave@silvermedal.net')
+                i.bi.bi-envelope-fill
+                span Contact
           .d-flex.gap-2.ms-lg-3.mt-3.mt-lg-0
             a.btn.btn-outline-light.btn-sm.rounded-pill.px-3(href=continueUrl)
               if user
@@ -254,17 +282,7 @@ html(lang='en')
                 a.btn.btn-outline-danger.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href=continueUrl) Start Learning →
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-blue(style="background-image:url('/assets/graphics/codebasecamp_1.png')")
-                i.bi.bi-code-slash.sm-media-icon
-              .card-body.d-flex.flex-column.p-4
-                h5.fw-bold.mb-1 Code Base Camp
-                p.sm-tag.sm-tag-blue.mb-2 Learn. Build. Create.
-                p.text-muted.small.mb-4 Hands-on coding education, tools, and resources for aspiring developers and creators of every level.
-                a.btn.btn-outline-primary.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='https://codebasecamp.org' target='_blank' rel='noopener') Explore Camp →
-          .col-md-6.col-lg-4
-            .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-green
-                i.bi.bi-heart-pulse-fill.sm-media-icon
+              .sm-card-media.sm-media-green.sm-media-clean(style="background-image:url('/assets/images/lsb/lsb_vibrant_balance_0.png'); background-position: top center;")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Life Science Balance
                 p.sm-tag.sm-tag-green.mb-2 Mind. Body. Energy.
@@ -274,8 +292,7 @@ html(lang='en')
                   a.btn.btn-sm.btn-light.text-success.border-success.rounded-pill.px-3(href='https://lifesciencebalance.store/course/life-science-balance' target='_blank' rel='noopener') Take the Quiz
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-purple
-                i.bi.bi-pencil-fill.sm-media-icon
+              .sm-card-media.sm-media-purple.sm-media-clean(style="background-image:url('/assets/images/writersGuild/writers_guild_firefly_set1.png'); background-position: top center;")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Writers Guild
                 p.sm-tag.sm-tag-purple.mb-2 Create. Share. Publish.
@@ -292,9 +309,9 @@ html(lang='en')
           p.text-muted.mb-2 Games, apps, and demos built by our students and community.
           .section-rule.mx-auto
         .row.g-4
-          .col-md-6.col-lg-4
-            .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-indigo
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-indigo(style="background-image:url('/assets/graphics/silvermedal_four_robes_0.png')")
                 i.bi.bi-controller.sm-media-icon
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Silver Medal Online
@@ -303,9 +320,9 @@ html(lang='en')
                 .mt-auto.d-flex.flex-column.gap-2.align-items-start
                   a.btn.btn-outline-primary.fw-semibold.rounded-pill.px-4(href='https://silvermedal.online' target='_blank' rel='noopener') Play Demo →
                   a.btn.btn-sm.btn-light.text-secondary.border.rounded-pill.px-3(href='https://github.com/nortonsolutions/3dvirtuallife' target='_blank' rel='noopener') View Repository
-          .col-md-6.col-lg-4
-            .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-teal
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-teal(style="background-image:url('/images/room_1.png')")
                 i.bi.bi-house-door-fill.sm-media-icon
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Redrock BlueSky
@@ -314,19 +331,21 @@ html(lang='en')
                 .mt-auto.d-flex.flex-column.gap-2.align-items-start
                   a.btn.btn-outline-primary.fw-semibold.rounded-pill.px-4(href='https://redrockbluesky.org' target='_blank' rel='noopener') Visit Site →
                   a.btn.btn-sm.btn-light.text-secondary.border.rounded-pill.px-3(href='https://silvermedal.net/home.html' target='_blank' rel='noopener') View Sandbox
-          .col-md-6.col-lg-4
-            .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-purple
-                i.bi.bi-grid-3x3-gap-fill.sm-media-icon
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-purple.sm-media-clean
+                video.sm-media-video(autoplay muted loop playsinline)
+                  source(src='/assets/graphics/tetris_java.mp4' type='video/mp4')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Tetris
                 p.sm-tag.sm-tag-purple.mb-2 Stack. Clear. Score.
                 p.text-muted.small.mb-4 A classic falling-blocks arcade game built in Java by our students.
                 a.btn.btn-outline-primary.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='/assets/graphics/tetris_java.mp4' target='_blank' rel='noopener') Watch Demo →
-          .col-md-6.col-lg-4
-            .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-red
-                i.bi.bi-bricks.sm-media-icon
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-red.sm-media-clean
+                video.sm-media-video(autoplay muted loop playsinline)
+                  source(src='/assets/graphics/breakout_java.mp4' type='video/mp4')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Breakout
                 p.sm-tag.sm-tag-red.mb-2 Aim. Bounce. Break.
@@ -437,4 +456,20 @@ html(lang='en')
         p.text-center.small.mb-0.sm-tagline &copy; 2013–2026 #{branding.businessName}. All rights reserved.
 
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
+    script.
+      (function () {
+        var nav = document.getElementById('smNav');
+        if (!nav) return;
+        function hide() {
+          bootstrap.Collapse.getOrCreateInstance(nav, { toggle: false }).hide();
+        }
+        document.addEventListener('click', function (e) {
+          if (!nav.classList.contains('show')) return;
+          if (e.target.closest('.sm-navbar')) return;
+          hide();
+        });
+        nav.addEventListener('click', function (e) {
+          if (e.target.closest('a.nav-link') && nav.classList.contains('show')) hide();
+        });
+      })();
     script(src='/js/silvermedal-workshops.js' defer)
