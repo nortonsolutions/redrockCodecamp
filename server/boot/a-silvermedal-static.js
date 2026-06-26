@@ -24,7 +24,13 @@ const STATIC_ROOT = path.resolve(__dirname, '../../silvermedal.net/server/public
 
 export default function silvermedalStatic(app) {
   const serve = app.loopback.static(STATIC_ROOT, { index: false });
-  app.use(function silvermedalStaticGuard(req, res, next) {
+  // Register in the 'routes:before' phase (NOT a bare app.use()): a boot-script
+  // app.use() lands in the 'routes' phase, where z-lang-redirect.js's
+  // `app.all('*')` catch-all also lives and can win the race, redirecting
+  // `/about.html` -> `/en/about.html` before this handler ever runs. The
+  // 'routes:before' phase is guaranteed to execute before the routes phase
+  // (and after parse:after's domain-branding, so res.locals.branding is set).
+  app.middleware('routes:before', function silvermedalStaticGuard(req, res, next) {
     const branding = res.locals.branding || {};
     if (!branding.isLandingPortal) {
       return next();
