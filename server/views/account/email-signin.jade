@@ -348,7 +348,7 @@ block content
                 .video-section
                     .video-container
                         // NOTE: no controls attribute; muted for autoplay
-                        video#redrockMainVideo(autoplay loop muted playsinline preload='auto' data-state='auto')
+                        video#redrockMainVideo(autoplay loop muted playsinline preload='auto' data-state='auto' style='background-blend-mode: multiply; mix-blend-mode: screen; filter: brightness(0.85) contrast(1.3);')
                             source(src='/assets/videos/redrockcode_intro_0_1080.mp4', type='video/mp4')
                             | Your browser does not support the video tag.
                 .auth-floating
@@ -389,7 +389,7 @@ block content
                                             a(href='/signup')   Create one
 
             .video-links
-                a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction to Redrock Code
+                a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_1.mp4' href='javascript:void(0)')  2 minutes: Introduction
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_2.mp4' href='javascript:void(0)') 13 minutes: What will I learn?
                 a.form-control.inline-link(data-video='/assets/videos/redrockcode_intro_3.mp4' href='javascript:void(0)') How to upgrade my membership?
                 a.form-control.external-link(target='_blank' href='https://silvermedal.online') * Check out our game demo *
