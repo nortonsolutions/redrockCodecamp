@@ -18,7 +18,7 @@ html(lang='en')
     meta(property='og:url' content=branding.homeUrl + '/')
     meta(property='og:image' content=branding.homeUrl + branding.logoPath)
 
-    title #{branding.businessAppName} - Community · Creativity · Calendar | Home
+    title #{branding.businessAppName} - Community of Creativity | Home
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
     link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css' rel='stylesheet')
 
@@ -31,6 +31,8 @@ html(lang='en')
           --sm-ink: #0f1f33;
         }
         body { background: #f5f7fb; color: #1f2937; }
+        html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+        section[id], header[id] { scroll-margin-top: 84px; }
 
         /* ---- Navbar ---- */
         .sm-navbar { background: linear-gradient(135deg, #0f1f33, #0b1626) !important; box-shadow: 0 2px 14px rgba(0,0,0,.18); }
@@ -42,6 +44,14 @@ html(lang='en')
         .sm-navbar .navbar-toggler { border: none; transition: transform .3s ease; }
         .sm-navbar .navbar-toggler:focus { box-shadow: none; }
         .sm-navbar .navbar-toggler[aria-expanded="true"] { transform: rotate(90deg); }
+        @media (max-width: 991.98px) {
+          .sm-navbar .navbar-collapse .navbar-nav,
+          .sm-navbar .navbar-collapse > .d-flex { transition: opacity .35s ease, transform .35s ease; }
+          .sm-navbar .navbar-collapse:not(.show) .navbar-nav,
+          .sm-navbar .navbar-collapse:not(.show) > .d-flex { opacity: 0; transform: translateY(-10px); }
+          .sm-navbar .navbar-collapse.show .navbar-nav,
+          .sm-navbar .navbar-collapse.show > .d-flex { opacity: 1; transform: translateY(0); }
+        }
         .sm-tagline { color: #8aa0bd; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
         .sm-brand-logo { border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; }
         .sm-btn-support { background: linear-gradient(135deg, var(--sm-blue), #1d4ed8); color: #fff; border: none; }
@@ -59,10 +69,14 @@ html(lang='en')
           background-position: center, bottom, center;
           background-repeat: no-repeat;
         }
-        .sm-hero-title { letter-spacing: -.5px; }
+        .sm-hero-title { letter-spacing: -.5px; text-wrap: balance; }
         .sm-text-community { color: var(--sm-blue); }
         .sm-text-creativity { color: var(--sm-purple); }
-
+        /* Spherical-logo rotator sits beside the heading via flex — no float, so no orphaned words */
+        .sm-hero-head { gap: 1.25rem; }
+        .sm-rotator.sm-hero-logo { position: relative; inset: auto; z-index: 1; flex: 0 0 auto; width: 248px; height: 248px; }
+        .sm-rotator.sm-hero-logo .sm-slide { background-size: contain; background-repeat: no-repeat; }
+        @media (max-width: 575.98px) { .sm-rotator.sm-hero-logo { width: 168px; height: 168px; } }
         /* ---- Hero CTA pills (two-line) ---- */
         .sm-pill {
           display: flex; flex-direction: column; justify-content: center;
@@ -110,6 +124,21 @@ html(lang='en')
         .sm-media-clean::after { display: none; }
         .sm-card-media video.sm-media-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
         .sm-media-icon { position: relative; z-index: 2; color: #fff; font-size: 2.6rem; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
+        /* Media rotator: cross-fades images and (optionally) plays a video as one slide */
+        .sm-rotator { position: absolute; inset: 0; z-index: 0; }
+        .sm-rotator .sm-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: cover; background-position: center; }
+        .sm-rotator .sm-slide.is-active { opacity: 1; }
+        .sm-rotator video.sm-slide { width: 100%; height: 100%; object-fit: cover; }
+        /* Taller, squarer destination cards */
+        #destinations .sm-card-media { height: 260px; }
+        /* Live iframe project previews (animated remote demos) */
+        .sm-card-media .sm-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 0; pointer-events: none; background: #fff; }
+        /* Large "Four Robes" showcase rotator */
+        .sm-robes-stage { position: relative; width: 100%; max-width: 860px; margin: 0 auto; height: clamp(360px, 52vw, 560px); border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #eef2fb, #e7ecfb); box-shadow: 0 14px 36px rgba(15,31,51,.16); }
+        .sm-robes-stage .sm-slide { background-size: contain; background-repeat: no-repeat; }
+        /* 3D model showcase (Blender GLBs via <model-viewer>) */
+        .sm-model-media { background: radial-gradient(circle at 50% 30%, #1c3b27, #0b1d13); }
+        .sm-model-media model-viewer { position: absolute; inset: 0; width: 100%; height: 100%; --poster-color: transparent; }
         /* Compact student-creation cards */
         .sm-card-sm .sm-card-media { height: 118px; }
         .sm-card-sm .card-body { padding: 1rem !important; }
@@ -219,16 +248,22 @@ html(lang='en')
       .container.py-5
         .row.align-items-center.g-5
           .col-lg-6
-            h1.display-4.fw-bold.sm-hero-title.mb-3
-              | A culture of
-              br
-              span.sm-text-community community
-              |  and 
-              span.sm-text-creativity creativity.
+            .d-flex.flex-column.flex-sm-row.align-items-center.text-center.text-sm-start.sm-hero-head.mb-3
+              .sm-rotator.sm-hero-logo(data-rotate-interval='4000' role='img' aria-label=branding.businessName)
+                .sm-slide.is-active(style="background-image:url('/images/silvermedal/silvermedal5.png')")
+                .sm-slide(style="background-image:url('/images/silvermedal/silvermedal6.png')")
+                .sm-slide(style="background-image:url('/images/silvermedal/silvermedal7.png')")
+                .sm-slide(style="background-image:url('/images/silvermedal/silvermedal8.png')")
+              h1.display-4.fw-bold.sm-hero-title.mb-0
+                | A culture of
+                br
+                span.sm-text-community community
+                |  and 
+                span.sm-text-creativity creativity.
             p.lead.text-secondary.mb-2
-              | #{branding.businessName} is an ecosystem of tools that helps people learn, build, and improve their lives.
+              | #{branding.businessName} is an ecosystem of tools that help people create, build, and improve their lives.
             p.fw-bold.fs-5.text-dark.mb-4 We help to build creators.
-            .row.g-3
+            .row.g-3.sm-hero-cta
               .col-sm-4
                 a.sm-pill.sm-pill-blue(href='#destinations')
                   span.sm-pill-title Explore Projects
@@ -273,8 +308,15 @@ html(lang='en')
         .row.g-4
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-red(style="background-image:url('/assets/graphics/rrcc_shots_0.png')")
-                i.bi.bi-easel2-fill.sm-media-icon
+              .sm-card-media.sm-media-red.sm-media-clean
+                //- Rotator: edit the image filenames/count to match what you place in /assets/images.
+                .sm-rotator(data-rotate-interval='4500')
+                  .sm-slide.is-active(style="background-image:url('/assets/images/redrockcode_1.png')")
+                  .sm-slide(style="background-image:url('/assets/images/redrockcode_2.png')")
+                  .sm-slide(style="background-image:url('/assets/images/redrockcode_3.png')")
+                  .sm-slide(style="background-image:url('/assets/images/redrockcode_4.png')")
+                  .sm-slide(style="background-image:url('/assets/images/redrockcode_5.png')")
+                  .sm-slide(style="background-image:url('/assets/images/redrockcode_6.png')")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Red Rock Code
                 p.sm-tag.sm-tag-red.mb-2 Build. Solve. Elevate.
@@ -282,7 +324,24 @@ html(lang='en')
                 a.btn.btn-outline-danger.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href=continueUrl) Start Learning →
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-green.sm-media-clean(style="background-image:url('/assets/images/lsb/lsb_vibrant_balance_0.png'); background-position: top center;")
+              .sm-card-media.sm-media-green.sm-media-clean
+                .sm-rotator(data-rotate-interval='3200')
+                  .sm-slide.is-active(style="background-image:url('/images/lsb/lsb_tight_0.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_1.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_2.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_3.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_4.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_5.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_6.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_7.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_8.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_9.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_10.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_11.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_12.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_13.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_14.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_15.gif')")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Life Science Balance
                 p.sm-tag.sm-tag-green.mb-2 Mind. Body. Energy.
@@ -292,7 +351,28 @@ html(lang='en')
                   a.btn.btn-sm.btn-light.text-success.border-success.rounded-pill.px-3(href='https://lifesciencebalance.store/course/life-science-balance' target='_blank' rel='noopener') Take the Quiz
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-purple.sm-media-clean(style="background-image:url('/assets/images/writersGuild/writers_guild_firefly_set1.png'); background-position: top center;")
+              .sm-card-media.sm-media-green.sm-media-clean
+                .sm-rotator(data-rotate-interval='3200')
+                  .sm-slide.is-active(style="background-image:url('/images/writersGuild/writersGuild_firefly_1.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_2.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_3.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_4.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_5.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_6.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_7.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_8.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_9.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_10.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_11.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_12.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_13.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_14.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_15.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_16.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_17.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_18.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_19.png')")
+                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_20.jpg')")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Writers Guild
                 p.sm-tag.sm-tag-purple.mb-2 Create. Share. Publish.
@@ -311,8 +391,15 @@ html(lang='en')
         .row.g-4
           .col-6.col-md-4.col-lg-3
             .sm-card.sm-card-sm.d-flex.flex-column
-              .sm-card-media.sm-media-indigo(style="background-image:url('/assets/graphics/silvermedal_four_robes_0.png')")
-                i.bi.bi-controller.sm-media-icon
+              .sm-card-media.sm-media-indigo.sm-media-clean
+                .sm-rotator(data-rotate-interval='3500')
+                  video.sm-slide.is-active(muted playsinline preload='metadata' style='background-blend-mode: multiply; mix-blend-mode: screen;filter: brightness(0.85) contrast(1.3);')
+                    source(src='/assets/videos/redrockcode_intro_0_1080.mp4' type='video/mp4')                  
+                  .sm-slide(style="background-image:url('/images/3dvirtuallife_1.png')")
+                  .sm-slide(style="background-image:url('/images/3dvirtuallife_2.png')")
+                  .sm-slide(style="background-image:url('/images/3dvirtuallife_3.png')")
+                  .sm-slide(style="background-image:url('/images/3dvirtuallife_4.png')")
+                  .sm-slide(style="background-image:url('/images/3dvirtuallife_5.png')")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Silver Medal Online
                 p.sm-tag.sm-tag-indigo.mb-2 Play. Explore. Adventure.
@@ -322,7 +409,7 @@ html(lang='en')
                   a.btn.btn-sm.btn-light.text-secondary.border.rounded-pill.px-3(href='https://github.com/nortonsolutions/3dvirtuallife' target='_blank' rel='noopener') View Repository
           .col-6.col-md-4.col-lg-3
             .sm-card.sm-card-sm.d-flex.flex-column
-              .sm-card-media.sm-media-teal(style="background-image:url('/images/room_1.png')")
+              .sm-card-media.sm-media-teal(style="background-image:url('/assets/images/redrockcode_bluesky_project_responsive_web_capstone.png'); background-size: cover;")
                 i.bi.bi-house-door-fill.sm-media-icon
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Redrock BlueSky
@@ -351,6 +438,48 @@ html(lang='en')
                 p.sm-tag.sm-tag-red.mb-2 Aim. Bounce. Break.
                 p.text-muted.small.mb-4 A brick-breaking arcade classic built in Java by our students.
                 a.btn.btn-outline-danger.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='/assets/graphics/breakout_java.mp4' target='_blank' rel='noopener') Watch Demo →
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-green.sm-media-clean
+                //- Live animated preview (remote). If redrockcode.com blocks framing, swap for a gif/screenshot background.
+                iframe.sm-frame(src='https://redrockcode.com/educationMaterials/workbenchProjects/review/platform-game-944f50007f39cd2cbb556666/platform-game.html' loading='lazy' title='Platform Game preview' tabindex='-1' scrolling='no')
+              .card-body.d-flex.flex-column.p-4
+                h5.fw-bold.mb-1 Platform Game
+                p.sm-tag.sm-tag-green.mb-2 Run. Jump. Survive.
+                p.text-muted.small.mb-4 Marijn Haverbeke's animated platformer, extended by our students.
+                a.btn.btn-outline-success.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/platform-game-944f50007f39cd2cbb556666/platform-game.html' target='_blank' rel='noopener') Play →
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-indigo.sm-media-clean
+                iframe.sm-frame(src='https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/index.html' loading='lazy' title='Virtual Life preview' tabindex='-1' scrolling='no')
+              .card-body.d-flex.flex-column.p-4
+                h5.fw-bold.mb-1 Virtual Life
+                p.sm-tag.sm-tag-indigo.mb-2 Simulate. Observe. Evolve.
+                p.text-muted.small.mb-4 Garvin Jones's animated life-statistics simulation, with alternate builds.
+                .mt-auto.d-flex.flex-column.gap-2.align-items-start
+                  a.btn.btn-outline-primary.fw-semibold.rounded-pill.px-4(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/index.html' target='_blank' rel='noopener') Main →
+                  .d-flex.gap-2
+                    a.btn.btn-sm.btn-light.text-secondary.border.rounded-pill.px-3(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/alternate/index.html' target='_blank' rel='noopener') Alt 1
+                    a.btn.btn-sm.btn-light.text-secondary.border.rounded-pill.px-3(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/alternate2/index.html' target='_blank' rel='noopener') Alt 2
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-media-blue.sm-media-clean
+                i.bi.bi-collection-fill.sm-media-icon
+              .card-body.d-flex.flex-column.p-4
+                h5.fw-bold.mb-1 Project Portfolio
+                p.sm-tag.sm-tag-blue.mb-2 Build. Test. Ship.
+                p.text-muted.small.mb-4 22 full-stack FreeCodeCamp builds — APIs, security, React, and more.
+                a.btn.btn-outline-primary.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='/portfolio') Explore Portfolio →
+          .col-6.col-md-4.col-lg-3
+            .sm-card.sm-card-sm.d-flex.flex-column
+              .sm-card-media.sm-model-media.sm-media-clean
+                //- 3D viewer auto-rotates through all models (no user interaction). Copy the .glb files into /assets/blender/.
+                model-viewer#smModel(src='/assets/blender/rodney_bending.glb' alt='Rodney’s swinging animation' data-rotate-interval='4500' auto-rotate autoplay rotation-per-second='28deg' camera-orbit='0deg 80deg auto' interaction-prompt='none' shadow-intensity='1' exposure='0.95' loading='lazy' reveal='auto')
+              .card-body.d-flex.flex-column.p-4
+                h5.fw-bold.mb-1 Built in Blender
+                p.sm-tag.sm-tag-green.mb-2 Model. Animate. Explore.
+                p#smModelCredit.text-muted.small.mb-4 Live 3D student assets from 3D Virtual Life.
+                a.btn.btn-outline-success.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='https://silvermedal.online' target='_blank' rel='noopener') See it in the game →
           //- Template for new creations (e.g. Game of Life) — copy and edit:
           //- .col-md-6.col-lg-4
           //-   .sm-card.d-flex.flex-column
@@ -361,6 +490,24 @@ html(lang='en')
           //-       p.sm-tag.sm-tag-green.mb-2 Seed. Evolve. Observe.
           //-       p.text-muted.small.mb-4 Conway's cellular-automaton simulation.
           //-       a.btn.btn-outline-success.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='#' target='_blank' rel='noopener') Play →
+
+    // ===== Four Robes showcase =====
+    section.py-5
+      .container
+        .text-center.mb-4
+          h2.fw-bold.text-dark.mb-2 The Four Robes
+          p.text-muted.mb-2 A meditation on community, creativity, and calling.
+          .section-rule.mx-auto
+        .sm-robes-stage
+          //- Rotator: adjust the filenames/count to match what you place in /images/silvermedal.
+          .sm-rotator(data-rotate-interval='4500')
+            .sm-slide.is-active(style="background-image:url('/images/silvermedal/silvermedal_four_robes_0.png')")
+            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_1.png')")
+            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_2.png')")
+            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_3.png')")
+            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_4.png')")
+            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_5.png')")
+            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_6.png')")
 
     // ===== Workshops / Classes & Events (retained calendar) =====
     section#workshops.py-5
@@ -391,23 +538,23 @@ html(lang='en')
                 .col-6.col-md-3
                   i.bi.bi-calendar3.sm-stat-icon
                   p.fw-bold.mb-0.mt-2 Since 2013
-                  p.small.text-muted.mb-0 Creating opportunities for growth.
+                  p.small.text-muted.mb-0 Creating opportunities for growth.  No advertising yet.
                 .col-6.col-md-3
                   i.bi.bi-people-fill.sm-stat-icon
-                  p.fw-bold.mb-0.mt-2 10+ Students
-                  p.small.text-muted.mb-0 Enrolled without advertising. Real people. Real impact.
+                  p.fw-bold.mb-0.mt-2 Students
+                  p.small.text-muted.mb-0 10+ completed more 200+ challenges.  Only the strong survive.
                 .col-6.col-md-3
                   i.bi.bi-heart-fill.sm-stat-icon
-                  p.fw-bold.mb-0.mt-2 Community
-                  p.small.text-muted.mb-0 A culture of support, respect, and collaboration.
+                  p.fw-bold.mb-0.mt-2 Creative Culture
+                  p.small.text-muted.mb-0 Goal-orientation, good habits, support, respect, and collaboration.
                 .col-6.col-md-3
                   i.bi.bi-rocket-takeoff-fill.sm-stat-icon
-                  p.fw-bold.mb-0.mt-2 Incorporated 2025
-                  p.small.text-muted.mb-0 Building the future with greater purpose.
+                  p.fw-bold.mb-0.mt-2 Formed in 2025
+                  p.small.text-muted.mb-0 Grassroots community of creators, strengthening those in need.
           .col-lg-6
             .sm-cta.h-100.p-4.p-md-5.d-flex.flex-column.justify-content-center.text-center
               h3.fw-bold.text-primary.mb-3 Together, We Build Creators.
-              p.text-secondary.mb-2 Whether you want to learn, build, teach, heal, or contribute, there's a place for you here.
+              p.text-secondary.mb-2 Learn, build, teach, heal, or contribute, there's a place for you here.
               p.text-secondary.mb-4 Join a culture that believes in people, potential, and progress.
               .d-flex.flex-column.flex-sm-row.gap-2.justify-content-center
                 a.btn.btn-primary.rounded-pill.px-4(href=continueUrl)
@@ -455,7 +602,46 @@ html(lang='en')
         hr.border-secondary.my-4
         p.text-center.small.mb-0.sm-tagline &copy; 2013–2026 #{branding.businessName}. All rights reserved.
 
+    script(type='module' src='https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
+    script.
+      (function () {
+        var mv = document.getElementById('smModel');
+        if (!mv) return;
+        var credit = document.getElementById('smModelCredit');
+        var models = [
+          { src: '/assets/blender/rodney_bending.glb', alt: 'Rodney swinging animation', name: 'Swinging animation', by: 'Rodney' },
+          { src: '/assets/blender/Crocodile.glb', alt: 'Crocodile', name: 'Crocodile', by: 'Lincoln' },
+          { src: '/assets/blender/catFish.glb', alt: 'Catfish', name: 'Catfish', by: 'Lincoln' },
+          { src: '/assets/blender/daveDragon.glb', alt: 'Dragon', name: 'Dragon', by: 'Chris' },
+          { src: '/assets/blender/whitehorse.glb', alt: 'White horse', name: 'White horse', by: 'Chris' },
+          { src: '/assets/blender/armor.glb', alt: 'Armor', name: 'Armor', by: 'Chris' },
+          { src: '/assets/blender/thunderBlade.glb', alt: 'Thunder blade', name: 'Thunder blade', by: 'Chris' },
+          { src: '/assets/blender/axe.glb', alt: 'Axe', name: 'Axe', by: 'Chris' },
+          { src: '/assets/blender/elfgirl.glb', alt: 'Elf girl', name: 'Elf girl', by: 'Rodney' },
+          { src: '/assets/blender/shopkeep.glb', alt: 'Shopkeeper', name: 'Shopkeeper', by: 'Rodney' },
+          { src: '/assets/blender/bridge.glb', alt: 'Bridge', name: 'Bridge', by: 'Steve' },
+          { src: '/assets/blender/torch.glb', alt: 'Torch', name: 'Torch', by: 'Mike' },
+          { src: '/assets/blender/valley.glb', alt: 'Valley level', name: 'Valley level', by: 'Mike' }
+        ];
+        function showCredit() {
+          if (!credit) return;
+          credit.textContent = models[i].name + ' — by ' + models[i].by;
+        }
+        var i = 0;
+        var interval = parseInt(mv.getAttribute('data-rotate-interval'), 10) || 4500;
+        var timer = null;
+        function schedule() { clearTimeout(timer); timer = setTimeout(next, interval); }
+        function next() {
+          i = (i + 1) % models.length;
+          mv.setAttribute('src', models[i].src);
+          mv.setAttribute('alt', models[i].alt);
+          showCredit();
+        }
+        mv.addEventListener('load', schedule);
+        showCredit();
+        schedule();
+      })();
     script.
       (function () {
         var nav = document.getElementById('smNav');
@@ -470,6 +656,41 @@ html(lang='en')
         });
         nav.addEventListener('click', function (e) {
           if (e.target.closest('a.nav-link') && nav.classList.contains('show')) hide();
+        });
+      })();
+    script.
+      (function () {
+        var rotators = document.querySelectorAll('.sm-rotator');
+        Array.prototype.forEach.call(rotators, function (rot) {
+          var slides = Array.prototype.slice.call(rot.querySelectorAll('.sm-slide'));
+          if (!slides.length) return;
+          var i = 0;
+          var timer = null;
+          var interval = parseInt(rot.getAttribute('data-rotate-interval'), 10) || 4000;
+          function clear() { if (timer) { clearTimeout(timer); timer = null; } }
+          function next() { activate((i + 1) % slides.length); }
+          function activate(n) {
+            var prev = slides[i];
+            if (prev.tagName === 'VIDEO') { try { prev.pause(); } catch (e) {} }
+            prev.classList.remove('is-active');
+            i = n;
+            var cur = slides[i];
+            cur.classList.add('is-active');
+            clear();
+            if (cur.tagName === 'VIDEO') {
+              try {
+                cur.currentTime = 0;
+                var p = cur.play();
+                if (p && p.catch) { p.catch(function () { timer = setTimeout(next, interval); }); }
+              } catch (e) { timer = setTimeout(next, interval); }
+            } else {
+              timer = setTimeout(next, interval);
+            }
+          }
+          slides.forEach(function (s) {
+            if (s.tagName === 'VIDEO') { s.addEventListener('ended', next); }
+          });
+          if (slides.length > 1 || slides[0].tagName === 'VIDEO') { activate(0); }
         });
       })();
     script(src='/js/silvermedal-workshops.js' defer)
