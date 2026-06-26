@@ -29,7 +29,7 @@
     "silvermedal.net": {
       "logoPath": "/images/silvermedal/silvermedal2.png",
       "businessName": "Silver Medal",
-      "businessAppName": "Silver Medal Academy",
+      "businessAppName": "Silver Medal",
       "brandColor": "#1488cc",
       "brandFont": "'Bungee Spice', cursive",
       "homeUrl": "https://silvermedal.net",
@@ -39,7 +39,7 @@
     "www.silvermedal.net": {
       "logoPath": "/images/silvermedal/silvermedal2.png",
       "businessName": "Silver Medal",
-      "businessAppName": "Silver Medal Academy",
+      "businessAppName": "Silver Medal",
       "brandColor": "#1488cc",
       "brandFont": "'Bungee Spice', cursive",
       "homeUrl": "https://silvermedal.net",
@@ -48,7 +48,7 @@
     },
     "localhost": {
       "logoPath": "/images/logos/logo-landscape.png",
-      "businessName": "RedRockCode (subsididary of Silver Medal NFPO)",
+      "businessName": "RedRockCode (subsidiary of Silver Medal NFPO)",
       "businessAppName": " Redrock Academy (DEV)",
       "brandColor": "#2ecc71",
       "homeUrl": "http://localhost:3030",
