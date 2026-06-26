@@ -338,9 +338,9 @@ module.exports = function(app) {
     next();
   });
   
-  // Mount authenticated portfolio routes
-  app.use('/portfolio', portfolioAuth, authRouter);
-  app.use('/en/portfolio', portfolioAuth, authRouter);
+  // Mount portfolio routes (public access — no sign-in required)
+  app.use('/portfolio', authRouter);
+  app.use('/en/portfolio', authRouter);
 };
 
 // /**
