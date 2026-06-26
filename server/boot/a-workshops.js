@@ -22,9 +22,11 @@
  * "There is no method to handle GET /workshops". (Same trick `randomAPIs.js`
  * uses for `/api/github`.)
  */
+import debug from 'debug';
 import * as googleCalendar from '../utils/google-calendar';
 import { ifNoAdminUser401 } from '../utils/middleware';
 
+const log = debug('rrcc:workshops');
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const DEFAULT_TIMEZONE = process.env.GOOGLE_CALENDAR_TIMEZONE || 'America/Denver';
 
@@ -164,7 +166,12 @@ function fetchGoogleEvents() {
   return Promise.all(
     GOOGLE_CALENDAR_IDS.map(id =>
       googleCalendar.listEvents(id, { timeMin, maxResults: 50 })
-        .catch(() => [])
+        // Surface the reason a calendar came back empty (auth race, timeout,
+        // transient 5xx) instead of letting it masquerade as "no events".
+        .catch(err => {
+          log('listEvents failed for %s: %s', id, (err && err.message) || err);
+          return [];
+        })
     )
   ).then(lists =>
     lists
@@ -182,15 +189,25 @@ function getEvents() {
 
   let source;
   if (googleCalendar.isConfigured()) {
+    // Google is the source of truth: use exactly what it returns — even an
+    // empty list — so a real (but currently empty / past-only) calendar is
+    // never papered over with sample events. timeMin=now already excludes
+    // past events, so once your test events are in the past they vanish and
+    // an unconfigured-style seed fallback would be misleading.
     source = fetchGoogleEvents();
   } else {
-    source = Promise.resolve(null);
+    // No live calendar configured at all: curated seed data is the stand-in.
+    source = Promise.resolve(seedEvents());
   }
 
   return source
-    // Degrade gracefully to seed data when a live source is empty or fails.
-    .then(live => (live && live.length) ? live : seedEvents())
-    .catch(() => seedEvents())
+    // A hard failure is rare (per-calendar fetches already swallow their own
+    // errors to []). Don't blank the widget, but only fall back to seed when
+    // there is no configured live source.
+    .catch(err => {
+      log('workshop fetch failed: %s', (err && err.message) || err);
+      return googleCalendar.isConfigured() ? [] : seedEvents();
+    })
     .then(events => {
       // Only surface upcoming events, soonest first.
       const nowIso = new Date().toISOString();

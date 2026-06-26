@@ -21,7 +21,7 @@
  * fall straight through to home.js via next().
  */
 export default function landingPortal(app) {
-  app.get('/landing', function renderLandingPortal(req, res, next) {
+  app.get('/', function renderLandingPortal(req, res, next) {
     const branding = res.locals.branding || {};
     if (!branding.isLandingPortal) {
       return next();
