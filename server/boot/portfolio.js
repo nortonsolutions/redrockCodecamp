@@ -13,7 +13,7 @@ module.exports = function(app) {
   const portfolioAuth = ifNoUserRedirectTo('/signin', 'You must be signed in to access the project portfolio.');
   
   // Base path to all solutions
-  const solutionsPath = path.join(__dirname, '../../public/educationMaterials/workbenchProjects/phase-iii/nortonSolutions');
+  const solutionsPath = path.join(__dirname, '../../public/phase-iii/nortonSolutions');
   
   // Create routers with clear naming
   const authRouter = app.loopback.Router();          // Requires authentication
@@ -203,6 +203,81 @@ module.exports = function(app) {
     res.redirect('/portfolio/api/serverSideProject3_urlshortener/views/index.html');
   });
 
+  authRouter.get('/api/fileanalyse', (req, res) => {
+    res.redirect('/portfolio/api/serverSideProject5_filemetadata/views/index.html');
+  });
+
+  // File Metadata Analyzer API — dependency-free multipart/form-data parser.
+  // Returns { name, type, size } for the uploaded `upfile` field (FreeCodeCamp user story).
+  authRouter.post('/api/fileanalyse', (req, res) => {
+    const contentType = req.headers['content-type'] || '';
+    const boundaryMatch = contentType.match(/boundary=(?:"([^"]+)"|([^;]+))/i);
+    if (!/multipart\/form-data/i.test(contentType) || !boundaryMatch) {
+      return res.status(400).json({ error: 'Expected multipart/form-data with a file upload' });
+    }
+    const boundary = boundaryMatch[1] || boundaryMatch[2];
+    const MAX_BYTES = 10 * 1024 * 1024; // 10MB safety cap
+    const chunks = [];
+    let total = 0;
+    let aborted = false;
+
+    req.on('data', (chunk) => {
+      if (aborted) return;
+      total += chunk.length;
+      if (total > MAX_BYTES) {
+        aborted = true;
+        res.status(413).json({ error: 'File too large (10MB max)' });
+        req.destroy();
+        return;
+      }
+      chunks.push(chunk);
+    });
+
+    req.on('error', () => {
+      if (!aborted) res.status(500).json({ error: 'Upload stream error' });
+    });
+
+    req.on('end', () => {
+      if (aborted) return;
+      try {
+        const body = Buffer.concat(chunks);
+        const delimiter = Buffer.from('--' + boundary);
+        const headerSep = Buffer.from('\r\n\r\n');
+        let start = body.indexOf(delimiter);
+
+        while (start !== -1) {
+          const next = body.indexOf(delimiter, start + delimiter.length);
+          if (next === -1) break;
+
+          let headerStart = start + delimiter.length;
+          if (body[headerStart] === 0x0d && body[headerStart + 1] === 0x0a) headerStart += 2;
+
+          const headerEnd = body.indexOf(headerSep, headerStart);
+          if (headerEnd !== -1 && headerEnd < next) {
+            const headers = body.slice(headerStart, headerEnd).toString('utf8');
+            const fnMatch = headers.match(/filename="([^"]*)"/i);
+            if (fnMatch && fnMatch[1]) {
+              const ctMatch = headers.match(/Content-Type:\s*([^\r\n]+)/i);
+              let contentEnd = next;
+              if (body[contentEnd - 2] === 0x0d && body[contentEnd - 1] === 0x0a) contentEnd -= 2;
+              const size = Math.max(0, contentEnd - (headerEnd + headerSep.length));
+              return res.json({
+                name: fnMatch[1],
+                type: (ctMatch && ctMatch[1].trim()) || 'application/octet-stream',
+                size: size
+              });
+            }
+          }
+          start = next;
+        }
+        res.status(400).json({ error: 'No file field named "upfile" found' });
+      } catch (e) {
+        console.log('fileanalyse parse error:', e.message);
+        res.status(500).json({ error: 'Could not parse upload' });
+      }
+    });
+  });
+
   // Advanced Category Routes
   authRouter.get('/advanced', (req, res) => {
     const advancedProjects = [
@@ -281,12 +356,12 @@ module.exports = function(app) {
   // React Category Routes
   authRouter.get('/react', (req, res) => {
     const reactProjects = [
-      { name: 'Random Quote Machine', path: '/portfolio/react/quotes', project: 'reactFrontend0' },
-      { name: 'Markdown Previewer', path: '/portfolio/react/markdown', project: 'reactFrontend1' },
-      { name: 'Drum Machine', path: '/portfolio/react/drums', project: 'reactFrontend2' },
-      { name: 'JavaScript Calculator', path: '/portfolio/react/calculator', project: 'reactFrontend3' },
-      { name: 'Pomodoro Clock', path: '/portfolio/react/pomodoro', project: 'reactFrontend4' },
-      { name: 'Additional React Project', path: '/portfolio/react/extra', project: 'reactFrontend5' }
+      { name: 'Random Quote Machine', path: '/portfolio/react/quotes', project: 'reactFrontend1' },
+      { name: 'Markdown Previewer', path: '/portfolio/react/markdown', project: 'reactFrontend2' },
+      { name: 'Drum Machine', path: '/portfolio/react/drums', project: 'reactFrontend3' },
+      { name: 'JavaScript Calculator', path: '/portfolio/react/calculator', project: 'reactFrontend4' },
+      { name: 'Pomodoro Clock', path: '/portfolio/react/pomodoro', project: 'reactFrontend5' },
+      { name: 'Additional React Project', path: '/portfolio/react/extra', project: 'reactFrontend0' }
     ];
     
     res.render('portfolio/category', {
@@ -299,6 +374,15 @@ module.exports = function(app) {
   });
 
   // Individual React Project Routes
+  // Verified folder -> app mapping (do not let these drift apart again):
+  //   reactFrontend0 = Additional / bonus test app
+  //   reactFrontend1 = Random Quote Machine
+  //   reactFrontend2 = Markdown Previewer
+  //   reactFrontend3 = Drum Machine
+  //   reactFrontend4 = JavaScript Calculator
+  //   reactFrontend5 = Pomodoro Clock
+  // NOTE: babel-node does NOT hot-reload boot scripts; restart the server
+  // (serve task / pm2) for any change in this file to take effect.
   authRouter.get('/react/quotes*', (req, res) => {
     res.redirect('/portfolio/react/reactFrontend1/index.html');
   });

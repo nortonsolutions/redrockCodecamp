@@ -59,18 +59,17 @@ html(lang='en')
         .sm-promo a { text-decoration: none; }
 
         /* ---- Hero with soft "silk-screen" mountains ---- */
-        .sm-hero {
-          position: relative; overflow: hidden; background-color: #e9edf6;
-          background-size: cover;
-          background-image: url('/images/mountain_background_detailed.png');  
-          //- background-image:
-          //-   linear-gradient(180deg, rgba(255,255,255,.45), rgba(245,247,251,.92)),
-          //-   url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23aeb9da" d="M0 215 L240 110 L480 205 L720 95 L960 200 L1200 120 L1440 205 L1440 320 L0 320 Z"/><path fill="%238e9ccb" d="M0 255 L300 175 L600 250 L900 165 L1200 250 L1440 185 L1440 320 L0 320 Z"/></svg>'),
-          //-   linear-gradient(120deg, #fde9dd 0%, #efe7f7 45%, #dceafb 100%);
-          background-size: cover, 100% auto, cover;
-          background-position: center, bottom, center;
-          background-repeat: no-repeat;
+        .sm-hero { position: relative; overflow: hidden; background-color: #e9edf6; }
+        /* Parallax backdrop: oversized layer translated by the cursor / device tilt (see script). */
+        .sm-hero::before {
+          content: ''; position: absolute; inset: -6%; z-index: 0;
+          background-image: url('/images/mountain_background_detailed.png');
+          background-size: cover; background-position: center; background-repeat: no-repeat;
+          transform: translate3d(var(--sm-parallax-x, 0px), var(--sm-parallax-y, 0px), 0);
+          transition: transform .12s ease-out; will-change: transform;
         }
+        .sm-hero > .container { position: relative; z-index: 1; }
+        @media (prefers-reduced-motion: reduce) { .sm-hero::before { transform: none !important; transition: none; } }
         .sm-hero-title { letter-spacing: -.5px; text-wrap: balance; }
         .sm-text-community { color: var(--sm-blue); }
         .sm-text-creativity { color: var(--sm-purple); }
@@ -146,6 +145,9 @@ html(lang='en')
         /* Large "Four Robes" showcase rotator */
         .sm-robes-stage { position: relative; width: 100%; max-width: 860px; margin: 0 auto; height: clamp(360px, 52vw, 560px); border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #eef2fb, #e7ecfb); box-shadow: 0 14px 36px rgba(15,31,51,.16); }
         .sm-robes-stage .sm-slide { background-size: contain; background-repeat: no-repeat; }
+        /* On-page exhibit slides cross-fade; images lazy-load via IntersectionObserver (see script). */
+        #robesStage .sm-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: contain; background-repeat: no-repeat; background-position: center; }
+        #robesStage .sm-slide.is-active { opacity: 1; }
         /* 3D model showcase (Blender GLBs via <model-viewer>) */
         .sm-model-media { background: radial-gradient(circle at 50% 30%, #1c3b27, #0b1d13); }
         .sm-model-media model-viewer { position: absolute; inset: 0; width: 100%; height: 100%; --poster-color: transparent; }
@@ -450,9 +452,8 @@ html(lang='en')
                 a.btn.btn-outline-danger.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='/assets/graphics/breakout_java.mp4' target='_blank' rel='noopener') Watch Demo →
           .col-6.col-md-4.col-lg-3
             .sm-card.sm-card-sm.d-flex.flex-column
-              .sm-card-media.sm-media-green.sm-media-clean
-                //- Live animated preview (remote). If redrockcode.com blocks framing, swap for a gif/screenshot background.
-                iframe.sm-frame(src='https://redrockcode.com/educationMaterials/workbenchProjects/review/platform-game-944f50007f39cd2cbb556666/platform-game.html' loading='lazy' title='Platform Game preview' tabindex='-1' scrolling='no')
+              //- Static screenshot instead of a live iframe (no runtime cost). Swap the image to update.
+              .sm-card-media.sm-media-green.sm-media-clean(style="background-image:url('/assets/images/redrockcode_haverbeke_platform_game_project.png'); background-size: cover; background-position: center;")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Platform Game
                 p.sm-tag.sm-tag-green.mb-2 Run. Jump. Survive.
@@ -460,8 +461,9 @@ html(lang='en')
                 a.btn.btn-outline-success.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/platform-game-944f50007f39cd2cbb556666/platform-game.html' target='_blank' rel='noopener') Play →
           .col-6.col-md-4.col-lg-3
             .sm-card.sm-card-sm.d-flex.flex-column
+              //- Placeholder media (no live iframe). Drop a screenshot in /assets/images and set it as background-image below to replace.
               .sm-card-media.sm-media-indigo.sm-media-clean
-                iframe.sm-frame(src='https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/index.html' loading='lazy' title='Virtual Life preview' tabindex='-1' scrolling='no')
+                iframe.sm-frame(src='https://redrockcode.com/educationMaterials/workbenchProjects/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/alternate2/index.html' loading='lazy' title='Virtual Life preview' tabindex='-1' scrolling='no')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Virtual Life
                 p.sm-tag.sm-tag-indigo.mb-2 Simulate. Observe. Evolve.
@@ -483,8 +485,8 @@ html(lang='en')
           .col-6.col-md-4.col-lg-3
             .sm-card.sm-card-sm.d-flex.flex-column
               .sm-card-media.sm-model-media.sm-media-clean
-                //- 3D viewer auto-rotates through all models (no user interaction). Copy the .glb files into /assets/blender/.
-                model-viewer#smModel(src='/assets/blender/rodney_bending.glb' alt='Rodney’s swinging animation' data-rotate-interval='4500' auto-rotate autoplay rotation-per-second='28deg' camera-orbit='0deg 80deg auto' interaction-prompt='none' shadow-intensity='1' exposure='0.95' loading='lazy' reveal='auto')
+                //- Models stay still and react to the cursor (look-toward-mouse + brighten on hover). The showcase cycles GLBs from /assets/blender/.
+                model-viewer#smModel(src='/assets/blender/rodney_bending.glb' alt='Rodney’s swinging animation' data-rotate-interval='4500' autoplay camera-orbit='0deg 72deg 95%' field-of-view='28deg' interaction-prompt='none' shadow-intensity='1' exposure='1.25' tone-mapping='neutral' loading='lazy' reveal='auto')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Built in Blender
                 p.sm-tag.sm-tag-green.mb-2 Model. Animate. Explore.
@@ -501,23 +503,22 @@ html(lang='en')
           //-       p.text-muted.small.mb-4 Conway's cellular-automaton simulation.
           //-       a.btn.btn-outline-success.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href='#' target='_blank' rel='noopener') Play →
 
-    // ===== Four Robes showcase =====
+    // ===== Four Robes showcase (on-page, images lazy-load when scrolled into view) =====
     section.py-5
       .container
         .text-center.mb-4
           h2.fw-bold.text-dark.mb-2 The Four Robes
           p.text-muted.mb-2 A meditation on community, creativity, and calling.
           .section-rule.mx-auto
-        .sm-robes-stage
-          //- Rotator: adjust the filenames/count to match what you place in /images/silvermedal.
-          .sm-rotator(data-rotate-interval='4500')
-            .sm-slide.is-active(style="background-image:url('/images/silvermedal/silvermedal_four_robes_0.png')")
-            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_1.png')")
-            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_2.png')")
-            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_3.png')")
-            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_4.png')")
-            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_5.png')")
-            .sm-slide(style="background-image:url('/images/silvermedal/silvermedal_four_robes_6.png')")
+        //- Slides carry data-bg; artwork is fetched only when the exhibit nears the viewport (see script).
+        #robesStage.sm-robes-stage(data-rotate-interval='4500')
+          .sm-slide.is-active(data-bg='/images/silvermedal/silvermedal_four_robes_0.png')
+          .sm-slide(data-bg='/images/silvermedal/silvermedal_four_robes_1.png')
+          .sm-slide(data-bg='/images/silvermedal/silvermedal_four_robes_2.png')
+          .sm-slide(data-bg='/images/silvermedal/silvermedal_four_robes_3.png')
+          .sm-slide(data-bg='/images/silvermedal/silvermedal_four_robes_4.png')
+          .sm-slide(data-bg='/images/silvermedal/silvermedal_four_robes_5.png')
+          .sm-slide(data-bg='/images/silvermedal/silvermedal_four_robes_6.png')
 
     // ===== Workshops / Classes & Events (retained calendar) =====
     section#workshops.py-5
@@ -624,14 +625,14 @@ html(lang='en')
           { src: '/assets/blender/Crocodile.glb', alt: 'Crocodile', name: 'Crocodile', by: 'Lincoln' },
           { src: '/assets/blender/catFish.glb', alt: 'Catfish', name: 'Catfish', by: 'Lincoln' },
           { src: '/assets/blender/daveDragon.glb', alt: 'Dragon', name: 'Dragon', by: 'Chris' },
-          { src: '/assets/blender/whitehorse.glb', alt: 'White horse', name: 'White horse', by: 'Chris' },
+          { src: '/assets/blender/whitehorse.glb', alt: 'White horse', name: 'White horse', by: 'Chris', animationIndex: 1 },
           { src: '/assets/blender/armor.glb', alt: 'Armor', name: 'Armor', by: 'Chris' },
           { src: '/assets/blender/thunderBlade.glb', alt: 'Thunder blade', name: 'Thunder blade', by: 'Chris' },
           { src: '/assets/blender/axe.glb', alt: 'Axe', name: 'Axe', by: 'Chris' },
           { src: '/assets/blender/elfgirl.glb', alt: 'Elf girl', name: 'Elf girl', by: 'Rodney' },
-          { src: '/assets/blender/shopkeep.glb', alt: 'Shopkeeper', name: 'Shopkeeper', by: 'Rodney' },
+          { src: '/assets/blender/shopkeep.glb', alt: 'Shopkeeper', name: 'Shopkeeper', by: 'Chris' },
           { src: '/assets/blender/bridge.glb', alt: 'Bridge', name: 'Bridge', by: 'Steve' },
-          { src: '/assets/blender/torch.glb', alt: 'Torch', name: 'Torch', by: 'Mike' },
+          { src: '/assets/blender/torch.glb', alt: 'Torch', name: 'Torch', by: 'Mike', animation: 'Fire' },
           { src: '/assets/blender/valley.glb', alt: 'Valley level', name: 'Valley level', by: 'Mike' }
         ];
         function showCredit() {
@@ -648,9 +649,57 @@ html(lang='en')
           mv.setAttribute('alt', models[i].alt);
           showCredit();
         }
-        mv.addEventListener('load', schedule);
+        // Each GLB exposes its clips on mv.availableAnimations. Set an entry's
+        // `animation` (exact clip name) or `animationIndex` to choose / rotate it.
+        function applyAnimation(entry) {
+          try {
+            var anims = mv.availableAnimations || [];
+            if (!anims.length) return;
+            var pick = null;
+            if (entry.animation && anims.indexOf(entry.animation) !== -1) pick = entry.animation;
+            else if (typeof entry.animationIndex === 'number' && anims[entry.animationIndex]) pick = anims[entry.animationIndex];
+            if (pick && mv.animationName !== pick) { mv.animationName = pick; if (mv.play) mv.play(); }
+          } catch (e) {}
+        }
+        mv.addEventListener('load', function () { applyAnimation(models[i]); schedule(); });
         showCredit();
         schedule();
+      })();
+    script.
+      (function () {
+        // Keep the model still but make it feel alive: it looks toward the cursor
+        // and brightens on hover ("lights up" on interaction).
+        var mv = document.getElementById('smModel');
+        if (!mv) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var base = { theta: 0, phi: 72, radius: '95%' };
+        var baseExposure = 1.25, hoverExposure = 1.6, range = 18;
+        var cur = { t: base.theta, p: base.phi }, target = { t: base.theta, p: base.phi };
+        var raf = null;
+        function setOrbit() { mv.cameraOrbit = cur.t.toFixed(1) + 'deg ' + cur.p.toFixed(1) + 'deg ' + base.radius; }
+        function loop() {
+          cur.t += (target.t - cur.t) * 0.12;
+          cur.p += (target.p - cur.p) * 0.12;
+          setOrbit();
+          if (Math.abs(target.t - cur.t) > 0.05 || Math.abs(target.p - cur.p) > 0.05) raf = requestAnimationFrame(loop);
+          else raf = null;
+        }
+        function queue() { if (!raf) raf = requestAnimationFrame(loop); }
+        if (!reduce) {
+          mv.addEventListener('pointermove', function (e) {
+            var r = mv.getBoundingClientRect();
+            var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+            var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+            target.t = base.theta + dx * range;
+            target.p = Math.max(40, Math.min(105, base.phi - dy * range));
+            queue();
+          });
+        }
+        mv.addEventListener('pointerenter', function () { mv.exposure = hoverExposure; });
+        mv.addEventListener('pointerleave', function () {
+          mv.exposure = baseExposure;
+          target.t = base.theta; target.p = base.phi; queue();
+        });
       })();
     script.
       (function () {
@@ -702,5 +751,74 @@ html(lang='en')
           });
           if (slides.length > 1 || slides[0].tagName === 'VIDEO') { activate(0); }
         });
+      })();
+    script.
+      (function () {
+        // Four Robes exhibit: lives on the page but loads responsibly — artwork is
+        // fetched only when the section nears the viewport, and the cross-fade
+        // pauses whenever it scrolls out of view (good net etiquette).
+        var stage = document.getElementById('robesStage');
+        if (!stage) return;
+        var slides = Array.prototype.slice.call(stage.querySelectorAll('.sm-slide'));
+        if (!slides.length) return;
+        var i = 0, timer = null, loaded = false, visible = false;
+        var interval = parseInt(stage.getAttribute('data-rotate-interval'), 10) || 4500;
+        var saveData = navigator.connection && navigator.connection.saveData;
+        function clear() { if (timer) { clearTimeout(timer); timer = null; } }
+        function lazyLoad() {
+          if (loaded) return;
+          loaded = true;
+          slides.forEach(function (s) {
+            var bg = s.getAttribute('data-bg');
+            if (bg) s.style.backgroundImage = "url('" + bg + "')";
+          });
+        }
+        function schedule() {
+          clear();
+          if (visible && !saveData && slides.length > 1) {
+            timer = setTimeout(function () {
+              slides[i].classList.remove('is-active');
+              i = (i + 1) % slides.length;
+              slides[i].classList.add('is-active');
+              schedule();
+            }, interval);
+          }
+        }
+        function start() { visible = true; lazyLoad(); schedule(); }
+        function stop() { visible = false; clear(); }
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) { en.isIntersecting ? start() : stop(); });
+          }, { rootMargin: '200px 0px' });
+          io.observe(stage);
+        } else {
+          start();
+        }
+      })();
+    script.
+      (function () {
+        // Subtle parallax: nudge the hero backdrop with the mouse (and device tilt).
+        var hero = document.querySelector('.sm-hero');
+        if (!hero) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var maxShift = 18, raf = null, tx = 0, ty = 0;
+        function apply() {
+          raf = null;
+          hero.style.setProperty('--sm-parallax-x', tx.toFixed(1) + 'px');
+          hero.style.setProperty('--sm-parallax-y', ty.toFixed(1) + 'px');
+        }
+        function queue() { if (!raf) raf = requestAnimationFrame(apply); }
+        window.addEventListener('mousemove', function (e) {
+          var cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+          tx = ((e.clientX - cx) / cx) * maxShift;
+          ty = ((e.clientY - cy) / cy) * maxShift;
+          queue();
+        }, { passive: true });
+        window.addEventListener('deviceorientation', function (e) {
+          if (e.gamma == null || e.beta == null) return;
+          tx = Math.max(-1, Math.min(1, e.gamma / 30)) * maxShift;
+          ty = Math.max(-1, Math.min(1, (e.beta - 45) / 30)) * maxShift;
+          queue();
+        }, { passive: true });
       })();
     script(src='/js/silvermedal-workshops.js' defer)
