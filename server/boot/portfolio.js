@@ -4,6 +4,7 @@
  */
 
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const { parse: parseUrl } = require('url');
 const { ifNoUserRedirectTo } = require('../utils/middleware');
@@ -103,12 +104,12 @@ module.exports = function(app) {
           icon: '⚛️',
           path: '/portfolio/react',
           projects: [
+            { name: "Norton's First React-Redux App", path: '/portfolio/react/first', description: 'Practice counter — first React-Redux build' },
             { name: 'Random Quote Machine', path: '/portfolio/react/quotes', description: 'Inspirational quote generator' },
             { name: 'Markdown Previewer', path: '/portfolio/react/markdown', description: 'Live markdown preview editor' },
             { name: 'Drum Machine', path: '/portfolio/react/drums', description: 'Interactive drum pad machine' },
             { name: 'JavaScript Calculator', path: '/portfolio/react/calculator', description: 'Full-featured calculator' },
-            { name: 'Pomodoro Clock', path: '/portfolio/react/pomodoro', description: 'Productivity timer application' },
-            { name: 'Additional React Project', path: '/portfolio/react/extra', description: 'Bonus React implementation' }
+            { name: 'Pomodoro Clock', path: '/portfolio/react/pomodoro', description: 'Productivity timer application' }
           ]
         },
         {
@@ -356,12 +357,12 @@ module.exports = function(app) {
   // React Category Routes
   authRouter.get('/react', (req, res) => {
     const reactProjects = [
+      { name: "Norton's First React-Redux App", path: '/portfolio/react/first', project: 'reactFrontend0' },
       { name: 'Random Quote Machine', path: '/portfolio/react/quotes', project: 'reactFrontend1' },
       { name: 'Markdown Previewer', path: '/portfolio/react/markdown', project: 'reactFrontend2' },
       { name: 'Drum Machine', path: '/portfolio/react/drums', project: 'reactFrontend3' },
       { name: 'JavaScript Calculator', path: '/portfolio/react/calculator', project: 'reactFrontend4' },
-      { name: 'Pomodoro Clock', path: '/portfolio/react/pomodoro', project: 'reactFrontend5' },
-      { name: 'Additional React Project', path: '/portfolio/react/extra', project: 'reactFrontend0' }
+      { name: 'Pomodoro Clock', path: '/portfolio/react/pomodoro', project: 'reactFrontend5' }
     ];
     
     res.render('portfolio/category', {
@@ -374,8 +375,9 @@ module.exports = function(app) {
   });
 
   // Individual React Project Routes
-  // Verified folder -> app mapping (do not let these drift apart again):
-  //   reactFrontend0 = Additional / bonus test app
+  // Verified folder -> app mapping (confirmed via each reactFrontendN/main.jsx,
+  // which is what index.html loads — do not let these drift apart again):
+  //   reactFrontend0 = Norton's First React-Redux App (practice counter)
   //   reactFrontend1 = Random Quote Machine
   //   reactFrontend2 = Markdown Previewer
   //   reactFrontend3 = Drum Machine
@@ -403,18 +405,44 @@ module.exports = function(app) {
     res.redirect('/portfolio/react/reactFrontend5/index.html');
   });
 
-  authRouter.get('/react/extra*', (req, res) => {
+  authRouter.get('/react/first*', (req, res) => {
     res.redirect('/portfolio/react/reactFrontend0/index.html');
   });
 
-  // Basic and MongoDB routes (simplified)
-  authRouter.get('/basic*', (req, res) => {
-    res.redirect('/portfolio/basic/');
+  // Basic Node & Express and MongoDB/Mongoose are iterative single-file
+  // solutions (one myApp.js each, with the FreeCodeCamp user stories numbered
+  // inline), so there is no runnable service to mount. Render a read-only,
+  // code-friendly view of the source instead.
+  authRouter.get(['/basic', '/basic/'], (req, res) => {
+    renderSourceView(res, req, 'solutions_basicNodeAndExpress',
+      'Basic Node & Express',
+      'FreeCodeCamp “Basic Node and Express” — iterative solution, challenges numbered inline');
   });
 
-  authRouter.get('/mongo*', (req, res) => {
-    res.redirect('/portfolio/mongo/');
+  authRouter.get(['/mongo', '/mongo/'], (req, res) => {
+    renderSourceView(res, req, 'solutions_mongoDBandMongoose',
+      'MongoDB & Mongoose',
+      'FreeCodeCamp “MongoDB and Mongoose” — iterative solution, challenges numbered inline');
   });
+
+  // Reads <solutionsPath>/<dir>/myApp.js and renders it through portfolio/code.
+  function renderSourceView(res, req, dir, title, subtitle) {
+    const filePath = path.join(solutionsPath, dir, 'myApp.js');
+    fs.readFile(filePath, 'utf8', (err, code) => {
+      if (err) {
+        return res.status(404).render('portfolio/code', {
+          title, subtitle, sourceName: 'myApp.js',
+          lines: ['// Source file not found:', '// ' + filePath],
+          user: req && req.user
+        });
+      }
+      res.render('portfolio/code', {
+        title, subtitle, sourceName: 'myApp.js',
+        lines: code.replace(/\t/g, '  ').replace(/\s+$/, '').split('\n'),
+        user: req && req.user
+      });
+    });
+  }
 
   // Debug middleware for API routes
   app.use('/portfolio/api/*', (req, res, next) => {

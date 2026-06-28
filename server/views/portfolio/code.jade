@@ -1,0 +1,94 @@
+extends ../layout
+
+block content
+  .container-fluid
+    .category-header.text-center.mb-4
+      h1.category-title= title
+      if subtitle
+        p.category-description= subtitle
+
+    .row.justify-content-center
+      .col-lg-10
+        .code-card
+          .code-toolbar
+            span.code-dot.dot-red
+            span.code-dot.dot-amber
+            span.code-dot.dot-green
+            span.code-filename= sourceName || 'source'
+          .code-scroll
+            table.code-table
+              tbody
+                each line, i in lines
+                  tr.code-row
+                    td.code-gutter= i + 1
+                    td.code-content
+                      code= line.length ? line : ' '
+
+    .row.mt-4.mb-5
+      .col-md-12.text-center
+        a.btn.btn-outline-primary.btn-lg(href='/portfolio')
+          i.fa.fa-arrow-left.mr-2
+          |  Back to Portfolio
+
+  style.
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+    .category-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 2.5rem 0;
+      margin: -20px -15px 32px -15px;
+      border-radius: 0 0 24px 24px;
+    }
+    .category-title { font-weight: 700; }
+    .category-description { opacity: 0.92; max-width: 760px; margin: 0.5rem auto 0; }
+    .code-card {
+      background: #1e1e2e;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+    .code-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #2a2a3c;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .code-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .dot-red { background: #ff5f56; }
+    .dot-amber { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    .code-filename {
+      margin-left: 12px;
+      color: #b3b3c7;
+      font: 13px/1 'SFMono-Regular', Menlo, Consolas, monospace;
+    }
+    .code-scroll { max-height: 72vh; overflow: auto; }
+    .code-table {
+      width: 100%;
+      border-collapse: collapse;
+      font: 13px/1.55 'SFMono-Regular', Menlo, Consolas, 'Courier New', monospace;
+    }
+    .code-row:hover { background: rgba(255,255,255,0.04); }
+    .code-gutter {
+      width: 1%;
+      white-space: nowrap;
+      text-align: right;
+      padding: 0 14px;
+      color: #5c5c7a;
+      user-select: none;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+    }
+    .code-content {
+      padding: 0 16px;
+      color: #e4e4f0;
+      white-space: pre;
+      tab-size: 2;
+    }
+    .code-content code { background: none; color: inherit; padding: 0; }

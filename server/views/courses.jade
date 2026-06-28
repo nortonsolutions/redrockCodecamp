@@ -1,0 +1,199 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    style.
+      :root {
+        --bg: #0b1120;
+        --panel: rgba(255,255,255,0.04);
+        --panel-border: rgba(148,163,184,0.18);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #7dd3fc;
+        --accent2: #c4b5fd;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+        background: radial-gradient(1200px 600px at 80% -10%, #1e293b 0%, var(--bg) 55%);
+        color: var(--text);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+      .wrap { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+      header.page-head { text-align: center; margin-bottom: 3rem; }
+      header.page-head h1 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 700; margin: 0 0 0.5rem;
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      header.page-head p { color: var(--muted); margin: 0; font-size: 1.05rem; }
+      .section {
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 18px;
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+        backdrop-filter: blur(6px);
+      }
+      .section > h2 {
+        margin: 0 0 0.35rem; font-size: 1.5rem; font-weight: 650;
+        display: flex; align-items: center; gap: 0.6rem;
+      }
+      .section > .sub { color: var(--muted); margin: 0 0 1.5rem; font-size: 0.95rem; }
+      h3.group { font-size: 1.05rem; font-weight: 600; color: var(--accent);
+        margin: 1.8rem 0 0.9rem; letter-spacing: 0.01em; }
+      .grid {
+        display: grid; gap: 0.6rem;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      }
+      a.tile {
+        display: flex; align-items: center; gap: 0.55rem;
+        padding: 0.7rem 0.9rem; border-radius: 11px;
+        background: rgba(148,163,184,0.07);
+        border: 1px solid var(--panel-border);
+        color: var(--text); text-decoration: none;
+        transition: background 0.15s, border-color 0.15s, transform 0.05s;
+        font-size: 0.92rem;
+      }
+      a.tile:hover { background: rgba(125,211,252,0.12); border-color: var(--accent); }
+      a.tile:active { transform: translateY(1px); }
+      a.tile .num {
+        flex: 0 0 auto; min-width: 1.9rem; height: 1.9rem;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 0.78rem; font-weight: 600; color: #0b1120;
+        background: var(--accent); border-radius: 7px;
+      }
+      a.tile .nm { flex: 1 1 auto; }
+      .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+      a.chip {
+        padding: 0.55rem 1rem; border-radius: 999px; text-decoration: none;
+        font-size: 0.9rem; font-weight: 550;
+        background: linear-gradient(135deg, rgba(125,211,252,0.16), rgba(196,181,252,0.16));
+        border: 1px solid var(--panel-border); color: var(--text);
+      }
+      a.chip:hover { border-color: var(--accent); }
+      .lecture a.sm { font-size: 0.78rem; color: var(--muted); margin-left: 0.35rem; }
+      .empty { color: var(--muted); font-style: italic; font-size: 0.9rem; }
+      .note {
+        display: flex; gap: 0.6rem; align-items: flex-start;
+        margin: 0 0 1.4rem; padding: 0.8rem 1rem;
+        border-radius: 11px; font-size: 0.9rem; line-height: 1.5;
+        color: var(--text);
+        background: rgba(250,204,21,0.08);
+        border: 1px solid rgba(250,204,21,0.35);
+      }
+      .note .ico { flex: 0 0 auto; font-size: 1.05rem; line-height: 1.4; }
+      .note kbd {
+        font: inherit; font-size: 0.82em; padding: 0.05rem 0.4rem;
+        border-radius: 5px; background: rgba(148,163,184,0.18);
+        border: 1px solid var(--panel-border);
+      }
+      footer.page-foot { text-align: center; color: var(--muted); margin-top: 3rem; font-size: 0.85rem; }
+      footer.page-foot a { color: var(--accent); }
+
+  body
+    .wrap
+      header.page-head
+        h1= title
+        p Curated learning materials, original sources, and worked solutions.
+
+      //- ============================ ELOQUENT JAVASCRIPT ===================
+      section.section
+        h2
+          span ✨
+          span Eloquent JavaScript
+        p.sub Marijn Haverbeke's book, with worked per-chapter solutions.
+
+        h3.group Original Source
+        .chips
+          a.chip(href=haverbekeBook, target='_blank', rel='noopener') Read the Book (online)
+          a.chip(href=haverbekePdf, target='_blank', rel='noopener') Download PDF
+
+        h3.group Solutions by Chapter
+        .note
+          span.ico ⚠️
+          span
+            | Heads-up: chapters 2–12 are <strong>console-based</strong> exercises — they log their
+            | results to the browser's developer console rather than rendering anything on the page.
+            | When a solution opens to a blank view, open DevTools (<kbd>F12</kbd>, or
+            | <kbd>⌥⌘I</kbd> on macOS) and select the <strong>Console</strong> tab to see the output.
+        if eloquent.length
+          .grid
+            each item in eloquent
+              a.tile(href=item.url, target='_blank', rel='noopener')
+                span.nm= item.name
+        else
+          p.empty No chapter solutions found.
+
+      //- ============================ CS 106A / 108 =========================
+      section.section
+        h2
+          span ☕
+          span CS 106A / 108 (Java)
+        p.sub Stanford Programming Methodology — handouts, lectures, downloads and sample solutions.
+
+        h3.group Course Handouts & Materials (chronological)
+        if handouts.length
+          .grid
+            each item in handouts
+              a.tile(href=item.url, target='_blank', rel='noopener')
+                span.num= item.number
+                span.nm= item.name
+        else
+          p.empty No handouts found.
+
+        h3.group Lecture Transcripts
+        if lectures.length
+          .grid
+            each lec in lectures
+              .tile.lecture
+                span.num= lec.number
+                span.nm
+                  | Lecture #{lec.number}
+                  if lec.html
+                    a.sm(href=lec.html, target='_blank', rel='noopener') HTML
+                  if lec.pdf
+                    a.sm(href=lec.pdf, target='_blank', rel='noopener') PDF
+        else
+          p.empty No transcripts found.
+
+        h3.group Software & Starter Downloads
+        if zips.length
+          .chips
+            each z in zips
+              a.chip(href=z.url) #{z.name}
+        else
+          p.empty No downloads found.
+
+        h3.group Sample Solutions — CS 106A Assignments
+        if cs106a.length
+          .grid
+            each folder in cs106a
+              a.tile(href=folder.url, target='_blank', rel='noopener')
+                span.nm= folder.name
+        else
+          p.empty No CS 106A solutions found.
+
+        h3.group Sample Solutions — CS 108
+        if cs108.length
+          .grid
+            each folder in cs108
+              a.tile(href=folder.url, target='_blank', rel='noopener')
+                span.nm= folder.name
+        else
+          p.empty No CS 108 solutions found.
+
+        if downloads.length
+          h3.group Bundled Downloads
+          .chips
+            each d in downloads
+              a.chip(href=d.url) #{d.name}
+
+      footer.page-foot
+        | Norton Solutions ·
+        a(href='/portfolio')  Project Portfolio
