@@ -37,3 +37,38 @@
     display: flex;
     justify-content: space-between;
 }
+
+/*
+ * Layout fix: the Bootstrap `.col-3` keys were wrapping (3 per row instead of
+ * 4) because the fixed 300px `#drum-machine` box minus the nested `.container`
+ * gutters left the four `col-3` keys (each with a 1px border) just over 100%.
+ * Force a deterministic 4-column grid for the keypad rows so the operator
+ * keys never wrap, independent of viewport width.
+ */
+#drum-machine {
+    width: 340px !important;
+    max-width: 94vw;
+}
+
+#drum-machine .container {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Every keypad row (the number/operator rows, not the display row) */
+#drum-machine .row:not(.topRow) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 8px 0 0 0;
+}
+
+#drum-machine .row:not(.topRow) .key-pad {
+    width: auto;
+    max-width: none;
+    flex: none;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+}
