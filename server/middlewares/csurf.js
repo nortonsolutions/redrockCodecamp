@@ -21,6 +21,15 @@ export default function() {
     if (CSRF_EXEMPT_PATHS.indexOf(req.path) !== -1) {
       return next();
     }
-    return protection(req, res, next);
+    
+    // Wrap CSRF protection to catch and handle errors gracefully
+    return protection(req, res, function(err) {
+      if (err && err.code === 'EBADCSRFTOKEN') {
+        // Log CSRF failures but don't crash
+        console.log(`[CSRF] Invalid token from ${req.ip} for ${req.method} ${req.path}`);
+        return res.status(403).json({ error: 'Invalid CSRF token' });
+      }
+      next(err);
+    });
   };
 }

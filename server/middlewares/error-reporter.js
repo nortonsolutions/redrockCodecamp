@@ -1,4 +1,3 @@
-import opbeat from 'opbeat';
 import debug from 'debug';
 
 import {
@@ -25,6 +24,17 @@ export default function errorHandler() {
     if (isHandledError(err)) {
       return next(err);
     }
-    return opbeat.captureError(err, { request: req }, () => next(err));
+    
+    // Log error to console instead of Opbeat (which is deprecated/shutdown)
+    console.error('[ERROR]', {
+      message: err.message,
+      stack: err.stack,
+      url: req.url,
+      method: req.method,
+      ip: req.ip,
+      timestamp: new Date().toISOString()
+    });
+    
+    return next(err);
   };
 }

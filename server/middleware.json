@@ -64,6 +64,7 @@
   "final:after": {
     "./middlewares/error-reporter": {},
     "./middlewares/error-handlers": {},
+    "./middlewares/final-error-handler": {},
     "strong-error-handler": {
       "params": {
          "debug": false,
