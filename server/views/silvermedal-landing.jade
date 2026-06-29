@@ -62,11 +62,12 @@ html(lang='en')
         .sm-hero { position: relative; overflow: hidden; background-color: #e9edf6; }
         /* Parallax backdrop: oversized layer translated by the cursor / device tilt (see script). */
         .sm-hero::before {
-          content: ''; position: absolute; inset: -6%; z-index: 0;
+          content: ''; position: absolute; top: -6%; right: -6%; bottom: -6%; left: -6%; z-index: 0;
           background-image: url('/images/mountain_background_detailed.png');
           background-size: cover; background-position: center; background-repeat: no-repeat;
+          -webkit-transform: translate3d(var(--sm-parallax-x, 0px), var(--sm-parallax-y, 0px), 0);
           transform: translate3d(var(--sm-parallax-x, 0px), var(--sm-parallax-y, 0px), 0);
-          transition: transform .12s ease-out; will-change: transform;
+          -webkit-transition: -webkit-transform .12s ease-out; transition: transform .12s ease-out; will-change: transform;
         }
         .sm-hero > .container { position: relative; z-index: 1; }
         @media (prefers-reduced-motion: reduce) { .sm-hero::before { transform: none !important; transition: none; } }
@@ -75,7 +76,7 @@ html(lang='en')
         .sm-text-creativity { color: var(--sm-purple); }
         /* Spherical-logo rotator sits beside the heading via flex — no float, so no orphaned words */
         .sm-hero-head { gap: 1.25rem; }
-        .sm-rotator.sm-hero-logo { position: relative; inset: auto; z-index: 1; flex: 0 0 auto; width: 248px; height: 248px; }
+        .sm-rotator.sm-hero-logo { position: relative; inset: auto; z-index: 1; flex: 0 0 auto; width: 208px; height: 208px; }
         .sm-rotator.sm-hero-logo .sm-slide { background-size: contain; background-repeat: no-repeat; }
         @media (max-width: 575.98px) { .sm-rotator.sm-hero-logo { width: 168px; height: 168px; } }
         /* ---- Hero CTA pills (two-line) ---- */
@@ -95,7 +96,7 @@ html(lang='en')
         .sm-pill-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 
         /* ---- Venn diagram (Community / Creativity / Calendar) ---- */
-        .sm-venn { position: relative; width: 360px; height: 340px; max-width: 100%; margin: 0 auto; }
+        .sm-venn { position: relative; width: 374px; height: 340px; max-width: 100%; margin: 0 auto; }
         .sm-circle {
           position: absolute; width: 214px; height: 214px; border-radius: 50%;
           display: flex; flex-direction: column; align-items: center;
@@ -109,10 +110,10 @@ html(lang='en')
         .sm-c-creativity { --sm-circle: var(--sm-purple); bottom: 0; left: 0; justify-content: flex-end; }
         .sm-c-calendar { --sm-circle: var(--sm-green); bottom: 0; right: 0; justify-content: flex-end; }
         .sm-venn-center {
-          position: absolute; width: 122px; height: 122px; border-radius: 50%;
-          left: 112px; top: 128px; background: #fff; z-index: 4;
+          position: absolute; width: 142px; height: 142px; border-radius: 50%;
+          left: 112px; top: 108px; background: #fff0; z-index: 4;
           display: flex; flex-direction: column; align-items: center; justify-content: center;
-          box-shadow: 0 10px 26px rgba(15,31,51,.22); border: 4px solid #fff;
+          box-shadow: 0 10px 26px rgba(15,31,51,.22); border: 4px solid #fff0;
         }
         .sm-venn-center img { width: 54px; height: 54px; object-fit: contain; }
         .sm-venn-center span { font-size: .56rem; font-weight: 700; letter-spacing: .06em; color: var(--sm-ink); margin-top: 2px; }
@@ -130,15 +131,15 @@ html(lang='en')
         .sm-card-media video.sm-media-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
         .sm-media-icon { position: relative; z-index: 2; color: #fff; font-size: 2.6rem; text-shadow: 0 2px 10px rgba(0,0,0,.35); }
         /* Media rotator: cross-fades images and (optionally) plays a video as one slide */
-        .sm-rotator { position: absolute; inset: 0; z-index: 0; }
-        .sm-rotator .sm-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: cover; background-position: center; }
+        .sm-rotator { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0; }
+        .sm-rotator .sm-slide { position: absolute; top: 0; right: 0; bottom: 0; left: 0; opacity: 0; -webkit-transition: opacity .8s ease; transition: opacity .8s ease; background-size: cover; background-position: center; }
         .sm-rotator .sm-slide.is-active { opacity: 1; }
         .sm-rotator video.sm-slide { width: 100%; height: 100%; object-fit: cover; }
         /* Taller, squarer destination cards */
         
 
         #destinations .sm-card-media { 
-          height: 300px; 
+          height: 320px; 
         }
         /* Live iframe project previews (animated remote demos) */
         .sm-card-media .sm-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 0; pointer-events: none; background: #fff; }
@@ -146,11 +147,11 @@ html(lang='en')
         .sm-robes-stage { position: relative; width: 100%; max-width: 860px; margin: 0 auto; height: clamp(360px, 52vw, 560px); border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #eef2fb, #e7ecfb); box-shadow: 0 14px 36px rgba(15,31,51,.16); }
         .sm-robes-stage .sm-slide { background-size: contain; background-repeat: no-repeat; }
         /* On-page exhibit slides cross-fade; images lazy-load via IntersectionObserver (see script). */
-        #robesStage .sm-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; background-size: contain; background-repeat: no-repeat; background-position: center; }
+        #robesStage .sm-slide { position: absolute; top: 0; right: 0; bottom: 0; left: 0; opacity: 0; -webkit-transition: opacity .8s ease; transition: opacity .8s ease; background-size: contain; background-repeat: no-repeat; background-position: center; }
         #robesStage .sm-slide.is-active { opacity: 1; }
         /* 3D model showcase (Blender GLBs via <model-viewer>) */
         .sm-model-media { background: radial-gradient(circle at 50% 30%, #1c3b27, #0b1d13); }
-        .sm-model-media model-viewer { position: absolute; inset: 0; width: 100%; height: 100%; --poster-color: transparent; }
+        .sm-model-media model-viewer { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; --poster-color: transparent; }
         /* Compact student-creation cards */
         .sm-card-sm .sm-card-media { height: 118px; }
         .sm-card-sm .card-body { padding: 1rem !important; }
@@ -261,19 +262,15 @@ html(lang='en')
         .row.align-items-center.g-5
           .col-lg-6
             .d-flex.flex-column.flex-sm-row.align-items-center.text-center.text-sm-start.sm-hero-head.mb-3
-              .sm-rotator.sm-hero-logo(data-rotate-interval='4000' role='img' aria-label=branding.businessName)
-                .sm-slide.is-active(style="background-image:url('/images/silvermedal/silvermedal5.png')")
-                .sm-slide(style="background-image:url('/images/silvermedal/silvermedal6.png')")
-                .sm-slide(style="background-image:url('/images/silvermedal/silvermedal7.png')")
-                .sm-slide(style="background-image:url('/images/silvermedal/silvermedal8.png')")
+
               h1.display-4.fw-bold.sm-hero-title.mb-0
                 | A culture of
                 br
                 span.sm-text-community community
                 |  and 
                 span.sm-text-creativity creativity.
-            p.lead.text-secondary.mb-2
-              | #{branding.businessName} is an ecosystem of tools that help people create, build, and improve their lives.
+            p.lead.text-primary.mb-2
+              | #{branding.businessName} is a creative community where people learn, create, build, share, and grow through projects, classes, collaboration, and self-improvement.
             p.fw-bold.fs-5.text-dark.mb-4 We help to build creators.
             .row.g-3.sm-hero-cta
               .col-sm-4
@@ -306,8 +303,20 @@ html(lang='en')
                 span.sm-c-label CALENDAR
                 span.sm-c-sub Classes, events, and knowledge for self-improvement.
               .sm-venn-center
-                img(src=branding.logoPath alt=branding.businessName)
-                span SILVER MEDAL
+                .sm-rotator.sm-hero-logo(data-rotate-interval='4000' role='img' aria-label=branding.businessName)
+                  .sm-slide.is-active(style="background-image:url('/images/silvermedal/silvermedal1.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal2.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal3.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal4.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal5.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal6.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal7.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal8.png')")
+                  //- .sm-slide(style="background-image:url('/images/silvermedal/silvermedal9.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal10.png')")
+                  .sm-slide(style="background-image:url('/images/silvermedal/silvermedal11.png')")
+                //- img(src=branding.logoPath alt=branding.businessName)
+                //- span SILVER MEDAL
 
     // ===== Featured destinations =====
     //- Swap any card image by editing the background-image / sm-media-* class.
@@ -315,7 +324,7 @@ html(lang='en')
     section#destinations.py-5
       .container
         .text-center.mb-5
-          h2.fw-bold.text-dark.mb-2 Our Projects &amp; Communities
+          h2.fw-bold.text-dark.mb-2 Choose Your Path
           .section-rule.mx-auto
         .row.g-4
           .col-md-6.col-lg-4
@@ -326,6 +335,8 @@ html(lang='en')
                   .sm-slide.is-active(style="background-image:url('/assets/images/redrockcode_1.png')")
                   .sm-slide(style="background-image:url('/assets/images/redrockcode_2.png')")
                   .sm-slide(style="background-image:url('/assets/images/redrockcode_3.png')")
+                  video.sm-slide(muted playsinline preload='metadata' style='background-blend-mode: multiply; mix-blend-mode: screen;filter: brightness(0.85) contrast(1.3);')
+                    source(src='/assets/videos/redrockcode_intro_0_1080.mp4' type='video/mp4')  
                   .sm-slide(style="background-image:url('/assets/images/redrockcode_4.png')")
                   .sm-slide(style="background-image:url('/assets/images/redrockcode_5.png')")
                   .sm-slide(style="background-image:url('/assets/images/redrockcode_6.png')")
@@ -354,6 +365,10 @@ html(lang='en')
                   .sm-slide(style="background-image:url('/images/lsb/lsb_tight_13.gif')")
                   .sm-slide(style="background-image:url('/images/lsb/lsb_tight_14.gif')")
                   .sm-slide(style="background-image:url('/images/lsb/lsb_tight_15.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_16.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_17.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_18.gif')")
+                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_19.gif')")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Life Science Balance
                 p.sm-tag.sm-tag-green.mb-2 Mind. Body. Energy.
@@ -397,8 +412,8 @@ html(lang='en')
     section#creations.py-5
       .container
         .text-center.mb-5
-          h2.fw-bold.text-dark.mb-2 Student Creations
-          p.text-muted.mb-2 Games, apps, and demos built by our students and community.
+          h2.fw-bold.text-dark.mb-2 Creator Showcase
+          p.text-muted.mb-2 Games, apps, demos, and creative projects built by students and community members.
           .section-rule.mx-auto
         .row.g-4
           .col-6.col-md-4.col-lg-3
@@ -508,7 +523,7 @@ html(lang='en')
       .container
         .text-center.mb-4
           h2.fw-bold.text-dark.mb-2 The Four Robes
-          p.text-muted.mb-2 A meditation on community, creativity, and calling.
+          p.text-muted.mb-2 An original Silver Medal + Midjourney collage exploring community, creativity, and calling.
           .section-rule.mx-auto
         //- Slides carry data-bg; artwork is fetched only when the exhibit nears the viewport (see script).
         #robesStage.sm-robes-stage(data-rotate-interval='4500')
@@ -667,38 +682,77 @@ html(lang='en')
       })();
     script.
       (function () {
-        // Keep the model still but make it feel alive: it looks toward the cursor
-        // and brightens on hover ("lights up" on interaction).
+        // Keep the model still but make it feel alive: it looks toward the cursor,
+        // leans in (zoom) as the cursor nears the centre, brightens on hover, and —
+        // for models with a flame/glow material (e.g. the torch) — actually lights up.
         var mv = document.getElementById('smModel');
         if (!mv) return;
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var base = { theta: 0, phi: 72, radius: '95%' };
-        var baseExposure = 1.25, hoverExposure = 1.6, range = 18;
-        var cur = { t: base.theta, p: base.phi }, target = { t: base.theta, p: base.phi };
-        var raf = null;
-        function setOrbit() { mv.cameraOrbit = cur.t.toFixed(1) + 'deg ' + cur.p.toFixed(1) + 'deg ' + base.radius; }
+        var base = { theta: 0, phi: 72, radius: 95 };          // radius in %
+        var range = 18;                                        // orbit swing (deg)
+        var zoomIn = 78, zoomOut = 100;                        // radius % at centre vs edge
+        var baseExposure = 1.25, hoverExposure = 1.6, glowExposure = 2.2;
+        var cur = { t: base.theta, p: base.phi, r: base.radius };
+        var target = { t: base.theta, p: base.phi, r: base.radius };
+        var raf = null, hovering = false;
+        function setOrbit() {
+          mv.cameraOrbit = cur.t.toFixed(1) + 'deg ' + cur.p.toFixed(1) + 'deg ' + cur.r.toFixed(1) + '%';
+        }
         function loop() {
           cur.t += (target.t - cur.t) * 0.12;
           cur.p += (target.p - cur.p) * 0.12;
+          cur.r += (target.r - cur.r) * 0.12;
           setOrbit();
-          if (Math.abs(target.t - cur.t) > 0.05 || Math.abs(target.p - cur.p) > 0.05) raf = requestAnimationFrame(loop);
+          if (Math.abs(target.t - cur.t) > 0.05 || Math.abs(target.p - cur.p) > 0.05 || Math.abs(target.r - cur.r) > 0.05)
+            raf = requestAnimationFrame(loop);
           else raf = null;
         }
         function queue() { if (!raf) raf = requestAnimationFrame(loop); }
+        // Emissive "light up": scan each loaded model for flame/glow materials and
+        // boost their emissive factor on hover (restored on leave). Re-scanned per model.
+        var glowMats = [];
+        function captureGlow() {
+          glowMats = [];
+          try {
+            var mats = (mv.model && mv.model.materials) || [];
+            mats.forEach(function (m) {
+              var nm = (m.name || '').toLowerCase();
+              if (/fire|flame|torch|ember|glow|lava|magma|light|emis|lamp|candle/.test(nm)) {
+                glowMats.push({ m: m, orig: m.emissiveFactor ? m.emissiveFactor.slice() : [0, 0, 0] });
+              }
+            });
+          } catch (e) {}
+        }
+        function setGlow(on) {
+          glowMats.forEach(function (g) {
+            try { g.m.setEmissiveFactor(on ? [1, 0.55, 0.18] : g.orig); } catch (e) {}
+          });
+        }
+        function hasGlow() { return glowMats.length > 0; }
+        mv.addEventListener('load', function () { captureGlow(); if (hovering) setGlow(true); });
         if (!reduce) {
           mv.addEventListener('pointermove', function (e) {
             var r = mv.getBoundingClientRect();
             var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
             var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+            var dist = Math.min(1, Math.sqrt(dx * dx + dy * dy));
             target.t = base.theta + dx * range;
             target.p = Math.max(40, Math.min(105, base.phi - dy * range));
+            target.r = zoomIn + (zoomOut - zoomIn) * dist; // cursor near centre = lean in
             queue();
           });
         }
-        mv.addEventListener('pointerenter', function () { mv.exposure = hoverExposure; });
+        mv.addEventListener('pointerenter', function () {
+          hovering = true;
+          mv.exposure = hasGlow() ? glowExposure : hoverExposure;
+          setGlow(true);
+        });
         mv.addEventListener('pointerleave', function () {
+          hovering = false;
           mv.exposure = baseExposure;
-          target.t = base.theta; target.p = base.phi; queue();
+          setGlow(false);
+          target.t = base.theta; target.p = base.phi; target.r = base.radius;
+          queue();
         });
       })();
     script.
