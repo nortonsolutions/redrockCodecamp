@@ -33,3 +33,4 @@ docs\.microsoft\.com
 /console
 /debug
 /\.well-known/security\.txt
+/node_modules
