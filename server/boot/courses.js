@@ -20,7 +20,15 @@ const path = require('path');
 const fs = require('fs');
 
 const PUBLIC_ROOT = path.join(__dirname, '../../public');
-const SILVER_SOLUTIONS = path.join(__dirname, '../../silvermedal.net/public/assets/solutions');
+// Read the solutions listing from the REAL Silver Medal public tree
+// (`silvermedal.net/server/public`), NOT the sibling `silvermedal.net/public`
+// symlink alias. The alias is not guaranteed to exist on every deployment
+// (symlinks are frequently dropped by rsync/git checkouts), and when it is
+// missing `fs.readdirSync` throws -> safeReaddir returns [] -> the page shows
+// no Eloquent/CS106A/CS108/download resources on that host. Pointing at the
+// real directory (the same root a-assets-fallback.js serves from) keeps the
+// read path and the serve path in sync. See repo memory: "trust server/public".
+const SILVER_SOLUTIONS = path.join(__dirname, '../../silvermedal.net/server/public/assets/solutions');
 
 const ICSP_DIR = path.join(PUBLIC_ROOT, 'assets/ProgrammingMethodology/materials/icspmcs106a');
 const ICSP_URL = '/assets/ProgrammingMethodology/materials/icspmcs106a';

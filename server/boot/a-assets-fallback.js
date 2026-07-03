@@ -72,9 +72,11 @@ export default function assetsFallback(app) {
   });
 }
 
-// Directory index for /assets/solutions/**. Receives the FULL request path
-// (no mount-stripping); resolves it against SOLUTIONS_ROOT. Calls next() for
-// non-directories and misses so the static handler can serve real files.
+// Directory index + file server for /assets/solutions/**. Receives the FULL
+// request path (no mount-stripping); resolves it against SOLUTIONS_ROOT.
+// Directories render a browsable listing; real files (including those reached
+// through symlinks in the tree) are streamed directly. Calls next() only for
+// genuine misses / unsupported methods so the static handler can still try.
 function solutionsIndex(req, res, next) {
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     return next();
@@ -101,8 +103,30 @@ function solutionsIndex(req, res, next) {
     return next();
   }
   if (!stat.isDirectory()) {
-    // A real file at this path is handled by the static fallback.
-    return next();
+    // Serve the file OURSELVES rather than falling through to loopback.static.
+    // Parts of the solutions tree are symlinks (e.g. `eloquentJavascript` ->
+    // the sibling real folder). serve-static/send can reject a symlinked path
+    // with a 403-style error; because that arrives as `next(err)`, the prod
+    // error handler (middlewares/error-handlers.js) turns it into a redirect
+    // to '/' with an "Oops! Something went wrong" flash instead of delivering
+    // the file. Resolving the real path up front and streaming it directly
+    // follows the symlink transparently and never errors out.
+    let real;
+    try {
+      real = fs.realpathSync(abs);
+    } catch (err) {
+      return next();
+    }
+    // Containment: the resolved target must stay inside the Silver Medal public
+    // tree (symlinks may point at siblings within it, but never outside it).
+    if (real !== SILVERMEDAL_PUBLIC && !real.startsWith(SILVERMEDAL_PUBLIC + path.sep)) {
+      return next();
+    }
+    return res.sendFile(real, function afterSend(err) {
+      if (err) {
+        next(err);
+      }
+    });
   }
 
   // Canonicalise: directories are listed only with a trailing slash so that
