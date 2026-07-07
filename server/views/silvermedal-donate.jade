@@ -1,0 +1,245 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='icon' type='image/png' href=branding.logoPath)
+    meta(name='description' content='Support Silver Medal — donate via PayPal, Stripe, or Venmo to help us build creators.')
+    meta(name='robots' content='index, follow')
+    //- Permissions-Policy required for Stripe payment frame
+    meta(http-equiv='Permissions-Policy' content="payment=(self 'https://js.stripe.com' 'https://www.paypal.com')")
+    title Donate | #{branding.businessAppName}
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css' rel='stylesheet')
+    style.
+      :root {
+        --sm-blue: #2563eb;
+        --sm-purple: #7c3aed;
+        --sm-green: #16a34a;
+        --sm-red: #dc2626;
+        --sm-ink: #0f1f33;
+      }
+      body { background: #f5f7fb; color: #1f2937; }
+      html { scroll-behavior: smooth; }
+      /* Navbar */
+      .sm-navbar { background: linear-gradient(135deg, #0f1f33, #0b1626) !important; box-shadow: 0 2px 14px rgba(0,0,0,.18); }
+      .sm-navbar .nav-link { color: #cdd7e6 !important; font-weight: 600; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; gap: .35rem; padding: .4rem .7rem; border-radius: 8px; transition: color .15s ease, background .15s ease; }
+      .sm-navbar .nav-link i { font-size: .95rem; opacity: .85; }
+      .sm-navbar .nav-link:hover, .sm-navbar .nav-link.active { color: #fff !important; background: rgba(255,255,255,.08); }
+      .sm-tagline { color: #8aa0bd; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
+      .sm-brand-logo { border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; }
+      .sm-btn-support { background: linear-gradient(135deg, var(--sm-blue), #1d4ed8); color: #fff; border: none; }
+      .sm-btn-support:hover { color: #fff; filter: brightness(1.08); }
+      /* Footer */
+      .sm-footer { background: var(--sm-ink); border-top: 4px solid var(--sm-blue); }
+      .sm-footer a { color: #aebbd0; text-decoration: none; transition: color .2s ease; }
+      .sm-footer a:hover { color: #fff; }
+      .sm-social a { font-size: 1.15rem; }
+      /* Page */
+      .sm-page-hero { background: linear-gradient(135deg, #0f1f33 0%, #162d5e 60%, #1a3a6e 100%); color: #fff; padding: 3.5rem 0 2.5rem; }
+      .sm-panel { border-radius: 18px; background: #fff; box-shadow: 0 6px 18px rgba(15,31,51,.08); }
+      .section-rule { height: 4px; width: 64px; border-radius: 2px; background: var(--sm-blue); }
+      .donate-card { border-radius: 18px; overflow: hidden; border: 2px solid transparent; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+      .donate-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(15,31,51,.14); border-color: var(--sm-blue); }
+      .donate-card .card-header { padding: 1.25rem 1.5rem; }
+      .donate-card .card-body { padding: 1.5rem; }
+      .qr-img { max-height: 240px; width: auto; display: block; margin: 0 auto; border-radius: 10px; }
+      stripe-buy-button { display: block; margin: 0 auto; }
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.sm-navbar.py-2.sticky-top
+      .container
+        a.navbar-brand.d-flex.align-items-center.gap-2.py-0(href='/')
+          img.sm-brand-logo(src=branding.logoPath alt=branding.businessName width='44' height='44')
+          span.d-flex.flex-column.lh-1
+            span.fw-bold.fs-5.text-white #{branding.businessName}
+            span.sm-tagline Community · Creativity · Calendar
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#smNav' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #smNav.collapse.navbar-collapse
+          ul.navbar-nav.mx-auto.align-items-lg-center
+            li.nav-item
+              a.nav-link(href='/')
+                i.bi.bi-house-door-fill
+                span Home
+            li.nav-item
+              a.nav-link(href='/#destinations')
+                i.bi.bi-grid-1x2-fill
+                span Projects
+            li.nav-item
+              a.nav-link(href='/#creations')
+                i.bi.bi-stars
+                span Creations
+            li.nav-item
+              a.nav-link(href='/#workshops')
+                i.bi.bi-calendar-event-fill
+                span Classes &amp; Events
+            li.nav-item
+              a.nav-link(href='/about.html')
+                i.bi.bi-info-circle-fill
+                span About
+            li.nav-item
+              a.nav-link(href='mailto:dave@silvermedal.net')
+                i.bi.bi-envelope-fill
+                span Contact
+          .d-flex.gap-2.ms-lg-3.mt-3.mt-lg-0
+            a.btn.btn-outline-light.btn-sm.rounded-pill.px-3(href=continueUrl)
+              if user
+                | Resume Academy
+              else
+                | Enter Academy
+            a.btn.sm-btn-support.btn-sm.rounded-pill.px-3.active(href='/donate.html')
+              i.bi.bi-heart-fill.me-1
+              | Support
+
+    header.sm-page-hero
+      .container
+        .d-flex.align-items-center.gap-3.mb-2
+          img(src=branding.logoPath alt=branding.businessName width='60' height='60' style='border-radius:50%;background:#fff;padding:4px;object-fit:contain;flex-shrink:0')
+          div
+            h1.display-5.fw-bold.mb-1
+              i.bi.bi-heart-fill.me-2(style='color:#f87171')
+              | Support #{branding.businessName}
+            p.lead.mb-0.opacity-75 Help us build creators and keep our platforms free.
+
+    main.py-5
+      .container
+
+        //- Intro
+        .text-center.mb-5
+          p.lead.text-muted Your donation sustains our public-domain web platforms — coding, writing, and wellness — allowing us to provide services free to aspiring developers, artists, and hobbyist coders.
+          p.text-muted.small Choose the payment method that works best for you below.
+
+        //- Payment cards
+        .row.g-4.mb-5
+
+          //- PayPal
+          .col-md-6.col-lg-4
+            .sm-panel.donate-card.h-100
+              .card-header.bg-primary.text-white.text-center
+                h4.mb-1
+                  i.bi.bi-paypal.me-2
+                  | PayPal
+                small.opacity-75 Most popular
+              .card-body.text-center
+                img.qr-img.mb-3(src='/images/silvermedal/silvermedal_paypal_qr_code.png' alt='PayPal QR Code')
+                p.text-muted.small.mb-3 Scan the QR code or click below to pay securely via PayPal.
+                a.btn.btn-primary.rounded-pill.px-4(href='https://www.paypal.com/ncp/payment/JFC3FC82L9L8C' target='_blank' rel='noopener')
+                  i.bi.bi-box-arrow-up-right.me-2
+                  | Pay with PayPal
+
+          //- Stripe
+          .col-md-6.col-lg-4
+            .sm-panel.donate-card.h-100
+              .card-header.text-center(style='background:#635bff;color:#fff')
+                h4.mb-1
+                  i.bi.bi-credit-card-fill.me-2
+                  | Credit Card
+                small.opacity-75 Powered by Stripe
+              .card-body.text-center
+                img.qr-img.mb-3(src='/images/silvermedal/silvermedal_stripe_qr_code.png' alt='Stripe QR Code')
+                p.text-muted.small.mb-3 Scan or use the secure Stripe button below.
+                script(async src='https://js.stripe.com/v3/buy-button.js')
+                stripe-buy-button(
+                  buy-button-id='buy_btn_1S9N9gBG2eTjBlvItAInuBe9'
+                  publishable-key='pk_live_51S9MOrBG2eTjBlvIvpubwfOluiht9cSAy3ctxVy3Ukp5R1uUaLrrwwTAmVmnHc5csvrJuzCGrTvUiT4sexFQF6rs00rUPPgACg'
+                )
+
+          //- Venmo
+          .col-md-6.col-lg-4
+            .sm-panel.donate-card.h-100
+              .card-header.text-center(style='background:#3d95ce;color:#fff')
+                h4.mb-1
+                  i.bi.bi-phone-fill.me-2
+                  | Venmo
+                small.opacity-75 Quick mobile payment
+              .card-body.text-center
+                img.qr-img.mb-3(src='/images/silvermedal/venmo_qr_code_norton_solutions.jpg' alt='Venmo QR Code')
+                p.text-muted.small.mb-3 Scan the QR code or send directly to @silver_medal.
+                a.btn.rounded-pill.px-4(href='https://account.venmo.com/pay?recipients=silver_medal&note=Support%20Silver%20Medal' target='_blank' rel='noopener' style='background:#3d95ce;color:#fff')
+                  i.bi.bi-send-fill.me-2
+                  | @silver_medal
+
+        //- Bank transfer
+        .text-center.mb-5
+          .sm-panel.p-4.d-inline-block.text-center(style='min-width:240px')
+            i.bi.bi-bank.fs-2.text-primary.mb-2
+            h5.fw-bold Bank Transfer
+            p.text-muted.small For larger donations — contact us for wire/ACH details.
+            button.btn.btn-outline-secondary.rounded-pill.px-4(type='button' data-bs-toggle='modal' data-bs-target='#bankModal')
+              i.bi.bi-info-circle.me-2
+              | Get Details
+
+        //- Why donate CTA
+        .row.g-4
+          .col-lg-8.mx-auto
+            .sm-panel.p-4.p-md-5(style='background:linear-gradient(135deg,#eaf1ff,#e7ecfb);border:1px solid #dbe4f7')
+              .text-center.mb-4
+                h3.fw-bold.text-primary Together, We Build Creators.
+                p.text-secondary Your support will sustain our community-driven platforms for course, certification, and training services — allowing us to provide free access to aspiring computer scientists, professional developers, artists, and hobbyist coders.
+              .d-flex.flex-wrap.justify-content-center.gap-3
+                .text-center.px-3
+                  i.bi.bi-calendar3.fs-2.text-primary
+                  p.fw-bold.mb-0.mt-1 Since 2013
+                  p.small.text-muted Free & open
+                .text-center.px-3
+                  i.bi.bi-people-fill.fs-2.text-primary
+                  p.fw-bold.mb-0.mt-1 Students
+                  p.small.text-muted Growing every year
+                .text-center.px-3
+                  i.bi.bi-heart-fill.fs-2.text-primary
+                  p.fw-bold.mb-0.mt-1 Community
+                  p.small.text-muted Driven by people
+
+    //- Bank modal
+    #bankModal.modal.fade(tabindex='-1' aria-labelledby='bankModalLabel' aria-hidden='true')
+      .modal-dialog.modal-dialog-centered
+        .modal-content
+          .modal-header
+            h5.modal-title#bankModalLabel
+              i.bi.bi-bank.me-2
+              | Bank Transfer Details
+            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+          .modal-body
+            p.text-muted Please contact us for wire or ACH transfer details. We'll respond within 24 hours.
+            a.btn.btn-primary.rounded-pill.px-4(href='mailto:dave@silvermedal.net?subject=Bank%20Transfer%20Donation')
+              i.bi.bi-envelope.me-2
+              | Contact for Details
+          .modal-footer
+            button.btn.btn-secondary.rounded-pill(type='button' data-bs-dismiss='modal') Close
+
+    footer.sm-footer.text-light.py-5.mt-4
+      .container
+        .row.align-items-center.gy-4
+          .col-md-4.text-center.text-md-start
+            .d-flex.align-items-center.justify-content-center.justify-content-md-start.gap-2.mb-2
+              img.sm-brand-logo(src=branding.logoPath alt=branding.businessName width='40' height='40')
+              span.fw-bold.fs-5.text-white #{branding.businessName}
+            p.small.mb-0.sm-tagline Community · Creativity · Calendar
+          .col-md-4.text-center
+            ul.list-inline.mb-0
+              li.list-inline-item.mx-2
+                a(href='/') Home
+              li.list-inline-item.mx-2
+                a(href='/#destinations') Projects
+              li.list-inline-item.mx-2
+                a(href='/#creations') Creations
+              li.list-inline-item.mx-2
+                a(href='/#workshops') Classes &amp; Events
+              li.list-inline-item.mx-2
+                a(href='/about.html') About
+              li.list-inline-item.mx-2
+                a(href='mailto:dave@silvermedal.net') Contact
+          .col-md-4.text-center.text-md-end.sm-social
+            a.me-3(href='https://github.com/nortonsolutions' target='_blank' rel='noopener' aria-label='GitHub')
+              i.bi.bi-github
+            a.me-3(href='https://youtube.com' target='_blank' rel='noopener' aria-label='YouTube')
+              i.bi.bi-youtube
+            a.me-3(href='https://facebook.com' target='_blank' rel='noopener' aria-label='Facebook')
+              i.bi.bi-facebook
+            a(href='mailto:dave@silvermedal.net' aria-label='Email')
+              i.bi.bi-envelope-fill
+        hr.border-secondary.my-4
+        p.text-center.small.mb-0.sm-tagline &copy; 2013–2026 #{branding.businessName}. All rights reserved.
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')

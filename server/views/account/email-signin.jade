@@ -468,3 +468,17 @@ block content
                 });
             });
         });
+
+        // Safari back-forward cache (bfcache) fix: when Safari restores the page
+        // from bfcache the <video> element can be in an indeterminate state and
+        // briefly shows the fallback text. Reloading the element on persisted
+        // pageshow keeps autoplay running after Back/Forward navigation.
+        window.addEventListener('pageshow', function (e) {
+            if (e.persisted && player) {
+                player.load();
+                var p = player.play();
+                if (p && typeof p.catch === 'function') {
+                    p.catch(function () {});
+                }
+            }
+        });

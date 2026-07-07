@@ -1,0 +1,286 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='icon' type='image/png' href=branding.logoPath)
+    meta(name='description' content='About Silver Medal — a culture of community and creativity since 2013.')
+    meta(name='robots' content='index, follow')
+    title About | #{branding.businessAppName}
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css' rel='stylesheet')
+    style.
+      :root {
+        --sm-blue: #2563eb;
+        --sm-purple: #7c3aed;
+        --sm-green: #16a34a;
+        --sm-red: #dc2626;
+        --sm-ink: #0f1f33;
+      }
+      body { background: #f5f7fb; color: #1f2937; }
+      html { scroll-behavior: smooth; }
+      /* Navbar */
+      .sm-navbar { background: linear-gradient(135deg, #0f1f33, #0b1626) !important; box-shadow: 0 2px 14px rgba(0,0,0,.18); }
+      .sm-navbar .nav-link { color: #cdd7e6 !important; font-weight: 600; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; gap: .35rem; padding: .4rem .7rem; border-radius: 8px; transition: color .15s ease, background .15s ease; }
+      .sm-navbar .nav-link i { font-size: .95rem; opacity: .85; }
+      .sm-navbar .nav-link:hover, .sm-navbar .nav-link.active { color: #fff !important; background: rgba(255,255,255,.08); }
+      .sm-tagline { color: #8aa0bd; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
+      .sm-brand-logo { border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; }
+      .sm-btn-support { background: linear-gradient(135deg, var(--sm-blue), #1d4ed8); color: #fff; border: none; }
+      .sm-btn-support:hover { color: #fff; filter: brightness(1.08); }
+      /* Footer */
+      .sm-footer { background: var(--sm-ink); border-top: 4px solid var(--sm-blue); }
+      .sm-footer a { color: #aebbd0; text-decoration: none; transition: color .2s ease; }
+      .sm-footer a:hover { color: #fff; }
+      .sm-social a { font-size: 1.15rem; }
+      /* Page */
+      .sm-page-hero { background: linear-gradient(135deg, #0f1f33 0%, #162d5e 60%, #1a3a6e 100%); color: #fff; padding: 3.5rem 0 2.5rem; }
+      .sm-panel { border-radius: 18px; background: #fff; box-shadow: 0 6px 18px rgba(15,31,51,.08); }
+      .sm-stat-icon { font-size: 1.5rem; color: var(--sm-blue); }
+      .section-rule { height: 4px; width: 64px; border-radius: 2px; background: var(--sm-blue); }
+      .program-card { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(15,31,51,.08); transition: transform .18s ease, box-shadow .18s ease; text-decoration: none; color: inherit; display: block; }
+      .program-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(15,31,51,.15); color: inherit; }
+      .program-card .sm-panel { box-shadow: none; }
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.sm-navbar.py-2.sticky-top
+      .container
+        a.navbar-brand.d-flex.align-items-center.gap-2.py-0(href='/')
+          img.sm-brand-logo(src=branding.logoPath alt=branding.businessName width='44' height='44')
+          span.d-flex.flex-column.lh-1
+            span.fw-bold.fs-5.text-white #{branding.businessName}
+            span.sm-tagline Community · Creativity · Calendar
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#smNav' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #smNav.collapse.navbar-collapse
+          ul.navbar-nav.mx-auto.align-items-lg-center
+            li.nav-item
+              a.nav-link(href='/')
+                i.bi.bi-house-door-fill
+                span Home
+            li.nav-item
+              a.nav-link(href='/#destinations')
+                i.bi.bi-grid-1x2-fill
+                span Projects
+            li.nav-item
+              a.nav-link(href='/#creations')
+                i.bi.bi-stars
+                span Creations
+            li.nav-item
+              a.nav-link(href='/#workshops')
+                i.bi.bi-calendar-event-fill
+                span Classes &amp; Events
+            li.nav-item
+              a.nav-link.active(href='/about.html')
+                i.bi.bi-info-circle-fill
+                span About
+            li.nav-item
+              a.nav-link(href='mailto:dave@silvermedal.net')
+                i.bi.bi-envelope-fill
+                span Contact
+          .d-flex.gap-2.ms-lg-3.mt-3.mt-lg-0
+            a.btn.btn-outline-light.btn-sm.rounded-pill.px-3(href=continueUrl)
+              if user
+                | Resume Academy
+              else
+                | Enter Academy
+            a.btn.sm-btn-support.btn-sm.rounded-pill.px-3(href='/donate.html')
+              i.bi.bi-heart-fill.me-1
+              | Support
+
+    header.sm-page-hero
+      .container
+        .d-flex.align-items-center.gap-3.mb-2
+          img(src=branding.logoPath alt=branding.businessName width='60' height='60' style='border-radius:50%;background:#fff;padding:4px;object-fit:contain;flex-shrink:0')
+          div
+            h1.display-5.fw-bold.mb-1 About #{branding.businessName}
+            p.lead.mb-0.opacity-75 A culture of community and creativity since 2013.
+
+    main.py-5
+      .container
+
+        //- Mission
+        .sm-panel.p-4.p-md-5.mb-5
+          .row.align-items-center.g-4
+            .col-lg-8
+              h2.fw-bold.mb-3 Our Mission
+              p.lead Silver Medal is the central hub connecting a community of creators, learners, writers, coders, and wellness advocates. We believe in people, potential, and progress.
+              p.text-muted We maintain and operate a diverse portfolio of platforms and programs designed to inspire learning, spark creativity, and support wellbeing — all under one roof.
+            .col-lg-4.text-center
+              .d-flex.justify-content-center.flex-wrap.gap-2
+                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-blue)') Since 2013
+                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-red)') Coding
+                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-purple)') Writing
+                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-green)') Wellness
+                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:#0d9488') Calendar
+
+        //- What We Do
+        .mb-5
+          .text-center.mb-4
+            h2.fw-bold.text-dark.mb-2 What We Do
+            .section-rule.mx-auto
+          .row.g-4
+            .col-md-6
+              .sm-panel.h-100.p-4
+                h4.fw-bold.mb-3
+                  i.bi.bi-code-slash.me-2(style='color:var(--sm-red)')
+                  | Development &amp; Coding
+                ul.list-unstyled.mb-0
+                  li.mb-2
+                    i.bi.bi-check-circle-fill.text-primary.me-2
+                    strong Red Rock Code
+                    span.text-muted  — Hands-on coding academy and custom software solutions
+                  li.mb-2
+                    i.bi.bi-check-circle-fill.text-primary.me-2
+                    strong Red Rock BlueSky
+                    span.text-muted  — ES6 single-page real-estate web application
+                  li
+                    i.bi.bi-check-circle-fill.text-primary.me-2
+                    strong Silver Medal Online
+                    span.text-muted  — 3D virtual-life adventure game
+            .col-md-6
+              .sm-panel.h-100.p-4
+                h4.fw-bold.mb-3
+                  i.bi.bi-grid-fill.me-2(style='color:var(--sm-purple)')
+                  | Specialized Platforms
+                ul.list-unstyled.mb-0
+                  li.mb-2
+                    i.bi.bi-check-circle-fill.me-2(style='color:var(--sm-purple)')
+                    strong Writers Guild
+                    span.text-muted  — Platform for writers to create, share, and publish
+                  li.mb-2
+                    i.bi.bi-check-circle-fill.me-2(style='color:var(--sm-green)')
+                    strong Life Science Balance
+                    span.text-muted  — Wellness education and bioenergetic tools
+                  li
+                    i.bi.bi-check-circle-fill.me-2(style='color:#0d9488')
+                    strong Quizzap!
+                    span.text-muted  — Interactive learning &amp; assessment tools (coming soon)
+
+        //- Our Values
+        .mb-5
+          .text-center.mb-4
+            h2.fw-bold.text-dark.mb-2 Our Values
+            .section-rule.mx-auto
+          .row.g-4.text-center
+            .col-md-4
+              .sm-panel.h-100.p-4
+                .rounded-circle.d-inline-flex.align-items-center.justify-content-center.mb-3(style='width:64px;height:64px;background:linear-gradient(135deg,#3b82f6,#2563eb)')
+                  i.bi.bi-lightbulb-fill.fs-4.text-white
+                h5.fw-bold Innovation
+                p.text-muted.mb-0 Constantly evolving and improving our digital solutions to serve our community.
+            .col-md-4
+              .sm-panel.h-100.p-4
+                .rounded-circle.d-inline-flex.align-items-center.justify-content-center.mb-3(style='width:64px;height:64px;background:linear-gradient(135deg,#8b5cf6,#7c3aed)')
+                  i.bi.bi-people-fill.fs-4.text-white
+                h5.fw-bold Collaboration
+                p.text-muted.mb-0 Building bridges between platforms, people, and communities with respect and support.
+            .col-md-4
+              .sm-panel.h-100.p-4
+                .rounded-circle.d-inline-flex.align-items-center.justify-content-center.mb-3(style='width:64px;height:64px;background:linear-gradient(135deg,#22c55e,#16a34a)')
+                  i.bi.bi-star-fill.fs-4.text-white
+                h5.fw-bold Excellence
+                p.text-muted.mb-0 Striving for quality in everything we deliver, with goal-orientation and good habits.
+
+        //- Service Learning Resources
+        .mb-5
+          .text-center.mb-4
+            h2.fw-bold.text-dark.mb-2 Service Learning &amp; Program Resources
+            p.text-muted.mb-2 Hands-on, community-driven programs across coding, writing, and health &amp; wellness.
+            .section-rule.mx-auto
+          .row.g-3.mb-4
+            .col-12
+              a.program-card(href='/assets/SilverMedal-ServiceLearningPhotoJournal.pdf' target='_blank' rel='noopener')
+                .sm-panel.p-3.d-flex.align-items-center.gap-3
+                  span.fs-1.flex-shrink-0 📔
+                  div
+                    h5.mb-1.fw-bold Service Learning Photo Journal
+                    p.mb-1.text-muted.small A visual journal of our students and community in action.
+                    span.badge.bg-danger PDF
+          .row.g-4
+            .col-md-4
+              a.program-card(href='/assets/files/SilverMedal_1_Coding_updated.pptx' target='_blank' rel='noopener')
+                .sm-panel.h-100
+                  img.w-100(src='/assets/images/redrock/redrock_animated_00001.gif' alt='Coding program' style='height:140px;object-fit:cover;border-radius:14px 14px 0 0;display:block')
+                  .p-3
+                    h5.fw-bold.mb-1 Coding
+                    p.text-muted.small.mb-1 Red Rock Code program overview.
+                    span.badge.bg-primary PPTX
+            .col-md-4
+              a.program-card(href='/assets/files/SilverMedal_2_Writing.pptx' target='_blank' rel='noopener')
+                .sm-panel.h-100
+                  img.w-100(src='/assets/images/writersGuild/writers_guild_firefly_set1.png' alt='Writing program' style='height:140px;object-fit:contain;background:#e7f1ff;border-radius:14px 14px 0 0;display:block')
+                  .p-3
+                    h5.fw-bold.mb-1 Writing
+                    p.text-muted.small.mb-1 Writers Guild program overview.
+                    span.badge.bg-info.text-dark PPTX
+            .col-md-4
+              a.program-card(href='/assets/files/SilverMedal_3_Healthcare.pptx' target='_blank' rel='noopener')
+                .sm-panel.h-100
+                  img.w-100(src='/assets/images/lsb/lsb_vibrant_balance_0.png' alt='Health and wellness program' style='height:140px;object-fit:contain;background:#fff;border-radius:14px 14px 0 0;display:block')
+                  .p-3
+                    h5.fw-bold.mb-1 Health &amp; Wellness
+                    p.text-muted.small.mb-1 Life Science Balance program overview.
+                    span.badge.bg-success PPTX
+
+        //- Contact / CTA row
+        .row.g-4
+          .col-md-6
+            .sm-panel.h-100.p-4
+              h4.fw-bold.mb-3
+                i.bi.bi-envelope-fill.me-2.text-primary
+                | Contact Us
+              p.text-muted For inquiries about services, partnerships, or workshops — reach out directly.
+              a.btn.btn-primary.rounded-pill.px-4(href='mailto:dave@silvermedal.net')
+                i.bi.bi-envelope.me-2
+                | dave@silvermedal.net
+          .col-md-6
+            .sm-panel.h-100.p-4(style='background:linear-gradient(135deg,#eaf1ff,#e7ecfb);border:1px solid #dbe4f7')
+              h4.fw-bold.mb-2.text-primary Together, We Build Creators.
+              p.text-secondary.small.mb-3 #{branding.businessName} is the web root for silvermedal.net, connecting Red Rock Code, Life Science Balance, Writers Guild, and our other digital properties.
+              .d-flex.flex-wrap.gap-2
+                a.btn.btn-primary.rounded-pill.px-4(href=continueUrl)
+                  i.bi.bi-people-fill.me-2
+                  if user
+                    | Resume Academy
+                  else
+                    | Join the Community
+                a.btn.btn-outline-primary.rounded-pill.px-4(href='/donate.html')
+                  i.bi.bi-heart.me-2
+                  | Support Us
+
+    footer.sm-footer.text-light.py-5.mt-4
+      .container
+        .row.align-items-center.gy-4
+          .col-md-4.text-center.text-md-start
+            .d-flex.align-items-center.justify-content-center.justify-content-md-start.gap-2.mb-2
+              img.sm-brand-logo(src=branding.logoPath alt=branding.businessName width='40' height='40')
+              span.fw-bold.fs-5.text-white #{branding.businessName}
+            p.small.mb-0.sm-tagline Community · Creativity · Calendar
+          .col-md-4.text-center
+            ul.list-inline.mb-0
+              li.list-inline-item.mx-2
+                a(href='/') Home
+              li.list-inline-item.mx-2
+                a(href='/#destinations') Projects
+              li.list-inline-item.mx-2
+                a(href='/#creations') Creations
+              li.list-inline-item.mx-2
+                a(href='/#workshops') Classes &amp; Events
+              li.list-inline-item.mx-2
+                a(href='/about.html') About
+              li.list-inline-item.mx-2
+                a(href='mailto:dave@silvermedal.net') Contact
+          .col-md-4.text-center.text-md-end.sm-social
+            a.me-3(href='https://github.com/nortonsolutions' target='_blank' rel='noopener' aria-label='GitHub')
+              i.bi.bi-github
+            a.me-3(href='https://youtube.com' target='_blank' rel='noopener' aria-label='YouTube')
+              i.bi.bi-youtube
+            a.me-3(href='https://facebook.com' target='_blank' rel='noopener' aria-label='Facebook')
+              i.bi.bi-facebook
+            a(href='mailto:dave@silvermedal.net' aria-label='Email')
+              i.bi.bi-envelope-fill
+        hr.border-secondary.my-4
+        p.text-center.small.mb-0.sm-tagline &copy; 2013–2026 #{branding.businessName}. All rights reserved.
+
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')

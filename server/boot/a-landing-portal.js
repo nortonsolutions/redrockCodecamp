@@ -21,6 +21,47 @@
  * fall straight through to home.js via next().
  */
 export default function landingPortal(app) {
+  // -----------------------------------------------------------------------
+  // Jade-rendered sub-pages (about, donate).
+  // Must be in 'routes:before' so they are evaluated before the static-file
+  // handler registered by a-silvermedal-static.js (which also runs in that
+  // phase).  We respond only when isLandingPortal is true so non-Silver-Medal
+  // hosts are unaffected.
+  // -----------------------------------------------------------------------
+  function pageLocals(req, res) {
+    const branding = res.locals.branding || {};
+    const lang = req.lang || res.locals.lang || 'en';
+    return {
+      branding,
+      user: req.user,
+      continueUrl: req.user ?
+        `/${lang}/challenges/current-challenge` : `/${lang}/signin`
+    };
+  }
+
+  app.middleware('routes:before', function silvermedalJadePages(req, res, next) {
+    const branding = res.locals.branding || {};
+    if (!branding.isLandingPortal) return next();
+
+    const p = req.path;
+    if (p === '/about.html' || p === '/about') {
+      return res.render('silvermedal-about', {
+        title: `About | ${branding.businessAppName}`,
+        ...pageLocals(req, res)
+      });
+    }
+    if (p === '/donate.html' || p === '/donate') {
+      return res.render('silvermedal-donate', {
+        title: `Donate | ${branding.businessAppName}`,
+        ...pageLocals(req, res)
+      });
+    }
+    return next();
+  });
+
+  // -----------------------------------------------------------------------
+  // Root path → silvermedal landing page
+  // -----------------------------------------------------------------------
   app.get('/', function renderLandingPortal(req, res, next) {
     const branding = res.locals.branding || {};
     if (!branding.isLandingPortal) {

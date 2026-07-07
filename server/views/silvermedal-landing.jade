@@ -21,6 +21,9 @@ html(lang='en')
     title #{branding.businessAppName} - Community of Creativity | Home
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
     link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css' rel='stylesheet')
+    //- Prefetch sub-pages so clicks feel instant (browser fetches in idle time)
+    link(rel='prefetch' href='/about.html')
+    link(rel='prefetch' href='/donate.html')
 
     style.
         :root {
@@ -60,17 +63,17 @@ html(lang='en')
 
         /* ---- Hero with soft "silk-screen" mountains ---- */
         .sm-hero { position: relative; overflow: hidden; background-color: #e9edf6; }
-        /* Parallax backdrop: oversized layer translated by the cursor / device tilt (see script). */
-        .sm-hero::before {
-          content: ''; position: absolute; top: -6%; right: -6%; bottom: -6%; left: -6%; z-index: 0;
-          background-image: url('/images/mountain_background_detailed.png');
+        /* Parallax backdrop: a real <div> so transform is set directly by JS,
+           avoiding the CSS-custom-property + ::before + will-change combo that
+           breaks in Firefox and certain Safari/GPU configurations. */
+        .sm-hero-bg {
+          position: absolute; top: -26%; right: -26%; bottom: -26%; left: -26%; z-index: 0;
+          background-image: url('/images/mountain_background_detailed.png'),
+            linear-gradient(160deg, #4a7fb5 0%, #8ab4d4 38%, #c8dce8 62%, #8aafc8 100%);
           background-size: cover; background-position: center; background-repeat: no-repeat;
-          -webkit-transform: translate3d(var(--sm-parallax-x, 0px), var(--sm-parallax-y, 0px), 0);
-          transform: translate3d(var(--sm-parallax-x, 0px), var(--sm-parallax-y, 0px), 0);
-          -webkit-transition: -webkit-transform .12s ease-out; transition: transform .12s ease-out; will-change: transform;
+          pointer-events: none;
         }
         .sm-hero > .container { position: relative; z-index: 1; }
-        @media (prefers-reduced-motion: reduce) { .sm-hero::before { transform: none !important; transition: none; } }
         .sm-hero-title { letter-spacing: -.5px; text-wrap: balance; }
         .sm-text-community { color: var(--sm-blue); }
         .sm-text-creativity { color: var(--sm-purple); }
@@ -135,6 +138,9 @@ html(lang='en')
         .sm-rotator .sm-slide { position: absolute; top: 0; right: 0; bottom: 0; left: 0; opacity: 0; -webkit-transition: opacity .8s ease; transition: opacity .8s ease; background-size: cover; background-position: center; }
         .sm-rotator .sm-slide.is-active { opacity: 1; }
         .sm-rotator video.sm-slide { width: 100%; height: 100%; object-fit: cover; }
+        /* Rotator <img> slides (animated WebP / still images via <img> tag) */
+        .sm-rotator .sm-slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; pointer-events: none; }
+        .sm-rotator.sm-fit-h .sm-slide > img { object-fit: contain; }
         /* Taller, squarer destination cards */
         
 
@@ -258,6 +264,7 @@ html(lang='en')
 
     // ===== Hero =====
     header.sm-hero
+      div.sm-hero-bg(aria-hidden='true')
       .container.py-5
         .row.align-items-center.g-5
           .col-lg-6
@@ -347,28 +354,48 @@ html(lang='en')
                 a.btn.btn-outline-danger.fw-semibold.mt-auto.rounded-pill.px-4.align-self-start(href=continueUrl) Start Learning →
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-green.sm-media-clean
-                .sm-rotator(data-rotate-interval='3200')
-                  .sm-slide.is-active(style="background-image:url('/images/lsb/lsb_tight_0.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_1.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_2.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_3.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_4.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_5.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_6.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_7.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_8.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_9.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_10.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_11.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_12.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_13.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_14.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_15.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_16.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_17.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_18.webp')")
-                  .sm-slide(style="background-image:url('/images/lsb/lsb_tight_19.webp')")
+              .sm-card-media.sm-media-clean
+                .sm-rotator.sm-fit-h(data-rotate-interval='3200')
+                  .sm-slide.is-active
+                    img(src='/images/lsb/lsb_tight_0.webp' alt='Life Science Balance')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_1.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_2.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_3.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_4.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_5.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_6.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_7.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_8.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_9.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_10.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_11.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_12.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_13.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_14.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_15.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_16.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_17.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_18.webp' alt='Life Science Balance' loading='lazy')
+                  .sm-slide
+                    img(src='/images/lsb/lsb_tight_19.webp' alt='Life Science Balance' loading='lazy')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Life Science Balance
                 p.sm-tag.sm-tag-green.mb-2 Mind. Body. Energy.
@@ -378,28 +405,48 @@ html(lang='en')
                   a.btn.btn-sm.btn-light.text-success.border-success.rounded-pill.px-3(href='https://lifesciencebalance.store/course/life-science-balance' target='_blank' rel='noopener') Take the Quiz
           .col-md-6.col-lg-4
             .sm-card.d-flex.flex-column
-              .sm-card-media.sm-media-green.sm-media-clean
+              .sm-card-media.sm-media-clean
                 .sm-rotator(data-rotate-interval='3200')
-                  .sm-slide.is-active(style="background-image:url('/images/writersGuild/writersGuild_firefly_1.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_2.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_3.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_4.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_5.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_6.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_7.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_8.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_9.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_10.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_11.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_12.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_13.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_14.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_15.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_16.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_17.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_18.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_19.webp')")
-                  .sm-slide(style="background-image:url('/images/writersGuild/writersGuild_firefly_20.webp')")
+                  .sm-slide.is-active
+                    img(src='/images/writersGuild/writersGuild_firefly_1.webp' alt='Writers Guild')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_2.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_3.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_4.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_5.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_6.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_7.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_8.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_9.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_10.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_11.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_12.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_13.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_14.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_15.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_16.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_17.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_18.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_19.webp' alt='Writers Guild' loading='lazy')
+                  .sm-slide
+                    img(src='/images/writersGuild/writersGuild_firefly_20.webp' alt='Writers Guild' loading='lazy')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Writers Guild
                 p.sm-tag.sm-tag-purple.mb-2 Create. Share. Publish.
@@ -468,7 +515,7 @@ html(lang='en')
           .col-6.col-md-4.col-lg-3
             .sm-card.sm-card-sm.d-flex.flex-column
               //- Static screenshot instead of a live iframe (no runtime cost). Swap the image to update.
-              .sm-card-media.sm-media-green.sm-media-clean(style="background-image:url('/assets/images/redrockcode_haverbeke_platform_game_project.png'); background-size: cover; background-position: center;")
+              .sm-card-media.sm-media-clean(style="background-image:url('/assets/images/redrockcode_haverbeke_platform_game_project.png'); background-size: cover; background-position: center;")
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Platform Game
                 p.sm-tag.sm-tag-green.mb-2 Run. Jump. Survive.
@@ -501,7 +548,7 @@ html(lang='en')
             .sm-card.sm-card-sm.d-flex.flex-column
               .sm-card-media.sm-model-media.sm-media-clean
                 //- Models stay still and react to the cursor (look-toward-mouse + brighten on hover). The showcase cycles GLBs from /assets/blender/.
-                model-viewer#smModel(src='/assets/blender/rodney_bending.glb' alt='Rodney’s swinging animation' data-rotate-interval='4500' autoplay camera-orbit='0deg 72deg 95%' field-of-view='28deg' interaction-prompt='none' shadow-intensity='1' exposure='1.25' tone-mapping='neutral' loading='lazy' reveal='auto')
+                model-viewer#smModel(src='/assets/blender/rodney_bending.glb' alt="Rodney's swinging animation" data-rotate-interval='4500' autoplay camera-orbit='0deg 72deg 95%' field-of-view='28deg' interaction-prompt='none' shadow-intensity='1' exposure='1.25' tone-mapping='neutral' loading='lazy' reveal='auto')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Built in Blender
                 p.sm-tag.sm-tag-green.mb-2 Model. Animate. Explore.
@@ -655,7 +702,7 @@ html(lang='en')
           credit.textContent = models[i].name + ' — by ' + models[i].by;
         }
         var i = 0;
-        var interval = parseInt(mv.getAttribute('data-rotate-interval'), 10) || 4500;
+        var interval = parseInt(mv.getAttribute('data-rotate-interval'), 10) || 450;
         var timer = null;
         function schedule() { clearTimeout(timer); timer = setTimeout(next, interval); }
         function next() {
@@ -730,18 +777,19 @@ html(lang='en')
         }
         function hasGlow() { return glowMats.length > 0; }
         mv.addEventListener('load', function () { captureGlow(); if (hovering) setGlow(true); });
-        if (!reduce) {
-          mv.addEventListener('pointermove', function (e) {
-            var r = mv.getBoundingClientRect();
-            var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-            var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-            var dist = Math.min(1, Math.sqrt(dx * dx + dy * dy));
-            target.t = base.theta + dx * range;
-            target.p = Math.max(40, Math.min(105, base.phi - dy * range));
-            target.r = zoomIn + (zoomOut - zoomIn) * dist; // cursor near centre = lean in
-            queue();
-          });
-        }
+        // Cursor-following orbit: intentionally outside the reduce-motion guard because
+        // this motion is directly driven by the cursor (stops when the cursor stops) rather
+        // than being an autonomous looping animation, so it doesn't trigger vestibular issues.
+        mv.addEventListener('pointermove', function (e) {
+          var r = mv.getBoundingClientRect();
+          var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+          var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+          var dist = Math.min(2, Math.sqrt(dx * dx + dy * dy));
+          target.t = base.theta + dx * range * 3;
+          target.p = Math.max(40, Math.min(105, base.phi - dy * range));
+          target.r = zoomIn + (zoomOut - zoomIn) * dist; // cursor near centre = lean in
+          queue();
+        });
         mv.addEventListener('pointerenter', function () {
           hovering = true;
           mv.exposure = hasGlow() ? glowExposure : hoverExposure;
@@ -852,27 +900,37 @@ html(lang='en')
     script.
       (function () {
         // Subtle parallax: nudge the hero backdrop with the mouse (and device tilt).
-        var hero = document.querySelector('.sm-hero');
-        if (!hero) return;
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var maxShift = 18, raf = null, tx = 0, ty = 0;
-        function apply() {
-          raf = null;
-          hero.style.setProperty('--sm-parallax-x', tx.toFixed(1) + 'px');
-          hero.style.setProperty('--sm-parallax-y', ty.toFixed(1) + 'px');
+        // Uses a real <div.sm-hero-bg> so the transform is set directly via style.transform,
+        // avoiding the CSS-custom-property + ::before + will-change combination that
+        // fails silently in Firefox and some Safari/GPU compositing configurations.
+        var heroBg = document.querySelector('.sm-hero-bg');
+        if (!heroBg) return;
+        //- if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        // Smooth parallax via a continuous lerp loop.
+        // curX/Y trails tgX/Y at 7 % per frame — buttery smooth with a natural heavy-lag feel.
+        // No CSS transition on the element; the loop is the only easing so they never fight.
+        var maxShift = 30;
+        var curX = 0, curY = 0, tgX = 0, tgY = 0, lerpId = null;
+        function tick() {
+          curX += (tgX - curX) * 0.07;
+          curY += (tgY - curY) * 0.07;
+          heroBg.style.webkitTransform = 'translate3d(' + curX.toFixed(3) + 'px,' + curY.toFixed(3) + 'px,0)';
+          heroBg.style.transform       = 'translate3d(' + curX.toFixed(3) + 'px,' + curY.toFixed(3) + 'px,0)';
+          lerpId = (Math.abs(tgX - curX) > 0.02 || Math.abs(tgY - curY) > 0.02)
+            ? requestAnimationFrame(tick) : null;
         }
-        function queue() { if (!raf) raf = requestAnimationFrame(apply); }
+        function nudge() { if (!lerpId) lerpId = requestAnimationFrame(tick); }
         window.addEventListener('mousemove', function (e) {
           var cx = window.innerWidth / 2, cy = window.innerHeight / 2;
-          tx = ((e.clientX - cx) / cx) * maxShift;
-          ty = ((e.clientY - cy) / cy) * maxShift;
-          queue();
+          tgX = ((e.clientX - cx) / cx) * maxShift;
+          tgY = ((e.clientY - cy) / cy) * maxShift;
+          nudge();
         }, { passive: true });
         window.addEventListener('deviceorientation', function (e) {
           if (e.gamma == null || e.beta == null) return;
-          tx = Math.max(-1, Math.min(1, e.gamma / 30)) * maxShift;
-          ty = Math.max(-1, Math.min(1, (e.beta - 45) / 30)) * maxShift;
-          queue();
+          tgX = Math.max(-1, Math.min(1, e.gamma / 30)) * maxShift;
+          tgY = Math.max(-1, Math.min(1, (e.beta - 45) / 30)) * maxShift;
+          nudge();
         }, { passive: true });
       })();
     script(src='/js/silvermedal-workshops.js' defer)
