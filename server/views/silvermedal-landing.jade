@@ -339,14 +339,20 @@ html(lang='en')
               .sm-card-media.sm-media-red.sm-media-clean
                 //- Rotator: edit the image filenames/count to match what you place in /assets/images.
                 .sm-rotator(data-rotate-interval='4500')
-                  .sm-slide.is-active(style="background-image:url('/assets/images/redrockcode_1.png')")
-                  .sm-slide(style="background-image:url('/assets/images/redrockcode_2.png')")
-                  .sm-slide(style="background-image:url('/assets/images/redrockcode_3.png')")
+                  .sm-slide.is-active
+                    img(src='/assets/images/redrockcode_1.webp' alt='Red Rock Code')
+                  .sm-slide
+                    img(src='/assets/images/redrockcode_2.webp' alt='Red Rock Code' loading='lazy')
+                  .sm-slide
+                    img(src='/assets/images/redrockcode_3.webp' alt='Red Rock Code' loading='lazy')
                   video.sm-slide(muted playsinline preload='metadata' style='background-blend-mode: multiply; mix-blend-mode: screen;filter: brightness(0.85) contrast(1.3);')
-                    source(src='/assets/videos/redrockcode_intro_0_1080.mp4' type='video/mp4')  
-                  .sm-slide(style="background-image:url('/assets/images/redrockcode_4.png')")
-                  .sm-slide(style="background-image:url('/assets/images/redrockcode_5.png')")
-                  .sm-slide(style="background-image:url('/assets/images/redrockcode_6.png')")
+                    source(src='/assets/videos/redrockcode_intro_0_1080.mp4' type='video/mp4')
+                  .sm-slide
+                    img(src='/assets/images/redrockcode_4.webp' alt='Red Rock Code' loading='lazy')
+                  .sm-slide
+                    img(src='/assets/images/redrockcode_5.webp' alt='Red Rock Code' loading='lazy')
+                  .sm-slide
+                    img(src='/assets/images/redrockcode_6.webp' alt='Red Rock Code' loading='lazy')
               .card-body.d-flex.flex-column.p-4
                 h5.fw-bold.mb-1 Red Rock Code
                 p.sm-tag.sm-tag-red.mb-2 Build. Solve. Elevate.
