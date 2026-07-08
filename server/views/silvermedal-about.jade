@@ -103,59 +103,64 @@ html(lang='en')
         .sm-panel.p-4.p-md-5.mb-5
           .row.align-items-center.g-4
             .col-lg-8
-              h2.fw-bold.mb-3 Our Mission
-              p.lead Silver Medal is the central hub connecting a community of creators, learners, writers, coders, and wellness advocates. We believe in people, potential, and progress.
-              p.text-muted We maintain and operate a diverse portfolio of platforms and programs designed to inspire learning, spark creativity, and support wellbeing — all under one roof.
+              h2.fw-bold.mb-3 A Culture of Community &amp; Creativity
+              p.lead #{branding.businessName} is an ecosystem of tools that help people create, build, and improve their lives — offering free training and resources across our sites.
+              p.text-muted We connect three complementary worlds — #[strong coding], #[strong artwork &amp; wellness], and #[strong writing] — under one roof, so anyone can learn, make, heal, and grow.
+              p.text-secondary.small.fst-italic.mb-0
+                i.bi.bi-heart-fill.text-danger.me-1
+                | A labor of love: Dave is building Silver Medal for his loved ones — hoping to create jobs and opportunities, and to strengthen those in need.
             .col-lg-4.text-center
               .d-flex.justify-content-center.flex-wrap.gap-2
                 span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-blue)') Since 2013
                 span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-red)') Coding
+                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-green)') Artwork &amp; Wellness
                 span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-purple)') Writing
-                span.badge.rounded-pill.px-3.py-2.fs-6(style='background:var(--sm-green)') Wellness
                 span.badge.rounded-pill.px-3.py-2.fs-6(style='background:#0d9488') Calendar
 
-        //- What We Do
+        //- Three Pillars
         .mb-5
           .text-center.mb-4
-            h2.fw-bold.text-dark.mb-2 What We Do
+            h2.fw-bold.text-dark.mb-2 Three Worlds, One Ecosystem
+            p.text-muted.mb-2 Free training and resources across our three flagship sites.
             .section-rule.mx-auto
           .row.g-4
-            .col-md-6
-              .sm-panel.h-100.p-4
-                h4.fw-bold.mb-3
+            //- Coding
+            .col-lg-4
+              .sm-panel.h-100.p-4.d-flex.flex-column
+                h4.fw-bold.mb-1
                   i.bi.bi-code-slash.me-2(style='color:var(--sm-red)')
-                  | Development &amp; Coding
-                ul.list-unstyled.mb-0
-                  li.mb-2
-                    i.bi.bi-check-circle-fill.text-primary.me-2
-                    strong Red Rock Code
-                    span.text-muted  — Hands-on coding academy and custom software solutions
-                  li.mb-2
-                    i.bi.bi-check-circle-fill.text-primary.me-2
-                    strong Red Rock BlueSky
-                    span.text-muted  — ES6 single-page real-estate web application
+                  | Red Rock Code
+                p.sm-tag.fw-semibold.mb-2(style='color:var(--sm-red)') Coding · Reasoning · Developing
+                p.text-muted.small Project-based app-development training in modern ES6+ that ports cleanly to iOS &amp; Android. Build progressive web apps one stage at a time, on real-world ES6 modules with solid MVC/OOP principles — custom projects that go well beyond the FCC challenges.
+                p.text-muted.small.mb-3 The classic Stanford CS 106A+ is adapting toward a #[strong Robotics] course with micro-electronics (Arduino, Raspberry Pi) — Karel the Robot with real moving parts. Computer Science is slated to become Silver Medal's first accredited program #[em (pending)].
+                a.btn.btn-outline-danger.fw-semibold.rounded-pill.px-4.mt-auto.align-self-start(href='https://redrockcode.com' target='_blank' rel='noopener') Visit Red Rock Code →
+            //- Wellness + Artwork
+            .col-lg-4
+              .sm-panel.h-100.p-4.d-flex.flex-column
+                h4.fw-bold.mb-1
+                  i.bi.bi-palette-fill.me-2(style='color:var(--sm-green)')
+                  | Life Science Balance
+                p.sm-tag.fw-semibold.mb-2(style='color:var(--sm-green)') Artwork · Healing · Wellness
+                p.text-muted.small Built on our custom #[strong Quizzap] framework — evolved from an auto-grading quiz app into a full Student Information System, backed by 13 years supporting colleges and universities across the U.S., Canada, Hong Kong, and the West Indies.
+                p.text-muted.small A free three-part holistic-health certification, #[strong NCLEX-RN Test Prep 2026], and a growing #[strong Graphic Arts] course — because creating art, like writing, is fundamental to healing and balance. Includes the #[strong Health Bridge] (iOS Health, Android soon) and analysis with our partner Balanced Mind Wellness (BMW).
+                a.btn.btn-outline-success.fw-semibold.rounded-pill.px-4.mt-auto.align-self-start(href='https://lifesciencebalance.co' target='_blank' rel='noopener') Visit Life Science Balance →
+            //- Writing
+            .col-lg-4
+              .sm-panel.h-100.p-4.d-flex.flex-column
+                h4.fw-bold.mb-1
+                  i.bi.bi-pen-fill.me-2(style='color:var(--sm-purple)')
+                  | Writers Guild
+                p.sm-tag.fw-semibold.mb-2(style='color:var(--sm-purple)') Writing · Publishing · Collaborating
+                p.text-muted.small A hub where writers collaborate, publish, sell, and keep editing — multiple editions and formats. Every author gets their own site, brand, even domain, with modular courseware and e-commerce by default.
+                p.text-muted.small New editions of classics reviewed side-by-side with annotations; original works; and an open door to AI co-authorship for spin-offs and "forks." Home of the #[strong Silver-Age Renaissance Series (SARS)].
+                ul.list-unstyled.small.text-muted.mb-3
                   li
-                    i.bi.bi-check-circle-fill.text-primary.me-2
-                    strong Silver Medal Online
-                    span.text-muted  — 3D virtual-life adventure game
-            .col-md-6
-              .sm-panel.h-100.p-4
-                h4.fw-bold.mb-3
-                  i.bi.bi-grid-fill.me-2(style='color:var(--sm-purple)')
-                  | Specialized Platforms
-                ul.list-unstyled.mb-0
-                  li.mb-2
-                    i.bi.bi-check-circle-fill.me-2(style='color:var(--sm-purple)')
-                    strong Writers Guild
-                    span.text-muted  — Platform for writers to create, share, and publish
-                  li.mb-2
-                    i.bi.bi-check-circle-fill.me-2(style='color:var(--sm-green)')
-                    strong Life Science Balance
-                    span.text-muted  — Wellness education and bioenergetic tools
+                    i.bi.bi-journal-bookmark.me-1(style='color:var(--sm-purple)')
+                    | Morals &amp; Dogma — Acacia Concordance #[span.text-secondary (33 modules)]
                   li
-                    i.bi.bi-check-circle-fill.me-2(style='color:#0d9488')
-                    strong Quizzap!
-                    span.text-muted  — Interactive learning &amp; assessment tools (coming soon)
+                    i.bi.bi-journal-bookmark.me-1(style='color:var(--sm-purple)')
+                    | The 144,000 · THE WORD #[span.text-secondary (45 modules)]
+                a.btn.btn-outline-primary.fw-semibold.rounded-pill.px-4.mt-auto.align-self-start(href='https://writersguild.online' target='_blank' rel='noopener') Visit Writers Guild →
 
         //- Our Values
         .mb-5
@@ -189,17 +194,25 @@ html(lang='en')
             p.text-muted.mb-2 Hands-on, community-driven programs across coding, writing, and health &amp; wellness.
             .section-rule.mx-auto
           .row.g-3.mb-4
-            .col-12
-              a.program-card(href='/assets/SilverMedal-ServiceLearningPhotoJournal.pdf' target='_blank' rel='noopener')
-                .sm-panel.p-3.d-flex.align-items-center.gap-3
+            .col-md-6
+              a.program-card(href='/assets/SilverMedal-ServiceLearningPhotoJournalShared.pdf' target='_blank' rel='noopener')
+                .sm-panel.p-3.d-flex.align-items-center.gap-3.h-100
                   span.fs-1.flex-shrink-0 📔
                   div
                     h5.mb-1.fw-bold Service Learning Photo Journal
                     p.mb-1.text-muted.small A visual journal of our students and community in action.
                     span.badge.bg-danger PDF
+            .col-md-6
+              a.program-card(href='/assets/presentations/SilverMedal_Overview_v2026.pptx' target='_blank' rel='noopener')
+                .sm-panel.p-3.d-flex.align-items-center.gap-3.h-100
+                  span.fs-1.flex-shrink-0 🥈
+                  div
+                    h5.mb-1.fw-bold Silver Medal Overview
+                    p.mb-1.text-muted.small The consolidated presentation — all three worlds, one ecosystem.
+                    span.badge.bg-primary PPTX
           .row.g-4
             .col-md-4
-              a.program-card(href='/assets/files/SilverMedal_1_Coding_updated.pptx' target='_blank' rel='noopener')
+              a.program-card(href='/assets/presentations/SilverMedal_Coding_v2026.pptx' target='_blank' rel='noopener')
                 .sm-panel.h-100
                   img.w-100(src='/assets/images/redrock/redrock_animated_00001.gif' alt='Coding program' style='height:140px;object-fit:cover;border-radius:14px 14px 0 0;display:block')
                   .p-3
@@ -207,21 +220,53 @@ html(lang='en')
                     p.text-muted.small.mb-1 Red Rock Code program overview.
                     span.badge.bg-primary PPTX
             .col-md-4
-              a.program-card(href='/assets/files/SilverMedal_2_Writing.pptx' target='_blank' rel='noopener')
+              a.program-card(href='/assets/presentations/SilverMedal_Writing_v2026.pptx' target='_blank' rel='noopener')
                 .sm-panel.h-100
-                  img.w-100(src='/assets/images/writersGuild/writers_guild_firefly_set1.png' alt='Writing program' style='height:140px;object-fit:contain;background:#e7f1ff;border-radius:14px 14px 0 0;display:block')
+                  img.w-100(src='/assets/images/extra/writers_guild_firefly_set2.png' alt='Writing program' style='height:140px;object-fit:contain;background:#e7f1ff;border-radius:14px 14px 0 0;display:block')
                   .p-3
                     h5.fw-bold.mb-1 Writing
                     p.text-muted.small.mb-1 Writers Guild program overview.
                     span.badge.bg-info.text-dark PPTX
             .col-md-4
-              a.program-card(href='/assets/files/SilverMedal_3_Healthcare.pptx' target='_blank' rel='noopener')
+              a.program-card(href='/assets/presentations/SilverMedal_Healthcare_v2026.pptx' target='_blank' rel='noopener')
                 .sm-panel.h-100
-                  img.w-100(src='/assets/images/lsb/lsb_vibrant_balance_0.png' alt='Health and wellness program' style='height:140px;object-fit:contain;background:#fff;border-radius:14px 14px 0 0;display:block')
+                  img.w-100(src='/images/lsb/lsb_tight_14.png' alt='Health and wellness program' style='height:140px;object-fit:contain;background:#fff;border-radius:14px 14px 0 0;display:block')
                   .p-3
                     h5.fw-bold.mb-1 Health &amp; Wellness
                     p.text-muted.small.mb-1 Life Science Balance program overview.
                     span.badge.bg-success PPTX
+
+        //- On the Horizon
+        .mb-5
+          .text-center.mb-4
+            h2.fw-bold.text-dark.mb-2 On the Horizon
+            p.text-muted.mb-2 New sites splitting out from Writers Guild, plus the shared kernel that powers them all.
+            .section-rule.mx-auto
+          .row.g-4
+            .col-md-4
+              .sm-panel.h-100.p-4
+                .d-flex.align-items-center.gap-2.mb-2
+                  i.bi.bi-shield-shaded.fs-4(style='color:#1d4ed8')
+                  h5.fw-bold.mb-0 HeroBlue
+                span.badge.rounded-pill.mb-2(style='background:#1d4ed8') heroblue.org
+                p.text-muted.small.mb-2 Jurisprudence &amp; Advocacy — Legal Studies. Bar exam &amp; housing-law practice, with a focus on helping people, education, and victims' rights.
+                p.text-secondary.small.mb-0 Legal Studies · 5 modules #[span.text-muted — coming soon]
+            .col-md-4
+              .sm-panel.h-100.p-4
+                .d-flex.align-items-center.gap-2.mb-2
+                  i.bi.bi-graph-up-arrow.fs-4(style='color:#0d9488')
+                  h5.fw-bold.mb-0 Coinbase Camp
+                span.badge.rounded-pill.mb-2(style='background:#0d9488') coinbasecamp.org
+                p.text-muted.small.mb-2 Securities Licensing — FINRA/NASAA exam prep for industry standards: SIE, Series 7, 63, 65, and 66.
+                p.text-secondary.small.mb-0 Finance · 5 modules + forthcoming #[strong traderApp]
+            .col-md-4
+              .sm-panel.h-100.p-4
+                .d-flex.align-items-center.gap-2.mb-2
+                  i.bi.bi-lightning-charge-fill.fs-4(style='color:var(--sm-purple)')
+                  h5.fw-bold.mb-0 Quizzap
+                span.badge.rounded-pill.mb-2(style='background:var(--sm-purple)') quizzap.org
+                p.text-muted.small.mb-2 The shared kernel behind every Silver Medal course and quiz — auto-grading, student tracking, and modular courseware.
+                p.text-secondary.small.mb-0 Eventually its own site for licensing &amp; open-source.
 
         //- Contact / CTA row
         .row.g-4

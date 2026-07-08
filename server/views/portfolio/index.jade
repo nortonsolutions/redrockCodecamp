@@ -8,9 +8,70 @@ block content
           h1.display-4 
             i.fa.fa-code
             |  Norton Solutions Portfolio
-          p.lead FreeCodeCamp Projects - #{totalProjects} Complete Implementations
+          p.lead Complete, browsable implementations — from FreeCodeCamp builds to the full Red Rock Code signature curriculum.
           hr
-        
+
+        // ===== Signature Curriculum (Red Rock Code originals) =====
+        .signature-section.mb-5
+          .signature-hero.text-center
+            span.signature-badge ⭐ Signature Curriculum
+            h2.mt-3.mb-2 The Red Rock Code Workbench
+            p.signature-lede
+              | What makes Red Rock Code unique: teaching #[strong standard ES6/PWA/SPA module programming] from the
+              | ground up — MVC and OOP principles throughout, #[code &lt;script type="module"&gt;] and clean browser APIs.
+              | No framework mess. Write the code once; ship it to web, iOS, and Android as a PWA.
+              | A bet we made in 2017 — and the right one.
+            a.btn.btn-signature.btn-lg.mt-2(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/' target='_blank' rel='noopener')
+              i.fa.fa-folder-open.mr-2
+              |  Browse All Workbench Implementations →
+          .row.mt-4
+            .col-md-4.mb-3
+              .signature-card
+                h5
+                  i.fa.fa-heartbeat.text-danger.mr-1
+                  |  ES6 Project Series
+                p.small.text-muted Every step, fully implemented — some with multiple variants.
+                ul.signature-list
+                  li Virtual Life — every step of the animated life simulation
+                  li User Management Page — every step, MVC from scratch
+                  li
+                    | Bluesky — complete real-estate SPA
+                    a.ml-1(href='https://redrockbluesky.org' target='_blank' rel='noopener') (live demo)
+            .col-md-4.mb-3
+              .signature-card
+                h5
+                  i.fa.fa-paint-brush.text-info.mr-1
+                  |  Responsive Web Design
+                p.small.text-muted Terms 1 &amp; 2 — heavy on HTML and CSS. Still vital to know and love, as relevant now as ever.
+                ul.signature-list
+                  li Epilogue
+                  li Industrious
+                  li Visualize
+                  li Interphase
+            .col-md-4.mb-3
+              .signature-card
+                h5
+                  i.fa.fa-graduation-cap.text-success.mr-1
+                  |  Classic Capstones
+                p.small.text-muted Solutions to respected outside curricula, integrated into the camp.
+                ul.signature-list
+                  li Platform Game — Eloquent JavaScript
+                  li Personality Quiz — Stanford CS 193X
+                  li Quizzap Quiz Timer — our original React build
+          .signature-footer.text-center.mt-3
+            p.mb-2
+              | Certifications are issued for every completed term of the Code Camp (courses 1000–3090) —
+              a.ml-1(href='https://redrockcode.com/en/9fab1f75' target='_blank' rel='noopener') see Dave's public profile with the full code portfolio and certifications
+              | .
+            p.small.text-muted.mb-0
+              | In the works: CS 106A + 108 materials and a “Robotics” extension of Programming Methodologies
+              | (think Karel meets Arduino / Raspberry Pi with physical moving parts) — with accreditation
+              | being pursued in the state of Utah.
+
+        .fcc-divider.text-center.mb-4
+          h3.mb-1 FreeCodeCamp Track
+          p.text-muted #{totalProjects} complete implementations — APIs, security, and React
+
         .projects-overview
           .row
             each category in projects
@@ -80,6 +141,79 @@ block content
       position: relative;
       z-index: 1;
     }
+    /* ---- Signature Curriculum section ---- */
+    .signature-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem 2rem;
+      color: #e2e8f0;
+      box-shadow: 0 12px 48px rgba(15, 23, 42, 0.35);
+    }
+    .signature-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      font-weight: 600;
+      font-size: .85rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .4rem 1.1rem;
+      border-radius: 999px;
+    }
+    .signature-hero h2 { color: #fff; font-weight: 600; }
+    .signature-lede {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    .signature-lede code { color: #7dd3fc; background: rgba(125,211,252,.1); padding: .1em .35em; border-radius: 6px; }
+    .btn-signature {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff !important;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      padding: .85rem 1.75rem;
+      text-decoration: none !important;
+    }
+    .btn-signature:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+      color: #fff;
+    }
+    .signature-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 1.5rem;
+      height: 100%;
+    }
+    .signature-card h5 { color: #fff; font-weight: 600; margin-bottom: .5rem; }
+    .signature-card .text-muted { color: #94a3b8 !important; }
+    .signature-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .signature-list li {
+      padding: .35rem 0 .35rem 1.4rem;
+      position: relative;
+      color: #e2e8f0;
+      font-size: .92rem;
+    }
+    .signature-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #34d399;
+      font-weight: 700;
+    }
+    .signature-list a, .signature-footer a { color: #7dd3fc; text-decoration: none; }
+    .signature-list a:hover, .signature-footer a:hover { color: #bae6fd; text-decoration: underline; }
+    .signature-footer { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; color: #cbd5e1; }
+    .signature-footer .text-muted { color: #94a3b8 !important; }
+    .fcc-divider h3 { font-weight: 600; color: #1e293b; }
     .display-4 {
       font-weight: 300;
       letter-spacing: -0.02em;
