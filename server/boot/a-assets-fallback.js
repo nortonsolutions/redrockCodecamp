@@ -60,15 +60,24 @@ export default function assetsFallback(app) {
       return next();
     }
 
+    // Terminal 404 for asset misses: if neither the primary static root nor
+    // this fallback has the file, do NOT continue down the chain —
+    // z-lang-redirect's app.all('*') would rewrite /assets/foo.zip to
+    // /en/assets/foo.zip, producing a confusing redirect loop instead of an
+    // honest "file not found". Assets are files; they never need lang prefixes.
+    function terminal404() {
+      res.status(404).type('txt').send('Not found: ' + req.path);
+    }
+
     // Browsable directory index for the solution source trees. If the target
     // is a real file (or not a solutions path), this falls through to `serve`.
     if (req.path === SOLUTIONS_PREFIX || req.path.startsWith(SOLUTIONS_PREFIX + '/')) {
       return solutionsIndex(req, res, function listingFallthrough() {
-        return serve(req, res, next);
+        return serve(req, res, terminal404);
       });
     }
 
-    return serve(req, res, next);
+    return serve(req, res, terminal404);
   });
 }
 

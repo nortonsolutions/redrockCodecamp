@@ -338,8 +338,10 @@ def build_healthcare():
         GREEN, image=ei("mandala_luminescent_0.png"))
     content_slide(prs, "A HOLISTIC MODEL", "Whole-Person Health", [
         ("Three-part holistic health certification", "free"),
+        ("Grounded in authoritative nutritional science", "covering the most commonly-used supplements — the ones on the shelves at Costco, Sam's Club, Smith's, and Safeway"),
+        "Built on Consumer Reports' peer-reviewed, open-source documents — double-blind evidence with strong references",
         "High-class services and shops, in conjunction with partners",
-        ("NCLEX-RN Test Prep 2026", "for aspiring nurses"),
+        ("NCLEX-RN Test Prep 2026", "with industry updates"),
     ], GREEN, image=li("lsb_tight_14.png"))
     content_slide(prs, "ART AS MEDICINE", "Creativity & Healing", [
         ("A growing Graphic Arts course", "new for 2026"),
@@ -349,18 +351,30 @@ def build_healthcare():
     content_slide(prs, "BUILT ON QUIZZAP", "From Quiz App to Full SIS", [
         "Evolved from an auto-grading quiz app with student tracking…",
         "…into a fully-fledged Student Information System (SIS)",
+        ("Modules can be anything", "PDF readers, quizzes with auto-grading, a clean admin interface — even miniature embedded ES6/SPA/PWA applications"),
+        ("Course + e-commerce + modular system", "curricula seed in minutes; new courses roll out the same way"),
         ("13 years", "supporting colleges & universities across the U.S., Canada, Hong Kong, and the West Indies"),
     ], GREEN, image=si("quizzap_gold_medal.png"))
     content_slide(prs, "THE HEALTH BRIDGE", "Your Data, Connected", [
-        ("Interface to iOS Health", "Android features soon"),
-        "Steps & energy, oxygen concentration, heart-rate variability, and more",
+        ("Cross-platform health service", "iOS Health today; Android and specialty usages forthcoming"),
+        ("Live snapshot of what matters", "heart-rate variability, resting heart rate, SpO\u2082, steps, sleep, mindful minutes, respiratory rate, and calories"),
+        "Two-way by design — log mindful minutes and write back most metrics, not just read them",
+        "A dashboard widget puts the whole picture on one screen",
         "Configured to share all health data, enabling full interaction",
     ], GREEN, image=ei("lsb_runner_00001.gif"))
-    content_slide(prs, "PARTNERSHIP", "Balanced Mind Wellness (BMW)", [
+    content_slide(prs, "PARTNERSHIPS", "Balanced Mind Wellness & True DNA Story", [
+        ("Balanced Mind Wellness (BMW)", "bioenergetic, holistic, and additional services — natural wellness products handcrafted with love"),
         "Analyze and interpret BMW reports using bio-energetics and more",
+        ("True DNA Story", "genetic paneling"),
+        "Special partner bundles at a discount — services and products together",
         "Help clients devise — and stick to — specific habits and routines",
-        ("The path to lasting wellness", "one good habit at a time"),
     ], GREEN, image=ei("BMW-brain.png"))
+    content_slide(prs, "THE LSB APP", "Coming to the App Store", [
+        ("Everything above, in one app", "certification training, NCLEX prep, Health Bridge, and partner offers"),
+        "The seeded Holistic Health curriculum ships ready on day one",
+        ("Health Bridge with iOS integration", "Android and specialty usages forthcoming"),
+        "Partner discounts built in — BMW and True DNA Story bundles",
+    ], GREEN, image=li("lsb_tight_5.gif"))
     closing_slide(prs, "Mind. Body. Energy.", "lifesciencebalance.co", GREEN)
     save(prs, "SilverMedal_Healthcare_v2026.pptx")
 

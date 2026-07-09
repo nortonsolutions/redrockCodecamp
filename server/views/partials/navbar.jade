@@ -9,7 +9,9 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
                 a.navbar-brand(href='/')
                     img(src=(branding && branding.logoPath) || '/images/logos/logo-landscape.png', class="nav-logo", alt=(branding && branding.businessAppName) ? branding.businessAppName + " Logo" : "Logo")
                 a.navbar-brand(href='/challenges/current-challenge')
-                    p.brand-text(style=`font-family: ${(branding && branding.brandFont) || "'Bungee Spice', cursive"}`) #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
+                    //- NOTE: no template literals in attributes — jade 1.11's `with`/acorn
+                    //- transform is pre-ES6; a backtick 500s every page extending layout.jade.
+                    p.brand-text(style='font-family: ' + ((branding && branding.brandFont) || "'Bungee Spice', cursive")) #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
             .collapse.navbar-collapse
                 ul.nav.navbar-nav.navbar-right.hamburger-dropdown
                     li
@@ -25,4 +27,5 @@ nav.navbar.navbar-default.navbar-static-top.nav-height
                 a.navbar-brand(href='/')
                     img(src=(branding && branding.logoPath) || '/images/logos/logo-landscape.png', class="nav-logo", alt=(branding && branding.businessAppName) ? branding.businessAppName + " Logo" : "Logo")
                 a.navbar-brand(href='/challenges/current-challenge')
-                    p.brand-text(style=`font-family: ${(branding && branding.brandFont) || "'Bungee Spice', cursive"}`) #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}
+                    //- Same as above: string concatenation only (no backticks).
+                    p.brand-text(style='font-family: ' + ((branding && branding.brandFont) || "'Bungee Spice', cursive")) #{(branding && branding.businessAppName) || 'RedRock CodeCamp'}

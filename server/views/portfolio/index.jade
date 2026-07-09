@@ -12,6 +12,18 @@ block content
           hr
 
         // ===== Signature Curriculum (Red Rock Code originals) =====
+        //- Link conventions: ▶ demos open in a new tab (active content);
+        //- 📋 requirements, 💻 browsable code, ⬇ zips stay in the same tab.
+        //- NOTE (jade 1.11): keep each `- var` on ONE line — the compiler
+        //- injects debug statements between separate `- ` lines, which breaks
+        //- multi-line array literals and 500s the page.
+        - var wb = '/educationMaterials/workbenchProjects'
+        //- Virtual Life: 10 steps, each pairing challenge requirements with browsable code.
+        - var vlSteps = [{ n: 1, name: 'App', req: '/challenges/beginning-javascript-projects/virtual-life-app', code: wb + '/phase-i/virtual-life-01-app' }, { n: 2, name: 'World Builder', req: '/challenges/beginning-javascript-projects/virtual-life-app-with-world-item', code: wb + '/phase-i/virtual-life-02-world-builder' }, { n: 3, name: 'Plan Builder', req: '/challenges/beginning-javascript-projects/virtual-life-app-with-plan-builder', code: wb + '/phase-i/virtual-life-03-plan-builder' }, { n: 4, name: 'ES6 Modules', req: '/challenges/advanced-javascript-projects/virtual-life-app-with-es6-modules', code: wb + '/phase-i/virtual-life-04-es6-modules' }, { n: 5, name: 'Inheritance', req: '/challenges/advanced-javascript-projects/virtual-life-app-with-inheritance', code: wb + '/phase-i/virtual-life-05-inheritance' }, { n: 6, name: 'Carnivore', req: '/challenges/advanced-javascript-projects/virtual-life-app-with-carnivore', code: wb + '/phase-i/virtual-life-06-carnivore' }, { n: 7, name: 'Animation', req: '/challenges/advanced-javascript-projects/virtual-life-app-with-animation', code: wb + '/phase-i/virtual-life-07-animate-text' }, { n: 8, name: 'Animation & Styling', req: '/challenges/advanced-javascript-projects/virtual-life-app-with-animation-and-styling', code: wb + '/phase-i/virtual-life-08-animate-icons' }, { n: 9, name: 'Health', req: '/challenges/beginning-web-development-projects/virtual-life-app-with-health', code: wb + '/phase-i/virtual-life-09-health' }, { n: 10, name: 'Statistics', req: '/challenges/beginning-web-development-projects/virtual-life-app-with-statistics', code: wb + '/phase-i/virtual-life-10-statistics' }]
+        //- User Management: 5 steps from plain page to a bookmarkable SPA router.
+        - var umSteps = [{ n: 1, name: 'Page', req: '/challenges/web-development-projects-mvc/user-management-page', code: wb + '/phase-ii/user-management-01-page/' }, { n: 2, name: 'MVC', req: '/challenges/web-development-projects-mvc/user-management-page-with-mvc', code: wb + '/phase-ii/user-management-02-mvc/' }, { n: 3, name: 'Templates', req: '/challenges/advanced-web-development-projects/user-management-page-with-templates', code: wb + '/phase-ii/user-management-03-templates/' }, { n: 4, name: 'Router', req: '/challenges/advanced-web-development-projects/user-management-page-with-router', code: wb + '/phase-ii/user-management-04-router/' }, { n: 5, name: 'Bookmarkable', req: '/challenges/advanced-web-development-projects/user-management-page-with-bookmarkable', code: wb + '/phase-ii/user-management-05-bookmarkable/' }]
+        //- Responsive Web Design: one req + two demos + code + zip each.
+        - var rwd = [{ name: 'Epilogue', req: '/challenges/advanced-html-and-css-projects/epilogue-webpage', demo: wb + '/review/epilogue-webpage-0dc11c40e6c707cc22dfdfda/index.html', alt: wb + '/review/epilogue-webpage-0dc11c40e6c707cc22dfdfda/alternate/index.html', code: wb + '/phase-i/epilogue-webpage', zip: '/assets/solutions/norton_epilogue.zip' }, { name: 'Industrious', req: '/challenges/advanced-html-and-css-projects/industrious-webpage', demo: wb + '/review/industrious-webpage-73152260e6c94587960b4543/index.html', alt: wb + '/review/industrious-webpage-73152260e6c94587960b4543/alternate/index.html', code: wb + '/phase-i/industrious-webpage', zip: '/assets/solutions/norton_industrious.zip' }, { name: 'Visualize', req: '/challenges/advanced-html-and-css-projects/visualize-webpage', demo: wb + '/review/visualize-webpage-bb00c7e0e6c03d2f8e741a91/index.html', alt: wb + '/review/visualize-webpage-bb00c7e0e6c03d2f8e741a91/alternate/index.html', code: wb + '/phase-i/visualize-webpage', zip: '/assets/solutions/norton_visualize.zip' }, { name: 'Interphase', req: '/challenges/advanced-html-and-css-projects/interphase-webpage', demo: wb + '/review/interphase-webpage-8cba2650e6bc156bcc2d1c77/index.html', alt: wb + '/review/interphase-webpage-8cba2650e6bc156bcc2d1c77/alternate/index.html', code: wb + '/phase-i/interphase-webpage/', zip: '/assets/solutions/norton_interphase.zip' }]
         .signature-section.mb-5
           .signature-hero.text-center
             span.signature-badge ⭐ Signature Curriculum
@@ -21,315 +33,286 @@ block content
               | ground up — MVC and OOP principles throughout, #[code &lt;script type="module"&gt;] and clean browser APIs.
               | No framework mess. Write the code once; ship it to web, iOS, and Android as a PWA.
               | A bet we made in 2017 — and the right one.
-            a.btn.btn-signature.btn-lg.mt-2(href='https://redrockcode.com/educationMaterials/workbenchProjects/review/' target='_blank' rel='noopener')
+            a.btn-signature(href=wb + '/review/')
               i.fa.fa-folder-open.mr-2
               |  Browse All Workbench Implementations →
           .row.mt-4
-            .col-md-4.mb-3
+            .col-lg-4.mb-3
               .signature-card
                 h5
-                  i.fa.fa-heartbeat.text-danger.mr-1
+                  i.fa.fa-heartbeat.mr-1
                   |  ES6 Project Series
-                p.small.text-muted Every step, fully implemented — some with multiple variants.
-                ul.signature-list
-                  li Virtual Life — every step of the animated life simulation
-                  li User Management Page — every step, MVC from scratch
-                  li
-                    | Bluesky — complete real-estate SPA
-                    a.ml-1(href='https://redrockbluesky.org' target='_blank' rel='noopener') (live demo)
-            .col-md-4.mb-3
+                p.card-sub Progressive web apps, one stage at a time — real ES6 modules, every step fully implemented (some with multiple variants).
+                .proj
+                  h6 Virtual Life
+                  .chip-row
+                    a.chip.chip-demo(href=wb + '/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/index.html' target='_blank' rel='noopener') ▶ Demo
+                    a.chip.chip-demo(href=wb + '/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/alternate/index.html' target='_blank' rel='noopener') ▶ Alt 1
+                    a.chip.chip-demo(href=wb + '/review/virtual-life-10-statistics-78be6000180b2b11ae74deba/alternate2/index.html' target='_blank' rel='noopener') ▶ Alt 2
+                    a.chip(href='/assets/solutions/norton_virtuallife.zip') ⬇ Zip
+                  details.steps
+                    summary Steps 1–10 — requirements &amp; code (1–3 beginner, 4–10 advanced)
+                    each s in vlSteps
+                      .step-row
+                        span.step-num= s.n
+                        span.step-name= s.name
+                        a(href=s.req) 📋 Req
+                        a(href=s.code) 💻 Code
+                .proj
+                  h6 User Management Page
+                  p.proj-blurb Why these five steps? Each one refactors the same page toward a #[strong custom ES6 framework] — from a plain page, to MVC separation, to templates, a router, and finally bookmarkable SPA state. It is the bridge between "a web page" and "an application architecture."
+                  .chip-row
+                    a.chip.chip-demo(href=wb + '/review/user-management-05-bookmarkable-a6171b60fcc191344e40b886/alternate/index.html' target='_blank' rel='noopener') ▶ Demo
+                    a.chip.chip-demo(href=wb + '/review/user-management-05-bookmarkable-a6171b60fcc191344e40b886/alternate2/main.html' target='_blank' rel='noopener') ▶ Alt
+                    a.chip(href='/assets/solutions/norton_usermanagement.zip') ⬇ Zip
+                  details.steps
+                    summary Steps 1–5 — requirements &amp; code
+                    each s in umSteps
+                      .step-row
+                        span.step-num= s.n
+                        span.step-name= s.name
+                        a(href=s.req) 📋 Req
+                        a(href=s.code) 💻 Code
+                .proj
+                  h6 Bluesky
+                  .chip-row
+                    a.chip.chip-demo(href=wb + '/review/bluesky-website-36a8b4d0fda447acb4971b9d/index.html' target='_blank' rel='noopener') ▶ Demo
+                    a.chip.chip-live(href='https://redrockbluesky.org' target='_blank' rel='noopener') ▶ Live
+                    a.chip(href='/challenges/advanced-web-development-projects/bluesky-website') 📋 Req
+                    a.chip(href=wb + '/phase-ii/bluesky-01-website/') 💻 Code
+                    a.chip(href='/assets/solutions/norton_bluesky.zip') ⬇ Zip
+            .col-lg-4.mb-3
               .signature-card
                 h5
-                  i.fa.fa-paint-brush.text-info.mr-1
+                  i.fa.fa-paint-brush.mr-1
                   |  Responsive Web Design
-                p.small.text-muted Terms 1 &amp; 2 — heavy on HTML and CSS. Still vital to know and love, as relevant now as ever.
-                ul.signature-list
-                  li Epilogue
-                  li Industrious
-                  li Visualize
-                  li Interphase
-            .col-md-4.mb-3
+                p.card-sub Terms 1 &amp; 2 — heavy on HTML and CSS. Still vital to know and love, as relevant now as ever.
+                each p in rwd
+                  .proj
+                    h6= p.name
+                    .chip-row
+                      a.chip.chip-demo(href=p.demo target='_blank' rel='noopener') ▶ Demo
+                      a.chip.chip-demo(href=p.alt target='_blank' rel='noopener') ▶ Alt
+                      a.chip(href=p.req) 📋 Req
+                      a.chip(href=p.code) 💻 Code
+                      a.chip(href=p.zip) ⬇ Zip
+            .col-lg-4.mb-3
               .signature-card
                 h5
-                  i.fa.fa-graduation-cap.text-success.mr-1
+                  i.fa.fa-graduation-cap.mr-1
                   |  Classic Capstones
-                p.small.text-muted Solutions to respected outside curricula, integrated into the camp.
-                ul.signature-list
-                  li Platform Game — Eloquent JavaScript
-                  li Personality Quiz — Stanford CS 193X
-                  li Quizzap Quiz Timer — our original React build
+                p.card-sub Respected outside curricula — Eloquent JavaScript, Stanford CS 193X, and our original React Quizzap Timer.
+                .proj
+                  h6 Platform Game
+                  .chip-row
+                    a.chip.chip-demo(href=wb + '/review/platform-game-944f50007f39cd2cbb556666/platform-game.html' target='_blank' rel='noopener') ▶ Demo
+                    a.chip(href=wb + '/phase-ii/darkblue-platform-game/requirements/platform-game-requirements.html') 📋 Req
+                    a.chip(href=wb + '/phase-ii/darkblue-platform-game/') 💻 Code
+                    a.chip(href='/assets/solutions/eloquentJavascript/norton_haverbeke_workspace.zip') ⬇ Zip
+                .proj
+                  h6 Personality Quiz
+                  .chip-row
+                    a.chip.chip-demo(href=wb + '/review/personality-quiz-8fff32a07e2febe496bbe9df/index.html' target='_blank' rel='noopener') ▶ Demo
+                    a.chip(href=wb + '/phase-ii/personality-quiz/requirements/personality-quiz-requirements.html') 📋 Req
+                    a.chip(href=wb + '/phase-ii/personality-quiz/') 💻 Code
+
+          //- Browse-the-source strip + profile/certs
           .signature-footer.text-center.mt-3
+            .chip-row.justify-center.mb-3
+              a.chip.chip-ghost(href='/assets/solutions/CS106A/') 📂 CS 106A source
+              a.chip.chip-ghost(href='/assets/solutions/CS108/') 📂 CS 108 source
+              a.chip.chip-ghost(href='/assets/solutions/') 📂 All solutions
+              a.chip.chip-ghost(href='/assets/solutions/norton_codecamp_solutions.zip') ⬇ Codecamp Solutions (all)
+              a.chip.chip-ghost(href='/assets/solutions/ProgrammingMethodologyAllMaterials.zip') ⬇ Prog. Methodology (all)
+              a.chip.chip-ghost(href='/courses') 🎓 Course Resources
+              a.chip.chip-ghost(href='/en/9fab1f75') 🏅 Student Certifications
             p.mb-2
-              | Certifications are issued for every completed term of the Code Camp (courses 1000–3090) —
-              a.ml-1(href='https://redrockcode.com/en/9fab1f75' target='_blank' rel='noopener') see Dave's public profile with the full code portfolio and certifications
-              | .
-            p.small.text-muted.mb-0
+              | Certifications are issued for every completed term of the Code Camp (courses 1000–3090).
+            p.small.foot-note.mb-0
               | In the works: CS 106A + 108 materials and a “Robotics” extension of Programming Methodologies
               | (think Karel meets Arduino / Raspberry Pi with physical moving parts) — with accreditation
               | being pursued in the state of Utah.
 
+        // ===== Server-side track (FreeCodeCamp-based) =====
+        - var apiBase = wb + '/phase-iii/nortonSolutions/solutions_APIsMicroservicesProjects'
+        - var apiSteps = [{ n: 1, name: 'Timestamp', req: '/challenges/api-and-microservice-projects/timestamp-microservice', code: apiBase + '/serverSideProject1_timestamp' }, { n: 2, name: 'Header Parser', req: '/challenges/api-and-microservice-projects/request-header-parser-microservice', code: apiBase + '/serverSideProject2_headerParser' }, { n: 3, name: 'URL Shortener', req: '/challenges/api-and-microservice-projects/url-shortener-microservice', code: apiBase + '/serverSideProject3_urlshortener' }, { n: 4, name: 'Exercise Tracker', req: '/challenges/api-and-microservice-projects/exercise-tracker', code: apiBase + '/serverSideProject4_exercisetracker' }, { n: 5, name: 'File Metadata', req: '/challenges/api-and-microservice-projects/file-metadata-microservice', code: apiBase + '/serverSideProject5_filemetadata' }]
+        - var reactBase = wb + '/phase-iii/nortonSolutions/solutions_reactFrontendProjects'
+        - var reactSteps = [{ n: 0, name: 'First React-Redux App', req: null, code: reactBase + '/reactFrontend0' }, { n: 1, name: 'Random Quote Machine', req: '/challenges/front-end-frameworks-projects/build-a-random-quote-machine', code: reactBase + '/reactFrontend1' }, { n: 2, name: 'Markdown Previewer', req: '/challenges/front-end-frameworks-projects/build-a-markdown-previewer', code: reactBase + '/reactFrontend2' }, { n: 3, name: 'Drum Machine', req: '/challenges/front-end-frameworks-projects/build-a-drum-machine', code: reactBase + '/reactFrontend3' }, { n: 4, name: 'JavaScript Calculator', req: '/challenges/front-end-frameworks-projects/build-a-javascript-calculator', code: reactBase + '/reactFrontend4' }, { n: 5, name: 'Pomodoro Clock', req: '/challenges/front-end-frameworks-projects/build-a-pomodoro-clock', code: reactBase + '/reactFrontend5' }]
         .fcc-divider.text-center.mb-4
-          h3.mb-1 FreeCodeCamp Track
-          p.text-muted #{totalProjects} complete implementations — APIs, security, and React
-
+          h3.mb-1 A Few Server-Side Projects
+          p.text-muted based on the FreeCodeCamp curriculum — #{totalProjects} complete implementations
         .projects-overview
           .row
             each category in projects
-              .col-md-4.mb-4
-                .card.portfolio-card
-                  .card-header.text-center
-                    h2 #{category.icon} #{category.name}
-                  .card-body
-                    p.card-text= category.description
-                    .project-list
-                      each project in category.projects
-                        .project-item.mb-2
-                          a.btn.btn-sm.btn-outline-primary.project-link(href=project.path) #{project.name}
-                          small.text-muted.d-block= project.description
+              .col-md-6.col-lg-4.mb-4
+                .signature-card
+                  h5 #{category.icon} #{category.name}
+                  p.card-sub= category.description
+                  .chip-row
+                    each project in category.projects
+                      a.chip.chip-demo(href=project.path target='_blank' rel='noopener') ▶ #{project.name}
                     if category.id === 'apis'
-                      .mt-3
-                        a.btn.btn-info.btn-sm(href='/portfolio/apis/test') 
-                          i.fa.fa-flask
-                          |  API Testing Interface
-                  .card-footer.text-center
-                    a.btn.btn-primary(href=category.path) 
-                      | View All #{category.name}
-                      i.fa.fa-arrow-right.ml-2
-        
-        .portfolio-features.mt-5
-          .row
-            .col-md-4
-              .feature-box.text-center
-                i.fa.fa-server.fa-3x.text-primary
-                h4 Backend APIs
-                p Full Express.js microservices with MongoDB integration
-            .col-md-4
-              .feature-box.text-center
-                i.fa.fa-shield.fa-3x.text-success
-                h4 Security & Testing
-                p Advanced authentication, bcrypt, and comprehensive testing
-            .col-md-4
-              .feature-box.text-center
-                i.fa.fa-react.fa-3x.text-info
-                h4 React Frontend
-                p Interactive applications with state management and hooks
+                      a.chip.chip-ghost(href='/portfolio/apis/test') 🧪 API Testing
+                  if category.id === 'apis'
+                    details.steps
+                      summary Requirements &amp; browsable code (5 microservices)
+                      each s in apiSteps
+                        .step-row
+                          span.step-num= s.n
+                          span.step-name= s.name
+                          a(href=s.req) 📋 Req
+                          a(href=s.code) 💻 Code
+                  if category.id === 'react'
+                    details.steps
+                      summary Requirements &amp; browsable code (6 apps)
+                      each s in reactSteps
+                        .step-row
+                          span.step-num= s.n
+                          span.step-name= s.name
+                          if s.req
+                            a(href=s.req) 📋 Req
+                          a(href=s.code) 💻 Code
 
   style.
+    /* ==== Unified theme (matches /courses): dark slate + sky accent ==== */
+    :root {
+      --bg: #0b1120;
+      --panel: rgba(255,255,255,0.04);
+      --panel-border: rgba(148,163,184,0.18);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #7dd3fc;
+      --accent2: #c4b5fd;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: radial-gradient(1200px 600px at 80% -10%, #1e293b 0%, var(--bg) 55%);
+      color: var(--text);
       min-height: 100vh;
+      line-height: 1.6;
     }
+    .container-fluid { max-width: 1200px; margin: 0 auto; }
     .portfolio-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 4rem 0;
-      margin: -20px -15px 40px -15px;
-      position: relative;
-      overflow: hidden;
-    }
-    .portfolio-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255,255,255,0.1);
-    }
-    .portfolio-header > * {
-      position: relative;
-      z-index: 1;
-    }
-    /* ---- Signature Curriculum section ---- */
-    .signature-section {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      border-radius: 20px;
-      padding: 3rem 2rem 2rem;
-      color: #e2e8f0;
-      box-shadow: 0 12px 48px rgba(15, 23, 42, 0.35);
-    }
-    .signature-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #fff;
-      font-weight: 600;
-      font-size: .85rem;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: .4rem 1.1rem;
-      border-radius: 999px;
-    }
-    .signature-hero h2 { color: #fff; font-weight: 600; }
-    .signature-lede {
-      max-width: 760px;
-      margin: 0 auto 1rem;
-      color: #cbd5e1;
-      line-height: 1.7;
-    }
-    .signature-lede code { color: #7dd3fc; background: rgba(125,211,252,.1); padding: .1em .35em; border-radius: 6px; }
-    .btn-signature {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #fff !important;
-      border: none;
-      border-radius: 12px;
-      font-weight: 600;
-      padding: .85rem 1.75rem;
-      text-decoration: none !important;
-    }
-    .btn-signature:hover {
-      filter: brightness(1.1);
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-      color: #fff;
-    }
-    .signature-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 1.5rem;
-      height: 100%;
-    }
-    .signature-card h5 { color: #fff; font-weight: 600; margin-bottom: .5rem; }
-    .signature-card .text-muted { color: #94a3b8 !important; }
-    .signature-list {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-    .signature-list li {
-      padding: .35rem 0 .35rem 1.4rem;
-      position: relative;
-      color: #e2e8f0;
-      font-size: .92rem;
-    }
-    .signature-list li::before {
-      content: '\2713';
-      position: absolute;
-      left: 0;
-      color: #34d399;
-      font-weight: 700;
-    }
-    .signature-list a, .signature-footer a { color: #7dd3fc; text-decoration: none; }
-    .signature-list a:hover, .signature-footer a:hover { color: #bae6fd; text-decoration: underline; }
-    .signature-footer { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; color: #cbd5e1; }
-    .signature-footer .text-muted { color: #94a3b8 !important; }
-    .fcc-divider h3 { font-weight: 600; color: #1e293b; }
-    .display-4 {
-      font-weight: 300;
-      letter-spacing: -0.02em;
-    }
-    .lead {
-      font-weight: 300;
-      opacity: 0.9;
-    }
-    .portfolio-card {
-      border: none;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-      border-radius: 16px;
-      height: 100%;
-    }
-    .portfolio-card:hover {
-      box-shadow: 0 12px 48px rgba(31, 38, 135, 0.25);
-    }
-    .portfolio-card .card-header {
-      background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,250,252,0.8) 100%);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-      border-radius: 16px 16px 0 0 !important;
-      padding: 1.5rem;
-    }
-    .portfolio-card .card-header h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 0;
-      color: #1e293b;
-    }
-    .portfolio-card .card-body {
-      padding: 1.5rem;
-    }
-    .portfolio-card .card-footer {
       background: transparent;
-      border-top: 1px solid rgba(226, 232, 240, 0.3);
-      padding: 1.5rem;
-      border-radius: 0 0 16px 16px;
-    }
-    .project-item {
-      padding: 1rem;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      border-radius: 12px;
-      border: 1px solid rgba(226, 232, 240, 0.6);
-      margin-bottom: 0.75rem;
-    }
-    .project-item:hover {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    }
-    .project-link {
-      text-decoration: none !important;
-      font-weight: 500;
-      color: #3730a3 !important;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border: none;
-      border-radius: 12px;
-      padding: 0.75rem 1.5rem;
-      font-weight: 500;
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-    }
-    .btn-outline-primary {
-      border: 2px solid #667eea;
-      color: #667eea;
-      border-radius: 8px;
-      font-weight: 500;
-    }
-    .btn-outline-primary:hover {
-      background: #667eea;
-      border-color: #667eea;
-      color: white;
-    }
-    .btn-info {
-      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-      border: none;
-      border-radius: 8px;
-      font-weight: 500;
-    }
-    .feature-box {
-      padding: 2.5rem;
-      background: rgba(255,255,255,0.9);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      margin-bottom: 2rem;
+      color: var(--text);
+      padding: 3.5rem 0 2rem;
       text-align: center;
     }
-    .feature-box i {
-      margin-bottom: 1.5rem;
-      opacity: 0.8;
+    .portfolio-header h1 {
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .feature-box h4 {
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 1rem;
+    .portfolio-header .lead { color: var(--muted); font-weight: 400; }
+    .portfolio-header hr { border-color: var(--panel-border); max-width: 320px; }
+    .display-4 { font-weight: 600; letter-spacing: -0.02em; }
+
+    /* ---- Panels ---- */
+    .signature-section {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
     }
-    .feature-box p {
-      color: #64748b;
-      font-weight: 400;
-      line-height: 1.6;
+    .signature-section { padding: 2.5rem 2rem 1.75rem; color: var(--text); }
+    .signature-badge {
+      display: inline-block;
+      background: rgba(125,211,252,0.14);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-weight: 600; font-size: .8rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .35rem 1.1rem; border-radius: 999px;
     }
-    .container-fluid {
-      max-width: 1200px;
-      margin: 0 auto;
+    .signature-hero h2 { color: var(--text); font-weight: 650; }
+    .signature-lede { max-width: 760px; margin: 0 auto 1.25rem; color: var(--muted); line-height: 1.7; }
+    .signature-lede strong { color: var(--text); }
+    .signature-lede code { color: var(--accent); background: rgba(125,211,252,.1); padding: .1em .35em; border-radius: 6px; }
+    .btn-signature {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      color: #0b1120 !important;
+      border: none; border-radius: 12px;
+      font-weight: 650; font-size: 1.02rem;
+      padding: .8rem 1.7rem;
+      text-decoration: none !important;
+      transition: filter .15s ease, box-shadow .15s ease;
     }
-    .card-text {
-      color: #64748b;
-      line-height: 1.6;
+    .btn-signature:hover { filter: brightness(1.08); box-shadow: 0 6px 22px rgba(125,211,252,0.35); }
+
+    /* ---- Signature cards with inline chips ---- */
+    .signature-card {
+      background: rgba(148,163,184,0.07);
+      border: 1px solid var(--panel-border);
+      border-radius: 14px;
+      padding: 1.4rem;
+      height: 100%;
     }
-    small.text-muted {
-      color: #94a3b8 !important;
-      font-size: 0.85rem;
+    .signature-card h5 { color: var(--text); font-weight: 650; margin-bottom: .4rem; }
+    .signature-card h5 i { color: var(--accent); }
+    .signature-card .card-sub { color: var(--muted); font-size: .88rem; margin-bottom: .9rem; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip-row.justify-center { justify-content: center; }
+    a.chip {
+      display: inline-block;
+      padding: .45rem 1rem; border-radius: 999px;
+      background: rgba(148,163,184,0.1);
+      border: 1px solid var(--panel-border);
+      color: var(--text) !important;
+      font-size: .85rem; font-weight: 500;
+      text-decoration: none !important;
+      transition: background .15s ease, border-color .15s ease, transform .1s ease;
     }
+    a.chip:hover { background: rgba(125,211,252,0.14); border-color: var(--accent); transform: translateY(-2px); }
+    a.chip.chip-live { border-color: rgba(196,181,252,0.5); color: var(--accent2) !important; }
+    a.chip.chip-live:hover { border-color: var(--accent2); background: rgba(196,181,252,0.12); }
+    a.chip.chip-demo { border-color: rgba(196,181,252,0.4); }
+    a.chip.chip-demo:hover { border-color: var(--accent2); background: rgba(196,181,252,0.12); }
+    a.chip.chip-ghost { background: transparent; color: var(--accent) !important; }
+    a.chip.chip-ghost:hover { background: rgba(125,211,252,0.1); }
+
+    /* ---- Per-project blocks within a card ---- */
+    .proj { padding: .85rem 0; border-top: 1px solid var(--panel-border); }
+    .proj:first-of-type { border-top: none; padding-top: .2rem; }
+    .proj h6 { color: var(--text); font-weight: 650; font-size: .98rem; margin-bottom: .5rem; }
+    .proj-blurb { color: var(--muted); font-size: .82rem; line-height: 1.55; margin-bottom: .6rem; }
+    .proj-blurb strong { color: var(--text); }
+
+    /* ---- Collapsible step lists (requirements ↔ code pairs) ---- */
+    details.steps { margin-top: .6rem; }
+    details.steps summary {
+      cursor: pointer; color: var(--accent); font-size: .84rem; font-weight: 550;
+      list-style-position: inside;
+    }
+    details.steps summary:hover { color: #bae6fd; }
+    .step-row {
+      display: flex; align-items: center; gap: .55rem;
+      padding: .32rem 0 .32rem .35rem; font-size: .84rem;
+      border-bottom: 1px dashed var(--panel-border);
+    }
+    .step-row:last-child { border-bottom: none; }
+    .step-num {
+      flex: 0 0 auto; min-width: 1.6rem; height: 1.6rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 600; color: #0b1120;
+      background: var(--accent2); border-radius: 6px;
+    }
+    .step-name { flex: 1 1 auto; color: var(--text); }
+    .step-row a {
+      flex: 0 0 auto; color: var(--accent) !important;
+      text-decoration: none !important; font-size: .8rem; white-space: nowrap;
+    }
+    .step-row a:hover { color: #bae6fd !important; text-decoration: underline !important; }
+
+    .signature-footer { border-top: 1px solid var(--panel-border); padding-top: 1.4rem; color: var(--muted); }
+    .signature-footer p { color: var(--text); }
+    .signature-footer .foot-note { color: var(--muted); }
+
+    /* ---- Server-side track (shares .signature-card look) ---- */
+    .fcc-divider h3 {
+      font-weight: 650;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .fcc-divider .text-muted { color: var(--muted) !important; }
+    small.text-muted { color: var(--muted) !important; font-size: 0.83rem; }

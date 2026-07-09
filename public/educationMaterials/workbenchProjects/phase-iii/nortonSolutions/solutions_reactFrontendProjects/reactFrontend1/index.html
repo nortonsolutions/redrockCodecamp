@@ -11,8 +11,11 @@
 
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/react-dom/16.1.1/umd/react.development.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/react-dom/16.1.1/umd/react-dom.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.9/react-redux.min.js"></script>
+    <!-- Keep redux/react-redux versions aligned with React 16.1.1: react-redux 7.x
+         requires React >= 16.8 (hooks) and crashes at mount on this page. Use the
+         same self-hosted 3.7.2/5.0.6 pair as the sibling reactFrontend apps. -->
+    <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/redux/3.7.2/redux.js"></script>
+    <script src="https://redrockcode.com/educationMaterials/frameworks/js/ajax/libs/react-redux/5.0.6/react-redux.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/babel-standalone/babel.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://redrockcode.com/educationMaterials/frameworks/js/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

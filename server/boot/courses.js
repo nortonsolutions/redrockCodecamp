@@ -33,6 +33,21 @@ const SILVER_SOLUTIONS = path.join(__dirname, '../../silvermedal.net/server/publ
 const ICSP_DIR = path.join(PUBLIC_ROOT, 'assets/ProgrammingMethodology/materials/icspmcs106a');
 const ICSP_URL = '/assets/ProgrammingMethodology/materials/icspmcs106a';
 
+// Mehran Sahami's 2008 CS 106A lectures, recorded by SCPD (YouTube playlist
+// PL6C11012B1B464EC5). Video IDs sourced from the Stanford Spring-2014 archive
+// (web.stanford.edu/class/archive/cs/cs106a/cs106a.1146/lecture-videos.shtml).
+const LECTURE_PLAYLIST =
+  'https://www.youtube.com/playlist?list=PL6C11012B1B464EC5';
+const LECTURE_VIDEO_IDS = {
+  1: 'KkMDCCdjyW8', 2: '0LoKDDRlfZc', 3: 'C5HeRliZ0Ns', 4: 'nWheM30THaY',
+  5: 'NPzPnycCFuE', 6: 'GPWah4wbwYs', 7: '3oM9yT9kBBc', 8: 'W2ysz_6AyJE',
+  9: 'iYtri45lhtc', 10: 'YpZCKVG4s5k', 11: 'Iua9Klr0lfo', 12: 'GIP9MPFJmhI',
+  13: 'QUrz8-Ltc-s', 14: 'W8nNdNZ40EQ', 15: 'ttbu9L4RdYs', 16: 'FUO3XEUVydk',
+  17: 'YJ9FlCFi3c8', 18: '9xnLnDa04dM', 19: 'MxBx1km7WNk', 20: 'b8OLOWWxvx0',
+  21: 'RJfQK6iAN4M', 22: 'AGUUQXO8eXk', 23: '4ytrc3AsaHM', 24: 'lYZwJ6xyGNc',
+  25: 'YuVrg0RiPmM', 26: 'Qi6L9lfbyyQ'
+};
+
 module.exports = function(app) {
   const data = buildCourseData();
 
@@ -81,6 +96,14 @@ function buildCourseData() {
     lectureMap[n] = lectureMap[n] || { number: n };
     lectureMap[n][m[2].toLowerCase()] = `${ICSP_URL}/transcripts/${encodeURIComponent(f)}`;
   });
+  // Attach SCPD lecture videos; create entries for any lecture that has a
+  // video but no transcript so the row still renders.
+  Object.keys(LECTURE_VIDEO_IDS).forEach(k => {
+    const n = parseInt(k, 10);
+    lectureMap[n] = lectureMap[n] || { number: n };
+    lectureMap[n].video =
+      `https://www.youtube.com/watch?v=${LECTURE_VIDEO_IDS[n]}&list=PL6C11012B1B464EC5`;
+  });
   const lectures = Object.keys(lectureMap)
     .map(k => lectureMap[k])
     .sort((a, b) => a.number - b.number);
@@ -106,6 +129,7 @@ function buildCourseData() {
   return {
     haverbekeBook: '/haverbeke/eloquentjavascript.net/index.html',
     haverbekePdf: '/haverbeke/Eloquent_JavaScript.pdf',
+    lecturePlaylist: LECTURE_PLAYLIST,
     eloquent,
     handouts,
     zips,
